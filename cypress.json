@@ -1,0 +1,9 @@
+{
+    "baseUrl": "http://localhost:3000",
+    "pluginsFile": false,
+    "supportFile": false,
+    "fixturesFolder": false,
+    "video": false,
+    "screenshotOnRunFailure": false,
+    "chromeWebSecurity": false
+}
