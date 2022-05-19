@@ -1,4 +1,4 @@
-# Gloomhaven Character Planner
+# Gloomhaven Character Planner (WIP)
 
 ## Introduction
 
