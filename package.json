@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "check-types": "tsc"
   },
   "dependencies": {
     "@ceva24/worldhaven-character-mats-gh": "^1.0.0",
