@@ -1,6 +1,5 @@
 {
   "name": "gloomhaven-character-planner",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +8,8 @@
     "lint": "next lint",
     "prepare": "husky install",
     "test": "jest --coverage",
-    "check-types": "tsc"
+    "check-types": "tsc",
+    "check": "npm run lint && npm run check-types && npm run test"
   },
   "dependencies": {
     "@ceva24/worldhaven-character-mats-gh": "^1.0.0",
