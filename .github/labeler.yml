@@ -1,0 +1,17 @@
+documentation:
+  - README.md
+  - docs/**/*
+
+test:
+  - src/**/*.test.ts
+  - src/**/*.snap
+  - cypress/**/*
+
+source:
+  - src/**/*
+
+ci:
+  - .github/**/*
+
+dependencies:
+  - package-lock.json

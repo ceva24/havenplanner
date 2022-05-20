@@ -23,7 +23,7 @@ Built with [Typescript](https://www.typescriptlang.org/), [Next.js](https://next
 
 ### Tooling
 
-Uses [Husky]() for pre-commit hooks, just run `npm run prepare` first 🐶 *woof*!
+Uses [Husky](https://typicode.github.io/husky/) for pre-commit hooks, just run `npm run prepare` first 🐶 _woof_!
 
 Enforces conventional commits via [commitlint](https://github.com/conventional-changelog/commitlint), see [Contribution guidelines](docs/CONTRIBUTING.md) for valid types.
 
@@ -41,6 +41,4 @@ Continuously deployed to production using [AWS Amplify](https://aws.amazon.com/a
 
 With thanks to the [Worldhaven](https://github.com/any2cards/worldhaven) project, which makes this tool possible!
 
-*Gloomhaven and all related properties, images and text are owned by [Cephalofair Games](https://cephalofair.com/).*
-
-
+_Gloomhaven and all related properties, images and text are owned by [Cephalofair Games](https://cephalofair.com/)._

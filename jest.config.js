@@ -14,6 +14,8 @@ const customJestConfig = {
     setupFilesAfterEnv: ["<rootDir>/src/setup-jest.js"],
     testEnvironment: "jest-environment-jsdom",
     testPathIgnorePatterns: ["<rootDir>/cypress"],
+    collectCoverage: true,
+    collectCoverageFrom: ["<rootDir>/src/**"],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
