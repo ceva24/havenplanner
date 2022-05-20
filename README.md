@@ -29,9 +29,9 @@ Enforces conventional commits via [commitlint](https://github.com/conventional-c
 
 ## CI/CD
 
--   🌳 [Cypress](https://dashboard.cypress.io) for end-to-end testing
+-   🌳 [Cypress](https://dashboard.cypress.io/projects/zbs72n/) for end-to-end testing
 -   🚦 [Lighthouse](https://github.com/GoogleChrome/lighthouse-ci) for performance checks
--   🦔 [Percy](https://percy.io) for visual testing
+-   🦔 [Percy](https://percy.io/788e43c2/gloomhaven-character-planner/) for visual testing
 
 Reports and snapshots included on each PR ✔️
 
