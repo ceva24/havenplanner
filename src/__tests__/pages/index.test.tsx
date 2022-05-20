@@ -3,10 +3,10 @@ import Home from "../../pages/index";
 
 describe("Home", () => {
     it("renders a heading", () => {
-        render(<Home />);
+        render(<Home characters={[]} />);
 
         const heading = screen.getByRole("heading", {
-            name: /welcome to next\.js!/i,
+            name: "Gloomhaven Character Planner",
         });
 
         expect(heading).toBeInTheDocument();

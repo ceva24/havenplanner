@@ -1,10 +1,30 @@
-import type { NextPage } from "next";
+import { useState } from "react";
+import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import cragheartMat from "@ceva24/worldhaven-character-mats-gh/gh-cragheart.png";
 import styles from "../styles/Home.module.css";
+import { loadCharacters } from "../utils/loader/data-loader";
+import { Character } from "../types/types";
 
-const Home: NextPage = () => {
+interface IndexPageProps {
+    characters: Character[];
+}
+
+const Home: NextPage<IndexPageProps> = ({ characters }: IndexPageProps) => {
+    const [character, setCharacter] = useState<Character>();
+
+    const handleCharacterChange = (
+        event: React.ChangeEvent<HTMLSelectElement>
+    ) => {
+        const selectedChar: Character | undefined = characters.find(
+            (character: Character) => {
+                return character.name === event.target.value;
+            }
+        );
+
+        setCharacter(selectedChar);
+    };
+
     return (
         <div className={styles.container}>
             <Head>
@@ -16,78 +36,38 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
+            <header className={styles.header}>
+                <h1>Gloomhaven Character Planner</h1>
+            </header>
+
             <main className={styles.main}>
-                <h1 className={styles.title}>
-                    Welcome to <a href="https://nextjs.org">Next.js!</a>
-                </h1>
+                <select onChange={handleCharacterChange}>
+                    <option key={null} value="" />
+                    {characters.map((character: Character) => {
+                        return (
+                            <option key={character.id} value={character.name}>
+                                {character.name}
+                            </option>
+                        );
+                    })}
+                </select>
 
-                <p className={styles.description}>
-                    Get started by editing{" "}
-                    <code className={styles.code}>pages/index.tsx</code>
-                </p>
-
-                <Image src={cragheartMat} alt="Cragheart character mat" />
-
-                <div className={styles.grid}>
-                    <a href="https://nextjs.org/docs" className={styles.card}>
-                        <h2>Documentation &rarr;</h2>
-                        <p>
-                            Find in-depth information about Next.js features and
-                            API.
-                        </p>
-                    </a>
-
-                    <a href="https://nextjs.org/learn" className={styles.card}>
-                        <h2>Learn &rarr;</h2>
-                        <p>
-                            Learn about Next.js in an interactive course with
-                            quizzes!
-                        </p>
-                    </a>
-
-                    <a
-                        href="https://github.com/vercel/next.js/tree/canary/examples"
-                        className={styles.card}
-                    >
-                        <h2>Examples &rarr;</h2>
-                        <p>
-                            Discover and deploy boilerplate example Next.js
-                            projects.
-                        </p>
-                    </a>
-
-                    <a
-                        href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                        className={styles.card}
-                    >
-                        <h2>Deploy &rarr;</h2>
-                        <p>
-                            Instantly deploy your Next.js site to a public URL
-                            with Vercel.
-                        </p>
-                    </a>
-                </div>
+                {character ? (
+                    <Image
+                        src={character.matImageUrl}
+                        alt="Character mat"
+                        width={600}
+                        height={400}
+                    />
+                ) : null}
             </main>
-
-            <footer className={styles.footer}>
-                <a
-                    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Powered by{" "}
-                    <span className={styles.logo}>
-                        <Image
-                            src="/vercel.svg"
-                            alt="Vercel Logo"
-                            width={72}
-                            height={16}
-                        />
-                    </span>
-                </a>
-            </footer>
         </div>
     );
 };
 
+const getStaticProps: GetStaticProps = async () => {
+    return { props: { characters: loadCharacters() } };
+};
+
+export { getStaticProps };
 export default Home;

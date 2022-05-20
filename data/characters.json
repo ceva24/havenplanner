@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "name": "Brute",
+        "matImageUrl": "/mat/gh-brute.png"
+    },
+    {
+        "id": 1,
+        "name": "Scoundrel",
+        "matImageUrl": "/mat/gh-scoundrel.png"
+    },
+    {
+        "id": 2,
+        "name": "Spellweaver",
+        "matImageUrl": "/mat/gh-spellweaver.png"
+    },
+    {
+        "id": 3,
+        "name": "Tinkerer",
+        "matImageUrl": "/mat/gh-tinkerer.png"
+    },
+    {
+        "id": 4,
+        "name": "Mindthief",
+        "matImageUrl": "/mat/gh-mindthief.png"
+    },
+    {
+        "id": 5,
+        "name": "Cragheart",
+        "matImageUrl": "/mat/gh-cragheart.png"
+    }
+]
