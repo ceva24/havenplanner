@@ -18,5 +18,5 @@
         ],
         "import/extensions": ["error", { "tsx": "never" }]
     },
-    "ignores": ["next-env.d.ts", "*.config.js"]
+    "ignores": ["public/**/*", "next-env.d.ts", "*.config.js"]
 }
