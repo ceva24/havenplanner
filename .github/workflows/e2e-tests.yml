@@ -18,7 +18,7 @@ jobs:
         with:
           node-version-file: .nvmrc
           registry-url: https://npm.pkg.github.com
-      - uses: cypress-io/github-action@a45da79a2ea5457403a080c4fcc0ea3daf6924a0 # v3.0.6
+      - uses: cypress-io/github-action@d2b5039cb4888cf1f0bb9e808f904f7093e0cb2a # v3.0.6
         with:
           build: npm run build
           start: npm start
