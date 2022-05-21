@@ -5,25 +5,14 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { loadCharacters } from "../utils/loader/data-loader";
 import { Character } from "../types/types";
+import { CharacterSelect } from "../components/character-select";
 
-interface IndexPageProps {
+interface AppProps {
     characters: Character[];
 }
 
-const Home: NextPage<IndexPageProps> = ({ characters }: IndexPageProps) => {
+const App: NextPage<AppProps> = ({ characters }: AppProps) => {
     const [character, setCharacter] = useState<Character>();
-
-    const handleCharacterChange = (
-        event: React.ChangeEvent<HTMLSelectElement>
-    ) => {
-        const selectedChar: Character | undefined = characters.find(
-            (character: Character) => {
-                return character.name === event.target.value;
-            }
-        );
-
-        setCharacter(selectedChar);
-    };
 
     return (
         <div className={styles.container}>
@@ -41,16 +30,10 @@ const Home: NextPage<IndexPageProps> = ({ characters }: IndexPageProps) => {
             </header>
 
             <main className={styles.main}>
-                <select onChange={handleCharacterChange}>
-                    <option key={null} value="" />
-                    {characters.map((character: Character) => {
-                        return (
-                            <option key={character.id} value={character.name}>
-                                {character.name}
-                            </option>
-                        );
-                    })}
-                </select>
+                <CharacterSelect
+                    characters={characters}
+                    setCharacter={setCharacter}
+                />
 
                 {character ? (
                     <Image
@@ -70,4 +53,4 @@ const getStaticProps: GetStaticProps = async () => {
 };
 
 export { getStaticProps };
-export default Home;
+export default App;
