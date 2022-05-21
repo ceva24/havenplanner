@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "name": "Brute",
+        "matImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute.png"
+    },
+    {
+        "id": 1,
+        "name": "Scoundrel",
+        "matImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel.png"
+    },
+    {
+        "id": 2,
+        "name": "Spellweaver",
+        "matImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver.png"
+    },
+    {
+        "id": 3,
+        "name": "Tinkerer",
+        "matImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer.png"
+    },
+    {
+        "id": 4,
+        "name": "Mindthief",
+        "matImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief.png"
+    },
+    {
+        "id": 5,
+        "name": "Cragheart",
+        "matImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-cragheart.png"
+    }
+]

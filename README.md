@@ -25,14 +25,7 @@ Built with [Typescript](https://www.typescriptlang.org), [Next.js](https://nextj
 
 1. The version of Node.js listed in [`.nvmrc`](.nvmrc)
 
-2. A local `.npmrc` file with the following contents, replacing `<auth token>` with a GitHub personal access token that has the `read:packages` scope:
-
-```
-@ceva24:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=<auth token>
-```
-
-3. A Google Chrome installation, to run Lighthouse locally
+2. A Google Chrome installation, to run Lighthouse locally
 
 ### Tooling
 

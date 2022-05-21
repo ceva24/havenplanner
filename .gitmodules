@@ -1,0 +1,3 @@
+[submodule "public/worldhaven"]
+	path = public/worldhaven
+	url = https://github.com/ceva24/worldhaven
