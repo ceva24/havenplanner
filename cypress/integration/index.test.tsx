@@ -11,6 +11,6 @@ describe("index page", () => {
     it("has the correct page title", () => {
         cy.visit("/");
 
-        cy.title().should("equal", "Create Next App");
+        cy.title().should("equal", "Gloomhaven Character Planner");
     });
 });
