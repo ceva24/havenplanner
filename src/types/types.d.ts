@@ -1,7 +1,5 @@
-import { StaticImageData } from "next/image";
-
-interface Character {
+interface CharacterClass {
     id: number;
     name: string;
-    matImageUrl: string;
+    characterMatImageUrl: string;
 }

@@ -3,7 +3,7 @@ import App from "../../pages/index";
 
 describe("Home", () => {
     it("renders a heading", () => {
-        render(<App characters={[]} />);
+        render(<App characterClasses={[]} />);
 
         const heading = screen.getByRole("heading", {
             name: "Gloomhaven Character Planner",
