@@ -1,8 +1,7 @@
-import characterData from "../../../data/characters.json";
-import { Character } from "../../types/types";
+import characterClassData from "../../../data/character-classes.json";
 
-const loadCharacters = (): Character[] => {
-    return characterData;
+const loadCharacterClasses = (): CharacterClass[] => {
+    return characterClassData;
 };
 
-export { loadCharacters };
+export { loadCharacterClasses };
