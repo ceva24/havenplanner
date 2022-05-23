@@ -38,7 +38,7 @@ describe("index page", () => {
         });
     });
 
-    it("shows the class mat after selecting a class", () => {
+    it("shows the character mat after selecting a class", () => {
         cy.visit("/");
 
         cy.findByRole("img", { name: "Character mat" }).should("not.exist");
