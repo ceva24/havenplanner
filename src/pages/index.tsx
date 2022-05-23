@@ -3,10 +3,10 @@ import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { loadCharacterClasses } from "../utils/loader/data-loader";
-import { ClassSelect } from "../components/class-select";
 import theme from "../styles/theme";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import ClassSelect from "../components/class-select";
 import CharacterMat from "../components/character-mat";
 
 interface AppProps {

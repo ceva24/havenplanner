@@ -19,13 +19,7 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
     characterClasses,
 }: ClassSelectProps) => {
     const handleChange = (event: SelectChangeEvent) => {
-        const selectedChar: CharacterClass | undefined = characterClasses.find(
-            (character: CharacterClass) => {
-                return character.name === event.target.value;
-            }
-        );
-
-        setCharacterClass(selectedChar);
+        findAndSetCharacter(event, setCharacterClass, characterClasses);
     };
 
     return (
@@ -55,4 +49,19 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
     );
 };
 
-export { ClassSelect };
+const findAndSetCharacter = (
+    event: SelectChangeEvent,
+    setCharacterClass: Dispatch<SetStateAction<CharacterClass | undefined>>,
+    characterClasses: CharacterClass[]
+) => {
+    const selectedChar: CharacterClass | undefined = characterClasses.find(
+        (character: CharacterClass) => {
+            return character.name === event.target.value;
+        }
+    );
+
+    setCharacterClass(selectedChar);
+};
+
+export default ClassSelect;
+export { findAndSetCharacter };
