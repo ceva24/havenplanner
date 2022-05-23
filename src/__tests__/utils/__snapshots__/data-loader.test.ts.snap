@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`data loader loads character class data 1`] = `
+Array [
+  Object {
+    "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
+    "id": 0,
+    "name": "Brute",
+  },
+  Object {
+    "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel.png",
+    "id": 1,
+    "name": "Scoundrel",
+  },
+  Object {
+    "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver.png",
+    "id": 2,
+    "name": "Spellweaver",
+  },
+  Object {
+    "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer.png",
+    "id": 3,
+    "name": "Tinkerer",
+  },
+  Object {
+    "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief.png",
+    "id": 4,
+    "name": "Mindthief",
+  },
+  Object {
+    "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-cragheart.png",
+    "id": 5,
+    "name": "Cragheart",
+  },
+]
+`;

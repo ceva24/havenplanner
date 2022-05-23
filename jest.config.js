@@ -16,6 +16,7 @@ const customJestConfig = {
     testPathIgnorePatterns: ["<rootDir>/cypress"],
     collectCoverage: true,
     collectCoverageFrom: ["<rootDir>/src/**"],
+    coveragePathIgnorePatterns: [".*__snapshots__/.*"],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

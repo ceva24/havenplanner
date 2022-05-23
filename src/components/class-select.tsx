@@ -19,22 +19,16 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
     characterClasses,
 }: ClassSelectProps) => {
     const handleChange = (event: SelectChangeEvent) => {
-        const selectedChar: CharacterClass | undefined = characterClasses.find(
-            (character: CharacterClass) => {
-                return character.name === event.target.value;
-            }
-        );
-
-        setCharacterClass(selectedChar);
+        findAndSetCharacter(event, setCharacterClass, characterClasses);
     };
 
     return (
         <FormControl style={{ minWidth: "10rem" }}>
-            <InputLabel>Class</InputLabel>
+            <InputLabel id="select-class-label">Class</InputLabel>
             <Select
-                id="character-select"
                 value={characterClass?.name ?? ""}
-                label="Character"
+                label="Class"
+                labelId="select-class-label"
                 onChange={handleChange}
             >
                 <MenuItem key="" value="">
@@ -55,4 +49,19 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
     );
 };
 
-export { ClassSelect };
+const findAndSetCharacter = (
+    event: SelectChangeEvent,
+    setCharacterClass: Dispatch<SetStateAction<CharacterClass | undefined>>,
+    characterClasses: CharacterClass[]
+) => {
+    const selectedChar: CharacterClass | undefined = characterClasses.find(
+        (character: CharacterClass) => {
+            return character.name === event.target.value;
+        }
+    );
+
+    setCharacterClass(selectedChar);
+};
+
+export default ClassSelect;
+export { findAndSetCharacter };
