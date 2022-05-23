@@ -30,11 +30,11 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
 
     return (
         <FormControl style={{ minWidth: "10rem" }}>
-            <InputLabel>Class</InputLabel>
+            <InputLabel id="select-class-label">Class</InputLabel>
             <Select
-                id="character-select"
                 value={characterClass?.name ?? ""}
-                label="Character"
+                label="Class"
+                labelId="select-class-label"
                 onChange={handleChange}
             >
                 <MenuItem key="" value="">
