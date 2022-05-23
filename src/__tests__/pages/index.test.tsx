@@ -1,14 +1,39 @@
-import { render, screen } from "@testing-library/react";
-import App from "../../pages/index";
+import { render } from "@testing-library/react";
+import { InferGetStaticPropsType } from "next";
+import Index, { getStaticProps } from "../../pages/index";
 
-describe("Home", () => {
-    it("renders a heading", () => {
-        render(<App characterClasses={[]} />);
+const characterClasses = [
+    {
+        id: 0,
+        name: "Test 1",
+        characterMatImageUrl:
+            "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
+    },
+];
 
-        const heading = screen.getByRole("heading", {
-            name: "Gloomhaven Character Planner",
-        });
+jest.mock("../../utils/data-loader", () => {
+    return {
+        loadCharacterClasses: jest.fn().mockImplementation(() => {
+            return characterClasses;
+        }),
+    };
+});
 
-        expect(heading).toBeInTheDocument();
+describe("Index", () => {
+    it("renders", () => {
+        const { asFragment } = render(
+            <Index characterClasses={characterClasses} />
+        );
+
+        expect(asFragment()).toMatchSnapshot();
+    });
+});
+
+describe("getStaticProps", () => {
+    it("loads character class data", async () => {
+        const data: InferGetStaticPropsType<typeof getStaticProps> =
+            await getStaticProps({});
+
+        expect(data.props.characterClasses).toEqual(characterClasses);
     });
 });

@@ -9,11 +9,11 @@ import Footer from "../components/footer";
 import ClassSelect from "../components/class-select";
 import CharacterMat from "../components/character-mat";
 
-interface AppProps {
+interface IndexProps {
     characterClasses: CharacterClass[];
 }
 
-const App: NextPage<AppProps> = ({ characterClasses }: AppProps) => {
+const Index: NextPage<IndexProps> = ({ characterClasses }: IndexProps) => {
     const [characterClass, setCharacterClass] = useState<CharacterClass>();
 
     return (
@@ -55,4 +55,4 @@ const getStaticProps: GetStaticProps = async () => {
 };
 
 export { getStaticProps };
-export default App;
+export default Index;
