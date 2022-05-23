@@ -49,7 +49,7 @@ describe("index page", () => {
             .findByRole("option", { name: "Spellweaver" })
             .click();
 
-        cy.findByRole("img", { name: "Character mat" }).should("exist");
+        cy.findByRole("img", { name: "Character mat" }).should("be.visible");
 
         cy.percySnapshot();
     });
