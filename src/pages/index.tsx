@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
-import { loadCharacterClasses } from "../utils/loader/data-loader";
+import { loadCharacterClasses } from "../utils/data-loader";
 import theme from "../styles/theme";
 import Header from "../components/header";
 import Footer from "../components/footer";
