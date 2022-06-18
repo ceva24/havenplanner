@@ -8,25 +8,25 @@ import {
 import { Dispatch, SetStateAction } from "react";
 
 interface ClassSelectProps {
-    characterClass: CharacterClass | undefined;
-    setCharacterClass: Dispatch<SetStateAction<CharacterClass | undefined>>;
+    character: Character;
+    setCharacter: Dispatch<SetStateAction<Character>>;
     characterClasses: CharacterClass[];
 }
 
 const ClassSelect: React.FC<ClassSelectProps> = ({
-    characterClass,
-    setCharacterClass,
+    character,
+    setCharacter,
     characterClasses,
 }: ClassSelectProps) => {
     const handleChange = (event: SelectChangeEvent) => {
-        findAndSetCharacter(event, setCharacterClass, characterClasses);
+        findAndSetCharacter(event, character, setCharacter, characterClasses);
     };
 
     return (
         <FormControl style={{ minWidth: "10rem" }}>
             <InputLabel id="select-class-label">Class</InputLabel>
             <Select
-                value={characterClass?.name ?? ""}
+                value={character?.characterClass?.name ?? ""}
                 label="Class"
                 labelId="select-class-label"
                 onChange={handleChange}
@@ -51,16 +51,16 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
 
 const findAndSetCharacter = (
     event: SelectChangeEvent,
-    setCharacterClass: Dispatch<SetStateAction<CharacterClass | undefined>>,
+    character: Character,
+    setCharacter: Dispatch<SetStateAction<Character>>,
     characterClasses: CharacterClass[]
 ) => {
-    const selectedChar: CharacterClass | undefined = characterClasses.find(
-        (character: CharacterClass) => {
-            return character.name === event.target.value;
-        }
-    );
+    const selectedCharacterClass: CharacterClass | undefined =
+        characterClasses.find((characterClass: CharacterClass) => {
+            return characterClass.name === event.target.value;
+        });
 
-    setCharacterClass(selectedChar);
+    setCharacter({ ...character, characterClass: selectedCharacterClass });
 };
 
 export default ClassSelect;
