@@ -3,20 +3,14 @@ import "@percy/cypress";
 import "@testing-library/cypress/add-commands";
 import "../support/commands";
 
-describe("index page", () => {
-    it("renders", () => {
+describe("character mat", () => {
+    it("shows the character mat after selecting a class", () => {
         cy.visit("/");
 
-        cy.percySnapshot();
-    });
-    it("shows the character details and character mat after select a class", () => {
-        cy.visit("/");
+        cy.findByRole("img", { name: "Character mat" }).should("not.exist");
 
         cy.selectClass("Spellweaver");
 
         cy.findByRole("img", { name: "Character mat" }).should("be.visible");
-        cy.findCharacterDetailsForm().should("be.visible");
-
-        cy.percySnapshot();
     });
 });
