@@ -32,6 +32,9 @@ const CharacterDetails = ({
 
     return character.characterClass ? (
         <Box
+            id="character-details-form"
+            aria-label="Character details form"
+            component="form"
             textAlign="left"
             sx={{
                 "& .MuiTextField-root": { margin: 1 },
@@ -50,7 +53,7 @@ const CharacterDetails = ({
                     id="experience"
                     label="Experience"
                     type="number"
-                    value={character.experience}
+                    value={character.experience || ""}
                     onChange={handleExperienceChange}
                 />
                 <TextField
@@ -65,8 +68,8 @@ const CharacterDetails = ({
                 <TextField
                     multiline
                     id="gold"
-                    label="gold"
-                    value={character.gold}
+                    label="Gold"
+                    value={character.gold || ""}
                     onChange={handleGoldChange}
                 />
             </div>
@@ -100,3 +103,4 @@ const calculateLevel = (experience: number): number => {
 };
 
 export default CharacterDetails;
+export { calculateLevel };
