@@ -1,19 +1,14 @@
 import { useState } from "react";
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
-import {
-    Box,
-    Container,
-    CssBaseline,
-    Grid,
-    ThemeProvider,
-} from "@mui/material";
+import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { loadCharacterClasses } from "../utils/data-loader";
 import theme from "../styles/theme";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import CharacterMat from "../components/character-mat";
 import CharacterDetails from "../components/character-details";
+import { initialCharacter } from "../utils/constants";
 
 interface IndexProps {
     initialCharacter: Character;
@@ -64,13 +59,6 @@ const Index: NextPage<IndexProps> = ({
 };
 
 const getStaticProps: GetStaticProps = async () => {
-    const initialCharacter: Character = {
-        name: "",
-        experience: 0,
-        gold: 0,
-        notes: "",
-    };
-
     return {
         props: {
             initialCharacter,
