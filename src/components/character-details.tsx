@@ -1,5 +1,5 @@
 import { Box, TextField } from "@mui/material";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 interface CharacterDetailsProps {
     character: Character;
