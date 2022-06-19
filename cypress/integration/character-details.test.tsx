@@ -36,7 +36,10 @@ describe("character details pane", () => {
     it("shows the character details after selecting a class", () => {
         cy.visit("/");
 
-        cy.findCharacterDetailsForm().should("not.exist");
+        cy.findNameField().should("not.exist");
+        cy.findExperienceField().should("not.exist");
+        cy.findLevelField().should("not.exist");
+        cy.findGoldField().should("not.exist");
 
         cy.selectClass("Spellweaver");
 
