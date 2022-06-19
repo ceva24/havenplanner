@@ -23,7 +23,7 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
     };
 
     return (
-        <FormControl style={{ minWidth: "10rem" }}>
+        <FormControl sx={{ width: "15rem" }}>
             <InputLabel id="select-class-label">Class</InputLabel>
             <Select
                 value={character?.characterClass?.name ?? ""}

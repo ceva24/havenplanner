@@ -12,7 +12,6 @@ import { loadCharacterClasses } from "../utils/data-loader";
 import theme from "../styles/theme";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import ClassSelect from "../components/class-select";
 import CharacterMat from "../components/character-mat";
 import CharacterDetails from "../components/character-details";
 
@@ -42,19 +41,12 @@ const Index: NextPage<IndexProps> = ({
             <Header />
 
             <Container component="main" maxWidth={false}>
-                <Box height="5rem" textAlign="center">
-                    <ClassSelect
-                        character={character}
-                        setCharacter={setCharacter}
-                        characterClasses={characterClasses}
-                    />
-                </Box>
-
                 <Grid container spacing={10} height="40rem" textAlign="center">
                     <Grid item xs={4}>
                         <CharacterDetails
                             character={character}
                             setCharacter={setCharacter}
+                            characterClasses={characterClasses}
                         />
                     </Grid>
                     <Grid item xs={4}>

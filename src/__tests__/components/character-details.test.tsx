@@ -10,7 +10,7 @@ const character: Character = {
     notes: "",
     characterClass: {
         id: 0,
-        name: "Test",
+        name: "Test 1",
         characterMatImageUrl:
             "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
     },
@@ -23,7 +23,7 @@ const poorInexperiencedCharacter: Character = {
     notes: "",
     characterClass: {
         id: 0,
-        name: "Test",
+        name: "Test 1",
         characterMatImageUrl:
             "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
     },
@@ -31,12 +31,22 @@ const poorInexperiencedCharacter: Character = {
 
 const setCharacter = jest.fn();
 
+const characterClasses: CharacterClass[] = [
+    {
+        id: 0,
+        name: "Test 1",
+        characterMatImageUrl:
+            "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
+    },
+];
+
 describe("Character Details", () => {
     it("renders the form", () => {
         render(
             <CharacterDetails
                 character={character}
                 setCharacter={setCharacter}
+                characterClasses={characterClasses}
             />
         );
 
@@ -52,6 +62,7 @@ describe("Character Details", () => {
             <CharacterDetails
                 character={character}
                 setCharacter={setCharacter}
+                characterClasses={characterClasses}
             />
         );
 
@@ -71,6 +82,7 @@ describe("Character Details", () => {
             <CharacterDetails
                 character={character}
                 setCharacter={setCharacter}
+                characterClasses={characterClasses}
             />
         );
 
@@ -91,6 +103,7 @@ describe("Character Details", () => {
             <CharacterDetails
                 character={character}
                 setCharacter={setCharacter}
+                characterClasses={characterClasses}
             />
         );
 
@@ -110,6 +123,7 @@ describe("Character Details", () => {
             <CharacterDetails
                 character={character}
                 setCharacter={setCharacter}
+                characterClasses={characterClasses}
             />
         );
 
@@ -129,6 +143,7 @@ describe("Character Details", () => {
             <CharacterDetails
                 character={poorInexperiencedCharacter}
                 setCharacter={setCharacter}
+                characterClasses={characterClasses}
             />
         );
 
@@ -146,6 +161,7 @@ describe("Character Details", () => {
             <CharacterDetails
                 character={poorInexperiencedCharacter}
                 setCharacter={setCharacter}
+                characterClasses={characterClasses}
             />
         );
 
@@ -158,7 +174,7 @@ describe("Character Details", () => {
         expect(gold).toHaveValue("");
     });
 
-    it("does not render when the character class has not been set", () => {
+    it("does not render the name, experience, level and gold fields when the character class has not been set", () => {
         const characterWithNoClass: Character = {
             name: "My Char",
             experience: 25,
@@ -170,14 +186,21 @@ describe("Character Details", () => {
             <CharacterDetails
                 character={characterWithNoClass}
                 setCharacter={setCharacter}
+                characterClasses={characterClasses}
             />
         );
 
-        const characterDetailsForm = screen.queryByRole("form", {
-            name: "Character details form",
+        const nameField = screen.queryByRole("textbox", { name: "Name" });
+        const experienceField = screen.queryByRole("textbox", {
+            name: "Experience",
         });
+        const levelField = screen.queryByRole("textbox", { name: "Level" });
+        const goldField = screen.queryByRole("textbox", { name: "Gold" });
 
-        expect(characterDetailsForm).not.toBeInTheDocument();
+        expect(nameField).not.toBeInTheDocument();
+        expect(experienceField).not.toBeInTheDocument();
+        expect(levelField).not.toBeInTheDocument();
+        expect(goldField).not.toBeInTheDocument();
     });
 
     it.each`

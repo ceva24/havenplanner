@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { InferGetStaticPropsType } from "next";
 import Index, { getStaticProps } from "../../pages/index";
 
@@ -28,14 +28,18 @@ jest.mock("../../utils/data-loader", () => {
 
 describe("Index", () => {
     it("renders", () => {
-        const { asFragment } = render(
+        render(
             <Index
                 initialCharacter={initialCharacter}
                 characterClasses={characterClasses}
             />
         );
 
-        expect(asFragment()).toMatchSnapshot();
+        const header = screen.queryByRole("heading", {
+            name: "Gloomhaven Character Planner",
+        });
+
+        expect(header).toBeInTheDocument();
     });
 });
 
@@ -45,5 +49,12 @@ describe("getStaticProps", () => {
             await getStaticProps({});
 
         expect(data.props.characterClasses).toEqual(characterClasses);
+    });
+
+    it("returns an initial character", async () => {
+        const data: InferGetStaticPropsType<typeof getStaticProps> =
+            await getStaticProps({});
+
+        expect(data.props.initialCharacter).toEqual(initialCharacter);
     });
 });
