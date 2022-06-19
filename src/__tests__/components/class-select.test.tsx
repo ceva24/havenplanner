@@ -56,7 +56,10 @@ describe("findAndSetCharacter", () => {
         findAndSetCharacter(event, character, setCharacter, characterClasses);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
-        expect(setCharacter).toHaveBeenCalledWith({ ...character, characterClass: characterClasses[0]});
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: characterClasses[0],
+        });
     });
 
     it("sets the character to null when no the selected value does not exist", () => {
@@ -66,6 +69,9 @@ describe("findAndSetCharacter", () => {
         findAndSetCharacter(event, character, setCharacter, characterClasses);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
-        expect(setCharacter).toHaveBeenCalledWith({ ...character, characterClass: undefined});
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: undefined,
+        });
     });
 });
