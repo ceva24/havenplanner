@@ -2,7 +2,14 @@ import { render } from "@testing-library/react";
 import { InferGetStaticPropsType } from "next";
 import Index, { getStaticProps } from "../../pages/index";
 
-const characterClasses = [
+const initialCharacter: Character = {
+    name: "",
+    experience: 0,
+    gold: 0,
+    notes: "",
+};
+
+const characterClasses: CharacterClass[] = [
     {
         id: 0,
         name: "Test 1",
@@ -22,7 +29,10 @@ jest.mock("../../utils/data-loader", () => {
 describe("Index", () => {
     it("renders", () => {
         const { asFragment } = render(
-            <Index characterClasses={characterClasses} />
+            <Index
+                initialCharacter={initialCharacter}
+                characterClasses={characterClasses}
+            />
         );
 
         expect(asFragment()).toMatchSnapshot();

@@ -1,20 +1,31 @@
 import { useState } from "react";
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
-import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
+import {
+    Box,
+    Container,
+    CssBaseline,
+    Grid,
+    ThemeProvider,
+} from "@mui/material";
 import { loadCharacterClasses } from "../utils/data-loader";
 import theme from "../styles/theme";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import ClassSelect from "../components/class-select";
 import CharacterMat from "../components/character-mat";
+import CharacterDetails from "../components/character-details";
 
 interface IndexProps {
+    initialCharacter: Character;
     characterClasses: CharacterClass[];
 }
 
-const Index: NextPage<IndexProps> = ({ characterClasses }: IndexProps) => {
-    const [characterClass, setCharacterClass] = useState<CharacterClass>();
+const Index: NextPage<IndexProps> = ({
+    initialCharacter,
+    characterClasses,
+}: IndexProps) => {
+    const [character, setCharacter] = useState<Character>(initialCharacter);
 
     return (
         <ThemeProvider theme={theme}>
@@ -30,18 +41,28 @@ const Index: NextPage<IndexProps> = ({ characterClasses }: IndexProps) => {
 
             <Header />
 
-            <Container component="main">
-                <Grid container spacing={2} height="40rem" textAlign="center">
-                    <Grid item xs={12}>
-                        <ClassSelect
-                            characterClass={characterClass}
-                            setCharacterClass={setCharacterClass}
-                            characterClasses={characterClasses}
+            <Container component="main" maxWidth={false}>
+                <Box height="5rem" textAlign="center">
+                    <ClassSelect
+                        character={character}
+                        setCharacter={setCharacter}
+                        characterClasses={characterClasses}
+                    />
+                </Box>
+
+                <Grid container spacing={10} height="40rem" textAlign="center">
+                    <Grid item xs={4}>
+                        <CharacterDetails
+                            character={character}
+                            setCharacter={setCharacter}
                         />
                     </Grid>
-                    <Grid item xs={12}>
-                        <CharacterMat characterClass={characterClass} />
+                    <Grid item xs={4}>
+                        <CharacterMat
+                            characterClass={character.characterClass}
+                        />
                     </Grid>
+                    <Grid item xs={4} />
                 </Grid>
             </Container>
 
@@ -51,7 +72,19 @@ const Index: NextPage<IndexProps> = ({ characterClasses }: IndexProps) => {
 };
 
 const getStaticProps: GetStaticProps = async () => {
-    return { props: { characterClasses: loadCharacterClasses() } };
+    const initialCharacter: Character = {
+        name: "",
+        experience: 0,
+        gold: 0,
+        notes: "",
+    };
+
+    return {
+        props: {
+            initialCharacter,
+            characterClasses: loadCharacterClasses(),
+        },
+    };
 };
 
 export { getStaticProps };

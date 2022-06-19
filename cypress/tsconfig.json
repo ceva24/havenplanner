@@ -5,5 +5,5 @@
         "types": ["node", "cypress", "@testing-library/cypress"],
         "noEmit": true
     },
-    "include": ["**/*.tsx"]
+    "include": ["**/*.ts", "**/*.tsx"]
 }

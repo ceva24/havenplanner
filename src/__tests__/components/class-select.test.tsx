@@ -8,7 +8,14 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-const characterClasses = [
+const character: Character = {
+    name: "",
+    experience: 0,
+    gold: 0,
+    notes: "",
+};
+
+const characterClasses: CharacterClass[] = [
     {
         id: 0,
         name: "Test 1",
@@ -27,9 +34,9 @@ describe("Class Select", () => {
     it("renders", () => {
         render(
             <ClassSelect
-                characterClass={undefined}
+                character={character}
+                setCharacter={() => null}
                 characterClasses={characterClasses}
-                setCharacterClass={() => null}
             />
         );
 
@@ -40,25 +47,31 @@ describe("Class Select", () => {
 });
 
 describe("findAndSetCharacter", () => {
-    const setCharacterClass = jest.fn();
+    const setCharacter = jest.fn();
 
     it("sets the character to the selected value", () => {
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = { target: { value: "Test 1" } } as SelectChangeEvent;
 
-        findAndSetCharacter(event, setCharacterClass, characterClasses);
+        findAndSetCharacter(event, character, setCharacter, characterClasses);
 
-        expect(setCharacterClass).toHaveBeenCalledTimes(1);
-        expect(setCharacterClass).toHaveBeenCalledWith(characterClasses[0]);
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: characterClasses[0],
+        });
     });
 
     it("sets the character to null when no the selected value does not exist", () => {
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = { target: { value: "" } } as SelectChangeEvent;
 
-        findAndSetCharacter(event, setCharacterClass, characterClasses);
+        findAndSetCharacter(event, character, setCharacter, characterClasses);
 
-        expect(setCharacterClass).toHaveBeenCalledTimes(1);
-        expect(setCharacterClass).toHaveBeenCalledWith(undefined);
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: undefined,
+        });
     });
 });
