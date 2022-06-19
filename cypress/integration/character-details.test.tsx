@@ -101,4 +101,19 @@ describe("character details pane", () => {
 
         cy.should("have.value", "");
     });
+
+    it("resets the character details when clearing the class", () => {
+        cy.visit("/");
+        cy.selectClass("Spellweaver");
+
+        cy.findNameField().type("Elsa").should("have.value", "Elsa");
+        cy.findExperienceField().type("123").should("have.value", "123");
+        cy.findGoldField().type("123").should("have.value", "123");
+
+        cy.selectClass("None").selectClass("Mindthief");
+
+        cy.findNameField().should("have.value", "");
+        cy.findExperienceField().should("have.value", "");
+        cy.findGoldField().should("have.value", "");
+    });
 });
