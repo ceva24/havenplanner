@@ -6,7 +6,7 @@ describe("Footer", () => {
         render(<Footer />);
 
         const footer = screen.queryByText(
-            "Gloomhaven and all related properties, images and text are owned by Cephalofair Games."
+            "Gloomhaven and all related properties, images and text are owned by Cephalofair Games"
         );
 
         expect(footer).toBeInTheDocument();
