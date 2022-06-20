@@ -1,8 +1,8 @@
-Cypress.Commands.add("selectClass", (className) => {
+Cypress.Commands.add("selectClass", (characterClassName) => {
     cy.findByRole("button", { name: "Class" }).click();
 
     cy.findByRole("listbox", { name: "Class" })
-        .findByRole("option", { name: className })
+        .findByRole("option", { name: characterClassName })
         .click();
 });
 
