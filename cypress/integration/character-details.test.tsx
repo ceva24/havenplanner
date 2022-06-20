@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unassigned-import */
-import "@percy/cypress";
 import "@testing-library/cypress/add-commands";
 import "../support/commands";
 
