@@ -3,16 +3,17 @@ import { render, screen } from "@testing-library/react";
 import ClassSelect, {
     findAndSetCharacter,
 } from "../../components/class-select";
+import { initialCharacter } from "../../utils/constants";
 
 beforeEach(() => {
     jest.clearAllMocks();
 });
 
 const character: Character = {
-    name: "",
-    experience: 0,
-    gold: 0,
-    notes: "",
+    name: "Test",
+    experience: 45,
+    gold: 25,
+    notes: "Hello",
 };
 
 const characterClasses: CharacterClass[] = [
@@ -62,16 +63,13 @@ describe("findAndSetCharacter", () => {
         });
     });
 
-    it("sets the character to null when no the selected value does not exist", () => {
+    it("sets the character details to initial values when the selected class does not exist", () => {
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
-        const event = { target: { value: "" } } as SelectChangeEvent;
+        const event = { target: { value: "None" } } as SelectChangeEvent;
 
         findAndSetCharacter(event, character, setCharacter, characterClasses);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
-        expect(setCharacter).toHaveBeenCalledWith({
-            ...character,
-            characterClass: undefined,
-        });
+        expect(setCharacter).toHaveBeenCalledWith(initialCharacter);
     });
 });
