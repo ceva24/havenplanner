@@ -6,6 +6,7 @@ import {
     FormControl,
 } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
+import { initialCharacter } from "../utils/constants";
 
 interface ClassSelectProps {
     character: Character;
@@ -60,7 +61,11 @@ const findAndSetCharacter = (
             return characterClass.name === event.target.value;
         });
 
-    setCharacter({ ...character, characterClass: selectedCharacterClass });
+    const newCharacter = selectedCharacterClass
+        ? { ...character, characterClass: selectedCharacterClass }
+        : initialCharacter;
+
+    setCharacter(newCharacter);
 };
 
 export default ClassSelect;

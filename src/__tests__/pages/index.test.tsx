@@ -1,8 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { InferGetStaticPropsType } from "next";
 import Index, { getStaticProps } from "../../pages/index";
+import { initialCharacter } from "../../utils/constants";
 
-const initialCharacter: Character = {
+const character: Character = {
     name: "",
     experience: 0,
     gold: 0,
@@ -30,7 +31,7 @@ describe("Index", () => {
     it("renders", () => {
         render(
             <Index
-                initialCharacter={initialCharacter}
+                initialCharacter={character}
                 characterClasses={characterClasses}
             />
         );
