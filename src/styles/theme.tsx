@@ -1,4 +1,4 @@
-import { createTheme, ThemeOptions } from "@mui/material";
+import { createTheme, responsiveFontSizes, ThemeOptions } from "@mui/material";
 
 const theme: ThemeOptions = createTheme({
     palette: {
@@ -15,7 +15,10 @@ const theme: ThemeOptions = createTheme({
             fontFamily: "PirataOne",
             fontSize: "3rem",
         },
-        fontFamily: ['"High Tower"', '"Arial"'].join(","),
+        body1: {
+            fontFamily: "Sakkal Majalla",
+            fontSize: "1.25rem",
+        },
     },
     components: {
         MuiCssBaseline: {
@@ -40,6 +43,13 @@ const theme: ThemeOptions = createTheme({
                 font-style: normal;
                 font-display: swap;
                 src: local('High Tower'), local('High Tower-Regular'), url('/fonts/HTOWERT.TTF') format('woff2');
+              }
+              @font-face {
+                font-family: 'Sakkal Majalla';
+                font-weight: normal;
+                font-style: normal;
+                font-display: swap;
+                src: local('Sakkal Majalla'), local('Sakkal Majalla-Regular'), url('/fonts/majalla.ttf') format('woff2');
               }
           `,
         },

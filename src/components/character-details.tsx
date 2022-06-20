@@ -1,4 +1,4 @@
-import { Box, TextField } from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import ClassSelect from "./class-select";
 
@@ -40,7 +40,7 @@ const CharacterDetails = ({
             component="form"
             textAlign="left"
             sx={{
-                "& .MuiFormControl-root": { margin: 1 },
+                "& .MuiFormControl-root": { margin: "0.5rem" },
             }}
         >
             <ClassSelect
@@ -61,6 +61,7 @@ const CharacterDetails = ({
                     <div>
                         <TextField
                             multiline
+                            sx={{ width: "10rem" }}
                             id="experience"
                             label="Experience"
                             type="number"
@@ -70,6 +71,7 @@ const CharacterDetails = ({
                         <TextField
                             multiline
                             disabled
+                            sx={{ width: "10rem" }}
                             id="level"
                             label="Level"
                             value={calculateLevel(character.experience)}
@@ -78,6 +80,7 @@ const CharacterDetails = ({
                     <div>
                         <TextField
                             multiline
+                            sx={{ width: "10rem" }}
                             id="gold"
                             label="Gold"
                             value={character.gold || ""}
