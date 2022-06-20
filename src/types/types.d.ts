@@ -3,7 +3,7 @@ interface Character {
     experience: number;
     gold: number;
     notes: string;
-    characterClass?: CharacterClass | undefined;
+    characterClass?: CharacterClass;
 }
 
 interface CharacterClass {
