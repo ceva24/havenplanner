@@ -27,3 +27,7 @@ Cypress.Commands.add("findLevelField", () => {
 Cypress.Commands.add("findGoldField", () => {
     cy.findCharacterDetailsForm().findByRole("textbox", { name: "Gold" });
 });
+
+Cypress.Commands.add("findNotesField", () => {
+    cy.findCharacterDetailsForm().findByRole("textbox", { name: "Notes" });
+});

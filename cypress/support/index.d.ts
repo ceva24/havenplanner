@@ -11,5 +11,7 @@ declare namespace Cypress {
         findLevelField(): Chainable<Element>;
 
         findGoldField(): Chainable<Element>;
+
+        findNotesField(): Chainable<Element>;
     }
 }
