@@ -37,10 +37,11 @@ const CharacterDetails = ({
                     characterClasses={characterClasses}
                 />
                 <Image
+                    layout="fixed"
                     src={character.characterClass.characterIconImageUrl}
                     alt="Class icon"
-                    width="70%"
-                    height="70%"
+                    width={70}
+                    height={70}
                 />
             </div>
             <div>

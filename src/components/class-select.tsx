@@ -25,12 +25,8 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
         findAndSetCharacter(event, character, setCharacter, characterClasses);
     };
 
-    const matchesBreakpoint = useMediaQuery(useTheme().breakpoints.up("lg"));
-
     return (
-        <FormControl
-            sx={{ margin: "1%", width: matchesBreakpoint ? "60%" : "80%" }}
-        >
+        <FormControl sx={{ margin: "1%", width: "60%" }}>
             <InputLabel id="select-class-label">Class</InputLabel>
             <Select
                 value={character.characterClass.name}
