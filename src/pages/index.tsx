@@ -17,15 +17,21 @@ const Index: NextPage<IndexProps> = ({
     const [character, setCharacter] = useState<Character>(initialCharacter);
 
     return (
-        <Grid container spacing={10} height="40rem" textAlign="center">
-            <Grid item xs={4}>
+        <Grid
+            container
+            spacing={10}
+            height="100%"
+            minHeight="40rem"
+            justifyContent="center"
+        >
+            <Grid item lg={4}>
                 <CharacterDetails
                     character={character}
                     setCharacter={setCharacter}
                     characterClasses={characterClasses}
                 />
             </Grid>
-            <Grid item xs={8}>
+            <Grid item lg={8} textAlign="center">
                 <CharacterMat characterClass={character.characterClass} />
             </Grid>
         </Grid>
