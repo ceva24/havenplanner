@@ -13,6 +13,7 @@ const GloomhavenCharacterPlanner = ({ Component, pageProps }: AppProps) => {
 
             <Head>
                 <title>Gloomhaven Character Planner</title>
+                <link rel="shortcut icon" href="/favicon.png" />
                 <meta
                     name="description"
                     content="A web application to create character builds for the popular tabletop and digital game Gloomhaven"
