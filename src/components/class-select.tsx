@@ -29,7 +29,7 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
 
     return (
         <FormControl
-            sx={{ margin: "1%", width: matchesBreakpoint ? "60%" : "98%" }}
+            sx={{ margin: "1%", width: matchesBreakpoint ? "60%" : "80%" }}
         >
             <InputLabel id="select-class-label">Class</InputLabel>
             <Select
