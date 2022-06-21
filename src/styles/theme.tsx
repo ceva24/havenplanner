@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes, ThemeOptions } from "@mui/material";
+import { createTheme, ThemeOptions } from "@mui/material";
 
 const theme: ThemeOptions = createTheme({
     palette: {

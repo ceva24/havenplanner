@@ -2,11 +2,10 @@ import { Box, Typography } from "@mui/material";
 
 const Footer = () => {
     return (
-        <Box component="header">
+        <Box component="footer">
             <Typography
                 color="textPrimary"
                 component="h1"
-                fontFamily="Sakkal Majalla"
                 align="right"
                 padding="2rem"
             >

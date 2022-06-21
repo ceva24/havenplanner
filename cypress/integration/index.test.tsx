@@ -9,6 +9,30 @@ describe("index page", () => {
 
         cy.percySnapshot();
     });
+
+    it("sets the page title", () => {
+        cy.visit("/");
+
+        cy.title().should("equal", "Gloomhaven Character Planner");
+    });
+
+    it("renders the header", () => {
+        cy.visit("/");
+
+        cy.get("header").should("exist");
+    });
+    it("renders the page content in the main region", () => {
+        cy.visit("/");
+
+        cy.get("main").findCharacterDetailsForm().should("exist");
+    });
+
+    it("renders the footer", () => {
+        cy.visit("/");
+
+        cy.get("footer").should("exist");
+    });
+
     it("shows the character details and character mat after select a class", () => {
         cy.visit("/");
 
