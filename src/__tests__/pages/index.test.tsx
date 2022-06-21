@@ -36,11 +36,11 @@ describe("Index", () => {
             />
         );
 
-        const header = screen.queryByRole("heading", {
-            name: "Gloomhaven Character Planner",
+        const characterDetailsForm = screen.queryByRole("form", {
+            name: "Character details form",
         });
 
-        expect(header).toBeInTheDocument();
+        expect(characterDetailsForm).toBeInTheDocument();
     });
 });
 
