@@ -48,47 +48,39 @@ const CharacterDetails = ({
                 setCharacter={setCharacter}
                 characterClasses={characterClasses}
             />
-
-            {character.characterClass ? (
-                <>
-                    <TextField
-                        fullWidth
-                        id="name"
-                        label="Name"
-                        value={character.name}
-                        onChange={handleNameChange}
-                    />
-                    <div>
-                        <TextField
-                            multiline
-                            sx={{ width: "10rem" }}
-                            id="experience"
-                            label="Experience"
-                            type="number"
-                            value={character.experience || ""}
-                            onChange={handleExperienceChange}
-                        />
-                        <TextField
-                            multiline
-                            disabled
-                            sx={{ width: "10rem" }}
-                            id="level"
-                            label="Level"
-                            value={calculateLevel(character.experience)}
-                        />
-                    </div>
-                    <div>
-                        <TextField
-                            multiline
-                            sx={{ width: "10rem" }}
-                            id="gold"
-                            label="Gold"
-                            value={character.gold || ""}
-                            onChange={handleGoldChange}
-                        />
-                    </div>
-                </>
-            ) : null}
+            <TextField
+                fullWidth
+                id="name"
+                label="Name"
+                value={character.name}
+                onChange={handleNameChange}
+            />
+            <div>
+                <TextField
+                    multiline
+                    sx={{ width: "10rem" }}
+                    id="experience"
+                    label="Experience"
+                    type="number"
+                    value={character.experience || ""}
+                    onChange={handleExperienceChange}
+                />
+                <TextField
+                    multiline
+                    disabled
+                    sx={{ width: "10rem" }}
+                    id="level"
+                    label="Level"
+                    value={calculateLevel(character.experience)}
+                />
+            </div>
+            <TextField
+                sx={{ width: "10rem" }}
+                id="gold"
+                label="Gold"
+                value={character.gold || ""}
+                onChange={handleGoldChange}
+            />
         </Box>
     );
 };

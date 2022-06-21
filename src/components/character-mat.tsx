@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 interface CharacterMatProps {
-    characterClass: CharacterClass | undefined;
+    characterClass: CharacterClass;
 }
 
 const CharacterMat = ({ characterClass }: CharacterMatProps) => {
-    return characterClass ? (
+    return (
         <Image
             unoptimized
             src={characterClass.characterMatImageUrl}
@@ -13,7 +13,7 @@ const CharacterMat = ({ characterClass }: CharacterMatProps) => {
             width={600}
             height={400}
         />
-    ) : null;
+    );
 };
 
 export default CharacterMat;

@@ -1,37 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { InferGetStaticPropsType } from "next";
 import Index, { getStaticProps } from "../../pages/index";
-import { initialCharacter } from "../../utils/constants";
-
-const character: Character = {
-    name: "",
-    experience: 0,
-    gold: 0,
-    notes: "",
-};
-
-const characterClasses: CharacterClass[] = [
-    {
-        id: 0,
-        name: "Test 1",
-        characterMatImageUrl:
-            "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
-    },
-];
-
-jest.mock("../../utils/data-loader", () => {
-    return {
-        loadCharacterClasses: jest.fn().mockImplementation(() => {
-            return characterClasses;
-        }),
-    };
-});
+import { characterClasses, initialCharacter } from "../../utils/constants";
 
 describe("Index", () => {
     it("renders", () => {
         render(
             <Index
-                initialCharacter={character}
+                initialCharacter={initialCharacter}
                 characterClasses={characterClasses}
             />
         );

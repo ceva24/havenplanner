@@ -27,14 +27,11 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
         <FormControl sx={{ width: "16rem" }}>
             <InputLabel id="select-class-label">Class</InputLabel>
             <Select
-                value={character?.characterClass?.name ?? ""}
+                value={character.characterClass.name}
                 label="Class"
                 labelId="select-class-label"
                 onChange={handleChange}
             >
-                <MenuItem key="" value="">
-                    None
-                </MenuItem>
                 {characterClasses.map((characterClass: CharacterClass) => {
                     return (
                         <MenuItem
@@ -61,9 +58,11 @@ const findAndSetCharacter = (
             return characterClass.name === event.target.value;
         });
 
-    const newCharacter = selectedCharacterClass
-        ? { ...character, characterClass: selectedCharacterClass }
-        : initialCharacter;
+    const newCharacter = {
+        ...character,
+        characterClass:
+            selectedCharacterClass ?? initialCharacter.characterClass,
+    };
 
     setCharacter(newCharacter);
 };

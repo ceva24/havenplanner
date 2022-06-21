@@ -18,14 +18,4 @@ describe("Character Mat", () => {
 
         expect(characterMat).toBeInTheDocument();
     });
-
-    it("does not render when no character is passed in", () => {
-        render(<CharacterMat characterClass={undefined} />);
-
-        const characterMat = screen.queryByRole("img", {
-            name: "Character mat",
-        });
-
-        expect(characterMat).not.toBeInTheDocument();
-    });
 });
