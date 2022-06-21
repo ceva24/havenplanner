@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import ClassSelect, {
     findAndSetCharacter,
 } from "../../components/class-select";
-import { initialCharacter } from "../../utils/constants";
+import { characterClasses, initialCharacter } from "../../utils/constants";
 
 beforeEach(() => {
     jest.clearAllMocks();
@@ -14,22 +14,8 @@ const character: Character = {
     experience: 45,
     gold: 25,
     notes: "Hello",
+    characterClass: characterClasses[1],
 };
-
-const characterClasses: CharacterClass[] = [
-    {
-        id: 0,
-        name: "Test 1",
-        characterMatImageUrl:
-            "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
-    },
-    {
-        id: 1,
-        name: "Test 2",
-        characterMatImageUrl:
-            "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel.png",
-    },
-];
 
 describe("Class Select", () => {
     it("renders", () => {
@@ -52,24 +38,31 @@ describe("findAndSetCharacter", () => {
 
     it("sets the character to the selected value", () => {
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
-        const event = { target: { value: "Test 1" } } as SelectChangeEvent;
+        const event = {
+            target: { value: characterClasses[3].name },
+        } as SelectChangeEvent;
 
         findAndSetCharacter(event, character, setCharacter, characterClasses);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            characterClass: characterClasses[0],
+            characterClass: characterClasses[3],
         });
     });
 
     it("sets the character details to initial values when the selected class does not exist", () => {
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
-        const event = { target: { value: "None" } } as SelectChangeEvent;
+        const event = {
+            target: { value: "Invalid class" },
+        } as SelectChangeEvent;
 
         findAndSetCharacter(event, character, setCharacter, characterClasses);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
-        expect(setCharacter).toHaveBeenCalledWith(initialCharacter);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: initialCharacter.characterClass,
+        });
     });
 });

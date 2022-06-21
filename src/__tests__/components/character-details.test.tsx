@@ -174,35 +174,6 @@ describe("Character Details", () => {
         expect(gold).toHaveValue("");
     });
 
-    it("does not render the name, experience, level and gold fields when the character class has not been set", () => {
-        const characterWithNoClass: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "",
-        };
-
-        render(
-            <CharacterDetails
-                character={characterWithNoClass}
-                setCharacter={setCharacter}
-                characterClasses={characterClasses}
-            />
-        );
-
-        const nameField = screen.queryByRole("textbox", { name: "Name" });
-        const experienceField = screen.queryByRole("textbox", {
-            name: "Experience",
-        });
-        const levelField = screen.queryByRole("textbox", { name: "Level" });
-        const goldField = screen.queryByRole("textbox", { name: "Gold" });
-
-        expect(nameField).not.toBeInTheDocument();
-        expect(experienceField).not.toBeInTheDocument();
-        expect(levelField).not.toBeInTheDocument();
-        expect(goldField).not.toBeInTheDocument();
-    });
-
     it.each`
         experience    | level
         ${0}          | ${1}

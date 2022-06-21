@@ -2,25 +2,24 @@
 import "@testing-library/cypress/add-commands";
 import "../support/commands";
 
+const characterClasses = [
+    "Brute",
+    "Scoundrel",
+    "Spellweaver",
+    "Tinkerer",
+    "Mindthief",
+    "Cragheart",
+];
+
 describe("character details pane", () => {
     it("shows a list of classes in the class select list", () => {
-        const characterClasses = [
-            "None",
-            "Brute",
-            "Scoundrel",
-            "Spellweaver",
-            "Tinkerer",
-            "Mindthief",
-            "Cragheart",
-        ];
-
         cy.visit("/");
 
         cy.findByRole("button", { name: "Class" }).click();
 
         cy.findByRole("listbox", { name: "Class" })
             .findAllByRole("option")
-            .should("have.length", 7);
+            .should("have.length", 6);
 
         cy.findByRole("listbox", { name: "Class" })
             .findAllByRole("option")
@@ -32,22 +31,23 @@ describe("character details pane", () => {
             });
     });
 
-    it("shows the character details after selecting a class", () => {
+    it("shows the character details", () => {
         cy.visit("/");
-
-        cy.findNameField().should("not.exist");
-        cy.findExperienceField().should("not.exist");
-        cy.findLevelField().should("not.exist");
-        cy.findGoldField().should("not.exist");
-
-        cy.selectClass("Spellweaver");
 
         cy.findCharacterDetailsForm().should("be.visible");
     });
 
+    it("has the first class selected on page load", () => {
+        cy.visit("/");
+
+        cy.findByRole("button", { name: "Class" }).should(
+            "have.text",
+            characterClasses[0]
+        );
+    });
+
     it("allows a name to be entered", () => {
         cy.visit("/");
-        cy.selectClass("Spellweaver");
 
         cy.findNameField().type("Elsa");
 
@@ -56,7 +56,6 @@ describe("character details pane", () => {
 
     it("allows numerical characters to be entered in the experience text field", () => {
         cy.visit("/");
-        cy.selectClass("Spellweaver");
 
         cy.findExperienceField().type("123");
 
@@ -65,7 +64,6 @@ describe("character details pane", () => {
 
     it("doesn't allow non-numerical characters to be entered in the experience text field", () => {
         cy.visit("/");
-        cy.selectClass("Spellweaver");
 
         cy.findExperienceField().type("hello");
 
@@ -74,7 +72,6 @@ describe("character details pane", () => {
 
     it("changes the level when changing the experience value", () => {
         cy.visit("/");
-        cy.selectClass("Spellweaver");
 
         cy.findLevelField().should("have.value", "1");
 
@@ -85,7 +82,6 @@ describe("character details pane", () => {
 
     it("allows numerical characters to be entered in the gold text field", () => {
         cy.visit("/");
-        cy.selectClass("Spellweaver");
 
         cy.findGoldField().type("123");
 
@@ -94,25 +90,23 @@ describe("character details pane", () => {
 
     it("doesn't allow non-numerical characters to be entered in the gold text field", () => {
         cy.visit("/");
-        cy.selectClass("Spellweaver");
 
         cy.findGoldField().type("hello");
 
         cy.should("have.value", "");
     });
 
-    it("resets the character details when clearing the class", () => {
+    it("retains the character details when changing the class", () => {
         cy.visit("/");
-        cy.selectClass("Spellweaver");
 
         cy.findNameField().type("Elsa").should("have.value", "Elsa");
         cy.findExperienceField().type("123").should("have.value", "123");
         cy.findGoldField().type("123").should("have.value", "123");
 
-        cy.selectClass("None").selectClass("Mindthief");
+        cy.selectClass("Spellweaver");
 
-        cy.findNameField().should("have.value", "");
-        cy.findExperienceField().should("have.value", "");
-        cy.findGoldField().should("have.value", "");
+        cy.findNameField().should("have.value", "Elsa");
+        cy.findExperienceField().should("have.value", "123");
+        cy.findGoldField().should("have.value", "123");
     });
 });

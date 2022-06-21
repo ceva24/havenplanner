@@ -1,10 +1,9 @@
 import { useState } from "react";
 import type { NextPage, GetStaticProps } from "next";
 import { Grid } from "@mui/material";
-import { loadCharacterClasses } from "../utils/data-loader";
 import CharacterMat from "../components/character-mat";
 import CharacterDetails from "../components/character-details";
-import { initialCharacter } from "../utils/constants";
+import { characterClasses, initialCharacter } from "../utils/constants";
 
 interface IndexProps {
     initialCharacter: Character;
@@ -37,7 +36,7 @@ const getStaticProps: GetStaticProps = async () => {
     return {
         props: {
             initialCharacter,
-            characterClasses: loadCharacterClasses(),
+            characterClasses,
         },
     };
 };

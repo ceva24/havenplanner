@@ -33,10 +33,8 @@ describe("index page", () => {
         cy.get("footer").should("exist");
     });
 
-    it("shows the character details and character mat after select a class", () => {
+    it("shows the character details and character mat", () => {
         cy.visit("/");
-
-        cy.selectClass("Spellweaver");
 
         cy.findByRole("img", { name: "Character mat" }).should("be.visible");
         cy.findNameField().should("be.visible");
