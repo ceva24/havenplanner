@@ -7,6 +7,7 @@ interface CharacterMatProps {
 const CharacterMat = ({ characterClass }: CharacterMatProps) => {
     return (
         <Image
+            layout="fixed"
             src={characterClass.characterMatImageUrl}
             alt="Character mat"
             width={600}
