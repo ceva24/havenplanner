@@ -28,10 +28,6 @@ const CharacterDetails = ({
             id="character-details-form"
             aria-label="Character details form"
             component="form"
-            textAlign="left"
-            sx={{
-                "& .MuiFormControl-root": { margin: "0.5rem" },
-            }}
         >
             <div>
                 <ClassSelect
@@ -42,7 +38,7 @@ const CharacterDetails = ({
             </div>
             <div>
                 <TextField
-                    fullWidth
+                    sx={{ width: "98%", margin: "1%" }}
                     id="name"
                     label="Name"
                     value={character.name}
@@ -51,7 +47,7 @@ const CharacterDetails = ({
             </div>
             <div>
                 <TextField
-                    sx={{ width: "10rem" }}
+                    sx={{ width: "48%", margin: "1%" }}
                     id="experience"
                     label="Experience"
                     value={character.experience || ""}
@@ -59,7 +55,7 @@ const CharacterDetails = ({
                 />
                 <TextField
                     disabled
-                    sx={{ width: "10rem" }}
+                    sx={{ width: "48%", margin: "1%" }}
                     id="level"
                     label="Level"
                     value={calculateLevel(character.experience)}
@@ -67,7 +63,7 @@ const CharacterDetails = ({
             </div>
             <div>
                 <TextField
-                    sx={{ width: "10rem" }}
+                    sx={{ width: "48%", margin: "1%" }}
                     id="gold"
                     label="Gold"
                     value={character.gold || ""}
@@ -76,8 +72,8 @@ const CharacterDetails = ({
             </div>
             <div>
                 <TextField
-                    fullWidth
                     multiline
+                    sx={{ width: "98%", margin: "1%" }}
                     minRows={3}
                     id="notes"
                     label="Notes"

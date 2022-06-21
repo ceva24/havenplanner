@@ -4,6 +4,8 @@ import {
     SelectChangeEvent,
     InputLabel,
     FormControl,
+    useTheme,
+    useMediaQuery,
 } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import { initialCharacter } from "../utils/constants";
@@ -23,8 +25,12 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
         findAndSetCharacter(event, character, setCharacter, characterClasses);
     };
 
+    const matchesBreakpoint = useMediaQuery(useTheme().breakpoints.up("lg"));
+
     return (
-        <FormControl sx={{ width: "16rem" }}>
+        <FormControl
+            sx={{ margin: "1%", width: matchesBreakpoint ? "60%" : "98%" }}
+        >
             <InputLabel id="select-class-label">Class</InputLabel>
             <Select
                 value={character.characterClass.name}
