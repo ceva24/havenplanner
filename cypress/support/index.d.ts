@@ -1,5 +1,7 @@
 declare namespace Cypress {
     interface Chainable {
+        imageHasLoaded(imageName: string): Chainable<Element>;
+
         selectClass(className: string): Chainable<Element>;
 
         findCharacterDetailsForm(): Chainable<Element>;
