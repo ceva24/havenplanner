@@ -80,6 +80,25 @@ describe("Character Details", () => {
         expect(nameField).toHaveValue("My Char");
     });
 
+    it("renders the class icon", () => {
+        render(
+            <CharacterDetails
+                character={character}
+                setCharacter={setCharacter}
+                characterClasses={characterClasses}
+            />
+        );
+
+        const characterDetailsForm = screen.getByRole("form", {
+            name: "Character details form",
+        });
+        const classIcon = within(characterDetailsForm).queryByRole("img", {
+            name: "Class icon",
+        });
+
+        expect(classIcon).toBeInTheDocument();
+    });
+
     it("renders the character experience", () => {
         render(
             <CharacterDetails
