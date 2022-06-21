@@ -9,8 +9,21 @@ describe("index page", () => {
 
         cy.findCharacterDetailsForm().should("be.visible");
 
-        cy.imageHasLoaded("Class icon");
-        cy.imageHasLoaded("Character mat");
+        cy.findByRole("img", { name: "Class icon" })
+        .should("be.visible")
+        .and(($img) => {
+            expect(
+                ($img[0] as HTMLImageElement).naturalWidth
+            ).to.be.greaterThan(0);
+        });
+
+        cy.findByRole("img", { name: "Character mat" })
+        .should("be.visible")
+        .and(($img) => {
+            expect(
+                ($img[0] as HTMLImageElement).naturalWidth
+            ).to.be.greaterThan(0);
+        });
 
         cy.percySnapshot();
     });

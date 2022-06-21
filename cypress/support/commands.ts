@@ -31,13 +31,3 @@ Cypress.Commands.add("findGoldField", () => {
 Cypress.Commands.add("findNotesField", () => {
     cy.findCharacterDetailsForm().findByRole("textbox", { name: "Notes" });
 });
-
-Cypress.Commands.add("imageHasLoaded", (imageName: string) => {
-    cy.findByRole("img", { name: imageName })
-        .should("be.visible")
-        .and(($img) => {
-            expect(
-                ($img[0] as HTMLImageElement).naturalWidth
-            ).to.be.greaterThan(0);
-        });
-});
