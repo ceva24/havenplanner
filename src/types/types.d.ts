@@ -9,5 +9,6 @@ interface Character {
 interface CharacterClass {
     id: number;
     name: string;
+    characterIconImageUrl: string;
     characterMatImageUrl: string;
 }

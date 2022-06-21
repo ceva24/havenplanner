@@ -1,5 +1,6 @@
 import { Box, TextField } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
+import Image from "next/image";
 import ClassSelect from "./class-select";
 
 interface CharacterDetailsProps {
@@ -34,6 +35,13 @@ const CharacterDetails = ({
                     character={character}
                     setCharacter={setCharacter}
                     characterClasses={characterClasses}
+                />
+                <Image
+                    layout="fixed"
+                    src={character.characterClass.characterIconImageUrl}
+                    alt="Class icon"
+                    width={70}
+                    height={70}
                 />
             </div>
             <div>

@@ -22,7 +22,7 @@ const GloomhavenCharacterPlanner = ({ Component, pageProps }: AppProps) => {
 
             <Header />
 
-            <Container component="main" maxWidth={false}>
+            <Container component="main" maxWidth="xl">
                 <Component {...pageProps} />
             </Container>
 

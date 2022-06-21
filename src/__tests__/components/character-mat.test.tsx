@@ -6,6 +6,7 @@ describe("Character Mat", () => {
         const characterClass: CharacterClass = {
             id: 0,
             name: "Test",
+            characterIconImageUrl: "/character-icons/gloomhaven/gh-brute.png",
             characterMatImageUrl:
                 "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
         };

@@ -11,6 +11,7 @@ const character: Character = {
     characterClass: {
         id: 0,
         name: "Test 1",
+        characterIconImageUrl: "/character-icons/gloomhaven/gh-brute.png",
         characterMatImageUrl:
             "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
     },
@@ -24,6 +25,7 @@ const poorInexperiencedCharacter: Character = {
     characterClass: {
         id: 0,
         name: "Test 1",
+        characterIconImageUrl: "/character-icons/gloomhaven/gh-brute.png",
         characterMatImageUrl:
             "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
     },
@@ -35,6 +37,7 @@ const characterClasses: CharacterClass[] = [
     {
         id: 0,
         name: "Test 1",
+        characterIconImageUrl: "/character-icons/gloomhaven/gh-brute.png",
         characterMatImageUrl:
             "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
     },
@@ -75,6 +78,25 @@ describe("Character Details", () => {
 
         expect(nameField).toBeInTheDocument();
         expect(nameField).toHaveValue("My Char");
+    });
+
+    it("renders the class icon", () => {
+        render(
+            <CharacterDetails
+                character={character}
+                setCharacter={setCharacter}
+                characterClasses={characterClasses}
+            />
+        );
+
+        const characterDetailsForm = screen.getByRole("form", {
+            name: "Character details form",
+        });
+        const classIcon = within(characterDetailsForm).queryByRole("img", {
+            name: "Class icon",
+        });
+
+        expect(classIcon).toBeInTheDocument();
     });
 
     it("renders the character experience", () => {

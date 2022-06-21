@@ -9,13 +9,7 @@ describe("index page", () => {
 
         cy.findCharacterDetailsForm().should("be.visible");
 
-        cy.findByRole("img", { name: "Character mat" })
-            .should("be.visible")
-            .and(($img) => {
-                expect(
-                    ($img[0] as HTMLImageElement).naturalWidth
-                ).to.be.greaterThan(0);
-            });
+        cy.wait(10_000); // For images to load
 
         cy.percySnapshot();
     });

@@ -7,7 +7,6 @@ interface CharacterMatProps {
 const CharacterMat = ({ characterClass }: CharacterMatProps) => {
     return (
         <Image
-            unoptimized
             src={characterClass.characterMatImageUrl}
             alt="Character mat"
             width={600}

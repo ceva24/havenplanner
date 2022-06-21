@@ -54,6 +54,14 @@ describe("character details pane", () => {
         cy.should("have.value", "Elsa");
     });
 
+    it("shows the class icon", () => {
+        cy.visit("/");
+
+        cy.findCharacterDetailsForm()
+            .findByRole("img", { name: "Class icon" })
+            .should("be.visible");
+    });
+
     it("allows numerical characters to be entered in the experience text field", () => {
         cy.visit("/");
 
