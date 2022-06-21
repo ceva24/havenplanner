@@ -96,6 +96,14 @@ describe("character details pane", () => {
         cy.should("have.value", "");
     });
 
+    it("allows notes to be entered", () => {
+        cy.visit("/");
+
+        cy.findNotesField().type("Loves cold weather");
+
+        cy.should("have.value", "Loves cold weather");
+    });
+
     it("retains the character details when changing the class", () => {
         cy.visit("/");
 

@@ -7,7 +7,7 @@ const character: Character = {
     name: "My Char",
     experience: 25,
     gold: 50,
-    notes: "",
+    notes: "Hello haven",
     characterClass: {
         id: 0,
         name: "Test 1",
@@ -118,26 +118,6 @@ describe("Character Details", () => {
         expect(levelField).toHaveValue("1");
     });
 
-    it("renders the character gold", () => {
-        render(
-            <CharacterDetails
-                character={character}
-                setCharacter={setCharacter}
-                characterClasses={characterClasses}
-            />
-        );
-
-        const characterDetailsForm = screen.getByRole("form", {
-            name: "Character details form",
-        });
-        const goldField = within(characterDetailsForm).queryByRole("textbox", {
-            name: "Gold",
-        });
-
-        expect(goldField).toBeInTheDocument();
-        expect(goldField).toHaveValue("50");
-    });
-
     it("displays no experience value when experience is zero", () => {
         render(
             <CharacterDetails
@@ -154,24 +134,6 @@ describe("Character Details", () => {
         expect(experience).toBeInTheDocument();
         expect(experience).not.toHaveValue("0");
         expect(experience).toHaveValue("");
-    });
-
-    it("displays no gold value when gold is zero", () => {
-        render(
-            <CharacterDetails
-                character={poorInexperiencedCharacter}
-                setCharacter={setCharacter}
-                characterClasses={characterClasses}
-            />
-        );
-
-        const gold = screen.queryByRole("textbox", {
-            name: "Gold",
-        });
-
-        expect(gold).toBeInTheDocument();
-        expect(gold).not.toHaveValue("0");
-        expect(gold).toHaveValue("");
     });
 
     it.each`
@@ -198,4 +160,62 @@ describe("Character Details", () => {
             expect(calculateLevel(experience)).toEqual(level);
         }
     );
+
+    it("renders the character gold", () => {
+        render(
+            <CharacterDetails
+                character={character}
+                setCharacter={setCharacter}
+                characterClasses={characterClasses}
+            />
+        );
+
+        const characterDetailsForm = screen.getByRole("form", {
+            name: "Character details form",
+        });
+        const goldField = within(characterDetailsForm).queryByRole("textbox", {
+            name: "Gold",
+        });
+
+        expect(goldField).toBeInTheDocument();
+        expect(goldField).toHaveValue("50");
+    });
+
+    it("displays no gold value when gold is zero", () => {
+        render(
+            <CharacterDetails
+                character={poorInexperiencedCharacter}
+                setCharacter={setCharacter}
+                characterClasses={characterClasses}
+            />
+        );
+
+        const gold = screen.queryByRole("textbox", {
+            name: "Gold",
+        });
+
+        expect(gold).toBeInTheDocument();
+        expect(gold).not.toHaveValue("0");
+        expect(gold).toHaveValue("");
+    });
+
+    it("renders the character notes", () => {
+        render(
+            <CharacterDetails
+                character={character}
+                setCharacter={setCharacter}
+                characterClasses={characterClasses}
+            />
+        );
+
+        const characterDetailsForm = screen.getByRole("form", {
+            name: "Character details form",
+        });
+        const notesField = within(characterDetailsForm).queryByRole("textbox", {
+            name: "Notes",
+        });
+
+        expect(notesField).toBeInTheDocument();
+        expect(notesField).toHaveValue("Hello haven");
+    });
 });
