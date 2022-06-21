@@ -1,4 +1,4 @@
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import ClassSelect from "./class-select";
 
@@ -13,25 +13,15 @@ const CharacterDetails = ({
     setCharacter,
     characterClasses,
 }: CharacterDetailsProps) => {
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setCharacter({ ...character, name: event.target.value });
-    };
+    const handleChange =
+        (fieldName: string, isNumber: boolean) =>
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+            const value = isNumber
+                ? Number.parseInt(event.target.value, 10) || 0
+                : event.target.value;
 
-    const handleExperienceChange = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        setCharacter({
-            ...character,
-            experience: Number.parseInt(event.target.value, 10) || 0,
-        });
-    };
-
-    const handleGoldChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setCharacter({
-            ...character,
-            gold: Number.parseInt(event.target.value, 10) || 0,
-        });
-    };
+            setCharacter({ ...character, [fieldName]: value });
+        };
 
     return (
         <Box
@@ -43,30 +33,31 @@ const CharacterDetails = ({
                 "& .MuiFormControl-root": { margin: "0.5rem" },
             }}
         >
-            <ClassSelect
-                character={character}
-                setCharacter={setCharacter}
-                characterClasses={characterClasses}
-            />
-            <TextField
-                fullWidth
-                id="name"
-                label="Name"
-                value={character.name}
-                onChange={handleNameChange}
-            />
+            <div>
+                <ClassSelect
+                    character={character}
+                    setCharacter={setCharacter}
+                    characterClasses={characterClasses}
+                />
+            </div>
             <div>
                 <TextField
-                    multiline
+                    fullWidth
+                    id="name"
+                    label="Name"
+                    value={character.name}
+                    onChange={handleChange("name", false)}
+                />
+            </div>
+            <div>
+                <TextField
                     sx={{ width: "10rem" }}
                     id="experience"
                     label="Experience"
-                    type="number"
                     value={character.experience || ""}
-                    onChange={handleExperienceChange}
+                    onChange={handleChange("experience", true)}
                 />
                 <TextField
-                    multiline
                     disabled
                     sx={{ width: "10rem" }}
                     id="level"
@@ -74,13 +65,26 @@ const CharacterDetails = ({
                     value={calculateLevel(character.experience)}
                 />
             </div>
-            <TextField
-                sx={{ width: "10rem" }}
-                id="gold"
-                label="Gold"
-                value={character.gold || ""}
-                onChange={handleGoldChange}
-            />
+            <div>
+                <TextField
+                    sx={{ width: "10rem" }}
+                    id="gold"
+                    label="Gold"
+                    value={character.gold || ""}
+                    onChange={handleChange("gold", true)}
+                />
+            </div>
+            <div>
+                <TextField
+                    fullWidth
+                    multiline
+                    minRows={3}
+                    id="notes"
+                    label="Notes"
+                    value={character.notes}
+                    onChange={handleChange("notes", false)}
+                />
+            </div>
         </Box>
     );
 };
