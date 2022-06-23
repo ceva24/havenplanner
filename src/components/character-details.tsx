@@ -2,6 +2,7 @@ import { Box, TextField } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import ClassSelect from "./class-select";
+import CreateLinkButton from "./create-link-button";
 
 interface CharacterDetailsProps {
     character: Character;
@@ -88,6 +89,9 @@ const CharacterDetails = ({
                     value={character.notes}
                     onChange={handleChange("notes", false)}
                 />
+            </div>
+            <div>
+                <CreateLinkButton character={character} />
             </div>
         </Box>
     );
