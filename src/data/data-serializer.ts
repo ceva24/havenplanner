@@ -1,7 +1,7 @@
 import { characterClasses, initialCharacter } from "../utils/constants";
 
 const serialize = (character: Character): string => {
-    const serializableCharacterData: SerializedCharacterData = {
+    const characterData: SerializedCharacterData = {
         n: character.name,
         x: character.experience,
         g: character.gold,
@@ -9,24 +9,24 @@ const serialize = (character: Character): string => {
         c: character.characterClass.id,
     };
 
-    return JSON.stringify(serializableCharacterData);
+    return JSON.stringify(characterData);
 };
 
 const deserialize = (data: string): Character => {
-    const serializableCharacterData = JSON.parse(data) as SerializedCharacterData;
+    const characterData = JSON.parse(data) as SerializedCharacterData;
 
     const character: Character = {
-        name: serializableCharacterData.n,
-        experience: serializableCharacterData.x,
-        gold: serializableCharacterData.g,
-        notes: serializableCharacterData.d,
+        name: characterData.n,
+        experience: characterData.x,
+        gold: characterData.g,
+        notes: characterData.d,
         characterClass:
             characterClasses.find((characterClass: CharacterClass) => {
-                return characterClass.id === serializableCharacterData.c;
+                return characterClass.id === characterData.c;
             }) ?? initialCharacter.characterClass,
     };
 
     return character;
 };
 
-export { serialize , deserialize };
+export { serialize, deserialize };
