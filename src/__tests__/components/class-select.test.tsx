@@ -1,8 +1,6 @@
 import { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
-import ClassSelect, {
-    findAndSetCharacter,
-} from "../../components/class-select";
+import ClassSelect, { findAndSetCharacter } from "../../components/class-select";
 import { characterClasses, initialCharacter } from "../../utils/constants";
 
 beforeEach(() => {
@@ -19,13 +17,7 @@ const character: Character = {
 
 describe("Class Select", () => {
     it("renders", () => {
-        render(
-            <ClassSelect
-                character={character}
-                setCharacter={() => null}
-                characterClasses={characterClasses}
-            />
-        );
+        render(<ClassSelect character={character} setCharacter={() => null} characterClasses={characterClasses} />);
 
         const classSelect = screen.queryByRole("button", { name: "Class" });
 

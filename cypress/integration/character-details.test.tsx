@@ -2,14 +2,7 @@
 import "@testing-library/cypress/add-commands";
 import "../support/commands";
 
-const characterClasses = [
-    "Brute",
-    "Scoundrel",
-    "Spellweaver",
-    "Tinkerer",
-    "Mindthief",
-    "Cragheart",
-];
+const characterClasses = ["Brute", "Scoundrel", "Spellweaver", "Tinkerer", "Mindthief", "Cragheart"];
 
 describe("character details pane", () => {
     it("shows a list of classes in the class select list", () => {
@@ -17,17 +10,12 @@ describe("character details pane", () => {
 
         cy.findByRole("button", { name: "Class" }).click();
 
-        cy.findByRole("listbox", { name: "Class" })
-            .findAllByRole("option")
-            .should("have.length", 6);
+        cy.findByRole("listbox", { name: "Class" }).findAllByRole("option").should("have.length", 6);
 
         cy.findByRole("listbox", { name: "Class" })
             .findAllByRole("option")
             .each((characterClass, index) => {
-                cy.wrap(characterClass).should(
-                    "have.text",
-                    characterClasses[index]
-                );
+                cy.wrap(characterClass).should("have.text", characterClasses[index]);
             });
     });
 
@@ -40,10 +28,7 @@ describe("character details pane", () => {
     it("has the first class selected on page load", () => {
         cy.visit("/");
 
-        cy.findByRole("button", { name: "Class" }).should(
-            "have.text",
-            characterClasses[0]
-        );
+        cy.findByRole("button", { name: "Class" }).should("have.text", characterClasses[0]);
     });
 
     it("allows a name to be entered", () => {
@@ -57,9 +42,7 @@ describe("character details pane", () => {
     it("shows the class icon", () => {
         cy.visit("/");
 
-        cy.findCharacterDetailsForm()
-            .findByRole("img", { name: "Class icon" })
-            .should("be.visible");
+        cy.findCharacterDetailsForm().findByRole("img", { name: "Class icon" }).should("be.visible");
     });
 
     it("allows numerical characters to be entered in the experience text field", () => {
