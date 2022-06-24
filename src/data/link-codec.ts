@@ -8,10 +8,7 @@ const encodeShareableLinkData = (data: string): string => {
 };
 
 const decodeShareableLinkData = (encodedCompressedData: string): string => {
-    const compressedData: string = Buffer.from(
-        encodedCompressedData,
-        "base64"
-    ).toString("latin1");
+    const compressedData: string = Buffer.from(encodedCompressedData, "base64").toString("latin1");
 
     const compressedDataArray: Uint8Array = Uint8Array.from(
         compressedData.split("").map((character: string) => {
@@ -27,9 +24,7 @@ const decodeShareableLinkData = (encodedCompressedData: string): string => {
         })
     );
 
-    const dataBuffer: Buffer = zlib.brotliDecompressSync(
-        Buffer.from(compressedDataArray)
-    );
+    const dataBuffer: Buffer = zlib.brotliDecompressSync(Buffer.from(compressedDataArray));
 
     return dataBuffer.toString("utf8");
 };

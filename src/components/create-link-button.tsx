@@ -19,12 +19,7 @@ const CreateLinkButton = ({ character }: CreateLinkButtonProps) => {
     };
 
     return (
-        <Button
-            variant="contained"
-            startIcon={<ShareIcon />}
-            sx={{ margin: "1%" }}
-            onClick={onClick}
-        >
+        <Button variant="contained" startIcon={<ShareIcon />} sx={{ margin: "1%" }} onClick={onClick}>
             <Typography variant="body1">Share</Typography>
         </Button>
     );

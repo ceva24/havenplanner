@@ -13,9 +13,7 @@ const serializeCharacterData = (character: Character): string => {
 };
 
 const deserializeCharacterData = (data: string): Character => {
-    const serializableCharacterData = JSON.parse(
-        data
-    ) as SerializedCharacterData;
+    const serializableCharacterData = JSON.parse(data) as SerializedCharacterData;
 
     const character: Character = {
         name: serializableCharacterData.n,

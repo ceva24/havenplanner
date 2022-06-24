@@ -11,17 +11,11 @@ const handler = (request: NextApiRequest, response: NextApiResponse) => {
     try {
         const character: Character = request.body as Character;
 
-        console.log(
-            `Received request to encode character '${JSON.stringify(
-                character
-            )}'`
-        );
+        console.log(`Received request to encode character '${JSON.stringify(character)}'`);
 
         const serializedCharacterData = serializeCharacterData(character);
 
-        const encodedCharacterData = encodeShareableLinkData(
-            serializedCharacterData
-        );
+        const encodedCharacterData = encodeShareableLinkData(serializedCharacterData);
 
         console.log(`Encoded character data as '${encodedCharacterData}'`);
 
