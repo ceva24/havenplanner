@@ -10,20 +10,11 @@ interface IndexProps {
     characterClasses: CharacterClass[];
 }
 
-const Index: NextPage<IndexProps> = ({
-    initialCharacter,
-    characterClasses,
-}: IndexProps) => {
+const Index: NextPage<IndexProps> = ({ initialCharacter, characterClasses }: IndexProps) => {
     const [character, setCharacter] = useState<Character>(initialCharacter);
 
     return (
-        <Grid
-            container
-            spacing={10}
-            height="100%"
-            minHeight="40rem"
-            justifyContent="center"
-        >
+        <Grid container spacing={10} height="100%" minHeight="40rem" justifyContent="center">
             <Grid item lg={4}>
                 <CharacterDetails
                     character={character}

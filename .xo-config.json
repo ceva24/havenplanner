@@ -1,10 +1,5 @@
 {
-    "extends": [
-        "xo-react",
-        "plugin:jsx-a11y/strict",
-        "plugin:prettier/recommended",
-        "plugin:@next/next/recommended"
-    ],
+    "extends": ["xo-react", "plugin:jsx-a11y/strict", "plugin:prettier/recommended", "plugin:@next/next/recommended"],
     "rules": {
         "react/jsx-indent": "off",
         "react/jsx-indent-props": "off",

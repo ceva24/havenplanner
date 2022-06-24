@@ -1,7 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
-import CharacterDetails, {
-    calculateLevel,
-} from "../../components/character-details";
+import CharacterDetails, { calculateLevel } from "../../components/character-details";
 
 const character: Character = {
     name: "My Char",
@@ -12,8 +10,7 @@ const character: Character = {
         id: 0,
         name: "Test 1",
         characterIconImageUrl: "/character-icons/gloomhaven/gh-brute.png",
-        characterMatImageUrl:
-            "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
+        characterMatImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
     },
 };
 
@@ -26,8 +23,7 @@ const poorInexperiencedCharacter: Character = {
         id: 0,
         name: "Test 1",
         characterIconImageUrl: "/character-icons/gloomhaven/gh-brute.png",
-        characterMatImageUrl:
-            "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
+        characterMatImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
     },
 };
 
@@ -38,19 +34,14 @@ const characterClasses: CharacterClass[] = [
         id: 0,
         name: "Test 1",
         characterIconImageUrl: "/character-icons/gloomhaven/gh-brute.png",
-        characterMatImageUrl:
-            "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
+        characterMatImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
     },
 ];
 
 describe("Character Details", () => {
     it("renders the form", () => {
         render(
-            <CharacterDetails
-                character={character}
-                setCharacter={setCharacter}
-                characterClasses={characterClasses}
-            />
+            <CharacterDetails character={character} setCharacter={setCharacter} characterClasses={characterClasses} />
         );
 
         const characterDetailsForm = screen.getByRole("form", {
@@ -62,11 +53,7 @@ describe("Character Details", () => {
 
     it("renders the character name", () => {
         render(
-            <CharacterDetails
-                character={character}
-                setCharacter={setCharacter}
-                characterClasses={characterClasses}
-            />
+            <CharacterDetails character={character} setCharacter={setCharacter} characterClasses={characterClasses} />
         );
 
         const characterDetailsForm = screen.getByRole("form", {
@@ -82,11 +69,7 @@ describe("Character Details", () => {
 
     it("renders the class icon", () => {
         render(
-            <CharacterDetails
-                character={character}
-                setCharacter={setCharacter}
-                characterClasses={characterClasses}
-            />
+            <CharacterDetails character={character} setCharacter={setCharacter} characterClasses={characterClasses} />
         );
 
         const characterDetailsForm = screen.getByRole("form", {
@@ -101,20 +84,13 @@ describe("Character Details", () => {
 
     it("renders the character experience", () => {
         render(
-            <CharacterDetails
-                character={character}
-                setCharacter={setCharacter}
-                characterClasses={characterClasses}
-            />
+            <CharacterDetails character={character} setCharacter={setCharacter} characterClasses={characterClasses} />
         );
 
         const characterDetailsForm = screen.getByRole("form", {
             name: "Character details form",
         });
-        const experienceField = within(characterDetailsForm).queryByRole(
-            "textbox",
-            { name: "Experience" }
-        );
+        const experienceField = within(characterDetailsForm).queryByRole("textbox", { name: "Experience" });
 
         expect(experienceField).toBeInTheDocument();
         expect(experienceField).toHaveValue("25");
@@ -122,11 +98,7 @@ describe("Character Details", () => {
 
     it("renders the character level", () => {
         render(
-            <CharacterDetails
-                character={character}
-                setCharacter={setCharacter}
-                characterClasses={characterClasses}
-            />
+            <CharacterDetails character={character} setCharacter={setCharacter} characterClasses={characterClasses} />
         );
 
         const characterDetailsForm = screen.getByRole("form", {
@@ -176,20 +148,13 @@ describe("Character Details", () => {
         ${9_000_000}  | ${9}
         ${-45}        | ${1}
         ${Number.NaN} | ${1}
-    `(
-        "sets the character level to $level when the experience value is $experience",
-        ({ experience, level }) => {
-            expect(calculateLevel(experience)).toEqual(level);
-        }
-    );
+    `("sets the character level to $level when the experience value is $experience", ({ experience, level }) => {
+        expect(calculateLevel(experience)).toEqual(level);
+    });
 
     it("renders the character gold", () => {
         render(
-            <CharacterDetails
-                character={character}
-                setCharacter={setCharacter}
-                characterClasses={characterClasses}
-            />
+            <CharacterDetails character={character} setCharacter={setCharacter} characterClasses={characterClasses} />
         );
 
         const characterDetailsForm = screen.getByRole("form", {
@@ -223,11 +188,7 @@ describe("Character Details", () => {
 
     it("renders the character notes", () => {
         render(
-            <CharacterDetails
-                character={character}
-                setCharacter={setCharacter}
-                characterClasses={characterClasses}
-            />
+            <CharacterDetails character={character} setCharacter={setCharacter} characterClasses={characterClasses} />
         );
 
         const characterDetailsForm = screen.getByRole("form", {
