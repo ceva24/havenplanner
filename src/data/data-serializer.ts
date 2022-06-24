@@ -1,6 +1,6 @@
 import { characterClasses, initialCharacter } from "../utils/constants";
 
-const serializeCharacterData = (character: Character): string => {
+const serialize = (character: Character): string => {
     const serializableCharacterData: SerializedCharacterData = {
         n: character.name,
         x: character.experience,
@@ -12,7 +12,7 @@ const serializeCharacterData = (character: Character): string => {
     return JSON.stringify(serializableCharacterData);
 };
 
-const deserializeCharacterData = (data: string): Character => {
+const deserialize = (data: string): Character => {
     const serializableCharacterData = JSON.parse(data) as SerializedCharacterData;
 
     const character: Character = {
@@ -29,4 +29,4 @@ const deserializeCharacterData = (data: string): Character => {
     return character;
 };
 
-export { serializeCharacterData, deserializeCharacterData };
+export { serialize , deserialize };

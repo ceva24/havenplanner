@@ -1,13 +1,13 @@
 import * as zlib from "node:zlib";
 import { Buffer } from "node:buffer";
 
-const encodeShareableLinkData = (data: string): string => {
+const encode = (data: string): string => {
     const compressedData: Buffer = zlib.brotliCompressSync(data);
 
     return compressedData.toString("base64");
 };
 
-const decodeShareableLinkData = (encodedCompressedData: string): string => {
+const decode = (encodedCompressedData: string): string => {
     const compressedData: string = Buffer.from(encodedCompressedData, "base64").toString("latin1");
 
     const compressedDataArray: Uint8Array = Uint8Array.from(
@@ -29,4 +29,4 @@ const decodeShareableLinkData = (encodedCompressedData: string): string => {
     return dataBuffer.toString("utf8");
 };
 
-export { encodeShareableLinkData, decodeShareableLinkData };
+export { encode, decode };

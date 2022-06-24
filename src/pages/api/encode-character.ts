@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { serializeCharacterData } from "../../data/data-serializer";
-import { encodeShareableLinkData } from "../../data/link-codec";
+import { serialize } from "../../data/data-serializer";
+import { encode } from "../../data/link-codec";
 
 const handler = (request: NextApiRequest, response: NextApiResponse) => {
     if (request.method !== "POST") {
@@ -13,9 +13,9 @@ const handler = (request: NextApiRequest, response: NextApiResponse) => {
 
         console.log(`Received request to encode character '${JSON.stringify(character)}'`);
 
-        const serializedCharacterData = serializeCharacterData(character);
+        const serializedCharacterData = serialize(character);
 
-        const encodedCharacterData = encodeShareableLinkData(serializedCharacterData);
+        const encodedCharacterData = encode(serializedCharacterData);
 
         console.log(`Encoded character data as '${encodedCharacterData}'`);
 
