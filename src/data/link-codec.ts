@@ -17,10 +17,11 @@ const decodeShareableLinkData = (encodedCompressedData: string): string => {
         compressedData.split("").map((character: string) => {
             const codePoint = character.codePointAt(0);
 
-            if (!codePoint)
-                throw new Error(
+            if (typeof codePoint === "undefined") {
+                throw new TypeError(
                     `Unexpected decoding error: unable to determine code point for character '${character}'`
                 );
+            }
 
             return codePoint;
         })
