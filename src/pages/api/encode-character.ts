@@ -19,7 +19,9 @@ const handler = (request: NextApiRequest, response: NextApiResponse) => {
 
         console.log(`Encoded character data as '${encodedCharacterData}'`);
 
-        response.status(200).json({ encodedCharacterData });
+        const responseBody: EncodeCharacterResponse = { encodedCharacterData };
+
+        response.status(200).json(responseBody);
     } catch (error: unknown) {
         console.error(error);
 

@@ -20,3 +20,7 @@ interface SerializedCharacterData {
     d: string; // Notes
     c: number; // Character id
 }
+
+interface EncodeCharacterResponse {
+    encodedCharacterData: string;
+}

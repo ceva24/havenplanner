@@ -2,7 +2,7 @@ import { Box, TextField } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import ClassSelect from "./class-select";
-import CreateLinkButton from "./create-link-button";
+import ShareLinkButton from "./share-link-button";
 
 interface CharacterDetailsProps {
     character: Character;
@@ -75,7 +75,7 @@ const CharacterDetails = ({ character, setCharacter, characterClasses }: Charact
                 />
             </div>
             <div>
-                <CreateLinkButton character={character} />
+                <ShareLinkButton character={character} />
             </div>
         </Box>
     );
