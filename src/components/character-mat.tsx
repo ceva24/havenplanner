@@ -5,14 +5,7 @@ interface CharacterMatProps {
 }
 
 const CharacterMat = ({ characterClass }: CharacterMatProps) => {
-    return (
-        <Image
-            src={characterClass.characterMatImageUrl}
-            alt="Character mat"
-            width={600}
-            height={400}
-        />
-    );
+    return <Image src={characterClass.characterMatImageUrl} alt="Character mat" width={600} height={400} />;
 };
 
 export default CharacterMat;

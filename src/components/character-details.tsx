@@ -10,33 +10,17 @@ interface CharacterDetailsProps {
     characterClasses: CharacterClass[];
 }
 
-const CharacterDetails = ({
-    character,
-    setCharacter,
-    characterClasses,
-}: CharacterDetailsProps) => {
-    const handleChange =
-        (fieldName: string, isNumber: boolean) =>
-        (event: React.ChangeEvent<HTMLInputElement>) => {
-            const value = isNumber
-                ? Number.parseInt(event.target.value, 10) || 0
-                : event.target.value;
+const CharacterDetails = ({ character, setCharacter, characterClasses }: CharacterDetailsProps) => {
+    const handleChange = (fieldName: string, isNumber: boolean) => (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = isNumber ? Number.parseInt(event.target.value, 10) || 0 : event.target.value;
 
-            setCharacter({ ...character, [fieldName]: value });
-        };
+        setCharacter({ ...character, [fieldName]: value });
+    };
 
     return (
-        <Box
-            id="character-details-form"
-            aria-label="Character details form"
-            component="form"
-        >
+        <Box id="character-details-form" aria-label="Character details form" component="form">
             <div>
-                <ClassSelect
-                    character={character}
-                    setCharacter={setCharacter}
-                    characterClasses={characterClasses}
-                />
+                <ClassSelect character={character} setCharacter={setCharacter} characterClasses={characterClasses} />
                 <Image
                     layout="fixed"
                     src={character.characterClass.characterIconImageUrl}

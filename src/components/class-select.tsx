@@ -1,12 +1,4 @@
-import {
-    Select,
-    MenuItem,
-    SelectChangeEvent,
-    InputLabel,
-    FormControl,
-    useTheme,
-    useMediaQuery,
-} from "@mui/material";
+import { Select, MenuItem, SelectChangeEvent, InputLabel, FormControl, useTheme, useMediaQuery } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import { initialCharacter } from "../utils/constants";
 
@@ -16,11 +8,7 @@ interface ClassSelectProps {
     characterClasses: CharacterClass[];
 }
 
-const ClassSelect: React.FC<ClassSelectProps> = ({
-    character,
-    setCharacter,
-    characterClasses,
-}: ClassSelectProps) => {
+const ClassSelect: React.FC<ClassSelectProps> = ({ character, setCharacter, characterClasses }: ClassSelectProps) => {
     const handleChange = (event: SelectChangeEvent) => {
         findAndSetCharacter(event, character, setCharacter, characterClasses);
     };
@@ -36,10 +24,7 @@ const ClassSelect: React.FC<ClassSelectProps> = ({
             >
                 {characterClasses.map((characterClass: CharacterClass) => {
                     return (
-                        <MenuItem
-                            key={characterClass.id}
-                            value={characterClass.name}
-                        >
+                        <MenuItem key={characterClass.id} value={characterClass.name}>
                             {characterClass.name}
                         </MenuItem>
                     );
@@ -55,15 +40,15 @@ const findAndSetCharacter = (
     setCharacter: Dispatch<SetStateAction<Character>>,
     characterClasses: CharacterClass[]
 ) => {
-    const selectedCharacterClass: CharacterClass | undefined =
-        characterClasses.find((characterClass: CharacterClass) => {
+    const selectedCharacterClass: CharacterClass | undefined = characterClasses.find(
+        (characterClass: CharacterClass) => {
             return characterClass.name === event.target.value;
-        });
+        }
+    );
 
     const newCharacter = {
         ...character,
-        characterClass:
-            selectedCharacterClass ?? initialCharacter.characterClass,
+        characterClass: selectedCharacterClass ?? initialCharacter.characterClass,
     };
 
     setCharacter(newCharacter);
