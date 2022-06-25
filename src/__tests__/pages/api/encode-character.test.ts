@@ -20,16 +20,20 @@ describe("encode character", () => {
     });
 
     it("serializes and encodes character data", () => {
-        jest.spyOn(dataSerializer, "serialize").mockImplementationOnce(() => "");
+        jest.spyOn(dataSerializer, "serialize").mockImplementationOnce(() => "serializedData");
         jest.spyOn(linkCodec, "encode").mockImplementationOnce(() => "");
 
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
         req.method = "POST";
+        req.body = "test";
 
         handler(req, res);
 
         expect(dataSerializer.serialize).toHaveBeenCalledTimes(1);
+        expect(dataSerializer.serialize).toHaveBeenCalledWith("test");
+
         expect(linkCodec.encode).toHaveBeenCalledTimes(1);
+        expect(linkCodec.encode).toHaveBeenCalledWith("serializedData");
     });
 
     it("responds with HTTP 200 and the encoded character data", () => {
