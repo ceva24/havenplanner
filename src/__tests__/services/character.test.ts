@@ -1,7 +1,7 @@
 import { encodeCharacter, loadCharacter } from "@/services/character";
 import { characterClasses } from "@/utils/constants";
-import * as dataSerializer from "@/utils/data-serializer";
-import * as linkCodec from "@/utils/link-codec";
+import * as dataSerializer from "@/services/serializer";
+import * as linkCodec from "@/services/codec";
 
 const character: Character = {
     name: "Test character",

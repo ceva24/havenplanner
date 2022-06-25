@@ -1,4 +1,4 @@
-import { serialize, deserialize } from "@/utils/data-serializer";
+import { serialize, deserialize } from "@/services/serializer";
 import { characterClasses, defaultCharacter } from "@/utils/constants";
 
 describe("data serializer", () => {
