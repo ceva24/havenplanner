@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { serialize } from "@/utils/data-serializer";
-import { encode } from "@/utils/link-codec";
+import { encodeCharacter } from "@/services/character";
 
 interface EncodeCharacterApiResponse {
     encodedCharacterData: string;
@@ -17,9 +16,7 @@ const handler = (request: NextApiRequest, response: NextApiResponse) => {
 
         console.log(`Received request to encode character '${JSON.stringify(character)}'`);
 
-        const serializedCharacterData = serialize(character);
-
-        const encodedCharacterData = encode(serializedCharacterData);
+        const encodedCharacterData = encodeCharacter(character);
 
         console.log(`Encoded character data as '${encodedCharacterData}'`);
 

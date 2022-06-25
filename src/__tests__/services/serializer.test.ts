@@ -1,5 +1,5 @@
-import { serialize, deserialize } from "@/utils/data-serializer";
-import { characterClasses, initialCharacter } from "@/utils/constants";
+import { serialize, deserialize } from "@/services/serializer";
+import { characterClasses, defaultCharacter } from "@/utils/constants";
 
 describe("data serializer", () => {
     it("serializes a character", () => {
@@ -37,6 +37,6 @@ describe("data serializer", () => {
         expect(character.experience).toEqual(240);
         expect(character.gold).toEqual(75);
         expect(character.notes).toEqual("It's a test");
-        expect(character.characterClass).toEqual(initialCharacter.characterClass);
+        expect(character.characterClass).toEqual(defaultCharacter.characterClass);
     });
 });

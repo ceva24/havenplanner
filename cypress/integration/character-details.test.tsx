@@ -8,7 +8,7 @@ describe("character details pane", () => {
     it("shows a list of classes in the class select list", () => {
         cy.visit("/");
 
-        cy.findByRole("button", { name: "Class" }).click();
+        cy.findSelectClassButton().click();
 
         cy.findByRole("listbox", { name: "Class" }).findAllByRole("option").should("have.length", 6);
 

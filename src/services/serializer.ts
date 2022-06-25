@@ -1,4 +1,4 @@
-import { characterClasses, initialCharacter } from "@/utils/constants";
+import { characterClasses, defaultCharacter } from "@/utils/constants";
 
 interface SerializedCharacterData {
     n: string; // Name
@@ -31,7 +31,7 @@ const deserialize = (data: string): Character => {
         characterClass:
             characterClasses.find((characterClass: CharacterClass) => {
                 return characterClass.id === characterData.c;
-            }) ?? initialCharacter.characterClass,
+            }) ?? defaultCharacter.characterClass,
     };
 
     return character;

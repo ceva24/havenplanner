@@ -1,8 +1,8 @@
 declare namespace Cypress {
     interface Chainable {
-        selectClass(className: string): Chainable<Element>;
-
         findCharacterDetailsForm(): Chainable<Element>;
+
+        findSelectClassButton(): Chainable<Element>;
 
         findNameField(): Chainable<Element>;
 
@@ -13,5 +13,7 @@ declare namespace Cypress {
         findGoldField(): Chainable<Element>;
 
         findNotesField(): Chainable<Element>;
+
+        selectClass(className: string): Chainable<Element>;
     }
 }
