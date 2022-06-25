@@ -17,6 +17,15 @@ const customJestConfig = {
     collectCoverage: true,
     collectCoverageFrom: ["<rootDir>/src/**"],
     coveragePathIgnorePatterns: [".*__snapshots__/.*"],
+    moduleNameMapper: {
+        "@/api/(.*)": "<rootDir>/src/pages/api/$1",
+        "@/components/(.*)": "<rootDir>/src/components/$1",
+        "@/pages/(.*)": "<rootDir>/src/pages/$1",
+        "@/data/(.*)": "<rootDir>/data/$1",
+        "@/styles/(.*)": "<rootDir>/src/styles/$1",
+        "@/types": "<rootDir>/src/types/$1",
+        "@/utils/(.*)": "<rootDir>/src/utils/$1",
+    },
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

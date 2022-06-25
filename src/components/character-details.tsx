@@ -1,7 +1,7 @@
 import { Box, TextField } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
-import ClassSelect from "./class-select";
+import ClassSelect from "@/components/class-select";
 
 interface CharacterDetailsProps {
     character: Character;

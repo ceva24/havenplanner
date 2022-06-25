@@ -2,9 +2,9 @@ import { ThemeProvider } from "@emotion/react";
 import { Container, CssBaseline } from "@mui/material";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import Footer from "../components/footer";
-import Header from "../components/header";
-import theme from "../styles/theme";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import theme from "@/styles/theme";
 
 const GloomhavenCharacterPlanner = ({ Component, pageProps }: AppProps) => {
     return (

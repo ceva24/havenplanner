@@ -1,4 +1,4 @@
-import { characterClasses, initialCharacter } from "../utils/constants";
+import { characterClasses, initialCharacter } from "@/utils/constants";
 
 const serialize = (character: Character): string => {
     const characterData: SerializedCharacterData = {

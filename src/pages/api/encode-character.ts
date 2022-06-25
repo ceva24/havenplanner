@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { serialize } from "../../data/data-serializer";
-import { encode } from "../../data/link-codec";
+import { serialize } from "@/utils/data-serializer";
+import { encode } from "@/utils/link-codec";
 
 const handler = (request: NextApiRequest, response: NextApiResponse) => {
     if (request.method !== "POST") {

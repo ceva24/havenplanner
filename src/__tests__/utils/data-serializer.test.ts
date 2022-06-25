@@ -1,5 +1,5 @@
-import { serialize, deserialize } from "../../data/data-serializer";
-import { characterClasses, initialCharacter } from "../../utils/constants";
+import { serialize, deserialize } from "@/utils/data-serializer";
+import { characterClasses, initialCharacter } from "@/utils/constants";
 
 describe("data serializer", () => {
     it("serializes a character", () => {
