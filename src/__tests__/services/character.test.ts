@@ -1,4 +1,4 @@
-import { loadCharacter } from "@/services/character/load";
+import { loadCharacter } from "@/services/character";
 import { characterClasses } from "@/utils/constants";
 import * as dataSerializer from "@/utils/data-serializer";
 import * as linkCodec from "@/utils/link-codec";

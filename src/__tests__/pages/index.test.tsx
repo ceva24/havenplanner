@@ -4,7 +4,7 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps } from "@/pages/index";
 import { characterClasses, initialCharacter } from "@/utils/constants";
-import * as loadCharacterService from "@/services/character/load";
+import * as characterService from "@/services/character";
 
 describe("Index", () => {
     it("renders", () => {
@@ -44,7 +44,7 @@ describe("getServerSideProps", () => {
             characterClass: characterClasses[2],
         };
 
-        jest.spyOn(loadCharacterService, "loadCharacter").mockImplementationOnce(() => character);
+        jest.spyOn(characterService, "loadCharacter").mockImplementationOnce(() => character);
 
         const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
 
@@ -54,7 +54,7 @@ describe("getServerSideProps", () => {
     });
 
     it("returns the default character if loading the character from the query string parameter fails", async () => {
-        jest.spyOn(loadCharacterService, "loadCharacter").mockImplementationOnce(() => {
+        jest.spyOn(characterService, "loadCharacter").mockImplementationOnce(() => {
             throw new Error("Error");
         });
 

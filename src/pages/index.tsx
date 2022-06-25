@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from "next";
 import { Grid } from "@mui/material";
-import { loadCharacter } from "src/services/character/load";
+import { loadCharacter } from "@/services/character";
 import CharacterMat from "@/components/character-mat";
 import CharacterDetails from "@/components/character-details";
 import { characterClasses, initialCharacter } from "@/utils/constants";
