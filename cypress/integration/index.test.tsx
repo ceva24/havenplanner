@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unassigned-import */
 import "@percy/cypress";
 import "@testing-library/cypress/add-commands";
-import "../support/commands";
+import "@/support/commands";
 
 describe("index page", () => {
     it("shows the character details and character mat", () => {
