@@ -4,6 +4,10 @@ import * as dataSerializer from "@/utils/data-serializer";
 import * as linkCodec from "@/utils/link-codec";
 import handler from "@/api/encode-character";
 
+beforeEach(() => {
+    jest.clearAllMocks();
+});
+
 describe("encode character", () => {
     it("responds with HTTP 405 if the request is not a POST", () => {
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
