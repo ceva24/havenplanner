@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { createMocks, Mocks } from "node-mocks-http";
-import * as dataSerializer from "../../../data/data-serializer";
-import * as linkCodec from "../../../data/link-codec";
-import handler from "../../../pages/api/encode-character";
+import * as dataSerializer from "@/utils/data-serializer";
+import * as linkCodec from "@/utils/link-codec";
+import handler from "@/api/encode-character";
 
 describe("encode character", () => {
     it("responds with HTTP 405 if the request is not a POST", () => {

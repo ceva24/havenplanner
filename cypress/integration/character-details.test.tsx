@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unassigned-import */
 import "@testing-library/cypress/add-commands";
-import "../support/commands";
+import "@/support/commands";
 
 const characterClasses = ["Brute", "Scoundrel", "Spellweaver", "Tinkerer", "Mindthief", "Cragheart"];
 

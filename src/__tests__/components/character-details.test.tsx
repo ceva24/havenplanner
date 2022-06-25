@@ -1,5 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
-import CharacterDetails, { calculateLevel } from "../../components/character-details";
+import CharacterDetails, { calculateLevel } from "@/components/character-details";
 
 const character: Character = {
     name: "My Char",

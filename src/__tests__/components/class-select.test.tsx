@@ -1,7 +1,7 @@
 import { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
-import ClassSelect, { findAndSetCharacter } from "../../components/class-select";
-import { characterClasses, initialCharacter } from "../../utils/constants";
+import ClassSelect, { findAndSetCharacter } from "@/components/class-select";
+import { characterClasses, initialCharacter } from "@/utils/constants";
 
 beforeEach(() => {
     jest.clearAllMocks();
