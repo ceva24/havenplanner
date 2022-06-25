@@ -1,13 +1,11 @@
-Cypress.Commands.add("selectClass", (characterClassName) => {
-    cy.findByRole("button", { name: "Class" }).click();
-
-    cy.findByRole("listbox", { name: "Class" }).findByRole("option", { name: characterClassName }).click();
-});
-
 Cypress.Commands.add("findCharacterDetailsForm", () => {
     cy.findByRole("form", {
         name: "Character details form",
     });
+});
+
+Cypress.Commands.add("findSelectClassButton", () => {
+    cy.findByRole("button", { name: "Class" });
 });
 
 Cypress.Commands.add("findNameField", () => {
@@ -28,4 +26,10 @@ Cypress.Commands.add("findGoldField", () => {
 
 Cypress.Commands.add("findNotesField", () => {
     cy.findCharacterDetailsForm().findByRole("textbox", { name: "Notes" });
+});
+
+Cypress.Commands.add("selectClass", (characterClassName) => {
+    cy.findSelectClassButton().click();
+
+    cy.findByRole("listbox", { name: "Class" }).findByRole("option", { name: characterClassName }).click();
 });
