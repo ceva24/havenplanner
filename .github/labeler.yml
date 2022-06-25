@@ -3,7 +3,7 @@ documentation:
   - docs/**/*
 
 test:
-  - src/**/*.test.ts
+  - src/**/*.test.*
   - src/**/*.snap
   - cypress/**/*
 
