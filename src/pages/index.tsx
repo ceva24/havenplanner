@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from "next";
 import { Grid } from "@mui/material";
+import { useRouter } from "next/router";
 import { loadCharacter } from "@/services/character";
 import CharacterMat from "@/components/character-mat";
 import CharacterDetails from "@/components/character-details";
@@ -13,6 +14,12 @@ interface IndexProps {
 
 const Index: NextPage<IndexProps> = ({ initialCharacter, characterClasses }: IndexProps) => {
     const [character, setCharacter] = useState<Character>(initialCharacter);
+
+    const router = useRouter();
+    useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        router?.replace("/", undefined, { shallow: true });
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <Grid container spacing={10} height="100%" minHeight="40rem" justifyContent="center">
