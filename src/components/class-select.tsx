@@ -1,6 +1,6 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel, FormControl } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
-import { initialCharacter } from "@/utils/constants";
+import { defaultCharacter } from "@/utils/constants";
 
 interface ClassSelectProps {
     character: Character;
@@ -48,7 +48,7 @@ const findAndSetCharacter = (
 
     const newCharacter = {
         ...character,
-        characterClass: selectedCharacterClass ?? initialCharacter.characterClass,
+        characterClass: selectedCharacterClass ?? defaultCharacter.characterClass,
     };
 
     setCharacter(newCharacter);

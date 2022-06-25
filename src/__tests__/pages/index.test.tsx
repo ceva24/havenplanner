@@ -3,12 +3,12 @@ import { render, screen } from "@testing-library/react";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps } from "@/pages/index";
-import { characterClasses, initialCharacter } from "@/utils/constants";
+import { characterClasses, defaultCharacter } from "@/utils/constants";
 import * as characterService from "@/services/character";
 
 describe("Index", () => {
     it("renders", () => {
-        render(<Index initialCharacter={initialCharacter} characterClasses={characterClasses} />);
+        render(<Index initialCharacter={defaultCharacter} characterClasses={characterClasses} />);
 
         const characterDetailsForm = screen.queryByRole("form", {
             name: "Character details form",
@@ -32,7 +32,7 @@ describe("getServerSideProps", () => {
             createMockContext({})
         );
 
-        expect(data.props.initialCharacter).toEqual(initialCharacter);
+        expect(data.props.initialCharacter).toEqual(defaultCharacter);
     });
 
     it("loads character details from the query string parameter", async () => {
@@ -62,7 +62,7 @@ describe("getServerSideProps", () => {
 
         const data: InferGetServerSidePropsType<typeof getServerSideProps> = await getServerSideProps(context);
 
-        expect(data.props.initialCharacter).toEqual(initialCharacter);
+        expect(data.props.initialCharacter).toEqual(defaultCharacter);
     });
 });
 

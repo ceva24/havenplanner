@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { loadCharacter } from "@/services/character";
 import CharacterMat from "@/components/character-mat";
 import CharacterDetails from "@/components/character-details";
-import { characterClasses, initialCharacter } from "@/utils/constants";
+import { characterClasses, defaultCharacter } from "@/utils/constants";
 
 interface IndexProps {
     initialCharacter: Character;
@@ -38,7 +38,7 @@ const Index: NextPage<IndexProps> = ({ initialCharacter, characterClasses }: Ind
 };
 
 const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
-    let character = initialCharacter;
+    let character = defaultCharacter;
 
     const characterDataToLoad: string | string[] | undefined = context.query.character;
 

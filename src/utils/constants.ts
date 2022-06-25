@@ -2,7 +2,7 @@ import characterClassData from "@/data/character-classes.json"; // eslint-disabl
 
 const characterClasses: CharacterClass[] = characterClassData;
 
-const initialCharacter: Character = {
+const defaultCharacter: Character = {
     name: "",
     experience: 0,
     gold: 0,
@@ -10,4 +10,4 @@ const initialCharacter: Character = {
     characterClass: characterClasses[0],
 };
 
-export { characterClasses, initialCharacter };
+export { characterClasses, defaultCharacter };

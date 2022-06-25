@@ -1,4 +1,4 @@
-import { decode, encode } from "@/utils/link-codec";
+import { decode, encode } from "@/services/codec";
 
 describe("link code", () => {
     it("compresses and encodes serialized character data", () => {
