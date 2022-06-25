@@ -1,9 +1,9 @@
 import { useState } from "react";
 import type { NextPage, GetStaticProps } from "next";
 import { Grid } from "@mui/material";
-import CharacterMat from "../components/character-mat";
-import CharacterDetails from "../components/character-details";
-import { characterClasses, initialCharacter } from "../utils/constants";
+import CharacterMat from "@/components/character-mat";
+import CharacterDetails from "@/components/character-details";
+import { characterClasses, initialCharacter } from "@/utils/constants";
 
 interface IndexProps {
     initialCharacter: Character;

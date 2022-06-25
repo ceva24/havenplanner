@@ -48,6 +48,7 @@
         "husky": "^8.0.1",
         "jest": "^28.1.0",
         "jest-environment-jsdom": "^28.1.0",
+        "node-mocks-http": "^1.11.0",
         "typescript": "4.6.4",
         "xo": "^0.49.0"
     }

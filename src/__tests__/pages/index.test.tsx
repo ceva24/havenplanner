@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { InferGetStaticPropsType } from "next";
-import Index, { getStaticProps } from "../../pages/index";
-import { characterClasses, initialCharacter } from "../../utils/constants";
+import Index, { getStaticProps } from "@/pages/index";
+import { characterClasses, initialCharacter } from "@/utils/constants";
 
 describe("Index", () => {
     it("renders", () => {

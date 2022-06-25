@@ -1,4 +1,4 @@
-import characterClassData from "../../data/character-classes.json";
+import characterClassData from "@/data/character-classes.json"; // eslint-disable-line import/extensions
 
 const characterClasses: CharacterClass[] = characterClassData;
 
