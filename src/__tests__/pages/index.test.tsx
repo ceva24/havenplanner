@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { InferGetStaticPropsType } from "next";
-import Index, { getStaticProps } from "@/pages/index";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import Index, { getServerSideProps } from "@/pages/index";
 import { characterClasses, initialCharacter } from "@/utils/constants";
 
 describe("Index", () => {
@@ -17,13 +17,17 @@ describe("Index", () => {
 
 describe("getStaticProps", () => {
     it("loads character class data", async () => {
-        const data: InferGetStaticPropsType<typeof getStaticProps> = await getStaticProps({});
+        const data: InferGetServerSidePropsType<typeof getServerSideProps> = await getServerSideProps({
+            query: {},
+        } as GetServerSidePropsContext);
 
         expect(data.props.characterClasses).toEqual(characterClasses);
     });
 
     it("returns an initial character", async () => {
-        const data: InferGetStaticPropsType<typeof getStaticProps> = await getStaticProps({});
+        const data: InferGetServerSidePropsType<typeof getServerSideProps> = await getServerSideProps({
+            query: {},
+        } as GetServerSidePropsContext);
 
         expect(data.props.initialCharacter).toEqual(initialCharacter);
     });
