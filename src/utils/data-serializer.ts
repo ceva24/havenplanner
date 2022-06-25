@@ -1,5 +1,13 @@
 import { characterClasses, initialCharacter } from "@/utils/constants";
 
+interface SerializedCharacterData {
+    n: string; // Name
+    x: number; // Experience
+    g: number; // Gold
+    d: string; // Notes
+    c: number; // Character id
+}
+
 const serialize = (character: Character): string => {
     const characterData: SerializedCharacterData = {
         n: character.name,

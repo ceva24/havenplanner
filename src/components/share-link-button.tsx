@@ -22,7 +22,7 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
             });
 
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            const responseData: EncodeCharacterResponse = await response.json();
+            const responseData: EncodeCharacterApiResponse = await response.json();
 
             setShareableLink(`${location.origin}?character=${responseData.encodedCharacterData}`);
         } catch {

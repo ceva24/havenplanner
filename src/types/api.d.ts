@@ -1,0 +1,3 @@
+interface EncodeCharacterApiResponse {
+    encodedCharacterData: string;
+}
