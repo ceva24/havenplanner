@@ -36,4 +36,22 @@ describe("index page", () => {
 
         cy.get("footer").should("exist");
     });
+
+    it("loads character details from the query string", () => {
+        cy.visit(
+            "/?character=Cx6AeyJuIjoiVGVzdCBDaGFyYWN0ZXIiLCJ4IjoyNDAsImciOjc1LCJkIjoiSXQncyBhIHRlc3QiLCJjIjoyfQM="
+        );
+
+        cy.findNameField().should("have.value", "Test Character");
+
+        cy.findSelectClassButton().should("have.text", "Spellweaver");
+    });
+
+    it("clears the query string after loading character details from it", () => {
+        cy.visit(
+            "/?character=Cx6AeyJuIjoiVGVzdCBDaGFyYWN0ZXIiLCJ4IjoyNDAsImciOjc1LCJkIjoiSXQncyBhIHRlc3QiLCJjIjoyfQM="
+        );
+
+        cy.location("search").should("equal", "");
+    });
 });

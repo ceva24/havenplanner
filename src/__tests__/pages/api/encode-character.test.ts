@@ -1,8 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { createMocks, Mocks } from "node-mocks-http";
-import * as dataSerializer from "@/utils/data-serializer";
-import * as linkCodec from "@/utils/link-codec";
+import * as characterService from "@/services/character";
 import handler from "@/api/encode-character";
+
+beforeEach(() => {
+    jest.clearAllMocks();
+});
 
 describe("encode character", () => {
     it("responds with HTTP 405 if the request is not a POST", () => {
@@ -15,22 +18,21 @@ describe("encode character", () => {
         expect(res._getJSONData()).toEqual({ message: "405 Method Not Allowed" });
     });
 
-    it("serializes and encodes character data", () => {
-        jest.spyOn(dataSerializer, "serialize").mockImplementationOnce(() => "");
-        jest.spyOn(linkCodec, "encode").mockImplementationOnce(() => "");
+    it("encodes character data", () => {
+        jest.spyOn(characterService, "encodeCharacter").mockImplementationOnce(() => "");
 
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
         req.method = "POST";
+        req.body = "test";
 
         handler(req, res);
 
-        expect(dataSerializer.serialize).toHaveBeenCalledTimes(1);
-        expect(linkCodec.encode).toHaveBeenCalledTimes(1);
+        expect(characterService.encodeCharacter).toHaveBeenCalledTimes(1);
+        expect(characterService.encodeCharacter).toHaveBeenCalledWith("test");
     });
 
     it("responds with HTTP 200 and the encoded character data", () => {
-        jest.spyOn(dataSerializer, "serialize").mockImplementationOnce(() => "");
-        jest.spyOn(linkCodec, "encode").mockImplementationOnce(() => "abcdefg");
+        jest.spyOn(characterService, "encodeCharacter").mockImplementationOnce(() => "abcdefg");
 
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
         req.method = "POST";
@@ -53,7 +55,7 @@ describe("encode character", () => {
     });
 
     it("responds with HTTP 500 when an unexpected error occurs", () => {
-        jest.spyOn(dataSerializer, "serialize").mockImplementationOnce(() => {
+        jest.spyOn(characterService, "encodeCharacter").mockImplementationOnce(() => {
             throw new Error("Error");
         });
 
