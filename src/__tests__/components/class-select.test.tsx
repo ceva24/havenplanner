@@ -1,7 +1,7 @@
 import { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import ClassSelect, { findAndSetCharacter } from "@/components/class-select";
-import { characterClasses, initialCharacter } from "@/utils/constants";
+import { characterClasses, defaultCharacter } from "@/utils/constants";
 
 beforeEach(() => {
     jest.clearAllMocks();
@@ -43,7 +43,7 @@ describe("findAndSetCharacter", () => {
         });
     });
 
-    it("sets the character details to initial values when the selected class does not exist", () => {
+    it("sets the character details to default values when the selected class does not exist", () => {
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = {
             target: { value: "Invalid class" },
@@ -54,7 +54,7 @@ describe("findAndSetCharacter", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            characterClass: initialCharacter.characterClass,
+            characterClass: defaultCharacter.characterClass,
         });
     });
 });
