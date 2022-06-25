@@ -12,3 +12,11 @@ interface CharacterClass {
     characterIconImageUrl: string;
     characterMatImageUrl: string;
 }
+
+interface SerializedCharacterData {
+    n: string; // Name
+    x: number; // Experience
+    g: number; // Gold
+    d: string; // Notes
+    c: number; // Character id
+}
