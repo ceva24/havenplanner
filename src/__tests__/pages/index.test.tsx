@@ -20,17 +20,17 @@ describe("Index", () => {
 
 describe("getServerSideProps", () => {
     it("loads character class data", async () => {
-        const data: InferGetServerSidePropsType<typeof getServerSideProps> = await getServerSideProps({
-            query: {},
-        } as GetServerSidePropsContext);
+        const data: InferGetServerSidePropsType<typeof getServerSideProps> = await getServerSideProps(
+            createMockContext({})
+        );
 
         expect(data.props.characterClasses).toEqual(characterClasses);
     });
 
     it("returns the default character", async () => {
-        const data: InferGetServerSidePropsType<typeof getServerSideProps> = await getServerSideProps({
-            query: {},
-        } as GetServerSidePropsContext);
+        const data: InferGetServerSidePropsType<typeof getServerSideProps> = await getServerSideProps(
+            createMockContext({})
+        );
 
         expect(data.props.initialCharacter).toEqual(initialCharacter);
     });
@@ -46,11 +46,7 @@ describe("getServerSideProps", () => {
 
         jest.spyOn(loadCharacterService, "loadCharacter").mockImplementationOnce(() => character);
 
-        const context: GetServerSidePropsContext = {
-            ...createMocks(),
-            query: { character: "abc" },
-            resolvedUrl: "",
-        };
+        const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
 
         const data: InferGetServerSidePropsType<typeof getServerSideProps> = await getServerSideProps(context);
 
@@ -62,14 +58,18 @@ describe("getServerSideProps", () => {
             throw new Error("Error");
         });
 
-        const context: GetServerSidePropsContext = {
-            ...createMocks(),
-            query: { character: "abc" },
-            resolvedUrl: "",
-        };
+        const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
 
         const data: InferGetServerSidePropsType<typeof getServerSideProps> = await getServerSideProps(context);
 
         expect(data.props.initialCharacter).toEqual(initialCharacter);
     });
 });
+
+const createMockContext = (query: ParsedUrlQuery): GetServerSidePropsContext => {
+    return {
+        ...createMocks(),
+        query,
+        resolvedUrl: "",
+    };
+};
