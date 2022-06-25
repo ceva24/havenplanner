@@ -2,6 +2,10 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { serialize } from "@/utils/data-serializer";
 import { encode } from "@/utils/link-codec";
 
+interface EncodeCharacterApiResponse {
+    encodedCharacterData: string;
+}
+
 const handler = (request: NextApiRequest, response: NextApiResponse) => {
     if (request.method !== "POST") {
         response.status(405).json({ message: "405 Method Not Allowed" });
@@ -34,3 +38,4 @@ const handler = (request: NextApiRequest, response: NextApiResponse) => {
 };
 
 export default handler;
+export type { EncodeCharacterApiResponse };

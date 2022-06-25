@@ -2,6 +2,7 @@ import { Button, Typography } from "@mui/material";
 import ShareIcon from "@mui/icons-material/Share";
 import { useState } from "react";
 import ShareLinkModal from "./share-link-modal";
+import { EncodeCharacterApiResponse } from "@/pages/api/encode-character";
 
 interface CreateLinkButtonProps {
     character: Character;
