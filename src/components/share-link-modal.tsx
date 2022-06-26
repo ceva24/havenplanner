@@ -1,5 +1,5 @@
 import { Modal, Paper, Stack, Typography, Box, TextField, IconButton } from "@mui/material";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import CopyLinkButton from "./copy-link-button";
 
 interface ShareLinkModalProps {
     shareableLink: string;
@@ -30,13 +30,7 @@ const ShareLinkModal = ({ shareableLink, encodeCharacterError, isOpen, onClose }
 
                     <Box component="form" sx={{ display: "flex", alignItems: "center", width: "100%" }}>
                         <TextField sx={{ flex: 1 }} value={value} placeholder="Loading..." />
-                        <IconButton
-                            color="primary"
-                            sx={{ padding: "1rem", marginLeft: "1rem", color: "#c09172" }}
-                            aria-label="directions"
-                        >
-                            <ContentCopyIcon />
-                        </IconButton>
+                        <CopyLinkButton shareableLink={shareableLink} encodeCharacterError={encodeCharacterError} />
                     </Box>
                 </Stack>
             </Paper>
