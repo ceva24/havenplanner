@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unassigned-import */
-import "@percy/cypress";
 import "@testing-library/cypress/add-commands";
 import "@/support/commands";
 
@@ -8,10 +7,6 @@ describe("index page", () => {
         cy.visit("/");
 
         cy.findCharacterDetailsForm().should("be.visible");
-
-        cy.wait(10_000); // For images to load
-
-        cy.percySnapshot();
     });
 
     it("sets the page title", () => {
@@ -42,9 +37,8 @@ describe("index page", () => {
             "/?character=Cx6AeyJuIjoiVGVzdCBDaGFyYWN0ZXIiLCJ4IjoyNDAsImciOjc1LCJkIjoiSXQncyBhIHRlc3QiLCJjIjoyfQM="
         );
 
-        cy.findNameField().should("have.value", "Test Character");
-
         cy.findSelectClassButton().should("have.text", "Spellweaver");
+        cy.findNameField().should("have.value", "Test Character");
     });
 
     it("clears the query string after loading character details from it", () => {

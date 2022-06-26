@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Index page",
+        "url": "http://localhost:3000",
+        "waitForTimeout": 10000
+    }
+]
