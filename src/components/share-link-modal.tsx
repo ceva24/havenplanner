@@ -23,7 +23,6 @@ const ShareLinkModal = ({ shareableLink, isOpen, onClose }: ShareLinkModalProps)
                 }}
             >
                 <Stack spacing={1}>
-                    <Typography variant="h2">Share</Typography>
                     <Typography>Copy the link below to share this character:</Typography>
 
                     <Box component="form" sx={{ display: "flex", alignItems: "center", width: "100%" }}>
