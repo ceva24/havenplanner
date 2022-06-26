@@ -1,6 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import ShareIcon from "@mui/icons-material/Share";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ShareLinkModal from "./share-link-modal";
 import { EncodeCharacterApiResponse } from "@/pages/api/encode-character";
 
@@ -12,28 +12,33 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
     const [shareLinkModalOpen, setShareLinkModalOpen] = useState<boolean>(false);
     const [shareableLink, setShareableLink] = useState<string>("");
 
+    useEffect(() => {
+        setShareableLink("");
+    }, [character]);
+
     const handleOpen = async () => {
         setShareLinkModalOpen(true);
 
-        try {
-            const response = await fetch("/api/encode-character", {
-                method: "POST",
-                body: JSON.stringify(character),
-                headers: { "Content-Type": "application/json" },
-            });
+        if (!shareableLink) {
+            try {
+                const response = await fetch("/api/encode-character", {
+                    method: "POST",
+                    body: JSON.stringify(character),
+                    headers: { "Content-Type": "application/json" },
+                });
 
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            const responseData: EncodeCharacterApiResponse = await response.json();
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                const responseData: EncodeCharacterApiResponse = await response.json();
 
-            setShareableLink(`${location.origin}?character=${responseData.encodedCharacterData}`);
-        } catch {
-            setShareableLink("Error");
+                setShareableLink(`${location.origin}?character=${responseData.encodedCharacterData}`);
+            } catch {
+                setShareableLink("Error");
+            }
         }
     };
 
     const handleClose = () => {
         setShareLinkModalOpen(false);
-        setShareableLink("");
     };
 
     return (
