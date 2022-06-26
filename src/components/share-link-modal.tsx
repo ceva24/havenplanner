@@ -32,10 +32,10 @@ const ShareLinkModal = ({ shareableLink, encodeCharacterError, isOpen, onClose }
                         <TextField sx={{ flex: 1 }} value={value} placeholder="Loading..." />
                         <IconButton
                             color="primary"
-                            sx={{ padding: "1rem", marginLeft: "1rem" }}
+                            sx={{ padding: "1rem", marginLeft: "1rem", color: "#c09172" }}
                             aria-label="directions"
                         >
-                            <ContentCopyIcon color="primary" />
+                            <ContentCopyIcon />
                         </IconButton>
                     </Box>
                 </Stack>
