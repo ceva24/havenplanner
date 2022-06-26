@@ -3,11 +3,14 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 interface ShareLinkModalProps {
     shareableLink: string;
+    encodeCharacterError: boolean;
     isOpen: boolean;
     onClose: () => void;
 }
 
-const ShareLinkModal = ({ shareableLink, isOpen, onClose }: ShareLinkModalProps) => {
+const ShareLinkModal = ({ shareableLink, encodeCharacterError, isOpen, onClose }: ShareLinkModalProps) => {
+    const value = encodeCharacterError ? "Error" : shareableLink;
+
     return (
         <Modal open={isOpen} onClose={onClose}>
             <Paper
@@ -26,7 +29,7 @@ const ShareLinkModal = ({ shareableLink, isOpen, onClose }: ShareLinkModalProps)
                     <Typography>Copy the link below to share this character:</Typography>
 
                     <Box component="form" sx={{ display: "flex", alignItems: "center", width: "100%" }}>
-                        <TextField sx={{ flex: 1 }} value={shareableLink} placeholder="Loading..." />
+                        <TextField sx={{ flex: 1 }} value={value} placeholder="Loading..." />
                         <IconButton
                             color="primary"
                             sx={{ padding: "1rem", marginLeft: "1rem" }}

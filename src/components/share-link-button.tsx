@@ -11,6 +11,7 @@ interface CreateLinkButtonProps {
 const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
     const [shareLinkModalOpen, setShareLinkModalOpen] = useState<boolean>(false);
     const [shareableLink, setShareableLink] = useState<string>("");
+    const [encodeCharacterError, setEncodeCharacterError] = useState<boolean>(false);
 
     useEffect(() => {
         setShareableLink("");
@@ -27,18 +28,27 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
                     headers: { "Content-Type": "application/json" },
                 });
 
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                const responseData: EncodeCharacterApiResponse = await response.json();
+                if (response.status === 200) {
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                    const { encodedCharacterData }: EncodeCharacterApiResponse = await response.json();
 
-                setShareableLink(`${location.origin}?character=${responseData.encodedCharacterData}`);
+                    if (encodedCharacterData) {
+                        setShareableLink(`${location.origin}?character=${encodedCharacterData}`);
+                    } else {
+                        setEncodeCharacterError(true);
+                    }
+                } else {
+                    setEncodeCharacterError(true);
+                }
             } catch {
-                setShareableLink("Error");
+                setEncodeCharacterError(true);
             }
         }
     };
 
     const handleClose = () => {
         setShareLinkModalOpen(false);
+        setEncodeCharacterError(false);
     };
 
     return (
@@ -46,7 +56,12 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
             <Button variant="contained" startIcon={<ShareIcon />} sx={{ margin: "1%" }} onClick={handleOpen}>
                 <Typography variant="body1">Share</Typography>
             </Button>
-            <ShareLinkModal shareableLink={shareableLink} isOpen={shareLinkModalOpen} onClose={handleClose} />
+            <ShareLinkModal
+                shareableLink={shareableLink}
+                encodeCharacterError={encodeCharacterError}
+                isOpen={shareLinkModalOpen}
+                onClose={handleClose}
+            />
         </>
     );
 };
