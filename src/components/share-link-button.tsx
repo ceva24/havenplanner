@@ -9,8 +9,8 @@ interface CreateLinkButtonProps {
 }
 
 const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
-    const [shareLinkModalOpen, setShareLinkModalOpen] = useState<boolean>(false);
     const [shareableLink, setShareableLink] = useState<string>("");
+    const [shareLinkModalOpen, setShareLinkModalOpen] = useState<boolean>(false);
     const [encodeCharacterError, setEncodeCharacterError] = useState<boolean>(false);
 
     useEffect(() => {
