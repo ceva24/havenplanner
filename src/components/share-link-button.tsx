@@ -1,7 +1,7 @@
 import { Button, Typography } from "@mui/material";
 import ShareIcon from "@mui/icons-material/Share";
 import { useEffect, useState } from "react";
-import ShareLinkModal from "./share-link-modal";
+import ShareLinkDialog from "./share-link-dialog";
 import { EncodeCharacterApiResponse } from "@/pages/api/encode-character";
 
 interface CreateLinkButtonProps {
@@ -10,7 +10,7 @@ interface CreateLinkButtonProps {
 
 const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
     const [shareableLink, setShareableLink] = useState<string>("");
-    const [shareLinkModalOpen, setShareLinkModalOpen] = useState<boolean>(false);
+    const [shareLinkDialogOpen, setShareLinkDialogOpen] = useState<boolean>(false);
     const [encodeCharacterError, setEncodeCharacterError] = useState<boolean>(false);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
     }, [character]);
 
     const handleOpen = async () => {
-        setShareLinkModalOpen(true);
+        setShareLinkDialogOpen(true);
 
         if (!shareableLink) {
             try {
@@ -47,7 +47,7 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
     };
 
     const handleClose = () => {
-        setShareLinkModalOpen(false);
+        setShareLinkDialogOpen(false);
         setEncodeCharacterError(false);
     };
 
@@ -62,10 +62,10 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
             >
                 <Typography variant="body1">Share</Typography>
             </Button>
-            <ShareLinkModal
+            <ShareLinkDialog
                 shareableLink={shareableLink}
                 encodeCharacterError={encodeCharacterError}
-                isOpen={shareLinkModalOpen}
+                isOpen={shareLinkDialogOpen}
                 onClose={handleClose}
             />
         </>
