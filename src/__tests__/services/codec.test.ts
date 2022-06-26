@@ -1,13 +1,13 @@
 import { decode, encode } from "@/services/codec";
 
-describe("link code", () => {
+describe("link codec", () => {
     it("compresses and encodes serialized character data", () => {
         const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2}`;
 
         const encodedData = encode(data);
 
         expect(encodedData).toEqual(
-            "Cx6AeyJuIjoiVGVzdCBDaGFyYWN0ZXIiLCJ4IjoyNDAsImciOjc1LCJkIjoiSXQncyBhIHRlc3QiLCJjIjoyfQM="
+            "Cx6AeyJuIjoiVGVzdCBDaGFyYWN0ZXIiLCJ4IjoyNDAsImciOjc1LCJkIjoiSXQncyBhIHRlc3QiLCJjIjoyfQM%3D"
         );
     });
 
@@ -17,12 +17,13 @@ describe("link code", () => {
         const encodedData = encode(data);
 
         expect(encodedData).toEqual(
-            "G00A+C0O7LYtS1wyXf6I2kg5vidieauFmNg0WRH+bjP9QzLJzGSbTQuKBSZ0UkTmphSJKWiIFvkscLDCwo4DNjy8kWQSbPF8UVAySSM7nAw="
+            "G00A%2BC0O7LYtS1wyXf6I2kg5vidieauFmNg0WRH%2BbjP9QzLJzGSbTQuKBSZ0UkTmphSJKWiIFvkscLDCwo4DNjy8kWQSbPF8UVAySSM7nAw%3D"
         );
     });
 
     it("decodes and decompresses encoded character data", () => {
-        const encodedData = "Cx6AeyJuIjoiVGVzdCBDaGFyYWN0ZXIiLCJ4IjoyNDAsImciOjc1LCJkIjoiSXQncyBhIHRlc3QiLCJjIjoyfQM=";
+        const encodedData =
+            "Cx6AeyJuIjoiVGVzdCBDaGFyYWN0ZXIiLCJ4IjoyNDAsImciOjc1LCJkIjoiSXQncyBhIHRlc3QiLCJjIjoyfQM%3D";
 
         const data = decode(encodedData);
 
@@ -31,7 +32,7 @@ describe("link code", () => {
 
     it("decodes and decompresses encoded character data with unicode characters", () => {
         const encodedData =
-            "G00A+C0O7LYtS1wyXf6I2kg5vidieauFmNg0WRH+bjP9QzLJzGSbTQuKBSZ0UkTmphSJKWiIFvkscLDCwo4DNjy8kWQSbPF8UVAySSM7nAw=";
+            "G00A%2BC0O7LYtS1wyXf6I2kg5vidieauFmNg0WRH%2BbjP9QzLJzGSbTQuKBSZ0UkTmphSJKWiIFvkscLDCwo4DNjy8kWQSbPF8UVAySSM7nAw%3D";
 
         const data = decode(encodedData);
 
