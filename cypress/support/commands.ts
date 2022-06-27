@@ -28,6 +28,18 @@ Cypress.Commands.add("findNotesField", () => {
     cy.findCharacterDetailsForm().findByRole("textbox", { name: "Notes" });
 });
 
+Cypress.Commands.add("findShareLinkButton", () => {
+    cy.findCharacterDetailsForm().findByRole("button", { name: "Share" });
+});
+
+Cypress.Commands.add("findShareLinkDialog", () => {
+    cy.findByRole("dialog", { name: "Share link" });
+});
+
+Cypress.Commands.add("findShareLinkTextBox", () => {
+    cy.findShareLinkDialog().findByRole("textbox", { name: "Link" });
+});
+
 Cypress.Commands.add("selectClass", (characterClassName) => {
     cy.findSelectClassButton().click();
 
