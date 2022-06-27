@@ -36,7 +36,7 @@ const ShareLinkDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose 
                                 sx={{ flex: 1 }}
                                 value={value}
                                 placeholder="Loading..."
-                                label="Link"
+                                inputProps={{ "aria-label": "Link" }}
                             />
                             <CopyLinkButton shareableLink={shareableLink} encodeCharacterError={encodeCharacterError} />
                         </Box>
