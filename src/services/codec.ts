@@ -4,11 +4,15 @@ import { Buffer } from "node:buffer";
 const encode = (data: string): string => {
     const compressedData: Buffer = zlib.brotliCompressSync(data);
 
-    return compressedData.toString("base64");
+    const base64Data = compressedData.toString("base64");
+
+    return encodeURIComponent(base64Data);
 };
 
 const decode = (encodedCompressedData: string): string => {
-    const compressedData: string = Buffer.from(encodedCompressedData, "base64").toString("latin1");
+    const uriDecodedData = decodeURIComponent(encodedCompressedData);
+
+    const compressedData: string = Buffer.from(uriDecodedData, "base64").toString("latin1");
 
     const compressedDataArray: Uint8Array = Uint8Array.from(
         compressedData.split("").map((character: string) => {

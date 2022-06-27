@@ -14,6 +14,12 @@ declare namespace Cypress {
 
         findNotesField(): Chainable<Element>;
 
+        findShareLinkButton(): Chainable<Element>;
+
+        findShareLinkDialog(): Chainable<Element>;
+
+        findShareLinkTextBox(): Chainable<Element>;
+
         selectClass(className: string): Chainable<Element>;
     }
 }

@@ -1,6 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { encodeCharacter } from "@/services/character";
 
+interface EncodeCharacterApiResponse {
+    encodedCharacterData: string;
+}
+
 const handler = (request: NextApiRequest, response: NextApiResponse) => {
     if (request.method !== "POST") {
         response.status(405).json({ message: "405 Method Not Allowed" });
@@ -16,7 +20,9 @@ const handler = (request: NextApiRequest, response: NextApiResponse) => {
 
         console.log(`Encoded character data as '${encodedCharacterData}'`);
 
-        response.status(200).json({ encodedCharacterData });
+        const responseBody: EncodeCharacterApiResponse = { encodedCharacterData };
+
+        response.status(200).json(responseBody);
     } catch (error: unknown) {
         console.error(error);
 
@@ -29,3 +35,4 @@ const handler = (request: NextApiRequest, response: NextApiResponse) => {
 };
 
 export default handler;
+export type { EncodeCharacterApiResponse };

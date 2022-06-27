@@ -1,6 +1,7 @@
 import { Box, TextField } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
+import ShareLinkButton from "@/components/share-link-button";
 import ClassSelect from "@/components/class-select";
 
 interface CharacterDetailsProps {
@@ -72,6 +73,9 @@ const CharacterDetails = ({ character, setCharacter, characterClasses }: Charact
                     value={character.notes}
                     onChange={handleChange("notes", false)}
                 />
+            </div>
+            <div>
+                <ShareLinkButton character={character} />
             </div>
         </Box>
     );
