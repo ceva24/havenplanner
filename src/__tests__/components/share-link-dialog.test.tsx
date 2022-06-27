@@ -5,17 +5,17 @@ describe("share link dialog", () => {
     it("renders the dialog", () => {
         render(<ShareLinkDialog isOpen shareableLink="" encodeCharacterError={false} onClose={() => ""} />);
 
-        const shareLinkModal = screen.queryByRole("dialog", { name: "Share link" });
+        const sharelinkDialog = screen.queryByRole("dialog", { name: "Share link" });
 
-        expect(shareLinkModal).toBeInTheDocument();
+        expect(sharelinkDialog).toBeInTheDocument();
     });
 
     it("renders the shareable link", () => {
         render(<ShareLinkDialog isOpen shareableLink="Test link" encodeCharacterError={false} onClose={() => ""} />);
 
-        const shareLinkModal = screen.getByRole("dialog", { name: "Share link" });
+        const shareLinkDialog = screen.getByRole("dialog", { name: "Share link" });
 
-        const shareableLinkTextField = within(shareLinkModal).queryByRole("textbox", { name: "Link" });
+        const shareableLinkTextField = within(shareLinkDialog).queryByRole("textbox", { name: "Link" });
 
         expect(shareableLinkTextField).toHaveValue("Test link");
     });
@@ -23,9 +23,9 @@ describe("share link dialog", () => {
     it("renders an error message when an error has occurred encoding character data", () => {
         render(<ShareLinkDialog encodeCharacterError isOpen shareableLink="Test link" onClose={() => ""} />);
 
-        const shareLinkModal = screen.getByRole("dialog", { name: "Share link" });
+        const shareLinkDialog = screen.getByRole("dialog", { name: "Share link" });
 
-        const shareableLinkTextField = within(shareLinkModal).queryByRole("textbox", { name: "Link" });
+        const shareableLinkTextField = within(shareLinkDialog).queryByRole("textbox", { name: "Link" });
 
         expect(shareableLinkTextField).toHaveValue("Error");
     });
