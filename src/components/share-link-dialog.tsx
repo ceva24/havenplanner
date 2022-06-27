@@ -1,4 +1,13 @@
-import { Stack, Typography, Box, TextField, Dialog, DialogContent, DialogContentText } from "@mui/material";
+import {
+    Stack,
+    Typography,
+    Box,
+    TextField,
+    Dialog,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+} from "@mui/material";
 import CopyLinkButton from "./copy-link-button";
 
 interface ShareLinkDialogProps {
@@ -12,14 +21,23 @@ const ShareLinkDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose 
     const value = encodeCharacterError ? "Error" : shareableLink;
 
     return (
-        <Dialog open={isOpen} sx={{ bottom: 300 }} aria-label="Share link" onClose={onClose}>
+        <Dialog open={isOpen} sx={{ bottom: 300 }} aria-labelledby="share-link-dialog-title" onClose={onClose}>
+            <span id="share-link-dialog-title" style={{ display: "none" }}>
+                Share link
+            </span>
             <DialogContent sx={{ backgroundColor: "#0f0302" }}>
                 <DialogContentText>
                     <Stack spacing={1}>
                         <Typography>Copy the link below to share this character:</Typography>
 
                         <Box component="form" sx={{ display: "flex", alignItems: "center", width: "100%" }}>
-                            <TextField sx={{ flex: 1 }} value={value} placeholder="Loading..." />
+                            <TextField
+                                hiddenLabel
+                                sx={{ flex: 1 }}
+                                value={value}
+                                placeholder="Loading..."
+                                label="Link"
+                            />
                             <CopyLinkButton shareableLink={shareableLink} encodeCharacterError={encodeCharacterError} />
                         </Box>
                     </Stack>
