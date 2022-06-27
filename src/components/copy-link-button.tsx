@@ -36,6 +36,7 @@ const CopyLinkButton = ({ shareableLink, encodeCharacterError }: CopyLinkButtonP
                     <IconButton
                         sx={{ padding: "1rem", marginLeft: "1rem", color: "#c09172" }}
                         disabled={encodeCharacterError || !shareableLink}
+                        aria-label="Copy link"
                         onClick={copyLink}
                     >
                         <ContentCopyIcon />
