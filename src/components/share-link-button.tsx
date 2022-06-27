@@ -1,6 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import ShareIcon from "@mui/icons-material/Share";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ShareLinkDialog from "./share-link-dialog";
 import { EncodeCharacterApiResponse } from "@/pages/api/encode-character";
 
@@ -17,33 +17,10 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
         setShareableLink("");
     }, [character]);
 
-    const handleOpen = async () => {
+    const handleOpen = () => {
         setShareLinkDialogOpen(true);
 
-        if (!shareableLink) {
-            try {
-                const response = await fetch("/api/encode-character", {
-                    method: "POST",
-                    body: JSON.stringify(character),
-                    headers: { "Content-Type": "application/json" },
-                });
-
-                if (response.status === 200) {
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                    const { encodedCharacterData }: EncodeCharacterApiResponse = await response.json();
-
-                    if (encodedCharacterData) {
-                        setShareableLink(`${location.origin}?character=${encodedCharacterData}`);
-                    } else {
-                        setEncodeCharacterError(true);
-                    }
-                } else {
-                    setEncodeCharacterError(true);
-                }
-            } catch {
-                setEncodeCharacterError(true);
-            }
-        }
+        void retrieveAndSetShareableLink(character, shareableLink, setShareableLink, setEncodeCharacterError);
     };
 
     const handleClose = () => {
@@ -72,4 +49,37 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
     );
 };
 
+const retrieveAndSetShareableLink = async (
+    character: Character,
+    shareableLink: string,
+    setShareableLink: Dispatch<SetStateAction<string>>,
+    setEncodeCharacterError: Dispatch<SetStateAction<boolean>>
+) => {
+    if (!shareableLink) {
+        try {
+            const response = await fetch("/api/encode-character", {
+                method: "POST",
+                body: JSON.stringify(character),
+                headers: { "Content-Type": "application/json" },
+            });
+
+            if (response.status === 200) {
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                const { encodedCharacterData }: EncodeCharacterApiResponse = await response.json();
+
+                if (encodedCharacterData) {
+                    setShareableLink(`${location.origin}?character=${encodedCharacterData}`);
+                } else {
+                    setEncodeCharacterError(true);
+                }
+            } else {
+                setEncodeCharacterError(true);
+            }
+        } catch {
+            setEncodeCharacterError(true);
+        }
+    }
+};
+
 export default ShareLinkButton;
+export { retrieveAndSetShareableLink };
