@@ -17,8 +17,7 @@ const Index: NextPage<IndexProps> = ({ initialCharacter, characterClasses }: Ind
 
     const router = useRouter();
     useEffect(() => {
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
-        router?.replace("/", undefined, { shallow: true });
+        void router?.replace("/", undefined, { shallow: true });
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
