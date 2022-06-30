@@ -7,28 +7,16 @@ import { characterClasses, defaultCharacter } from "@/utils/constants";
 import * as characterService from "@/services/character";
 
 describe("Index", () => {
-    it("renders the tabs", () => {
-        render(<Index initialCharacter={defaultCharacter} characterClasses={characterClasses} />);
+    it("renders the tabbed content", () => {
+        render(<Index initialCharacter={defaultCharacter} />);
 
         const profileTab = screen.getByRole("tab", { name: "Profile" });
-        const deckTab = screen.getByRole("tab", { name: "Deck" });
-        const perksTab = screen.getByRole("tab", { name: "Perks" });
 
         expect(profileTab).toBeInTheDocument();
-        expect(deckTab).toBeInTheDocument();
-        expect(perksTab).toBeInTheDocument();
     });
 });
 
 describe("getServerSideProps", () => {
-    it("loads character class data", async () => {
-        const data: InferGetServerSidePropsType<typeof getServerSideProps> = await getServerSideProps(
-            createMockContext({})
-        );
-
-        expect(data.props.characterClasses).toEqual(characterClasses);
-    });
-
     it("returns the default character", async () => {
         const data: InferGetServerSidePropsType<typeof getServerSideProps> = await getServerSideProps(
             createMockContext({})

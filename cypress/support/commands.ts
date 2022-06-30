@@ -33,7 +33,7 @@ Cypress.Commands.add("findShareLinkButton", () => {
 });
 
 Cypress.Commands.add("findShareLinkDialog", () => {
-    cy.findByRole("dialog", { name: "Share link" });
+    cy.findByRole("dialog", { name: "Share" });
 });
 
 Cypress.Commands.add("findShareLinkTextBox", () => {

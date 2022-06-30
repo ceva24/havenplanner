@@ -1,16 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import CharacterMat from "@/components/profile/character-mat";
+import { characterClasses } from "@/utils/constants";
 
 describe("Character Mat", () => {
     it("renders", () => {
-        const characterClass: CharacterClass = {
-            id: 0,
-            name: "Test",
-            characterIconImageUrl: "/character-icons/gloomhaven/gh-brute.png",
-            characterMatImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
-        };
-
-        render(<CharacterMat characterClass={characterClass} />);
+        render(<CharacterMat characterClass={characterClasses[0]} />);
 
         const characterMat = screen.queryByRole("img", {
             name: "Character mat",

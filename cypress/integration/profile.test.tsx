@@ -108,4 +108,10 @@ describe("character details pane", () => {
         cy.findExperienceField().should("have.value", "123");
         cy.findGoldField().should("have.value", "123");
     });
+
+    it("shows the character mat", () => {
+        cy.visit("/");
+
+        cy.findByRole("img", { name: "Character mat" }).should("be.visible");
+    });
 });

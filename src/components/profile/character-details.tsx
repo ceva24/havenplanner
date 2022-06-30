@@ -7,10 +7,9 @@ import ClassSelect from "@/components/profile/class-select";
 interface CharacterDetailsProps {
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
-    characterClasses: CharacterClass[];
 }
 
-const CharacterDetails = ({ character, setCharacter, characterClasses }: CharacterDetailsProps) => {
+const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) => {
     const handleChange = (fieldName: string, isNumber: boolean) => (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = isNumber ? Number.parseInt(event.target.value, 10) || 0 : event.target.value;
 
@@ -20,7 +19,7 @@ const CharacterDetails = ({ character, setCharacter, characterClasses }: Charact
     return (
         <Box id="character-details-form" aria-label="Character details form" component="form">
             <div>
-                <ClassSelect character={character} setCharacter={setCharacter} characterClasses={characterClasses} />
+                <ClassSelect character={character} setCharacter={setCharacter} />
                 <Image
                     layout="fixed"
                     src={character.characterClass.characterIconImageUrl}
