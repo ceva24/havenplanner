@@ -3,9 +3,8 @@ import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from "ne
 import { Box, Divider, Grid, Tab, Tabs } from "@mui/material";
 import { useRouter } from "next/router";
 import { loadCharacter } from "@/services/character";
-import CharacterMat from "@/components/profile/character-mat";
-import CharacterDetails from "@/components/profile/character-details";
 import { characterClasses, defaultCharacter } from "@/utils/constants";
+import Profile from "@/components/profile";
 
 interface IndexProps {
     initialCharacter: Character;
@@ -14,16 +13,15 @@ interface IndexProps {
 
 const Index: NextPage<IndexProps> = ({ initialCharacter, characterClasses }: IndexProps) => {
     const [character, setCharacter] = useState<Character>(initialCharacter);
+    const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
 
     const router = useRouter();
     useEffect(() => {
         void router?.replace("/", undefined, { shallow: true });
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const [value, setValue] = useState<number>(0);
-
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
+    const handleChange = (event: React.SyntheticEvent, value: number) => {
+        setCurrentTabIndex(value);
     };
 
     return (
@@ -31,34 +29,49 @@ const Index: NextPage<IndexProps> = ({ initialCharacter, characterClasses }: Ind
             <Grid item lg={12}>
                 <Tabs
                     centered
-                    value={value}
+                    value={currentTabIndex}
                     variant="fullWidth"
                     textColor="secondary"
                     indicatorColor="secondary"
                     onChange={handleChange}
                 >
-                    <Tab disableRipple label="Profile" sx={{ typography: "body2" }} />
-                    <Tab disabled disableRipple label="Deck" sx={{ typography: "body2" }} />
-                    <Tab disabled disableRipple label="Perks" sx={{ typography: "body2" }} />
+                    <Tab
+                        disableRipple
+                        label="Profile"
+                        id="profile-tab"
+                        aria-controls="profile-tabpanel"
+                        sx={{ typography: "body2" }}
+                    />
+                    <Tab
+                        disabled
+                        disableRipple
+                        label="Deck"
+                        id="deck-tab"
+                        aria-controls="deck-tabpanel"
+                        sx={{ typography: "body2" }}
+                    />
+                    <Tab
+                        disabled
+                        disableRipple
+                        label="Perks"
+                        id="perks-tab"
+                        aria-controls="perks-tabpanel"
+                        sx={{ typography: "body2" }}
+                    />
                 </Tabs>
+
                 <Divider />
 
-                <TabPanel value={value} index={0}>
-                    <Grid container spacing={10}>
-                        <Grid item lg={4}>
-                            <CharacterDetails
-                                character={character}
-                                setCharacter={setCharacter}
-                                characterClasses={characterClasses}
-                            />
-                        </Grid>
-                        <Grid item lg={8} textAlign="center">
-                            <CharacterMat characterClass={character.characterClass} />
-                        </Grid>
-                    </Grid>
+                <TabPanel
+                    currentTabIndex={currentTabIndex}
+                    index={0}
+                    id="profile-tabpanel"
+                    ariaLabelledBy="profile-tab"
+                >
+                    <Profile character={character} setCharacter={setCharacter} characterClasses={characterClasses} />
                 </TabPanel>
-                <TabPanel value={value} index={1} />
-                <TabPanel value={value} index={2} />
+                <TabPanel currentTabIndex={currentTabIndex} index={1} id="deck-tabpanel" ariaLabelledBy="deck-tab" />
+                <TabPanel currentTabIndex={currentTabIndex} index={2} id="perks-tabpanel" ariaLabelledBy="perks-tab" />
             </Grid>
         </Grid>
     );
@@ -67,15 +80,15 @@ const Index: NextPage<IndexProps> = ({ initialCharacter, characterClasses }: Ind
 interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
-    value: number;
+    currentTabIndex: number;
+    id: string;
+    ariaLabelledBy: string;
 }
 
-const TabPanel = (props: TabPanelProps) => {
-    const { children, value, index } = props;
-
+const TabPanel = ({ children, index, currentTabIndex, id, ariaLabelledBy }: TabPanelProps) => {
     return (
-        <div role="tabpanel" hidden={value !== index}>
-            {value === index && <Box sx={{ p: 5 }}>{children}</Box>}
+        <div role="tabpanel" id={id} aria-labelledby={ariaLabelledBy} hidden={currentTabIndex !== index}>
+            {currentTabIndex === index && <Box sx={{ p: 5 }}>{children}</Box>}
         </div>
     );
 };
