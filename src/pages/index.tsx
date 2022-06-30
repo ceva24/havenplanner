@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from "next";
-import { Box, Divider, Grid, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Divider, Grid, Tab, Tabs } from "@mui/material";
 import { useRouter } from "next/router";
 import { loadCharacter } from "@/services/character";
-import CharacterMat from "@/components/character-mat";
-import CharacterDetails from "@/components/character-details";
+import CharacterMat from "@/components/profile/character-mat";
+import CharacterDetails from "@/components/profile/character-details";
 import { characterClasses, defaultCharacter } from "@/utils/constants";
 
 interface IndexProps {

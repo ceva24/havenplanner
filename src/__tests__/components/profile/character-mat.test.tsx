@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import CharacterMat from "@/components/character-mat";
+import CharacterMat from "@/components/profile/character-mat";
 
 describe("Character Mat", () => {
     it("renders", () => {

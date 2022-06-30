@@ -1,6 +1,6 @@
 import { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
-import ClassSelect, { findAndSetCharacter } from "@/components/class-select";
+import ClassSelect, { findAndSetCharacter } from "@/components/profile/class-select";
 import { characterClasses, defaultCharacter } from "@/utils/constants";
 
 beforeEach(() => {

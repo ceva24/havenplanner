@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import fetchMock from "jest-fetch-mock";
-import ShareLinkButton, { retrieveAndSetShareableLink } from "@/components/share-link-button";
+import ShareButton, { retrieveAndSetShareableLink } from "@/components/share/share-button";
 import { EncodeCharacterApiResponse } from "@/pages/api/encode-character";
 import { characterClasses } from "@/utils/constants";
 
@@ -19,13 +19,13 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe("share link button", () => {
+describe("share button", () => {
     it("renders", () => {
-        render(<ShareLinkButton character={character} />);
+        render(<ShareButton character={character} />);
 
-        const sharelinkButton = screen.queryByRole("button", { name: "Share" });
+        const shareButton = screen.queryByRole("button", { name: "Share" });
 
-        expect(sharelinkButton).toBeInTheDocument();
+        expect(shareButton).toBeInTheDocument();
     });
 });
 
