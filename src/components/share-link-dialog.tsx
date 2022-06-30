@@ -1,13 +1,4 @@
-import {
-    Stack,
-    Typography,
-    Box,
-    TextField,
-    Dialog,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-} from "@mui/material";
+import { Stack, Typography, Box, TextField, Dialog, DialogContent, DialogContentText } from "@mui/material";
 import CopyLinkButton from "./copy-link-button";
 
 interface ShareLinkDialogProps {
@@ -25,7 +16,7 @@ const ShareLinkDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose 
             <span id="share-link-dialog-title" style={{ display: "none" }}>
                 Share link
             </span>
-            <DialogContent sx={{ backgroundColor: "#0f0302" }}>
+            <DialogContent sx={{ backgroundColor: "background.default" }}>
                 <DialogContentText>
                     <Stack spacing={1}>
                         <Typography>Copy the link below to share this character:</Typography>

@@ -33,8 +33,12 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
             <Button
                 variant="contained"
                 startIcon={<ShareIcon />}
-                // eslint-disable-next-line @typescript-eslint/naming-convention
-                sx={{ margin: "1%", backgroundColor: "#c09172", "&:hover": { backgroundColor: "#d7baa7" } }}
+                sx={{
+                    margin: "1%",
+                    backgroundColor: "secondary.main",
+                    // eslint-disable-next-line @typescript-eslint/naming-convention
+                    "&:hover": { backgroundColor: "secondary.light" },
+                }}
                 onClick={handleOpen}
             >
                 <Typography variant="body1">Share</Typography>

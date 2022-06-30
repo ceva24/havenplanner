@@ -9,6 +9,9 @@ const theme: ThemeOptions = createTheme({
         text: {
             primary: "#d7d4d9",
         },
+        secondary: {
+            main: "#c09172",
+        },
     },
     typography: {
         h1: {
@@ -18,6 +21,9 @@ const theme: ThemeOptions = createTheme({
         body1: {
             fontFamily: "Sakkal Majalla",
             fontSize: "1.25rem",
+        },
+        body2: {
+            fontFamily: "High Tower",
         },
     },
     components: {
