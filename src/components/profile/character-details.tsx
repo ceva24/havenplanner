@@ -74,9 +74,6 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
                     onChange={handleChange("notes", false)}
                 />
             </div>
-            <div>
-                <ShareLinkButton character={character} />
-            </div>
         </Box>
     );
 };

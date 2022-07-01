@@ -14,6 +14,14 @@ describe("Index", () => {
 
         expect(profileTab).toBeInTheDocument();
     });
+
+    it("renders the share button", () => {
+        render(<Index initialCharacter={defaultCharacter} />);
+
+        const shareButton = screen.getByRole("button", { name: "Share" });
+
+        expect(shareButton).toBeInTheDocument();
+    });
 });
 
 describe("getServerSideProps", () => {

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { loadCharacter } from "@/services/character";
 import { defaultCharacter } from "@/utils/constants";
 import TabbedContent from "@/components/tabbed-content";
+import ShareButton from "@/components/share/share-button";
 
 interface IndexProps {
     initialCharacter: Character;
@@ -19,9 +20,12 @@ const Index: NextPage<IndexProps> = ({ initialCharacter }: IndexProps) => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <Grid container spacing={10} height="100%" minHeight="45rem" justifyContent="center">
+        <Grid container height="100%" minHeight="45rem" justifyContent="center">
             <Grid item lg={12}>
                 <TabbedContent character={character} setCharacter={setCharacter} />
+            </Grid>
+            <Grid item lg={12} sx={{ pl: "2%" }}>
+                <ShareButton character={character} />
             </Grid>
         </Grid>
     );
@@ -46,9 +50,6 @@ const getServerSideProps: GetServerSideProps = async (context: GetServerSideProp
         },
     };
 };
-
-// Todo move share button below tabbed content
-// todo investigate moving character to global state - context/recoil?
 
 export default Index;
 export { getServerSideProps };

@@ -3,7 +3,7 @@ import "@testing-library/cypress/add-commands";
 import "@/support/commands";
 
 describe("index page", () => {
-    it("shows the profile tab content", () => {
+    it("shows the profile tab content by default", () => {
         cy.visit("/");
 
         cy.findCharacterDetailsForm().should("be.visible");
