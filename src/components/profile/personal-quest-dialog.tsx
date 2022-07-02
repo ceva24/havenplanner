@@ -1,7 +1,8 @@
-import { Button, Dialog, DialogContent, DialogContentText, Grid, Typography } from "@mui/material";
+import { Dialog, DialogContent, DialogContentText, Grid } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
 import Card from "@/components/card";
+import StyledButton from "@/components/styled-button";
 
 interface PersonalQuestDialogProps {
     character: Character;
@@ -36,18 +37,7 @@ const PersonalQuestDialog = ({ character, setCharacter, isOpen, onClose }: Perso
                             <Card url={personalQuestImage} altText="Personal quest card" />
                         </Grid>
                         <Grid item lg={12} width="100%" textAlign="center">
-                            <Button
-                                variant="contained"
-                                sx={{
-                                    margin: "1%",
-                                    backgroundColor: "secondary.main",
-                                    // eslint-disable-next-line @typescript-eslint/naming-convention
-                                    "&:hover": { backgroundColor: "secondary.light" },
-                                }}
-                                onClick={onClose}
-                            >
-                                <Typography variant="body1">Close</Typography>
-                            </Button>
+                            <StyledButton text="Close" onClick={onClose} />
                         </Grid>
                     </Grid>
                 </DialogContentText>

@@ -1,15 +1,6 @@
-import {
-    Stack,
-    Typography,
-    Box,
-    TextField,
-    Dialog,
-    DialogContent,
-    DialogContentText,
-    Button,
-    Grid,
-} from "@mui/material";
+import { Stack, Typography, Box, TextField, Dialog, DialogContent, DialogContentText, Grid } from "@mui/material";
 import CopyButton from "@/components/share/copy-button";
+import StyledButton from "@/components/styled-button";
 
 interface ShareDialogProps {
     shareableLink: string;
@@ -45,18 +36,7 @@ const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose }: S
 
                     <Grid container spacing={10} textAlign="center" sx={{ paddingTop: 2 }}>
                         <Grid item width="100%">
-                            <Button
-                                variant="contained"
-                                sx={{
-                                    margin: "1%",
-                                    backgroundColor: "secondary.main",
-                                    // eslint-disable-next-line @typescript-eslint/naming-convention
-                                    "&:hover": { backgroundColor: "secondary.light" },
-                                }}
-                                onClick={onClose}
-                            >
-                                <Typography variant="body1">Close</Typography>
-                            </Button>
+                            <StyledButton text="Close" onClick={onClose} />
                         </Grid>
                     </Grid>
                 </DialogContentText>
