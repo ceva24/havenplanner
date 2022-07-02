@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
+import { Button } from "@mui/material";
 import Card from "@/components/card";
 import PersonalQuestDialog from "@/components/profile/personal-quest-dialog";
 
-const PersonalQuestCard = () => {
+interface PersonalQuestCardProps {
+    character: Character;
+    setCharacter: Dispatch<SetStateAction<Character>>;
+}
+
+const PersonalQuestCard = ({ character, setCharacter }: PersonalQuestCardProps) => {
     const [personalQuestDialogOpen, setPersonalQuestDialogOpen] = useState<boolean>(false);
 
     const handleOpen = () => {
@@ -15,13 +21,19 @@ const PersonalQuestCard = () => {
 
     return (
         <>
-            <Card
-                url="/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.png"
-                altText="Personal quest"
-                styleProps={{ cursor: "pointer" }}
-                onClick={handleOpen}
+            <Button onClick={handleOpen}>
+                <Card
+                    url="/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.png"
+                    altText="Personal quest"
+                    styleProps={{ cursor: "pointer" }}
+                />
+            </Button>
+            <PersonalQuestDialog
+                character={character}
+                setCharacter={setCharacter}
+                isOpen={personalQuestDialogOpen}
+                onClose={handleClose}
             />
-            <PersonalQuestDialog isOpen={personalQuestDialogOpen} onClose={handleClose} />
         </>
     );
 };

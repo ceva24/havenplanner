@@ -21,7 +21,7 @@ const Profile = ({ character, setCharacter }: ProfileProps) => {
                         <CharacterMat characterClass={character.characterClass} />
                     </Grid>
                     <Grid item lg={4} width="100%">
-                        <PersonalQuestCard />
+                        <PersonalQuestCard character={character} setCharacter={setCharacter} />
                     </Grid>
                 </Grid>
             </Grid>
