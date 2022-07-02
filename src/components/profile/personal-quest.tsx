@@ -21,10 +21,10 @@ const PersonalQuestCard = ({ character, setCharacter }: PersonalQuestCardProps) 
 
     return (
         <>
-            <Button onClick={handleOpen}>
+            <Button aria-label="Personal quest" onClick={handleOpen}>
                 <Card
                     url="/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.png"
-                    altText="Personal quest"
+                    altText="Personal quest card"
                     styleProps={{ cursor: "pointer" }}
                 />
             </Button>

@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogContentText, Grid } from "@mui/material";
+import { Button, Dialog, DialogContent, DialogContentText, Grid, Typography } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
 import Card from "@/components/card";
@@ -28,12 +28,26 @@ const PersonalQuestDialog = ({ character, setCharacter, isOpen, onClose }: Perso
             <DialogContent sx={{ backgroundColor: "background.default" }}>
                 <DialogContentText>
                     <Grid container spacing={5}>
-                        <Grid item lg={12} sx={{ width: "100%" }}>
+                        <Grid item lg={12} width="100%">
                             <PersonalQuestAutocomplete character={character} setCharacter={setCharacter} />
                         </Grid>
 
                         <Grid item lg={12} width="100%" textAlign="center">
-                            <Card url={personalQuestImage} altText="Selected personal quest" />
+                            <Card url={personalQuestImage} altText="Personal quest card" />
+                        </Grid>
+                        <Grid item lg={12} width="100%" textAlign="center">
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    margin: "1%",
+                                    backgroundColor: "secondary.main",
+                                    // eslint-disable-next-line @typescript-eslint/naming-convention
+                                    "&:hover": { backgroundColor: "secondary.light" },
+                                }}
+                                onClick={onClose}
+                            >
+                                <Typography variant="body1">Close</Typography>
+                            </Button>
                         </Grid>
                     </Grid>
                 </DialogContentText>

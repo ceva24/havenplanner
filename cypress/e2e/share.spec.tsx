@@ -53,14 +53,14 @@ describe("share link", () => {
         cy.findNotesField().should("have.value", "Test");
     });
 
-    it("hides the share link dialog when clicking on the background", () => {
+    it("hides the share link dialog when clicking on the close button", () => {
         cy.visit("/");
 
         cy.findShareLinkButton().click();
 
         cy.findShareLinkDialog().should("be.visible");
 
-        cy.findAllByRole("presentation").first().click("left");
+        cy.findByRole("button", { name: "Close" }).click();
 
         cy.findShareLinkDialog().not("should.be.visible");
     });
