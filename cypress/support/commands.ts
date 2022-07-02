@@ -29,7 +29,7 @@ Cypress.Commands.add("findNotesField", () => {
 });
 
 Cypress.Commands.add("findShareLinkButton", () => {
-    cy.findCharacterDetailsForm().findByRole("button", { name: "Share" });
+    cy.findByRole("button", { name: "Share" });
 });
 
 Cypress.Commands.add("findShareLinkDialog", () => {
