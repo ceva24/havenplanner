@@ -1,31 +1,22 @@
-import {
-    Stack,
-    Typography,
-    Box,
-    TextField,
-    Dialog,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-} from "@mui/material";
-import CopyLinkButton from "./copy-link-button";
+import { Stack, Typography, Box, TextField, Dialog, DialogContent, DialogContentText } from "@mui/material";
+import CopyButton from "./copy-button";
 
-interface ShareLinkDialogProps {
+interface ShareDialogProps {
     shareableLink: string;
     encodeCharacterError: boolean;
     isOpen: boolean;
     onClose: () => void;
 }
 
-const ShareLinkDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose }: ShareLinkDialogProps) => {
+const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose }: ShareDialogProps) => {
     const value = encodeCharacterError ? "Error" : shareableLink;
 
     return (
-        <Dialog open={isOpen} sx={{ bottom: 300 }} aria-labelledby="share-link-dialog-title" onClose={onClose}>
-            <span id="share-link-dialog-title" style={{ display: "none" }}>
-                Share link
+        <Dialog open={isOpen} sx={{ bottom: 300 }} aria-labelledby="share-dialog-title" onClose={onClose}>
+            <span id="share-dialog-title" style={{ display: "none" }}>
+                Share
             </span>
-            <DialogContent sx={{ backgroundColor: "#0f0302" }}>
+            <DialogContent sx={{ backgroundColor: "background.default" }}>
                 <DialogContentText>
                     <Stack spacing={1}>
                         <Typography>Copy the link below to share this character:</Typography>
@@ -38,7 +29,7 @@ const ShareLinkDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose 
                                 placeholder="Loading..."
                                 inputProps={{ "aria-label": "Link" }}
                             />
-                            <CopyLinkButton shareableLink={shareableLink} encodeCharacterError={encodeCharacterError} />
+                            <CopyButton shareableLink={shareableLink} encodeCharacterError={encodeCharacterError} />
                         </Box>
                     </Stack>
                 </DialogContentText>
@@ -47,4 +38,4 @@ const ShareLinkDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose 
     );
 };
 
-export default ShareLinkDialog;
+export default ShareDialog;

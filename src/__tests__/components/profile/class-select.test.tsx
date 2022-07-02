@@ -1,6 +1,6 @@
 import { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
-import ClassSelect, { findAndSetCharacter } from "@/components/class-select";
+import ClassSelect, { findAndSetCharacter } from "@/components/profile/class-select";
 import { characterClasses, defaultCharacter } from "@/utils/constants";
 
 beforeEach(() => {
@@ -17,7 +17,7 @@ const character: Character = {
 
 describe("Class Select", () => {
     it("renders", () => {
-        render(<ClassSelect character={character} setCharacter={() => null} characterClasses={characterClasses} />);
+        render(<ClassSelect character={character} setCharacter={() => null} />);
 
         const classSelect = screen.queryByRole("button", { name: "Class" });
 
@@ -34,7 +34,7 @@ describe("findAndSetCharacter", () => {
             target: { value: characterClasses[3].name },
         } as SelectChangeEvent;
 
-        findAndSetCharacter(event, character, setCharacter, characterClasses);
+        findAndSetCharacter(event, character, setCharacter);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -49,7 +49,7 @@ describe("findAndSetCharacter", () => {
             target: { value: "Invalid class" },
         } as SelectChangeEvent;
 
-        findAndSetCharacter(event, character, setCharacter, characterClasses);
+        findAndSetCharacter(event, character, setCharacter);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({

@@ -3,35 +3,29 @@ import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from "ne
 import { Grid } from "@mui/material";
 import { useRouter } from "next/router";
 import { loadCharacter } from "@/services/character";
-import CharacterMat from "@/components/character-mat";
-import CharacterDetails from "@/components/character-details";
-import { characterClasses, defaultCharacter } from "@/utils/constants";
+import { defaultCharacter } from "@/utils/constants";
+import TabbedContent from "@/components/tabbed-content";
+import ShareButton from "@/components/share/share-button";
 
 interface IndexProps {
     initialCharacter: Character;
-    characterClasses: CharacterClass[];
 }
 
-const Index: NextPage<IndexProps> = ({ initialCharacter, characterClasses }: IndexProps) => {
+const Index: NextPage<IndexProps> = ({ initialCharacter }: IndexProps) => {
     const [character, setCharacter] = useState<Character>(initialCharacter);
 
     const router = useRouter();
     useEffect(() => {
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
-        router?.replace("/", undefined, { shallow: true });
+        void router?.replace("/", undefined, { shallow: true });
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <Grid container spacing={10} height="100%" minHeight="40rem" justifyContent="center">
-            <Grid item lg={4}>
-                <CharacterDetails
-                    character={character}
-                    setCharacter={setCharacter}
-                    characterClasses={characterClasses}
-                />
+        <Grid container height="100%" minHeight="45rem" justifyContent="center">
+            <Grid item lg={12}>
+                <TabbedContent character={character} setCharacter={setCharacter} />
             </Grid>
-            <Grid item lg={8} textAlign="center">
-                <CharacterMat characterClass={character.characterClass} />
+            <Grid item lg={12} sx={{ pl: "2%" }}>
+                <ShareButton character={character} />
             </Grid>
         </Grid>
     );
@@ -53,7 +47,6 @@ const getServerSideProps: GetServerSideProps = async (context: GetServerSideProp
     return {
         props: {
             initialCharacter: character,
-            characterClasses,
         },
     };
 };

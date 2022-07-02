@@ -60,7 +60,7 @@ describe("share link", () => {
 
         cy.findShareLinkDialog().should("be.visible");
 
-        cy.get("body").click("left");
+        cy.findAllByRole("presentation").first().click("left");
 
         cy.findShareLinkDialog().not("should.be.visible");
     });

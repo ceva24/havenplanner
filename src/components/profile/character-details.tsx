@@ -1,16 +1,15 @@
 import { Box, TextField } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
-import ShareLinkButton from "@/components/share-link-button";
-import ClassSelect from "@/components/class-select";
+import ShareLinkButton from "@/components/share/share-button";
+import ClassSelect from "@/components/profile/class-select";
 
 interface CharacterDetailsProps {
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
-    characterClasses: CharacterClass[];
 }
 
-const CharacterDetails = ({ character, setCharacter, characterClasses }: CharacterDetailsProps) => {
+const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) => {
     const handleChange = (fieldName: string, isNumber: boolean) => (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = isNumber ? Number.parseInt(event.target.value, 10) || 0 : event.target.value;
 
@@ -20,7 +19,7 @@ const CharacterDetails = ({ character, setCharacter, characterClasses }: Charact
     return (
         <Box id="character-details-form" aria-label="Character details form" component="form">
             <div>
-                <ClassSelect character={character} setCharacter={setCharacter} characterClasses={characterClasses} />
+                <ClassSelect character={character} setCharacter={setCharacter} />
                 <Image
                     layout="fixed"
                     src={character.characterClass.characterIconImageUrl}
@@ -67,15 +66,13 @@ const CharacterDetails = ({ character, setCharacter, characterClasses }: Charact
                 <TextField
                     multiline
                     sx={{ width: "98%", margin: "1%" }}
-                    minRows={3}
+                    minRows={6}
+                    maxRows={6}
                     id="notes"
                     label="Notes"
                     value={character.notes}
                     onChange={handleChange("notes", false)}
                 />
-            </div>
-            <div>
-                <ShareLinkButton character={character} />
             </div>
         </Box>
     );

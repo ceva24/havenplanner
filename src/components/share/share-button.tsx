@@ -1,16 +1,16 @@
 import { Button, Typography } from "@mui/material";
 import ShareIcon from "@mui/icons-material/Share";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import ShareLinkDialog from "./share-link-dialog";
+import ShareDialog from "./share-dialog";
 import { EncodeCharacterApiResponse } from "@/pages/api/encode-character";
 
-interface CreateLinkButtonProps {
+interface ShareButtonProps {
     character: Character;
 }
 
-const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
+const ShareButton = ({ character }: ShareButtonProps) => {
     const [shareableLink, setShareableLink] = useState<string>("");
-    const [shareLinkDialogOpen, setShareLinkDialogOpen] = useState<boolean>(false);
+    const [shareDialogOpen, setShareDialogOpen] = useState<boolean>(false);
     const [encodeCharacterError, setEncodeCharacterError] = useState<boolean>(false);
 
     useEffect(() => {
@@ -18,13 +18,13 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
     }, [character]);
 
     const handleOpen = () => {
-        setShareLinkDialogOpen(true);
+        setShareDialogOpen(true);
 
         void retrieveAndSetShareableLink(character, shareableLink, setShareableLink, setEncodeCharacterError);
     };
 
     const handleClose = () => {
-        setShareLinkDialogOpen(false);
+        setShareDialogOpen(false);
         setEncodeCharacterError(false);
     };
 
@@ -33,16 +33,20 @@ const ShareLinkButton = ({ character }: CreateLinkButtonProps) => {
             <Button
                 variant="contained"
                 startIcon={<ShareIcon />}
-                // eslint-disable-next-line @typescript-eslint/naming-convention
-                sx={{ margin: "1%", backgroundColor: "#c09172", "&:hover": { backgroundColor: "#d7baa7" } }}
+                sx={{
+                    margin: "1%",
+                    backgroundColor: "secondary.main",
+                    // eslint-disable-next-line @typescript-eslint/naming-convention
+                    "&:hover": { backgroundColor: "secondary.light" },
+                }}
                 onClick={handleOpen}
             >
                 <Typography variant="body1">Share</Typography>
             </Button>
-            <ShareLinkDialog
+            <ShareDialog
                 shareableLink={shareableLink}
                 encodeCharacterError={encodeCharacterError}
-                isOpen={shareLinkDialogOpen}
+                isOpen={shareDialogOpen}
                 onClose={handleClose}
             />
         </>
@@ -81,5 +85,5 @@ const retrieveAndSetShareableLink = async (
     }
 };
 
-export default ShareLinkButton;
+export default ShareButton;
 export { retrieveAndSetShareableLink };

@@ -2,12 +2,12 @@ import { ClickAwayListener, IconButton, Tooltip } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { useState } from "react";
 
-interface CopyLinkButtonProps {
+interface CopyButtonProps {
     shareableLink: string;
     encodeCharacterError: boolean;
 }
 
-const CopyLinkButton = ({ shareableLink, encodeCharacterError }: CopyLinkButtonProps) => {
+const CopyButton = ({ shareableLink, encodeCharacterError }: CopyButtonProps) => {
     const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
 
     const copyLink = async () => {
@@ -34,7 +34,7 @@ const CopyLinkButton = ({ shareableLink, encodeCharacterError }: CopyLinkButtonP
                     onClose={handleTooltipClose}
                 >
                     <IconButton
-                        sx={{ padding: "1rem", marginLeft: "1rem", color: "#c09172" }}
+                        sx={{ padding: "1rem", marginLeft: "1rem", color: "secondary.main" }}
                         disabled={encodeCharacterError || !shareableLink}
                         aria-label="Copy link"
                         onClick={copyLink}
@@ -47,4 +47,4 @@ const CopyLinkButton = ({ shareableLink, encodeCharacterError }: CopyLinkButtonP
     );
 };
 
-export default CopyLinkButton;
+export default CopyButton;
