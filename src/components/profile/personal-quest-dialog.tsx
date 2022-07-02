@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction } from "react";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
 import Card from "@/components/card";
 import StyledButton from "@/components/styled-button";
+import { defaultPersonalQuestCardImage } from "@/utils/constants";
 
 interface PersonalQuestDialogProps {
     character: Character;
@@ -12,8 +13,7 @@ interface PersonalQuestDialogProps {
 }
 
 const PersonalQuestDialog = ({ character, setCharacter, isOpen, onClose }: PersonalQuestDialogProps) => {
-    const personalQuestImage =
-        character.personalQuest?.imageUrl ?? "/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.png";
+    const personalQuestImage = character.personalQuest?.imageUrl ?? defaultPersonalQuestCardImage;
 
     return (
         <Dialog
