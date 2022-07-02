@@ -1,7 +1,6 @@
-import { Box, TextField } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
-import ShareLinkButton from "@/components/share/share-button";
+import { Box, TextField } from "@mui/material";
 import ClassSelect from "@/components/profile/class-select";
 
 interface CharacterDetailsProps {

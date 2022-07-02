@@ -1,7 +1,8 @@
 import { Grid } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
-import CharacterDetails from "./profile/character-details";
-import CharacterMat from "./profile/character-mat";
+import CharacterDetails from "@/components/profile/character-details";
+import CharacterMat from "@/components/profile/character-mat";
+import PersonalQuestCard from "@/components/profile/personal-quest";
 
 interface ProfileProps {
     character: Character;
@@ -15,7 +16,14 @@ const Profile = ({ character, setCharacter }: ProfileProps) => {
                 <CharacterDetails character={character} setCharacter={setCharacter} />
             </Grid>
             <Grid item lg={8} textAlign="center">
-                <CharacterMat characterClass={character.characterClass} />
+                <Grid container spacing={10}>
+                    <Grid item lg={8}>
+                        <CharacterMat characterClass={character.characterClass} />
+                    </Grid>
+                    <Grid item lg={4} width="100%">
+                        <PersonalQuestCard />
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
     );
