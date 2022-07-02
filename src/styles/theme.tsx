@@ -29,19 +29,12 @@ const theme: ThemeOptions = createTheme({
     components: {
         MuiCssBaseline: {
             styleOverrides: `
-            @font-face {
-              font-family: 'PirataOne';
-              font-weight: normal;
-              font-style: normal;
-              font-display: swap;
-              src: local('PirataOne'), local('PirataOne-Regular'), url('/fonts/PirataOne-Gloomhaven.ttf') format('woff2');
-            }
-            @font-face {
-                font-family: 'Nyala';
+              @font-face {
+                font-family: 'PirataOne';
                 font-weight: normal;
                 font-style: normal;
                 font-display: swap;
-                src: local('Nyala'), local('Nyala-Regular'), url('/fonts/nyala.ttf') format('woff2');
+                src: local('PirataOne'), local('PirataOne-Regular'), url('/fonts/PirataOne-Gloomhaven.ttf') format('woff2');
               }
               @font-face {
                 font-family: 'High Tower';
