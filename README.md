@@ -15,11 +15,11 @@
 
 ## Introduction
 
-A web application to create character builds for the popular tabletop and digital game Gloomhaven.
-
-Built with [Typescript](https://www.typescriptlang.org), [Next.js](https://nextjs.org) and [Material UI](https://mui.com/) ❤️
+A web application to create and share character builds for the popular tabletop and digital game Gloomhaven. Inspired by tools like [Dark Souls Character Planner](https://soulsplanner.com/darksouls) and [FFXIV Lodestone](https://na.finalfantasyxiv.com/lodestone/character/).
 
 ## Development
+
+Built with [Typescript](https://www.typescriptlang.org), [Next.js](https://nextjs.org) and [Material UI](https://mui.com/) ❤️
 
 ### Prerequisites
 
@@ -29,15 +29,15 @@ Built with [Typescript](https://www.typescriptlang.org), [Next.js](https://nextj
 
 ### Tooling
 
-Uses [Husky](https://typicode.github.io/husky/) for pre-commit hooks, just run `npm run prepare` first 🐶 _woof_!
+Uses [lint-staged](https://github.com/okonet/lint-staged) and [Husky](https://typicode.github.io/husky/) for pre-commit hooks 🐶 _woof_!
 
 Enforces conventional commits via [commitlint](https://github.com/conventional-changelog/commitlint), see [Contribution guidelines](docs/CONTRIBUTING.md) for valid types.
 
-## CI/CD
+### CI/CD
 
 -   🌳 [Cypress](https://dashboard.cypress.io/projects/zbs72n) for end-to-end testing
--   🚦 [Lighthouse](https://github.com/GoogleChrome/lighthouse-ci) for performance checks
 -   🦔 [Percy](https://percy.io/788e43c2/gloomhaven-character-planner) for visual testing
+-   🚦 [Lighthouse](https://github.com/GoogleChrome/lighthouse-ci) for performance checks
 
 Reports and snapshots included on each PR ✔️
 
