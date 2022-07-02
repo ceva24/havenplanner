@@ -1,4 +1,4 @@
-import { characterClasses, defaultCharacter } from "@/utils/constants";
+import { characterClasses, defaultCharacter, personalQuests } from "@/utils/constants";
 
 interface SerializedCharacterData {
     n: string; // Name
@@ -6,6 +6,7 @@ interface SerializedCharacterData {
     g: number; // Gold
     d: string; // Notes
     c: number; // Character id
+    p?: number; // Personal quest id
 }
 
 const serialize = (character: Character): string => {
@@ -15,6 +16,7 @@ const serialize = (character: Character): string => {
         g: character.gold,
         d: character.notes,
         c: character.characterClass.id,
+        p: character.personalQuest?.id,
     };
 
     return JSON.stringify(characterData);
@@ -32,6 +34,9 @@ const deserialize = (data: string): Character => {
             characterClasses.find((characterClass: CharacterClass) => {
                 return characterClass.id === characterData.c;
             }) ?? defaultCharacter.characterClass,
+        personalQuest: personalQuests.find((personalQuest: PersonalQuest) => {
+            return personalQuest.id === characterData.p;
+        }),
     };
 
     return character;
