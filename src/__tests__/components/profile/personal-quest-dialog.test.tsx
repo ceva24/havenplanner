@@ -20,7 +20,15 @@ describe("personal quest dialog", () => {
         expect(personalQuestDialog).toBeInTheDocument();
     });
 
-    it("renders the autocomplete", () => {});
+    it("renders the autocomplete", () => {
+        render(<PersonalQuestDialog isOpen character={character} setCharacter={jest.fn()} onClose={jest.fn()} />);
+
+        const personalQuestDialog = screen.getByRole("dialog", { name: "Personal quest" });
+
+        const personalQuestAutocomplete = within(personalQuestDialog).queryByRole("combobox");
+
+        expect(personalQuestAutocomplete).toBeInTheDocument();
+    });
 
     it("renders the personal quest card", () => {
         render(<PersonalQuestDialog isOpen character={character} setCharacter={jest.fn()} onClose={jest.fn()} />);
