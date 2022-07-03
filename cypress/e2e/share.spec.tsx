@@ -65,5 +65,23 @@ describe("share link", () => {
         cy.findShareLinkDialog().not("should.be.visible");
     });
 
-    it("captures the personal quest in a shareable link", () => {});
+    it("captures the personal quest in a shareable link", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestButton().click();
+
+        cy.findPersonalQuestAutocomplete().click();
+
+        cy.findByRole("option", { name: "Augmented Abilities" }).click();
+
+        cy.findByRole("button", { name: "Close" }).click();
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.findPersonalQuestButton().click();
+
+        cy.findPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-530.png");
+    });
 });

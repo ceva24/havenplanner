@@ -28,6 +28,8 @@ declare namespace Cypress {
 
         findPersonalQuestImage(): Chainable<Element>;
 
+        findPersonalQuestAutocomplete(): Chainable<Element>;
+
         selectPersonalQuest(personalQuestName: string): Chainable<Element>;
     }
 }

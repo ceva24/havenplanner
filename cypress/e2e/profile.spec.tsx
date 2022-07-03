@@ -115,13 +115,55 @@ describe("character details pane", () => {
         cy.findByRole("img", { name: "Character mat" }).should("be.visible");
     });
 
-    it("shows the personal quest button", () => {});
+    it("shows the personal quest button", () => {
+        cy.visit("/");
 
-    it("shows a dialog when pressing the personal quest button", () => {});
+        cy.findPersonalQuestButton().should("be.visible");
+    });
 
-    it("shows the default personal quest card image when no personal quest is selected", () => {});
+    it("shows a dialog when pressing the personal quest button", () => {
+        cy.visit("/");
 
-    it("allows a personal quest to be selected and updates the card image", () => {});
+        cy.findPersonalQuestButton().click();
 
-    it("retains the personal question when closing and reopening the personal quest dialog", () => {});
+        cy.findPersonalQuestDialog().should("be.visible");
+    });
+
+    it("shows the default personal quest card image when no personal quest is selected", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestButton().click();
+
+        cy.findPersonalQuestAutocomplete().click();
+
+        cy.findPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-back.png");
+    });
+
+    it("allows a personal quest to be selected and updates the card image", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestButton().click();
+
+        cy.findPersonalQuestAutocomplete().click();
+
+        cy.findByRole("option", { name: "Augmented Abilities" }).click();
+
+        cy.findPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-530.png");
+    });
+
+    it("retains the personal question when closing and reopening the personal quest dialog", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestButton().click();
+
+        cy.findPersonalQuestAutocomplete().click();
+
+        cy.findByRole("option", { name: "Augmented Abilities" }).click();
+
+        cy.findByRole("button", { name: "Close" }).click();
+
+        cy.findPersonalQuestButton().click();
+
+        cy.findPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-530.png");
+    });
 });
