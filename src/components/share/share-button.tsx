@@ -1,7 +1,7 @@
-import { Button, Typography } from "@mui/material";
-import ShareIcon from "@mui/icons-material/Share";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import ShareDialog from "./share-dialog";
+import ShareIcon from "@mui/icons-material/Share";
+import ShareDialog from "@/components/share/share-dialog";
+import StyledButton from "@/components/styled-button";
 import { EncodeCharacterApiResponse } from "@/pages/api/encode-character";
 
 interface ShareButtonProps {
@@ -30,19 +30,7 @@ const ShareButton = ({ character }: ShareButtonProps) => {
 
     return (
         <>
-            <Button
-                variant="contained"
-                startIcon={<ShareIcon />}
-                sx={{
-                    margin: "1%",
-                    backgroundColor: "secondary.main",
-                    // eslint-disable-next-line @typescript-eslint/naming-convention
-                    "&:hover": { backgroundColor: "secondary.light" },
-                }}
-                onClick={handleOpen}
-            >
-                <Typography variant="body1">Share</Typography>
-            </Button>
+            <StyledButton text="Share" startIcon={<ShareIcon />} onClick={handleOpen} />
             <ShareDialog
                 shareableLink={shareableLink}
                 encodeCharacterError={encodeCharacterError}

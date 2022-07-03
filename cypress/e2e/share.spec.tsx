@@ -30,7 +30,7 @@ describe("share link", () => {
             );
     });
 
-    it("creates a valid shareable link", () => {
+    it("captures the character details in a shareable link", () => {
         cy.visit("/");
 
         cy.selectClass("Spellweaver");
@@ -53,15 +53,35 @@ describe("share link", () => {
         cy.findNotesField().should("have.value", "Test");
     });
 
-    it("hides the share link dialog when clicking on the background", () => {
+    it("hides the share link dialog when clicking on the close button", () => {
         cy.visit("/");
 
         cy.findShareLinkButton().click();
 
         cy.findShareLinkDialog().should("be.visible");
 
-        cy.findAllByRole("presentation").first().click("left");
+        cy.findByRole("button", { name: "Close" }).click();
 
         cy.findShareLinkDialog().not("should.be.visible");
+    });
+
+    it("captures the personal quest in a shareable link", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestButton().click();
+
+        cy.findPersonalQuestAutocomplete().click();
+
+        cy.findByRole("option", { name: "Augmented Abilities" }).click();
+
+        cy.findByRole("button", { name: "Close" }).click();
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.findPersonalQuestButton().click();
+
+        cy.findPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-530.png");
     });
 });

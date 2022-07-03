@@ -1,6 +1,10 @@
-import characterClassData from "@/data/character-classes.json"; // eslint-disable-line import/extensions
+/* eslint-disable import/extensions */
+import characterClassData from "@/data/character-classes.json";
+import personalQuestData from "@/data/personal-quests.json";
 
 const characterClasses: CharacterClass[] = characterClassData;
+
+const personalQuests: PersonalQuest[] = personalQuestData;
 
 const defaultCharacter: Character = {
     name: "",
@@ -10,4 +14,6 @@ const defaultCharacter: Character = {
     characterClass: characterClasses[0],
 };
 
-export { characterClasses, defaultCharacter };
+const defaultPersonalQuestCardImageUrl = "/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.png";
+
+export { characterClasses, personalQuests, defaultCharacter, defaultPersonalQuestCardImageUrl };

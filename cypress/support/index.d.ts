@@ -21,5 +21,15 @@ declare namespace Cypress {
         findShareLinkTextBox(): Chainable<Element>;
 
         selectClass(className: string): Chainable<Element>;
+
+        findPersonalQuestButton(): Chainable<Element>;
+
+        findPersonalQuestDialog(): Chainable<Element>;
+
+        findPersonalQuestImage(): Chainable<Element>;
+
+        findPersonalQuestAutocomplete(): Chainable<Element>;
+
+        selectPersonalQuest(personalQuestName: string): Chainable<Element>;
     }
 }

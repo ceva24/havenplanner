@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import ShareDialog from "@/components/share/share-dialog";
 
 describe("share dialog", () => {
-    it("renders the dialog", () => {
+    it("renders", () => {
         render(<ShareDialog isOpen shareableLink="" encodeCharacterError={false} onClose={() => ""} />);
 
         const shareDialog = screen.queryByRole("dialog", { name: "Share" });
