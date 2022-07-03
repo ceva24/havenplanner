@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { Button } from "@mui/material";
 import Card from "@/components/card";
 import PersonalQuestDialog from "@/components/profile/personal-quest-dialog";
-import { defaultPersonalQuestCardImage } from "@/utils/constants";
+import { defaultPersonalQuestCardImageUrl } from "@/utils/constants";
 
 interface PersonalQuestCardProps {
     character: Character;
@@ -23,7 +23,7 @@ const PersonalQuestCard = ({ character, setCharacter }: PersonalQuestCardProps) 
     return (
         <>
             <Button aria-label="Personal quest" onClick={handleOpen}>
-                <Card url={defaultPersonalQuestCardImage} altText="Personal quest card" />
+                <Card url={defaultPersonalQuestCardImageUrl} altText="Personal quest card" />
             </Button>
             <PersonalQuestDialog
                 character={character}

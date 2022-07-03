@@ -30,7 +30,7 @@ describe("share link", () => {
             );
     });
 
-    it("creates a valid shareable link", () => {
+    it("captures the character details in a shareable link", () => {
         cy.visit("/");
 
         cy.selectClass("Spellweaver");
@@ -64,4 +64,6 @@ describe("share link", () => {
 
         cy.findShareLinkDialog().not("should.be.visible");
     });
+
+    it("captures the personal quest in a shareable link", () => {});
 });

@@ -114,4 +114,14 @@ describe("character details pane", () => {
 
         cy.findByRole("img", { name: "Character mat" }).should("be.visible");
     });
+
+    it("shows the personal quest button", () => {});
+
+    it("shows a dialog when pressing the personal quest button", () => {});
+
+    it("shows the default personal quest card image when no personal quest is selected", () => {});
+
+    it("allows a personal quest to be selected and updates the card image", () => {});
+
+    it("retains the personal question when closing and reopening the personal quest dialog", () => {});
 });

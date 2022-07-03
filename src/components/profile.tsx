@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import CharacterDetails from "@/components/profile/character-details";
 import CharacterMat from "@/components/profile/character-mat";
-import PersonalQuestCard from "@/components/profile/personal-quest";
+import PersonalQuestCard from "@/components/profile/personal-quest-card";
 
 interface ProfileProps {
     character: Character;

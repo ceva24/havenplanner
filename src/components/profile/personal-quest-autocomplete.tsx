@@ -17,7 +17,7 @@ const PersonalQuestAutocomplete = ({ character, setCharacter }: PersonalQuestSel
         <FormControl sx={{ width: "100%" }}>
             <Autocomplete
                 disablePortal
-                value={convertPersonalQuestToAutocompleteEntries(character.personalQuest)}
+                value={convertPersonalQuestToAutocompleteEntry(character.personalQuest)}
                 options={getPersonalQuestAutocompleteEntries()}
                 renderInput={(props: AutocompleteRenderInputParams) => <TextField {...props} label="Personal quest" />}
                 onChange={handleChange}
@@ -32,11 +32,11 @@ interface PersonalQuestAutocompleteEntry {
 
 const getPersonalQuestAutocompleteEntries = (): PersonalQuestAutocompleteEntry[] => {
     return personalQuests.map((personalQuest: PersonalQuest) => {
-        return convertPersonalQuestToAutocompleteEntries(personalQuest);
+        return convertPersonalQuestToAutocompleteEntry(personalQuest);
     });
 };
 
-const convertPersonalQuestToAutocompleteEntries = (
+const convertPersonalQuestToAutocompleteEntry = (
     personalQuest: PersonalQuest | undefined
 ): PersonalQuestAutocompleteEntry => {
     return { label: personalQuest?.name ?? "" };
@@ -60,3 +60,5 @@ const findAndSetPersonalQuest = (
 };
 
 export default PersonalQuestAutocomplete;
+export { getPersonalQuestAutocompleteEntries, convertPersonalQuestToAutocompleteEntry, findAndSetPersonalQuest };
+export type { PersonalQuestAutocompleteEntry };

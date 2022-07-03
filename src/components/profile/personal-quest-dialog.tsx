@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction } from "react";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
 import Card from "@/components/card";
 import StyledButton from "@/components/styled-button";
-import { defaultPersonalQuestCardImage } from "@/utils/constants";
+import { defaultPersonalQuestCardImageUrl } from "@/utils/constants";
 
 interface PersonalQuestDialogProps {
     character: Character;
@@ -13,7 +13,7 @@ interface PersonalQuestDialogProps {
 }
 
 const PersonalQuestDialog = ({ character, setCharacter, isOpen, onClose }: PersonalQuestDialogProps) => {
-    const personalQuestImage = character.personalQuest?.imageUrl ?? defaultPersonalQuestCardImage;
+    const personalQuestImageUrl = character.personalQuest?.imageUrl ?? defaultPersonalQuestCardImageUrl;
 
     return (
         <Dialog
@@ -34,7 +34,7 @@ const PersonalQuestDialog = ({ character, setCharacter, isOpen, onClose }: Perso
                         </Grid>
 
                         <Grid item lg={12} width="100%" textAlign="center">
-                            <Card url={personalQuestImage} altText="Personal quest card" />
+                            <Card url={personalQuestImageUrl} altText="Personal quest" />
                         </Grid>
                         <Grid item lg={12} width="100%" textAlign="center">
                             <StyledButton text="Close" onClick={onClose} />

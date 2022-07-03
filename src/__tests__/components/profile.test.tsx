@@ -30,4 +30,14 @@ describe("profile tab", () => {
 
         expect(characterMat).toBeInTheDocument();
     });
+
+    it("renders the personal quest", () => {
+        render(<Profile character={character} setCharacter={jest.fn()} />);
+
+        const personalQuest = screen.queryByRole("button", {
+            name: "Personal quest",
+        });
+
+        expect(personalQuest).toBeInTheDocument();
+    });
 });
