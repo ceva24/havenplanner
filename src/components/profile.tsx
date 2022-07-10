@@ -17,10 +17,10 @@ const Profile = ({ character, setCharacter }: ProfileProps) => {
             </Grid>
             <Grid item lg={8} textAlign="center">
                 <Grid container spacing={10}>
-                    <Grid item lg={8}>
+                    <Grid item md={8}>
                         <CharacterMat characterClass={character.characterClass} />
                     </Grid>
-                    <Grid item lg={4} width="100%">
+                    <Grid item md={4} width="100%">
                         <PersonalQuestCard character={character} setCharacter={setCharacter} />
                     </Grid>
                 </Grid>

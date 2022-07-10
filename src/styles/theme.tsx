@@ -16,7 +16,7 @@ const theme: ThemeOptions = createTheme({
     typography: {
         h1: {
             fontFamily: "PirataOne",
-            fontSize: "3rem",
+            fontSize: "2rem",
         },
         body1: {
             fontFamily: "Sakkal Majalla",
@@ -51,6 +51,13 @@ const theme: ThemeOptions = createTheme({
                 src: local('Sakkal Majalla'), local('Sakkal Majalla-Regular'), url('/fonts/majalla.ttf') format('woff2');
               }
           `,
+        },
+        MuiAppBar: {
+            styleOverrides: {
+                colorPrimary: {
+                    backgroundColor: "#0f0302",
+                },
+            },
         },
     },
 });

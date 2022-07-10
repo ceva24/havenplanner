@@ -29,14 +29,14 @@ const TabbedContent = ({ character, setCharacter }: TabbedContentProps) => {
                     label="Profile"
                     id="profile-tab"
                     aria-controls="profile-tabpanel"
-                    sx={{ typography: "body2" }}
+                    sx={{ margin: "0.5rem", typography: "body2" }}
                 />
                 <Tab
                     disableRipple
                     label="Items"
                     id="items-tab"
                     aria-controls="items-tabpanel"
-                    sx={{ typography: "body2" }}
+                    sx={{ margin: "0.5rem", typography: "body2" }}
                 />
                 <Tab
                     disabled
@@ -44,7 +44,7 @@ const TabbedContent = ({ character, setCharacter }: TabbedContentProps) => {
                     label="Deck"
                     id="deck-tab"
                     aria-controls="deck-tabpanel"
-                    sx={{ typography: "body2" }}
+                    sx={{ margin: "0.5rem", typography: "body2" }}
                 />
                 <Tab
                     disabled
@@ -52,7 +52,7 @@ const TabbedContent = ({ character, setCharacter }: TabbedContentProps) => {
                     label="Perks"
                     id="perks-tab"
                     aria-controls="perks-tabpanel"
-                    sx={{ typography: "body2" }}
+                    sx={{ margin: "0.5rem", typography: "body2" }}
                 />
             </Tabs>
 
