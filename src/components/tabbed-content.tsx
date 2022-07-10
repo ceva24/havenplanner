@@ -32,6 +32,13 @@ const TabbedContent = ({ character, setCharacter }: TabbedContentProps) => {
                     sx={{ typography: "body2" }}
                 />
                 <Tab
+                    disableRipple
+                    label="Items"
+                    id="items-tab"
+                    aria-controls="items-tabpanel"
+                    sx={{ typography: "body2" }}
+                />
+                <Tab
                     disabled
                     disableRipple
                     label="Deck"
@@ -54,8 +61,9 @@ const TabbedContent = ({ character, setCharacter }: TabbedContentProps) => {
             <TabPanel currentTabIndex={currentTabIndex} index={0} id="profile-tabpanel" ariaLabelledBy="profile-tab">
                 <Profile character={character} setCharacter={setCharacter} />
             </TabPanel>
-            <TabPanel currentTabIndex={currentTabIndex} index={1} id="deck-tabpanel" ariaLabelledBy="deck-tab" />
-            <TabPanel currentTabIndex={currentTabIndex} index={2} id="perks-tabpanel" ariaLabelledBy="perks-tab" />
+            <TabPanel currentTabIndex={currentTabIndex} index={1} id="items-tabpanel" ariaLabelledBy="items-tab" />
+            <TabPanel currentTabIndex={currentTabIndex} index={2} id="deck-tabpanel" ariaLabelledBy="deck-tab" />
+            <TabPanel currentTabIndex={currentTabIndex} index={3} id="perks-tabpanel" ariaLabelledBy="perks-tab" />
         </>
     );
 };
