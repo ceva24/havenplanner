@@ -3,12 +3,12 @@ import { Autocomplete, AutocompleteRenderInputParams, FormControl, TextField } f
 import { SetStateAction, SyntheticEvent, Dispatch } from "react";
 import { personalQuests } from "@/utils/constants";
 
-interface PersonalQuestSelectProps {
+interface PersonalQuestAutocompleteProps {
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const PersonalQuestAutocomplete = ({ character, setCharacter }: PersonalQuestSelectProps) => {
+const PersonalQuestAutocomplete = ({ character, setCharacter }: PersonalQuestAutocompleteProps) => {
     const handleChange = (event: SyntheticEvent, value: PersonalQuestAutocompleteEntry | null) => {
         findAndSetPersonalQuest(value, character, setCharacter);
     };
