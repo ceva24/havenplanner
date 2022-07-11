@@ -12,6 +12,8 @@ const AppButton = ({ text, onClick, startIcon }: AppButtonProps) => {
             variant="contained"
             sx={{
                 margin: "1%",
+                paddingLeft: 3,
+                paddingRight: 3,
                 color: "background.default",
                 backgroundColor: "secondary.main",
                 // eslint-disable-next-line @typescript-eslint/naming-convention

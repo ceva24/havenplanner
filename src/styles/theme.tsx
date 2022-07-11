@@ -16,7 +16,7 @@ const theme: ThemeOptions = createTheme({
     typography: {
         h1: {
             fontFamily: "PirataOne",
-            fontSize: "2rem",
+            fontSize: "1.85rem",
         },
         body1: {
             fontFamily: "Sakkal Majalla",

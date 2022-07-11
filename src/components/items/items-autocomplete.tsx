@@ -11,7 +11,7 @@ interface ItemsAutocompleteProps {
 const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) => {
     // eslint-disable-next-line @typescript-eslint/ban-types
     const handleChange = (event: SyntheticEvent, value: Item | null) => {
-        addItem(character, setCharacter, value);
+        addItem(value, character, setCharacter);
     };
 
     return (
@@ -32,7 +32,7 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
 };
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-const addItem = (character: Character, setCharacter: Dispatch<SetStateAction<Character>>, item: Item | null) => {
+const addItem = (item: Item | null, character: Character, setCharacter: Dispatch<SetStateAction<Character>>) => {
     if (item?.id) {
         const characterItem: CharacterItem = { id: v4(), item };
 

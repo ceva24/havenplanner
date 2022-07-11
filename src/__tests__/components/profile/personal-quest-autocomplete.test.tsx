@@ -1,11 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import PersonalQuestAutocomplete, {
-    compareEntries,
-    convertPersonalQuestToAutocompleteEntry,
-    findAndSetPersonalQuest,
-    getPersonalQuestAutocompleteEntries,
-    PersonalQuestAutocompleteEntry,
-} from "@/components/profile/personal-quest-autocomplete";
+import PersonalQuestAutocomplete, { findAndSetPersonalQuest } from "@/components/profile/personal-quest-autocomplete";
 import { characterClasses, personalQuests } from "@/utils/constants";
 
 const character: Character = {
@@ -32,56 +26,12 @@ describe("personal quest autocomplete", () => {
     });
 });
 
-describe("getPersonalQuestAutocompleteEntries", () => {
-    it("returns autocomplete entries", () => {
-        const autocompleteEntries = getPersonalQuestAutocompleteEntries();
-
-        expect(autocompleteEntries.length).toEqual(personalQuests.length);
-        expect(autocompleteEntries[0]?.label).toEqual(personalQuests[0].name);
-    });
-});
-
-describe("convertPersonalQuestToAutocompleteEntries", () => {
-    it("returns an autocomplete entry", () => {
-        const personalQuest: PersonalQuest = {
-            id: 500,
-            name: "Test quest",
-            imageUrl: "/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.png",
-        };
-
-        const autocompleteEntry = convertPersonalQuestToAutocompleteEntry(personalQuest);
-
-        expect(autocompleteEntry?.label).toEqual("Test quest");
-    });
-
-    it("returns null for an undefined entry", () => {
-        const autocompleteEntry = convertPersonalQuestToAutocompleteEntry(undefined);
-
-        expect(autocompleteEntry).toEqual(null);
-    });
-});
-
-describe("compareEntries", () => {
-    it.each`
-        option            | value             | result
-        ${{ label: "a" }} | ${{ label: "a" }} | ${true}
-        ${{ label: "a" }} | ${{ label: "b" }} | ${false}
-        ${{ label: "a" }} | ${null}           | ${false}
-        ${null}           | ${{ label: "a" }} | ${false}
-        ${null}           | ${null}           | ${true}
-    `("returns $result when the option is $option and value is $value", ({ option, value, result }) => {
-        const output = compareEntries(option, value);
-
-        expect(output).toEqual(result);
-    });
-});
-
 describe("findAndSetPersonalQuest", () => {
     it("sets the personal quest to the selected value", () => {
-        const personalQuestAutocompleteEntry: PersonalQuestAutocompleteEntry = { label: personalQuests[0].name };
+        const personalQuest = personalQuests[0];
         const setCharacter = jest.fn();
 
-        findAndSetPersonalQuest(personalQuestAutocompleteEntry, character, setCharacter);
+        findAndSetPersonalQuest(personalQuest, character, setCharacter);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter.mock.calls[0][0]).toEqual({ ...character, personalQuest: personalQuests[0] });
