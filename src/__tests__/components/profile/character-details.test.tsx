@@ -8,6 +8,7 @@ const character: Character = {
     gold: 50,
     notes: "Hello haven",
     characterClass: characterClasses[0],
+    items: [],
 };
 
 const poorInexperiencedCharacter: Character = {
@@ -16,6 +17,7 @@ const poorInexperiencedCharacter: Character = {
     gold: 0,
     notes: "",
     characterClass: characterClasses[0],
+    items: [],
 };
 
 const setCharacter = jest.fn();

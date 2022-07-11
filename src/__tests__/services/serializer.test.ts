@@ -10,6 +10,7 @@ describe("data serializer", () => {
             notes: "It's a test",
             characterClass: characterClasses[2],
             personalQuest: personalQuests[8],
+            items: [],
         };
 
         const data: string = serialize(character);

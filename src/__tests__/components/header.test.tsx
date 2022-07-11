@@ -8,6 +8,7 @@ const character: Character = {
     gold: 50,
     notes: "Hello haven",
     characterClass: characterClasses[0],
+    items: [],
 };
 
 describe("Header", () => {

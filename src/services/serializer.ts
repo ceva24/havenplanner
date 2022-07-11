@@ -37,6 +37,7 @@ const deserialize = (data: string): Character => {
         personalQuest: personalQuests.find((personalQuest: PersonalQuest) => {
             return personalQuest.id === characterData.p;
         }),
+        items: [],
     };
 
     return character;

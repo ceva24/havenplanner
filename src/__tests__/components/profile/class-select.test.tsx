@@ -13,6 +13,7 @@ const character: Character = {
     gold: 25,
     notes: "Hello",
     characterClass: characterClasses[1],
+    items: [],
 };
 
 describe("Class Select", () => {

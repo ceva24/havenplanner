@@ -63,7 +63,7 @@ const TabbedContent = ({ character, setCharacter }: TabbedContentProps) => {
                 <Profile character={character} setCharacter={setCharacter} />
             </TabPanel>
             <TabPanel currentTabIndex={currentTabIndex} index={1} id="items-tabpanel" ariaLabelledBy="items-tab">
-                <Items />
+                <Items character={character} setCharacter={setCharacter} />
             </TabPanel>
             <TabPanel currentTabIndex={currentTabIndex} index={2} id="deck-tabpanel" ariaLabelledBy="deck-tab" />
             <TabPanel currentTabIndex={currentTabIndex} index={3} id="perks-tabpanel" ariaLabelledBy="perks-tab" />

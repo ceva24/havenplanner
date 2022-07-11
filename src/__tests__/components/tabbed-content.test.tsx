@@ -12,6 +12,7 @@ const character: Character = {
         imageUrl: "/character-icons/gloomhaven/gh-brute.png",
         characterMatImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
     },
+    items: [],
 };
 
 describe("tabbed content", () => {

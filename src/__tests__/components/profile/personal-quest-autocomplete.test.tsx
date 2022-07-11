@@ -15,6 +15,7 @@ const character: Character = {
     notes: "Hello",
     characterClass: characterClasses[1],
     personalQuest: personalQuests[2],
+    items: [],
 };
 
 beforeEach(() => {

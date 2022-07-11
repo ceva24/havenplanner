@@ -9,6 +9,7 @@ const character: Character = {
     gold: 12,
     notes: "Test",
     characterClass: characterClasses[3],
+    items: [],
 };
 
 beforeEach(() => {

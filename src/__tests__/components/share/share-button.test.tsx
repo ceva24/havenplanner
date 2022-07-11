@@ -10,6 +10,7 @@ const character: Character = {
     gold: 0,
     notes: "",
     characterClass: characterClasses[0],
+    items: [],
 };
 
 const setShareableLink = jest.fn();

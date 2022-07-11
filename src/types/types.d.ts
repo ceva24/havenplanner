@@ -5,6 +5,12 @@ interface Character {
     notes: string;
     characterClass: CharacterClass;
     personalQuest?: PersonalQuest;
+    items: CharacterItem[];
+}
+
+interface CharacterItem {
+    id: string;
+    item: Item;
 }
 
 interface Asset {
