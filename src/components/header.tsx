@@ -1,5 +1,5 @@
-import { AppBar, Box, Button, Checkbox, FormControlLabel, IconButton, Toolbar, Typography } from "@mui/material";
-import ShareButton from "./share/share-button";
+import { AppBar, Box, Checkbox, FormControlLabel, Toolbar, Typography } from "@mui/material";
+import ShareButton from "@/components/share/share-button";
 
 interface HeaderProps {
     character: Character;

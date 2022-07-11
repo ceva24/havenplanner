@@ -1,5 +1,6 @@
 import { Tabs, Tab, Divider, Box } from "@mui/material";
 import { Dispatch, SetStateAction, useState } from "react";
+import Items from "@/components/items";
 import Profile from "@/components/profile";
 
 interface TabbedContentProps {
@@ -61,7 +62,9 @@ const TabbedContent = ({ character, setCharacter }: TabbedContentProps) => {
             <TabPanel currentTabIndex={currentTabIndex} index={0} id="profile-tabpanel" ariaLabelledBy="profile-tab">
                 <Profile character={character} setCharacter={setCharacter} />
             </TabPanel>
-            <TabPanel currentTabIndex={currentTabIndex} index={1} id="items-tabpanel" ariaLabelledBy="items-tab" />
+            <TabPanel currentTabIndex={currentTabIndex} index={1} id="items-tabpanel" ariaLabelledBy="items-tab">
+                <Items />
+            </TabPanel>
             <TabPanel currentTabIndex={currentTabIndex} index={2} id="deck-tabpanel" ariaLabelledBy="deck-tab" />
             <TabPanel currentTabIndex={currentTabIndex} index={3} id="perks-tabpanel" ariaLabelledBy="perks-tab" />
         </>

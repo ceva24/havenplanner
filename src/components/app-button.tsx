@@ -1,17 +1,18 @@
 import { Button, Typography } from "@mui/material";
 
-interface StyledButtonProps {
+interface AppButtonProps {
     text: string;
     onClick: () => void;
     startIcon?: JSX.Element;
 }
 
-const StyledButton = ({ text, onClick, startIcon }: StyledButtonProps) => {
+const AppButton = ({ text, onClick, startIcon }: AppButtonProps) => {
     return (
         <Button
             variant="contained"
             sx={{
                 margin: "1%",
+                color: "background.default",
                 backgroundColor: "secondary.main",
                 // eslint-disable-next-line @typescript-eslint/naming-convention
                 "&:hover": { backgroundColor: "secondary.light" },
@@ -24,4 +25,4 @@ const StyledButton = ({ text, onClick, startIcon }: StyledButtonProps) => {
     );
 };
 
-export default StyledButton;
+export default AppButton;

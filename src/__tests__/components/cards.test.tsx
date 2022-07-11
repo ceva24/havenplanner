@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Card, ItemCard } from "@/components/cards";
+import { Card, SmallCard } from "@/components/cards";
 
 describe("cards", () => {
     it("renders a card", () => {
@@ -12,7 +12,7 @@ describe("cards", () => {
 
     it("renders an item card", () => {
         render(
-            <ItemCard
+            <SmallCard
                 src="/wordhaven/images/items/gloomhaven/1-14/gh-001-boots-of-striding.png"
                 altText="Boots of Striding"
             />

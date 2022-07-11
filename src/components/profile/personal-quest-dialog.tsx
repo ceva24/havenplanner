@@ -2,7 +2,7 @@ import { Dialog, DialogContent, DialogContentText, Grid } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
 import { Card } from "@/components/cards";
-import StyledButton from "@/components/styled-button";
+import AppButton from "@/components/app-button";
 import { defaultPersonalQuestCardImageUrl } from "@/utils/constants";
 
 interface PersonalQuestDialogProps {
@@ -37,7 +37,7 @@ const PersonalQuestDialog = ({ character, setCharacter, isOpen, onClose }: Perso
                             <Card src={personalQuestImageUrl} altText="Personal quest" />
                         </Grid>
                         <Grid item lg={12} width="100%" textAlign="center">
-                            <StyledButton text="Close" onClick={onClose} />
+                            <AppButton text="Close" onClick={onClose} />
                         </Grid>
                     </Grid>
                 </DialogContentText>

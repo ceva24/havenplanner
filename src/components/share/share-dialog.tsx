@@ -1,6 +1,6 @@
 import { Stack, Typography, Box, TextField, Dialog, DialogContent, DialogContentText, Grid } from "@mui/material";
 import CopyButton from "@/components/share/copy-button";
-import StyledButton from "@/components/styled-button";
+import AppButton from "@/components/app-button";
 
 interface ShareDialogProps {
     shareableLink: string;
@@ -36,7 +36,7 @@ const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose }: S
 
                     <Grid container spacing={10} textAlign="center" sx={{ paddingTop: 2 }}>
                         <Grid item width="100%">
-                            <StyledButton text="Close" onClick={onClose} />
+                            <AppButton text="Close" onClick={onClose} />
                         </Grid>
                     </Grid>
                 </DialogContentText>
