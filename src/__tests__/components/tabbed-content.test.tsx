@@ -9,7 +9,7 @@ const character: Character = {
     characterClass: {
         id: 0,
         name: "Test 1",
-        characterIconImageUrl: "/character-icons/gloomhaven/gh-brute.png",
+        imageUrl: "/character-icons/gloomhaven/gh-brute.png",
         characterMatImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
     },
 };

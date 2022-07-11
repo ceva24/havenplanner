@@ -7,15 +7,16 @@ interface Character {
     personalQuest?: PersonalQuest;
 }
 
-interface CharacterClass {
-    id: number;
-    name: string;
-    characterIconImageUrl: string;
-    characterMatImageUrl: string;
-}
-
-interface PersonalQuest {
+interface Asset {
     id: number;
     name: string;
     imageUrl: string;
 }
+
+interface CharacterClass extends Asset {
+    characterMatImageUrl: string;
+}
+
+interface PersonalQuest extends Asset {}
+
+interface Item extends Asset {}

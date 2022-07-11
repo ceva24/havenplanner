@@ -19,13 +19,7 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
         <Box id="character-details-form" aria-label="Character details form" component="form">
             <div>
                 <ClassSelect character={character} setCharacter={setCharacter} />
-                <Image
-                    layout="fixed"
-                    src={character.characterClass.characterIconImageUrl}
-                    alt="Class icon"
-                    width={70}
-                    height={70}
-                />
+                <Image layout="fixed" src={character.characterClass.imageUrl} alt="Class icon" width={70} height={70} />
             </div>
             <div>
                 <TextField
