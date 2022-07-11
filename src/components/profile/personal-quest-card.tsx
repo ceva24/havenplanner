@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { Button } from "@mui/material";
-import Card from "@/components/card";
+import { Card } from "@/components/cards";
 import PersonalQuestDialog from "@/components/profile/personal-quest-dialog";
 import { defaultPersonalQuestCardImageUrl } from "@/utils/constants";
 

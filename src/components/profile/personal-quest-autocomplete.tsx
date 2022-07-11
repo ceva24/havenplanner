@@ -19,6 +19,7 @@ const PersonalQuestAutocomplete = ({ character, setCharacter }: PersonalQuestSel
                 disablePortal
                 value={convertPersonalQuestToAutocompleteEntry(character.personalQuest)}
                 options={getPersonalQuestAutocompleteEntries()}
+                isOptionEqualToValue={compareEntries}
                 renderInput={(props: AutocompleteRenderInputParams) => <TextField {...props} label="Personal quest" />}
                 onChange={handleChange}
             />
@@ -30,7 +31,7 @@ interface PersonalQuestAutocompleteEntry {
     label: string;
 }
 
-const getPersonalQuestAutocompleteEntries = (): PersonalQuestAutocompleteEntry[] => {
+const getPersonalQuestAutocompleteEntries = (): (PersonalQuestAutocompleteEntry | null)[] => {
     return personalQuests.map((personalQuest: PersonalQuest) => {
         return convertPersonalQuestToAutocompleteEntry(personalQuest);
     });
@@ -38,8 +39,15 @@ const getPersonalQuestAutocompleteEntries = (): PersonalQuestAutocompleteEntry[]
 
 const convertPersonalQuestToAutocompleteEntry = (
     personalQuest: PersonalQuest | undefined
-): PersonalQuestAutocompleteEntry => {
-    return { label: personalQuest?.name ?? "" };
+): PersonalQuestAutocompleteEntry | null => {
+    return personalQuest?.name ? { label: personalQuest.name } : null;
+};
+
+const compareEntries = (
+    option: PersonalQuestAutocompleteEntry | null,
+    value: PersonalQuestAutocompleteEntry | null
+) => {
+    return option?.label === value?.label;
 };
 
 const findAndSetPersonalQuest = (
@@ -60,5 +68,10 @@ const findAndSetPersonalQuest = (
 };
 
 export default PersonalQuestAutocomplete;
-export { getPersonalQuestAutocompleteEntries, convertPersonalQuestToAutocompleteEntry, findAndSetPersonalQuest };
+export {
+    getPersonalQuestAutocompleteEntries,
+    convertPersonalQuestToAutocompleteEntry,
+    compareEntries,
+    findAndSetPersonalQuest,
+};
 export type { PersonalQuestAutocompleteEntry };

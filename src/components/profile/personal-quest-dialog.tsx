@@ -1,7 +1,7 @@
 import { Dialog, DialogContent, DialogContentText, Grid } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
-import Card from "@/components/card";
+import { Card } from "@/components/cards";
 import StyledButton from "@/components/styled-button";
 import { defaultPersonalQuestCardImageUrl } from "@/utils/constants";
 
@@ -27,7 +27,7 @@ const PersonalQuestDialog = ({ character, setCharacter, isOpen, onClose }: Perso
             </span>
 
             <DialogContent sx={{ backgroundColor: "background.default" }}>
-                <DialogContentText>
+                <DialogContentText component="div">
                     <Grid container spacing={5}>
                         <Grid item lg={12} width="100%">
                             <PersonalQuestAutocomplete character={character} setCharacter={setCharacter} />

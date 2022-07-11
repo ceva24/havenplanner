@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import PersonalQuestAutocomplete, {
+    compareEntries,
     convertPersonalQuestToAutocompleteEntry,
     findAndSetPersonalQuest,
     getPersonalQuestAutocompleteEntries,
@@ -35,7 +36,7 @@ describe("getPersonalQuestAutocompleteEntries", () => {
         const autocompleteEntries = getPersonalQuestAutocompleteEntries();
 
         expect(autocompleteEntries.length).toEqual(personalQuests.length);
-        expect(autocompleteEntries[0].label).toEqual(personalQuests[0].name);
+        expect(autocompleteEntries[0]?.label).toEqual(personalQuests[0].name);
     });
 });
 
@@ -49,15 +50,31 @@ describe("convertPersonalQuestToAutocompleteEntries", () => {
 
         const autocompleteEntry = convertPersonalQuestToAutocompleteEntry(personalQuest);
 
-        expect(autocompleteEntry.label).toEqual("Test quest");
+        expect(autocompleteEntry?.label).toEqual("Test quest");
     });
 
-    it("returns a blank string for an undefined entry", () => {
+    it("returns null for an undefined entry", () => {
         const autocompleteEntry = convertPersonalQuestToAutocompleteEntry(undefined);
 
-        expect(autocompleteEntry.label).toEqual("");
+        expect(autocompleteEntry).toEqual(null);
     });
 });
+
+describe("compareEntries", () => {
+
+    it.each`
+    option    | value | result
+    ${{ label: "a"}}          | ${{ label: "a"}} | ${true}
+    ${{ label: "a"}}          | ${{ label: "b"}} | ${false}
+    ${{ label: "a"}}          | ${null} | ${false}
+    ${null}          | ${{ label: "a"}} | ${false}
+    ${null}          | ${null} | ${true}
+`("returns $result when the option is $option and value is $value", ({ option, value, result }) => {
+    const output = compareEntries(option, value);
+
+    expect(output).toEqual(result);
+});
+})
 
 describe("findAndSetPersonalQuest", () => {
     it("sets the personal quest to the selected value", () => {
