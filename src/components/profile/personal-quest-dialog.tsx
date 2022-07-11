@@ -33,7 +33,7 @@ const PersonalQuestDialog = ({ character, setCharacter, isOpen, onClose }: Perso
                     </Grid>
 
                     <Grid item lg={12} width="100%" textAlign="center">
-                        <Card src={personalQuestImageUrl} altText="Personal quest" />
+                        <Card src={personalQuestImageUrl} altText={character.personalQuest?.name ?? "Personal quest"} />
                     </Grid>
                     <Grid item lg={12} width="100%" textAlign="center">
                         <AppButton text="Close" onClick={onClose} />
