@@ -23,7 +23,7 @@ const PersonalQuestCard = ({ character, setCharacter }: PersonalQuestCardProps) 
     return (
         <>
             <Button aria-label="Personal quest" onClick={handleOpen}>
-                <Card url={defaultPersonalQuestCardImageUrl} altText="Personal quest card" />
+                <Card src={defaultPersonalQuestCardImageUrl} altText="Personal quest card" />
             </Button>
             <PersonalQuestDialog
                 character={character}

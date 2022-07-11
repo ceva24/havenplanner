@@ -31,7 +31,7 @@ interface PersonalQuestAutocompleteEntry {
     label: string;
 }
 
-const getPersonalQuestAutocompleteEntries = (): (PersonalQuestAutocompleteEntry | null)[] => {
+const getPersonalQuestAutocompleteEntries = (): Array<PersonalQuestAutocompleteEntry | null> => {
     return personalQuests.map((personalQuest: PersonalQuest) => {
         return convertPersonalQuestToAutocompleteEntry(personalQuest);
     });

@@ -34,7 +34,7 @@ const PersonalQuestDialog = ({ character, setCharacter, isOpen, onClose }: Perso
                         </Grid>
 
                         <Grid item lg={12} width="100%" textAlign="center">
-                            <Card url={personalQuestImageUrl} altText="Personal quest" />
+                            <Card src={personalQuestImageUrl} altText="Personal quest" />
                         </Grid>
                         <Grid item lg={12} width="100%" textAlign="center">
                             <StyledButton text="Close" onClick={onClose} />

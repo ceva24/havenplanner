@@ -61,20 +61,19 @@ describe("convertPersonalQuestToAutocompleteEntries", () => {
 });
 
 describe("compareEntries", () => {
-
     it.each`
-    option    | value | result
-    ${{ label: "a"}}          | ${{ label: "a"}} | ${true}
-    ${{ label: "a"}}          | ${{ label: "b"}} | ${false}
-    ${{ label: "a"}}          | ${null} | ${false}
-    ${null}          | ${{ label: "a"}} | ${false}
-    ${null}          | ${null} | ${true}
-`("returns $result when the option is $option and value is $value", ({ option, value, result }) => {
-    const output = compareEntries(option, value);
+        option            | value             | result
+        ${{ label: "a" }} | ${{ label: "a" }} | ${true}
+        ${{ label: "a" }} | ${{ label: "b" }} | ${false}
+        ${{ label: "a" }} | ${null}           | ${false}
+        ${null}           | ${{ label: "a" }} | ${false}
+        ${null}           | ${null}           | ${true}
+    `("returns $result when the option is $option and value is $value", ({ option, value, result }) => {
+        const output = compareEntries(option, value);
 
-    expect(output).toEqual(result);
+        expect(output).toEqual(result);
+    });
 });
-})
 
 describe("findAndSetPersonalQuest", () => {
     it("sets the personal quest to the selected value", () => {
