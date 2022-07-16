@@ -36,7 +36,7 @@ const Index: NextPage<IndexProps> = ({ initialCharacter }: IndexProps) => {
 
             <Container component="main" maxWidth="xl">
                 <Grid container height="100%" minHeight="45rem" justifyContent="center">
-                    <Grid item lg={12}>
+                    <Grid item xs={12}>
                         <TabbedContent character={character} setCharacter={setCharacter} />
                     </Grid>
                 </Grid>

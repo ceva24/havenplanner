@@ -19,8 +19,6 @@ const TabbedContent = ({ character, setCharacter }: TabbedContentProps) => {
         <>
             <Tabs
                 centered
-                allowScrollButtonsMobile
-                scrollButtons
                 value={currentTabIndex}
                 variant="fullWidth"
                 textColor="secondary"
