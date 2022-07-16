@@ -36,7 +36,7 @@ describe("personal quest dialog", () => {
 
         const personalQuestDialog = screen.getByRole("dialog", { name: "Personal quest" });
 
-        const personalQuestImage = within(personalQuestDialog).queryByRole("img", { name: "Personal quest" });
+        const personalQuestImage = within(personalQuestDialog).queryByRole("img", { name: personalQuests[2].name });
 
         expect(personalQuestImage).toBeInTheDocument();
     });
