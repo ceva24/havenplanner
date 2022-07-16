@@ -1,4 +1,4 @@
-import { AppBar, Box, Checkbox, FormControlLabel, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Checkbox, FormControlLabel, Grid, Toolbar, Typography } from "@mui/material";
 import ShareButton from "@/components/share/share-button";
 
 interface HeaderProps {
@@ -13,8 +13,16 @@ const Header = ({ character }: HeaderProps) => {
                     <Typography color="textPrimary" variant="h1" padding="1rem" sx={{ flexGrow: 1 }}>
                         Gloomhaven Character Planner
                     </Typography>
-                    <FormControlLabel control={<Checkbox disabled />} label="Spoilers" />
-                    <ShareButton character={character} />
+                    <Box>
+                        <Grid container>
+                            <Grid item>
+                                <FormControlLabel control={<Checkbox disabled />} label="Spoilers" />
+                            </Grid>
+                            <Grid item>
+                                <ShareButton character={character} />
+                            </Grid>
+                        </Grid>
+                    </Box>
                 </Toolbar>
             </AppBar>
         </Box>
