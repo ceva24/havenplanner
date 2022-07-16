@@ -1,5 +1,5 @@
 import { Stack, Typography, Box, TextField, Dialog, DialogContent, Grid } from "@mui/material";
-import CopyButton from "@/components/share/copy-button";
+import CopyLinkButton from "@/components/share/copy-link-button";
 import AppButton from "@/components/app-button";
 
 interface ShareDialogProps {
@@ -29,7 +29,7 @@ const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose }: S
                             placeholder="Loading..."
                             inputProps={{ "aria-label": "Link" }}
                         />
-                        <CopyButton shareableLink={shareableLink} encodeCharacterError={encodeCharacterError} />
+                        <CopyLinkButton shareableLink={shareableLink} encodeCharacterError={encodeCharacterError} />
                     </Box>
                 </Stack>
 
