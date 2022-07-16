@@ -18,6 +18,22 @@ describe("data serializer", () => {
         expect(data).toEqual(`{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"p":518}`);
     });
 
+    it("omits the personal quest property when serializing a character with no personal quest id", () => {
+        const character: Character = {
+            name: "Test Character",
+            experience: 240,
+            gold: 75,
+            notes: "It's a test",
+            characterClass: characterClasses[2],
+            personalQuest: undefined,
+            items: [],
+        };
+
+        const data: string = serialize(character);
+
+        expect(data).toEqual(`{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2}`);
+    });
+
     it("deserializes character data", () => {
         const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"p":518}`;
 
@@ -39,11 +55,11 @@ describe("data serializer", () => {
         expect(character.characterClass).toEqual(defaultCharacter.characterClass);
     });
 
-    it("sets the personal quest to undefined when there is no id", () => {
+    it("omits the personal quest property when deserializing a character with no personal quest id", () => {
         const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":0}`;
 
         const character: Character = deserialize(data);
 
-        expect(character.personalQuest).toBeUndefined();
+        expect(character).not.toHaveProperty("personalQuest");
     });
 });

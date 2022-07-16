@@ -25,6 +25,10 @@ const serialize = (character: Character): string => {
 const deserialize = (data: string): Character => {
     const characterData = JSON.parse(data) as SerializedCharacterData;
 
+    const personalQuest = personalQuests.find((personalQuest: PersonalQuest) => {
+        return personalQuest.id === characterData.p;
+    });
+
     const character: Character = {
         name: characterData.n,
         experience: characterData.x,
@@ -34,9 +38,7 @@ const deserialize = (data: string): Character => {
             characterClasses.find((characterClass: CharacterClass) => {
                 return characterClass.id === characterData.c;
             }) ?? defaultCharacter.characterClass,
-        personalQuest: personalQuests.find((personalQuest: PersonalQuest) => {
-            return personalQuest.id === characterData.p;
-        }),
+        ...(personalQuest && { personalQuest }),
         items: [],
     };
 
