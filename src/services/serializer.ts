@@ -1,4 +1,5 @@
-import { characterClasses, defaultCharacter, personalQuests } from "@/utils/constants";
+import { v4 as uuid } from "uuid";
+import { characterClasses, defaultCharacter, items, personalQuests } from "@/utils/constants";
 
 interface SerializedCharacterData {
     n: string; // Name
@@ -29,24 +30,43 @@ const serialize = (character: Character): string => {
 const deserialize = (data: string): Character => {
     const characterData = JSON.parse(data) as SerializedCharacterData;
 
-    const personalQuest = personalQuests.find((personalQuest: PersonalQuest) => {
-        return personalQuest.id === characterData.p;
-    });
+    const personalQuest = deserializePersonalQuest(characterData.p);
 
     const character: Character = {
         name: characterData.n,
         experience: characterData.x,
         gold: characterData.g,
         notes: characterData.d,
-        characterClass:
-            characterClasses.find((characterClass: CharacterClass) => {
-                return characterClass.id === characterData.c;
-            }) ?? defaultCharacter.characterClass,
+        characterClass: deserializeCharacterClass(characterData.c),
         ...(personalQuest && { personalQuest }),
-        items: [],
+        items: deserializeItems(characterData.i),
     };
 
     return character;
+};
+
+const deserializeCharacterClass = (characterClassId: number) => {
+    return (
+        characterClasses.find((characterClass: CharacterClass) => {
+            return characterClass.id === characterClassId;
+        }) ?? defaultCharacter.characterClass
+    );
+};
+
+const deserializePersonalQuest = (personalQuestId: number | undefined) => {
+    return personalQuests.find((personalQuest: PersonalQuest) => {
+        return personalQuest.id === personalQuestId;
+    });
+};
+
+const deserializeItems = (itemIds: number[]) => {
+    const characterItems: CharacterItem[] = itemIds.map((itemId: number) => {
+        return { id: uuid(), item: items[itemId - 1] };
+    });
+
+    return characterItems.filter((characterItem: CharacterItem) => {
+        return characterItem.item;
+    });
 };
 
 export { serialize, deserialize };

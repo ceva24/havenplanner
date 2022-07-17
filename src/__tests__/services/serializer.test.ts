@@ -1,6 +1,16 @@
 import { serialize, deserialize } from "@/services/serializer";
 import { characterClasses, defaultCharacter, items, personalQuests } from "@/utils/constants";
 
+jest.mock("uuid", () => {
+    return {
+        v4: jest.fn().mockReturnValue("123"),
+    };
+});
+
+beforeEach(() => {
+    jest.clearAllMocks();
+});
+
 describe("data serializer", () => {
     it("serializes a character", () => {
         const character: Character = {
@@ -73,7 +83,7 @@ describe("data serializer", () => {
     });
 
     it("deserializes character data", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"p":518}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"p":518,"i":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -85,8 +95,37 @@ describe("data serializer", () => {
         expect(character.personalQuest).toEqual(personalQuests[8]);
     });
 
+    it("deserializes item data", () => {
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"i":[2,8]}`;
+
+        const character: Character = deserialize(data);
+
+        expect(character.items).toHaveLength(2);
+        expect(character.items[0].item).toEqual(items[1]);
+        expect(character.items[1].item).toEqual(items[7]);
+    });
+
+    it("sets new uuids on character items", () => {
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"i":[2,8]}`;
+
+        const character: Character = deserialize(data);
+
+        expect(character.items).toHaveLength(2);
+        expect(character.items[0].id).toEqual("123");
+        expect(character.items[1].id).toEqual("123");
+    });
+
+    it("omits item data that is invalid", () => {
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"i":[2,-1]}`;
+
+        const character: Character = deserialize(data);
+
+        expect(character.items).toHaveLength(1);
+        expect(character.items[0].item).toEqual(items[1]);
+    });
+
     it("sets the default character class when the id is invalid", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":-1}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":-1,"i":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -94,7 +133,7 @@ describe("data serializer", () => {
     });
 
     it("omits the personal quest property when deserializing a character with no personal quest id", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":0}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":0,"i":[]}`;
 
         const character: Character = deserialize(data);
 
