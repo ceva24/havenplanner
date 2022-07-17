@@ -26,7 +26,7 @@ describe("share link", () => {
             .findShareLinkTextBox()
             .should(
                 "have.value",
-                "http://localhost:3000?character=CxCAeyJuIjoiIiwieCI6MCwiZyI6MCwiZCI6IiIsImMiOjB9Aw%3D%3D"
+                "http://localhost:3000?character=GycA%2BI3UYs0Z7oTUttSXL3zrYlIQi1kQQ6c0ASkOGM9BXBVLxUQMFVvrHw%3D%3D"
             );
     });
 
@@ -83,5 +83,28 @@ describe("share link", () => {
         cy.findPersonalQuestButton().click();
 
         cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530.png");
+    });
+
+    it("captures item data in a shareable link", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findItemsAutocomplete().click();
+
+        cy.findByRole("option", { name: "Piercing Bow" }).click();
+
+        cy.findItemsAutocomplete().click();
+
+        cy.findByRole("option", { name: "Eagle Eye Goggles" }).click();
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Items");
+
+        cy.findByRole("img", { name: "Piercing Bow" }).should("be.visible");
+        cy.findByRole("img", { name: "Eagle Eye Goggles" }).should("be.visible");
     });
 });
