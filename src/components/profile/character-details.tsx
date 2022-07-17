@@ -17,11 +17,11 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
 
     return (
         <Box id="character-details-form" aria-label="Character details form" component="form">
-            <div>
+            <Box sx={{ marginBottom: 2 }}>
                 <ClassSelect character={character} setCharacter={setCharacter} />
                 <Image layout="fixed" src={character.characterClass.imageUrl} alt="Class icon" width={70} height={70} />
-            </div>
-            <div>
+            </Box>
+            <Box>
                 <TextField
                     sx={{ width: "98%", margin: "1%" }}
                     id="name"
@@ -29,8 +29,8 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
                     value={character.name}
                     onChange={handleChange("name", false)}
                 />
-            </div>
-            <div>
+            </Box>
+            <Box>
                 <TextField
                     sx={{ width: "48%", margin: "1%" }}
                     id="experience"
@@ -45,8 +45,8 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
                     label="Level"
                     value={calculateLevel(character.experience)}
                 />
-            </div>
-            <div>
+            </Box>
+            <Box>
                 <TextField
                     sx={{ width: "48%", margin: "1%" }}
                     id="gold"
@@ -54,8 +54,8 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
                     value={character.gold || ""}
                     onChange={handleChange("gold", true)}
                 />
-            </div>
-            <div>
+            </Box>
+            <Box>
                 <TextField
                     multiline
                     sx={{ width: "98%", margin: "1%" }}
@@ -66,7 +66,7 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
                     value={character.notes}
                     onChange={handleChange("notes", false)}
                 />
-            </div>
+            </Box>
         </Box>
     );
 };
