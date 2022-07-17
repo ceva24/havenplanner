@@ -1,5 +1,5 @@
 import { serialize, deserialize } from "@/services/serializer";
-import { characterClasses, defaultCharacter, personalQuests } from "@/utils/constants";
+import { characterClasses, defaultCharacter, items, personalQuests } from "@/utils/constants";
 
 describe("data serializer", () => {
     it("serializes a character", () => {
@@ -15,7 +15,7 @@ describe("data serializer", () => {
 
         const data: string = serialize(character);
 
-        expect(data).toEqual(`{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"p":518}`);
+        expect(data).toEqual(`{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"p":518,"i":[]}`);
     });
 
     it("omits the personal quest property when serializing a character with no personal quest id", () => {
@@ -31,7 +31,45 @@ describe("data serializer", () => {
 
         const data: string = serialize(character);
 
-        expect(data).toEqual(`{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2}`);
+        expect(data).toEqual(`{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"i":[]}`);
+    });
+
+    it("serializes item data", () => {
+        const character: Character = {
+            name: "Test Character",
+            experience: 240,
+            gold: 75,
+            notes: "It's a test",
+            characterClass: characterClasses[2],
+            personalQuest: undefined,
+            items: [
+                { id: "1", item: items[1] },
+                { id: "2", item: items[7] },
+            ],
+        };
+
+        const data: string = serialize(character);
+
+        expect(data).toEqual(`{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"i":[2,8]}`);
+    });
+
+    it("serializes duplicate items", () => {
+        const character: Character = {
+            name: "Test Character",
+            experience: 240,
+            gold: 75,
+            notes: "It's a test",
+            characterClass: characterClasses[2],
+            personalQuest: undefined,
+            items: [
+                { id: "1", item: items[1] },
+                { id: "2", item: items[1] },
+            ],
+        };
+
+        const data: string = serialize(character);
+
+        expect(data).toEqual(`{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"i":[2,2]}`);
     });
 
     it("deserializes character data", () => {

@@ -7,6 +7,7 @@ interface SerializedCharacterData {
     d: string; // Notes
     c: number; // Character id
     p?: number; // Personal quest id
+    i: number[]; // Item ids
 }
 
 const serialize = (character: Character): string => {
@@ -17,6 +18,9 @@ const serialize = (character: Character): string => {
         d: character.notes,
         c: character.characterClass.id,
         p: character.personalQuest?.id,
+        i: character.items.map((characterItem: CharacterItem) => {
+            return characterItem.item.id;
+        }),
     };
 
     return JSON.stringify(characterData);
