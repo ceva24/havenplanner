@@ -12,13 +12,15 @@ const character: Character = {
     items: [],
 };
 
+const setCharacter = jest.fn();
+
 beforeEach(() => {
     jest.clearAllMocks();
 });
 
 describe("Class Select", () => {
     it("renders", () => {
-        render(<ClassSelect character={character} setCharacter={() => null} />);
+        render(<ClassSelect character={character} setCharacter={setCharacter} />);
 
         const classSelect = screen.queryByRole("button", { name: "Class" });
 
@@ -27,8 +29,6 @@ describe("Class Select", () => {
 });
 
 describe("findAndSetCharacter", () => {
-    const setCharacter = jest.fn();
-
     it("sets the character to the selected value", () => {
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = {
