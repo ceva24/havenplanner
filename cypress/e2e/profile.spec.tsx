@@ -4,7 +4,7 @@ import "@/support/commands";
 
 const characterClasses = ["Brute", "Scoundrel", "Spellweaver", "Tinkerer", "Mindthief", "Cragheart"];
 
-describe("character details pane", () => {
+describe("profile tab", () => {
     it("shows a list of classes in the class select list", () => {
         cy.visit("/");
 
@@ -133,8 +133,6 @@ describe("character details pane", () => {
         cy.visit("/");
 
         cy.findPersonalQuestButton().click();
-
-        cy.findPersonalQuestAutocomplete().click();
 
         cy.findPersonalQuestImage("Personal quest").should("have.attr", "src").should("include", "gh-pq-back.png");
     });

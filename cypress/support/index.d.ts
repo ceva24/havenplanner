@@ -30,6 +30,8 @@ declare namespace Cypress {
 
         findPersonalQuestAutocomplete(): Chainable<Element>;
 
-        selectPersonalQuest(personalQuestName: string): Chainable<Element>;
+        selectTab(name: string): Chainable<Element>;
+
+        findItemsAutocomplete(): Chainable<Element>;
     }
 }

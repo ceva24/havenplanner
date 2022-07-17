@@ -62,6 +62,10 @@ Cypress.Commands.add("findPersonalQuestAutocomplete", () => {
     cy.findByRole("combobox");
 });
 
-Cypress.Commands.add("selectPersonalQuest", (personalQuestName: string) => {
-    cy.findByRole("combobox").findByRole("option", { name: personalQuestName }).click();
+Cypress.Commands.add("selectTab", (name: string) => {
+    cy.findByRole("tab", { name }).click();
+});
+
+Cypress.Commands.add("findItemsAutocomplete", () => {
+    cy.findByRole("combobox", { name: "Add item" });
 });
