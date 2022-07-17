@@ -33,18 +33,14 @@ describe("index page", () => {
     });
 
     it("loads character details from the query string", () => {
-        cy.visit(
-            "/?character=Cx6AeyJuIjoiVGVzdCBDaGFyYWN0ZXIiLCJ4IjoyNDAsImciOjc1LCJkIjoiSXQncyBhIHRlc3QiLCJjIjoyfQM="
-        );
+        cy.visit("/?character=GzUA%2BI3UYs0Z7oTgttSXH85bFZOCWMyCWCw64JDTb6EEYIEn1MoD9lHonqMwMp7FNWkxjTAsdlv%2F");
 
         cy.findSelectClassButton().should("have.text", "Spellweaver");
         cy.findNameField().should("have.value", "Test Character");
     });
 
     it("clears the query string after loading character details from it", () => {
-        cy.visit(
-            "/?character=Cx6AeyJuIjoiVGVzdCBDaGFyYWN0ZXIiLCJ4IjoyNDAsImciOjc1LCJkIjoiSXQncyBhIHRlc3QiLCJjIjoyfQM="
-        );
+        cy.visit("/?character=GzUA%2BI3UYs0Z7oTgttSXH85bFZOCWMyCWCw64JDTb6EEYIEn1MoD9lHonqMwMp7FNWkxjTAsdlv%2F");
 
         cy.location("search").should("equal", "");
     });
