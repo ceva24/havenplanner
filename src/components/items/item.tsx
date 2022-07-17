@@ -7,9 +7,10 @@ interface ItemProps {
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
     characterItem: CharacterItem;
+    index: number;
 }
 
-const Item = ({ character, setCharacter, characterItem }: ItemProps) => {
+const Item = ({ character, setCharacter, characterItem, index }: ItemProps) => {
     const onClick = () => {
         removeItem(character, setCharacter, characterItem);
     };
@@ -18,7 +19,11 @@ const Item = ({ character, setCharacter, characterItem }: ItemProps) => {
         <Box sx={{ margin: 1 }}>
             <SmallCard src={characterItem.item.imageUrl} altText={characterItem.item.name} />
             <Box>
-                <IconButton aria-label="delete" sx={{ color: "secondary.main" }} onClick={onClick}>
+                <IconButton
+                    aria-label={`Delete item ${index + 1} - ${characterItem.item.name}`}
+                    sx={{ color: "secondary.main" }}
+                    onClick={onClick}
+                >
                     <DeleteIcon />
                 </IconButton>
             </Box>
@@ -42,3 +47,4 @@ const removeItem = (
 };
 
 export default Item;
+export { removeItem };

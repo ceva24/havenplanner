@@ -3,10 +3,6 @@ import { render, screen } from "@testing-library/react";
 import ClassSelect, { findAndSetCharacter } from "@/components/profile/class-select";
 import { characterClasses, defaultCharacter } from "@/utils/constants";
 
-beforeEach(() => {
-    jest.clearAllMocks();
-});
-
 const character: Character = {
     name: "Test",
     experience: 45,
@@ -15,6 +11,10 @@ const character: Character = {
     characterClass: characterClasses[1],
     items: [],
 };
+
+beforeEach(() => {
+    jest.clearAllMocks();
+});
 
 describe("Class Select", () => {
     it("renders", () => {
