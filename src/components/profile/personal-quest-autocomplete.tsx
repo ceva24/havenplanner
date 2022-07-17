@@ -3,13 +3,13 @@ import { Autocomplete, AutocompleteRenderInputParams, FormControl, TextField } f
 import { SetStateAction, SyntheticEvent, Dispatch } from "react";
 import { personalQuests } from "@/utils/constants";
 
-interface PersonalQuestSelectProps {
+interface PersonalQuestAutocompleteProps {
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const PersonalQuestAutocomplete = ({ character, setCharacter }: PersonalQuestSelectProps) => {
-    const handleChange = (event: SyntheticEvent, value: PersonalQuestAutocompleteEntry | null) => {
+const PersonalQuestAutocomplete = ({ character, setCharacter }: PersonalQuestAutocompleteProps) => {
+    const handleChange = (event: SyntheticEvent, value: PersonalQuest | null) => {
         findAndSetPersonalQuest(value, character, setCharacter);
     };
 
@@ -17,8 +17,11 @@ const PersonalQuestAutocomplete = ({ character, setCharacter }: PersonalQuestSel
         <FormControl sx={{ width: "100%" }}>
             <Autocomplete
                 disablePortal
-                value={convertPersonalQuestToAutocompleteEntry(character.personalQuest)}
-                options={getPersonalQuestAutocompleteEntries()}
+                value={character.personalQuest ?? null}
+                options={personalQuests}
+                getOptionLabel={(personalQuest: PersonalQuest) => {
+                    return personalQuest.name;
+                }}
                 renderInput={(props: AutocompleteRenderInputParams) => <TextField {...props} label="Personal quest" />}
                 onChange={handleChange}
             />
@@ -26,29 +29,13 @@ const PersonalQuestAutocomplete = ({ character, setCharacter }: PersonalQuestSel
     );
 };
 
-interface PersonalQuestAutocompleteEntry {
-    label: string;
-}
-
-const getPersonalQuestAutocompleteEntries = (): PersonalQuestAutocompleteEntry[] => {
-    return personalQuests.map((personalQuest: PersonalQuest) => {
-        return convertPersonalQuestToAutocompleteEntry(personalQuest);
-    });
-};
-
-const convertPersonalQuestToAutocompleteEntry = (
-    personalQuest: PersonalQuest | undefined
-): PersonalQuestAutocompleteEntry => {
-    return { label: personalQuest?.name ?? "" };
-};
-
 const findAndSetPersonalQuest = (
-    personalQuestAutocompleteEntry: PersonalQuestAutocompleteEntry | null,
+    personalQuestToSet: PersonalQuest | null,
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>
 ) => {
     const selectedPersonalQuest: PersonalQuest | undefined = personalQuests.find((personalQuest: PersonalQuest) => {
-        return personalQuest.name === personalQuestAutocompleteEntry?.label;
+        return personalQuest.name === personalQuestToSet?.name;
     });
 
     const newCharacter = {
@@ -60,5 +47,4 @@ const findAndSetPersonalQuest = (
 };
 
 export default PersonalQuestAutocomplete;
-export { getPersonalQuestAutocompleteEntries, convertPersonalQuestToAutocompleteEntry, findAndSetPersonalQuest };
-export type { PersonalQuestAutocompleteEntry };
+export { findAndSetPersonalQuest };

@@ -40,6 +40,7 @@ describe("getServerSideProps", () => {
             gold: 75,
             notes: "It's a test",
             characterClass: characterClasses[2],
+            items: [],
         };
 
         jest.spyOn(characterService, "loadCharacter").mockImplementationOnce(() => character);

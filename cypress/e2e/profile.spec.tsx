@@ -4,7 +4,7 @@ import "@/support/commands";
 
 const characterClasses = ["Brute", "Scoundrel", "Spellweaver", "Tinkerer", "Mindthief", "Cragheart"];
 
-describe("character details pane", () => {
+describe("profile tab", () => {
     it("shows a list of classes in the class select list", () => {
         cy.visit("/");
 
@@ -134,9 +134,7 @@ describe("character details pane", () => {
 
         cy.findPersonalQuestButton().click();
 
-        cy.findPersonalQuestAutocomplete().click();
-
-        cy.findPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-back.png");
+        cy.findPersonalQuestImage("Personal quest").should("have.attr", "src").should("include", "gh-pq-back.png");
     });
 
     it("allows a personal quest to be selected and updates the card image", () => {
@@ -148,7 +146,7 @@ describe("character details pane", () => {
 
         cy.findByRole("option", { name: "Augmented Abilities" }).click();
 
-        cy.findPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-530.png");
+        cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530.png");
     });
 
     it("retains the personal question when closing and reopening the personal quest dialog", () => {
@@ -164,6 +162,6 @@ describe("character details pane", () => {
 
         cy.findPersonalQuestButton().click();
 
-        cy.findPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-530.png");
+        cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530.png");
     });
 });

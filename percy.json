@@ -1,7 +1,13 @@
 [
     {
-        "name": "Index page",
-        "url": "http://localhost:3000",
+        "name": "Profile Tab",
+        "url": "http://localhost:3000?character=G0kA%2BB2HsdvkRvn2w14XIb1t67u%2Bni8KIohKNoqoWHRA5pb68wOAOE3ZWZrAFAQcjyQYw4DDWiHGE6KEVs2%2BAGFJczrE%2Ba7bMc1W%2FwM%3D",
         "waitForTimeout": 10000
+    },
+    {
+        "name": "Items Tab",
+        "url": "http://localhost:3000?character=G0kA%2BB2HsdvkRvn2w14XIb1t67u%2Bni8KIohKNoqoWHRA5pb68wOAOE3ZWZrAFAQcjyQYw4DDWiHGE6KEVs2%2BAGFJczrE%2Ba7bMc1W%2FwM%3D",
+        "waitForTimeout": 10000,
+        "execute": "document.querySelector('#items-tab').click()"
     }
 ]

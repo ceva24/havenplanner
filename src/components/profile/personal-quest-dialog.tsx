@@ -1,8 +1,8 @@
-import { Dialog, DialogContent, DialogContentText, Grid } from "@mui/material";
+import { Dialog, DialogContent, Grid } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
-import Card from "@/components/card";
-import StyledButton from "@/components/styled-button";
+import { Card } from "@/components/cards";
+import AppButton from "@/components/app-button";
 import { defaultPersonalQuestCardImageUrl } from "@/utils/constants";
 
 interface PersonalQuestDialogProps {
@@ -27,20 +27,18 @@ const PersonalQuestDialog = ({ character, setCharacter, isOpen, onClose }: Perso
             </span>
 
             <DialogContent sx={{ backgroundColor: "background.default" }}>
-                <DialogContentText>
-                    <Grid container spacing={5}>
-                        <Grid item lg={12} width="100%">
-                            <PersonalQuestAutocomplete character={character} setCharacter={setCharacter} />
-                        </Grid>
-
-                        <Grid item lg={12} width="100%" textAlign="center">
-                            <Card url={personalQuestImageUrl} altText="Personal quest" />
-                        </Grid>
-                        <Grid item lg={12} width="100%" textAlign="center">
-                            <StyledButton text="Close" onClick={onClose} />
-                        </Grid>
+                <Grid container spacing={5}>
+                    <Grid item lg={12} width="100%">
+                        <PersonalQuestAutocomplete character={character} setCharacter={setCharacter} />
                     </Grid>
-                </DialogContentText>
+
+                    <Grid item lg={12} width="100%" textAlign="center">
+                        <Card src={personalQuestImageUrl} altText={character.personalQuest?.name ?? "Personal quest"} />
+                    </Grid>
+                    <Grid item lg={12} width="100%" textAlign="center">
+                        <AppButton text="Close" onClick={onClose} />
+                    </Grid>
+                </Grid>
             </DialogContent>
         </Dialog>
     );

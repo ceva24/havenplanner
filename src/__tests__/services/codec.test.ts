@@ -21,6 +21,16 @@ describe("link codec", () => {
         );
     });
 
+    it("compresses and encodes character data with items", () => {
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2, items: [1, 3]}`;
+
+        const encodedData = encode(data);
+
+        expect(encodedData).toEqual(
+            "iyWAeyJuIjoiVGVzdCBDaGFyYWN0ZXIiLCJ4IjoyNDAsImciOjc1LCJkIjoiSXQncyBhIHRlc3QiLCJjIjoyLCBpdGVtczogWzEsIDNdfQM%3D"
+        );
+    });
+
     it("decodes and decompresses encoded character data", () => {
         const encodedData =
             "Cx6AeyJuIjoiVGVzdCBDaGFyYWN0ZXIiLCJ4IjoyNDAsImciOjc1LCJkIjoiSXQncyBhIHRlc3QiLCJjIjoyfQM%3D";

@@ -7,7 +7,7 @@ interface CopyButtonProps {
     encodeCharacterError: boolean;
 }
 
-const CopyButton = ({ shareableLink, encodeCharacterError }: CopyButtonProps) => {
+const CopyLinkButton = ({ shareableLink, encodeCharacterError }: CopyButtonProps) => {
     const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
 
     const copyLink = async () => {
@@ -47,4 +47,4 @@ const CopyButton = ({ shareableLink, encodeCharacterError }: CopyButtonProps) =>
     );
 };
 
-export default CopyButton;
+export default CopyLinkButton;

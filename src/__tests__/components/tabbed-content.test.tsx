@@ -9,9 +9,10 @@ const character: Character = {
     characterClass: {
         id: 0,
         name: "Test 1",
-        characterIconImageUrl: "/character-icons/gloomhaven/gh-brute.png",
+        imageUrl: "/character-icons/gloomhaven/gh-brute.png",
         characterMatImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
     },
+    items: [],
 };
 
 describe("tabbed content", () => {
@@ -22,14 +23,24 @@ describe("tabbed content", () => {
 
         expect(profileTab).toBeInTheDocument();
     });
-    it("renders the profile tab", () => {
+
+    it("renders the items tab", () => {
+        render(<TabbedContent character={character} setCharacter={jest.fn()} />);
+
+        const itemsTab = screen.getByRole("tab", { name: "Items" });
+
+        expect(itemsTab).toBeInTheDocument();
+    });
+
+    it("renders the deck tab", () => {
         render(<TabbedContent character={character} setCharacter={jest.fn()} />);
 
         const deckTab = screen.getByRole("tab", { name: "Deck" });
 
         expect(deckTab).toBeInTheDocument();
     });
-    it("renders the profile tab", () => {
+
+    it("renders the perks tab", () => {
         render(<TabbedContent character={character} setCharacter={jest.fn()} />);
 
         const perksTab = screen.getByRole("tab", { name: "Perks" });

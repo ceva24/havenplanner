@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import CopyButton from "@/components/share/copy-button";
+import CopyLinkButton from "@/components/share/copy-link-button";
 
-describe("copy button", () => {
+describe("copy link button", () => {
     it("renders", () => {
-        render(<CopyButton shareableLink="Test link" encodeCharacterError={false} />);
+        render(<CopyLinkButton shareableLink="Test link" encodeCharacterError={false} />);
 
         const copyButton = screen.queryByRole("button", { name: "Copy link" });
 
@@ -11,7 +11,7 @@ describe("copy button", () => {
     });
 
     it("is disabled when there is no shareable link", () => {
-        render(<CopyButton shareableLink="" encodeCharacterError={false} />);
+        render(<CopyLinkButton shareableLink="" encodeCharacterError={false} />);
 
         const copyButton = screen.queryByRole("button", { name: "Copy link" });
 
@@ -19,7 +19,7 @@ describe("copy button", () => {
     });
 
     it("is disabled when there is a character encoding error", () => {
-        render(<CopyButton encodeCharacterError shareableLink="Test link" />);
+        render(<CopyLinkButton encodeCharacterError shareableLink="Test link" />);
 
         const copyButton = screen.queryByRole("button", { name: "Copy link" });
 

@@ -12,15 +12,15 @@ interface ProfileProps {
 const Profile = ({ character, setCharacter }: ProfileProps) => {
     return (
         <Grid container spacing={10}>
-            <Grid item lg={4}>
+            <Grid item lg={4} sx={{ margin: "auto" }}>
                 <CharacterDetails character={character} setCharacter={setCharacter} />
             </Grid>
-            <Grid item lg={8} textAlign="center">
+            <Grid item lg={8} textAlign="center" width="100%">
                 <Grid container spacing={10}>
-                    <Grid item lg={8}>
+                    <Grid item md={8} width="100%" sx={{ display: { xs: "none", sm: "inherit" } }}>
                         <CharacterMat characterClass={character.characterClass} />
                     </Grid>
-                    <Grid item lg={4} width="100%">
+                    <Grid item md={4} width="100%">
                         <PersonalQuestCard character={character} setCharacter={setCharacter} />
                     </Grid>
                 </Grid>
