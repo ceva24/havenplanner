@@ -12,7 +12,7 @@ interface ProfileProps {
 const Profile = ({ character, setCharacter }: ProfileProps) => {
     return (
         <Grid container spacing={10}>
-            <Grid item lg={4}>
+            <Grid item lg={4} sx={{ margin: "auto" }}>
                 <CharacterDetails character={character} setCharacter={setCharacter} />
             </Grid>
             <Grid item lg={8} textAlign="center">
