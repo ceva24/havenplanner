@@ -82,6 +82,6 @@ describe("share link", () => {
 
         cy.findPersonalQuestButton().click();
 
-        cy.findPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-530.png");
+        cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530.png");
     });
 });

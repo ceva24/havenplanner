@@ -54,8 +54,8 @@ Cypress.Commands.add("findPersonalQuestDialog", () => {
     cy.findByRole("dialog", { name: "Personal quest" });
 });
 
-Cypress.Commands.add("findPersonalQuestImage", () => {
-    cy.findByRole("img", { name: "Personal quest" });
+Cypress.Commands.add("findPersonalQuestImage", (personalQuestName: string) => {
+    cy.findByRole("img", { name: personalQuestName });
 });
 
 Cypress.Commands.add("findPersonalQuestAutocomplete", () => {
