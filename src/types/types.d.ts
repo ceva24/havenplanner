@@ -1,3 +1,5 @@
+declare module "react-flippy";
+
 interface Character {
     name: string;
     experience: number;
@@ -20,7 +22,8 @@ interface Asset {
 }
 
 interface CharacterClass extends Asset {
-    characterMatImageUrl: string;
+    characterMatFrontImageUrl: string;
+    characterMatBackImageUrl: string;
 }
 
 interface PersonalQuest extends Asset {}

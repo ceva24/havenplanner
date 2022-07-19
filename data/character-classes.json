@@ -3,36 +3,42 @@
         "id": 0,
         "name": "Brute",
         "imageUrl": "/character-icons/gloomhaven/gh-brute.png",
-        "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute.png"
+        "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.png"
     },
     {
         "id": 1,
         "name": "Scoundrel",
         "imageUrl": "/character-icons/gloomhaven/gh-scoundrel.png",
-        "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel.png"
+        "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel.png",
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel-back.png"
     },
     {
         "id": 2,
         "name": "Spellweaver",
         "imageUrl": "/character-icons/gloomhaven/gh-spellweaver.png",
-        "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver.png"
+        "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver.png",
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver-back.png"
     },
     {
         "id": 3,
         "name": "Tinkerer",
         "imageUrl": "/character-icons/gloomhaven/gh-tinkerer.png",
-        "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer.png"
+        "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer.png",
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer-back.png"
     },
     {
         "id": 4,
         "name": "Mindthief",
         "imageUrl": "/character-icons/gloomhaven/gh-mindthief.png",
-        "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief.png"
+        "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief.png",
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief-back.png"
     },
     {
         "id": 5,
         "name": "Cragheart",
         "imageUrl": "/character-icons/gloomhaven/gh-cragheart.png",
-        "characterMatImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-cragheart.png"
+        "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-cragheart.png",
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-cragheart-back.png"
     }
 ]

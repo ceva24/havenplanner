@@ -7,7 +7,7 @@ describe("Character Mat", () => {
         render(<CharacterMat characterClass={characterClasses[0]} />);
 
         const characterMat = screen.queryByRole("img", {
-            name: "Character mat",
+            name: "Character mat front",
         });
 
         expect(characterMat).toBeInTheDocument();

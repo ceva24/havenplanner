@@ -109,10 +109,21 @@ describe("profile tab", () => {
         cy.findGoldField().should("have.value", "123");
     });
 
-    it("shows the character mat", () => {
+    it("shows the front of character mat", () => {
         cy.visit("/");
 
-        cy.findByRole("img", { name: "Character mat" }).should("be.visible");
+        cy.findByRole("img", { name: "Character mat front" })
+            .parentsUntil("flippy-cardContainer")
+            .should("not.have.class", "isActive");
+    });
+
+    it("rotates the character mat when clicking on it", () => {
+        cy.visit("/");
+
+        cy.findByRole("img", { name: "Character mat front" })
+            .click()
+            .parentsUntil("flippy-cardContainer")
+            .should("have.class", "isActive");
     });
 
     it("shows the personal quest button", () => {
