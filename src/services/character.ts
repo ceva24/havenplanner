@@ -2,17 +2,17 @@ import { deserialize, serialize } from "@/services/serializer";
 import { decode, encode } from "@/services/codec";
 
 const encodeCharacter = (character: Character): string => {
-    const encodedData: string = serialize(character);
+    const serializedData: string = serialize(character);
 
-    return encode(encodedData);
+    return encode(serializedData);
 };
 
 export { encodeCharacter };
 
 const loadCharacter = (data: string): Character => {
-    const decodedData: string = decode(data);
+    const serializedData: string = decode(data);
 
-    return deserialize(decodedData);
+    return deserialize(serializedData);
 };
 
 export { loadCharacter };

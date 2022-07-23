@@ -26,7 +26,7 @@ describe("profile tab", () => {
         render(<Profile character={character} setCharacter={jest.fn()} />);
 
         const characterMat = screen.queryByRole("img", {
-            name: "Character mat",
+            name: "Character mat front",
         });
 
         expect(characterMat).toBeInTheDocument();
