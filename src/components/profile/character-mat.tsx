@@ -8,7 +8,7 @@ interface CharacterMatProps {
 const CharacterMat = ({ characterClass }: CharacterMatProps) => {
     return (
         <Flippy style={{ cursor: "pointer" }}>
-            <FrontSide>
+            <FrontSide style={{ padding: 0 }}>
                 <Image
                     src={characterClass.characterMatFrontImageUrl}
                     alt="Character mat front"
@@ -16,7 +16,7 @@ const CharacterMat = ({ characterClass }: CharacterMatProps) => {
                     height={400}
                 />
             </FrontSide>
-            <BackSide>
+            <BackSide style={{ padding: 0 }}>
                 <Image
                     src={characterClass.characterMatBackImageUrl}
                     alt="Character mat back"
