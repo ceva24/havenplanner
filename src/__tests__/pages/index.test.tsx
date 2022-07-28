@@ -43,7 +43,7 @@ describe("getServerSideProps", () => {
             items: [],
         };
 
-        jest.spyOn(characterService, "loadCharacter").mockImplementationOnce(() => character);
+        jest.spyOn(characterService, "decode").mockImplementationOnce(() => character);
 
         const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
 
@@ -53,7 +53,7 @@ describe("getServerSideProps", () => {
     });
 
     it("returns the default character if loading the character from the query string parameter fails", async () => {
-        jest.spyOn(characterService, "loadCharacter").mockImplementationOnce(() => {
+        jest.spyOn(characterService, "decode").mockImplementationOnce(() => {
             throw new Error("Error");
         });
 

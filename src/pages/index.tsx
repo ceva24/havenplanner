@@ -3,7 +3,7 @@ import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from "ne
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
-import { loadCharacter } from "@/services/character";
+import { decode } from "@/services/character";
 import { defaultCharacter } from "@/utils/constants";
 import TabbedContent from "@/components/tabbed-content";
 import Footer from "@/components/footer";
@@ -50,13 +50,13 @@ const Index: NextPage<IndexProps> = ({ initialCharacter }: IndexProps) => {
 const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
     let character = defaultCharacter;
 
-    const characterDataToLoad: string | string[] | undefined = context.query.character;
+    const encodedCharacterData: string | string[] | undefined = context.query.character;
 
-    if (typeof characterDataToLoad === "string") {
+    if (typeof encodedCharacterData === "string") {
         try {
-            character = loadCharacter(characterDataToLoad);
+            character = decode(encodedCharacterData);
         } catch (error: unknown) {
-            console.error(`Failed to load character details from data '${characterDataToLoad}':`, error);
+            console.error(`Failed to load character details from data '${encodedCharacterData}':`, error);
         }
     }
 
