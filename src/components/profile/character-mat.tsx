@@ -18,8 +18,6 @@ const CharacterMat = ({ characterClass }: CharacterMatProps) => {
                 <img
                     src={characterClass.characterMatBackImageUrl}
                     alt="Character mat back"
-                    width={600}
-                    height={400}
                     style={{ cursor: "pointer", maxWidth: "100%" }}
                 />
             </BackSide>
