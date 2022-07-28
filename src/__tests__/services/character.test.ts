@@ -1,7 +1,7 @@
-import { encodeCharacter, loadCharacter } from "@/services/character";
-import { characterClasses } from "@/utils/constants";
+import lzbase62 from "lzbase62";
+import { encode, decode } from "@/services/character";
+import { characterClasses, items } from "@/utils/constants";
 import * as dataSerializer from "@/services/serializer";
-import * as linkCodec from "@/services/codec";
 
 const character: Character = {
     name: "Test character",
@@ -12,68 +12,110 @@ const character: Character = {
     items: [],
 };
 
-beforeEach(() => {
-    jest.resetAllMocks();
+const characterWithUnicodeCharacters = {
+    name: "テストキャラクター",
+    experience: 50,
+    gold: 12,
+    notes: "テスト",
+    characterClass: characterClasses[3],
+    items: [],
+};
+
+const characterWithItems = {
+    name: "Test character",
+    experience: 50,
+    gold: 12,
+    notes: "Test",
+    characterClass: characterClasses[3],
+    items: [
+        { id: "abc", item: items[0] },
+        { id: "def", item: items[3] },
+    ],
+};
+
+jest.mock("uuid", () => {
+    return {
+        v4: jest.fn().mockReturnValueOnce("abc").mockReturnValueOnce("def"),
+    };
 });
 
-describe("encode character", () => {
-    it("serializes character data", () => {
-        jest.spyOn(dataSerializer, "serialize").mockImplementationOnce(() => "");
-        jest.spyOn(linkCodec, "encode").mockImplementationOnce(() => "");
+beforeEach(() => {
+    jest.clearAllMocks();
+});
 
-        encodeCharacter(character);
+describe("encode", () => {
+    it("serializes character data", () => {
+        jest.spyOn(dataSerializer, "serialize").mockReturnValueOnce("");
+
+        encode(character);
 
         expect(dataSerializer.serialize).toHaveBeenCalledTimes(1);
         expect(dataSerializer.serialize).toHaveBeenCalledWith(character);
     });
 
-    it("encodes character data", () => {
-        jest.spyOn(dataSerializer, "serialize").mockImplementationOnce(() => "serializedCharacter");
-        jest.spyOn(linkCodec, "encode").mockImplementationOnce(() => "");
+    it("compresses character data", () => {
+        jest.spyOn(dataSerializer, "serialize").mockReturnValueOnce("serializedCharacter");
+        jest.spyOn(lzbase62, "compress").mockReturnValueOnce("");
 
-        encodeCharacter(character);
+        encode(character);
 
-        expect(linkCodec.encode).toHaveBeenCalledTimes(1);
-        expect(linkCodec.encode).toHaveBeenCalledWith("serializedCharacter");
+        expect(lzbase62.compress).toHaveBeenCalledTimes(1);
+        expect(lzbase62.compress).toHaveBeenCalledWith("serializedCharacter");
     });
 
-    it("returns the encoded character", () => {
-        jest.spyOn(dataSerializer, "serialize").mockImplementationOnce(() => "");
-        jest.spyOn(linkCodec, "encode").mockImplementationOnce(() => "encodedData");
+    it("returns the serialized and compressed character data", () => {
+        jest.spyOn(lzbase62, "compress").mockReturnValueOnce("123");
 
-        const result: string = encodeCharacter(character);
+        const encodedData = encode(character);
 
-        expect(result).toEqual("encodedData");
+        expect(encodedData).toEqual("123");
+    });
+
+    it.each`
+        description                                 | character                         | encodedData
+        ${"standard character data"}                | ${character}                      | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsL2GtZ2GtLNuF"}
+        ${"character data with unicode characters"} | ${characterWithUnicodeCharacters} | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsL2GtZ2GtLNuF"}
+        ${"character data with items"}              | ${characterWithItems}             | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsL2GtZ2GtLsJEMtNuF"}
+    `("serializes and compresses $description", ({ character, encodedData }) => {
+        expect(encode(character)).toEqual(encodedData);
     });
 });
 
 describe("load character", () => {
-    it("decodes character data", () => {
-        jest.spyOn(linkCodec, "decode").mockImplementationOnce(() => "");
-        jest.spyOn(dataSerializer, "deserialize").mockImplementationOnce(() => character);
+    it("decompresses character data", () => {
+        jest.spyOn(lzbase62, "decompress").mockReturnValueOnce("");
+        jest.spyOn(dataSerializer, "deserialize").mockReturnValueOnce(character);
 
-        loadCharacter("test");
+        decode("test");
 
-        expect(linkCodec.decode).toHaveBeenCalledTimes(1);
-        expect(linkCodec.decode).toHaveBeenCalledWith("test");
+        expect(lzbase62.decompress).toHaveBeenCalledTimes(1);
+        expect(lzbase62.decompress).toHaveBeenCalledWith("test");
     });
 
     it("deserializes character data", () => {
-        jest.spyOn(linkCodec, "decode").mockImplementationOnce(() => "decodedData");
-        jest.spyOn(dataSerializer, "deserialize").mockImplementationOnce(() => character);
+        jest.spyOn(lzbase62, "decompress").mockReturnValueOnce("decompressedCharacter");
+        jest.spyOn(dataSerializer, "deserialize").mockReturnValueOnce(character);
 
-        loadCharacter("test");
+        decode("test");
 
         expect(dataSerializer.deserialize).toHaveBeenCalledTimes(1);
-        expect(dataSerializer.deserialize).toHaveBeenCalledWith("decodedData");
+        expect(dataSerializer.deserialize).toHaveBeenCalledWith("decompressedCharacter");
     });
 
     it("returns the deserialized character", () => {
-        jest.spyOn(linkCodec, "decode").mockImplementationOnce(() => "");
-        jest.spyOn(dataSerializer, "deserialize").mockImplementationOnce(() => character);
+        jest.spyOn(dataSerializer, "deserialize").mockReturnValueOnce(character);
 
-        const result: Character = loadCharacter("test");
+        const result: Character = decode("test");
 
         expect(result).toBe(character);
+    });
+
+    it.each`
+        description                                 | encodedData                                                                              | character
+        ${"standard character data"}                | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsL2GtZ2GtLNuF"}      | ${character}
+        ${"character data with unicode characters"} | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsL2GtZ2GtLNuF"}   | ${characterWithUnicodeCharacters}
+        ${"character data with items"}              | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsL2GtZ2GtLsJEMtNuF"} | ${characterWithItems}
+    `("decompresses and deserializes $description", ({ encodedData, character }) => {
+        expect(decode(encodedData)).toEqual(character);
     });
 });

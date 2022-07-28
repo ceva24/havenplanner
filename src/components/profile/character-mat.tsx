@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 
 interface CharacterMatProps {
@@ -7,21 +6,19 @@ interface CharacterMatProps {
 
 const CharacterMat = ({ characterClass }: CharacterMatProps) => {
     return (
-        <Flippy style={{ cursor: "pointer" }}>
+        <Flippy style={{ width: "100%" }}>
             <FrontSide style={{ padding: 0 }}>
-                <Image
+                <img
                     src={characterClass.characterMatFrontImageUrl}
                     alt="Character mat front"
-                    width={600}
-                    height={400}
+                    style={{ cursor: "pointer", maxWidth: "100%" }}
                 />
             </FrontSide>
             <BackSide style={{ padding: 0 }}>
-                <Image
+                <img
                     src={characterClass.characterMatBackImageUrl}
                     alt="Character mat back"
-                    width={600}
-                    height={400}
+                    style={{ cursor: "pointer", maxWidth: "100%" }}
                 />
             </BackSide>
         </Flippy>

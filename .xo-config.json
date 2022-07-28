@@ -5,6 +5,7 @@
         "react/jsx-indent-props": "off",
         "react/jsx-tag-spacing": "off",
         "react/react-in-jsx-scope": "off",
+        "@next/next/no-img-element": "off",
         "react/function-component-definition": [
             "error",
             {

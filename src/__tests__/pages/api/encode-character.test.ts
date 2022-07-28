@@ -19,7 +19,7 @@ describe("encode character", () => {
     });
 
     it("encodes character data", () => {
-        jest.spyOn(characterService, "encodeCharacter").mockImplementationOnce(() => "");
+        jest.spyOn(characterService, "encode").mockImplementationOnce(() => "");
 
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
         req.method = "POST";
@@ -27,12 +27,12 @@ describe("encode character", () => {
 
         handler(req, res);
 
-        expect(characterService.encodeCharacter).toHaveBeenCalledTimes(1);
-        expect(characterService.encodeCharacter).toHaveBeenCalledWith("test");
+        expect(characterService.encode).toHaveBeenCalledTimes(1);
+        expect(characterService.encode).toHaveBeenCalledWith("test");
     });
 
     it("responds with HTTP 200 and the encoded character data", () => {
-        jest.spyOn(characterService, "encodeCharacter").mockImplementationOnce(() => "abcdefg");
+        jest.spyOn(characterService, "encode").mockImplementationOnce(() => "abcdefg");
 
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
         req.method = "POST";
@@ -55,7 +55,7 @@ describe("encode character", () => {
     });
 
     it("responds with HTTP 500 when an unexpected error occurs", () => {
-        jest.spyOn(characterService, "encodeCharacter").mockImplementationOnce(() => {
+        jest.spyOn(characterService, "encode").mockImplementationOnce(() => {
             throw new Error("Error");
         });
 

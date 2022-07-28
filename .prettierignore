@@ -37,3 +37,6 @@ yarn-error.log*
 
 # lighthouse
 .lighthouseci
+
+# vs code
+.vscode
