@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { CSSProperties } from "react";
 
 interface CardProps {
@@ -16,9 +15,7 @@ const SmallCard = (cardProps: CardProps) => {
 };
 
 const CardImage = ({ src, altText, styleProps }: CardProps, width: number, height: number) => {
-    return (
-        <Image src={src} alt={altText} width={width} height={height} style={{ borderRadius: "2%", ...styleProps }} />
-    );
+    return <img src={src} alt={altText} width={width} height={height} style={{ borderRadius: "2%", ...styleProps }} />;
 };
 
 export { Card, SmallCard };
