@@ -1,21 +1,14 @@
-import { CSSProperties } from "react";
-
 interface CardProps {
     src: string;
     altText: string;
-    styleProps?: CSSProperties;
 }
 
-const Card = (cardProps: CardProps) => {
-    return CardImage(cardProps, 200, 300); // eslint-disable-line new-cap
+const Card = ({ src, altText }: CardProps) => {
+    return <img src={src} alt={altText} style={{ maxWidth: "100%", borderRadius: "2%" }} />;
 };
 
-const SmallCard = (cardProps: CardProps) => {
-    return CardImage(cardProps, 150, 225); // eslint-disable-line new-cap
-};
-
-const CardImage = ({ src, altText, styleProps }: CardProps, width: number, height: number) => {
-    return <img src={src} alt={altText} width={width} height={height} style={{ borderRadius: "2%", ...styleProps }} />;
+const SmallCard = ({ src, altText }: CardProps) => {
+    return <img src={src} alt={altText} width={150} height={225} style={{ borderRadius: "2%" }} />;
 };
 
 export { Card, SmallCard };
