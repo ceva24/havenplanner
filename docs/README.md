@@ -41,7 +41,7 @@ Enforces conventional commits via [commitlint](https://github.com/conventional-c
 
 Reports and snapshots included on each PR ✔️
 
-Continuously deployed to production using [AWS Amplify](https://aws.amazon.com/amplify) 🚀
+Continuously deployed to production using [Vercel](https://vercel.com) 🚀
 
 ## Notices
 
