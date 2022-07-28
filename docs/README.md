@@ -31,7 +31,7 @@ Built with [Typescript](https://www.typescriptlang.org), [Next.js](https://nextj
 
 Uses [lint-staged](https://github.com/okonet/lint-staged) and [Husky](https://typicode.github.io/husky/) for pre-commit hooks 🐶 _woof_!
 
-Enforces conventional commits via [commitlint](https://github.com/conventional-changelog/commitlint), see [Contribution guidelines](docs/CONTRIBUTING.md) for valid types.
+Enforces conventional commits via [commitlint](https://github.com/conventional-changelog/commitlint), see [Contribution guidelines](CONTRIBUTING.md) for valid types.
 
 ### CI/CD
 
