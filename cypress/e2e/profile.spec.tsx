@@ -145,7 +145,7 @@ describe("profile tab", () => {
 
         cy.findPersonalQuestButton().click();
 
-        cy.findPersonalQuestImage("Personal quest").should("have.attr", "src").should("include", "gh-pq-back.png");
+        cy.findPersonalQuestImage("Personal quest").should("have.attr", "src").should("include", "gh-pq-back");
     });
 
     it("allows a personal quest to be selected and updates the card image", () => {
