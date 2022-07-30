@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction } from "react";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
 import { Card } from "@/components/cards";
 import AppButton from "@/components/app-button";
-import { defaultPersonalQuestCardImageUrl } from "@/utils/constants";
+import { createImageUrl, defaultPersonalQuestCardImageUrl } from "@/utils/images";
 
 interface PersonalQuestDialogProps {
     character: Character;

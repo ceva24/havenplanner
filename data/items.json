@@ -2,71 +2,71 @@
     {
         "id": 1,
         "name": "Boots of Striding",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-001-boots-of-striding.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-001-boots-of-striding.jpg"
     },
     {
         "id": 2,
         "name": "Winged Shoes",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-002-winged-shoes.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-002-winged-shoes.jpg"
     },
     {
         "id": 3,
         "name": "Hide Armor",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-003-hide-armor.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-003-hide-armor.jpg"
     },
     {
         "id": 4,
         "name": "Leather Armor",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-004-leather-armor.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-004-leather-armor.jpg"
     },
     {
         "id": 5,
         "name": "Cloak of Invisibility",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-005-cloak-of-invisibility.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-005-cloak-of-invisibility.jpg"
     },
     {
         "id": 6,
         "name": "Eagle Eye Goggles",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-006-eagle-eye-goggles.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-006-eagle-eye-goggles.jpg"
     },
     {
         "id": 7,
         "name": "Iron Helmet",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-007-iron-helmet.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-007-iron-helmet.jpg"
     },
     {
         "id": 8,
         "name": "Heater Shield",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-008-heater-shield.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-008-heater-shield.jpg"
     },
     {
         "id": 9,
         "name": "Piercing Bow",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-009-piercing-bow.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-009-piercing-bow.jpg"
     },
     {
         "id": 10,
         "name": "War Hammer",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-010-war-hammer.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-010-war-hammer.jpg"
     },
     {
         "id": 11,
         "name": "Poison Dagger",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-011-poison-dagger.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-011-poison-dagger.jpg"
     },
     {
         "id": 12,
         "name": "Minor Healing Potion",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-012-minor-healing-potion.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-012-minor-healing-potion.jpg"
     },
     {
         "id": 13,
         "name": "Minor Stamina Potion",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-013-minor-stamina-potion.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-013-minor-stamina-potion.jpg"
     },
     {
         "id": 14,
         "name": "Minor Power Potion",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-014-minor-power-potion.png"
+        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-014-minor-power-potion.jpg"
     }
 ]

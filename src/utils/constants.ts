@@ -18,6 +18,4 @@ const defaultCharacter: Character = {
     items: [],
 };
 
-const defaultPersonalQuestCardImageUrl = "/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.png";
-
-export { characterClasses, personalQuests, items, defaultCharacter, defaultPersonalQuestCardImageUrl };
+export { characterClasses, personalQuests, items, defaultCharacter };

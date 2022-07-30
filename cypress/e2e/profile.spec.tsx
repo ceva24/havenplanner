@@ -145,7 +145,7 @@ describe("profile tab", () => {
 
         cy.findPersonalQuestButton().click();
 
-        cy.findPersonalQuestImage("Personal quest").should("have.attr", "src").should("include", "gh-pq-back.png");
+        cy.findPersonalQuestImage("Personal quest").should("have.attr", "src").should("include", "gh-pq-back");
     });
 
     it("allows a personal quest to be selected and updates the card image", () => {
@@ -157,7 +157,7 @@ describe("profile tab", () => {
 
         cy.findByRole("option", { name: "Augmented Abilities" }).click();
 
-        cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530.png");
+        cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530");
     });
 
     it("retains the personal question when closing and reopening the personal quest dialog", () => {
@@ -173,6 +173,6 @@ describe("profile tab", () => {
 
         cy.findPersonalQuestButton().click();
 
-        cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530.png");
+        cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530");
     });
 });
