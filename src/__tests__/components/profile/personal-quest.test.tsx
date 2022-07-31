@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import PersonalQuest from "@/components/profile/personal-quest";
 import AppSettingsProvider from "@/hooks/app-settings";
-import { characterClasses, personalQuests } from "@/utils/constants";
+import { characterClasses } from "@/utils/constants";
 
 const character: Character = {
     name: "My Char",
@@ -9,16 +9,6 @@ const character: Character = {
     gold: 50,
     notes: "Hello haven",
     characterClass: characterClasses[0],
-    items: [],
-};
-
-const characterWithPersonalQuest: Character = {
-    name: "My Char",
-    experience: 25,
-    gold: 50,
-    notes: "Hello haven",
-    characterClass: characterClasses[0],
-    personalQuest: personalQuests[0],
     items: [],
 };
 

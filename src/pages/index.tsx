@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { decode } from "@/services/character";
 import { defaultCharacter } from "@/utils/constants";
@@ -10,6 +9,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import AppSettingsProvider from "@/hooks/app-settings";
 import theme from "@/styles/theme";
+import { useClearQueryString } from "@/hooks/use-clear-query-string";
 
 interface IndexProps {
     initialCharacter: Character;
@@ -66,14 +66,6 @@ const getServerSideProps: GetServerSideProps = async (context: GetServerSideProp
             initialCharacter: character,
         },
     };
-};
-
-const useClearQueryString = () => {
-    const router = useRouter();
-
-    useEffect(() => {
-        void router?.replace("/", undefined, { shallow: true });
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 };
 
 export default Index;
