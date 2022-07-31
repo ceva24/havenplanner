@@ -58,9 +58,7 @@ const getServerSideProps: GetServerSideProps = async (context: GetServerSideProp
     if (typeof encodedCharacterData === "string") {
         try {
             character = decode(encodedCharacterData);
-        } catch (error: unknown) {
-            console.error(`Failed to load character details from data '${encodedCharacterData}':`, error);
-        }
+        } catch {}
     }
 
     return {

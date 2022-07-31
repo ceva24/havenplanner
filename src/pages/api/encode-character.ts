@@ -14,18 +14,12 @@ const handler = (request: NextApiRequest, response: NextApiResponse) => {
     try {
         const character: Character = request.body as Character;
 
-        console.log(`Received request to encode character '${JSON.stringify(character)}'`);
-
         const encodedCharacterData = encode(character);
-
-        console.log(`Encoded character data as '${encodedCharacterData}'`);
 
         const responseBody: EncodeCharacterApiResponse = { encodedCharacterData };
 
         response.status(200).json(responseBody);
     } catch (error: unknown) {
-        console.error(error);
-
         if (error instanceof TypeError) {
             response.status(400).json({ message: "400 Bad Request" });
         } else {
