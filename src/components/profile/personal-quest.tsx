@@ -33,6 +33,7 @@ const PersonalQuest = ({ character, setCharacter }: PersonalQuestProps) => {
                 <FormControlLabel
                     control={
                         <Switch
+                            id="show-personal-quest-switch"
                             name="Show personal quest"
                             checked={appSettings.showPersonalQuest}
                             onClick={handleChange}

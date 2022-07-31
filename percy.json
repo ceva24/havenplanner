@@ -1,8 +1,9 @@
 [
     {
         "name": "Profile Tab",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtTxcD2GtZ2GtLNuF",
-        "waitForTimeout": 10000
+        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtTxcD2Gtg2GsNLxbDtZ2ItLNuF",
+        "waitForTimeout": 10000,
+        "execute": "document.querySelector('#show-personal-quest-switch').click()"
     },
     {
         "name": "Items Tab",
