@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Profile from "@/components/profile";
+import Profile from "@/components/tabs/profile";
 import { characterClasses } from "@/utils/constants";
 import AppSettingsProvider from "@/hooks/app-settings";
 

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import TabbedContent from "@/components/tabbed-content";
+import TabContainer from "@/components/tabs/tab-container";
 import AppSettingsProvider from "@/hooks/app-settings";
 import { characterClasses } from "@/utils/constants";
 
@@ -12,11 +12,11 @@ const character: Character = {
     items: [],
 };
 
-describe("tabbed content", () => {
+describe("tab container", () => {
     it("renders the profile tab", () => {
         render(
             <AppSettingsProvider character={character}>
-                <TabbedContent character={character} setCharacter={jest.fn()} />
+                <TabContainer character={character} setCharacter={jest.fn()} />
             </AppSettingsProvider>
         );
 
@@ -28,7 +28,7 @@ describe("tabbed content", () => {
     it("renders the items tab", () => {
         render(
             <AppSettingsProvider character={character}>
-                <TabbedContent character={character} setCharacter={jest.fn()} />
+                <TabContainer character={character} setCharacter={jest.fn()} />
             </AppSettingsProvider>
         );
 
@@ -40,7 +40,7 @@ describe("tabbed content", () => {
     it("renders the deck tab", () => {
         render(
             <AppSettingsProvider character={character}>
-                <TabbedContent character={character} setCharacter={jest.fn()} />
+                <TabContainer character={character} setCharacter={jest.fn()} />
             </AppSettingsProvider>
         );
 
@@ -52,7 +52,7 @@ describe("tabbed content", () => {
     it("renders the perks tab", () => {
         render(
             <AppSettingsProvider character={character}>
-                <TabbedContent character={character} setCharacter={jest.fn()} />
+                <TabContainer character={character} setCharacter={jest.fn()} />
             </AppSettingsProvider>
         );
 
@@ -64,7 +64,7 @@ describe("tabbed content", () => {
     it("renders the profile tab panel by default", () => {
         render(
             <AppSettingsProvider character={character}>
-                <TabbedContent character={character} setCharacter={jest.fn()} />
+                <TabContainer character={character} setCharacter={jest.fn()} />
             </AppSettingsProvider>
         );
 

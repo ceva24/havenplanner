@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { decode } from "@/services/character";
 import { defaultCharacter } from "@/utils/constants";
-import TabbedContent from "@/components/tabbed-content";
+import TabContainer from "@/components/tabs/tab-container";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import AppSettingsProvider from "@/hooks/app-settings";
@@ -39,7 +39,7 @@ const Index: NextPage<IndexProps> = ({ initialCharacter }: IndexProps) => {
                 <Container component="main" maxWidth="xl">
                     <Grid container height="100%" minHeight="45rem" justifyContent="center">
                         <Grid item xs={12}>
-                            <TabbedContent character={character} setCharacter={setCharacter} />
+                            <TabContainer character={character} setCharacter={setCharacter} />
                         </Grid>
                     </Grid>
                 </Container>
