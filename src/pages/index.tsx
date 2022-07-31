@@ -8,6 +8,7 @@ import { defaultCharacter } from "@/utils/constants";
 import TabbedContent from "@/components/tabbed-content";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import AppSettingsProvider from "@/hooks/app-settings";
 import theme from "@/styles/theme";
 
 interface IndexProps {
@@ -21,28 +22,30 @@ const Index: NextPage<IndexProps> = ({ initialCharacter }: IndexProps) => {
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline />
+            <AppSettingsProvider character={character}>
+                <CssBaseline />
 
-            <Head>
-                <title>Gloomhaven Character Planner</title>
-                <link rel="shortcut icon" href="/favicon.png" />
-                <meta
-                    name="description"
-                    content="A web application to create character builds for the popular tabletop and digital game Gloomhaven"
-                />
-            </Head>
+                <Head>
+                    <title>Gloomhaven Character Planner</title>
+                    <link rel="shortcut icon" href="/favicon.png" />
+                    <meta
+                        name="description"
+                        content="A web application to create character builds for the popular tabletop and digital game Gloomhaven"
+                    />
+                </Head>
 
-            <Header character={character} />
+                <Header character={character} />
 
-            <Container component="main" maxWidth="xl">
-                <Grid container height="100%" minHeight="45rem" justifyContent="center">
-                    <Grid item xs={12}>
-                        <TabbedContent character={character} setCharacter={setCharacter} />
+                <Container component="main" maxWidth="xl">
+                    <Grid container height="100%" minHeight="45rem" justifyContent="center">
+                        <Grid item xs={12}>
+                            <TabbedContent character={character} setCharacter={setCharacter} />
+                        </Grid>
                     </Grid>
-                </Grid>
-            </Container>
+                </Container>
 
-            <Footer />
+                <Footer />
+            </AppSettingsProvider>
         </ThemeProvider>
     );
 };

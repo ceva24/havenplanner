@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import CharacterDetails from "@/components/profile/character-details";
 import CharacterMat from "@/components/profile/character-mat";
-import PersonalQuestCard from "@/components/profile/personal-quest-card";
+import PersonalQuest from "@/components/profile/personal-quest";
 
 interface ProfileProps {
     character: Character;
@@ -21,7 +21,7 @@ const Profile = ({ character, setCharacter }: ProfileProps) => {
                         <CharacterMat characterClass={character.characterClass} />
                     </Grid>
                     <Grid item md={4} width="100%">
-                        <PersonalQuestCard character={character} setCharacter={setCharacter} />
+                        <PersonalQuest character={character} setCharacter={setCharacter} />
                     </Grid>
                 </Grid>
             </Grid>

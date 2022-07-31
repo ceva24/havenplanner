@@ -1,5 +1,9 @@
 declare module "react-flippy";
 
+interface AppSettings {
+    showPersonalQuest: boolean;
+}
+
 interface Character {
     name: string;
     experience: number;
