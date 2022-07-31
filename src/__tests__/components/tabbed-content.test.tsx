@@ -1,24 +1,24 @@
 import { render, screen } from "@testing-library/react";
 import TabbedContent from "@/components/tabbed-content";
+import AppSettingsProvider from "@/hooks/app-settings";
+import { characterClasses } from "@/utils/constants";
 
 const character: Character = {
     name: "My Char",
     experience: 25,
     gold: 50,
     notes: "Hello haven",
-    characterClass: {
-        id: 0,
-        name: "Test 1",
-        imageUrl: "/character-icons/gloomhaven/gh-brute.png",
-        characterMatFrontImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.png",
-        characterMatBackImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.png",
-    },
+    characterClass: characterClasses[0],
     items: [],
 };
 
 describe("tabbed content", () => {
     it("renders the profile tab", () => {
-        render(<TabbedContent character={character} setCharacter={jest.fn()} />);
+        render(
+            <AppSettingsProvider character={character}>
+                <TabbedContent character={character} setCharacter={jest.fn()} />
+            </AppSettingsProvider>
+        );
 
         const profileTab = screen.getByRole("tab", { name: "Profile" });
 
@@ -26,7 +26,11 @@ describe("tabbed content", () => {
     });
 
     it("renders the items tab", () => {
-        render(<TabbedContent character={character} setCharacter={jest.fn()} />);
+        render(
+            <AppSettingsProvider character={character}>
+                <TabbedContent character={character} setCharacter={jest.fn()} />
+            </AppSettingsProvider>
+        );
 
         const itemsTab = screen.getByRole("tab", { name: "Items" });
 
@@ -34,7 +38,11 @@ describe("tabbed content", () => {
     });
 
     it("renders the deck tab", () => {
-        render(<TabbedContent character={character} setCharacter={jest.fn()} />);
+        render(
+            <AppSettingsProvider character={character}>
+                <TabbedContent character={character} setCharacter={jest.fn()} />
+            </AppSettingsProvider>
+        );
 
         const deckTab = screen.getByRole("tab", { name: "Deck" });
 
@@ -42,7 +50,11 @@ describe("tabbed content", () => {
     });
 
     it("renders the perks tab", () => {
-        render(<TabbedContent character={character} setCharacter={jest.fn()} />);
+        render(
+            <AppSettingsProvider character={character}>
+                <TabbedContent character={character} setCharacter={jest.fn()} />
+            </AppSettingsProvider>
+        );
 
         const perksTab = screen.getByRole("tab", { name: "Perks" });
 
@@ -50,7 +62,11 @@ describe("tabbed content", () => {
     });
 
     it("renders the profile tab panel by default", () => {
-        render(<TabbedContent character={character} setCharacter={jest.fn()} />);
+        render(
+            <AppSettingsProvider character={character}>
+                <TabbedContent character={character} setCharacter={jest.fn()} />
+            </AppSettingsProvider>
+        );
 
         const profileTabPanel = screen.getByRole("tabpanel", { name: "Profile" });
 

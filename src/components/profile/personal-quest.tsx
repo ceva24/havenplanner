@@ -13,14 +13,18 @@ interface PersonalQuestProps {
 const PersonalQuest = ({ character, setCharacter }: PersonalQuestProps) => {
     const { appSettings, setAppSettings } = useAppSettingsContext();
 
+    const handleChange = () => {
+        setAppSettings({ ...appSettings, showPersonalQuest: !appSettings.showPersonalQuest });
+    };
+
     const personalQuestImageUrl =
         appSettings.showPersonalQuest && character.personalQuest
             ? character.personalQuest?.imageUrl
             : defaultPersonalQuestCardImageUrl;
 
-    const handleChange = () => {
-        setAppSettings({ ...appSettings, showPersonalQuest: !appSettings.showPersonalQuest });
-    };
+    const personalQuestAltText = character.personalQuest?.name
+        ? `Personal quest ${character.personalQuest.name}`
+        : "Personal quest";
 
     return (
         <FormControl>
@@ -37,7 +41,7 @@ const PersonalQuest = ({ character, setCharacter }: PersonalQuestProps) => {
                 />
             </Box>
             <Box sx={{ marginTop: 1, marginBottom: 1 }}>
-                <Card src={personalQuestImageUrl} altText={character.personalQuest?.name ?? "Personal quest"} />
+                <Card src={personalQuestImageUrl} altText={personalQuestAltText} />
             </Box>
             {appSettings?.showPersonalQuest && (
                 <PersonalQuestAutocomplete character={character} setCharacter={setCharacter} />
