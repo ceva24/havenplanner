@@ -12,6 +12,16 @@ const character: Character = {
     items: [],
 };
 
+const characterWithPersonalQuest: Character = {
+    name: "My Char",
+    experience: 25,
+    gold: 50,
+    notes: "Hello haven",
+    characterClass: characterClasses[0],
+    personalQuest: personalQuests[0],
+    items: [],
+};
+
 const setCharacter = jest.fn();
 
 describe("personal quest", () => {
@@ -35,27 +45,6 @@ describe("personal quest", () => {
         );
 
         const personalQuestCard = screen.getByRole("img", { name: "Personal quest" });
-
-        expect(personalQuestCard).toBeInTheDocument();
-    });
-
-    it("renders a personal quest card image when a personal quest has been selected", () => {
-        const characterWithPersonalQuest: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "Hello haven",
-            characterClass: characterClasses[0],
-            personalQuest: personalQuests[0],
-            items: [],
-        };
-        render(
-            <AppSettingsProvider character={characterWithPersonalQuest}>
-                <PersonalQuest character={characterWithPersonalQuest} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
-
-        const personalQuestCard = screen.getByRole("img", { name: "Personal quest Seeker of Xorn" });
 
         expect(personalQuestCard).toBeInTheDocument();
     });

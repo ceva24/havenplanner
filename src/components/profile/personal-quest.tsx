@@ -22,9 +22,10 @@ const PersonalQuest = ({ character, setCharacter }: PersonalQuestProps) => {
             ? character.personalQuest?.imageUrl
             : defaultPersonalQuestCardImageUrl;
 
-    const personalQuestAltText = character.personalQuest?.name
-        ? `Personal quest ${character.personalQuest.name}`
-        : "Personal quest";
+    const personalQuestAltText =
+        appSettings.showPersonalQuest && character.personalQuest
+            ? `Personal quest ${character.personalQuest.name}`
+            : "Personal quest";
 
     return (
         <FormControl>

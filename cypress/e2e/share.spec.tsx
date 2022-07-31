@@ -65,21 +65,17 @@ describe("share link", () => {
     it("captures the personal quest in a shareable link", () => {
         cy.visit("/");
 
-        cy.findPersonalQuestButton().click();
-
         cy.findPersonalQuestAutocomplete().click();
 
         cy.findByRole("option", { name: "Augmented Abilities" }).click();
-
-        cy.findByRole("button", { name: "Close" }).click();
 
         cy.findShareLinkButton().click();
 
         cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
 
-        cy.findPersonalQuestButton().click();
+        cy.findPersonalQuestSwitch().check();
 
-        cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530");
+        cy.findPersonalQuestImage("Augmented Abilities").should("exist");
     });
 
     it("captures item data in a shareable link", () => {
