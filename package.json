@@ -48,7 +48,7 @@
         "@types/uuid": "^8.3.4",
         "cypress": "^10.3.0",
         "eslint": "8.18.0",
-        "eslint-config-next": "12.2.0",
+        "eslint-config-next": "12.2.3",
         "eslint-config-xo-react": "^0.27.0",
         "eslint-plugin-jsx-a11y": "^6.6.0",
         "husky": "^8.0.1",
