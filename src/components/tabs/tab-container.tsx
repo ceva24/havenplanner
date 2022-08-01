@@ -1,14 +1,14 @@
 import { Tabs, Tab, Divider, Box } from "@mui/material";
 import { Dispatch, SetStateAction, useState } from "react";
-import Items from "@/components/items";
-import Profile from "@/components/profile";
+import Profile from "@/components/tabs/profile";
+import Items from "@/components/tabs/items";
 
-interface TabbedContentProps {
+interface TabContainerProps {
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const TabbedContent = ({ character, setCharacter }: TabbedContentProps) => {
+const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
     const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
 
     const handleChange = (event: React.SyntheticEvent, value: number) => {
@@ -87,4 +87,4 @@ const TabPanel = ({ children, index, currentTabIndex, id, ariaLabelledBy }: TabP
     );
 };
 
-export default TabbedContent;
+export default TabContainer;

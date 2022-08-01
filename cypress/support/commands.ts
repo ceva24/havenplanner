@@ -46,16 +46,16 @@ Cypress.Commands.add("selectClass", (characterClassName) => {
     cy.findByRole("listbox", { name: "Class" }).findByRole("option", { name: characterClassName }).click();
 });
 
-Cypress.Commands.add("findPersonalQuestButton", () => {
-    cy.findByRole("button", { name: "Personal quest" });
+Cypress.Commands.add("findPersonalQuestSwitch", () => {
+    cy.findByRole("checkbox", { name: "Show personal quest" });
 });
 
-Cypress.Commands.add("findPersonalQuestDialog", () => {
-    cy.findByRole("dialog", { name: "Personal quest" });
+Cypress.Commands.add("findDefaultPersonalQuestImage", () => {
+    cy.findByRole("img", { name: "Personal quest" });
 });
 
 Cypress.Commands.add("findPersonalQuestImage", (personalQuestName: string) => {
-    cy.findByRole("img", { name: personalQuestName });
+    cy.findByRole("img", { name: `Personal quest ${personalQuestName}` });
 });
 
 Cypress.Commands.add("findPersonalQuestAutocomplete", () => {

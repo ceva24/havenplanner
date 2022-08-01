@@ -44,4 +44,10 @@ describe("index page", () => {
 
         cy.location("search").should("equal", "");
     });
+
+    it("hides the personal quest by default when loading a character with one set", () => {
+        cy.visit("/?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtTxNFtg2GsNLxIDtZ2ItLNuF");
+
+        cy.findPersonalQuestSwitch().should("not.be.checked");
+    });
 });

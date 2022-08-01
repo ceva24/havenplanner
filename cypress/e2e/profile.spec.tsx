@@ -126,53 +126,47 @@ describe("profile tab", () => {
             .should("have.class", "isActive");
     });
 
-    it("shows the personal quest button", () => {
+    it("shows the personal quest card back when no personal quest has been selected", () => {
         cy.visit("/");
 
-        cy.findPersonalQuestButton().should("be.visible");
-    });
-
-    it("shows a dialog when pressing the personal quest button", () => {
-        cy.visit("/");
-
-        cy.findPersonalQuestButton().click();
-
-        cy.findPersonalQuestDialog().should("be.visible");
-    });
-
-    it("shows the default personal quest card image when no personal quest is selected", () => {
-        cy.visit("/");
-
-        cy.findPersonalQuestButton().click();
-
-        cy.findPersonalQuestImage("Personal quest").should("have.attr", "src").should("include", "gh-pq-back");
+        cy.findDefaultPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-back");
     });
 
     it("allows a personal quest to be selected and updates the card image", () => {
         cy.visit("/");
 
-        cy.findPersonalQuestButton().click();
-
         cy.findPersonalQuestAutocomplete().click();
 
         cy.findByRole("option", { name: "Augmented Abilities" }).click();
 
         cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530");
+
+        cy.findPersonalQuestSwitch().should("be.checked");
     });
 
-    it("retains the personal question when closing and reopening the personal quest dialog", () => {
+    it("hides the personal quest when the switch is set to off", () => {
         cy.visit("/");
-
-        cy.findPersonalQuestButton().click();
 
         cy.findPersonalQuestAutocomplete().click();
 
         cy.findByRole("option", { name: "Augmented Abilities" }).click();
 
-        cy.findByRole("button", { name: "Close" }).click();
-
-        cy.findPersonalQuestButton().click();
-
         cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530");
+
+        cy.findPersonalQuestSwitch().uncheck();
+
+        cy.findDefaultPersonalQuestImage().should("exist");
+
+        cy.findPersonalQuestImage("Augmented Abilities").should("not.exist");
+    });
+
+    it("hides the personal quest autocomplete when the switch is set to off", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestSwitch().uncheck();
+
+        cy.findPersonalQuestSwitch().should("not.be.checked");
+
+        cy.findPersonalQuestAutocomplete().should("not.exist");
     });
 });

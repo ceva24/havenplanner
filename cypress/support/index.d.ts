@@ -22,9 +22,9 @@ declare namespace Cypress {
 
         selectClass(className: string): Chainable<Element>;
 
-        findPersonalQuestButton(): Chainable<Element>;
+        findPersonalQuestSwitch(): Chainable<Element>;
 
-        findPersonalQuestDialog(): Chainable<Element>;
+        findDefaultPersonalQuestImage(): Chainable<Element>;
 
         findPersonalQuestImage(personalQuestName: string): Chainable<Element>;
 

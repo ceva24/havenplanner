@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import Profile from "@/components/profile";
+import Profile from "@/components/tabs/profile";
 import { characterClasses } from "@/utils/constants";
+import AppSettingsProvider from "@/hooks/app-settings";
 
 const character: Character = {
     name: "My Char",
@@ -13,7 +14,11 @@ const character: Character = {
 
 describe("profile tab", () => {
     it("renders the character details form", () => {
-        render(<Profile character={character} setCharacter={jest.fn()} />);
+        render(
+            <AppSettingsProvider character={character}>
+                <Profile character={character} setCharacter={jest.fn()} />
+            </AppSettingsProvider>
+        );
 
         const characterDetailsForm = screen.queryByRole("form", {
             name: "Character details form",
@@ -23,7 +28,11 @@ describe("profile tab", () => {
     });
 
     it("renders the character mat", () => {
-        render(<Profile character={character} setCharacter={jest.fn()} />);
+        render(
+            <AppSettingsProvider character={character}>
+                <Profile character={character} setCharacter={jest.fn()} />
+            </AppSettingsProvider>
+        );
 
         const characterMat = screen.queryByRole("img", {
             name: "Character mat front",
@@ -33,9 +42,13 @@ describe("profile tab", () => {
     });
 
     it("renders the personal quest", () => {
-        render(<Profile character={character} setCharacter={jest.fn()} />);
+        render(
+            <AppSettingsProvider character={character}>
+                <Profile character={character} setCharacter={jest.fn()} />
+            </AppSettingsProvider>
+        );
 
-        const personalQuest = screen.queryByRole("button", {
+        const personalQuest = screen.queryByRole("img", {
             name: "Personal quest",
         });
 

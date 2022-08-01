@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { Autocomplete, AutocompleteRenderInputParams, FormControl, TextField } from "@mui/material";
+import { Autocomplete, AutocompleteRenderInputParams, TextField } from "@mui/material";
 import { SetStateAction, SyntheticEvent, Dispatch } from "react";
 import { personalQuests } from "@/utils/constants";
 
@@ -14,18 +14,16 @@ const PersonalQuestAutocomplete = ({ character, setCharacter }: PersonalQuestAut
     };
 
     return (
-        <FormControl sx={{ width: "100%" }}>
-            <Autocomplete
-                disablePortal
-                value={character.personalQuest ?? null}
-                options={personalQuests}
-                getOptionLabel={(personalQuest: PersonalQuest) => {
-                    return personalQuest.name;
-                }}
-                renderInput={(props: AutocompleteRenderInputParams) => <TextField {...props} label="Personal quest" />}
-                onChange={handleChange}
-            />
-        </FormControl>
+        <Autocomplete
+            disablePortal
+            value={character.personalQuest ?? null}
+            options={personalQuests}
+            getOptionLabel={(personalQuest: PersonalQuest) => {
+                return personalQuest.name;
+            }}
+            renderInput={(props: AutocompleteRenderInputParams) => <TextField {...props} label="Personal quest" />}
+            onChange={handleChange}
+        />
     );
 };
 
