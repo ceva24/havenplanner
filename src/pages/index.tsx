@@ -27,11 +27,11 @@ const Index: NextPage<IndexProps> = ({ initialCharacter }: IndexProps) => {
 
                 <Head>
                     <title>Gloomhaven Character Planner</title>
-                    <link rel="shortcut icon" href="/favicon.png" />
                     <meta
                         name="description"
                         content="A web application to create character builds for the popular tabletop and digital game Gloomhaven"
                     />
+                    <link rel="shortcut icon" href="/favicon.png" />
                 </Head>
 
                 <Header character={character} />
