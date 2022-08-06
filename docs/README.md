@@ -27,7 +27,7 @@ A web application to create and share character builds for the popular tabletop 
 
 -   See all character ability cards, mark unlocked ones and select augments
 -   Show selected perks and the resulting attack modifier deck composition
--   Show or hide spoiler details (locked characters and items)
+-   Locked characters and items
 
 ## 💻 Development
 
