@@ -13,11 +13,20 @@
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io)
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/788e43c2/gloomhaven-character-planner/)
 
-## Introduction
+## 👋 Introduction
 
 A web application to create and share character builds for the popular tabletop and digital game Gloomhaven. Inspired by tools like [Dark Souls Character Planner](https://soulsplanner.com/darksouls) and [FFXIV Lodestone](https://na.finalfantasyxiv.com/lodestone/character/).
 
-## Development
+## 🗒️ Features
+
+-   Enter character details, including personal quest with the option to toggle visibility
+-   Select character items
+-   See all character ability cards, mark unlocked ones and select augments
+-   Show selected perks and the resulting attack modifier deck composition
+-   Show or hide spoiler details (locked characters and items)
+-   Save and share characters with a shareable link
+
+## 💻 Development
 
 Built with [Typescript](https://www.typescriptlang.org), [Next.js](https://nextjs.org) and [MUI](https://mui.com/) ❤️
 
@@ -43,8 +52,8 @@ Reports and snapshots included on each PR ✔️
 
 Continuously deployed to production using [Vercel](https://vercel.com) 🚀
 
-## Notices
+## 📌 Notices
 
 With thanks to the [Worldhaven](https://github.com/any2cards/worldhaven) project, which makes this tool possible!
 
-_Gloomhaven and all related properties, images and text are owned by [Cephalofair Games](https://cephalofair.com)._
+Gloomhaven and all related properties, images and text are owned by [Cephalofair Games](https://cephalofair.com).
