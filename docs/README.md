@@ -15,16 +15,19 @@
 
 ## 👋 Introduction
 
-A web application to create and share character builds for the popular tabletop and digital game Gloomhaven. Inspired by tools like [Dark Souls Character Planner](https://soulsplanner.com/darksouls) and [FFXIV Lodestone](https://na.finalfantasyxiv.com/lodestone/character/).
+A web application to create and share character builds for the popular tabletop and digital game [Gloomhaven](https://cephalofair.com/pages/gloomhaven). Inspired by tools like [Dark Souls Character Planner](https://soulsplanner.com/darksouls) and [FFXIV Lodestone](https://na.finalfantasyxiv.com/lodestone/character/).
 
 ## 🗒️ Features
 
 -   Enter character details, including personal quest with the option to toggle visibility
 -   Select character items
+-   Save and share characters with a shareable link
+
+### Not yet implemented
+
 -   See all character ability cards, mark unlocked ones and select augments
 -   Show selected perks and the resulting attack modifier deck composition
 -   Show or hide spoiler details (locked characters and items)
--   Save and share characters with a shareable link
 
 ## 💻 Development
 
@@ -41,6 +44,10 @@ Built with [Typescript](https://www.typescriptlang.org), [Next.js](https://nextj
 Uses [lint-staged](https://github.com/okonet/lint-staged) and [Husky](https://typicode.github.io/husky/) for pre-commit hooks 🐶 _woof_!
 
 Enforces conventional commits via [commitlint](https://github.com/conventional-changelog/commitlint), see [Contribution guidelines](CONTRIBUTING.md) for valid types.
+
+### Image hosting
+
+Uses [ceva24/worldhaven](https://github.com/ceva24/worldhaven) as a CDN for images, hosted at [ceva24.github.io/worldhaven](https://ceva24.github.io/worldhaven).
 
 ### CI/CD
 
