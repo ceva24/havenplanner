@@ -5,7 +5,6 @@ import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { decode } from "@/services/character";
 import { defaultCharacter } from "@/utils/constants";
 import TabContainer from "@/components/tabs/tab-container";
-import Footer from "@/components/footer";
 import Header from "@/components/header";
 import AppSettingsProvider from "@/hooks/app-settings";
 import theme from "@/styles/theme";
@@ -43,8 +42,6 @@ const Index: NextPage<IndexProps> = ({ initialCharacter }: IndexProps) => {
                         </Grid>
                     </Grid>
                 </Container>
-
-                <Footer />
             </AppSettingsProvider>
         </ThemeProvider>
     );

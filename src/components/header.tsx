@@ -1,4 +1,4 @@
-import { AppBar, Box, Checkbox, FormControlLabel, Grid, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, FormControlLabel, Grid, Switch, Toolbar, Typography } from "@mui/material";
 import ShareButton from "@/components/share/share-button";
 
 interface HeaderProps {
@@ -15,8 +15,11 @@ const Header = ({ character }: HeaderProps) => {
                     </Typography>
                     <Box>
                         <Grid container>
-                            <Grid item>
-                                <FormControlLabel control={<Checkbox disabled />} label="Spoilers" />
+                            <Grid item display="flex">
+                                <FormControlLabel
+                                    control={<Switch disabled id="show-spoilers-switch" name="Show spoilers" />}
+                                    label="Show spoilers"
+                                />
                             </Grid>
                             <Grid item>
                                 <ShareButton character={character} />

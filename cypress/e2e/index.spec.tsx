@@ -26,12 +26,6 @@ describe("index page", () => {
         cy.get("main").findCharacterDetailsForm().should("exist");
     });
 
-    it("renders the footer", () => {
-        cy.visit("/");
-
-        cy.get("footer").should("exist");
-    });
-
     it("loads character details from the query string", () => {
         cy.visit("/?character=uDriterisSritEVjkrgsbtYRiRTkVirisEriuA2VsI2GtXxGFtUxhDxTDtT2HsK2GtZ2GtLNuF");
 

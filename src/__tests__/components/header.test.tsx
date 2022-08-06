@@ -31,4 +31,14 @@ describe("Header", () => {
 
         expect(shareButton).toBeInTheDocument();
     });
+
+    it("renders the spoiler toggle", () => {
+        render(<Header character={character} />);
+
+        const spoilerToggle = screen.queryByRole("checkbox", {
+            name: "Show spoilers",
+        });
+
+        expect(spoilerToggle).toBeInTheDocument();
+    });
 });
