@@ -6,6 +6,6 @@ const createImageUrl = (relativePath: string) => {
     return `${baseImageUrl}${safeRelativePath}`;
 };
 
-const defaultPersonalQuestCardImageUrl = "/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.jpg";
+const defaultPersonalQuestCardImageUrl = "/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.webp";
 
 export { createImageUrl, defaultPersonalQuestCardImageUrl };
