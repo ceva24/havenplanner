@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { Box, TextField } from "@mui/material";
 import ClassSelect from "@/components/profile/class-select";
+import AppImage from "@/components/app-image";
 
 interface CharacterDetailsProps {
     character: Character;
@@ -18,7 +19,13 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
         <Box id="character-details-form" aria-label="Character details form" component="form">
             <Box sx={{ marginBottom: 2 }}>
                 <ClassSelect character={character} setCharacter={setCharacter} />
-                <img src={character.characterClass.imageUrl} alt="Class icon" width={70} height={70} />
+                <AppImage
+                    webpPath={character.characterClass.imageUrl}
+                    fallbackImageType="png"
+                    altText="Class icon"
+                    width={70}
+                    height={70}
+                />
             </Box>
             <Box>
                 <TextField
