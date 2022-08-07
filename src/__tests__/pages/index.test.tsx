@@ -6,6 +6,18 @@ import Index, { getServerSideProps } from "@/pages/index";
 import { characterClasses, defaultCharacter } from "@/utils/constants";
 import * as characterService from "@/services/character";
 
+jest.mock("@/services/character", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return {
+        __esModule: true,
+        ...jest.requireActual("@/services/character"),
+    };
+});
+
+beforeEach(() => {
+    jest.clearAllMocks();
+});
+
 describe("Index", () => {
     it("renders the tabbed content", () => {
         render(<Index initialCharacter={defaultCharacter} />);

@@ -3,6 +3,14 @@ import { createMocks, Mocks } from "node-mocks-http";
 import * as characterService from "@/services/character";
 import handler from "@/api/encode-character";
 
+jest.mock("@/services/character", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return {
+        __esModule: true,
+        ...jest.requireActual("@/services/character"),
+    };
+});
+
 beforeEach(() => {
     jest.clearAllMocks();
 });
