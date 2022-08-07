@@ -39,6 +39,14 @@ jest.mock("uuid", () => {
     };
 });
 
+jest.mock("@/services/serializer", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return {
+        __esModule: true,
+        ...jest.requireActual("@/services/serializer"),
+    };
+});
+
 beforeEach(() => {
     jest.clearAllMocks();
 });
