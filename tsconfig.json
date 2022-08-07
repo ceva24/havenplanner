@@ -2,16 +2,17 @@
     "extends": "@tsconfig/next/tsconfig.json",
     "compilerOptions": {
         "strict": true,
+        "baseUrl": ".",
         "paths": {
-            "@/components/*": ["./src/components/*"],
-            "@/hooks/*": ["./src/hooks/*"],
-            "@/pages/*": ["./src/pages/*"],
-            "@/api/*": ["./src/pages/api/*"],
-            "@/services/*": ["./src/services/*"],
-            "@/styles/*": ["./src/styles/*"],
-            "@/types/*": ["./src/types/*"],
-            "@/utils/*": ["./src/utils/*"],
-            "@/data/*": ["./data/*"]
+            "@/components/*": ["src/components/*"],
+            "@/hooks/*": ["src/hooks/*"],
+            "@/pages/*": ["src/pages/*"],
+            "@/api/*": ["src/pages/api/*"],
+            "@/services/*": ["src/services/*"],
+            "@/styles/*": ["src/styles/*"],
+            "@/types/*": ["src/types/*"],
+            "@/utils/*": ["src/utils/*"],
+            "@/data/*": ["data/*"]
         }
     },
     "include": ["src/**/*", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
