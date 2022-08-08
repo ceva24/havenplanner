@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import AppImage, { createImageUrl } from "@/components/app-image";
+import AppImage, { createImageUrl, baseImageUrl } from "@/components/app-image";
 
 describe("AppImage", () => {
     it("renders the image", () => {
@@ -31,7 +31,7 @@ describe("AppImage", () => {
             name: "Personal quest",
         });
 
-        expect(image?.getAttribute("src")).toMatch(".jpg");
+        expect(image?.getAttribute("src")).toMatch(`${baseImageUrl}/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.jpg`);
     });
 });
 
