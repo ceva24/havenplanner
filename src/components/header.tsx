@@ -1,4 +1,4 @@
-import { AppBar, Box, FormControlLabel, Grid, Switch, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, FormControlLabel, Grid, Link, Switch, Toolbar, Typography } from "@mui/material";
 import ShareButton from "@/components/share/share-button";
 
 interface HeaderProps {
@@ -10,9 +10,11 @@ const Header = ({ character }: HeaderProps) => {
         <Box component="header">
             <AppBar position="static">
                 <Toolbar>
-                    <Typography color="textPrimary" variant="h1" padding="1rem" sx={{ flexGrow: 1 }}>
+                    <Box  padding={2.5} sx={{ flexGrow: 1 }}>
+                    <Link href="/" underline="none" color="textPrimary" variant="h1">
                         Gloomhaven Character Planner
-                    </Typography>
+                    </Link>
+                    </Box>
                     <Box>
                         <Grid container>
                             <Grid item display="flex">

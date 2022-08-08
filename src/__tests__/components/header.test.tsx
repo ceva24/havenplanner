@@ -12,14 +12,14 @@ const character: Character = {
 };
 
 describe("Header", () => {
-    it("renders the heading", () => {
+    it("renders the heading as a link", () => {
         render(<Header character={character} />);
 
-        const heading = screen.queryByRole("heading", {
+        const headerLink = screen.queryByRole("link", {
             name: "Gloomhaven Character Planner",
         });
 
-        expect(heading).toBeInTheDocument();
+        expect(headerLink).toBeInTheDocument();
     });
 
     it("renders the share button", () => {
