@@ -31,7 +31,9 @@ describe("AppImage", () => {
             name: "Personal quest",
         });
 
-        expect(image?.getAttribute("src")).toMatch(`${baseImageUrl}/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.jpg`);
+        expect(image?.getAttribute("src")).toMatch(
+            `${baseImageUrl}/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.jpg`
+        );
     });
 });
 

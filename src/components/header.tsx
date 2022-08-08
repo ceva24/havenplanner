@@ -10,10 +10,10 @@ const Header = ({ character }: HeaderProps) => {
         <Box component="header">
             <AppBar position="static">
                 <Toolbar>
-                    <Box  padding={2.5} sx={{ flexGrow: 1 }}>
-                    <Link href="/" underline="none" color="textPrimary" variant="h1">
-                        Gloomhaven Character Planner
-                    </Link>
+                    <Box padding={2.5} sx={{ flexGrow: 1 }}>
+                        <Link href="/" underline="none" color="textPrimary" variant="h1">
+                            Gloomhaven Character Planner
+                        </Link>
                     </Box>
                     <Box>
                         <Grid container>
