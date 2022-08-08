@@ -4,41 +4,205 @@
         "name": "Brute",
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-brute.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute.webp",
-        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.webp"
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.webp",
+        "abilityCardBackImageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+        "abilityCards": [
+            {
+                "id": 1,
+                "name": "Trample",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-trample.webp"
+            },
+            {
+                "id": 2,
+                "name": "Eye for an Eye",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-eye-for-an-eye.webp"
+            },
+            {
+                "id": 3,
+                "name": "Sweeping Blow",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-sweeping-blow.webp"
+            },
+            {
+                "id": 4,
+                "name": "Provoking Roar",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-provoking-roar.webp"
+            },
+            {
+                "id": 5,
+                "name": "Overwhelming Assault",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-overwhelming-assault.webp"
+            },
+            {
+                "id": 6,
+                "name": "Grab and Go",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-grab-and-go.webp"
+            },
+            {
+                "id": 7,
+                "name": "Warding Strength",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-warding-strength.webp"
+            },
+            {
+                "id": 8,
+                "name": "Shield Bash",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-shield-bash.webp"
+            },
+            {
+                "id": 9,
+                "name": "Leaping Cleave",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-leaping-cleave.webp"
+            },
+            {
+                "id": 10,
+                "name": "Spare Dagger",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-spare-dagger.webp"
+            },
+            {
+                "id": 11,
+                "name": "Skewer",
+                "level": "X",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp"
+            },
+            {
+                "id": 12,
+                "name": "Balanced Measure",
+                "level": "X",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-balanced-measure.webp"
+            },
+            {
+                "id": 13,
+                "name": "Wall of Doom",
+                "level": "X",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-wall-of-doom.webp"
+            }
+        ]
     },
     {
         "id": 1,
         "name": "Scoundrel",
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-scoundrel.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel.webp",
-        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel-back.webp"
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel-back.webp",
+        "abilityCardBackImageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-sc-back.webp",
+        "abilityCards": [
+            {
+                "id": 88,
+                "name": "Single Out",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-single-out.webp"
+            },
+            {
+                "id": 89,
+                "name": "Flanking Strike",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-flanking-strike.webp"
+            },
+            {
+                "id": 90,
+                "name": "Smoke Bomb",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-smoke-bomb.webp"
+            },
+            {
+                "id": 91,
+                "name": "Backstab",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-backstab.webp"
+            },
+            {
+                "id": 92,
+                "name": "Thief's Knack",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-thiefs-knack.webp"
+            },
+            {
+                "id": 93,
+                "name": "Venom Shiv",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-venom-shiv.webp"
+            },
+            {
+                "id": 94,
+                "name": "Throwing Knives",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-throwing-knives.webp"
+            },
+            {
+                "id": 95,
+                "name": "Quick Hands",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-quick-hands.webp"
+            },
+            {
+                "id": 96,
+                "name": "Special Mixture",
+                "level": "1",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-special-mixture.webp"
+            },
+            {
+                "id": 97,
+                "name": "Sinister Opportunity",
+                "level": "X",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-sinister-opportunity.webp"
+            },
+            {
+                "id": 98,
+                "name": "Trickster's Reversal",
+                "level": "X",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-tricksters-reversal.webp"
+            },
+            {
+                "id": 99,
+                "name": "Swift Bow",
+                "level": "X",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-swift-bow.webp"
+            }
+        ]
     },
     {
         "id": 2,
         "name": "Spellweaver",
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-spellweaver.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver.webp",
-        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver-back.webp"
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver-back.webp",
+        "abilityCardBackImageUrl": "",
+        "abilityCards": []
     },
     {
         "id": 3,
         "name": "Tinkerer",
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-tinkerer.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer.webp",
-        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer-back.webp"
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer-back.webp",
+        "abilityCardBackImageUrl": "",
+        "abilityCards": []
     },
     {
         "id": 4,
         "name": "Mindthief",
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-mindthief.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief.webp",
-        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief-back.webp"
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief-back.webp",
+        "abilityCardBackImageUrl": "",
+        "abilityCards": []
     },
     {
         "id": 5,
         "name": "Cragheart",
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-cragheart.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-cragheart.webp",
-        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-cragheart-back.webp"
+        "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-cragheart-back.webp",
+        "abilityCardBackImageUrl": "",
+        "abilityCards": []
     }
 ]

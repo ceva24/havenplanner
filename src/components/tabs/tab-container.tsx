@@ -1,7 +1,9 @@
-import { Tabs, Tab, Divider, Box } from "@mui/material";
+import { Tabs, Tab, Divider } from "@mui/material";
 import { Dispatch, SetStateAction, useState } from "react";
+import TabPanel from "@/components/tabs/tab-panel";
 import Profile from "@/components/tabs/profile";
 import Items from "@/components/tabs/items";
+import AbilityCards from "@/components/tabs/ability-cards";
 
 interface TabContainerProps {
     character: Character;
@@ -40,11 +42,10 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
                     sx={{ typography: "body2" }}
                 />
                 <Tab
-                    disabled
                     disableRipple
-                    label="Deck"
-                    id="deck-tab"
-                    aria-controls="deck-tabpanel"
+                    label="Ability Cards"
+                    id="ability-cards-tab"
+                    aria-controls="ability-cards-tabpanel"
                     sx={{ typography: "body2" }}
                 />
                 <Tab
@@ -65,25 +66,16 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
             <TabPanel currentTabIndex={currentTabIndex} index={1} id="items-tabpanel" ariaLabelledBy="items-tab">
                 <Items character={character} setCharacter={setCharacter} />
             </TabPanel>
-            <TabPanel currentTabIndex={currentTabIndex} index={2} id="deck-tabpanel" ariaLabelledBy="deck-tab" />
+            <TabPanel
+                currentTabIndex={currentTabIndex}
+                index={2}
+                id="ability-cards-tabpanel"
+                ariaLabelledBy="ability-cards-tab"
+            >
+                <AbilityCards character={character} />
+            </TabPanel>
             <TabPanel currentTabIndex={currentTabIndex} index={3} id="perks-tabpanel" ariaLabelledBy="perks-tab" />
         </>
-    );
-};
-
-interface TabPanelProps {
-    children?: React.ReactNode;
-    index: number;
-    currentTabIndex: number;
-    id: string;
-    ariaLabelledBy: string;
-}
-
-const TabPanel = ({ children, index, currentTabIndex, id, ariaLabelledBy }: TabPanelProps) => {
-    return (
-        <div role="tabpanel" id={id} aria-labelledby={ariaLabelledBy} hidden={currentTabIndex !== index}>
-            {currentTabIndex === index && <Box sx={{ padding: 5 }}>{children}</Box>}
-        </div>
     );
 };
 

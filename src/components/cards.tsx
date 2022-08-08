@@ -11,7 +11,7 @@ const Card = ({ src, altText }: CardProps) => {
             webpPath={src}
             fallbackImageType="jpg"
             altText={altText}
-            style={{ maxWidth: "100%", borderRadius: "2%" }}
+            style={{ maxWidth: "100%", borderRadius: "3%" }}
         />
     );
 };
@@ -24,7 +24,7 @@ const SmallCard = ({ src, altText }: CardProps) => {
             altText={altText}
             width={150}
             height={225}
-            style={{ borderRadius: "2%" }}
+            style={{ borderRadius: "3%" }}
         />
     );
 };

@@ -18,6 +18,10 @@ const theme: ThemeOptions = createTheme({
             fontFamily: "PirataOne",
             fontSize: "1.85rem",
         },
+        h2: {
+            fontFamily: "PirataOne",
+            fontSize: "1.85rem",
+        },
         body1: {
             fontFamily: "Sakkal Majalla",
             fontSize: "1.25rem",
