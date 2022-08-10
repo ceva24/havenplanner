@@ -10,5 +10,11 @@
         "url": "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtTxNFtZ2GtLsREOENEJ2CsL2DsKtNuF",
         "waitForTimeout": 10000,
         "execute": "document.querySelector('#items-tab').click()"
+    },
+    {
+        "name": "Ability Cards Tab",
+        "url": "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtTxNFtZ2GtLsREOENEJ2CsL2DsKtNuF",
+        "waitForTimeout": 10000,
+        "execute": "document.querySelector('#ability-cards-tab').click()"
     }
 ]
