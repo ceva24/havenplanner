@@ -5,7 +5,6 @@
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-brute.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute.webp",
         "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.webp",
-        "abilityCardBackImageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
         "abilityCards": [
             {
                 "id": 1,
@@ -93,7 +92,6 @@
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-scoundrel.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel.webp",
         "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel-back.webp",
-        "abilityCardBackImageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-sc-back.webp",
         "abilityCards": [
             {
                 "id": 88,
@@ -175,7 +173,6 @@
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-spellweaver.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver.webp",
         "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver-back.webp",
-        "abilityCardBackImageUrl": "",
         "abilityCards": []
     },
     {
@@ -184,7 +181,6 @@
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-tinkerer.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer.webp",
         "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer-back.webp",
-        "abilityCardBackImageUrl": "",
         "abilityCards": []
     },
     {
@@ -193,7 +189,6 @@
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-mindthief.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief.webp",
         "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief-back.webp",
-        "abilityCardBackImageUrl": "",
         "abilityCards": []
     },
     {
@@ -202,7 +197,6 @@
         "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-cragheart.webp",
         "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-cragheart.webp",
         "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-cragheart-back.webp",
-        "abilityCardBackImageUrl": "",
         "abilityCards": []
     }
 ]
