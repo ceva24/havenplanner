@@ -1,15 +1,23 @@
 import { Box } from "@mui/material";
-import CardGroup from "@/components/ability-cards/card-group";
+import groupBy from "lodash.groupby";
+import AbilityCardGroup from "@/components/ability-cards/ability-card-group";
 
 interface AbilityCardsProps {
     character: Character;
 }
 
 const AbilityCards = ({ character }: AbilityCardsProps) => {
+    const cardsByLevel = groupBy(
+        character.characterClass.abilityCards,
+        (abilityCard: AbilityCard) => abilityCard.level
+    );
+    const uniqueLevels = Object.keys(cardsByLevel);
+
     return (
         <Box>
-            <CardGroup level="1" cards={character.characterClass.abilityCards} />
-            <CardGroup level="X" cards={character.characterClass.abilityCards} />
+            {uniqueLevels.map((level: string) => {
+                return <AbilityCardGroup key={level} level={level} cards={cardsByLevel[level]} />;
+            })}
         </Box>
     );
 };
