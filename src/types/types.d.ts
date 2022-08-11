@@ -28,8 +28,13 @@ interface Asset {
 interface CharacterClass extends Asset {
     characterMatFrontImageUrl: string;
     characterMatBackImageUrl: string;
+    abilityCards: AbilityCard[];
 }
 
 interface PersonalQuest extends Asset {}
 
 interface Item extends Asset {}
+
+interface AbilityCard extends Asset {
+    level: string;
+}

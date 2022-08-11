@@ -13,7 +13,7 @@ interface ImageProps {
 
 const AppImage = ({ webpPath, fallbackImageType, altText, ...props }: ImageProps) => {
     const fullImagePath = createImageUrl(webpPath);
-    const fallbackImagePath = webpPath.replace(".webp", `.${fallbackImageType}`);
+    const fallbackImagePath = fullImagePath.replace(".webp", `.${fallbackImageType}`);
 
     return (
         <picture>
@@ -30,4 +30,4 @@ const createImageUrl = (relativePath: string) => {
 };
 
 export default AppImage;
-export { createImageUrl };
+export { createImageUrl, baseImageUrl };

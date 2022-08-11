@@ -37,14 +37,14 @@ describe("tab container", () => {
         expect(itemsTab).toBeInTheDocument();
     });
 
-    it("renders the deck tab", () => {
+    it("renders the ability cards tab", () => {
         render(
             <AppSettingsProvider character={character}>
                 <TabContainer character={character} setCharacter={jest.fn()} />
             </AppSettingsProvider>
         );
 
-        const deckTab = screen.getByRole("tab", { name: "Deck" });
+        const deckTab = screen.getByRole("tab", { name: "Ability Cards" });
 
         expect(deckTab).toBeInTheDocument();
     });
