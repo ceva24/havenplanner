@@ -1,19 +1,19 @@
 [
     {
         "name": "Profile Tab",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtTxcD2Gtg2GsNLxbDtZ2ItLNuF",
+        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtTxcD2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsL2DsKtNuF",
         "waitForTimeout": 10000,
         "execute": "document.querySelector('#show-personal-quest-switch').click()"
     },
     {
         "name": "Items Tab",
-        "url": "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtTxNFtZ2GtLsREOENEJ2CsL2DsKtNuF",
+        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtTxcD2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsL2DsKtNuF",
         "waitForTimeout": 10000,
         "execute": "document.querySelector('#items-tab').click()"
     },
     {
         "name": "Ability Cards Tab",
-        "url": "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtTxNFtZ2GtLsREOENEJ2CsL2DsKtNuF",
+        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtTxcD2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsL2DsKtNuF",
         "waitForTimeout": 10000,
         "execute": "document.querySelector('#ability-cards-tab').click()"
     }
