@@ -28,6 +28,7 @@ A web application to create and share character builds for the popular tabletop 
 -   See all character ability cards, mark unlocked ones and select augments
 -   Show selected perks and the resulting attack modifier deck composition
 -   Locked characters and items
+-   Forgotten Circles, Jaws of the Lion, Crimson Scales and Frosthaven
 
 ## 💻 Development
 
