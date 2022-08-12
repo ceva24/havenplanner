@@ -83,6 +83,102 @@
                 "name": "Wall of Doom",
                 "level": "X",
                 "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-wall-of-doom.webp"
+            },
+            {
+                "id": 14,
+                "name": "Fatal Advance",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp"
+            },
+            {
+                "id": 15,
+                "name": "Juggernaut",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp"
+            },
+            {
+                "id": 16,
+                "name": "Hook and Chain",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp"
+            },
+            {
+                "id": 17,
+                "name": "Brute Force",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp"
+            },
+            {
+                "id": 18,
+                "name": "Unstoppable Charge",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-unstoppable-charge.webp"
+            },
+            {
+                "id": 19,
+                "name": "Devastating Hack",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-devastating-hack.webp"
+            },
+            {
+                "id": 20,
+                "name": "Whirlwind",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-whirlwind.webp"
+            },
+            {
+                "id": 21,
+                "name": "Skirmishing Maneuver",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-skirmishing-maneuver.webp"
+            },
+            {
+                "id": 22,
+                "name": "Quietus",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp"
+            },
+            {
+                "id": 23,
+                "name": "Immovable Phalanx",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-immovable-phalanx.webp"
+            },
+            {
+                "id": 24,
+                "name": "Defensive Tactics",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-defensive-tactics.webp"
+            },
+            {
+                "id": 25,
+                "name": "Crippling Offensive",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp"
+            },
+            {
+                "id": 26,
+                "name": "Frenzied Onslaught",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-frenzied-onslaught.webp"
+            },
+            {
+                "id": 27,
+                "name": "Selfish Retribution",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-selfish-retribution.webp"
+            },
+            {
+                "id": 28,
+                "name": "King of the Hill",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-king-of-the-hill.webp"
+            },
+            {
+                "id": 29,
+                "name": "Face Your End",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-face-your-end.webp"
             }
         ]
     },
