@@ -95,5 +95,22 @@ describe("AbilityCardGroup", () => {
         expect(secondCard).toBeInTheDocument();
     });
 
-    it("renders selectable cards for a selectable group", () => {});
+    it("renders selectable cards for a selectable group", () => {
+        const cards: AbilityCard[] = [
+            {
+                id: 1,
+                name: "Trample",
+                level: "1",
+                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+            },
+        ];
+
+        render(
+            <AbilityCardGroup isSelectable level="1" cards={cards} character={character} setCharacter={setCharacter} />
+        );
+
+        const selectableAbilityCard = screen.queryByRole("button", { name: "Trample" });
+
+        expect(selectableAbilityCard).toBeInTheDocument();
+    });
 });
