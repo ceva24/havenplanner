@@ -12,6 +12,7 @@ interface Character {
     characterClass: CharacterClass;
     personalQuest?: PersonalQuest;
     items: CharacterItem[];
+    unlockedAbilityCards: AbilityCard[];
 }
 
 interface CharacterItem {

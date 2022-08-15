@@ -10,6 +10,7 @@ const character: Character = {
     notes: "Hello",
     characterClass: characterClasses[1],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 const setCharacter = jest.fn();

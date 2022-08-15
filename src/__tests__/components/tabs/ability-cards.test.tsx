@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import AbilityCards from "@/components/tabs/ability-cards";
 
+const setCharacter = jest.fn();
+
 describe("AbilityCards", () => {
     it("renders cards of a level", () => {
         const character: Character = {
@@ -24,9 +26,10 @@ describe("AbilityCards", () => {
                 ],
             },
             items: [],
+            unlockedAbilityCards: [],
         };
 
-        render(<AbilityCards character={character} />);
+        render(<AbilityCards character={character} setCharacter={setCharacter} />);
 
         const level1Cards = screen.queryByRole("region", { name: "Level 1 Ability Cards" });
 
@@ -61,9 +64,10 @@ describe("AbilityCards", () => {
                 ],
             },
             items: [],
+            unlockedAbilityCards: [],
         };
 
-        render(<AbilityCards character={character} />);
+        render(<AbilityCards character={character} setCharacter={setCharacter} />);
 
         const level1Cards = screen.queryByRole("region", { name: "Level 1 Ability Cards" });
         const levelxCards = screen.queryByRole("region", { name: "Level X Ability Cards" });
@@ -106,9 +110,10 @@ describe("AbilityCards", () => {
                 ],
             },
             items: [],
+            unlockedAbilityCards: [],
         };
 
-        const { asFragment } = render(<AbilityCards character={character} />);
+        const { asFragment } = render(<AbilityCards character={character} setCharacter={setCharacter} />);
 
         const content = asFragment();
 
@@ -116,4 +121,8 @@ describe("AbilityCards", () => {
         expect(content.childNodes[0].childNodes[1].textContent).toEqual("Level X");
         expect(content.childNodes[0].childNodes[2].textContent).toEqual("Level 2");
     });
+
+    it("renders level 1 and x cards as images", () => {});
+
+    it("renders level 2 to 9 cards as toggleable buttons", () => {});
 });

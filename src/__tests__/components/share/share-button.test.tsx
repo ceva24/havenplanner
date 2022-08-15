@@ -11,6 +11,7 @@ const character: Character = {
     notes: "",
     characterClass: characterClasses[0],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 const setShareableLink = jest.fn();

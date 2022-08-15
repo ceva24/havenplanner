@@ -40,6 +40,7 @@ const deserialize = (data: string): Character => {
         characterClass: deserializeCharacterClass(characterData.c),
         ...(personalQuest && { personalQuest }),
         items: deserializeItems(characterData.i),
+        unlockedAbilityCards: [],
     };
 
     return character;

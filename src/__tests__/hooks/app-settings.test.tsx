@@ -10,6 +10,7 @@ const character: Character = {
     notes: "Hello haven",
     characterClass: characterClasses[0],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 describe("AppSettingsProvider", () => {

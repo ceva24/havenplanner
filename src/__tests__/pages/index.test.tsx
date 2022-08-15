@@ -53,6 +53,7 @@ describe("getServerSideProps", () => {
             notes: "It's a test",
             characterClass: characterClasses[2],
             items: [],
+            unlockedAbilityCards: [],
         };
 
         jest.spyOn(characterService, "decode").mockImplementationOnce(() => character);

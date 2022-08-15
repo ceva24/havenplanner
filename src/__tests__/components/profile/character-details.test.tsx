@@ -9,6 +9,7 @@ const character: Character = {
     notes: "Hello haven",
     characterClass: characterClasses[0],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 const poorInexperiencedCharacter: Character = {
@@ -18,6 +19,7 @@ const poorInexperiencedCharacter: Character = {
     notes: "",
     characterClass: characterClasses[0],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 const setCharacter = jest.fn();

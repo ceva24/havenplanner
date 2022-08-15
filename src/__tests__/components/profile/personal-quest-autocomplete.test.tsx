@@ -10,6 +10,7 @@ const character: Character = {
     characterClass: characterClasses[1],
     personalQuest: personalQuests[2],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 beforeEach(() => {

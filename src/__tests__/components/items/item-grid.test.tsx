@@ -14,6 +14,7 @@ describe("item grid", () => {
                 { id: "1", item: items[8] },
                 { id: "2", item: items[5] },
             ],
+            unlockedAbilityCards: [],
         };
 
         render(<ItemGrid character={character} setCharacter={jest.fn()} />);

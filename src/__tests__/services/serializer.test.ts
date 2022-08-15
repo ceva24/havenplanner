@@ -21,6 +21,7 @@ describe("data serializer", () => {
             characterClass: characterClasses[2],
             personalQuest: personalQuests[8],
             items: [],
+            unlockedAbilityCards: [],
         };
 
         const data: string = serialize(character);
@@ -37,6 +38,7 @@ describe("data serializer", () => {
             characterClass: characterClasses[2],
             personalQuest: undefined,
             items: [],
+            unlockedAbilityCards: [],
         };
 
         const data: string = serialize(character);
@@ -56,6 +58,7 @@ describe("data serializer", () => {
                 { id: "1", item: items[1] },
                 { id: "2", item: items[7] },
             ],
+            unlockedAbilityCards: [],
         };
 
         const data: string = serialize(character);
@@ -75,6 +78,7 @@ describe("data serializer", () => {
                 { id: "1", item: items[1] },
                 { id: "2", item: items[1] },
             ],
+            unlockedAbilityCards: [],
         };
 
         const data: string = serialize(character);

@@ -10,6 +10,7 @@ const character: Character = {
     notes: "Test",
     characterClass: characterClasses[3],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 const characterWithUnicodeCharacters = {
@@ -19,6 +20,7 @@ const characterWithUnicodeCharacters = {
     notes: "テスト",
     characterClass: characterClasses[3],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 const characterWithItems = {
@@ -31,6 +33,7 @@ const characterWithItems = {
         { id: "abc", item: items[0] },
         { id: "def", item: items[3] },
     ],
+    unlockedAbilityCards: [],
 };
 
 jest.mock("uuid", () => {
