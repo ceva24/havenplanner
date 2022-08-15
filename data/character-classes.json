@@ -83,6 +83,102 @@
                 "name": "Wall of Doom",
                 "level": "X",
                 "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-wall-of-doom.webp"
+            },
+            {
+                "id": 14,
+                "name": "Fatal Advance",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp"
+            },
+            {
+                "id": 15,
+                "name": "Juggernaut",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp"
+            },
+            {
+                "id": 16,
+                "name": "Hook and Chain",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp"
+            },
+            {
+                "id": 17,
+                "name": "Brute Force",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp"
+            },
+            {
+                "id": 18,
+                "name": "Unstoppable Charge",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-unstoppable-charge.webp"
+            },
+            {
+                "id": 19,
+                "name": "Devastating Hack",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-devastating-hack.webp"
+            },
+            {
+                "id": 20,
+                "name": "Whirlwind",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-whirlwind.webp"
+            },
+            {
+                "id": 21,
+                "name": "Skirmishing Maneuver",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-skirmishing-maneuver.webp"
+            },
+            {
+                "id": 22,
+                "name": "Quietus",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp"
+            },
+            {
+                "id": 23,
+                "name": "Immovable Phalanx",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-immovable-phalanx.webp"
+            },
+            {
+                "id": 24,
+                "name": "Defensive Tactics",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-defensive-tactics.webp"
+            },
+            {
+                "id": 25,
+                "name": "Crippling Offensive",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp"
+            },
+            {
+                "id": 26,
+                "name": "Frenzied Onslaught",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-frenzied-onslaught.webp"
+            },
+            {
+                "id": 27,
+                "name": "Selfish Retribution",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-selfish-retribution.webp"
+            },
+            {
+                "id": 28,
+                "name": "King of the Hill",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-king-of-the-hill.webp"
+            },
+            {
+                "id": 29,
+                "name": "Face Your End",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-face-your-end.webp"
             }
         ]
     },
@@ -164,6 +260,102 @@
                 "name": "Swift Bow",
                 "level": "X",
                 "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-swift-bow.webp"
+            },
+            {
+                "id": 100,
+                "name": "Open Wound",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-open-wound.webp"
+            },
+            {
+                "id": 101,
+                "name": "Flintlock",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-flintlock.webp"
+            },
+            {
+                "id": 102,
+                "name": "Hidden Daggers",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-hidden-daggers.webp"
+            },
+            {
+                "id": 103,
+                "name": "Duelist's Advance",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-duelists-advance.webp"
+            },
+            {
+                "id": 104,
+                "name": "Flurry of Blades",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-flurry-of-blades.webp"
+            },
+            {
+                "id": 105,
+                "name": "Gruesome Advantage",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-gruesome-advantage.webp"
+            },
+            {
+                "id": 106,
+                "name": "Cull the Weak",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-cull-the-weak.webp"
+            },
+            {
+                "id": 107,
+                "name": "Visage of the Inevitable",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-visage-of-the-inevitable.webp"
+            },
+            {
+                "id": 108,
+                "name": "Crippling Poison",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-crippling-poison.webp"
+            },
+            {
+                "id": 109,
+                "name": "Burning Oil",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-burning-oil.webp"
+            },
+            {
+                "id": 110,
+                "name": "Stick to the Shadows",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-stick-to-the-shadows.webp"
+            },
+            {
+                "id": 111,
+                "name": "Spring the Trap",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-spring-the-trap.webp"
+            },
+            {
+                "id": 112,
+                "name": "Stiletto Storm",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-stiletto-storm.webp"
+            },
+            {
+                "id": 113,
+                "name": "Pain's End",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-pains-end.webp"
+            },
+            {
+                "id": 114,
+                "name": "Long Con",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-long-con.webp"
+            },
+            {
+                "id": 115,
+                "name": "Watch It Burn",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-watch-it-burn.webp"
             }
         ]
     },
@@ -236,9 +428,105 @@
             },
             {
                 "id": 71,
-                "name": "Aid from the Ether",
+                "name": "Aid From the Ether",
                 "level": "X",
                 "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-aid-from-the-ether.webp"
+            },
+            {
+                "id": 72,
+                "name": "Flashing Burst",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-flashing-burst.webp"
+            },
+            {
+                "id": 73,
+                "name": "Icy Blast",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-icy-blast.webp"
+            },
+            {
+                "id": 74,
+                "name": "Cold Fire",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-cold-fire.webp"
+            },
+            {
+                "id": 75,
+                "name": "Elemental Aid",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-elemental-aid.webp"
+            },
+            {
+                "id": 76,
+                "name": "Spirit of Doom",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-spirit-of-doom.webp"
+            },
+            {
+                "id": 77,
+                "name": "Forked Beam",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-forked-beam.webp"
+            },
+            {
+                "id": 78,
+                "name": "Chromatic Explosion",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-chromatic-explosion.webp"
+            },
+            {
+                "id": 79,
+                "name": "Engulfed in Flames",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-engulfed-in-flames.webp"
+            },
+            {
+                "id": 80,
+                "name": "Burning Avatar",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-living-torch.webp"
+            },
+            {
+                "id": 81,
+                "name": "Frozen Night",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-frozen-night.webp"
+            },
+            {
+                "id": 82,
+                "name": "Twin Restoration",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-twin-restoration.webp"
+            },
+            {
+                "id": 83,
+                "name": "Stone Fists",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-stone-fists.webp"
+            },
+            {
+                "id": 84,
+                "name": "Zephyr Wings",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-zephyr-wings.webp"
+            },
+            {
+                "id": 85,
+                "name": "Cold Front",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-cold-front.webp"
+            },
+            {
+                "id": 86,
+                "name": "Black Hole",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-black-hole.webp"
+            },
+            {
+                "id": 87,
+                "name": "Inferno",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-inferno.webp"
             }
         ]
     },
@@ -338,6 +626,102 @@
                 "name": "Potent Potables",
                 "level": "X",
                 "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-potent-potables.webp"
+            },
+            {
+                "id": 45,
+                "name": "Stamina Booster",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-stamina-booster.webp"
+            },
+            {
+                "id": 46,
+                "name": "Disorienting Flash",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-disorienting-flash.webp"
+            },
+            {
+                "id": 47,
+                "name": "Tinkerer's Tools",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-tinkerers-tools.webp"
+            },
+            {
+                "id": 48,
+                "name": "Crank Bow",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-crank-bow.webp"
+            },
+            {
+                "id": 49,
+                "name": "Dangerous Contraption",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-dangerous-contraption.webp"
+            },
+            {
+                "id": 50,
+                "name": "Micro Bots",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-micro-bots.webp"
+            },
+            {
+                "id": 51,
+                "name": "Noxious Vials",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-noxious-vials.webp"
+            },
+            {
+                "id": 52,
+                "name": "Disintegration Beam",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-disintegration-beam.webp"
+            },
+            {
+                "id": 53,
+                "name": "Gas Canister",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-gas-canister.webp"
+            },
+            {
+                "id": 54,
+                "name": "Auto Turret",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-auto-turret.webp"
+            },
+            {
+                "id": 55,
+                "name": "Murderous Contraption",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-murderous-contraption.webp"
+            },
+            {
+                "id": 56,
+                "name": "Curative Aerosol",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-curative-aerosol.webp"
+            },
+            {
+                "id": 57,
+                "name": "Jet Propulsion",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-jet-propulsion.webp"
+            },
+            {
+                "id": 58,
+                "name": "Harsh Stimulants",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-harsh-stimulants.webp"
+            },
+            {
+                "id": 59,
+                "name": "Lethal Injection",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-lethal-injection.webp"
+            },
+            {
+                "id": 60,
+                "name": "Chimeric Formula",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-chimeric-formula.webp"
             }
         ]
     },
@@ -425,6 +809,102 @@
                 "name": "Frigid Apparition",
                 "level": "X",
                 "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-frigid-apparition.webp"
+            },
+            {
+                "id": 159,
+                "name": "Wretched Creature",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-wretched-creature.webp"
+            },
+            {
+                "id": 160,
+                "name": "Hostile Takeover",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-hostile-takeover.webp"
+            },
+            {
+                "id": 161,
+                "name": "Brain Leech",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-brain-leech.webp"
+            },
+            {
+                "id": 162,
+                "name": "Silent Scream",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-silent-scream.webp"
+            },
+            {
+                "id": 163,
+                "name": "Pilfer",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-pilfer.webp"
+            },
+            {
+                "id": 164,
+                "name": "Cranium Overload",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-cranium-overload.webp"
+            },
+            {
+                "id": 165,
+                "name": "Mass Hysteria",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-mass-hysteria.webp"
+            },
+            {
+                "id": 166,
+                "name": "Frozen Mind",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-frozen-mind.webp"
+            },
+            {
+                "id": 167,
+                "name": "Corrupting Embrace",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-corrupting-embrace.webp"
+            },
+            {
+                "id": 168,
+                "name": "Dark Frenzy",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-dark-frenzy.webp"
+            },
+            {
+                "id": 169,
+                "name": "Vicious Blood",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-vicious-blood.webp"
+            },
+            {
+                "id": 170,
+                "name": "Psychic Projection",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-psychic-projection.webp"
+            },
+            {
+                "id": 171,
+                "name": "Shared Nightmare",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-shared-nightmare.webp"
+            },
+            {
+                "id": 172,
+                "name": "Domination",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-domination.webp"
+            },
+            {
+                "id": 173,
+                "name": "Many as One",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-many-as-one.webp"
+            },
+            {
+                "id": 174,
+                "name": "Phantasmal Killer",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-phantasmal-killer.webp"
             }
         ]
     },
@@ -518,6 +998,102 @@
                 "name": "Nature's Lift",
                 "level": "X",
                 "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-natures-lift.webp"
+            },
+            {
+                "id": 130,
+                "name": "Explosive Punch",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-explosive-punch.webp"
+            },
+            {
+                "id": 131,
+                "name": "Sentient Growth",
+                "level": "2",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-sentient-growth.webp"
+            },
+            {
+                "id": 132,
+                "name": "Clear the Way",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-clear-the-way.webp"
+            },
+            {
+                "id": 133,
+                "name": "Blunt Force",
+                "level": "3",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-blunt-force.webp"
+            },
+            {
+                "id": 134,
+                "name": "Rock Slide",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-rock-slide.webp"
+            },
+            {
+                "id": 135,
+                "name": "Kinetic Assault",
+                "level": "4",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-kinetic-assault.webp"
+            },
+            {
+                "id": 136,
+                "name": "Petrify",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-petrify.webp"
+            },
+            {
+                "id": 137,
+                "name": "Stone Pummel",
+                "level": "5",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-stone-pummel.webp"
+            },
+            {
+                "id": 138,
+                "name": "Dig Pit",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-dig-pit.webp"
+            },
+            {
+                "id": 139,
+                "name": "Cataclysm",
+                "level": "6",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-cataclysm.webp"
+            },
+            {
+                "id": 140,
+                "name": "Meteor",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-meteor.webp"
+            },
+            {
+                "id": 141,
+                "name": "Brutal Momentum",
+                "level": "7",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-brutal-momentum.webp"
+            },
+            {
+                "id": 142,
+                "name": "Rocky End",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-rocky-end.webp"
+            },
+            {
+                "id": 143,
+                "name": "Lumbering Bash",
+                "level": "8",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-lumbering-bash.webp"
+            },
+            {
+                "id": 144,
+                "name": "Blind Destruction",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-blind-destruction.webp"
+            },
+            {
+                "id": 145,
+                "name": "Pulverize",
+                "level": "9",
+                "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/CH/gh-pulverize.webp"
             }
         ]
     }

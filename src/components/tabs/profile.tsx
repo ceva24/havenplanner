@@ -17,7 +17,7 @@ const Profile = ({ character, setCharacter }: ProfileProps) => {
             </Grid>
             <Grid item lg={8} textAlign="center" width="100%">
                 <Grid container spacing={10}>
-                    <Grid item md={8} width="100%" sx={{ display: { xs: "none", sm: "inherit" } }}>
+                    <Grid item md={8} width="100%">
                         <Box>
                             <CharacterMat characterClass={character.characterClass} />
                         </Box>
