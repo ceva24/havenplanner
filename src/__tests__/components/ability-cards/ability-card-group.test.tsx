@@ -109,7 +109,7 @@ describe("AbilityCardGroup", () => {
             <AbilityCardGroup isSelectable level="1" cards={cards} character={character} setCharacter={setCharacter} />
         );
 
-        const selectableAbilityCard = screen.queryByRole("button", { name: "Trample" });
+        const selectableAbilityCard = screen.queryByRole("checkbox", { name: "Trample" });
 
         expect(selectableAbilityCard).toBeInTheDocument();
     });

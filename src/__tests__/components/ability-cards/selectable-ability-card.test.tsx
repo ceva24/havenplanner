@@ -41,9 +41,9 @@ describe("SelectableAbilityCard", () => {
             />
         );
 
-        const button = screen.queryByRole("button", { name: "Trample" });
+        const checkbox = screen.queryByRole("checkbox", { name: "Trample" });
 
-        expect(button).toBeInTheDocument();
+        expect(checkbox).toBeInTheDocument();
     });
 
     it("renders the card", () => {

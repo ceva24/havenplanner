@@ -20,7 +20,8 @@ const SelectableAbilityCard = ({ abilityCard, character, setCharacter }: Selecta
 
     return (
         <div
-            role="button"
+            role="checkbox"
+            aria-checked={isSelected}
             tabIndex={0}
             style={{ opacity: isSelected ? 1 : 0.5, cursor: "pointer" }}
             onClick={onClick}

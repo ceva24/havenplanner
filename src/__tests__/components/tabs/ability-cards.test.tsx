@@ -131,14 +131,14 @@ describe("AbilityCards", () => {
         level  | role
         ${"1"} | ${"img"}
         ${"X"} | ${"img"}
-        ${"2"} | ${"button"}
-        ${"3"} | ${"button"}
-        ${"4"} | ${"button"}
-        ${"5"} | ${"button"}
-        ${"6"} | ${"button"}
-        ${"7"} | ${"button"}
-        ${"8"} | ${"button"}
-        ${"9"} | ${"button"}
+        ${"2"} | ${"checkbox"}
+        ${"3"} | ${"checkbox"}
+        ${"4"} | ${"checkbox"}
+        ${"5"} | ${"checkbox"}
+        ${"6"} | ${"checkbox"}
+        ${"7"} | ${"checkbox"}
+        ${"8"} | ${"checkbox"}
+        ${"9"} | ${"checkbox"}
     `("renders level $level cards as role $role", ({ level, role }: LevelRoleProps) => {
         const character: Character = {
             name: "My Char",
