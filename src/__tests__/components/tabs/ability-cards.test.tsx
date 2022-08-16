@@ -76,7 +76,7 @@ describe("AbilityCards", () => {
         expect(levelxCards).toBeInTheDocument();
     });
 
-    it("renders level x cards in the right order", () => {
+    it("renders level X cards in the right order", () => {
         const character: Character = {
             name: "My Char",
             experience: 25,
@@ -122,7 +122,52 @@ describe("AbilityCards", () => {
         expect(content.childNodes[0].childNodes[2].textContent).toEqual("Level 2");
     });
 
-    it("renders level 1 and x cards as images", () => {});
+    interface LevelRoleProps {
+        level: string;
+        role: string;
+    }
 
-    it("renders level 2 to 9 cards as toggleable buttons", () => {});
+    it.each`
+        level  | role
+        ${"1"} | ${"img"}
+        ${"X"} | ${"img"}
+        ${"2"} | ${"button"}
+        ${"3"} | ${"button"}
+        ${"4"} | ${"button"}
+        ${"5"} | ${"button"}
+        ${"6"} | ${"button"}
+        ${"7"} | ${"button"}
+        ${"8"} | ${"button"}
+        ${"9"} | ${"button"}
+    `("renders level $level cards as role $role", ({ level, role }: LevelRoleProps) => {
+        const character: Character = {
+            name: "My Char",
+            experience: 25,
+            gold: 50,
+            notes: "Hello haven",
+            characterClass: {
+                id: 0,
+                name: "Brute",
+                imageUrl: "/worldhaven/images/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.webp",
+                abilityCards: [
+                    {
+                        id: 1,
+                        name: "Trample",
+                        level,
+                        imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                    },
+                ],
+            },
+            items: [],
+            unlockedAbilityCards: [],
+        };
+
+        render(<AbilityCards character={character} setCharacter={setCharacter} />);
+
+        const abilityCard = screen.queryByRole(role, { name: "Trample" });
+
+        expect(abilityCard).toBeInTheDocument();
+    });
 });
