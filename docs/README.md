@@ -33,7 +33,7 @@ A web application to create and share character builds for the popular tabletop 
 
 ## 💻 Development
 
-Built with [Typescript](https://www.typescriptlang.org), [Next.js](https://nextjs.org) and [MUI](https://mui.com/) ❤️
+Built with [TypeScript](https://www.typescriptlang.org), [Next.js](https://nextjs.org) and [MUI](https://mui.com/) ❤️
 
 ### Prerequisites
 
