@@ -22,13 +22,14 @@ A web application to create and share character builds for the popular tabletop 
 -   Enter character details, including personal quest with the option to toggle visibility
 -   Select character items
 -   Save and share characters with a shareable link
+-   See all character ability cards and select unlocked ones
 
 ### Not yet implemented
 
--   See all character ability cards, mark unlocked ones and select augments
+-   Character ability card augments
 -   Show selected perks and the resulting attack modifier deck composition
 -   Locked characters and items
--   Forgotten Circles, Jaws of the Lion, Crimson Scales and Frosthaven
+-   Content from Forgotten Circles, Jaws of the Lion, Crimson Scales and Frosthaven
 
 ## 💻 Development
 
@@ -49,6 +50,10 @@ Enforces conventional commits via [commitlint](https://github.com/conventional-c
 ### Image hosting
 
 Uses [ceva24/worldhaven](https://github.com/ceva24/worldhaven) as a CDN for images, hosted at [ceva24.github.io/worldhaven](https://ceva24.github.io/worldhaven).
+
+### Accessibility
+
+This application has been built for accessibility: it aims to meet at least [WCAG 2.1 AA standards](https://www.w3.org/WAI/standards-guidelines/wcag/glance/) 😊
 
 ### CI/CD
 

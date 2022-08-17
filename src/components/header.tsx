@@ -11,9 +11,11 @@ const Header = ({ character }: HeaderProps) => {
             <AppBar position="static">
                 <Toolbar>
                     <Box padding={2.5} sx={{ flexGrow: 1 }}>
-                        <Link href="/" underline="none" color="textPrimary" variant="h1">
-                            Gloomhaven Character Planner
-                        </Link>
+                        <h1 style={{ margin: 0, lineHeight: 1 }}>
+                            <Link href="/" underline="none" color="textPrimary" variant="h1">
+                                Gloomhaven Character Planner
+                            </Link>
+                        </h1>
                     </Box>
                     <Box>
                         <Grid container>
