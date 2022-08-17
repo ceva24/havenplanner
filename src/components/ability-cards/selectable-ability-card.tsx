@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, KeyboardEvent } from "react";
+import { Dispatch, SetStateAction, KeyboardEvent } from "react";
 import { Card } from "@/components/cards";
 
 interface SelectableAbilityCardProps {
@@ -14,8 +14,11 @@ const SelectableAbilityCard = ({ abilityCard, character, setCharacter }: Selecta
         toggleAbilityCardUnlock(character, setCharacter, abilityCard);
     };
 
-    const onKeyUp = (event: KeyboardEvent<HTMLElement>) => {
-        if (event.code === "Enter") toggleAbilityCardUnlock(character, setCharacter, abilityCard);
+    const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+        if (["Space", "Enter"].includes(event.code)) {
+            event.preventDefault();
+            toggleAbilityCardUnlock(character, setCharacter, abilityCard);
+        }
     };
 
     return (
@@ -25,7 +28,7 @@ const SelectableAbilityCard = ({ abilityCard, character, setCharacter }: Selecta
             tabIndex={0}
             style={{ opacity: isSelected ? 1 : 0.5, cursor: "pointer" }}
             onClick={onClick}
-            onKeyUp={onKeyUp}
+            onKeyDown={onKeyDown}
         >
             <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
         </div>

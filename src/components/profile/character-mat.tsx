@@ -1,3 +1,4 @@
+import { KeyboardEvent, useRef } from "react";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 import AppImage from "@/components/app-image";
 
@@ -6,8 +7,17 @@ interface CharacterMatProps {
 }
 
 const CharacterMat = ({ characterClass }: CharacterMatProps) => {
+    const ref = useRef<Flippy>();
+
+    const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+        if (["Space", "Enter"].includes(event.code)) {
+            event.preventDefault();
+            ref.current?.toggle();
+        }
+    };
+
     return (
-        <Flippy style={{ width: "100%" }}>
+        <Flippy ref={ref} style={{ width: "100%" }} tabindex="0" onKeyDown={onKeyDown}>
             <FrontSide style={{ padding: 0, boxShadow: "none" }}>
                 <AppImage
                     webpPath={characterClass.characterMatFrontImageUrl}
