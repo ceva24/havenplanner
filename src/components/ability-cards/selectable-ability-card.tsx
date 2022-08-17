@@ -32,7 +32,7 @@ const SelectableAbilityCard = ({ abilityCard, character, setCharacter }: Selecta
             onKeyDown={onKeyDown}
         >
             <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
-            {!isSelected && <LockIcon sx={{ position: "absolute", top: 1, right: 1 }} />}
+            {!isSelected && <LockIcon sx={{ position: "absolute", top: 3, right: 1 }} />}
         </div>
     );
 };
