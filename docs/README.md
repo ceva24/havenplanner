@@ -53,7 +53,7 @@ Uses [ceva24/worldhaven](https://github.com/ceva24/worldhaven) as a CDN for imag
 
 ### Accessibility
 
-This application has been built for accessibility: it aims to meet at least [WCAG 2.1 AA standards](https://www.w3.org/WAI/standards-guidelines/wcag/) 😊
+This application is built for accessibility: it aims to meet at least [WCAG 2.1 AA standards](https://www.w3.org/WAI/standards-guidelines/wcag/) 😊
 
 ### CI/CD
 
