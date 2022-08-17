@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, KeyboardEvent } from "react";
+import LockIcon from "@mui/icons-material/LockTwoTone";
 import { Card } from "@/components/cards";
 
 interface SelectableAbilityCardProps {
@@ -26,11 +27,12 @@ const SelectableAbilityCard = ({ abilityCard, character, setCharacter }: Selecta
             role="checkbox"
             aria-checked={isSelected}
             tabIndex={0}
-            style={{ opacity: isSelected ? 1 : 0.5, cursor: "pointer" }}
+            style={{ opacity: isSelected ? 1 : 0.5, cursor: "pointer", position: "relative" }}
             onClick={onClick}
             onKeyDown={onKeyDown}
         >
             <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
+            {!isSelected && <LockIcon sx={{ position: "absolute", top: 1, right: 1 }} />}
         </div>
     );
 };
