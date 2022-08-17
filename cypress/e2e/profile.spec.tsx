@@ -122,7 +122,29 @@ describe("profile tab", () => {
 
         cy.findByRole("img", { name: "Character mat front" })
             .click()
-            .parentsUntil("flippy-cardContainer")
+            .closest(".flippy-cardContainer")
+            .should("have.class", "isActive");
+    });
+
+    it("rotates the character mat when pressing space", () => {
+        cy.visit("/");
+
+        cy.findByRole("img", { name: "Character mat front" })
+            .closest(".flippy-container")
+            .focus()
+            .type(" ")
+            .find(".flippy-cardContainer")
+            .should("have.class", "isActive");
+    });
+
+    it("rotates the character mat when pressing enter", () => {
+        cy.visit("/");
+
+        cy.findByRole("img", { name: "Character mat front" })
+            .closest(".flippy-container")
+            .focus()
+            .type("{enter}")
+            .find(".flippy-cardContainer")
             .should("have.class", "isActive");
     });
 
