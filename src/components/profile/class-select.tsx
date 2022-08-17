@@ -1,6 +1,7 @@
-import { Select, MenuItem, SelectChangeEvent, InputLabel, FormControl } from "@mui/material";
+import { Select, MenuItem, SelectChangeEvent, InputLabel, FormControl, Box } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import { characterClasses, defaultCharacter } from "@/utils/constants";
+import AppImage from "@/components/app-image";
 
 interface ClassSelectProps {
     character: Character;
@@ -13,23 +14,33 @@ const ClassSelect: React.FC<ClassSelectProps> = ({ character, setCharacter }: Cl
     };
 
     return (
-        <FormControl sx={{ margin: "1%", width: "60%" }}>
-            <InputLabel id="select-class-label">Class</InputLabel>
-            <Select
-                value={character.characterClass.name}
-                label="Class"
-                labelId="select-class-label"
-                onChange={handleChange}
-            >
-                {characterClasses.map((characterClass: CharacterClass) => {
-                    return (
-                        <MenuItem key={characterClass.id} value={characterClass.name}>
-                            {characterClass.name}
-                        </MenuItem>
-                    );
-                })}
-            </Select>
-        </FormControl>
+        <Box>
+            <FormControl sx={{ margin: "1%", width: "60%" }}>
+                <InputLabel id="select-class-label">Class</InputLabel>
+                <Select
+                    value={character.characterClass.name}
+                    label="Class"
+                    labelId="select-class-label"
+                    onChange={handleChange}
+                >
+                    {characterClasses.map((characterClass: CharacterClass) => {
+                        return (
+                            <MenuItem key={characterClass.id} value={characterClass.name}>
+                                {characterClass.name}
+                            </MenuItem>
+                        );
+                    })}
+                </Select>
+            </FormControl>
+
+            <AppImage
+                webpPath={character.characterClass.imageUrl}
+                fallbackImageType="png"
+                altText="Class icon"
+                width={70}
+                height={70}
+            />
+        </Box>
     );
 };
 

@@ -49,14 +49,14 @@ describe("Character Details", () => {
         expect(nameField).toHaveValue("My Char");
     });
 
-    it("renders the class icon", () => {
+    it("renders the class select", () => {
         render(<CharacterDetails character={character} setCharacter={setCharacter} />);
 
         const characterDetailsForm = screen.getByRole("form", {
             name: "Character details form",
         });
-        const classIcon = within(characterDetailsForm).queryByRole("img", {
-            name: "Class icon",
+        const classIcon = within(characterDetailsForm).queryByRole("button", {
+            name: "Class",
         });
 
         expect(classIcon).toBeInTheDocument();
