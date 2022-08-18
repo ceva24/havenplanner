@@ -142,7 +142,7 @@ describe("AbilityCards", () => {
     `("renders level $level cards as role $role", ({ level, role }: LevelRoleProps) => {
         const character: Character = {
             name: "My Char",
-            experience: 25,
+            experience: 500,
             gold: 50,
             notes: "Hello haven",
             characterClass: {

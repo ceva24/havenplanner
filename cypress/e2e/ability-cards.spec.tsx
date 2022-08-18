@@ -45,24 +45,30 @@ describe("ability cards tab", () => {
         cy.findByRole("region", { name: "Level 9 Ability Cards" }).findAllByRole("img").should("have.length", 2);
     });
 
-    it("renders cards as locked by default", () => {
+    it("renders active cards as locked by default", () => {
         cy.visit("/");
+
+        cy.findExperienceField().type("500");
 
         cy.selectTab("Ability Cards");
 
         cy.findByRole("checkbox", { name: "Fatal Advance" }).should("have.attr", "aria-checked", "false");
     });
 
-    it("unlocks a card when clicking on it", () => {
+    it("unlocks an active card when clicking on it", () => {
         cy.visit("/");
+
+        cy.findExperienceField().type("500");
 
         cy.selectTab("Ability Cards");
 
         cy.findByRole("checkbox", { name: "Fatal Advance" }).click().should("have.attr", "aria-checked", "true");
     });
 
-    it("unlocks a card when pressing space", () => {
+    it("unlocks an active card when pressing space", () => {
         cy.visit("/");
+
+        cy.findExperienceField().type("500");
 
         cy.selectTab("Ability Cards");
 
@@ -72,8 +78,10 @@ describe("ability cards tab", () => {
             .should("have.attr", "aria-checked", "true");
     });
 
-    it("unlocks a card when pressing enter", () => {
+    it("unlocks an active card when pressing enter", () => {
         cy.visit("/");
+
+        cy.findExperienceField().type("500");
 
         cy.selectTab("Ability Cards");
 

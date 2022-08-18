@@ -1,5 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
-import CharacterDetails, { calculateLevel } from "@/components/profile/character-details";
+import CharacterDetails from "@/components/profile/character-details";
 import { characterClasses } from "@/utils/constants";
 
 const character: Character = {
@@ -98,28 +98,6 @@ describe("Character Details", () => {
         expect(experience).toBeInTheDocument();
         expect(experience).not.toHaveValue("0");
         expect(experience).toHaveValue("");
-    });
-
-    it.each`
-        experience    | level
-        ${0}          | ${1}
-        ${44}         | ${1}
-        ${45}         | ${2}
-        ${46}         | ${2}
-        ${95}         | ${3}
-        ${150}        | ${4}
-        ${210}        | ${5}
-        ${275}        | ${6}
-        ${345}        | ${7}
-        ${420}        | ${8}
-        ${499}        | ${8}
-        ${500}        | ${9}
-        ${501}        | ${9}
-        ${9_000_000}  | ${9}
-        ${-45}        | ${1}
-        ${Number.NaN} | ${1}
-    `("sets the character level to $level when the experience value is $experience", ({ experience, level }) => {
-        expect(calculateLevel(experience)).toEqual(level);
     });
 
     it("renders the character gold", () => {

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import SelectableAbilityCard, { toggleAbilityCardUnlock } from "@/components/ability-cards/selectable-ability-card";
+import ActiveAbilityCard, { toggleAbilityCard } from "@/components/ability-cards/active-ability-card";
 
 const character: Character = {
     name: "My Char",
@@ -31,10 +31,10 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe("SelectableAbilityCard", () => {
+describe("ActiveAbilityCard", () => {
     it("renders a button", () => {
         render(
-            <SelectableAbilityCard
+            <ActiveAbilityCard
                 character={character}
                 setCharacter={setCharacter}
                 abilityCard={character.characterClass.abilityCards[0]}
@@ -48,7 +48,7 @@ describe("SelectableAbilityCard", () => {
 
     it("renders the card", () => {
         render(
-            <SelectableAbilityCard
+            <ActiveAbilityCard
                 character={character}
                 setCharacter={setCharacter}
                 abilityCard={character.characterClass.abilityCards[0]}
@@ -63,7 +63,7 @@ describe("SelectableAbilityCard", () => {
 
 describe("toggleAbilityCardUnlock", () => {
     it("unlocks a card", () => {
-        toggleAbilityCardUnlock(character, setCharacter, character.characterClass.abilityCards[0]);
+        toggleAbilityCard(character, setCharacter, character.characterClass.abilityCards[0]);
 
         const newCharacter: Character = setCharacter.mock.calls[0][0] as Character;
 
@@ -98,7 +98,7 @@ describe("toggleAbilityCardUnlock", () => {
             unlockedAbilityCards: [card],
         };
 
-        toggleAbilityCardUnlock(
+        toggleAbilityCard(
             characterWithUnlockedCard,
             setCharacter,
             characterWithUnlockedCard.characterClass.abilityCards[0]

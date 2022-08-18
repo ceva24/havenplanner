@@ -1,24 +1,25 @@
 import { Dispatch, SetStateAction, KeyboardEvent } from "react";
 import LockIcon from "@mui/icons-material/LockTwoTone";
 import { Card } from "@/components/cards";
+import { isUnlockedAbilityCardForCharacter } from "@/services/character";
 
-interface SelectableAbilityCardProps {
+interface ActiveAbilityCardProps {
     abilityCard: AbilityCard;
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const SelectableAbilityCard = ({ abilityCard, character, setCharacter }: SelectableAbilityCardProps) => {
+const ActiveAbilityCard = ({ abilityCard, character, setCharacter }: ActiveAbilityCardProps) => {
     const isSelected = isUnlockedAbilityCardForCharacter(character, abilityCard);
 
     const onClick = () => {
-        toggleAbilityCardUnlock(character, setCharacter, abilityCard);
+        toggleAbilityCard(character, setCharacter, abilityCard);
     };
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
         if (["Space", "Enter"].includes(event.code)) {
             event.preventDefault();
-            toggleAbilityCardUnlock(character, setCharacter, abilityCard);
+            toggleAbilityCard(character, setCharacter, abilityCard);
         }
     };
 
@@ -37,7 +38,7 @@ const SelectableAbilityCard = ({ abilityCard, character, setCharacter }: Selecta
     );
 };
 
-const toggleAbilityCardUnlock = (
+const toggleAbilityCard = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
     abilityCard: AbilityCard
@@ -52,9 +53,5 @@ const toggleAbilityCardUnlock = (
     });
 };
 
-const isUnlockedAbilityCardForCharacter = (character: Character, abilityCard: AbilityCard) => {
-    return character.unlockedAbilityCards.includes(abilityCard);
-};
-
-export default SelectableAbilityCard;
-export { toggleAbilityCardUnlock };
+export default ActiveAbilityCard;
+export { toggleAbilityCard };

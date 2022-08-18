@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { Box, TextField } from "@mui/material";
 import ClassSelect from "@/components/profile/class-select";
+import { calculateLevel } from "@/services/character";
 
 interface CharacterDetailsProps {
     character: Character;
@@ -41,7 +42,7 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
                     sx={{ width: "48%", margin: "1%" }}
                     id="level"
                     label="Level"
-                    value={calculateLevel(character.experience)}
+                    value={calculateLevel(character)}
                 />
             </Box>
             <Box>
@@ -69,30 +70,4 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
     );
 };
 
-const calculateLevel = (experience: number): number => {
-    switch (true) {
-        case experience < 45:
-            return 1;
-        case experience < 95:
-            return 2;
-        case experience < 150:
-            return 3;
-        case experience < 210:
-            return 4;
-        case experience < 275:
-            return 5;
-        case experience < 345:
-            return 6;
-        case experience < 420:
-            return 7;
-        case experience < 500:
-            return 8;
-        case experience >= 500:
-            return 9;
-        default:
-            return 1;
-    }
-};
-
 export default CharacterDetails;
-export { calculateLevel };

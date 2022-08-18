@@ -3,7 +3,7 @@ import AbilityCardGroup from "@/components/ability-cards/ability-card-group";
 
 const character: Character = {
     name: "My Char",
-    experience: 25,
+    experience: 100,
     gold: 50,
     notes: "Hello haven",
     characterClass: {
@@ -98,18 +98,18 @@ describe("AbilityCardGroup", () => {
     it("renders selectable cards for a selectable group", () => {
         const cards: AbilityCard[] = [
             {
-                id: 1,
-                name: "Trample",
-                level: "1",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                id: 14,
+                name: "Fatal Advance",
+                level: "2",
+                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
             },
         ];
 
         render(
-            <AbilityCardGroup isSelectable level="1" cards={cards} character={character} setCharacter={setCharacter} />
+            <AbilityCardGroup isSelectable level="2" cards={cards} character={character} setCharacter={setCharacter} />
         );
 
-        const selectableAbilityCard = screen.queryByRole("checkbox", { name: "Trample" });
+        const selectableAbilityCard = screen.queryByRole("checkbox", { name: "Fatal Advance" });
 
         expect(selectableAbilityCard).toBeInTheDocument();
     });
