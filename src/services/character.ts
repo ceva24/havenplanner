@@ -26,7 +26,7 @@ const calculateLevel = (character: Character): number => {
 };
 
 const isUnlockedAbilityCardForCharacter = (character: Character, abilityCard: AbilityCard) => {
-    return character.unlockedAbilityCards.includes(abilityCard);
+    return character.unlockedAbilityCards.some((card: AbilityCard) => card.id === abilityCard.id);
 };
 
 const abilityCardCanBeUnlockedForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {

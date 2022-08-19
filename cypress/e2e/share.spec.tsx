@@ -24,7 +24,10 @@ describe("share link", () => {
 
         cy.findShareLinkDialog()
             .findShareLinkTextBox()
-            .should("have.value", "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtTxNFtZ2GtLNuF");
+            .should(
+                "have.value",
+                "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtTxNFtZ2GtLN2HtlxHEuF"
+            );
     });
 
     it("captures the character details in a shareable link", () => {
@@ -99,5 +102,25 @@ describe("share link", () => {
 
         cy.findByRole("img", { name: "Piercing Bow" }).should("be.visible");
         cy.findByRole("img", { name: "Eagle Eye Goggles" }).should("be.visible");
+    });
+
+    it("captures unlocked ability card data in a shareable link", () => {
+        cy.visit("/");
+
+        cy.findExperienceField().type("100");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Fatal Advance").click();
+        cy.findActiveAbilityCard("Brute Force").click();
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Fatal Advance").should("have.attr", "aria-checked", "true");
+        cy.findActiveAbilityCard("Brute Force").should("have.attr", "aria-checked", "true");
     });
 });

@@ -55,7 +55,7 @@ describe("calculateLevel", () => {
 });
 
 describe("isUnlockedAbilityCardForCharacter", () => {
-    it("returns true when the character has unlocked the ability card", () => {
+    it("returns true when the character's unlocked ability cards includes this card", () => {
         const character: Character = {
             name: "My Char",
             experience: 500,
@@ -71,7 +71,7 @@ describe("isUnlockedAbilityCardForCharacter", () => {
         expect(result).toEqual(true);
     });
 
-    it("returns false when the character has not unlocked the ability card", () => {
+    it("returns false when the character's unlocked ability cards does not include this card", () => {
         const character: Character = {
             name: "My Char",
             experience: 500,
