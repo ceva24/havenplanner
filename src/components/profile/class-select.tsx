@@ -23,13 +23,11 @@ const ClassSelect: React.FC<ClassSelectProps> = ({ character, setCharacter }: Cl
                     labelId="select-class-label"
                     onChange={handleChange}
                 >
-                    {characterClasses.map((characterClass: CharacterClass) => {
-                        return (
-                            <MenuItem key={characterClass.id} value={characterClass.name}>
-                                {characterClass.name}
-                            </MenuItem>
-                        );
-                    })}
+                    {characterClasses.map((characterClass: CharacterClass) => (
+                        <MenuItem key={characterClass.id} value={characterClass.name}>
+                            {characterClass.name}
+                        </MenuItem>
+                    ))}
                 </Select>
             </FormControl>
 

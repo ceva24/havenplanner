@@ -20,12 +20,8 @@ const serialize = (character: Character): string => {
         d: character.notes,
         c: character.characterClass.id,
         p: character.personalQuest?.id,
-        i: character.items.map((characterItem: CharacterItem) => {
-            return characterItem.item.id;
-        }),
-        u: character.unlockedAbilityCards.map((abilityCard: AbilityCard) => {
-            return abilityCard.id;
-        }),
+        i: character.items.map((characterItem: CharacterItem) => characterItem.item.id),
+        u: character.unlockedAbilityCards.map((abilityCard: AbilityCard) => abilityCard.id),
     };
 
     return JSON.stringify(characterData);

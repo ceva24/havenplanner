@@ -23,21 +23,19 @@ const AbilityCardGroup = ({ level, cards, isSelectable, character, setCharacter 
                 paddingBottom={3}
                 sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
             >
-                {cards.map((abilityCard: AbilityCard) => {
-                    return (
-                        <Box key={abilityCard.id} sx={{ margin: 1 }}>
-                            {isSelectable ? (
-                                <UnlockableAbilityCard
-                                    abilityCard={abilityCard}
-                                    character={character}
-                                    setCharacter={setCharacter}
-                                />
-                            ) : (
-                                <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
-                            )}
-                        </Box>
-                    );
-                })}
+                {cards.map((abilityCard: AbilityCard) => (
+                    <Box key={abilityCard.id} sx={{ margin: 1 }}>
+                        {isSelectable ? (
+                            <UnlockableAbilityCard
+                                abilityCard={abilityCard}
+                                character={character}
+                                setCharacter={setCharacter}
+                            />
+                        ) : (
+                            <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
+                        )}
+                    </Box>
+                ))}
             </Box>
         </Box>
     );
