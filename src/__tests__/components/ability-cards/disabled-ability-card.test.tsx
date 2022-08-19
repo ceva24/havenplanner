@@ -12,7 +12,7 @@ describe("disabled ability card", () => {
     it("renders a disabled checkbox", () => {
         render(<DisabledAbilityCard abilityCard={abilityCard} />);
 
-        const checkbox = screen.getByRole("checkbox", { name: "Cannot unlock this card" });
+        const checkbox = screen.getByRole("checkbox", { name: "Cannot unlock this ability card" });
 
         expect(checkbox).toBeInTheDocument();
         expect(checkbox.getAttribute("aria-disabled")).toEqual("true");
@@ -26,10 +26,10 @@ describe("disabled ability card", () => {
         expect(card).toBeInTheDocument();
     });
 
-    it("renders a locked card", () => {
+    it("renders a disabled card", () => {
         render(<DisabledAbilityCard abilityCard={abilityCard} />);
 
-        const lockIcon = screen.getByTestId("LockTwoToneIcon");
+        const lockIcon = screen.getByTestId("BlockIcon");
 
         expect(lockIcon).toBeInTheDocument();
     });

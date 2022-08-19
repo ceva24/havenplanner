@@ -1,5 +1,5 @@
 import { Tooltip } from "@mui/material";
-import LockIcon from "@mui/icons-material/LockTwoTone";
+import BlockIcon from "@mui/icons-material/Block";
 import { Card } from "@/components/cards";
 
 interface DisabledAbilityCardProps {
@@ -8,7 +8,7 @@ interface DisabledAbilityCardProps {
 
 const DisabledAbilityCard = ({ abilityCard }: DisabledAbilityCardProps) => {
     return (
-        <Tooltip followCursor title="Cannot unlock this card">
+        <Tooltip followCursor title="Cannot unlock this ability card">
             <div
                 aria-disabled
                 role="checkbox"
@@ -17,7 +17,7 @@ const DisabledAbilityCard = ({ abilityCard }: DisabledAbilityCardProps) => {
                 style={{ opacity: 0.5, cursor: "not-allowed", position: "relative" }}
             >
                 <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
-                <LockIcon sx={{ position: "absolute", top: 3, right: 1 }} />
+                <BlockIcon sx={{ position: "absolute", top: 3, right: 1 }} />
             </div>
         </Tooltip>
     );

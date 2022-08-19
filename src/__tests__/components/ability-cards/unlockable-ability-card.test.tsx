@@ -87,7 +87,7 @@ describe("unlockable ability card", () => {
             />
         );
 
-        const checkbox = screen.queryByRole("checkbox", { name: "Cannot unlock this card" });
+        const checkbox = screen.queryByRole("checkbox", { name: "Cannot unlock this ability card" });
 
         expect(checkbox).toBeInTheDocument();
     });
