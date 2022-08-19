@@ -1,9 +1,9 @@
 import { Tabs, Tab, Divider } from "@mui/material";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, SyntheticEvent, useState } from "react";
 import TabPanel from "@/components/tabs/tab-panel";
-import Profile from "@/components/tabs/profile";
-import Items from "@/components/tabs/items";
-import AbilityCards from "@/components/tabs/ability-cards";
+import Profile from "@/components/profile/profile";
+import Items from "@/components/items/items";
+import AbilityCards from "@/components/ability-cards/ability-cards";
 
 interface TabContainerProps {
     character: Character;
@@ -13,7 +13,7 @@ interface TabContainerProps {
 const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
     const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
 
-    const handleChange = (event: React.SyntheticEvent, value: number) => {
+    const handleChange = (event: SyntheticEvent, value: number) => {
         setCurrentTabIndex(value);
     };
 

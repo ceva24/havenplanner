@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import AbilityCards from "@/components/tabs/ability-cards";
+import AbilityCards from "@/components/ability-cards/ability-cards";
 
 const setCharacter = jest.fn();
 
