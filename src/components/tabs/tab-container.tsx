@@ -36,16 +36,16 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
                 />
                 <Tab
                     disableRipple
-                    label="Items"
-                    id="items-tab"
-                    aria-controls="items-tabpanel"
+                    label="Ability Cards"
+                    id="ability-cards-tab"
+                    aria-controls="ability-cards-tabpanel"
                     sx={{ typography: "body2" }}
                 />
                 <Tab
                     disableRipple
-                    label="Ability Cards"
-                    id="ability-cards-tab"
-                    aria-controls="ability-cards-tabpanel"
+                    label="Items"
+                    id="items-tab"
+                    aria-controls="items-tabpanel"
                     sx={{ typography: "body2" }}
                 />
                 <Tab
@@ -63,16 +63,16 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
             <TabPanel currentTabIndex={currentTabIndex} index={0} id="profile-tabpanel" ariaLabelledBy="profile-tab">
                 <Profile character={character} setCharacter={setCharacter} />
             </TabPanel>
-            <TabPanel currentTabIndex={currentTabIndex} index={1} id="items-tabpanel" ariaLabelledBy="items-tab">
-                <Items character={character} setCharacter={setCharacter} />
-            </TabPanel>
             <TabPanel
                 currentTabIndex={currentTabIndex}
-                index={2}
+                index={1}
                 id="ability-cards-tabpanel"
                 ariaLabelledBy="ability-cards-tab"
             >
                 <AbilityCards character={character} setCharacter={setCharacter} />
+            </TabPanel>
+            <TabPanel currentTabIndex={currentTabIndex} index={2} id="items-tabpanel" ariaLabelledBy="items-tab">
+                <Items character={character} setCharacter={setCharacter} />
             </TabPanel>
             <TabPanel currentTabIndex={currentTabIndex} index={3} id="perks-tabpanel" ariaLabelledBy="perks-tab" />
         </>
