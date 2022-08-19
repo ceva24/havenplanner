@@ -67,11 +67,11 @@ Cypress.Commands.add("selectTab", (name: string) => {
 });
 
 Cypress.Commands.add("findActiveAbilityCard", (name: string) => {
-    cy.findByRole("checkbox", { name: name });
+    cy.findByRole("checkbox", { name });
 });
 
 Cypress.Commands.add("shouldFindDisabledAbilityCard", (name: string) => {
-    cy.findByRole("img", { name: name }).parent().parent().should("have.attr", "aria-disabled", "true");
+    cy.findByRole("img", { name }).parent().parent().should("have.attr", "aria-disabled", "true");
 });
 
 Cypress.Commands.add("findItemsAutocomplete", () => {

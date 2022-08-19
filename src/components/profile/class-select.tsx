@@ -58,6 +58,7 @@ const findAndSetCharacter = (
     const newCharacter = {
         ...character,
         characterClass: selectedCharacterClass ?? defaultCharacter.characterClass,
+        unlockedAbilityCards: [],
     };
 
     setCharacter(newCharacter);

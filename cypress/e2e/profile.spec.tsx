@@ -191,4 +191,23 @@ describe("profile tab", () => {
 
         cy.findPersonalQuestAutocomplete().should("not.exist");
     });
+
+    it("resets unlocked ability cards when changing the class", () => {
+        cy.visit("/");
+
+        cy.findExperienceField().type("100");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Fatal Advance").click();
+
+        cy.selectTab("Profile");
+
+        cy.selectClass("Spellweaver");
+        cy.selectClass("Brute");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Fatal Advance").should("have.attr", "aria-checked", "false");
+    });
 });

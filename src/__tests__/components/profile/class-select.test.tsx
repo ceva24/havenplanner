@@ -69,4 +69,30 @@ describe("findAndSetCharacter", () => {
             characterClass: defaultCharacter.characterClass,
         });
     });
+
+    it("clears any existing unlocked ability cards", () => {
+        const character: Character = {
+            name: "Test",
+            experience: 45,
+            gold: 25,
+            notes: "Hello",
+            characterClass: characterClasses[1],
+            items: [],
+            unlockedAbilityCards: [characterClasses[1].abilityCards[0]],
+        };
+
+        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
+        const event = {
+            target: { value: characterClasses[3].name },
+        } as SelectChangeEvent;
+
+        findAndSetCharacter(event, character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: characterClasses[3],
+            unlockedAbilityCards: [],
+        });
+    });
 });
