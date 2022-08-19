@@ -19,7 +19,7 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe("Class Select", () => {
+describe("class select", () => {
     it("renders", () => {
         render(<ClassSelect character={character} setCharacter={setCharacter} />);
 

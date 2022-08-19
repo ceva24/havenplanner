@@ -3,7 +3,7 @@ import AbilityCards from "@/components/ability-cards/ability-cards";
 
 const setCharacter = jest.fn();
 
-describe("AbilityCards", () => {
+describe("ability cards", () => {
     it("renders cards of a level", () => {
         const character: Character = {
             name: "My Char",

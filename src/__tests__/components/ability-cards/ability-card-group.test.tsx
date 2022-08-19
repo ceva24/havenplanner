@@ -20,7 +20,7 @@ const character: Character = {
 
 const setCharacter = jest.fn();
 
-describe("AbilityCardGroup", () => {
+describe("ability card group", () => {
     it("renders", () => {
         const cards: AbilityCard[] = [
             {

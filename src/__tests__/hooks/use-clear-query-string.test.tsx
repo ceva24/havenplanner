@@ -1,6 +1,6 @@
 import { clearQueryString } from "@/hooks/use-clear-query-string";
 
-describe("clearQueryString", () => {
+describe("clear query string", () => {
     it("replaces the url with /", () => {
         const router = {
             replace: jest.fn(),

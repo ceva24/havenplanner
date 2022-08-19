@@ -24,7 +24,7 @@ const poorInexperiencedCharacter: Character = {
 
 const setCharacter = jest.fn();
 
-describe("Character Details", () => {
+describe("character details", () => {
     it("renders the form", () => {
         render(<CharacterDetails character={character} setCharacter={setCharacter} />);
 

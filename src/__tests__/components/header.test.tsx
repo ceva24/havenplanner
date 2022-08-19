@@ -12,7 +12,7 @@ const character: Character = {
     unlockedAbilityCards: [],
 };
 
-describe("Header", () => {
+describe("header", () => {
     it("renders the heading as a link", () => {
         render(<Header character={character} />);
 

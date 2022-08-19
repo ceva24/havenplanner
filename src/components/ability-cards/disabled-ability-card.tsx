@@ -10,6 +10,7 @@ const DisabledAbilityCard = ({ abilityCard }: DisabledAbilityCardProps) => {
     return (
         <Tooltip followCursor title="Cannot unlock this card">
             <div
+                aria-disabled
                 role="checkbox"
                 aria-checked={false}
                 tabIndex={0}

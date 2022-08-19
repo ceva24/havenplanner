@@ -11,7 +11,7 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe("data serializer", () => {
+describe("serialize", () => {
     it("serializes a character", () => {
         const character: Character = {
             name: "Test Character",
@@ -85,7 +85,9 @@ describe("data serializer", () => {
 
         expect(data).toEqual(`{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"i":[2,2]}`);
     });
+});
 
+describe("deserialize", () => {
     it("deserializes character data", () => {
         const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":2,"p":518,"i":[]}`;
 

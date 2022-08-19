@@ -20,7 +20,7 @@ const UnlockableAbilityCard = ({ abilityCard, character, setCharacter }: Unlocka
 const abilityCardCanBeToggled = (abilityCard: AbilityCard, character: Character): boolean => {
     return (
         isUnlockedAbilityCardForCharacter(character, abilityCard) ||
-        abilityCardCanBeUnlockedForCharacter(abilityCard, character)
+        abilityCardCanBeUnlockedForCharacter(character, abilityCard)
     );
 };
 

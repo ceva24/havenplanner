@@ -29,7 +29,7 @@ const isUnlockedAbilityCardForCharacter = (character: Character, abilityCard: Ab
     return character.unlockedAbilityCards.includes(abilityCard);
 };
 
-const abilityCardCanBeUnlockedForCharacter = (abilityCard: AbilityCard, character: Character): boolean => {
+const abilityCardCanBeUnlockedForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
     const characterLevel = calculateLevel(character);
     const numericCardLevel = Number.parseInt(abilityCard.level, 10);
 

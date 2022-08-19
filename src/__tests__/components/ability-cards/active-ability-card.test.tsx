@@ -31,13 +31,13 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe("ActiveAbilityCard", () => {
-    it("renders a button", () => {
+describe("active ability card", () => {
+    it("renders a checkbox", () => {
         render(
             <ActiveAbilityCard
+                abilityCard={character.characterClass.abilityCards[0]}
                 character={character}
                 setCharacter={setCharacter}
-                abilityCard={character.characterClass.abilityCards[0]}
             />
         );
 
@@ -49,15 +49,29 @@ describe("ActiveAbilityCard", () => {
     it("renders the card", () => {
         render(
             <ActiveAbilityCard
+                abilityCard={character.characterClass.abilityCards[0]}
                 character={character}
                 setCharacter={setCharacter}
-                abilityCard={character.characterClass.abilityCards[0]}
             />
         );
 
-        const button = screen.queryByRole("img", { name: "Trample" });
+        const card = screen.queryByRole("img", { name: "Trample" });
 
-        expect(button).toBeInTheDocument();
+        expect(card).toBeInTheDocument();
+    });
+
+    it("renders a locked card", () => {
+        render(
+            <ActiveAbilityCard
+                abilityCard={character.characterClass.abilityCards[0]}
+                character={character}
+                setCharacter={setCharacter}
+            />
+        );
+
+        const lockIcon = screen.getByTestId("LockTwoToneIcon");
+
+        expect(lockIcon).toBeInTheDocument();
     });
 });
 
@@ -74,11 +88,11 @@ describe("toggleAbilityCardUnlock", () => {
     });
 
     it("locks a card that is already unlocked", () => {
-        const card = {
+        const abilityCard = {
             id: 1,
-            name: "Trample",
-            level: "1",
-            imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+            name: "Juggernaut",
+            level: "2",
+            imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
         };
 
         const characterWithUnlockedCard: Character = {
@@ -92,10 +106,10 @@ describe("toggleAbilityCardUnlock", () => {
                 imageUrl: "/worldhaven/images/character-icons/gloomhaven/gh-brute.webp",
                 characterMatFrontImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.webp",
                 characterMatBackImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.webp",
-                abilityCards: [card],
+                abilityCards: [abilityCard],
             },
             items: [],
-            unlockedAbilityCards: [card],
+            unlockedAbilityCards: [abilityCard],
         };
 
         toggleAbilityCard(

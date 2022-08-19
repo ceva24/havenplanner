@@ -18,7 +18,7 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe("Index", () => {
+describe("index page", () => {
     it("renders the tabbed content", () => {
         render(<Index initialCharacter={defaultCharacter} />);
 

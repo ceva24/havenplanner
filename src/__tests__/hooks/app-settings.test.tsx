@@ -13,7 +13,7 @@ const character: Character = {
     unlockedAbilityCards: [],
 };
 
-describe("AppSettingsProvider", () => {
+describe("app settings provider", () => {
     it("renders children", () => {
         render(
             <AppSettingsProvider character={character}>

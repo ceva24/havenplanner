@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Button, Tab } from "@mui/material";
 import TabPanel from "@/components/tabs/tab-panel";
 
-describe("TabPanel", () => {
+describe("tab panel", () => {
     it("renders", () => {
         render(
             <div>
