@@ -1,5 +1,5 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel, FormControl, Box } from "@mui/material";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 import { characterClasses, defaultCharacter } from "@/utils/constants";
 import AppImage from "@/components/app-image";
 
@@ -8,7 +8,7 @@ interface ClassSelectProps {
     setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const ClassSelect: React.FC<ClassSelectProps> = ({ character, setCharacter }: ClassSelectProps) => {
+const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSelectProps) => {
     const handleChange = (event: SelectChangeEvent) => {
         findAndSetCharacter(event, character, setCharacter);
     };
