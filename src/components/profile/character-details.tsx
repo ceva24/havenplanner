@@ -1,7 +1,12 @@
 import { Dispatch, SetStateAction } from "react";
 import { Box, TextField } from "@mui/material";
 import ClassSelect from "@/components/profile/class-select";
-import { calculateLevel } from "@/services/character";
+import {
+    abilityCardLevelCanBeUnlockedByCharacter,
+    abilityCardsUnlockedAtLevel,
+    calculateLevel,
+    calculateMaximumUnlockCount,
+} from "@/services/character";
 
 interface CharacterDetailsProps {
     character: Character;
@@ -15,7 +20,7 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
         setCharacter({ ...character, [fieldName]: value });
     };
 
-    const updateUnlockedAbilityCards = () => {
+    const handleExperienceLoseBlur = () => {
         const newLevel = calculateLevel(character.experience);
         const validCards = filterInvalidUnlockedAbilityCardsOnLevelChange(character.unlockedAbilityCards, newLevel);
 
@@ -43,7 +48,7 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
                     label="Experience"
                     value={character.experience || ""}
                     onChange={handleChange("experience", true)}
-                    onBlur={updateUnlockedAbilityCards}
+                    onBlur={handleExperienceLoseBlur}
                 />
                 <TextField
                     disabled
@@ -84,31 +89,53 @@ const filterInvalidUnlockedAbilityCardsOnLevelChange = (
 ) => {
     if (newCharacterLevel < 2) return [];
 
-    let validUnlockedAbilityCards;
-
-    validUnlockedAbilityCards = unlockedAbilityCards.filter(
-        (abilityCard: AbilityCard) => Number.parseInt(abilityCard.level, 10) <= newCharacterLevel
+    const abilityCardsAtOrBelowCurrentLevel = filterAbilityCardsAtOrBelowCurrentLevel(
+        unlockedAbilityCards,
+        newCharacterLevel
     );
 
-    const cardsAtCurrentLevel = validUnlockedAbilityCards.filter(
-        (abilityCard: AbilityCard) => Number.parseInt(abilityCard.level, 10) === newCharacterLevel
+    const abilityCardsWithOneUnlockAtCurrentLevel = filterAbilityCardsWithOnlyOneAtCurrentLevel(
+        abilityCardsAtOrBelowCurrentLevel,
+        newCharacterLevel
     );
 
-    if (cardsAtCurrentLevel.length > 1) {
-        const cardsToRemove = new Set(cardsAtCurrentLevel.slice(1));
+    return filterAbilityCardsToMaximumUnlockCount(abilityCardsWithOneUnlockAtCurrentLevel, newCharacterLevel);
+};
 
-        validUnlockedAbilityCards = validUnlockedAbilityCards.filter(
-            (abilityCard: AbilityCard) => !cardsToRemove.has(abilityCard)
-        );
-    }
+const filterAbilityCardsAtOrBelowCurrentLevel = (
+    unlockedAbilityCards: AbilityCard[],
+    newCharacterLevel: number
+): AbilityCard[] => {
+    return unlockedAbilityCards.filter((abilityCard: AbilityCard) =>
+        abilityCardLevelCanBeUnlockedByCharacter(abilityCard.level, newCharacterLevel)
+    );
+};
 
-    const maxUnlocks = newCharacterLevel - 1;
+const filterAbilityCardsWithOnlyOneAtCurrentLevel = (
+    unlockedAbilityCards: AbilityCard[],
+    newCharacterLevel: number
+): AbilityCard[] => {
+    const abilityCardsUnlockedAtCurrentLevel = abilityCardsUnlockedAtLevel(
+        unlockedAbilityCards,
+        newCharacterLevel.toString()
+    );
 
-    if (validUnlockedAbilityCards.length > maxUnlocks) {
-        validUnlockedAbilityCards = validUnlockedAbilityCards.slice(0, maxUnlocks);
-    }
+    if (abilityCardsUnlockedAtCurrentLevel.length <= 1) return unlockedAbilityCards;
 
-    return validUnlockedAbilityCards;
+    const cardsToRemove = new Set(abilityCardsUnlockedAtCurrentLevel.slice(1));
+
+    return unlockedAbilityCards.filter((abilityCard: AbilityCard) => !cardsToRemove.has(abilityCard));
+};
+
+const filterAbilityCardsToMaximumUnlockCount = (
+    unlockedAbilityCards: AbilityCard[],
+    newCharacterLevel: number
+): AbilityCard[] => {
+    const maxUnlocks = calculateMaximumUnlockCount(newCharacterLevel);
+
+    if (unlockedAbilityCards.length <= maxUnlocks) return unlockedAbilityCards;
+
+    return unlockedAbilityCards.slice(0, maxUnlocks);
 };
 
 export default CharacterDetails;
