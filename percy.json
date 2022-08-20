@@ -6,15 +6,15 @@
         "execute": "document.querySelector('#show-personal-quest-switch').click()"
     },
     {
-        "name": "Items Tab",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsJIxIDtUxbDsetifjkuBxdDtTxdD2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsL2DsKtN2UtlxUDsP2MsPM2DsP2DsQtNuF",
-        "waitForTimeout": 10000,
-        "execute": "document.querySelector('#items-tab').click()"
-    },
-    {
         "name": "Ability Cards Tab",
         "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsJIxIDtUxbDsetifjkuBxdDtTxdD2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsL2DsKtN2UtlxUDsP2MsPM2DsP2DsQtNuF",
         "waitForTimeout": 10000,
         "execute": "document.querySelector('#ability-cards-tab').click()"
+    },
+    {
+        "name": "Items Tab",
+        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsJIxIDtUxbDsetifjkuBxdDtTxdD2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsL2DsKtN2UtlxUDsP2MsPM2DsP2DsQtNuF",
+        "waitForTimeout": 10000,
+        "execute": "document.querySelector('#items-tab').click()"
     }
 ]
