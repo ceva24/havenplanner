@@ -2,7 +2,7 @@
     "ci": {
         "collect": {
             "url": [
-                "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtTxcD2Gtg2GsNLxbDtZ2ItLNuF"
+                "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsJIxIDtUxbDsetifjkuBxdDtTxdD2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsL2DsKtN2UtlxUDsP2MsPM2DsP2DsQtNuF"
             ],
             "startServerCommand": "npm run build && npm start"
         },
