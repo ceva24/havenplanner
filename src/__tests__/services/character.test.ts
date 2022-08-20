@@ -32,24 +32,7 @@ describe("calculateLevel", () => {
     `(
         "sets the character level to $level when the experience value is $experience",
         ({ experience, level }: ExperienceLevelProps) => {
-            const character: Character = {
-                name: "My Char",
-                experience,
-                gold: 50,
-                notes: "Hello haven",
-                characterClass: {
-                    id: 0,
-                    name: "Brute",
-                    imageUrl: "/worldhaven/images/character-icons/gloomhaven/gh-brute.webp",
-                    characterMatFrontImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.webp",
-                    characterMatBackImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.webp",
-                    abilityCards: [],
-                },
-                items: [],
-                unlockedAbilityCards: [],
-            };
-
-            expect(calculateLevel(character)).toEqual(level);
+            expect(calculateLevel(experience)).toEqual(level);
         }
     );
 });

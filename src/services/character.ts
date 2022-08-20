@@ -1,6 +1,4 @@
-const calculateLevel = (character: Character): number => {
-    const experience = character.experience;
-
+const calculateLevel = (experience: number): number => {
     switch (true) {
         case experience < 45:
             return 1;
@@ -30,7 +28,7 @@ const isUnlockedAbilityCardForCharacter = (character: Character, abilityCard: Ab
 };
 
 const abilityCardCanBeUnlockedForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
-    const characterLevel = calculateLevel(character);
+    const characterLevel = calculateLevel(character.experience);
     const numericCardLevel = Number.parseInt(abilityCard.level, 10);
 
     const characterHasUnlocksRemaining = characterLevel - character.unlockedAbilityCards.length - 1 >= 1;

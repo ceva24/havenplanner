@@ -15,6 +15,13 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
         setCharacter({ ...character, [fieldName]: value });
     };
 
+    const updateUnlockedAbilityCards = () => {
+        const newLevel = calculateLevel(character.experience);
+        const validCards = filterInvalidUnlockedAbilityCardsOnLevelChange(character.unlockedAbilityCards, newLevel);
+
+        setCharacter({ ...character, unlockedAbilityCards: validCards });
+    };
+
     return (
         <Box id="character-details-form" aria-label="Character details form" component="form">
             <Box sx={{ marginBottom: 2 }}>
@@ -36,13 +43,14 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
                     label="Experience"
                     value={character.experience || ""}
                     onChange={handleChange("experience", true)}
+                    onBlur={updateUnlockedAbilityCards}
                 />
                 <TextField
                     disabled
                     sx={{ width: "48%", margin: "1%" }}
                     id="level"
                     label="Level"
-                    value={calculateLevel(character)}
+                    value={calculateLevel(character.experience)}
                 />
             </Box>
             <Box>
@@ -70,4 +78,38 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
     );
 };
 
+const filterInvalidUnlockedAbilityCardsOnLevelChange = (
+    unlockedAbilityCards: AbilityCard[],
+    newCharacterLevel: number
+) => {
+    if (newCharacterLevel < 2) return [];
+
+    let validUnlockedAbilityCards;
+
+    validUnlockedAbilityCards = unlockedAbilityCards.filter(
+        (abilityCard: AbilityCard) => Number.parseInt(abilityCard.level, 10) <= newCharacterLevel
+    );
+
+    const cardsAtCurrentLevel = validUnlockedAbilityCards.filter(
+        (abilityCard: AbilityCard) => Number.parseInt(abilityCard.level, 10) === newCharacterLevel
+    );
+
+    if (cardsAtCurrentLevel.length > 1) {
+        const cardsToRemove = new Set(cardsAtCurrentLevel.slice(1));
+
+        validUnlockedAbilityCards = validUnlockedAbilityCards.filter(
+            (abilityCard: AbilityCard) => !cardsToRemove.has(abilityCard)
+        );
+    }
+
+    const maxUnlocks = newCharacterLevel - 1;
+
+    if (validUnlockedAbilityCards.length > maxUnlocks) {
+        validUnlockedAbilityCards = validUnlockedAbilityCards.slice(0, maxUnlocks);
+    }
+
+    return validUnlockedAbilityCards;
+};
+
 export default CharacterDetails;
+export { filterInvalidUnlockedAbilityCardsOnLevelChange };
