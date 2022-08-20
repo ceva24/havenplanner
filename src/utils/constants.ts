@@ -16,6 +16,7 @@ const defaultCharacter: Character = {
     notes: "",
     characterClass: characterClasses[0],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 export { characterClasses, personalQuests, items, defaultCharacter };

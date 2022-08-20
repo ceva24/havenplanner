@@ -9,9 +9,10 @@ const character: Character = {
     notes: "Hello haven",
     characterClass: characterClasses[0],
     items: [],
+    unlockedAbilityCards: [],
 };
 
-describe("Header", () => {
+describe("header", () => {
     it("renders the heading as a link", () => {
         render(<Header character={character} />);
 

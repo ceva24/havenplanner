@@ -1,5 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
-import CharacterDetails, { calculateLevel } from "@/components/profile/character-details";
+import CharacterDetails from "@/components/profile/character-details";
 import { characterClasses } from "@/utils/constants";
 
 const character: Character = {
@@ -9,6 +9,7 @@ const character: Character = {
     notes: "Hello haven",
     characterClass: characterClasses[0],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 const poorInexperiencedCharacter: Character = {
@@ -18,11 +19,12 @@ const poorInexperiencedCharacter: Character = {
     notes: "",
     characterClass: characterClasses[0],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 const setCharacter = jest.fn();
 
-describe("Character Details", () => {
+describe("character details", () => {
     it("renders the form", () => {
         render(<CharacterDetails character={character} setCharacter={setCharacter} />);
 
@@ -47,14 +49,14 @@ describe("Character Details", () => {
         expect(nameField).toHaveValue("My Char");
     });
 
-    it("renders the class icon", () => {
+    it("renders the class select", () => {
         render(<CharacterDetails character={character} setCharacter={setCharacter} />);
 
         const characterDetailsForm = screen.getByRole("form", {
             name: "Character details form",
         });
-        const classIcon = within(characterDetailsForm).queryByRole("img", {
-            name: "Class icon",
+        const classIcon = within(characterDetailsForm).queryByRole("button", {
+            name: "Class",
         });
 
         expect(classIcon).toBeInTheDocument();
@@ -96,28 +98,6 @@ describe("Character Details", () => {
         expect(experience).toBeInTheDocument();
         expect(experience).not.toHaveValue("0");
         expect(experience).toHaveValue("");
-    });
-
-    it.each`
-        experience    | level
-        ${0}          | ${1}
-        ${44}         | ${1}
-        ${45}         | ${2}
-        ${46}         | ${2}
-        ${95}         | ${3}
-        ${150}        | ${4}
-        ${210}        | ${5}
-        ${275}        | ${6}
-        ${345}        | ${7}
-        ${420}        | ${8}
-        ${499}        | ${8}
-        ${500}        | ${9}
-        ${501}        | ${9}
-        ${9_000_000}  | ${9}
-        ${-45}        | ${1}
-        ${Number.NaN} | ${1}
-    `("sets the character level to $level when the experience value is $experience", ({ experience, level }) => {
-        expect(calculateLevel(experience)).toEqual(level);
     });
 
     it("renders the character gold", () => {

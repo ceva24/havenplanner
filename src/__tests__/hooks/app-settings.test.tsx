@@ -10,9 +10,10 @@ const character: Character = {
     notes: "Hello haven",
     characterClass: characterClasses[0],
     items: [],
+    unlockedAbilityCards: [],
 };
 
-describe("AppSettingsProvider", () => {
+describe("app settings provider", () => {
     it("renders children", () => {
         render(
             <AppSettingsProvider character={character}>

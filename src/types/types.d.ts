@@ -1,5 +1,9 @@
 declare module "react-flippy";
 
+interface Flippy {
+    toggle: () => void;
+}
+
 interface AppSettings {
     showPersonalQuest: boolean;
 }
@@ -12,6 +16,7 @@ interface Character {
     characterClass: CharacterClass;
     personalQuest?: PersonalQuest;
     items: CharacterItem[];
+    unlockedAbilityCards: AbilityCard[];
 }
 
 interface CharacterItem {

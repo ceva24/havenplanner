@@ -1,7 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { Box, TextField } from "@mui/material";
 import ClassSelect from "@/components/profile/class-select";
-import AppImage from "@/components/app-image";
+import ExperienceField from "@/components/profile/experience-field";
+import { calculateLevel } from "@/services/character";
 
 interface CharacterDetailsProps {
     character: Character;
@@ -9,7 +10,7 @@ interface CharacterDetailsProps {
 }
 
 const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) => {
-    const handleChange = (fieldName: string, isNumber: boolean) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (fieldName: string, isNumber: boolean) => (event: ChangeEvent<HTMLInputElement>) => {
         const value = isNumber ? Number.parseInt(event.target.value, 10) || 0 : event.target.value;
 
         setCharacter({ ...character, [fieldName]: value });
@@ -19,13 +20,6 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
         <Box id="character-details-form" aria-label="Character details form" component="form">
             <Box sx={{ marginBottom: 2 }}>
                 <ClassSelect character={character} setCharacter={setCharacter} />
-                <AppImage
-                    webpPath={character.characterClass.imageUrl}
-                    fallbackImageType="png"
-                    altText="Class icon"
-                    width={70}
-                    height={70}
-                />
             </Box>
             <Box>
                 <TextField
@@ -37,13 +31,7 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
                 />
             </Box>
             <Box>
-                <TextField
-                    sx={{ width: "48%", margin: "1%" }}
-                    id="experience"
-                    label="Experience"
-                    value={character.experience || ""}
-                    onChange={handleChange("experience", true)}
-                />
+                <ExperienceField character={character} setCharacter={setCharacter} handleChange={handleChange} />
                 <TextField
                     disabled
                     sx={{ width: "48%", margin: "1%" }}
@@ -77,30 +65,4 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
     );
 };
 
-const calculateLevel = (experience: number): number => {
-    switch (true) {
-        case experience < 45:
-            return 1;
-        case experience < 95:
-            return 2;
-        case experience < 150:
-            return 3;
-        case experience < 210:
-            return 4;
-        case experience < 275:
-            return 5;
-        case experience < 345:
-            return 6;
-        case experience < 420:
-            return 7;
-        case experience < 500:
-            return 8;
-        case experience >= 500:
-            return 9;
-        default:
-            return 1;
-    }
-};
-
 export default CharacterDetails;
-export { calculateLevel };

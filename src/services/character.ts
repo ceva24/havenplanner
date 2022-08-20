@@ -1,16 +1,83 @@
-import { compress, decompress } from "lzbase62";
-import { deserialize, serialize } from "@/services/serializer";
-
-const encode = (character: Character): string => {
-    const serializedData: string = serialize(character);
-
-    return compress(serializedData);
+const calculateLevel = (experience: number): number => {
+    switch (true) {
+        case experience < 45:
+            return 1;
+        case experience < 95:
+            return 2;
+        case experience < 150:
+            return 3;
+        case experience < 210:
+            return 4;
+        case experience < 275:
+            return 5;
+        case experience < 345:
+            return 6;
+        case experience < 420:
+            return 7;
+        case experience < 500:
+            return 8;
+        case experience >= 500:
+            return 9;
+        default:
+            return 1;
+    }
 };
 
-const decode = (data: string): Character => {
-    const serializedData: string = decompress(data);
-
-    return deserialize(serializedData);
+const isUnlockedAbilityCardForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
+    return character.unlockedAbilityCards.some((card: AbilityCard) => card.id === abilityCard.id);
 };
 
-export { encode, decode };
+const abilityCardCanBeUnlockedForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
+    const characterLevel = calculateLevel(character.experience);
+
+    return (
+        characterHasAbilityCardUnlocksRemaining(character, characterLevel) &&
+        abilityCardLevelCanBeUnlockedByCharacter(abilityCard.level, characterLevel) &&
+        !isTheSecondCardOfCurrentCharacterLevel(abilityCard, character, characterLevel)
+    );
+};
+
+const characterHasAbilityCardUnlocksRemaining = (character: Character, characterLevel: number): boolean => {
+    return calculateMaximumUnlockCount(characterLevel) - character.unlockedAbilityCards.length >= 1;
+};
+
+const calculateMaximumUnlockCount = (characterLevel: number): number => {
+    return characterLevel - 1;
+};
+
+const abilityCardLevelCanBeUnlockedByCharacter = (abilityCardLevel: string, characterLevel: number): boolean => {
+    return Number.parseInt(abilityCardLevel, 10) <= characterLevel;
+};
+
+const isTheSecondCardOfCurrentCharacterLevel = (
+    abilityCard: AbilityCard,
+    character: Character,
+    characterLevel: number
+): boolean => {
+    const numericAbilityCardLevel = Number.parseInt(abilityCard.level, 10);
+
+    return (
+        numericAbilityCardLevel === characterLevel &&
+        characterHasTwoCardsUnlockedAtLevel(character.unlockedAbilityCards, abilityCard.level)
+    );
+};
+
+const characterHasTwoCardsUnlockedAtLevel = (
+    unlockedAbilityCards: AbilityCard[],
+    abilityCardLevel: string
+): boolean => {
+    return abilityCardsUnlockedAtLevel(unlockedAbilityCards, abilityCardLevel).length > 1;
+};
+
+const abilityCardsUnlockedAtLevel = (unlockedAbilityCards: AbilityCard[], abilityCardLevel: string) => {
+    return unlockedAbilityCards.filter((card: AbilityCard) => card.level === abilityCardLevel);
+};
+
+export {
+    calculateLevel,
+    isUnlockedAbilityCardForCharacter,
+    abilityCardCanBeUnlockedForCharacter,
+    calculateMaximumUnlockCount,
+    abilityCardLevelCanBeUnlockedByCharacter,
+    abilityCardsUnlockedAtLevel,
+};

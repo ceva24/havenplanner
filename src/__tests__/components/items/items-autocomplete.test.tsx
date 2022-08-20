@@ -17,6 +17,7 @@ const character: Character = {
     notes: "Hello",
     characterClass: characterClasses[1],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 const setCharacter = jest.fn();
@@ -68,6 +69,7 @@ describe("addItem", () => {
             notes: "Hello",
             characterClass: characterClasses[1],
             items: [{ id: "123", item: items[2] }],
+            unlockedAbilityCards: [],
         };
 
         const item = items[3];
@@ -90,6 +92,7 @@ describe("addItem", () => {
             notes: "Hello",
             characterClass: characterClasses[1],
             items: [{ id: "123", item: items[2] }],
+            unlockedAbilityCards: [],
         };
 
         addItem(character.items[0].item, character, setCharacter);

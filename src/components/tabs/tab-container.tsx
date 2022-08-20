@@ -1,9 +1,9 @@
 import { Tabs, Tab, Divider } from "@mui/material";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, SyntheticEvent, useState } from "react";
 import TabPanel from "@/components/tabs/tab-panel";
-import Profile from "@/components/tabs/profile";
-import Items from "@/components/tabs/items";
-import AbilityCards from "@/components/tabs/ability-cards";
+import Profile from "@/components/profile/profile";
+import Items from "@/components/items/items";
+import AbilityCards from "@/components/ability-cards/ability-cards";
 
 interface TabContainerProps {
     character: Character;
@@ -13,7 +13,7 @@ interface TabContainerProps {
 const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
     const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
 
-    const handleChange = (event: React.SyntheticEvent, value: number) => {
+    const handleChange = (event: SyntheticEvent, value: number) => {
         setCurrentTabIndex(value);
     };
 
@@ -36,16 +36,16 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
                 />
                 <Tab
                     disableRipple
-                    label="Items"
-                    id="items-tab"
-                    aria-controls="items-tabpanel"
+                    label="Ability Cards"
+                    id="ability-cards-tab"
+                    aria-controls="ability-cards-tabpanel"
                     sx={{ typography: "body2" }}
                 />
                 <Tab
                     disableRipple
-                    label="Ability Cards"
-                    id="ability-cards-tab"
-                    aria-controls="ability-cards-tabpanel"
+                    label="Items"
+                    id="items-tab"
+                    aria-controls="items-tabpanel"
                     sx={{ typography: "body2" }}
                 />
                 <Tab
@@ -63,16 +63,16 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
             <TabPanel currentTabIndex={currentTabIndex} index={0} id="profile-tabpanel" ariaLabelledBy="profile-tab">
                 <Profile character={character} setCharacter={setCharacter} />
             </TabPanel>
-            <TabPanel currentTabIndex={currentTabIndex} index={1} id="items-tabpanel" ariaLabelledBy="items-tab">
-                <Items character={character} setCharacter={setCharacter} />
-            </TabPanel>
             <TabPanel
                 currentTabIndex={currentTabIndex}
-                index={2}
+                index={1}
                 id="ability-cards-tabpanel"
                 ariaLabelledBy="ability-cards-tab"
             >
-                <AbilityCards character={character} />
+                <AbilityCards character={character} setCharacter={setCharacter} />
+            </TabPanel>
+            <TabPanel currentTabIndex={currentTabIndex} index={2} id="items-tabpanel" ariaLabelledBy="items-tab">
+                <Items character={character} setCharacter={setCharacter} />
             </TabPanel>
             <TabPanel currentTabIndex={currentTabIndex} index={3} id="perks-tabpanel" ariaLabelledBy="perks-tab" />
         </>

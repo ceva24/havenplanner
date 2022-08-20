@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Items from "@/components/tabs/items";
+import Items from "@/components/items/items";
 import { characterClasses } from "@/utils/constants";
 
 const character: Character = {
@@ -9,6 +9,7 @@ const character: Character = {
     notes: "Hello haven",
     characterClass: characterClasses[0],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 describe("items", () => {

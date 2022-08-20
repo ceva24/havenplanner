@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Profile from "@/components/tabs/profile";
+import Profile from "@/components/profile/profile";
 import { characterClasses } from "@/utils/constants";
 import AppSettingsProvider from "@/hooks/app-settings";
 
@@ -10,6 +10,7 @@ const character: Character = {
     notes: "Hello haven",
     characterClass: characterClasses[0],
     items: [],
+    unlockedAbilityCards: [],
 };
 
 describe("profile tab", () => {

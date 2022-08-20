@@ -27,20 +27,26 @@ describe("index page", () => {
     });
 
     it("loads character details from the query string", () => {
-        cy.visit("/?character=uDriterisSritEVjkrgsbtYRiRTkVirisEriuA2VsI2GtXxGFtUxhDxTDtT2HsK2GtZ2GtLNuF");
+        cy.visit(
+            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsJIxIDtUxbDsetifjkuBxdDtTxdD2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsL2DsKtN2UtlxUDsP2MsPM2DsP2DsQtNuF"
+        );
 
         cy.findSelectClassButton().should("have.text", "Spellweaver");
-        cy.findNameField().should("have.value", "Test Character");
+        cy.findNameField().should("have.value", "Elsa");
     });
 
     it("clears the query string after loading character details from it", () => {
-        cy.visit("/?character=uDriterisSritEVjkrgsbtYRiRTkVirisEriuA2VsI2GtXxGFtUxhDxTDtT2HsK2GtZ2GtLNuF");
+        cy.visit(
+            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsJIxIDtUxbDsetifjkuBxdDtTxdD2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsL2DsKtN2UtlxUDsP2MsPM2DsP2DsQtNuF"
+        );
 
         cy.location("search").should("equal", "");
     });
 
     it("hides the personal quest by default when loading a character with one set", () => {
-        cy.visit("/?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtTxNFtg2GsNLxIDtZ2ItLNuF");
+        cy.visit(
+            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsJIxIDtUxbDsetifjkuBxdDtTxdD2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsL2DsKtN2UtlxUDsP2MsPM2DsP2DsQtNuF"
+        );
 
         cy.findPersonalQuestSwitch().should("not.be.checked");
     });

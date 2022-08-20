@@ -14,17 +14,15 @@ const ItemGrid = ({ character, setCharacter }: ItemGridProps) => {
             aria-label="Item Grid"
             sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
         >
-            {character.items.map((characterItem: CharacterItem, index: number) => {
-                return (
-                    <Item
-                        key={characterItem.id}
-                        character={character}
-                        setCharacter={setCharacter}
-                        characterItem={characterItem}
-                        index={index}
-                    />
-                );
-            })}
+            {character.items.map((characterItem: CharacterItem, index: number) => (
+                <Item
+                    key={characterItem.id}
+                    character={character}
+                    setCharacter={setCharacter}
+                    characterItem={characterItem}
+                    index={index}
+                />
+            ))}
         </Box>
     );
 };

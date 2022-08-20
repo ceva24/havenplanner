@@ -12,6 +12,7 @@ const character: Character = {
         { id: "1", item: items[8] },
         { id: "2", item: items[5] },
     ],
+    unlockedAbilityCards: [],
 };
 
 const setCharacter = jest.fn();
@@ -47,6 +48,7 @@ describe("removeItem", () => {
             notes: "",
             characterClass: characterClasses[0],
             items: [{ id: "1", item: items[0] }],
+            unlockedAbilityCards: [],
         };
 
         removeItem(character, setCharacter, character.items[0]);
@@ -69,6 +71,7 @@ describe("removeItem", () => {
                 { id: "1", item: items[0] },
                 { id: "2", item: items[0] },
             ],
+            unlockedAbilityCards: [],
         };
 
         removeItem(character, setCharacter, character.items[1]);
@@ -92,6 +95,7 @@ describe("removeItem", () => {
                 { id: "2", item: items[1] },
                 { id: "3", item: items[2] },
             ],
+            unlockedAbilityCards: [],
         };
 
         removeItem(character, setCharacter, character.items[1]);
@@ -115,6 +119,7 @@ describe("removeItem", () => {
                 { id: "2", item: items[1] },
                 { id: "3", item: items[2] },
             ],
+            unlockedAbilityCards: [],
         };
 
         removeItem(character, setCharacter, { id: "-1", item: items[0] });

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import AppImage, { createImageUrl, baseImageUrl } from "@/components/app-image";
 
-describe("AppImage", () => {
+describe("app image", () => {
     it("renders the image", () => {
         render(
             <AppImage

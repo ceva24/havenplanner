@@ -4,13 +4,13 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps } from "@/pages/index";
 import { characterClasses, defaultCharacter } from "@/utils/constants";
-import * as characterService from "@/services/character";
+import * as encoderService from "@/services/encoder";
 
-jest.mock("@/services/character", () => {
+jest.mock("@/services/encoder", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
         __esModule: true,
-        ...jest.requireActual("@/services/character"),
+        ...jest.requireActual("@/services/encoder"),
     };
 });
 
@@ -18,7 +18,7 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe("Index", () => {
+describe("index page", () => {
     it("renders the tabbed content", () => {
         render(<Index initialCharacter={defaultCharacter} />);
 
@@ -53,9 +53,10 @@ describe("getServerSideProps", () => {
             notes: "It's a test",
             characterClass: characterClasses[2],
             items: [],
+            unlockedAbilityCards: [],
         };
 
-        jest.spyOn(characterService, "decode").mockImplementationOnce(() => character);
+        jest.spyOn(encoderService, "decode").mockImplementationOnce(() => character);
 
         const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
 
@@ -65,7 +66,7 @@ describe("getServerSideProps", () => {
     });
 
     it("returns the default character if loading the character from the query string parameter fails", async () => {
-        jest.spyOn(characterService, "decode").mockImplementationOnce(() => {
+        jest.spyOn(encoderService, "decode").mockImplementationOnce(() => {
             throw new Error("Error");
         });
 

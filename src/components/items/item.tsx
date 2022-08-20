@@ -38,9 +38,7 @@ const removeItem = (
 ) => {
     const newCharacter = {
         ...character,
-        items: character.items.filter((characterItem: CharacterItem) => {
-            return characterItem.id !== characterItemToRemove.id;
-        }),
+        items: character.items.filter((characterItem: CharacterItem) => characterItem.id !== characterItemToRemove.id),
     };
 
     setCharacter(newCharacter);

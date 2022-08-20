@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { createMocks, Mocks } from "node-mocks-http";
-import * as characterService from "@/services/character";
+import * as encoderService from "@/services/encoder";
 import handler from "@/api/encode-character";
 
-jest.mock("@/services/character", () => {
+jest.mock("@/services/encoder", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
         __esModule: true,
-        ...jest.requireActual("@/services/character"),
+        ...jest.requireActual("@/services/encoder"),
     };
 });
 
@@ -27,7 +27,7 @@ describe("encode character", () => {
     });
 
     it("encodes character data", () => {
-        jest.spyOn(characterService, "encode").mockImplementationOnce(() => "");
+        jest.spyOn(encoderService, "encode").mockImplementationOnce(() => "");
 
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
         req.method = "POST";
@@ -35,12 +35,12 @@ describe("encode character", () => {
 
         handler(req, res);
 
-        expect(characterService.encode).toHaveBeenCalledTimes(1);
-        expect(characterService.encode).toHaveBeenCalledWith("test");
+        expect(encoderService.encode).toHaveBeenCalledTimes(1);
+        expect(encoderService.encode).toHaveBeenCalledWith("test");
     });
 
     it("responds with HTTP 200 and the encoded character data", () => {
-        jest.spyOn(characterService, "encode").mockImplementationOnce(() => "abcdefg");
+        jest.spyOn(encoderService, "encode").mockImplementationOnce(() => "abcdefg");
 
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
         req.method = "POST";
@@ -63,7 +63,7 @@ describe("encode character", () => {
     });
 
     it("responds with HTTP 500 when an unexpected error occurs", () => {
-        jest.spyOn(characterService, "encode").mockImplementationOnce(() => {
+        jest.spyOn(encoderService, "encode").mockImplementationOnce(() => {
             throw new Error("Error");
         });
 

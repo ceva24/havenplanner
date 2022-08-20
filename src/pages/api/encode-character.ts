@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { encode } from "@/services/character";
+import { encode } from "@/services/encoder";
 
 interface EncodeCharacterApiResponse {
     encodedCharacterData: string;
