@@ -6,8 +6,8 @@
         "paths": {
             "@/components/*": ["src/components/*"],
             "@/hooks/*": ["src/hooks/*"],
+            "@/loaders/*": ["src/loaders/*"],
             "@/pages/*": ["src/pages/*"],
-            "@/api/*": ["src/pages/api/*"],
             "@/services/*": ["src/services/*"],
             "@/styles/*": ["src/styles/*"],
             "@/types/*": ["src/types/*"],

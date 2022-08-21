@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import PersonalQuest from "@/components/profile/personal-quest";
 import AppSettingsProvider from "@/hooks/app-settings";
-import { characterClasses } from "@/utils/constants";
+import { characterClasses } from "@/loaders/class";
 
 const character: Character = {
     name: "My Char",

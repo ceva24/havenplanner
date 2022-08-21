@@ -1,7 +1,8 @@
 import lzbase62 from "lzbase62";
 import { encode, decode } from "@/services/encoder";
-import { characterClasses, items } from "@/utils/constants";
 import * as dataSerializer from "@/services/serializer";
+import { characterClasses } from "@/loaders/class";
+import { items } from "@/loaders/items";
 
 const character: Character = {
     name: "Test character",
@@ -94,10 +95,10 @@ describe("encode", () => {
 
     it.each`
         description                                     | character                            | encodedData
-        ${"standard character data"}                    | ${character}                         | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsL2GtZ2GtLN2HtlxHEuF"}
-        ${"character data with unicode characters"}     | ${characterWithUnicodeCharacters}    | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsL2GtZ2GtLN2HtlxHEuF"}
-        ${"character data with items"}                  | ${characterWithItems}                | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsL2GtZ2GtLsJEMtN2KtlxKDtNuF"}
-        ${"character data with unlocked ability cards"} | ${characterWithUnlockedAbilityCards} | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsL2GtZ2GtLN2HtlxHDsM2gsMLtNuF"}
+        ${"standard character data"}                    | ${character}                         | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLN2HtlxHEuF"}
+        ${"character data with unicode characters"}     | ${characterWithUnicodeCharacters}    | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsM2GtZ2GtLN2HtlxHEuF"}
+        ${"character data with items"}                  | ${characterWithItems}                | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLsJEMtN2KtlxKDtNuF"}
+        ${"character data with unlocked ability cards"} | ${characterWithUnlockedAbilityCards} | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsM2GtZ2GtLN2HtlxHDsM2gsMLtNuF"}
     `("serializes and compresses $description", ({ character, encodedData }) => {
         expect(encode(character)).toEqual(encodedData);
     });
@@ -134,10 +135,10 @@ describe("decode", () => {
 
     it.each`
         description                                 | encodedData                                                                                          | character
-        ${"standard character data"}                | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsL2GtZ2GtLN2HtlxHEuF"}           | ${character}
-        ${"character data with unicode characters"} | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsL2GtZ2GtLN2HtlxHEuF"}        | ${characterWithUnicodeCharacters}
-        ${"character data with items"}              | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsL2GtZ2GtLsJEMtN2KtlxKDtNuF"}    | ${characterWithItems}
-        ${"character data with items"}              | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsL2GtZ2GtLN2HtlxHDsM2gsMLtNuF"} | ${characterWithUnlockedAbilityCards}
+        ${"standard character data"}                | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLN2HtlxHEuF"}           | ${character}
+        ${"character data with unicode characters"} | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsM2GtZ2GtLN2HtlxHEuF"}        | ${characterWithUnicodeCharacters}
+        ${"character data with items"}              | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLsJEMtN2KtlxKDtNuF"}    | ${characterWithItems}
+        ${"character data with items"}              | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsM2GtZ2GtLN2HtlxHDsM2gsMLtNuF"} | ${characterWithUnlockedAbilityCards}
     `("decompresses and deserializes $description", ({ encodedData, character }) => {
         expect(decode(encodedData)).toEqual(character);
     });

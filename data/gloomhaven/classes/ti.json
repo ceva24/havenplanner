@@ -1,0 +1,195 @@
+{
+    "id": 4,
+    "name": "Tinkerer",
+    "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-tinkerer.webp",
+    "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer.webp",
+    "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-tinkerer-back.webp",
+    "abilityCards": [
+        {
+            "id": 30,
+            "name": "Proximity Mine",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-proximity-mine.webp"
+        },
+        {
+            "id": 31,
+            "name": "Harmless Contraption",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-harmless-contraption.webp"
+        },
+        {
+            "id": 32,
+            "name": "Flamethrower",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-flamethrower.webp"
+        },
+        {
+            "id": 33,
+            "name": "Hook Gun",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-hook-gun.webp"
+        },
+        {
+            "id": 34,
+            "name": "Ink Bomb",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-ink-bomb.webp"
+        },
+        {
+            "id": 35,
+            "name": "Net Shooter",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-net-shooter.webp"
+        },
+        {
+            "id": 36,
+            "name": "Stun Shot",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-stun-shot.webp"
+        },
+        {
+            "id": 37,
+            "name": "Reinvigorating Elixir",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-reinvigorating-elixir.webp"
+        },
+        {
+            "id": 38,
+            "name": "Restorative Mist",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-restorative-mist.webp"
+        },
+        {
+            "id": 39,
+            "name": "Energizing Tonic",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-energizing-tonic.webp"
+        },
+        {
+            "id": 40,
+            "name": "Enhancement Field",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-enhancement-field.webp"
+        },
+        {
+            "id": 41,
+            "name": "Toxic Bolt",
+            "level": "1",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-toxic-bolt.webp"
+        },
+        {
+            "id": 42,
+            "name": "Reviving Shock",
+            "level": "X",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-reviving-shock.webp"
+        },
+        {
+            "id": 43,
+            "name": "Volatile Concoction",
+            "level": "X",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-volatile-concoction.webp"
+        },
+        {
+            "id": 44,
+            "name": "Potent Potables",
+            "level": "X",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-potent-potables.webp"
+        },
+        {
+            "id": 45,
+            "name": "Stamina Booster",
+            "level": "2",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-stamina-booster.webp"
+        },
+        {
+            "id": 46,
+            "name": "Disorienting Flash",
+            "level": "2",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-disorienting-flash.webp"
+        },
+        {
+            "id": 47,
+            "name": "Tinkerer's Tools",
+            "level": "3",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-tinkerers-tools.webp"
+        },
+        {
+            "id": 48,
+            "name": "Crank Bow",
+            "level": "3",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-crank-bow.webp"
+        },
+        {
+            "id": 49,
+            "name": "Dangerous Contraption",
+            "level": "4",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-dangerous-contraption.webp"
+        },
+        {
+            "id": 50,
+            "name": "Micro Bots",
+            "level": "4",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-micro-bots.webp"
+        },
+        {
+            "id": 51,
+            "name": "Noxious Vials",
+            "level": "5",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-noxious-vials.webp"
+        },
+        {
+            "id": 52,
+            "name": "Disintegration Beam",
+            "level": "5",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-disintegration-beam.webp"
+        },
+        {
+            "id": 53,
+            "name": "Gas Canister",
+            "level": "6",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-gas-canister.webp"
+        },
+        {
+            "id": 54,
+            "name": "Auto Turret",
+            "level": "6",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-auto-turret.webp"
+        },
+        {
+            "id": 55,
+            "name": "Murderous Contraption",
+            "level": "7",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-murderous-contraption.webp"
+        },
+        {
+            "id": 56,
+            "name": "Curative Aerosol",
+            "level": "7",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-curative-aerosol.webp"
+        },
+        {
+            "id": 57,
+            "name": "Jet Propulsion",
+            "level": "8",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-jet-propulsion.webp"
+        },
+        {
+            "id": 58,
+            "name": "Harsh Stimulants",
+            "level": "8",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-harsh-stimulants.webp"
+        },
+        {
+            "id": 59,
+            "name": "Lethal Injection",
+            "level": "9",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-lethal-injection.webp"
+        },
+        {
+            "id": 60,
+            "name": "Chimeric Formula",
+            "level": "9",
+            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/TI/gh-chimeric-formula.webp"
+        }
+    ]
+}

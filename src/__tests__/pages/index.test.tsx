@@ -3,8 +3,9 @@ import { render, screen } from "@testing-library/react";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps } from "@/pages/index";
-import { characterClasses, defaultCharacter } from "@/utils/constants";
 import * as encoderService from "@/services/encoder";
+import { characterClasses } from "@/loaders/class";
+import { defaultCharacter } from "@/utils/constants";
 
 jest.mock("@/services/encoder", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return

@@ -49,7 +49,7 @@ Enforces conventional commits via [commitlint](https://github.com/conventional-c
 
 ### Image hosting
 
-Uses [ceva24/worldhaven](https://github.com/ceva24/worldhaven) as a CDN for images, hosted at [ceva24.github.io/worldhaven](https://ceva24.github.io/worldhaven).
+Uses [ceva24/worldhaven](https://github.com/ceva24/worldhaven/tree/web-quality) as a CDN for images, hosted at [ceva24.github.io/worldhaven](https://ceva24.github.io/worldhaven).
 
 ### Accessibility
 

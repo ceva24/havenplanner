@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import AppSettingsProvider, { useAppSettingsContext } from "@/hooks/app-settings";
-import { characterClasses } from "@/utils/constants";
+import AppSettingsProvider from "@/hooks/app-settings";
+import { characterClasses } from "@/loaders/class";
 import PersonalQuest from "@/components/profile/personal-quest";
 
 const character: Character = {

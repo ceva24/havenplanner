@@ -18,9 +18,9 @@ const customJestConfig = {
     collectCoverageFrom: ["<rootDir>/src/**"],
     coveragePathIgnorePatterns: [".*__snapshots__/.*"],
     moduleNameMapper: {
-        "@/api/(.*)": "<rootDir>/src/pages/api/$1",
         "@/components/(.*)": "<rootDir>/src/components/$1",
         "@/hooks/(.*)": "<rootDir>/src/hooks/$1",
+        "@/loaders/(.*)": "<rootDir>/src/loaders/$1",
         "@/pages/(.*)": "<rootDir>/src/pages/$1",
         "@/data/(.*)": "<rootDir>/data/$1",
         "@/services/(.*)": "<rootDir>/src/services/$1",
