@@ -3,7 +3,7 @@ import {
     calculateLevel,
     isUnlockedAbilityCardForCharacter,
 } from "@/services/character";
-import { characterClasses } from "@/utils/constants";
+import { characterClasses } from "@/loaders/class";
 
 describe("calculateLevel", () => {
     interface ExperienceLevelProps {

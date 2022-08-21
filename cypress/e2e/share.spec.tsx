@@ -26,7 +26,7 @@ describe("share link", () => {
             .findShareLinkTextBox()
             .should(
                 "have.value",
-                "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtTxNFtZ2GtLN2HtlxHEuF"
+                "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtT2HsJ2GtZ2GtLN2HtlxHEuF"
             );
     });
 

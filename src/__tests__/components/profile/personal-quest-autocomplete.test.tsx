@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import PersonalQuestAutocomplete, { findAndSetPersonalQuest } from "@/components/profile/personal-quest-autocomplete";
-import { characterClasses, personalQuests } from "@/utils/constants";
+import { characterClasses } from "@/loaders/class";
+import { personalQuests } from "@/loaders/personal-quest";
 
 const character: Character = {
     name: "Test",
