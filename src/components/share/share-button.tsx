@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ShareIcon from "@mui/icons-material/Share";
 import ShareDialog from "@/components/share/share-dialog";
 import AppButton from "@/components/app-button";
-import { EncodeCharacterApiResponse } from "@/pages/api/encode-character";
+import { encode } from "@/services/encoder";
 
 interface ShareButtonProps {
     character: Character;
@@ -20,7 +20,7 @@ const ShareButton = ({ character }: ShareButtonProps) => {
     const handleOpen = () => {
         setShareDialogOpen(true);
 
-        void retrieveAndSetShareableLink(character, shareableLink, setShareableLink, setEncodeCharacterError);
+        generateAndSetShareableLink(character, shareableLink, setShareableLink, setEncodeCharacterError);
     };
 
     const handleClose = () => {
@@ -41,7 +41,7 @@ const ShareButton = ({ character }: ShareButtonProps) => {
     );
 };
 
-const retrieveAndSetShareableLink = async (
+const generateAndSetShareableLink = (
     character: Character,
     shareableLink: string,
     setShareableLink: Dispatch<SetStateAction<string>>,
@@ -49,24 +49,9 @@ const retrieveAndSetShareableLink = async (
 ) => {
     if (!shareableLink) {
         try {
-            const response = await fetch("/api/encode-character", {
-                method: "POST",
-                body: JSON.stringify(character),
-                headers: { "Content-Type": "application/json" },
-            });
+            const encodedCharacterData = encode(character);
 
-            if (response.status === 200) {
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                const { encodedCharacterData }: EncodeCharacterApiResponse = await response.json();
-
-                if (encodedCharacterData) {
-                    setShareableLink(`${location.origin}?character=${encodedCharacterData}`);
-                } else {
-                    setEncodeCharacterError(true);
-                }
-            } else {
-                setEncodeCharacterError(true);
-            }
+            setShareableLink(`${location.origin}?character=${encodedCharacterData}`);
         } catch {
             setEncodeCharacterError(true);
         }
@@ -74,4 +59,4 @@ const retrieveAndSetShareableLink = async (
 };
 
 export default ShareButton;
-export { retrieveAndSetShareableLink };
+export { generateAndSetShareableLink as retrieveAndSetShareableLink };

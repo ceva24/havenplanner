@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import fetchMock from "jest-fetch-mock";
 import ShareButton, { retrieveAndSetShareableLink } from "@/components/share/share-button";
-import { EncodeCharacterApiResponse } from "@/pages/api/encode-character";
+import * as encoderService from "@/services/encoder";
 import { characterClasses } from "@/utils/constants";
 
 const character: Character = {
@@ -17,6 +16,14 @@ const character: Character = {
 const setShareableLink = jest.fn();
 const setEncodeCharacterError = jest.fn();
 
+jest.mock("@/services/encoder", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return {
+        __esModule: true,
+        ...jest.requireActual("@/services/encoder"),
+    };
+});
+
 beforeEach(() => {
     jest.clearAllMocks();
 });
@@ -31,63 +38,39 @@ describe("share button", () => {
     });
 });
 
-describe("retrieve and set the shareable link", () => {
-    it("retrieves and displays the encoded character data", async () => {
-        const response: EncodeCharacterApiResponse = { encodedCharacterData: "abcde" };
-        fetchMock.mockResponseOnce(JSON.stringify(response));
+describe("generateAndSetShareableLink", () => {
+    it("encodes character data", () => {
+        jest.spyOn(encoderService, "encode").mockReturnValueOnce("");
 
-        await retrieveAndSetShareableLink(character, "", setShareableLink, setEncodeCharacterError);
+        retrieveAndSetShareableLink(character, "", setShareableLink, setEncodeCharacterError);
 
-        expect(fetchMock).toHaveBeenCalledTimes(1);
+        expect(encoderService.encode).toHaveBeenCalledTimes(1);
+        expect(encoderService.encode).toHaveBeenCalledWith(character);
+    });
+
+    it("sets the shareable link", () => {
+        jest.spyOn(encoderService, "encode").mockReturnValueOnce("abcde");
+
+        retrieveAndSetShareableLink(character, "", setShareableLink, setEncodeCharacterError);
 
         expect(setShareableLink).toHaveBeenCalledTimes(1);
         expect(setShareableLink.mock.calls[0][0]).toMatch(/\?character=abcde/);
     });
 
     it("does not retrieve the encoded character data if the shareable link is still populated from before", async () => {
-        await retrieveAndSetShareableLink(character, "abcde", setShareableLink, setEncodeCharacterError);
+        retrieveAndSetShareableLink(character, "abcde", setShareableLink, setEncodeCharacterError);
 
-        expect(fetchMock).not.toHaveBeenCalled();
-
+        expect(encoderService.encode).not.toHaveBeenCalled();
         expect(setShareableLink).not.toHaveBeenCalled();
         expect(setEncodeCharacterError).not.toHaveBeenCalled();
     });
 
-    it("sets an encode character error when the API response is not 200 OK", async () => {
-        fetchMock.mockRejectOnce();
-
-        await retrieveAndSetShareableLink(character, "", setShareableLink, setEncodeCharacterError);
-
-        expect(fetchMock).toHaveBeenCalledTimes(1);
-
-        expect(setShareableLink).not.toHaveBeenCalled();
-
-        expect(setEncodeCharacterError).toHaveBeenCalledTimes(1);
-        expect(setEncodeCharacterError).toHaveBeenCalledWith(true);
-    });
-
-    it("sets an encode character error when there is no valid encoded character data in the API response", async () => {
-        const response: EncodeCharacterApiResponse = { encodedCharacterData: "" };
-        fetchMock.mockResponseOnce(JSON.stringify(response));
-
-        await retrieveAndSetShareableLink(character, "", setShareableLink, setEncodeCharacterError);
-
-        expect(fetchMock).toHaveBeenCalledTimes(1);
-
-        expect(setShareableLink).not.toHaveBeenCalled();
-
-        expect(setEncodeCharacterError).toHaveBeenCalledTimes(1);
-        expect(setEncodeCharacterError).toHaveBeenCalledWith(true);
-    });
-
     it("sets an encode character when an unexpected error occurs", async () => {
-        fetchMock.mockImplementationOnce(() => {
+        jest.spyOn(encoderService, "encode").mockImplementationOnce(() => {
             throw new Error("Error");
         });
 
-        await retrieveAndSetShareableLink(character, "", setShareableLink, setEncodeCharacterError);
-
-        expect(fetchMock).toHaveBeenCalledTimes(1);
+        retrieveAndSetShareableLink(character, "", setShareableLink, setEncodeCharacterError);
 
         expect(setShareableLink).not.toHaveBeenCalled();
 
