@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Card, SmallCard } from "@/components/cards";
+import { Card, SmallCard } from "@/components/core/cards";
 
 describe("cards", () => {
     it("renders a card", () => {

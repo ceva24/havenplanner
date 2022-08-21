@@ -1,6 +1,6 @@
 import { Tooltip } from "@mui/material";
 import BlockIcon from "@mui/icons-material/Block";
-import { Card } from "@/components/cards";
+import { Card } from "@/components/core/cards";
 
 interface DisabledAbilityCardProps {
     abilityCard: AbilityCard;

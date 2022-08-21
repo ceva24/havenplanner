@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import AppImage, { createImageUrl, baseImageUrl } from "@/components/app-image";
+import Image, { createImageUrl, baseImageUrl } from "@/components/core/image";
 
-describe("app image", () => {
+describe("image", () => {
     it("renders the image", () => {
         render(
-            <AppImage
+            <Image
                 webpPath="/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.webp"
                 fallbackImageType="jpg"
                 altText="Personal quest"
@@ -20,7 +20,7 @@ describe("app image", () => {
 
     it("renders the image with the appropriate fallback image type", () => {
         render(
-            <AppImage
+            <Image
                 webpPath="/worldhaven/images/personal-quests/gloomhaven/gh-pq-back.webp"
                 fallbackImageType="jpg"
                 altText="Personal quest"

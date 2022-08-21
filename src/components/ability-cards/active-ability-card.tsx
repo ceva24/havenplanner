@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, KeyboardEvent } from "react";
 import LockIcon from "@mui/icons-material/LockTwoTone";
-import { Card } from "@/components/cards";
+import { Card } from "@/components/core/cards";
 import { isUnlockedAbilityCardForCharacter } from "@/services/character";
 
 interface ActiveAbilityCardProps {

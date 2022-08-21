@@ -11,7 +11,7 @@ interface ImageProps {
     style?: CSSProperties;
 }
 
-const AppImage = ({ webpPath, fallbackImageType, altText, ...props }: ImageProps) => {
+const Image = ({ webpPath, fallbackImageType, altText, ...props }: ImageProps) => {
     const fullImagePath = createImageUrl(webpPath);
     const fallbackImagePath = fullImagePath.replace(".webp", `.${fallbackImageType}`);
 
@@ -29,5 +29,5 @@ const createImageUrl = (relativePath: string) => {
     return `${baseImageUrl}${safeRelativePath}`;
 };
 
-export default AppImage;
+export default Image;
 export { createImageUrl, baseImageUrl };

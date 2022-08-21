@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ShareIcon from "@mui/icons-material/Share";
 import ShareDialog from "@/components/header/share-dialog";
-import AppButton from "@/components/app-button";
+import Button from "@/components/core/button";
 import { encode } from "@/services/encoder";
 
 interface ShareButtonProps {
@@ -30,7 +30,7 @@ const ShareButton = ({ character }: ShareButtonProps) => {
 
     return (
         <>
-            <AppButton text="Share" startIcon={<ShareIcon />} onClick={handleOpen} />
+            <Button text="Share" startIcon={<ShareIcon />} onClick={handleOpen} />
             <ShareDialog
                 shareableLink={shareableLink}
                 encodeCharacterError={encodeCharacterError}

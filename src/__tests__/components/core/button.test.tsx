@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import AppButton from "@/components/app-button";
+import Button from "@/components/core/button";
 
-describe("app button", () => {
+describe("button", () => {
     it("renders", () => {
-        render(<AppButton text="Close" onClick={jest.fn()} />);
+        render(<Button text="Close" onClick={jest.fn()} />);
 
         const button = screen.queryByRole("button", { name: "Close" });
 
