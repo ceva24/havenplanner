@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ShareIcon from "@mui/icons-material/Share";
-import ShareDialog from "@/components/share/share-dialog";
+import ShareDialog from "@/components/header/share-dialog";
 import AppButton from "@/components/app-button";
 import { encode } from "@/services/encoder";
 

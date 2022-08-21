@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Header from "@/components/header";
+import Header from "@/components/header/header";
 import { characterClasses } from "@/utils/constants";
 
 const character: Character = {

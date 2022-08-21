@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ShareButton, { retrieveAndSetShareableLink } from "@/components/share/share-button";
+import ShareButton, { retrieveAndSetShareableLink } from "@/components/header/share-button";
 import * as encoderService from "@/services/encoder";
 import { characterClasses } from "@/utils/constants";
 

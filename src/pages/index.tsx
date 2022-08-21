@@ -5,7 +5,7 @@ import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { decode } from "@/services/encoder";
 import { defaultCharacter } from "@/utils/constants";
 import TabContainer from "@/components/tabs/tab-container";
-import Header from "@/components/header";
+import Header from "@/components/header/header";
 import AppSettingsProvider from "@/hooks/app-settings";
 import theme from "@/styles/theme";
 import { useClearQueryString } from "@/hooks/use-clear-query-string";

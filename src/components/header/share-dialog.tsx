@@ -1,5 +1,5 @@
 import { Stack, Typography, Box, TextField, Dialog, DialogContent, Grid } from "@mui/material";
-import CopyLinkButton from "@/components/share/copy-link-button";
+import CopyLinkButton from "@/components/header/copy-link-button";
 import AppButton from "@/components/app-button";
 
 interface ShareDialogProps {
