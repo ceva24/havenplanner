@@ -11,6 +11,8 @@ const Card = ({ src, altText }: CardProps) => {
             webpPath={src}
             fallbackImageType="jpg"
             altText={altText}
+            width={240}
+            height={320}
             style={{ maxWidth: "100%", borderRadius: "3%" }}
         />
     );
