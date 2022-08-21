@@ -24,8 +24,8 @@ const SmallCard = ({ src, altText }: CardProps) => {
             webpPath={src}
             fallbackImageType="jpg"
             altText={altText}
-            width={150}
-            height={225}
+            width={165}
+            height={244}
             style={{ borderRadius: "3%" }}
         />
     );
