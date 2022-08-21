@@ -1,7 +1,7 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel, FormControl, Box } from "@mui/material";
 import { Dispatch, FC, SetStateAction } from "react";
 import { characterClasses, defaultCharacter } from "@/utils/constants";
-import AppImage from "@/components/app-image";
+import Image from "@/components/core/image";
 
 interface ClassSelectProps {
     character: Character;
@@ -31,7 +31,7 @@ const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSel
                 </Select>
             </FormControl>
 
-            <AppImage
+            <Image
                 webpPath={character.characterClass.imageUrl}
                 fallbackImageType="png"
                 altText="Class icon"

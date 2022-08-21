@@ -1,7 +1,7 @@
 import { Box, IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Dispatch, SetStateAction } from "react";
-import { SmallCard } from "@/components/cards";
+import { SmallCard } from "@/components/core/cards";
 
 interface ItemProps {
     character: Character;

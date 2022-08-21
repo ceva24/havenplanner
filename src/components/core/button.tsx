@@ -1,14 +1,14 @@
-import { Button, Typography } from "@mui/material";
+import { Button as MuiButton, Typography } from "@mui/material";
 
-interface AppButtonProps {
+interface ButtonProps {
     text: string;
     onClick: () => void;
     startIcon?: JSX.Element;
 }
 
-const AppButton = ({ text, onClick, startIcon }: AppButtonProps) => {
+const Button = ({ text, onClick, startIcon }: ButtonProps) => {
     return (
-        <Button
+        <MuiButton
             variant="contained"
             sx={{
                 margin: "1%",
@@ -23,8 +23,8 @@ const AppButton = ({ text, onClick, startIcon }: AppButtonProps) => {
             onClick={onClick}
         >
             <Typography variant="body1">{text}</Typography>
-        </Button>
+        </MuiButton>
     );
 };
 
-export default AppButton;
+export default Button;

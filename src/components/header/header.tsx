@@ -1,5 +1,5 @@
 import { AppBar, Box, FormControlLabel, Grid, Link, Switch, Toolbar, Typography } from "@mui/material";
-import ShareButton from "@/components/share/share-button";
+import ShareButton from "@/components/header/share-button";
 
 interface HeaderProps {
     character: Character;

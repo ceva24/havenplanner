@@ -1,5 +1,2 @@
 User-agent: *
-Disallow: /encode-character
-
-User-agent: *
 Allow: /

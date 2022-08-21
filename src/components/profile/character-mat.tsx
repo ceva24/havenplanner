@@ -1,6 +1,6 @@
 import { KeyboardEvent, useRef } from "react";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
-import AppImage from "@/components/app-image";
+import Image from "@/components/core/image";
 
 interface CharacterMatProps {
     characterClass: CharacterClass;
@@ -19,7 +19,7 @@ const CharacterMat = ({ characterClass }: CharacterMatProps) => {
     return (
         <Flippy ref={ref} style={{ width: "100%" }} tabIndex="0" onKeyDown={onKeyDown}>
             <FrontSide style={{ padding: 0, boxShadow: "none" }}>
-                <AppImage
+                <Image
                     webpPath={characterClass.characterMatFrontImageUrl}
                     fallbackImageType="jpg"
                     altText="Character mat front"
@@ -27,7 +27,7 @@ const CharacterMat = ({ characterClass }: CharacterMatProps) => {
                 />
             </FrontSide>
             <BackSide style={{ padding: 0, boxShadow: "none" }}>
-                <AppImage
+                <Image
                     webpPath={characterClass.characterMatBackImageUrl}
                     fallbackImageType="jpg"
                     altText="Character mat back"

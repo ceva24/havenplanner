@@ -1,4 +1,4 @@
-import AppImage from "@/components/app-image";
+import Image from "@/components/core/image";
 
 interface CardProps {
     src: string;
@@ -7,7 +7,7 @@ interface CardProps {
 
 const Card = ({ src, altText }: CardProps) => {
     return (
-        <AppImage
+        <Image
             webpPath={src}
             fallbackImageType="jpg"
             altText={altText}
@@ -20,7 +20,7 @@ const Card = ({ src, altText }: CardProps) => {
 
 const SmallCard = ({ src, altText }: CardProps) => {
     return (
-        <AppImage
+        <Image
             webpPath={src}
             fallbackImageType="jpg"
             altText={altText}
