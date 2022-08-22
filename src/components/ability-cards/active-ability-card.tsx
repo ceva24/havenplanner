@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, KeyboardEvent } from "react";
 import LockIcon from "@mui/icons-material/LockTwoTone";
+import { Box } from "@mui/material";
 import { Card } from "@/components/core/cards";
 import { isUnlockedAbilityCardForCharacter } from "@/services/character";
 
@@ -24,17 +25,17 @@ const ActiveAbilityCard = ({ abilityCard, character, setCharacter }: ActiveAbili
     };
 
     return (
-        <div
+        <Box
             role="checkbox"
             aria-checked={isSelected}
             tabIndex={0}
-            style={{ opacity: isSelected ? 1 : 0.5, cursor: "pointer", position: "relative" }}
+            sx={{ opacity: isSelected ? 1 : 0.5, cursor: "pointer", position: "relative" }}
             onClick={onClick}
             onKeyDown={onKeyDown}
         >
             <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
             {!isSelected && <LockIcon sx={{ position: "absolute", top: 3, right: 1 }} />}
-        </div>
+        </Box>
     );
 };
 

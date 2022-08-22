@@ -5,10 +5,10 @@ import TabPanel from "@/components/tabs/tab-panel";
 describe("tab panel", () => {
     it("renders", () => {
         render(
-            <div>
+            <>
                 <Tab label="Profile" id="profile-tab" aria-controls="profile-tabpanel" />
                 <TabPanel currentTabIndex={0} index={0} id="profile-tabpanel" ariaLabelledBy="profile-tab" />
-            </div>
+            </>
         );
 
         const profileTab = screen.getByRole("tabpanel", { name: "Profile" });
