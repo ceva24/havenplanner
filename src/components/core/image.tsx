@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
-
-const baseImageUrl = "https://ceva24.github.io";
+import { baseImageUrl } from "@/utils/constants";
 
 interface ImageProps {
     webpPath: string;
@@ -30,4 +29,4 @@ const createImageUrl = (relativePath: string) => {
 };
 
 export default Image;
-export { createImageUrl, baseImageUrl };
+export { createImageUrl };

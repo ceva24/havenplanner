@@ -1,177 +1,177 @@
 {
     "id": 2,
     "name": "Scoundrel",
-    "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-scoundrel.webp",
-    "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel.webp",
-    "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-scoundrel-back.webp",
+    "imageUrl": "/images/character-icons/gloomhaven/gh-scoundrel.webp",
+    "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-scoundrel.webp",
+    "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-scoundrel-back.webp",
     "abilityCards": [
         {
             "id": 88,
             "name": "Single Out",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-single-out.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-single-out.webp"
         },
         {
             "id": 89,
             "name": "Flanking Strike",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-flanking-strike.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-flanking-strike.webp"
         },
         {
             "id": 90,
             "name": "Smoke Bomb",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-smoke-bomb.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-smoke-bomb.webp"
         },
         {
             "id": 91,
             "name": "Backstab",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-backstab.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-backstab.webp"
         },
         {
             "id": 92,
             "name": "Thief's Knack",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-thiefs-knack.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-thiefs-knack.webp"
         },
         {
             "id": 93,
             "name": "Venom Shiv",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-venom-shiv.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-venom-shiv.webp"
         },
         {
             "id": 94,
             "name": "Throwing Knives",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-throwing-knives.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-throwing-knives.webp"
         },
         {
             "id": 95,
             "name": "Quick Hands",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-quick-hands.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-quick-hands.webp"
         },
         {
             "id": 96,
             "name": "Special Mixture",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-special-mixture.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-special-mixture.webp"
         },
         {
             "id": 97,
             "name": "Sinister Opportunity",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-sinister-opportunity.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-sinister-opportunity.webp"
         },
         {
             "id": 98,
             "name": "Trickster's Reversal",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-tricksters-reversal.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-tricksters-reversal.webp"
         },
         {
             "id": 99,
             "name": "Swift Bow",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-swift-bow.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-swift-bow.webp"
         },
         {
             "id": 100,
             "name": "Open Wound",
             "level": "2",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-open-wound.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-open-wound.webp"
         },
         {
             "id": 101,
             "name": "Flintlock",
             "level": "2",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-flintlock.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-flintlock.webp"
         },
         {
             "id": 102,
             "name": "Hidden Daggers",
             "level": "3",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-hidden-daggers.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-hidden-daggers.webp"
         },
         {
             "id": 103,
             "name": "Duelist's Advance",
             "level": "3",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-duelists-advance.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-duelists-advance.webp"
         },
         {
             "id": 104,
             "name": "Flurry of Blades",
             "level": "4",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-flurry-of-blades.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-flurry-of-blades.webp"
         },
         {
             "id": 105,
             "name": "Gruesome Advantage",
             "level": "4",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-gruesome-advantage.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-gruesome-advantage.webp"
         },
         {
             "id": 106,
             "name": "Cull the Weak",
             "level": "5",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-cull-the-weak.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-cull-the-weak.webp"
         },
         {
             "id": 107,
             "name": "Visage of the Inevitable",
             "level": "5",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-visage-of-the-inevitable.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-visage-of-the-inevitable.webp"
         },
         {
             "id": 108,
             "name": "Crippling Poison",
             "level": "6",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-crippling-poison.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-crippling-poison.webp"
         },
         {
             "id": 109,
             "name": "Burning Oil",
             "level": "6",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-burning-oil.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-burning-oil.webp"
         },
         {
             "id": 110,
             "name": "Stick to the Shadows",
             "level": "7",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-stick-to-the-shadows.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-stick-to-the-shadows.webp"
         },
         {
             "id": 111,
             "name": "Spring the Trap",
             "level": "7",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-spring-the-trap.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-spring-the-trap.webp"
         },
         {
             "id": 112,
             "name": "Stiletto Storm",
             "level": "8",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-stiletto-storm.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-stiletto-storm.webp"
         },
         {
             "id": 113,
             "name": "Pain's End",
             "level": "8",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-pains-end.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-pains-end.webp"
         },
         {
             "id": 114,
             "name": "Long Con",
             "level": "9",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-long-con.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-long-con.webp"
         },
         {
             "id": 115,
             "name": "Watch It Burn",
             "level": "9",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SC/gh-watch-it-burn.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-watch-it-burn.webp"
         }
     ]
 }

@@ -28,7 +28,7 @@ describe("index page", () => {
 
     it("loads character details from the query string", () => {
         cy.visit(
-            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2C2YsJKtN2UtlxUDsP2MsPM2DsP2DsQtNuF"
+            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPtNuF"
         );
 
         cy.findSelectClassButton().should("have.text", "Spellweaver");
@@ -37,7 +37,7 @@ describe("index page", () => {
 
     it("clears the query string after loading character details from it", () => {
         cy.visit(
-            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2C2YsJKtN2UtlxUDsP2MsPM2DsP2DsQtNuF"
+            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPtNuF"
         );
 
         cy.location("search").should("equal", "");
@@ -45,7 +45,7 @@ describe("index page", () => {
 
     it("hides the personal quest by default when loading a character with one set", () => {
         cy.visit(
-            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2C2YsJKtN2UtlxUDsP2MsPM2DsP2DsQtNuF"
+            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPtNuF"
         );
 
         cy.findPersonalQuestSwitch().should("not.be.checked");

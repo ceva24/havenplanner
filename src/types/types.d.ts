@@ -38,7 +38,9 @@ interface CharacterClass extends Asset {
 
 interface PersonalQuest extends Asset {}
 
-interface Item extends Asset {}
+interface Item extends Asset {
+    slot: string;
+}
 
 interface AbilityCard extends Asset {
     level: string;

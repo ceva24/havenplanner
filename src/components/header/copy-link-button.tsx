@@ -1,4 +1,4 @@
-import { ClickAwayListener, IconButton, Tooltip } from "@mui/material";
+import { Box, ClickAwayListener, IconButton, Tooltip } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { useState } from "react";
 
@@ -21,7 +21,7 @@ const CopyLinkButton = ({ shareableLink, encodeCharacterError }: CopyLinkButtonP
 
     return (
         <ClickAwayListener onClickAway={handleTooltipClose}>
-            <div>
+            <Box>
                 <Tooltip
                     disableFocusListener
                     disableTouchListener
@@ -42,7 +42,7 @@ const CopyLinkButton = ({ shareableLink, encodeCharacterError }: CopyLinkButtonP
                         <ContentCopyIcon />
                     </IconButton>
                 </Tooltip>
-            </div>
+            </Box>
         </ClickAwayListener>
     );
 };

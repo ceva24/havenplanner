@@ -1,183 +1,183 @@
 {
     "id": 5,
     "name": "Mindthief",
-    "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-mindthief.webp",
-    "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief.webp",
-    "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-mindthief-back.webp",
+    "imageUrl": "/images/character-icons/gloomhaven/gh-mindthief.webp",
+    "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-mindthief.webp",
+    "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-mindthief-back.webp",
     "abilityCards": [
         {
             "id": 146,
             "name": "Submissive Affliction",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-submissive-affliction.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-submissive-affliction.webp"
         },
         {
             "id": 147,
             "name": "Into the Night",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-into-the-night.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-into-the-night.webp"
         },
         {
             "id": 148,
             "name": "Fearsome Blade",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-fearsome-blade.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-fearsome-blade.webp"
         },
         {
             "id": 149,
             "name": "Feedback Loop",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-feedback-loop.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-feedback-loop.webp"
         },
         {
             "id": 150,
             "name": "Gnawing Horde",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-gnawing-horde.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-gnawing-horde.webp"
         },
         {
             "id": 151,
             "name": "The Mind's Weakness",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-the-minds-weakness.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-the-minds-weakness.webp"
         },
         {
             "id": 152,
             "name": "Parasitic Influence",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-parasitic-influence.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-parasitic-influence.webp"
         },
         {
             "id": 153,
             "name": "Scurry",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-scurry.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-scurry.webp"
         },
         {
             "id": 154,
             "name": "Perverse Edge",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-perverse-edge.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-perverse-edge.webp"
         },
         {
             "id": 155,
             "name": "Empathetic Assault",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-empathetic-assault.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-empathetic-assault.webp"
         },
         {
             "id": 156,
             "name": "Withering Claw",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-withering-claw.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-withering-claw.webp"
         },
         {
             "id": 157,
             "name": "Possession",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-possession.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-possession.webp"
         },
         {
             "id": 158,
             "name": "Frigid Apparition",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-frigid-apparition.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-frigid-apparition.webp"
         },
         {
             "id": 159,
             "name": "Wretched Creature",
             "level": "2",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-wretched-creature.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-wretched-creature.webp"
         },
         {
             "id": 160,
             "name": "Hostile Takeover",
             "level": "2",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-hostile-takeover.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-hostile-takeover.webp"
         },
         {
             "id": 161,
             "name": "Brain Leech",
             "level": "3",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-brain-leech.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-brain-leech.webp"
         },
         {
             "id": 162,
             "name": "Silent Scream",
             "level": "3",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-silent-scream.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-silent-scream.webp"
         },
         {
             "id": 163,
             "name": "Pilfer",
             "level": "4",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-pilfer.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-pilfer.webp"
         },
         {
             "id": 164,
             "name": "Cranium Overload",
             "level": "4",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-cranium-overload.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-cranium-overload.webp"
         },
         {
             "id": 165,
             "name": "Mass Hysteria",
             "level": "5",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-mass-hysteria.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-mass-hysteria.webp"
         },
         {
             "id": 166,
             "name": "Frozen Mind",
             "level": "5",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-frozen-mind.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-frozen-mind.webp"
         },
         {
             "id": 167,
             "name": "Corrupting Embrace",
             "level": "6",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-corrupting-embrace.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-corrupting-embrace.webp"
         },
         {
             "id": 168,
             "name": "Dark Frenzy",
             "level": "6",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-dark-frenzy.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-dark-frenzy.webp"
         },
         {
             "id": 169,
             "name": "Vicious Blood",
             "level": "7",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-vicious-blood.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-vicious-blood.webp"
         },
         {
             "id": 170,
             "name": "Psychic Projection",
             "level": "7",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-psychic-projection.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-psychic-projection.webp"
         },
         {
             "id": 171,
             "name": "Shared Nightmare",
             "level": "8",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-shared-nightmare.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-shared-nightmare.webp"
         },
         {
             "id": 172,
             "name": "Domination",
             "level": "8",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-domination.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-domination.webp"
         },
         {
             "id": 173,
             "name": "Many as One",
             "level": "9",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-many-as-one.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-many-as-one.webp"
         },
         {
             "id": 174,
             "name": "Phantasmal Killer",
             "level": "9",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/MT/gh-phantasmal-killer.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-phantasmal-killer.webp"
         }
     ]
 }

@@ -9,15 +9,15 @@ const character: Character = {
     characterClass: {
         id: 0,
         name: "Brute",
-        imageUrl: "/worldhaven/images/character-icons/gloomhaven/gh-brute.webp",
-        characterMatFrontImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.webp",
-        characterMatBackImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.webp",
+        imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
+        characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
+        characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
         abilityCards: [
             {
                 id: 1,
                 name: "Trample",
                 level: "1",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
             },
         ],
     },
@@ -92,7 +92,7 @@ describe("toggleAbilityCardUnlock", () => {
             id: 1,
             name: "Juggernaut",
             level: "2",
-            imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+            imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
         };
 
         const characterWithUnlockedCard: Character = {
@@ -103,9 +103,9 @@ describe("toggleAbilityCardUnlock", () => {
             characterClass: {
                 id: 0,
                 name: "Brute",
-                imageUrl: "/worldhaven/images/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.webp",
+                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
                 abilityCards: [abilityCard],
             },
             items: [],

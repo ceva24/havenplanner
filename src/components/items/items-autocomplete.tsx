@@ -3,6 +3,8 @@ import { Autocomplete, AutocompleteRenderInputParams, FormControl, TextField } f
 import { v4 as uuid } from "uuid";
 import { items } from "@/loaders/items";
 
+const itemOrder = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
+
 interface ItemsAutocompleteProps {
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
@@ -38,12 +40,22 @@ const addItem = (item: Item | null, character: Character, setCharacter: Dispatch
 
         const newCharacter = {
             ...character,
-            items: character.items.concat([characterItem]),
+            items: orderItems(character.items.concat([characterItem])),
         };
 
         setCharacter(newCharacter);
     }
 };
 
+const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
+    return characterItems
+        .slice()
+        .sort(
+            (a: CharacterItem, b: CharacterItem) =>
+                itemOrder.indexOf(a.item.slot) - itemOrder.indexOf(b.item.slot) ||
+                a.item.name.localeCompare(b.item.name, ["en"])
+        );
+};
+
 export default ItemsAutocomplete;
-export { addItem };
+export { addItem, orderItems };

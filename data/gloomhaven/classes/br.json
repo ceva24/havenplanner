@@ -1,183 +1,183 @@
 {
     "id": 1,
     "name": "Brute",
-    "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-brute.webp",
-    "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute.webp",
-    "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.webp",
+    "imageUrl": "/images/character-icons/gloomhaven/gh-brute.webp",
+    "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-brute.webp",
+    "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-brute-back.webp",
     "abilityCards": [
         {
             "id": 1,
             "name": "Trample",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-trample.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp"
         },
         {
             "id": 2,
             "name": "Eye for an Eye",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-eye-for-an-eye.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-eye-for-an-eye.webp"
         },
         {
             "id": 3,
             "name": "Sweeping Blow",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-sweeping-blow.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-sweeping-blow.webp"
         },
         {
             "id": 4,
             "name": "Provoking Roar",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-provoking-roar.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-provoking-roar.webp"
         },
         {
             "id": 5,
             "name": "Overwhelming Assault",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-overwhelming-assault.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-overwhelming-assault.webp"
         },
         {
             "id": 6,
             "name": "Grab and Go",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-grab-and-go.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-grab-and-go.webp"
         },
         {
             "id": 7,
             "name": "Warding Strength",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-warding-strength.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-warding-strength.webp"
         },
         {
             "id": 8,
             "name": "Shield Bash",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-shield-bash.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-shield-bash.webp"
         },
         {
             "id": 9,
             "name": "Leaping Cleave",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-leaping-cleave.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-leaping-cleave.webp"
         },
         {
             "id": 10,
             "name": "Spare Dagger",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-spare-dagger.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-spare-dagger.webp"
         },
         {
             "id": 11,
             "name": "Skewer",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp"
         },
         {
             "id": 12,
             "name": "Balanced Measure",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-balanced-measure.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-balanced-measure.webp"
         },
         {
             "id": 13,
             "name": "Wall of Doom",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-wall-of-doom.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-wall-of-doom.webp"
         },
         {
             "id": 14,
             "name": "Fatal Advance",
             "level": "2",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp"
         },
         {
             "id": 15,
             "name": "Juggernaut",
             "level": "2",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp"
         },
         {
             "id": 16,
             "name": "Hook and Chain",
             "level": "3",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp"
         },
         {
             "id": 17,
             "name": "Brute Force",
             "level": "3",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp"
         },
         {
             "id": 18,
             "name": "Unstoppable Charge",
             "level": "4",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-unstoppable-charge.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-unstoppable-charge.webp"
         },
         {
             "id": 19,
             "name": "Devastating Hack",
             "level": "4",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-devastating-hack.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-devastating-hack.webp"
         },
         {
             "id": 20,
             "name": "Whirlwind",
             "level": "5",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-whirlwind.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-whirlwind.webp"
         },
         {
             "id": 21,
             "name": "Skirmishing Maneuver",
             "level": "5",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-skirmishing-maneuver.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-skirmishing-maneuver.webp"
         },
         {
             "id": 22,
             "name": "Quietus",
             "level": "6",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp"
         },
         {
             "id": 23,
             "name": "Immovable Phalanx",
             "level": "6",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-immovable-phalanx.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-immovable-phalanx.webp"
         },
         {
             "id": 24,
             "name": "Defensive Tactics",
             "level": "7",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-defensive-tactics.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-defensive-tactics.webp"
         },
         {
             "id": 25,
             "name": "Crippling Offensive",
             "level": "7",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp"
         },
         {
             "id": 26,
             "name": "Frenzied Onslaught",
             "level": "8",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-frenzied-onslaught.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-frenzied-onslaught.webp"
         },
         {
             "id": 27,
             "name": "Selfish Retribution",
             "level": "8",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-selfish-retribution.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-selfish-retribution.webp"
         },
         {
             "id": 28,
             "name": "King of the Hill",
             "level": "9",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-king-of-the-hill.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-king-of-the-hill.webp"
         },
         {
             "id": 29,
             "name": "Face Your End",
             "level": "9",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-face-your-end.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-face-your-end.webp"
         }
     ]
 }

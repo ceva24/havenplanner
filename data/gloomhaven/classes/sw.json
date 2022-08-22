@@ -1,171 +1,171 @@
 {
     "id": 3,
     "name": "Spellweaver",
-    "imageUrl": "/worldhaven/images/character-icons/gloomhaven/gh-spellweaver.webp",
-    "characterMatFrontImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver.webp",
-    "characterMatBackImageUrl": "/worldhaven/images/character-mats/gloomhaven/gh-spellweaver-back.webp",
+    "imageUrl": "/images/character-icons/gloomhaven/gh-spellweaver.webp",
+    "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-spellweaver.webp",
+    "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-spellweaver-back.webp",
     "abilityCards": [
         {
             "id": 61,
             "name": "Fire Orbs",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-fire-orbs.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-fire-orbs.webp"
         },
         {
             "id": 62,
             "name": "Impaling Eruption",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-impaling-eruption.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-impaling-eruption.webp"
         },
         {
             "id": 63,
             "name": "Reviving Ether",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-reviving-ether.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-reviving-ether.webp"
         },
         {
             "id": 64,
             "name": "Freezing Nova",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-freezing-nova.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-freezing-nova.webp"
         },
         {
             "id": 65,
             "name": "Mana Bolt",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-mana-bolt.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-mana-bolt.webp"
         },
         {
             "id": 66,
             "name": "Frost Armor",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-frost-armor.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-frost-armor.webp"
         },
         {
             "id": 67,
             "name": "Flame Strike",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-flame-strike.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-flame-strike.webp"
         },
         {
             "id": 68,
             "name": "Ride the Wind",
             "level": "1",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-ride-the-wind.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-ride-the-wind.webp"
         },
         {
             "id": 69,
             "name": "Crackling Air",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-crackling-air.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-crackling-air.webp"
         },
         {
             "id": 70,
             "name": "Hardened Spikes",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-hardened-spikes.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-hardened-spikes.webp"
         },
         {
             "id": 71,
             "name": "Aid From the Ether",
             "level": "X",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-aid-from-the-ether.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-aid-from-the-ether.webp"
         },
         {
             "id": 72,
             "name": "Flashing Burst",
             "level": "2",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-flashing-burst.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-flashing-burst.webp"
         },
         {
             "id": 73,
             "name": "Icy Blast",
             "level": "2",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-icy-blast.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-icy-blast.webp"
         },
         {
             "id": 74,
             "name": "Cold Fire",
             "level": "3",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-cold-fire.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-cold-fire.webp"
         },
         {
             "id": 75,
             "name": "Elemental Aid",
             "level": "3",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-elemental-aid.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-elemental-aid.webp"
         },
         {
             "id": 76,
             "name": "Spirit of Doom",
             "level": "4",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-spirit-of-doom.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-spirit-of-doom.webp"
         },
         {
             "id": 77,
             "name": "Forked Beam",
             "level": "4",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-forked-beam.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-forked-beam.webp"
         },
         {
             "id": 78,
             "name": "Chromatic Explosion",
             "level": "5",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-chromatic-explosion.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-chromatic-explosion.webp"
         },
         {
             "id": 79,
             "name": "Engulfed in Flames",
             "level": "5",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-engulfed-in-flames.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-engulfed-in-flames.webp"
         },
         {
             "id": 80,
             "name": "Burning Avatar",
             "level": "6",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-living-torch.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-living-torch.webp"
         },
         {
             "id": 81,
             "name": "Frozen Night",
             "level": "6",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-frozen-night.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-frozen-night.webp"
         },
         {
             "id": 82,
             "name": "Twin Restoration",
             "level": "7",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-twin-restoration.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-twin-restoration.webp"
         },
         {
             "id": 83,
             "name": "Stone Fists",
             "level": "7",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-stone-fists.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-stone-fists.webp"
         },
         {
             "id": 84,
             "name": "Zephyr Wings",
             "level": "8",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-zephyr-wings.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-zephyr-wings.webp"
         },
         {
             "id": 85,
             "name": "Cold Front",
             "level": "8",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-cold-front.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-cold-front.webp"
         },
         {
             "id": 86,
             "name": "Black Hole",
             "level": "9",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-black-hole.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-black-hole.webp"
         },
         {
             "id": 87,
             "name": "Inferno",
             "level": "9",
-            "imageUrl": "/worldhaven/images/character-ability-cards/gloomhaven/SW/gh-inferno.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-inferno.webp"
         }
     ]
 }

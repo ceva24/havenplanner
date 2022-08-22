@@ -20,7 +20,6 @@ const ItemGrid = ({ character, setCharacter }: ItemGridProps) => {
                     character={character}
                     setCharacter={setCharacter}
                     characterItem={characterItem}
-                    index={index}
                 />
             ))}
         </Box>

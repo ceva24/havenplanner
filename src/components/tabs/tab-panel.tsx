@@ -11,9 +11,9 @@ interface TabPanelProps {
 
 const TabPanel = ({ children, index, currentTabIndex, id, ariaLabelledBy }: TabPanelProps) => {
     return (
-        <div role="tabpanel" id={id} aria-labelledby={ariaLabelledBy} hidden={currentTabIndex !== index}>
+        <Box role="tabpanel" id={id} aria-labelledby={ariaLabelledBy} hidden={currentTabIndex !== index}>
             {currentTabIndex === index && <Box sx={{ padding: 5 }}>{children}</Box>}
-        </div>
+        </Box>
     );
 };
 

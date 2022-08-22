@@ -40,10 +40,10 @@ Cypress.Commands.add("findShareLinkTextBox", () => {
     cy.findShareLinkDialog().findByRole("textbox", { name: "Link" });
 });
 
-Cypress.Commands.add("selectClass", (characterClassName) => {
+Cypress.Commands.add("selectClass", (name) => {
     cy.findSelectClassButton().click();
 
-    cy.findByRole("listbox", { name: "Class" }).findByRole("option", { name: characterClassName }).click();
+    cy.findByRole("listbox", { name: "Class" }).findByRole("option", { name }).click();
 });
 
 Cypress.Commands.add("findPersonalQuestSwitch", () => {
@@ -54,8 +54,8 @@ Cypress.Commands.add("findDefaultPersonalQuestImage", () => {
     cy.findByRole("img", { name: "Personal quest" });
 });
 
-Cypress.Commands.add("findPersonalQuestImage", (personalQuestName: string) => {
-    cy.findByRole("img", { name: `Personal quest ${personalQuestName}` });
+Cypress.Commands.add("findPersonalQuestImage", (name: string) => {
+    cy.findByRole("img", { name: `Personal quest ${name}` });
 });
 
 Cypress.Commands.add("findPersonalQuestAutocomplete", () => {
@@ -76,4 +76,9 @@ Cypress.Commands.add("shouldFindDisabledAbilityCard", (name: string) => {
 
 Cypress.Commands.add("findItemsAutocomplete", () => {
     cy.findByRole("combobox", { name: "Add item" });
+});
+
+Cypress.Commands.add("addItem", (name: string) => {
+    cy.findItemsAutocomplete().click();
+    cy.findByRole("option", { name }).click();
 });
