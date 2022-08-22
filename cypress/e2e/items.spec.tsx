@@ -36,9 +36,41 @@ describe("items tab", () => {
         cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
         cy.findByRole("img", { name: "Minor Healing Potion" }).should("be.visible");
 
-        cy.findByRole("button", { name: "Delete item 1 - Boots of Striding" }).click();
+        cy.findByRole("button", { name: "Delete Boots of Striding" }).click();
 
         cy.findByRole("img", { name: "Boots of Striding" }).should("not.exist");
         cy.findByRole("img", { name: "Minor Healing Potion" }).should("be.visible");
+    });
+
+    it("allows items to be deleted by pressing space", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findItemsAutocomplete().click();
+
+        cy.findByRole("option", { name: "Boots of Striding" }).click();
+
+        cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
+
+        cy.findByRole("button", { name: "Delete Boots of Striding" }).focus().type(" ");
+
+        cy.findByRole("img", { name: "Boots of Striding" }).should("not.exist");
+    });
+
+    it("allows items to be deleted by pressing enter", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findItemsAutocomplete().click();
+
+        cy.findByRole("option", { name: "Boots of Striding" }).click();
+
+        cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
+
+        cy.findByRole("button", { name: "Delete Boots of Striding" }).focus().type("{enter}");
+
+        cy.findByRole("img", { name: "Boots of Striding" }).should("not.exist");
     });
 });

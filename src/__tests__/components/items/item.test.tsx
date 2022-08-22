@@ -24,7 +24,7 @@ beforeEach(() => {
 
 describe("item", () => {
     it("renders the item image", () => {
-        render(<Item character={character} setCharacter={setCharacter} characterItem={character.items[0]} index={0} />);
+        render(<Item character={character} setCharacter={setCharacter} characterItem={character.items[0]} />);
 
         const itemImage = screen.queryByRole("img", { name: character.items[0].item.name });
 
@@ -32,9 +32,9 @@ describe("item", () => {
     });
 
     it("renders the item delete button with the appropriate label", () => {
-        render(<Item character={character} setCharacter={setCharacter} characterItem={character.items[0]} index={0} />);
+        render(<Item character={character} setCharacter={setCharacter} characterItem={character.items[0]} />);
 
-        const deleteButton = screen.queryByRole("button", { name: "Delete item 1 - Piercing Bow" });
+        const deleteButton = screen.queryByRole("button", { name: "Delete Piercing Bow" });
 
         expect(deleteButton).toBeVisible();
     });

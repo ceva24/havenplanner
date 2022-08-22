@@ -1,31 +1,40 @@
-import { Box, IconButton } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, KeyboardEvent } from "react";
+import { Box } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/HighlightOffTwoTone";
 import { SmallCard } from "@/components/core/cards";
 
 interface ItemProps {
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
     characterItem: CharacterItem;
-    index: number;
 }
 
-const Item = ({ character, setCharacter, characterItem, index }: ItemProps) => {
+const Item = ({ character, setCharacter, characterItem }: ItemProps) => {
     const onClick = () => {
         removeItem(character, setCharacter, characterItem);
     };
 
+    const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+        if (["Space", "Enter"].includes(event.code)) {
+            event.preventDefault();
+            removeItem(character, setCharacter, characterItem);
+        }
+    };
+
     return (
         <Box sx={{ margin: 1 }}>
-            <SmallCard src={characterItem.item.imageUrl} altText={characterItem.item.name} />
-            <Box>
-                <IconButton
-                    aria-label={`Delete item ${index + 1} - ${characterItem.item.name}`}
-                    sx={{ color: "secondary.main" }}
+            <Box sx={{ margin: 1, position: "relative" }}>
+                <SmallCard src={characterItem.item.imageUrl} altText={characterItem.item.name} />
+                <Box
+                    role="button"
+                    aria-label={`Delete ${characterItem.item.name}`}
+                    tabIndex={0}
+                    sx={{ position: "absolute", top: 3, right: 1, cursor: "pointer" }}
                     onClick={onClick}
+                    onKeyDown={onKeyDown}
                 >
                     <DeleteIcon />
-                </IconButton>
+                </Box>
             </Box>
         </Box>
     );
