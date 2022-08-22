@@ -59,4 +59,22 @@ describe("items tab", () => {
 
         cy.findByRole("img", { name: "Boots of Striding" }).should("not.exist");
     });
+
+    it("orders items by slot and then name", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.addItem("Boots of Striding");
+        cy.addItem("Minor Power Potion");
+        cy.addItem("Piercing Bow");
+        cy.addItem("Minor Healing Potion");
+
+        cy.findAllByRole("img").then((items) => {
+            cy.wrap(items[0]).should("have.property", "alt", "Piercing Bow");
+            cy.wrap(items[1]).should("have.property", "alt", "Boots of Striding");
+            cy.wrap(items[2]).should("have.property", "alt", "Minor Healing Potion");
+            cy.wrap(items[3]).should("have.property", "alt", "Minor Power Potion");
+        });
+    });
 });
