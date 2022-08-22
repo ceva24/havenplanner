@@ -3,84 +3,84 @@
         "id": 1,
         "name": "Boots of Striding",
         "slot": "Legs",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-001-boots-of-striding.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-001-boots-of-striding.webp"
     },
     {
         "id": 2,
         "name": "Winged Shoes",
         "slot": "Legs",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-002-winged-shoes.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-002-winged-shoes.webp"
     },
     {
         "id": 3,
         "name": "Hide Armor",
         "slot": "Chest",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-003-hide-armor.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-003-hide-armor.webp"
     },
     {
         "id": 4,
         "name": "Leather Armor",
         "slot": "Chest",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-004-leather-armor.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-004-leather-armor.webp"
     },
     {
         "id": 5,
         "name": "Cloak of Invisibility",
         "slot": "Chest",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-005-cloak-of-invisibility.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-005-cloak-of-invisibility.webp"
     },
     {
         "id": 6,
         "name": "Eagle Eye Goggles",
         "slot": "Head",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-006-eagle-eye-goggles.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-006-eagle-eye-goggles.webp"
     },
     {
         "id": 7,
         "name": "Iron Helmet",
         "slot": "Head",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-007-iron-helmet.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-007-iron-helmet.webp"
     },
     {
         "id": 8,
         "name": "Heater Shield",
         "slot": "One Hand",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-008-heater-shield.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-008-heater-shield.webp"
     },
     {
         "id": 9,
         "name": "Piercing Bow",
         "slot": "Two Hand",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-009-piercing-bow.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-009-piercing-bow.webp"
     },
     {
         "id": 10,
         "name": "War Hammer",
         "slot": "Two Hand",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-010-war-hammer.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-010-war-hammer.webp"
     },
     {
         "id": 11,
         "name": "Poison Dagger",
         "slot": "One Hand",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-011-poison-dagger.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-011-poison-dagger.webp"
     },
     {
         "id": 12,
         "name": "Minor Healing Potion",
         "slot": "Bag",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-012-minor-healing-potion.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-012-minor-healing-potion.webp"
     },
     {
         "id": 13,
         "name": "Minor Stamina Potion",
         "slot": "Bag",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-013-minor-stamina-potion.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-013-minor-stamina-potion.webp"
     },
     {
         "id": 14,
         "name": "Minor Power Potion",
         "slot": "Bag",
-        "imageUrl": "/worldhaven/images/items/gloomhaven/1-14/gh-014-minor-power-potion.webp"
+        "imageUrl": "/images/items/gloomhaven/1-14/gh-014-minor-power-potion.webp"
     }
 ]

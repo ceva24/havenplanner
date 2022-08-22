@@ -5,7 +5,7 @@ const abilityCard = {
     id: 1,
     name: "Trample",
     level: "2",
-    imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+    imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
 };
 
 describe("disabled ability card", () => {

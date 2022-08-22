@@ -1,5 +1,7 @@
 import { characterClasses } from "@/loaders/class";
 
+const baseImageUrl = "https://images.ghplanner.app";
+
 const defaultCharacter: Character = {
     name: "",
     experience: 0,
@@ -10,4 +12,4 @@ const defaultCharacter: Character = {
     unlockedAbilityCards: [],
 };
 
-export { defaultCharacter };
+export { baseImageUrl, defaultCharacter };

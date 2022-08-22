@@ -34,7 +34,7 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 id: 14,
                 name: "Fatal Advance",
                 level: "2",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
             },
         ];
 
@@ -49,7 +49,7 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 id: 14,
                 name: "Fatal Advance",
                 level: "2",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
             },
         ];
 
@@ -64,13 +64,13 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 id: 14,
                 name: "Fatal Advance",
                 level: "2",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
             },
         ];
 
@@ -86,13 +86,13 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 id: 14,
                 name: "Fatal Advance",
                 level: "2",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
             },
         ];
 
@@ -107,13 +107,13 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 id: 17,
                 name: "Brute Force",
                 level: "3",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp",
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
             },
         ];
 
@@ -129,19 +129,19 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 id: 14,
                 name: "Fatal Advance",
                 level: "2",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
             },
             {
                 id: 15,
                 name: "Juggernaut",
                 level: "2",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
             },
         ];
 
@@ -158,37 +158,37 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 id: 25,
                 name: "Crippling Offensive",
                 level: "7",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp",
             },
             {
                 id: 17,
                 name: "Brute Force",
                 level: "3",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp",
             },
             {
                 id: 22,
                 name: "Quietus",
                 level: "6",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp",
             },
             {
                 id: 15,
                 name: "Juggernaut",
                 level: "2",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
             },
             {
                 id: 14,
                 name: "Fatal Advance",
                 level: "2",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
             },
         ];
 

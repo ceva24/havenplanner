@@ -9,9 +9,9 @@ const character: Character = {
     characterClass: {
         id: 0,
         name: "Brute",
-        imageUrl: "/worldhaven/images/character-icons/gloomhaven/gh-brute.webp",
-        characterMatFrontImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute.webp",
-        characterMatBackImageUrl: "/worldhaven/images/character-mats/gloomhaven/gh-brute-back.webp",
+        imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
+        characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
+        characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
         abilityCards: [],
     },
     items: [],
@@ -27,7 +27,7 @@ describe("ability card group", () => {
                 id: 1,
                 name: "Trample",
                 level: "1",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
             },
         ];
 
@@ -68,13 +68,13 @@ describe("ability card group", () => {
                 id: 1,
                 name: "Trample",
                 level: "1",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
             },
             {
                 id: 2,
                 name: "Eye for an Eye",
                 level: "1",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-eye-for-an-eye.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-eye-for-an-eye.webp",
             },
         ];
 
@@ -101,7 +101,7 @@ describe("ability card group", () => {
                 id: 14,
                 name: "Fatal Advance",
                 level: "2",
-                imageUrl: "/worldhaven/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
             },
         ];
 

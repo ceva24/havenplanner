@@ -49,7 +49,7 @@ Enforces conventional commits via [commitlint](https://github.com/conventional-c
 
 ### Image hosting
 
-Uses [ceva24/worldhaven](https://github.com/ceva24/worldhaven/tree/web-quality) as a CDN for images, hosted at [ceva24.github.io/worldhaven](https://ceva24.github.io/worldhaven).
+Uses [ceva24](https://github.com/ceva24/tree/web-quality) as a CDN for images, hosted at [ceva24.github.io](https://ceva24.github.io).
 
 ### Accessibility
 
@@ -67,6 +67,6 @@ Continuously deployed to production using [Vercel](https://vercel.com) 🚀
 
 ## 📌 Notices
 
-With thanks to the [Worldhaven](https://github.com/any2cards/worldhaven) project, which makes this tool possible!
+With thanks to the [Worldhaven](https://github.com/any2cards) project, which makes this tool possible!
 
 Gloomhaven and all related properties, images and text are owned by [Cephalofair Games](https://cephalofair.com).
