@@ -22,19 +22,17 @@ const Item = ({ character, setCharacter, characterItem }: ItemProps) => {
     };
 
     return (
-        <Box sx={{ margin: 1 }}>
-            <Box sx={{ margin: 1, position: "relative" }}>
-                <SmallCard src={characterItem.item.imageUrl} altText={characterItem.item.name} />
-                <Box
-                    role="button"
-                    aria-label={`Delete ${characterItem.item.name}`}
-                    tabIndex={0}
-                    sx={{ position: "absolute", top: 3, right: 1, cursor: "pointer" }}
-                    onClick={onClick}
-                    onKeyDown={onKeyDown}
-                >
-                    <DeleteIcon />
-                </Box>
+        <Box sx={{ margin: 1, position: "relative" }}>
+            <SmallCard src={characterItem.item.imageUrl} altText={characterItem.item.name} />
+            <Box
+                role="button"
+                aria-label={`Delete ${characterItem.item.name}`}
+                tabIndex={0}
+                sx={{ position: "absolute", top: 3, right: 1, cursor: "pointer" }}
+                onClick={onClick}
+                onKeyDown={onKeyDown}
+            >
+                <DeleteIcon />
             </Box>
         </Box>
     );
