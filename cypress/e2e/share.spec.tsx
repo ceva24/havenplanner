@@ -86,13 +86,8 @@ describe("share link", () => {
 
         cy.selectTab("Items");
 
-        cy.findItemsAutocomplete().click();
-
-        cy.findByRole("option", { name: "Piercing Bow" }).click();
-
-        cy.findItemsAutocomplete().click();
-
-        cy.findByRole("option", { name: "Eagle Eye Goggles" }).click();
+        cy.addItem("Piercing Bow");
+        cy.addItem("Eagle Eye Goggles");
 
         cy.findShareLinkButton().click();
 

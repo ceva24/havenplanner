@@ -8,13 +8,8 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.findItemsAutocomplete().click();
-
-        cy.findByRole("option", { name: "Piercing Bow" }).click();
-
-        cy.findItemsAutocomplete().click();
-
-        cy.findByRole("option", { name: "Eagle Eye Goggles" }).click();
+        cy.addItem("Piercing Bow");
+        cy.addItem("Eagle Eye Goggles");
 
         cy.findByRole("img", { name: "Piercing Bow" }).should("be.visible");
         cy.findByRole("img", { name: "Eagle Eye Goggles" }).should("be.visible");
@@ -25,13 +20,8 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.findItemsAutocomplete().click();
-
-        cy.findByRole("option", { name: "Boots of Striding" }).click();
-
-        cy.findItemsAutocomplete().click();
-
-        cy.findByRole("option", { name: "Minor Healing Potion" }).click();
+        cy.addItem("Boots of Striding");
+        cy.addItem("Minor Healing Potion");
 
         cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
         cy.findByRole("img", { name: "Minor Healing Potion" }).should("be.visible");
@@ -47,9 +37,7 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.findItemsAutocomplete().click();
-
-        cy.findByRole("option", { name: "Boots of Striding" }).click();
+        cy.addItem("Boots of Striding");
 
         cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
 
@@ -63,9 +51,7 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.findItemsAutocomplete().click();
-
-        cy.findByRole("option", { name: "Boots of Striding" }).click();
+        cy.addItem("Boots of Striding");
 
         cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
 

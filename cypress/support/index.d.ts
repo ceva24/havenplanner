@@ -20,13 +20,13 @@ declare namespace Cypress {
 
         findShareLinkTextBox(): Chainable<Element>;
 
-        selectClass(className: string): Chainable<Element>;
+        selectClass(name: string): Chainable<Element>;
 
         findPersonalQuestSwitch(): Chainable<Element>;
 
         findDefaultPersonalQuestImage(): Chainable<Element>;
 
-        findPersonalQuestImage(personalQuestName: string): Chainable<Element>;
+        findPersonalQuestImage(name: string): Chainable<Element>;
 
         findPersonalQuestAutocomplete(): Chainable<Element>;
 
@@ -37,5 +37,7 @@ declare namespace Cypress {
         shouldFindDisabledAbilityCard(name: string): Chainable<Element>;
 
         findItemsAutocomplete(): Chainable<Element>;
+
+        addItem(name: string): Chainable<Element>;
     }
 }
