@@ -20,8 +20,8 @@ A web application to create and share character builds for the popular tabletop 
 ## 🗒️ Features
 
 -   Enter character details, including personal quest with the option to toggle visibility
--   Browse and select items
 -   See all character ability cards and select unlocked ones
+-   Browse and select items
 -   Save and share characters with a shareable link
 
 ### Not yet implemented
