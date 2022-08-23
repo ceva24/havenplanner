@@ -54,19 +54,14 @@ const isTheSecondCardOfCurrentCharacterLevel = (
     character: Character,
     characterLevel: number
 ): boolean => {
-    const numericAbilityCardLevel = Number.parseInt(abilityCard.level, 10);
-
-    return (
-        numericAbilityCardLevel === characterLevel &&
-        characterHasTwoCardsUnlockedAtLevel(character.unlockedAbilityCards, abilityCard.level)
+    const unlocksAtCurrentLevel = new Set(
+        abilityCardsUnlockedAtLevel(character.unlockedAbilityCards, abilityCard.level)
     );
-};
 
-const characterHasTwoCardsUnlockedAtLevel = (
-    unlockedAbilityCards: AbilityCard[],
-    abilityCardLevel: string
-): boolean => {
-    return abilityCardsUnlockedAtLevel(unlockedAbilityCards, abilityCardLevel).length > 1;
+    const hasAlreadyUnlockedOtherCardAtThisLevel =
+        unlocksAtCurrentLevel.size > 0 && !unlocksAtCurrentLevel.has(abilityCard);
+
+    return abilityCard.level === characterLevel.toString() && hasAlreadyUnlockedOtherCardAtThisLevel;
 };
 
 const abilityCardsUnlockedAtLevel = (unlockedAbilityCards: AbilityCard[], abilityCardLevel: string) => {

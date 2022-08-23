@@ -109,16 +109,16 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
     });
 
     it("returns false when the character has unlocks remaining, is the same level as the card, and has already unlocked the other card at this level", () => {
-        const abilityCard = characterClasses[0].abilityCards[14];
+        const abilityCard = characterClasses[0].abilityCards[15];
 
         const character: Character = {
             name: "My Char",
-            experience: 50,
+            experience: 100,
             gold: 50,
             notes: "Hello haven",
             characterClass: characterClasses[0],
             items: [],
-            unlockedAbilityCards: [characterClasses[0].abilityCards[13]],
+            unlockedAbilityCards: [characterClasses[0].abilityCards[16]],
         };
 
         const result = abilityCardCanBeUnlockedForCharacter(character, abilityCard);

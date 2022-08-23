@@ -111,12 +111,12 @@ describe("ability cards tab", () => {
     it("does not allow the unlocking of an ability card of the same level as the character when the other card at that level has already been unlocked", () => {
         cy.visit("/");
 
-        cy.findExperienceField().type("50");
+        cy.findExperienceField().type("100");
 
         cy.selectTab("Ability Cards");
 
-        cy.findActiveAbilityCard("Juggernaut").click();
+        cy.findActiveAbilityCard("Brute Force").click();
 
-        cy.shouldFindDisabledAbilityCard("Fatal Advance");
+        cy.shouldFindDisabledAbilityCard("Hook and Chain");
     });
 });
