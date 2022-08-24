@@ -2,7 +2,7 @@
 import "@testing-library/cypress/add-commands";
 import "@/support/commands";
 
-describe("share link", () => {
+describe("header", () => {
     it("shows the share link button", () => {
         cy.visit("/");
 

@@ -30,19 +30,21 @@ const PersonalQuest = ({ character, setCharacter }: PersonalQuestProps) => {
 
     return (
         <FormControl>
-            <Box textAlign="center">
-                <FormControlLabel
-                    control={
-                        <Switch
-                            id="show-personal-quest-switch"
-                            name="Show personal quest"
-                            checked={appSettings.showPersonalQuest}
-                            onClick={handleChange}
-                        />
-                    }
-                    label="Show personal quest"
-                />
-            </Box>
+            {appSettings.showPersonalQuestButton && (
+                <Box textAlign="center">
+                    <FormControlLabel
+                        control={
+                            <Switch
+                                id="show-personal-quest-switch"
+                                name="Show personal quest"
+                                checked={appSettings.showPersonalQuest}
+                                onClick={handleChange}
+                            />
+                        }
+                        label="Show personal quest"
+                    />
+                </Box>
+            )}
             <Box sx={{ marginTop: 1, marginBottom: 1 }}>
                 <Card src={personalQuestImageUrl} altText={personalQuestAltText} />
             </Box>

@@ -13,7 +13,10 @@ interface AppSettingsProviderProps {
 }
 
 const AppSettingsProvider = ({ character, children }: AppSettingsProviderProps) => {
-    const [appSettings, setAppSettings] = useState<AppSettings>({ showPersonalQuest: !character.personalQuest });
+    const [appSettings, setAppSettings] = useState<AppSettings>({
+        showPersonalQuestButton: Boolean(character.personalQuest),
+        showPersonalQuest: !character.personalQuest,
+    });
 
     const appSettingsValue = useMemo(() => ({ appSettings, setAppSettings }), [appSettings, setAppSettings]);
 
