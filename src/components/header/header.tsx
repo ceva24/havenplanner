@@ -21,7 +21,14 @@ const Header = ({ character }: HeaderProps) => {
                         <Grid container>
                             <Grid item display="flex">
                                 <FormControlLabel
-                                    control={<Switch disabled id="show-spoilers-switch" name="Show spoilers" />}
+                                    control={
+                                        <Switch
+                                            disabled
+                                            id="show-spoilers-switch"
+                                            name="Show spoilers"
+                                            color="secondary"
+                                        />
+                                    }
                                     label="Show spoilers"
                                 />
                             </Grid>
