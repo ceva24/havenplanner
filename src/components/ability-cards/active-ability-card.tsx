@@ -45,7 +45,7 @@ const toggleAbilityCard = (
     abilityCard: AbilityCard
 ) => {
     const updatedCards = isUnlockedAbilityCardForCharacter(character, abilityCard)
-        ? character.unlockedAbilityCards.filter((card: AbilityCard) => card !== abilityCard)
+        ? character.unlockedAbilityCards.filter((card: AbilityCard) => card.id !== abilityCard.id)
         : character.unlockedAbilityCards.concat([abilityCard]);
 
     setCharacter({
