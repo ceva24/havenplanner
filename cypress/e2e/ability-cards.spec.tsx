@@ -119,4 +119,24 @@ describe("ability cards tab", () => {
 
         cy.shouldFindDisabledAbilityCard("Hook and Chain");
     });
+
+    it("allows ability card unlocks to be modified when loading a character", () => {
+        cy.visit("/");
+
+        cy.findExperienceField().type("50");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Juggernaut").click().should("have.attr", "aria-checked", "true");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Juggernaut").should("have.attr", "aria-checked", "true");
+
+        cy.findActiveAbilityCard("Juggernaut").click().should("have.attr", "aria-checked", "false");
+    });
 });
