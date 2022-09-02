@@ -38,7 +38,7 @@
         "@commitlint/cli": "^17.0.3",
         "@commitlint/config-conventional": "^17.0.3",
         "@lhci/cli": "^0.9.0",
-        "@percy/cli": "^1.7.2",
+        "@percy/cli": "^1.10.1",
         "@testing-library/cypress": "^8.0.3",
         "@testing-library/jest-dom": "^5.16.4",
         "@testing-library/react": "^13.3.0",
