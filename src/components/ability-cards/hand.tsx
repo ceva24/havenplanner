@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { Box } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 import { Card } from "@/components/core/cards";
 
 interface HandProps {
@@ -20,9 +21,10 @@ const Hand = ({ character, setCharacter }: HandProps) => {
                         key={abilityCard?.id ?? index}
                         role="button"
                         tabIndex={0}
-                        sx={{ opacity: 0.5, margin: 1, cursor: "pointer" }}
+                        sx={{ opacity: 0.5, margin: 1, position: "relative", cursor: "pointer" }}
                     >
-                        <Card src={character.characterClass.cardBackImageUrl} altText="Unselected card" />
+                        <Card src={character.characterClass.cardBackImageUrl} altText="Select card" />
+                        <AddIcon sx={{ position: "absolute", top: 3, right: 1 }} />
                     </Box>
                 );
             })}

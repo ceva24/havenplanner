@@ -161,6 +161,6 @@ describe("ability cards tab", () => {
 
         cy.findShowHandSwitch().click();
 
-        cy.findAllByRole("button", { name: "Unselected card" }).should("have.length", 8);
+        cy.findAllByRole("button", { name: "Select card" }).should("have.length", 8);
     });
 });

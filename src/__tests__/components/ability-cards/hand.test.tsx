@@ -26,7 +26,7 @@ describe("hand", () => {
     it("renders unselected cards equal to the character class hand size", () => {
         render(<Hand character={character} setCharacter={setCharacter} />);
 
-        const unselectedCards = screen.queryAllByRole("button", { name: "Unselected card" });
+        const unselectedCards = screen.queryAllByRole("button", { name: "Select card" });
 
         expect(unselectedCards).toHaveLength(10);
     });
