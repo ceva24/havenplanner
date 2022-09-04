@@ -1,7 +1,7 @@
 import lzbase62 from "lzbase62";
 import { encode, decode } from "@/services/encoder";
 import * as dataSerializer from "@/services/serializer";
-import { characterClasses } from "@/loaders/class";
+import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 
 const character: Character = {

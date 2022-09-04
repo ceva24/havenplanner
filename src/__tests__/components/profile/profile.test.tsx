@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Profile from "@/components/profile/profile";
-import { characterClasses } from "@/loaders/class";
+import { characterClasses } from "@/loaders/character-classes";
 import AppSettingsProvider from "@/hooks/app-settings";
 
 const character: Character = {

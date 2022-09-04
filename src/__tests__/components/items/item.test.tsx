@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Item, { removeItem } from "@/components/items/item";
-import { characterClasses } from "@/loaders/class";
+import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 
 const character: Character = {

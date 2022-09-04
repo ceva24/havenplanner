@@ -1,7 +1,7 @@
 import { serialize, deserialize } from "@/services/serializer";
-import { characterClasses } from "@/loaders/class";
+import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
-import { personalQuests } from "@/loaders/personal-quest";
+import { personalQuests } from "@/loaders/personal-quests";
 import { defaultCharacter } from "@/utils/constants";
 
 jest.mock("uuid", () => {

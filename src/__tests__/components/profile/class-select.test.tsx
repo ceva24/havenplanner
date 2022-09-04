@@ -1,7 +1,7 @@
 import { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import ClassSelect, { findAndSetCharacter } from "@/components/profile/class-select";
-import { characterClasses } from "@/loaders/class";
+import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/utils/constants";
 
 const character: Character = {

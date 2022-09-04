@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ItemGrid from "@/components/items/item-grid";
-import { characterClasses } from "@/loaders/class";
+import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 
 describe("item grid", () => {

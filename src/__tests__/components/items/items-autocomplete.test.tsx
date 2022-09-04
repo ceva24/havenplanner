@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ItemsAutocomplete, { addItem, orderItems } from "@/components/items/items-autocomplete";
-import { characterClasses } from "@/loaders/class";
+import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 
 const mockUuid = "123";

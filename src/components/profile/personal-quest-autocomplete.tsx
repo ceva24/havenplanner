@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { SetStateAction, SyntheticEvent, Dispatch } from "react";
 import { Autocomplete, AutocompleteRenderInputParams, TextField } from "@mui/material";
-import { personalQuests } from "@/loaders/personal-quest";
+import { personalQuests } from "@/loaders/personal-quests";
 
 interface PersonalQuestAutocompleteProps {
     character: Character;

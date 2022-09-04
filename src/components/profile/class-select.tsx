@@ -1,7 +1,7 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel, FormControl, Box } from "@mui/material";
 import { Dispatch, FC, SetStateAction } from "react";
 import Image from "@/components/core/image";
-import { characterClasses } from "@/loaders/class";
+import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/utils/constants";
 
 interface ClassSelectProps {

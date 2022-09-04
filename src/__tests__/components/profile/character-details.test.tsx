@@ -1,6 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import CharacterDetails from "@/components/profile/character-details";
-import { characterClasses } from "@/loaders/class";
+import { characterClasses } from "@/loaders/character-classes";
 
 const character: Character = {
     name: "My Char",

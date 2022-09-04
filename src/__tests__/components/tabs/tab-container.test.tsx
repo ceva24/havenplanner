@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import TabContainer from "@/components/tabs/tab-container";
 import AppSettingsProvider from "@/hooks/app-settings";
-import { characterClasses } from "@/loaders/class";
+import { characterClasses } from "@/loaders/character-classes";
 
 const character: Character = {
     name: "My Char",
