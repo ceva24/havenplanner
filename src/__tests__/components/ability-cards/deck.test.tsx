@@ -16,6 +16,7 @@ describe("deck", () => {
                 imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
                 characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
                 characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+                handSize: 10,
                 abilityCards: [
                     {
                         id: 1,
@@ -48,6 +49,7 @@ describe("deck", () => {
                 imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
                 characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
                 characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+                handSize: 10,
                 abilityCards: [
                     {
                         id: 1,
@@ -88,6 +90,7 @@ describe("deck", () => {
                 imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
                 characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
                 characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+                handSize: 10,
                 abilityCards: [
                     {
                         id: 1,
@@ -151,6 +154,7 @@ describe("deck", () => {
                 imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
                 characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
                 characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+                handSize: 10,
                 abilityCards: [
                     {
                         id: 1,
