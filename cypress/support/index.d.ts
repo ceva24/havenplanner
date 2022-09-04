@@ -32,6 +32,8 @@ declare namespace Cypress {
 
         selectTab(name: string): Chainable<Element>;
 
+        findShowHandSwitch(): Chainable<Element>;
+
         findActiveAbilityCard(name: string): Chainable<Element>;
 
         shouldFindDisabledAbilityCard(name: string): Chainable<Element>;

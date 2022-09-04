@@ -7,6 +7,7 @@ interface Flippy {
 interface AppSettings {
     showPersonalQuestButton: boolean;
     showPersonalQuest: boolean;
+    showHand: boolean;
 }
 
 interface Character {

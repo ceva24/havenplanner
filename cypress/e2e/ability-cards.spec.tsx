@@ -139,4 +139,16 @@ describe("ability cards tab", () => {
 
         cy.findActiveAbilityCard("Juggernaut").click().should("have.attr", "aria-checked", "false");
     });
+
+    it("retains the state of the show hand switch when changing tabs", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findShowHandSwitch().click().should("be.checked");
+
+        cy.selectTab("Profile").selectTab("Ability Cards");
+
+        cy.findShowHandSwitch().should("be.checked");
+    });
 });

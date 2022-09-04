@@ -16,6 +16,7 @@ const AppSettingsProvider = ({ character, children }: AppSettingsProviderProps) 
     const [appSettings, setAppSettings] = useState<AppSettings>({
         showPersonalQuestButton: Boolean(character.personalQuest),
         showPersonalQuest: !character.personalQuest,
+        showHand: false,
     });
 
     const appSettingsValue = useMemo(() => ({ appSettings, setAppSettings }), [appSettings, setAppSettings]);
