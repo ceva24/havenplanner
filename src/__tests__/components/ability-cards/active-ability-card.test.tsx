@@ -12,6 +12,7 @@ const character: Character = {
         imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
         characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
         characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+        cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
         handSize: 10,
         abilityCards: [
             {
@@ -107,6 +108,7 @@ describe("toggleAbilityCardUnlock", () => {
                 imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
                 characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
                 characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
                 handSize: 10,
                 abilityCards: [abilityCard],
             },

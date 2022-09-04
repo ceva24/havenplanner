@@ -4,6 +4,7 @@
     "imageUrl": "/images/character-icons/gloomhaven/gh-spellweaver.webp",
     "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-spellweaver.webp",
     "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-spellweaver-back.webp",
+    "cardBackImageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-sw-back.webp",
     "handSize": 8,
     "abilityCards": [
         {

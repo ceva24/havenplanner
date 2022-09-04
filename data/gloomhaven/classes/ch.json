@@ -4,6 +4,7 @@
     "imageUrl": "/images/character-icons/gloomhaven/gh-cragheart.webp",
     "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-cragheart.webp",
     "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-cragheart-back.webp",
+    "cardBackImageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-ch-back.webp",
     "handSize": 11,
     "abilityCards": [
         {

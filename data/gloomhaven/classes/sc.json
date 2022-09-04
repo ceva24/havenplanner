@@ -4,6 +4,7 @@
     "imageUrl": "/images/character-icons/gloomhaven/gh-scoundrel.webp",
     "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-scoundrel.webp",
     "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-scoundrel-back.webp",
+    "cardBackImageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-sc-back.webp",
     "handSize": 9,
     "abilityCards": [
         {

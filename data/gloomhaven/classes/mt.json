@@ -4,6 +4,7 @@
     "imageUrl": "/images/character-icons/gloomhaven/gh-mindthief.webp",
     "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-mindthief.webp",
     "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-mindthief-back.webp",
+    "cardBackImageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-mt-back.webp",
     "handSize": 10,
     "abilityCards": [
         {

@@ -35,6 +35,7 @@ interface Asset {
 interface CharacterClass extends Asset {
     characterMatFrontImageUrl: string;
     characterMatBackImageUrl: string;
+    cardBackImageUrl: string;
     handSize: number;
     abilityCards: AbilityCard[];
 }
