@@ -151,4 +151,16 @@ describe("ability cards tab", () => {
 
         cy.findShowHandSwitch().should("be.checked");
     });
+
+    it("renders a hand of unselected cards equal in size to the character class' hand size", () => {
+        cy.visit("/");
+
+        cy.selectClass("Spellweaver");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findShowHandSwitch().click();
+
+        cy.findAllByRole("button", { name: "Unselected card" }).should("have.length", 8);
+    });
 });
