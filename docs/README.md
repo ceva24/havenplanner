@@ -19,16 +19,16 @@ A web application to create and share character builds for the popular tabletop 
 
 ## 🗒️ Features
 
--   Enter character details, including personal quest
+-   Enter character details, including selecting a personal quest
 -   See all character ability cards and select unlocked ones
--   Create a saved hand of character ability cards
+-   Create a saved hand
 -   Browse and select items
 -   Save and share characters with a shareable link
 
 ### Not yet implemented
 
 -   Character ability card augments
--   Show selected perks and the resulting attack modifier deck composition
+-   Select perks, track battle goal progress, and see the resulting attack modifier deck composition
 -   Locked characters and items
 -   Content from Forgotten Circles, Jaws of the Lion, Crimson Scales and Frosthaven
 
