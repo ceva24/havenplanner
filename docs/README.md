@@ -37,7 +37,7 @@ Built with [TypeScript](https://www.typescriptlang.org), [Next.js](https://nextj
 
 ### Prerequisites
 
-1. The version of Node.js listed in [`.nvmrc`](.nvmrc)
+1. The version of Node.js listed in [`.nvmrc`](../.nvmrc)
 
 2. A Google Chrome installation, to run Lighthouse locally
 
