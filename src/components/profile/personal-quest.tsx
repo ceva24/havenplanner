@@ -37,7 +37,6 @@ const PersonalQuest = ({ character, setCharacter }: PersonalQuestProps) => {
                             <Switch
                                 id="show-personal-quest-switch"
                                 name="Show personal quest"
-                                color="secondary"
                                 checked={appSettings.showPersonalQuest}
                                 onClick={handleChange}
                             />

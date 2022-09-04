@@ -19,7 +19,7 @@ const AbilityCards = ({ character, setCharacter }: AbilityCardsProps) => {
         <Box>
             <Stack direction="row" justifyContent="center" spacing={1} paddingBottom={3}>
                 <Typography>Deck</Typography>
-                <Switch color="secondary" inputProps={{ "aria-label": "Show hand" }} onChange={handleChange} />
+                <Switch inputProps={{ "aria-label": "Show hand" }} onChange={handleChange} />
                 <Typography>Hand</Typography>
             </Stack>
             {showHand ? (

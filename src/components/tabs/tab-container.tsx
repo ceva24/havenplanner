@@ -19,14 +19,7 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
 
     return (
         <>
-            <Tabs
-                centered
-                value={currentTabIndex}
-                variant="fullWidth"
-                textColor="secondary"
-                indicatorColor="secondary"
-                onChange={handleChange}
-            >
+            <Tabs centered value={currentTabIndex} variant="fullWidth" onChange={handleChange}>
                 <Tab
                     disableRipple
                     label="Profile"
