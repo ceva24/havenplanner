@@ -19,8 +19,9 @@ A web application to create and share character builds for the popular tabletop 
 
 ## 🗒️ Features
 
--   Enter character details, including personal quest with the option to toggle visibility
+-   Enter character details, including personal quest
 -   See all character ability cards and select unlocked ones
+-   Create a saved hand of character ability cards
 -   Browse and select items
 -   Save and share characters with a shareable link
 
