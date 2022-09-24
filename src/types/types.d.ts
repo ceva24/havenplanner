@@ -1,9 +1,3 @@
-declare module "react-flippy";
-
-interface Flippy {
-    toggle: () => void;
-}
-
 interface AppSettings {
     showPersonalQuestButton: boolean;
     showPersonalQuest: boolean;
