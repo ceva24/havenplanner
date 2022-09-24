@@ -1,35 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import Deck from "@/components/ability-cards/deck";
+import { createTestCharacter } from "@/testutils";
 
 const setCharacter = jest.fn();
 
 describe("deck", () => {
     it("renders cards of a level", () => {
-        const character: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "Hello haven",
-            characterClass: {
-                id: 0,
-                name: "Brute",
-                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-                handSize: 10,
-                abilityCards: [
-                    {
-                        id: 1,
-                        name: "Trample",
-                        level: "1",
-                        imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
-                    },
-                ],
-            },
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        const character: Character = createTestCharacter();
 
         render(<Deck character={character} setCharacter={setCharacter} />);
 
@@ -39,11 +16,7 @@ describe("deck", () => {
     });
 
     it("renders cards of multiple levels", () => {
-        const character: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: {
                 id: 0,
                 name: "Brute",
@@ -67,9 +40,7 @@ describe("deck", () => {
                     },
                 ],
             },
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         render(<Deck character={character} setCharacter={setCharacter} />);
 
@@ -81,11 +52,7 @@ describe("deck", () => {
     });
 
     it("renders level X cards in the right order", () => {
-        const character: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: {
                 id: 0,
                 name: "Brute",
@@ -115,9 +82,7 @@ describe("deck", () => {
                     },
                 ],
             },
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         const { asFragment } = render(<Deck character={character} setCharacter={setCharacter} />);
 
@@ -146,11 +111,8 @@ describe("deck", () => {
         ${"8"} | ${"checkbox"}
         ${"9"} | ${"checkbox"}
     `("renders level $level cards as role $role", ({ level, role }: LevelRoleProps) => {
-        const character: Character = {
-            name: "My Char",
+        const character: Character = createTestCharacter({
             experience: 500,
-            gold: 50,
-            notes: "Hello haven",
             characterClass: {
                 id: 0,
                 name: "Brute",
@@ -168,9 +130,7 @@ describe("deck", () => {
                     },
                 ],
             },
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         render(<Deck character={character} setCharacter={setCharacter} />);
 

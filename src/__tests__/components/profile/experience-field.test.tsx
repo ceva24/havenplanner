@@ -1,16 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import ExperienceField, { filterInvalidUnlockedAbilityCardsOnLevelChange } from "@/components/profile/experience-field";
-import { characterClasses } from "@/loaders/character-classes";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "My Char",
-    experience: 25,
-    gold: 50,
-    notes: "Hello haven",
-    characterClass: characterClasses[0],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter({ experience: 25 });
 
 const setCharacter = jest.fn();
 

@@ -12,7 +12,8 @@
             "@/styles/*": ["src/styles/*"],
             "@/types/*": ["src/types/*"],
             "@/utils/*": ["src/utils/*"],
-            "@/data/*": ["data/*"]
+            "@/data/*": ["data/*"],
+            "@/testutils": ["src/__tests__/utils"]
         }
     },
     "include": ["src/**/*", "next-env.d.ts", "**/*.ts", "**/*.tsx"],

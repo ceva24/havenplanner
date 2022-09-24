@@ -1,31 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import ActiveAbilityCard, { toggleAbilityCard } from "@/components/ability-cards/active-ability-card";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "My Char",
-    experience: 25,
-    gold: 50,
-    notes: "Hello haven",
-    characterClass: {
-        id: 0,
-        name: "Brute",
-        imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
-        characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
-        characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
-        cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-        handSize: 10,
-        abilityCards: [
-            {
-                id: 1,
-                name: "Trample",
-                level: "1",
-                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
-            },
-        ],
-    },
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter();
 
 const setCharacter = jest.fn();
 
@@ -97,11 +74,7 @@ describe("toggleAbilityCardUnlock", () => {
             imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
         };
 
-        const characterWithUnlockedCard: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "Hello haven",
+        const characterWithUnlockedCard: Character = createTestCharacter({
             characterClass: {
                 id: 0,
                 name: "Brute",
@@ -112,9 +85,8 @@ describe("toggleAbilityCardUnlock", () => {
                 handSize: 10,
                 abilityCards: [abilityCard],
             },
-            items: [],
             unlockedAbilityCards: [abilityCard],
-        };
+        });
 
         toggleAbilityCard(
             characterWithUnlockedCard,

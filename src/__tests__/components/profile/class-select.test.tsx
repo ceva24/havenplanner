@@ -3,16 +3,9 @@ import { render, screen } from "@testing-library/react";
 import ClassSelect, { findAndSetCharacter } from "@/components/profile/class-select";
 import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/utils/constants";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "Test",
-    experience: 45,
-    gold: 25,
-    notes: "Hello",
-    characterClass: characterClasses[1],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter();
 
 const setCharacter = jest.fn();
 
@@ -72,15 +65,8 @@ describe("findAndSetCharacter", () => {
     });
 
     it("clears any existing unlocked ability cards", () => {
-        const character: Character = {
-            name: "Test",
-            experience: 45,
-            gold: 25,
-            notes: "Hello",
-            characterClass: characterClasses[1],
-            items: [],
-            unlockedAbilityCards: [characterClasses[1].abilityCards[0]],
-        };
+        const character: Character = createTestCharacter();
+        character.unlockedAbilityCards = [character.characterClass.abilityCards[0]];
 
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = {

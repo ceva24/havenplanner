@@ -5,6 +5,7 @@ import {
     isUnlockedAbilityCardForCharacter,
 } from "@/services/character";
 import { characterClasses } from "@/loaders/character-classes";
+import { createTestCharacter } from "@/testutils";
 
 describe("calculateLevel", () => {
     interface ExperienceLevelProps {
@@ -40,33 +41,18 @@ describe("calculateLevel", () => {
 
 describe("isUnlockedAbilityCardForCharacter", () => {
     it("returns true when the character's unlocked ability cards includes this card", () => {
-        const character: Character = {
-            name: "My Char",
-            experience: 500,
-            gold: 50,
-            notes: "Hello haven",
-            characterClass: characterClasses[0],
-            items: [],
-            unlockedAbilityCards: [characterClasses[0].abilityCards[0]],
-        };
+        const character: Character = createTestCharacter();
+        character.unlockedAbilityCards = [character.characterClass.abilityCards[0]];
 
-        const result = isUnlockedAbilityCardForCharacter(character, characterClasses[0].abilityCards[0]);
+        const result = isUnlockedAbilityCardForCharacter(character, character.characterClass.abilityCards[0]);
 
         expect(result).toEqual(true);
     });
 
     it("returns false when the character's unlocked ability cards does not include this card", () => {
-        const character: Character = {
-            name: "My Char",
-            experience: 500,
-            gold: 50,
-            notes: "Hello haven",
-            characterClass: characterClasses[0],
-            items: [],
-            unlockedAbilityCards: [characterClasses[0].abilityCards[1]],
-        };
+        const character: Character = createTestCharacter();
 
-        const result = isUnlockedAbilityCardForCharacter(character, characterClasses[0].abilityCards[0]);
+        const result = isUnlockedAbilityCardForCharacter(character, character.characterClass.abilityCards[0]);
 
         expect(result).toEqual(false);
     });
@@ -76,15 +62,9 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
     it("returns true when the character has unlocks remaining, is the same level as the card, and has not already unlocked the other card at this level", () => {
         const abilityCard = characterClasses[0].abilityCards[14];
 
-        const character: Character = {
-            name: "My Char",
-            experience: 55,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: characterClasses[0],
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         const result = abilityCardCanBeUnlockedForCharacter(character, abilityCard);
 
@@ -94,15 +74,10 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
     it("returns true when the character has unlocks remaining, is a higher level than the card, and has already unlocked the other card at this level", () => {
         const abilityCard = characterClasses[0].abilityCards[14];
 
-        const character: Character = {
-            name: "My Char",
-            experience: 500,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: characterClasses[0],
-            items: [],
             unlockedAbilityCards: [characterClasses[0].abilityCards[13]],
-        };
+        });
 
         const result = abilityCardCanBeUnlockedForCharacter(character, abilityCard);
 
@@ -112,15 +87,10 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
     it("returns false when the character has unlocks remaining, is the same level as the card, and has already unlocked the other card at this level", () => {
         const abilityCard = characterClasses[0].abilityCards[15];
 
-        const character: Character = {
-            name: "My Char",
-            experience: 100,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: characterClasses[0],
-            items: [],
             unlockedAbilityCards: [characterClasses[0].abilityCards[16]],
-        };
+        });
 
         const result = abilityCardCanBeUnlockedForCharacter(character, abilityCard);
 
@@ -130,15 +100,9 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
     it("returns false when the character has unlocks remaining but the card is of a higher level", () => {
         const abilityCard = characterClasses[0].abilityCards[14];
 
-        const character: Character = {
-            name: "My Char",
-            experience: 45,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: characterClasses[0],
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         const result = abilityCardCanBeUnlockedForCharacter(character, abilityCard);
 
@@ -148,15 +112,10 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
     it("returns false when the character has no unlocks remaining", () => {
         const abilityCard = characterClasses[0].abilityCards[14];
 
-        const character: Character = {
-            name: "My Char",
-            experience: 100,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: characterClasses[0],
-            items: [],
             unlockedAbilityCards: [characterClasses[0].abilityCards[13], characterClasses[0].abilityCards[15]],
-        };
+        });
 
         const result = abilityCardCanBeUnlockedForCharacter(character, abilityCard);
 
@@ -166,15 +125,9 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
     it("returns false if the card level is non-numeric", () => {
         const abilityCard = characterClasses[0].abilityCards[12];
 
-        const character: Character = {
-            name: "My Char",
-            experience: 55,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: characterClasses[0],
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         const result = abilityCardCanBeUnlockedForCharacter(character, abilityCard);
 
@@ -184,11 +137,7 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
 
 describe("getAllAvailableAbilityCardsForCharacter", () => {
     it("includes level 1 cards", () => {
-        const character: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: {
                 id: 0,
                 name: "Brute",
@@ -206,9 +155,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
                     },
                 ],
             },
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
 
@@ -216,11 +163,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
     });
 
     it("includes level X cards", () => {
-        const character: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: {
                 id: 0,
                 name: "Brute",
@@ -238,9 +181,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
                     },
                 ],
             },
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
 
@@ -248,11 +189,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
     });
 
     it("includes all unlocked ability cards", () => {
-        const character: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: {
                 id: 0,
                 name: "Brute",
@@ -270,7 +207,6 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
                     },
                 ],
             },
-            items: [],
             unlockedAbilityCards: [
                 {
                     id: 14,
@@ -279,7 +215,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
                     imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
                 },
             ],
-        };
+        });
 
         const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
 
@@ -287,11 +223,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
     });
 
     it("excludes locked cards level 2 and above", () => {
-        const character: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: {
                 id: 0,
                 name: "Brute",
@@ -309,9 +241,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
                     },
                 ],
             },
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
 
@@ -319,15 +249,10 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
     });
 
     it("sorts cards by id", () => {
-        const character: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "Hello haven",
+        const character: Character = createTestCharacter({
             characterClass: characterClasses[0],
-            items: [],
             unlockedAbilityCards: [characterClasses[0].abilityCards[15], characterClasses[0].abilityCards[13]],
-        };
+        });
 
         const availableAbilityCardsIds = getAllAvailableAbilityCardsForCharacter(character).map(
             (abilityCard: AbilityCard) => abilityCard.id

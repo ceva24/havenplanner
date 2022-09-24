@@ -1,16 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Header from "@/components/header/header";
-import { characterClasses } from "@/loaders/character-classes";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "My Char",
-    experience: 25,
-    gold: 50,
-    notes: "Hello haven",
-    characterClass: characterClasses[0],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter();
 
 describe("header", () => {
     it("renders the heading as a link", () => {

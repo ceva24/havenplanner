@@ -1,32 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import UnlockableAbilityCard from "@/components/ability-cards/unlockable-ability-card";
 import * as characterService from "@/services/character";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "My Char",
-    experience: 25,
-    gold: 50,
-    notes: "Hello haven",
-    characterClass: {
-        id: 0,
-        name: "Brute",
-        imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
-        characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
-        characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
-        cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-        handSize: 10,
-        abilityCards: [
-            {
-                id: 1,
-                name: "Juggernaut",
-                level: "2",
-                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
-            },
-        ],
-    },
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter();
 
 const setCharacter = jest.fn();
 
@@ -55,7 +32,7 @@ describe("unlockable ability card", () => {
             />
         );
 
-        const checkbox = screen.queryByRole("checkbox", { name: "Juggernaut" });
+        const checkbox = screen.queryByRole("checkbox", { name: character.characterClass.abilityCards[0].name });
 
         expect(checkbox).toBeInTheDocument();
     });
@@ -72,7 +49,7 @@ describe("unlockable ability card", () => {
             />
         );
 
-        const checkbox = screen.queryByRole("checkbox", { name: "Juggernaut" });
+        const checkbox = screen.queryByRole("checkbox", { name: character.characterClass.abilityCards[0].name });
 
         expect(checkbox).toBeInTheDocument();
     });

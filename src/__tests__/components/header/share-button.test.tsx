@@ -1,17 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import ShareButton, { retrieveAndSetShareableLink } from "@/components/header/share-button";
 import * as encoderService from "@/services/encoder";
-import { characterClasses } from "@/loaders/character-classes";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "Test character",
-    experience: 0,
-    gold: 0,
-    notes: "",
-    characterClass: characterClasses[0],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter();
 
 const setShareableLink = jest.fn();
 const setEncodeCharacterError = jest.fn();

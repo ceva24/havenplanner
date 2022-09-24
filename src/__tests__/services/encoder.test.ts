@@ -3,28 +3,25 @@ import { encode, decode } from "@/services/encoder";
 import * as dataSerializer from "@/services/serializer";
 import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
+const character: Character = createTestCharacter({
     name: "Test character",
     experience: 50,
     gold: 12,
     notes: "Test",
     characterClass: characterClasses[3],
-    items: [],
-    unlockedAbilityCards: [],
-};
+});
 
-const characterWithUnicodeCharacters = {
+const characterWithUnicodeCharacters = createTestCharacter({
     name: "テストキャラクター",
     experience: 50,
     gold: 12,
     notes: "テスト",
     characterClass: characterClasses[3],
-    items: [],
-    unlockedAbilityCards: [],
-};
+});
 
-const characterWithItems = {
+const characterWithItems = createTestCharacter({
     name: "Test character",
     experience: 50,
     gold: 12,
@@ -34,18 +31,16 @@ const characterWithItems = {
         { id: "abc", item: items[0] },
         { id: "def", item: items[3] },
     ],
-    unlockedAbilityCards: [],
-};
+});
 
-const characterWithUnlockedAbilityCards: Character = {
+const characterWithUnlockedAbilityCards: Character = createTestCharacter({
     name: "Test character",
     experience: 500,
     gold: 12,
     notes: "Test",
     characterClass: characterClasses[3],
-    items: [],
     unlockedAbilityCards: [characterClasses[3].abilityCards[12], characterClasses[3].abilityCards[13]],
-};
+});
 
 jest.mock("uuid", () => {
     return {

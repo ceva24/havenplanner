@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ItemsAutocomplete, { addItem, orderItems } from "@/components/items/items-autocomplete";
-import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
+import { createTestCharacter } from "@/testutils";
 
 const mockUuid = "123";
 
@@ -11,15 +11,7 @@ jest.mock("uuid", () => {
     };
 });
 
-const character: Character = {
-    name: "Test",
-    experience: 45,
-    gold: 25,
-    notes: "Hello",
-    characterClass: characterClasses[1],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter();
 
 const setCharacter = jest.fn();
 
@@ -63,15 +55,9 @@ describe("addItem", () => {
     });
 
     it("adds items to the end of the list", () => {
-        const character: Character = {
-            name: "Test",
-            experience: 45,
-            gold: 25,
-            notes: "Hello",
-            characterClass: characterClasses[1],
+        const character: Character = createTestCharacter({
             items: [{ id: "123", item: items[2] }],
-            unlockedAbilityCards: [],
-        };
+        });
 
         const item = items[3];
 
@@ -86,15 +72,9 @@ describe("addItem", () => {
     });
 
     it("allows duplicate items", () => {
-        const character: Character = {
-            name: "Test",
-            experience: 45,
-            gold: 25,
-            notes: "Hello",
-            characterClass: characterClasses[1],
+        const character: Character = createTestCharacter({
             items: [{ id: "123", item: items[2] }],
-            unlockedAbilityCards: [],
-        };
+        });
 
         addItem(character.items[0].item, character, setCharacter);
 

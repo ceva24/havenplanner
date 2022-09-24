@@ -1,17 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import Profile from "@/components/profile/profile";
-import { characterClasses } from "@/loaders/character-classes";
 import AppSettingsProvider from "@/hooks/app-settings";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "My Char",
-    experience: 25,
-    gold: 50,
-    notes: "Hello haven",
-    characterClass: characterClasses[0],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter();
 
 describe("profile tab", () => {
     it("renders the character details form", () => {

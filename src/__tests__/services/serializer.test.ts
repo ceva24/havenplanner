@@ -3,6 +3,7 @@ import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
 import { defaultCharacter } from "@/utils/constants";
+import { createTestCharacter } from "@/testutils";
 
 jest.mock("uuid", () => {
     return {
@@ -16,16 +17,14 @@ beforeEach(() => {
 
 describe("serialize", () => {
     it("serializes a character", () => {
-        const character: Character = {
+        const character: Character = createTestCharacter({
             name: "Test Character",
             experience: 240,
             gold: 75,
             notes: "It's a test",
             characterClass: characterClasses[2],
             personalQuest: personalQuests[8],
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         const data: string = serialize(character);
 
@@ -33,16 +32,13 @@ describe("serialize", () => {
     });
 
     it("omits the personal quest property when serializing a character with no personal quest id", () => {
-        const character: Character = {
+        const character: Character = createTestCharacter({
             name: "Test Character",
             experience: 240,
             gold: 75,
             notes: "It's a test",
             characterClass: characterClasses[2],
-            personalQuest: undefined,
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         const data: string = serialize(character);
 
@@ -50,19 +46,17 @@ describe("serialize", () => {
     });
 
     it("serializes item data", () => {
-        const character: Character = {
+        const character: Character = createTestCharacter({
             name: "Test Character",
             experience: 240,
             gold: 75,
             notes: "It's a test",
             characterClass: characterClasses[2],
-            personalQuest: undefined,
             items: [
                 { id: "1", item: items[1] },
                 { id: "2", item: items[7] },
             ],
-            unlockedAbilityCards: [],
-        };
+        });
 
         const data: string = serialize(character);
 
@@ -70,19 +64,18 @@ describe("serialize", () => {
     });
 
     it("serializes duplicate items", () => {
-        const character: Character = {
+        const character: Character = createTestCharacter({
             name: "Test Character",
             experience: 240,
             gold: 75,
             notes: "It's a test",
             characterClass: characterClasses[2],
-            personalQuest: undefined,
             items: [
                 { id: "1", item: items[1] },
                 { id: "2", item: items[1] },
             ],
             unlockedAbilityCards: [],
-        };
+        });
 
         const data: string = serialize(character);
 

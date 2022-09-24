@@ -1,26 +1,10 @@
 import { render, screen, within } from "@testing-library/react";
 import CharacterDetails from "@/components/profile/character-details";
-import { characterClasses } from "@/loaders/character-classes";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "My Char",
-    experience: 25,
-    gold: 50,
-    notes: "Hello haven",
-    characterClass: characterClasses[0],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter({ experience: 25 });
 
-const poorInexperiencedCharacter: Character = {
-    name: "My Char",
-    experience: 0,
-    gold: 0,
-    notes: "",
-    characterClass: characterClasses[0],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const poorInexperiencedCharacter: Character = createTestCharacter({ experience: 0, gold: 0 });
 
 const setCharacter = jest.fn();
 
