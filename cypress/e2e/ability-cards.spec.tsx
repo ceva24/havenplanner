@@ -196,6 +196,34 @@ describe("ability cards tab", () => {
         cy.findSelectCardDialog().should("be.visible");
     });
 
+    it("shows a dialog when pressing enter to a card to the hand", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findShowHandSwitch().should("be.checked");
+
+        cy.findAddCardButton().focus().type("{enter}");
+
+        cy.findSelectCardDialog().should("be.visible");
+    });
+
+    it("shows a dialog when pressing space to a card to the hand", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findShowHandSwitch().should("be.checked");
+
+        cy.findAddCardButton().focus().type(" ");
+
+        cy.findSelectCardDialog().should("be.visible");
+    });
+
     it("hides the select card dialog when clicking on the close button", () => {
         cy.visit("/");
 
