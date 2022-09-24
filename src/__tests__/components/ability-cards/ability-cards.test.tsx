@@ -6,16 +6,16 @@ import AppSettingsProvider from "@/hooks/app-settings";
 const setCharacter = jest.fn();
 
 describe("ability cards", () => {
-    it("renders the show hand switch", () => {
+    it("renders the create hand button", () => {
         render(
             <AppSettingsProvider character={defaultCharacter}>
                 <AbilityCards character={defaultCharacter} setCharacter={setCharacter} />
             </AppSettingsProvider>
         );
 
-        const handSwitch = screen.queryByRole("checkbox", { name: "Show hand" });
+        const createHandButton = screen.queryByRole("button", { name: "Create hand" });
 
-        expect(handSwitch).toBeInTheDocument();
+        expect(createHandButton).toBeInTheDocument();
     });
 
     it("renders the deck by default", () => {

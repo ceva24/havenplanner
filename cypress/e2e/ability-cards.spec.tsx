@@ -140,27 +140,77 @@ describe("ability cards tab", () => {
         cy.findActiveAbilityCard("Juggernaut").click().should("have.attr", "aria-checked", "false");
     });
 
-    it("retains the state of the show hand switch when changing tabs", () => {
+    it("displays the hand and show hand switch when pressing the create hand button", () => {
         cy.visit("/");
 
         cy.selectTab("Ability Cards");
 
-        cy.findShowHandSwitch().click().should("be.checked");
+        cy.findCreateHandButton().click();
 
-        cy.selectTab("Profile").selectTab("Ability Cards");
+        cy.findShowHandSwitch().should("be.checked");
+
+        cy.findAddCardButton().should("be.visible");
+    });
+
+    it("retains the state of the show hand switch when toggled on", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.selectTab("Profile");
+
+        cy.selectTab("Ability Cards");
 
         cy.findShowHandSwitch().should("be.checked");
     });
 
-    it("renders a hand of unselected cards equal in size to the character class' hand size", () => {
+    it("shows the create hand button again when toggling back to the deck and reloading the tab", () => {
         cy.visit("/");
-
-        cy.selectClass("Spellweaver");
 
         cy.selectTab("Ability Cards");
 
-        cy.findShowHandSwitch().click();
+        cy.findCreateHandButton().click();
 
-        cy.findAllByRole("button", { name: "Select card" }).should("have.length", 8);
+        cy.findShowHandSwitch().uncheck();
+
+        cy.selectTab("Profile");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().should("be.visible");
+    });
+
+    it("shows a dialog when adding a card to the hand", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findShowHandSwitch().should("be.checked");
+
+        cy.findAddCardButton().click();
+
+        cy.findSelectCardDialog().should("be.visible");
+    });
+
+    it("hides the select card dialog when clicking on the close button", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findShowHandSwitch().should("be.checked");
+
+        cy.findAddCardButton().click();
+
+        cy.findSelectCardDialog().should("be.visible");
+
+        cy.findByRole("button", { name: "Close" }).click();
+
+        cy.findSelectCardDialog().not("should.be.visible");
     });
 });

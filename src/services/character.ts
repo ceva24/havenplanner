@@ -23,6 +23,15 @@ const calculateLevel = (experience: number): number => {
     }
 };
 
+const getAllAvailableAbilityCardsForCharacter = (character: Character) => {
+    return character.characterClass.abilityCards
+        .filter((abilityCard: AbilityCard) => {
+            return abilityCard.level === "1" || abilityCard.level === "X";
+        })
+        .concat(character.unlockedAbilityCards)
+        .sort((a: AbilityCard, b: AbilityCard) => a.id - b.id);
+};
+
 const isUnlockedAbilityCardForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
     return character.unlockedAbilityCards.some((card: AbilityCard) => card.id === abilityCard.id);
 };
@@ -70,6 +79,7 @@ const abilityCardsUnlockedAtLevel = (unlockedAbilityCards: AbilityCard[], abilit
 
 export {
     calculateLevel,
+    getAllAvailableAbilityCardsForCharacter,
     isUnlockedAbilityCardForCharacter,
     abilityCardCanBeUnlockedForCharacter,
     calculateMaximumUnlockCount,

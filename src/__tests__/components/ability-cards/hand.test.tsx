@@ -20,14 +20,12 @@ const character: Character = {
     unlockedAbilityCards: [],
 };
 
-const setCharacter = jest.fn();
-
 describe("hand", () => {
-    it("renders unselected cards equal to the character class hand size", () => {
-        render(<Hand character={character} setCharacter={setCharacter} />);
+    it("renders the add card button", () => {
+        render(<Hand character={character} />);
 
-        const unselectedCards = screen.queryAllByRole("button", { name: "Select card" });
+        const addCardButton = screen.queryByRole("button", { name: "Add card" });
 
-        expect(unselectedCards).toHaveLength(10);
+        expect(addCardButton).toBeInTheDocument();
     });
 });

@@ -1,6 +1,7 @@
 import {
     abilityCardCanBeUnlockedForCharacter,
     calculateLevel,
+    getAllAvailableAbilityCardsForCharacter,
     isUnlockedAbilityCardForCharacter,
 } from "@/services/character";
 import { characterClasses } from "@/loaders/character-classes";
@@ -178,5 +179,160 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
         const result = abilityCardCanBeUnlockedForCharacter(character, abilityCard);
 
         expect(result).toEqual(false);
+    });
+});
+
+describe("getAllAvailableAbilityCardsForCharacter", () => {
+    it("includes level 1 cards", () => {
+        const character: Character = {
+            name: "My Char",
+            experience: 25,
+            gold: 50,
+            notes: "Hello haven",
+            characterClass: {
+                id: 0,
+                name: "Brute",
+                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                handSize: 10,
+                abilityCards: [
+                    {
+                        id: 1,
+                        name: "Trample",
+                        level: "1",
+                        imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                    },
+                ],
+            },
+            items: [],
+            unlockedAbilityCards: [],
+        };
+
+        const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
+
+        expect(availableAbilityCards).toHaveLength(1);
+    });
+
+    it("includes level X cards", () => {
+        const character: Character = {
+            name: "My Char",
+            experience: 25,
+            gold: 50,
+            notes: "Hello haven",
+            characterClass: {
+                id: 0,
+                name: "Brute",
+                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                handSize: 10,
+                abilityCards: [
+                    {
+                        id: 11,
+                        name: "Skewer",
+                        level: "X",
+                        imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
+                    },
+                ],
+            },
+            items: [],
+            unlockedAbilityCards: [],
+        };
+
+        const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
+
+        expect(availableAbilityCards).toHaveLength(1);
+    });
+
+    it("includes all unlocked ability cards", () => {
+        const character: Character = {
+            name: "My Char",
+            experience: 25,
+            gold: 50,
+            notes: "Hello haven",
+            characterClass: {
+                id: 0,
+                name: "Brute",
+                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                handSize: 10,
+                abilityCards: [
+                    {
+                        id: 14,
+                        name: "Fatal Advance",
+                        level: "2",
+                        imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                    },
+                ],
+            },
+            items: [],
+            unlockedAbilityCards: [
+                {
+                    id: 14,
+                    name: "Fatal Advance",
+                    level: "2",
+                    imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                },
+            ],
+        };
+
+        const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
+
+        expect(availableAbilityCards).toHaveLength(1);
+    });
+
+    it("excludes locked cards level 2 and above", () => {
+        const character: Character = {
+            name: "My Char",
+            experience: 25,
+            gold: 50,
+            notes: "Hello haven",
+            characterClass: {
+                id: 0,
+                name: "Brute",
+                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                handSize: 10,
+                abilityCards: [
+                    {
+                        id: 14,
+                        name: "Fatal Advance",
+                        level: "2",
+                        imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                    },
+                ],
+            },
+            items: [],
+            unlockedAbilityCards: [],
+        };
+
+        const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
+
+        expect(availableAbilityCards).toHaveLength(0);
+    });
+
+    it("sorts cards by id", () => {
+        const character: Character = {
+            name: "My Char",
+            experience: 25,
+            gold: 50,
+            notes: "Hello haven",
+            characterClass: characterClasses[0],
+            items: [],
+            unlockedAbilityCards: [characterClasses[0].abilityCards[15], characterClasses[0].abilityCards[13]],
+        };
+
+        const availableAbilityCardsIds = getAllAvailableAbilityCardsForCharacter(character).map(
+            (abilityCard: AbilityCard) => abilityCard.id
+        );
+
+        expect(availableAbilityCardsIds).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16]);
     });
 });

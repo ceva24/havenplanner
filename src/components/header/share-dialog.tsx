@@ -6,14 +6,14 @@ interface ShareDialogProps {
     shareableLink: string;
     encodeCharacterError: boolean;
     isOpen: boolean;
-    onClose: () => void;
+    handleClose: () => void;
 }
 
-const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose }: ShareDialogProps) => {
+const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, handleClose }: ShareDialogProps) => {
     const value = encodeCharacterError ? "Error" : shareableLink;
 
     return (
-        <Dialog open={isOpen} sx={{ bottom: 300 }} aria-labelledby="share-dialog-title" onClose={onClose}>
+        <Dialog open={isOpen} sx={{ bottom: 300 }} aria-labelledby="share-dialog-title" onClose={handleClose}>
             <span id="share-dialog-title" style={{ display: "none" }}>
                 Share
             </span>
@@ -35,7 +35,7 @@ const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, onClose }: S
 
                 <Grid container spacing={10} textAlign="center" sx={{ paddingTop: 2 }}>
                     <Grid item width="100%">
-                        <Button text="Close" onClick={onClose} />
+                        <Button text="Close" onClick={handleClose} />
                     </Grid>
                 </Grid>
             </DialogContent>
