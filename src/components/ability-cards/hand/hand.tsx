@@ -3,33 +3,18 @@ import { Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { Card } from "@/components/core/cards";
 import SelectCardDialog from "@/components/ability-cards/hand/select-card-dialog";
+import Button from "@/components/core/button";
 
 interface HandProps {
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
+    openSelectCardDialog: () => void;
 }
 
-const Hand = ({ character, setCharacter }: HandProps) => {
-    const [selectCardDialogOpen, setSelectCardDialogOpen] = useState<boolean>(false);
-
-    const handleOpen = () => {
-        setSelectCardDialogOpen(true);
-    };
-
-    const handleClose = () => {
-        setSelectCardDialogOpen(false);
-    };
-
-    const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-        if (["Space", "Enter"].includes(event.code)) {
-            event.preventDefault();
-            handleOpen();
-        }
-    };
-
+const Hand = ({ character, setCharacter, openSelectCardDialog }: HandProps) => {
     return (
-        <>
-            <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+        <Box>
+            <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", paddingBottom: 3 }}>
                 {character.hand
                     .sort((a: AbilityCard, b: AbilityCard) => a.id - b.id)
                     .map((abilityCard: AbilityCard) => (
@@ -37,24 +22,11 @@ const Hand = ({ character, setCharacter }: HandProps) => {
                             <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
                         </Box>
                     ))}
-                <Box
-                    role="button"
-                    tabIndex={0}
-                    sx={{ opacity: 0.5, margin: 1, position: "relative", cursor: "pointer" }}
-                    onClick={handleOpen}
-                    onKeyDown={onKeyDown}
-                >
-                    <Card src={character.characterClass.cardBackImageUrl} altText="Add card" />
-                    <AddIcon sx={{ position: "absolute", top: 3, right: 1 }} />
-                </Box>
             </Box>
-            <SelectCardDialog
-                character={character}
-                setCharacter={setCharacter}
-                isOpen={selectCardDialogOpen}
-                handleClose={handleClose}
-            />
-        </>
+            <Box textAlign="center">
+                <Button text="Edit hand" onClick={openSelectCardDialog} />
+            </Box>
+        </Box>
     );
 };
 

@@ -10,7 +10,7 @@ describe("select card dialog", () => {
     it("renders", () => {
         render(<SelectCardDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
 
-        const selectCardDialog = screen.queryByRole("dialog", { name: "Select ability card" });
+        const selectCardDialog = screen.queryByRole("dialog", { name: "Select ability cards" });
 
         expect(selectCardDialog).toBeInTheDocument();
     });
@@ -18,7 +18,7 @@ describe("select card dialog", () => {
     it("renders available ability cards", () => {
         render(<SelectCardDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
 
-        const abilityCard = screen.queryByRole("button", { name: "Trample" });
+        const abilityCard = screen.queryByRole("checkbox", { name: "Trample" });
 
         expect(abilityCard).toBeInTheDocument();
     });

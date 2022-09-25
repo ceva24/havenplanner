@@ -6,29 +6,29 @@ interface AvailableAbilityCardProps {
     abilityCard: AbilityCard;
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
-    handleClose: () => void;
 }
 
-const AvailableAbilityCard = ({ abilityCard, character, setCharacter, handleClose }: AvailableAbilityCardProps) => {
+const AvailableAbilityCard = ({ abilityCard, character, setCharacter }: AvailableAbilityCardProps) => {
+    const isSelected = character.hand.includes(abilityCard);
+
     const onClick = () => {
-        handleClose();
-        addCardToHand(character, setCharacter, abilityCard);
+        toggleCardAddedToHand(character, setCharacter, abilityCard);
     };
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
         if (["Space", "Enter"].includes(event.code)) {
             event.preventDefault();
-            handleClose();
-            addCardToHand(character, setCharacter, abilityCard);
+            toggleCardAddedToHand(character, setCharacter, abilityCard);
         }
     };
 
     return (
         <Box
             key={abilityCard.id}
-            role="button"
+            role="checkbox"
+            aria-checked={isSelected}
             tabIndex={0}
-            sx={{ cursor: "pointer", position: "relative" }}
+            sx={{ opacity: isSelected ? 1 : 0.5, cursor: "pointer", position: "relative" }}
             onClick={onClick}
             onKeyDown={onKeyDown}
         >
@@ -37,18 +37,20 @@ const AvailableAbilityCard = ({ abilityCard, character, setCharacter, handleClos
     );
 };
 
-const addCardToHand = (
+const toggleCardAddedToHand = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
     abilityCard: AbilityCard
 ) => {
-    if (!character.hand.includes(abilityCard)) {
-        setCharacter({
-            ...character,
-            hand: character.hand.concat([abilityCard]),
-        });
-    }
+    const newHand = character.hand.includes(abilityCard)
+        ? character.hand.filter((card: AbilityCard) => card.id !== abilityCard.id)
+        : character.hand.concat([abilityCard]);
+
+    setCharacter({
+        ...character,
+        hand: newHand,
+    });
 };
 
 export default AvailableAbilityCard;
-export { addCardToHand };
+export { toggleCardAddedToHand };

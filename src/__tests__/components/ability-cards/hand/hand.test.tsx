@@ -7,11 +7,11 @@ const character: Character = createTestCharacter();
 const setCharacter = jest.fn();
 
 describe("hand", () => {
-    it("renders the add card button", () => {
-        render(<Hand character={character} setCharacter={setCharacter} />);
+    it("renders the edit hand button", () => {
+        render(<Hand character={character} setCharacter={setCharacter} openSelectCardDialog={() => ""} />);
 
-        const addCardButton = screen.queryByRole("button", { name: "Add card" });
+        const editHandButton = screen.queryByRole("button", { name: "Edit hand" });
 
-        expect(addCardButton).toBeInTheDocument();
+        expect(editHandButton).toBeInTheDocument();
     });
 });
