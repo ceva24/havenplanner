@@ -60,7 +60,7 @@ describe("header", () => {
 
         cy.findShareLinkDialog().should("be.visible");
 
-        cy.findByRole("button", { name: "Close" }).click();
+        cy.clickCloseButton();
 
         cy.findShareLinkDialog().not("should.be.visible");
     });
