@@ -241,4 +241,42 @@ describe("ability cards tab", () => {
 
         cy.findSelectCardDialog().not("should.be.visible");
     });
+
+    it("only shows level 1 and level X in the select card dialog", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findAddCardButton().click();
+
+        cy.findSelectCardDialog().should("be.visible");
+
+        cy.findByRole("button", { name: "Provoking Roar" }).should("exist");
+
+        cy.findByRole("button", { name: "Skewer" }).should("exist");
+
+        cy.findByRole("button", { name: "Juggernaut" }).should("not.exist");
+
+        cy.findByRole("button", { name: "Fatal Advance" }).should("not.exist");
+    });
+
+    it("shows level 2 or higher cards in the select card dialog when they have been unlocked", () => {
+        cy.visit("/");
+
+        cy.findExperienceField().type("100");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Juggernaut").click();
+
+        cy.findCreateHandButton().click();
+
+        cy.findAddCardButton().click();
+
+        cy.findSelectCardDialog().should("be.visible");
+
+        cy.findByRole("button", { name: "Juggernaut" }).should("exist");
+    });
 });
