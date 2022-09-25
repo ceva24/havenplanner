@@ -1,14 +1,15 @@
-import { KeyboardEvent, useState } from "react";
+import { Dispatch, KeyboardEvent, SetStateAction, useState } from "react";
 import { Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { Card } from "@/components/core/cards";
-import SelectCardDialog from "@/components/ability-cards/select-card-dialog";
+import SelectCardDialog from "@/components/ability-cards/hand/select-card-dialog";
 
 interface HandProps {
     character: Character;
+    setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const Hand = ({ character }: HandProps) => {
+const Hand = ({ character, setCharacter }: HandProps) => {
     const [selectCardDialogOpen, setSelectCardDialogOpen] = useState<boolean>(false);
 
     const handleOpen = () => {
@@ -40,7 +41,12 @@ const Hand = ({ character }: HandProps) => {
                     <AddIcon sx={{ position: "absolute", top: 3, right: 1 }} />
                 </Box>
             </Box>
-            <SelectCardDialog character={character} isOpen={selectCardDialogOpen} handleClose={handleClose} />
+            <SelectCardDialog
+                character={character}
+                setCharacter={setCharacter}
+                isOpen={selectCardDialogOpen}
+                handleClose={handleClose}
+            />
         </>
     );
 };

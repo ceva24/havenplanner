@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import AbilityCardGroup from "@/components/ability-cards/ability-card-group";
+import AbilityCardGroup from "@/components/ability-cards/deck/ability-card-group";
 import { createTestCharacter } from "@/testutils";
 
 const character: Character = createTestCharacter();

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
+import DisabledAbilityCard from "@/components/ability-cards/deck/disabled-ability-card";
 
 const abilityCard = {
     id: 1,

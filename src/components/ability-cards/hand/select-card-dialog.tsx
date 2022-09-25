@@ -1,15 +1,17 @@
 import { Box, Typography, Dialog, DialogContent, DialogTitle, Grid } from "@mui/material";
+import { Dispatch, SetStateAction } from "react";
 import { getAllAvailableAbilityCardsForCharacter } from "@/services/character";
 import { Card } from "@/components/core/cards";
 import Button from "@/components/core/button";
 
 interface SelectCardDialogProps {
     character: Character;
+    setCharacter: Dispatch<SetStateAction<Character>>;
     isOpen: boolean;
     handleClose: () => void;
 }
 
-const SelectCardDialog = ({ character, isOpen, handleClose }: SelectCardDialogProps) => {
+const SelectCardDialog = ({ character, setCharacter, isOpen, handleClose }: SelectCardDialogProps) => {
     return (
         <Dialog fullScreen open={isOpen} aria-labelledby="select-card-dialog-title" onClose={handleClose}>
             <DialogTitle id="select-card-dialog-title" sx={{ backgroundColor: "background.default" }}>
@@ -38,6 +40,17 @@ const SelectCardDialog = ({ character, isOpen, handleClose }: SelectCardDialogPr
             </DialogContent>
         </Dialog>
     );
+};
+
+const addCardToHand = (
+    character: Character,
+    setCharacter: Dispatch<SetStateAction<Character>>,
+    abilityCard: AbilityCard
+) => {
+    setCharacter({
+        ...character,
+        hand: character.hand.concat([abilityCard]),
+    });
 };
 
 export default SelectCardDialog;

@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import groupBy from "lodash.groupby";
 import { Grid } from "@mui/material";
-import AbilityCardGroup from "@/components/ability-cards/ability-card-group";
+import AbilityCardGroup from "@/components/ability-cards/deck/ability-card-group";
 
 interface DeckProps {
     character: Character;

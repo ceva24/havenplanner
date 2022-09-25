@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ActiveAbilityCard, { toggleAbilityCard } from "@/components/ability-cards/active-ability-card";
+import ActiveAbilityCard, { toggleAbilityCard } from "@/components/ability-cards/deck/active-ability-card";
 import { createTestCharacter } from "@/testutils";
 
 const character: Character = createTestCharacter();

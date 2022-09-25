@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import UnlockableAbilityCard from "@/components/ability-cards/unlockable-ability-card";
+import UnlockableAbilityCard from "@/components/ability-cards/deck/unlockable-ability-card";
 import * as characterService from "@/services/character";
 import { createTestCharacter } from "@/testutils";
 

@@ -2,8 +2,8 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { Box, Stack, Switch, Typography } from "@mui/material";
 import { useAppSettingsContext } from "@/hooks/app-settings";
 import Button from "@/components/core/button";
-import Deck from "@/components/ability-cards/deck";
-import Hand from "@/components/ability-cards/hand";
+import Deck from "@/components/ability-cards/deck/deck";
+import Hand from "@/components/ability-cards/hand/hand";
 
 interface AbilityCardsProps {
     character: Character;
@@ -37,7 +37,7 @@ const AbilityCards = ({ character, setCharacter }: AbilityCardsProps) => {
                 </Stack>
             )}
             {appSettings.showHand ? (
-                <Hand character={character} />
+                <Hand character={character} setCharacter={setCharacter} />
             ) : (
                 <Deck character={character} setCharacter={setCharacter} />
             )}
