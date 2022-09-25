@@ -12,7 +12,9 @@ interface AbilityCardsProps {
 
 const AbilityCards = ({ character, setCharacter }: AbilityCardsProps) => {
     const { appSettings, setAppSettings } = useAppSettingsContext();
-    const [showCreateHandButton, setShowCreateHandButton] = useState<boolean>(!appSettings.showHand);
+    const [showCreateHandButton, setShowCreateHandButton] = useState<boolean>(
+        character.hand.length === 0 && !appSettings.showHand
+    );
 
     const createHand = () => {
         setShowCreateHandButton(false);

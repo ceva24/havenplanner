@@ -30,6 +30,13 @@ const Hand = ({ character, setCharacter }: HandProps) => {
     return (
         <>
             <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+                {character.hand
+                    .sort((a: AbilityCard, b: AbilityCard) => a.id - b.id)
+                    .map((abilityCard: AbilityCard) => (
+                        <Box key={abilityCard.id} sx={{ margin: 1 }}>
+                            <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
+                        </Box>
+                    ))}
                 <Box
                     role="button"
                     tabIndex={0}

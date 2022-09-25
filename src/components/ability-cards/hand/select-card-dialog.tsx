@@ -1,8 +1,8 @@
-import { Box, Typography, Dialog, DialogContent, DialogTitle, Grid } from "@mui/material";
+import { Box, Dialog, DialogContent, DialogTitle, Grid } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import { getAllAvailableAbilityCardsForCharacter } from "@/services/character";
-import { Card } from "@/components/core/cards";
 import Button from "@/components/core/button";
+import AvailableAbilityCard from "@/components/ability-cards/hand/available-ability-card";
 
 interface SelectCardDialogProps {
     character: Character;
@@ -14,21 +14,25 @@ interface SelectCardDialogProps {
 const SelectCardDialog = ({ character, setCharacter, isOpen, handleClose }: SelectCardDialogProps) => {
     return (
         <Dialog fullScreen open={isOpen} aria-labelledby="select-card-dialog-title" onClose={handleClose}>
-            <DialogTitle id="select-card-dialog-title" sx={{ backgroundColor: "background.default" }}>
-                <Typography color="textPrimary" textAlign="center" variant="h2">
-                    Select ability card
-                </Typography>
+            <DialogTitle
+                id="select-card-dialog-title"
+                color="textPrimary"
+                variant="h2"
+                textAlign="center"
+                sx={{ backgroundColor: "background.default" }}
+            >
+                Select ability card
             </DialogTitle>
             <DialogContent sx={{ backgroundColor: "background.default" }}>
                 <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                     {getAllAvailableAbilityCardsForCharacter(character).map((abilityCard: AbilityCard) => (
-                        <Box
-                            key={abilityCard.id}
-                            role="button"
-                            tabIndex={0}
-                            sx={{ margin: 1, cursor: "pointer", position: "relative" }}
-                        >
-                            <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
+                        <Box key={abilityCard.id} sx={{ margin: 1 }}>
+                            <AvailableAbilityCard
+                                abilityCard={abilityCard}
+                                character={character}
+                                setCharacter={setCharacter}
+                                handleClose={handleClose}
+                            />
                         </Box>
                     ))}
                 </Box>
@@ -40,17 +44,6 @@ const SelectCardDialog = ({ character, setCharacter, isOpen, handleClose }: Sele
             </DialogContent>
         </Dialog>
     );
-};
-
-const addCardToHand = (
-    character: Character,
-    setCharacter: Dispatch<SetStateAction<Character>>,
-    abilityCard: AbilityCard
-) => {
-    setCharacter({
-        ...character,
-        hand: character.hand.concat([abilityCard]),
-    });
 };
 
 export default SelectCardDialog;
