@@ -19,9 +19,12 @@ const AbilityCards = ({ character, setCharacter }: AbilityCardsProps) => {
     );
 
     const createHand = () => {
-        setShowCreateHandButton(false);
         openSelectCardDialog();
-        toggleHand();
+
+        setTimeout(() => {
+            setShowCreateHandButton(false);
+            toggleHand();
+        }, 250);
     };
 
     const toggleHand = () => {
@@ -53,11 +56,7 @@ const AbilityCards = ({ character, setCharacter }: AbilityCardsProps) => {
                     </Stack>
                 )}
                 {appSettings.showHand ? (
-                    <Hand
-                        character={character}
-                        setCharacter={setCharacter}
-                        openSelectCardDialog={openSelectCardDialog}
-                    />
+                    <Hand character={character} openSelectCardDialog={openSelectCardDialog} />
                 ) : (
                     <Deck character={character} setCharacter={setCharacter} />
                 )}
