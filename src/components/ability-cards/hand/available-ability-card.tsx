@@ -42,12 +42,12 @@ const addCardToHand = (
     setCharacter: Dispatch<SetStateAction<Character>>,
     abilityCard: AbilityCard
 ) => {
-    const newHand = character.hand.includes(abilityCard) ? character.hand : character.hand.concat([abilityCard]);
-
-    setCharacter({
-        ...character,
-        hand: newHand,
-    });
+    if (!character.hand.includes(abilityCard)) {
+        setCharacter({
+            ...character,
+            hand: character.hand.concat([abilityCard]),
+        });
+    }
 };
 
 export default AvailableAbilityCard;
