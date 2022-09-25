@@ -10,6 +10,7 @@ const defaultCharacter: Character = {
     characterClass: characterClasses[0],
     items: [],
     unlockedAbilityCards: [],
+    hand: [],
 };
 
 export { baseImageUrl, defaultCharacter };

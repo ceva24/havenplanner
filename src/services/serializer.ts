@@ -45,6 +45,7 @@ const deserialize = (data: string): Character => {
         ...(personalQuest && { personalQuest }),
         items: deserializeItems(characterData.i),
         unlockedAbilityCards: deserializeUnlockedAbilityCards(characterData.u, characterClass),
+        hand: [],
     };
 
     return character;

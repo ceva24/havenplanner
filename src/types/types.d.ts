@@ -13,6 +13,7 @@ interface Character {
     personalQuest?: PersonalQuest;
     items: CharacterItem[];
     unlockedAbilityCards: AbilityCard[];
+    hand: AbilityCard[];
 }
 
 interface CharacterItem {
