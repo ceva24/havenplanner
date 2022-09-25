@@ -11,15 +11,15 @@ interface AvailableAbilityCardProps {
 
 const AvailableAbilityCard = ({ abilityCard, character, setCharacter, handleClose }: AvailableAbilityCardProps) => {
     const onClick = () => {
-        addCardToHand(character, setCharacter, abilityCard);
         handleClose();
+        addCardToHand(character, setCharacter, abilityCard);
     };
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
         if (["Space", "Enter"].includes(event.code)) {
             event.preventDefault();
-            addCardToHand(character, setCharacter, abilityCard);
             handleClose();
+            addCardToHand(character, setCharacter, abilityCard);
         }
     };
 

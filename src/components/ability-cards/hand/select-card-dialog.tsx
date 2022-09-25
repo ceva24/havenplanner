@@ -1,5 +1,6 @@
 import { Box, Dialog, DialogContent, DialogTitle, Grid } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
+import SelectedAbilityCard from "./selected-ability-card";
 import { getAllAvailableAbilityCardsForCharacter } from "@/services/character";
 import Button from "@/components/core/button";
 import AvailableAbilityCard from "@/components/ability-cards/hand/available-ability-card";
@@ -27,12 +28,16 @@ const SelectCardDialog = ({ character, setCharacter, isOpen, handleClose }: Sele
                 <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                     {getAllAvailableAbilityCardsForCharacter(character).map((abilityCard: AbilityCard) => (
                         <Box key={abilityCard.id} sx={{ margin: 1 }}>
-                            <AvailableAbilityCard
-                                abilityCard={abilityCard}
-                                character={character}
-                                setCharacter={setCharacter}
-                                handleClose={handleClose}
-                            />
+                            {character.hand.includes(abilityCard) ? (
+                                <SelectedAbilityCard abilityCard={abilityCard} />
+                            ) : (
+                                <AvailableAbilityCard
+                                    abilityCard={abilityCard}
+                                    character={character}
+                                    setCharacter={setCharacter}
+                                    handleClose={handleClose}
+                                />
+                            )}
                         </Box>
                     ))}
                 </Box>
