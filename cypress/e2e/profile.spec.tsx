@@ -310,4 +310,34 @@ describe("profile tab", () => {
         cy.shouldFindDisabledAbilityCard("Hook and Chain");
         cy.shouldFindDisabledAbilityCard("Fatal Advance");
     });
+
+    it("resets the hand when changing the class", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findActiveAbilityCard("Trample").click();
+
+        cy.clickCloseButton();
+
+        cy.findByRole("img", { name: "Trample" }).should("exist");
+
+        cy.selectTab("Profile");
+
+        cy.selectClass("Spellweaver");
+
+        cy.selectClass("Brute");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findActiveAbilityCard("Trample").should("not.be.checked");
+
+        cy.clickCloseButton();
+
+        cy.findByRole("img", { name: "Trample" }).should("not.exist");
+    });
 });

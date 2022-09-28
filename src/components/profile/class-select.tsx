@@ -3,6 +3,7 @@ import { Dispatch, FC, SetStateAction } from "react";
 import Image from "@/components/core/image";
 import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/utils/constants";
+import { useAppSettingsContext } from "@/hooks/app-settings";
 
 interface ClassSelectProps {
     character: Character;
@@ -10,8 +11,11 @@ interface ClassSelectProps {
 }
 
 const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSelectProps) => {
+    const { appSettings, setAppSettings } = useAppSettingsContext();
+
     const handleChange = (event: SelectChangeEvent) => {
         findAndSetCharacter(event, character, setCharacter);
+        resetAbilityCardsTabConfig(appSettings, setAppSettings);
     };
 
     return (
@@ -58,10 +62,18 @@ const findAndSetCharacter = (
         ...character,
         characterClass: selectedCharacterClass ?? defaultCharacter.characterClass,
         unlockedAbilityCards: [],
+        hand: [],
     };
 
     setCharacter(newCharacter);
 };
 
+const resetAbilityCardsTabConfig = (
+    appSettings: AppSettings,
+    setAppSettings: Dispatch<SetStateAction<AppSettings>>
+) => {
+    setAppSettings({ ...appSettings, showHand: false });
+};
+
 export default ClassSelect;
-export { findAndSetCharacter };
+export { findAndSetCharacter, resetAbilityCardsTabConfig };
