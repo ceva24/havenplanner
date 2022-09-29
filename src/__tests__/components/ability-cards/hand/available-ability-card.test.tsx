@@ -64,4 +64,41 @@ describe("addCardToHand", () => {
 
         expect(newCharacter.hand).toHaveLength(0);
     });
+
+    it("does not add a card if the hand limit has been reached", () => {
+        const abilityCardOne: AbilityCard = {
+            id: 1,
+            name: "Trample",
+            level: "1",
+            imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+        };
+
+        const abilityCardTwo: AbilityCard = {
+            id: 1,
+            name: "Juggernaut",
+            level: "2",
+            imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+        };
+
+        const characterWithMaxHandSize: Character = createTestCharacter({
+            characterClass: {
+                id: 0,
+                name: "Brute",
+                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                handSize: 1,
+                abilityCards: [abilityCardOne, abilityCardTwo],
+            },
+            hand: [abilityCardOne],
+        });
+
+        toggleCardAddedToHand(characterWithMaxHandSize, setCharacter, abilityCardTwo);
+
+        expect(setCharacter).toHaveBeenCalledTimes(0);
+
+        expect(characterWithMaxHandSize.hand).toHaveLength(1);
+        expect(characterWithMaxHandSize.hand[0]).toEqual(abilityCardOne);
+    });
 });

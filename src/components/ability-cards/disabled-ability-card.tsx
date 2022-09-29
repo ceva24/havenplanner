@@ -4,11 +4,12 @@ import { Card } from "@/components/core/cards";
 
 interface DisabledAbilityCardProps {
     abilityCard: AbilityCard;
+    tooltipText: string;
 }
 
-const DisabledAbilityCard = ({ abilityCard }: DisabledAbilityCardProps) => {
+const DisabledAbilityCard = ({ abilityCard, tooltipText }: DisabledAbilityCardProps) => {
     return (
-        <Tooltip followCursor title="Cannot unlock this ability card">
+        <Tooltip followCursor title={tooltipText}>
             <Box
                 aria-disabled
                 role="checkbox"

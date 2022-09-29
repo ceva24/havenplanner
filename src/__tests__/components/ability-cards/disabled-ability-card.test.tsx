@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import DisabledAbilityCard from "@/components/ability-cards/deck/disabled-ability-card";
+import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
 
 const abilityCard = {
     id: 1,
@@ -9,8 +9,8 @@ const abilityCard = {
 };
 
 describe("disabled ability card", () => {
-    it("renders a disabled checkbox", () => {
-        render(<DisabledAbilityCard abilityCard={abilityCard} />);
+    it("renders a disabled checkbox with tooltip", () => {
+        render(<DisabledAbilityCard abilityCard={abilityCard} tooltipText="Cannot unlock this ability card" />);
 
         const checkbox = screen.getByRole("checkbox", { name: "Cannot unlock this ability card" });
 
@@ -19,7 +19,7 @@ describe("disabled ability card", () => {
     });
 
     it("renders the card", () => {
-        render(<DisabledAbilityCard abilityCard={abilityCard} />);
+        render(<DisabledAbilityCard abilityCard={abilityCard} tooltipText="Cannot unlock this ability card" />);
 
         const card = screen.queryByRole("img", { name: "Trample" });
 
@@ -27,7 +27,7 @@ describe("disabled ability card", () => {
     });
 
     it("renders a disabled card", () => {
-        render(<DisabledAbilityCard abilityCard={abilityCard} />);
+        render(<DisabledAbilityCard abilityCard={abilityCard} tooltipText="Cannot unlock this ability card" />);
 
         const lockIcon = screen.getByTestId("BlockIcon");
 

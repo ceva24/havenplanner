@@ -2,144 +2,7 @@
 import "@testing-library/cypress/add-commands";
 import "@/support/commands";
 
-describe("ability cards tab", () => {
-    it("renders a card", () => {
-        cy.visit("/");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findByRole("region", { name: "Level 1 Ability Cards" })
-            .findByRole("img", { name: "Trample" })
-            .should("have.attr", "src")
-            .should("include", "gh-trample");
-    });
-
-    it("renders level 1 cards", () => {
-        cy.visit("/");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findByRole("region", { name: "Level 1 Ability Cards" }).findAllByRole("img").should("have.length", 10);
-    });
-
-    it("renders level X cards", () => {
-        cy.visit("/");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findByRole("region", { name: "Level X Ability Cards" }).findAllByRole("img").should("have.length", 3);
-    });
-
-    it("renders level 2-9 cards", () => {
-        cy.visit("/");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findByRole("region", { name: "Level 2 Ability Cards" }).findAllByRole("img").should("have.length", 2);
-        cy.findByRole("region", { name: "Level 3 Ability Cards" }).findAllByRole("img").should("have.length", 2);
-        cy.findByRole("region", { name: "Level 4 Ability Cards" }).findAllByRole("img").should("have.length", 2);
-        cy.findByRole("region", { name: "Level 5 Ability Cards" }).findAllByRole("img").should("have.length", 2);
-        cy.findByRole("region", { name: "Level 6 Ability Cards" }).findAllByRole("img").should("have.length", 2);
-        cy.findByRole("region", { name: "Level 7 Ability Cards" }).findAllByRole("img").should("have.length", 2);
-        cy.findByRole("region", { name: "Level 8 Ability Cards" }).findAllByRole("img").should("have.length", 2);
-        cy.findByRole("region", { name: "Level 9 Ability Cards" }).findAllByRole("img").should("have.length", 2);
-    });
-
-    it("renders active cards as locked by default", () => {
-        cy.visit("/");
-
-        cy.findExperienceField().type("500");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findActiveAbilityCard("Fatal Advance").should("have.attr", "aria-checked", "false");
-    });
-
-    it("unlocks an active card when clicking on it", () => {
-        cy.visit("/");
-
-        cy.findExperienceField().type("500");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findActiveAbilityCard("Fatal Advance").click().should("have.attr", "aria-checked", "true");
-    });
-
-    it("unlocks an active card when pressing space", () => {
-        cy.visit("/");
-
-        cy.findExperienceField().type("500");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findActiveAbilityCard("Fatal Advance").focus().type(" ").should("have.attr", "aria-checked", "true");
-    });
-
-    it("unlocks an active card when pressing enter", () => {
-        cy.visit("/");
-
-        cy.findExperienceField().type("500");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findActiveAbilityCard("Fatal Advance").focus().type("{enter}").should("have.attr", "aria-checked", "true");
-    });
-
-    it("does not allow the unlocking of an ability card that is a higher level than the character", () => {
-        cy.visit("/");
-
-        cy.findExperienceField().type("55");
-
-        cy.selectTab("Ability Cards");
-
-        cy.shouldFindDisabledAbilityCard("Brute Force");
-    });
-
-    it("does not allow the unlocking of ability cards when the maximum number have already been unlocked", () => {
-        cy.visit("/");
-
-        cy.findExperienceField().type("100");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findActiveAbilityCard("Juggernaut").click();
-        cy.findActiveAbilityCard("Hook and Chain").click();
-
-        cy.shouldFindDisabledAbilityCard("Brute Force");
-    });
-
-    it("does not allow the unlocking of an ability card of the same level as the character when the other card at that level has already been unlocked", () => {
-        cy.visit("/");
-
-        cy.findExperienceField().type("100");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findActiveAbilityCard("Brute Force").click();
-
-        cy.shouldFindDisabledAbilityCard("Hook and Chain");
-    });
-
-    it("allows ability card unlocks to be modified when loading a character", () => {
-        cy.visit("/");
-
-        cy.findExperienceField().type("50");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findActiveAbilityCard("Juggernaut").click().should("have.attr", "aria-checked", "true");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.selectTab("Ability Cards");
-
-        cy.findActiveAbilityCard("Juggernaut").should("have.attr", "aria-checked", "true");
-
-        cy.findActiveAbilityCard("Juggernaut").click().should("have.attr", "aria-checked", "false");
-    });
-
+describe("ability cards tab - hand", () => {
     it("displays the select card dialog when pressing the create hand button", () => {
         cy.visit("/");
 
@@ -187,7 +50,7 @@ describe("ability cards tab", () => {
 
         cy.findSelectCardDialog().should("be.visible");
 
-        cy.findByRole("button", { name: "Close" }).click();
+        cy.clickCloseButton();
 
         cy.findAllByRole("img", { name: "Unselected card" }).should("have.length", 10);
     });
@@ -317,8 +180,6 @@ describe("ability cards tab", () => {
     it("allows ability cards to be removed from the hand", () => {
         cy.visit("/");
 
-        cy.findExperienceField().type("100");
-
         cy.selectTab("Ability Cards");
 
         cy.findCreateHandButton().click();
@@ -343,8 +204,6 @@ describe("ability cards tab", () => {
     it("shows unselected cards equal to the remaining spaces in the hand", () => {
         cy.visit("/");
 
-        cy.findExperienceField().type("100");
-
         cy.selectTab("Ability Cards");
 
         cy.findCreateHandButton().click();
@@ -360,8 +219,6 @@ describe("ability cards tab", () => {
 
     it("shows no unselected cards when the hand is filled", () => {
         cy.visit("/");
-
-        cy.findExperienceField().type("100");
 
         cy.selectTab("Ability Cards");
 
@@ -385,7 +242,7 @@ describe("ability cards tab", () => {
         cy.findByRole("img", { name: "Unselected card" }).should("not.exist");
     });
 
-    it.only("removes a card from the hand when locking it", () => {
+    it("removes a card from the hand when locking it", () => {
         cy.visit("/");
 
         cy.findExperienceField().type("100");
@@ -413,5 +270,48 @@ describe("ability cards tab", () => {
         cy.findShowHandSwitch().check();
 
         cy.findByRole("img", { name: "Juggernaut" }).should("not.exist");
+    });
+
+    it("shows a running counter of the number of cards in hand", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findSelectCardDialog().should("be.visible");
+
+        cy.findByText("0 / 10").should("exist");
+
+        cy.findActiveAbilityCard("Trample").click();
+
+        cy.findByText("1 / 10").should("exist");
+    });
+
+    it("does not allow any more cards to be added to the hand once the hand size has been reached", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findSelectCardDialog().should("be.visible");
+
+        cy.findActiveAbilityCard("Trample").click();
+        cy.findActiveAbilityCard("Eye for an Eye").click();
+        cy.findActiveAbilityCard("Sweeping Blow").click();
+        cy.findActiveAbilityCard("Provoking Roar").click();
+        cy.findActiveAbilityCard("Overwhelming Assault").click();
+        cy.findActiveAbilityCard("Grab and Go").click();
+        cy.findActiveAbilityCard("Warding Strength").click();
+        cy.findActiveAbilityCard("Shield Bash").click();
+        cy.findActiveAbilityCard("Leaping Cleave").click();
+        cy.findActiveAbilityCard("Spare Dagger").click();
+
+        cy.findByText("10 / 10").should("exist");
+
+        cy.shouldFindDisabledAbilityCard("Skewer");
+        cy.shouldFindDisabledAbilityCard("Balanced Measure");
+        cy.shouldFindDisabledAbilityCard("Wall of Doom");
     });
 });

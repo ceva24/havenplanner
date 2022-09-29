@@ -15,6 +15,14 @@ describe("select card dialog", () => {
         expect(selectCardDialog).toBeInTheDocument();
     });
 
+    it("renders the card total", () => {
+        render(<SelectCardDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
+
+        const cardTotal = screen.queryByText("0 / 10");
+
+        expect(cardTotal).toBeInTheDocument();
+    });
+
     it("renders available ability cards", () => {
         render(<SelectCardDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
 

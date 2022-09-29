@@ -42,6 +42,8 @@ const toggleCardAddedToHand = (
     setCharacter: Dispatch<SetStateAction<Character>>,
     abilityCard: AbilityCard
 ) => {
+    if (wouldBeExceedingHandSizeLimit(character, abilityCard)) return;
+
     const newHand = character.hand.includes(abilityCard)
         ? character.hand.filter((card: AbilityCard) => card.id !== abilityCard.id)
         : character.hand.concat([abilityCard]);
@@ -50,6 +52,10 @@ const toggleCardAddedToHand = (
         ...character,
         hand: newHand,
     });
+};
+
+const wouldBeExceedingHandSizeLimit = (character: Character, abilityCard: AbilityCard) => {
+    return !character.hand.includes(abilityCard) && character.hand.length === character.characterClass.handSize;
 };
 
 export default AvailableAbilityCard;
