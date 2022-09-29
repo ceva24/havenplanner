@@ -100,4 +100,39 @@ describe("toggleAbilityCardUnlock", () => {
 
         expect(newCharacter.unlockedAbilityCards).toHaveLength(0);
     });
+
+    it("removes a card being locked from the hand", () => {
+        const abilityCard = {
+            id: 1,
+            name: "Juggernaut",
+            level: "2",
+            imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+        };
+
+        const characterWithUnlockedCard: Character = createTestCharacter({
+            characterClass: {
+                id: 0,
+                name: "Brute",
+                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                handSize: 10,
+                abilityCards: [abilityCard],
+            },
+            unlockedAbilityCards: [abilityCard],
+            hand: [abilityCard],
+        });
+        toggleAbilityCard(
+            characterWithUnlockedCard,
+            setCharacter,
+            characterWithUnlockedCard.characterClass.abilityCards[0]
+        );
+
+        const newCharacter: Character = setCharacter.mock.calls[0][0] as Character;
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+
+        expect(newCharacter.hand).toHaveLength(0);
+    });
 });

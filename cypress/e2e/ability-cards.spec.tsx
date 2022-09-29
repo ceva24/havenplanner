@@ -384,4 +384,34 @@ describe("ability cards tab", () => {
 
         cy.findByRole("img", { name: "Unselected card" }).should("not.exist");
     });
+
+    it.only("removes a card from the hand when locking it", () => {
+        cy.visit("/");
+
+        cy.findExperienceField().type("100");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Juggernaut").click();
+
+        cy.findCreateHandButton().click();
+
+        cy.findSelectCardDialog().should("be.visible");
+
+        cy.findActiveAbilityCard("Juggernaut").click();
+
+        cy.clickCloseButton();
+
+        cy.findShowHandSwitch().should("be.checked");
+
+        cy.findByRole("img", { name: "Juggernaut" }).should("exist");
+
+        cy.findShowHandSwitch().uncheck();
+
+        cy.findActiveAbilityCard("Juggernaut").click();
+
+        cy.findShowHandSwitch().check();
+
+        cy.findByRole("img", { name: "Juggernaut" }).should("not.exist");
+    });
 });

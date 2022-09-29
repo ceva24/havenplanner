@@ -44,14 +44,20 @@ const toggleAbilityCard = (
     setCharacter: Dispatch<SetStateAction<Character>>,
     abilityCard: AbilityCard
 ) => {
-    const updatedCards = isUnlockedAbilityCardForCharacter(character, abilityCard)
-        ? character.unlockedAbilityCards.filter((card: AbilityCard) => card.id !== abilityCard.id)
-        : character.unlockedAbilityCards.concat([abilityCard]);
+    const updatedCharacter: Character = isUnlockedAbilityCardForCharacter(character, abilityCard)
+        ? {
+              ...character,
+              unlockedAbilityCards: character.unlockedAbilityCards.filter(
+                  (card: AbilityCard) => card.id !== abilityCard.id
+              ),
+              hand: character.hand.filter((card: AbilityCard) => card.id !== abilityCard.id),
+          }
+        : {
+              ...character,
+              unlockedAbilityCards: character.unlockedAbilityCards.concat([abilityCard]),
+          };
 
-    setCharacter({
-        ...character,
-        unlockedAbilityCards: updatedCards,
-    });
+    setCharacter(updatedCharacter);
 };
 
 export default ActiveAbilityCard;
