@@ -2,7 +2,7 @@ import { Box, Dialog, DialogContent, DialogTitle, Stack, Typography } from "@mui
 import { Dispatch, SetStateAction } from "react";
 import { getAllAvailableAbilityCardsForCharacter } from "@/services/character";
 import Button from "@/components/core/button";
-import AvailableAbilityCard from "@/components/ability-cards/hand/available-ability-card";
+import ActiveAbilityCard from "@/components/ability-cards/active-ability-card";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
 
 interface SelectCardDialogProps {
@@ -36,10 +36,13 @@ const SelectCardDialog = ({ character, setCharacter, isOpen, handleClose }: Sele
                             <Box key={abilityCard.id} sx={{ margin: 1 }}>
                                 {character.hand.length < character.characterClass.handSize ||
                                 character.hand.includes(abilityCard) ? (
-                                    <AvailableAbilityCard
+                                    <ActiveAbilityCard
                                         abilityCard={abilityCard}
-                                        character={character}
-                                        setCharacter={setCharacter}
+                                        action={() => {
+                                            toggleCardAddedToHand(character, setCharacter, abilityCard);
+                                        }}
+                                        isSelected={character.hand.includes(abilityCard)}
+                                        showLockIcon={false}
                                     />
                                 ) : (
                                     <DisabledAbilityCard abilityCard={abilityCard} tooltipText="Hand is full" />
@@ -56,4 +59,26 @@ const SelectCardDialog = ({ character, setCharacter, isOpen, handleClose }: Sele
     );
 };
 
+const toggleCardAddedToHand = (
+    character: Character,
+    setCharacter: Dispatch<SetStateAction<Character>>,
+    abilityCard: AbilityCard
+) => {
+    if (wouldBeExceedingHandSizeLimit(character, abilityCard)) return;
+
+    const newHand = character.hand.includes(abilityCard)
+        ? character.hand.filter((card: AbilityCard) => card.id !== abilityCard.id)
+        : character.hand.concat([abilityCard]);
+
+    setCharacter({
+        ...character,
+        hand: newHand,
+    });
+};
+
+const wouldBeExceedingHandSizeLimit = (character: Character, abilityCard: AbilityCard) => {
+    return !character.hand.includes(abilityCard) && character.hand.length === character.characterClass.handSize;
+};
+
 export default SelectCardDialog;
+export { toggleCardAddedToHand };
