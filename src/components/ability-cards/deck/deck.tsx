@@ -27,7 +27,7 @@ const Deck = ({ character, setCharacter }: DeckProps) => {
             {orderedLevels.map((level: string) => {
                 const cards = cardsByLevel[level];
                 const gridItemSize = cards.length <= 2 ? 6 : 12;
-                const isSelectable = abilityCardGroupOrder.indexOf(level) >= 2;
+                const isSelectable = !(level === "1" || level === "X");
 
                 return (
                     <Grid key={level} item xl={gridItemSize} width="100%">

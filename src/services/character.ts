@@ -55,7 +55,7 @@ const calculateMaximumUnlockCount = (characterLevel: number): number => {
 };
 
 const abilityCardLevelCanBeUnlockedByCharacter = (abilityCardLevel: string, characterLevel: number): boolean => {
-    return Number.parseInt(abilityCardLevel, 10) <= characterLevel;
+    return abilityCardLevel === "X" || Number.parseInt(abilityCardLevel, 10) <= characterLevel;
 };
 
 const isTheSecondCardOfCurrentCharacterLevel = (

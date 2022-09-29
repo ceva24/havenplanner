@@ -340,4 +340,51 @@ describe("profile tab", () => {
 
         cy.findByRole("img", { name: "Trample" }).should("not.exist");
     });
+
+    it("removes higher level cards from the hand when changing level", () => {
+        cy.visit("/");
+
+        cy.findExperienceField().type("400");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Fatal Advance").click();
+        cy.findActiveAbilityCard("Juggernaut").click();
+        cy.findActiveAbilityCard("Hook and Chain").click();
+        cy.findActiveAbilityCard("Brute Force").click();
+        cy.findActiveAbilityCard("Quietus").click();
+        cy.findActiveAbilityCard("Crippling Offensive").click();
+
+        cy.findCreateHandButton().click();
+
+        cy.findActiveAbilityCard("Trample").click();
+        cy.findActiveAbilityCard("Skewer").click();
+
+        cy.findActiveAbilityCard("Fatal Advance").click();
+        cy.findActiveAbilityCard("Juggernaut").click();
+        cy.findActiveAbilityCard("Hook and Chain").click();
+        cy.findActiveAbilityCard("Brute Force").click();
+        cy.findActiveAbilityCard("Quietus").click();
+        cy.findActiveAbilityCard("Crippling Offensive").click();
+
+        cy.clickCloseButton();
+
+        cy.selectTab("Profile");
+
+        cy.findExperienceField().clear();
+
+        cy.selectTab("Ability Cards");
+
+        cy.findShowHandSwitch().should("be.checked");
+
+        cy.findByRole("img", { name: "Trample" }).should("exist");
+        cy.findByRole("img", { name: "Skewer" }).should("exist");
+
+        cy.findByRole("img", { name: "Fatal Advance" }).should("not.exist");
+        cy.findByRole("img", { name: "Juggernaut" }).should("not.exist");
+        cy.findByRole("img", { name: "Hook and Chain" }).should("not.exist");
+        cy.findByRole("img", { name: "Brute Force" }).should("not.exist");
+        cy.findByRole("img", { name: "Quietus" }).should("not.exist");
+        cy.findByRole("img", { name: "Crippling Offensive" }).should("not.exist");
+    });
 });

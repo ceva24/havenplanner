@@ -122,7 +122,7 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
         expect(result).toEqual(false);
     });
 
-    it("returns false if the card level is non-numeric", () => {
+    it("returns true if the card level is non-numeric", () => {
         const abilityCard = characterClasses[0].abilityCards[12];
 
         const character: Character = createTestCharacter({
@@ -131,7 +131,7 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
 
         const result = abilityCardCanBeUnlockedForCharacter(character, abilityCard);
 
-        expect(result).toEqual(false);
+        expect(result).toEqual(true);
     });
 });
 
