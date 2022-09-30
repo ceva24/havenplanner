@@ -48,6 +48,7 @@ const AbilityCards = ({ character, setCharacter }: AbilityCardsProps) => {
                     <Stack direction="row" justifyContent="center" spacing={1} paddingBottom={3}>
                         <Typography>Deck</Typography>
                         <Switch
+                            id="show-hand-switch"
                             inputProps={{ "aria-label": "Show hand" }}
                             checked={appSettings.showHand}
                             onChange={toggleHand}
