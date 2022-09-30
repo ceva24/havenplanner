@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import AbilityCards from "@/components/ability-cards/ability-cards";
-import { defaultCharacter } from "@/utils/constants";
+import { defaultCharacter } from "@/constants";
 import AppSettingsProvider from "@/hooks/app-settings";
 
 const setCharacter = jest.fn();

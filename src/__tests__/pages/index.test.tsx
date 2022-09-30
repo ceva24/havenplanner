@@ -4,7 +4,7 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps } from "@/pages/index";
 import * as encoderService from "@/services/encoder";
-import { defaultCharacter } from "@/utils/constants";
+import { defaultCharacter } from "@/constants";
 import { createTestCharacter } from "@/testutils";
 
 jest.mock("@/services/encoder", () => {

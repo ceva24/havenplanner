@@ -2,7 +2,7 @@ import { v4 as uuid } from "uuid";
 import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
-import { defaultCharacter } from "@/utils/constants";
+import { defaultCharacter } from "@/constants";
 
 interface SerializedCharacterData {
     n: string; // Name

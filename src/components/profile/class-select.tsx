@@ -2,7 +2,7 @@ import { Select, MenuItem, SelectChangeEvent, InputLabel, FormControl, Box } fro
 import { Dispatch, FC, SetStateAction } from "react";
 import Image from "@/components/core/image";
 import { characterClasses } from "@/loaders/character-classes";
-import { defaultCharacter } from "@/utils/constants";
+import { defaultCharacter } from "@/constants";
 import { useAppSettingsContext } from "@/hooks/app-settings";
 
 interface ClassSelectProps {

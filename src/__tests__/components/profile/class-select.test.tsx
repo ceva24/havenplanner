@@ -2,7 +2,7 @@ import { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import ClassSelect, { findAndSetCharacter, resetAbilityCardsTabConfig } from "@/components/profile/class-select";
 import { characterClasses } from "@/loaders/character-classes";
-import { defaultCharacter } from "@/utils/constants";
+import { defaultCharacter } from "@/constants";
 import { createTestCharacter } from "@/testutils";
 import AppSettingsProvider from "@/hooks/app-settings";
 

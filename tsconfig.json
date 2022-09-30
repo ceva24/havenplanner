@@ -13,6 +13,7 @@
             "@/types/*": ["src/types/*"],
             "@/utils/*": ["src/utils/*"],
             "@/data/*": ["data/*"],
+            "@/constants": ["src/constants"],
             "@/testutils": ["src/__tests__/utils"]
         }
     },
