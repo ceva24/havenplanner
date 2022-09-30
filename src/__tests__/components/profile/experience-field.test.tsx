@@ -1,16 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import ExperienceField, { filterInvalidUnlockedAbilityCardsOnLevelChange } from "@/components/profile/experience-field";
-import { characterClasses } from "@/loaders/class";
+import ExperienceField, { updateUnlockedAbilityCards, updateCardsInHand } from "@/components/profile/experience-field";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "My Char",
-    experience: 25,
-    gold: 50,
-    notes: "Hello haven",
-    characterClass: characterClasses[0],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter({ experience: 25 });
 
 const setCharacter = jest.fn();
 
@@ -38,7 +30,7 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
             },
         ];
 
-        const result = filterInvalidUnlockedAbilityCardsOnLevelChange(abilityCards, 3);
+        const result = updateUnlockedAbilityCards(abilityCards, 3);
 
         expect(result).toEqual(abilityCards);
     });
@@ -53,7 +45,7 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
             },
         ];
 
-        const result = filterInvalidUnlockedAbilityCardsOnLevelChange(abilityCards, 2);
+        const result = updateUnlockedAbilityCards(abilityCards, 2);
 
         expect(result).toEqual(abilityCards);
     });
@@ -74,7 +66,7 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
             },
         ];
 
-        const result = filterInvalidUnlockedAbilityCardsOnLevelChange(abilityCards, 2);
+        const result = updateUnlockedAbilityCards(abilityCards, 2);
 
         expect(result).toHaveLength(1);
         expect(result[0]).toEqual(abilityCards[0]);
@@ -96,7 +88,7 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
             },
         ];
 
-        const result = filterInvalidUnlockedAbilityCardsOnLevelChange(abilityCards, 1);
+        const result = updateUnlockedAbilityCards(abilityCards, 1);
 
         expect(result).toHaveLength(0);
     });
@@ -117,7 +109,7 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
             },
         ];
 
-        const result = filterInvalidUnlockedAbilityCardsOnLevelChange(abilityCards, 3);
+        const result = updateUnlockedAbilityCards(abilityCards, 3);
 
         expect(result).toHaveLength(1);
         expect(result[0]).toEqual(abilityCards[0]);
@@ -145,7 +137,7 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
             },
         ];
 
-        const result = filterInvalidUnlockedAbilityCardsOnLevelChange(abilityCards, 3);
+        const result = updateUnlockedAbilityCards(abilityCards, 3);
 
         expect(result).toHaveLength(2);
         expect(result[0]).toEqual(abilityCards[0]);
@@ -192,10 +184,118 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
             },
         ];
 
-        const result = filterInvalidUnlockedAbilityCardsOnLevelChange(abilityCards, 3);
+        const result = updateUnlockedAbilityCards(abilityCards, 3);
 
         expect(result).toHaveLength(2);
         expect(result[0]).toEqual(abilityCards[1]);
         expect(result[1]).toEqual(abilityCards[3]);
+    });
+});
+
+describe("filterInvalidCardsInHandOnLevelChange", () => {
+    it("removes cards in the hand greater than the new level", () => {
+        const hand: AbilityCard[] = [
+            {
+                id: 25,
+                name: "Crippling Offensive",
+                level: "7",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp",
+            },
+            {
+                id: 17,
+                name: "Brute Force",
+                level: "3",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp",
+            },
+            {
+                id: 22,
+                name: "Quietus",
+                level: "6",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp",
+            },
+            {
+                id: 16,
+                name: "Hook and Chain",
+                level: "3",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+            },
+        ];
+
+        const result = updateCardsInHand(hand, 2);
+
+        expect(result).toHaveLength(0);
+    });
+
+    it("does not remove cards in hand equal to the new level", () => {
+        const hand: AbilityCard[] = [
+            {
+                id: 25,
+                name: "Crippling Offensive",
+                level: "7",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp",
+            },
+            {
+                id: 17,
+                name: "Brute Force",
+                level: "3",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp",
+            },
+            {
+                id: 22,
+                name: "Quietus",
+                level: "6",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp",
+            },
+            {
+                id: 16,
+                name: "Hook and Chain",
+                level: "3",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+            },
+        ];
+
+        const result = updateCardsInHand(hand, 3);
+
+        expect(result).toHaveLength(2);
+        expect(result[0]).toEqual(hand[1]);
+        expect(result[1]).toEqual(hand[3]);
+    });
+
+    it("does not remove cards in hand lower than the new level", () => {
+        const hand: AbilityCard[] = [
+            {
+                id: 1,
+                name: "Trample",
+                level: "1",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+            },
+            {
+                id: 15,
+                name: "Juggernaut",
+                level: "2",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+            },
+        ];
+
+        const result = updateCardsInHand(hand, 3);
+
+        expect(result).toHaveLength(2);
+        expect(result).toEqual(hand);
+    });
+
+    it("does not remove level X cards", () => {
+        const hand: AbilityCard[] = [
+            {
+                id: 11,
+                name: "Skewer",
+                level: "X",
+                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
+            },
+        ];
+
+        const result = updateCardsInHand(hand, 1);
+
+        expect(result).toHaveLength(1);
+        expect(result).toEqual(hand);
     });
 });

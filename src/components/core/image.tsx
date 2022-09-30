@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { baseImageUrl } from "@/utils/constants";
+import { baseImageUrl } from "@/constants";
 
 interface ImageProps {
     webpPath: string;

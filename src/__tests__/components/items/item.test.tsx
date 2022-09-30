@@ -1,20 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import Item, { removeItem } from "@/components/items/item";
-import { characterClasses } from "@/loaders/class";
 import { items } from "@/loaders/items";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "Test",
-    experience: 0,
-    gold: 0,
-    notes: "",
-    characterClass: characterClasses[0],
+const character: Character = createTestCharacter({
     items: [
         { id: "1", item: items[8] },
         { id: "2", item: items[5] },
     ],
-    unlockedAbilityCards: [],
-};
+});
 
 const setCharacter = jest.fn();
 
@@ -42,15 +36,9 @@ describe("item", () => {
 
 describe("removeItem", () => {
     it("removes an item", () => {
-        const character = {
-            name: "Test",
-            experience: 0,
-            gold: 0,
-            notes: "",
-            characterClass: characterClasses[0],
+        const character: Character = createTestCharacter({
             items: [{ id: "1", item: items[0] }],
-            unlockedAbilityCards: [],
-        };
+        });
 
         removeItem(character, setCharacter, character.items[0]);
 
@@ -62,18 +50,12 @@ describe("removeItem", () => {
     });
 
     it("only removes the correct item when duplicate items are present", () => {
-        const character = {
-            name: "Test",
-            experience: 0,
-            gold: 0,
-            notes: "",
-            characterClass: characterClasses[0],
+        const character: Character = createTestCharacter({
             items: [
                 { id: "1", item: items[0] },
                 { id: "2", item: items[0] },
             ],
-            unlockedAbilityCards: [],
-        };
+        });
 
         removeItem(character, setCharacter, character.items[1]);
 
@@ -85,19 +67,13 @@ describe("removeItem", () => {
     });
 
     it("removes an item from the middle of the list", () => {
-        const character = {
-            name: "Test",
-            experience: 0,
-            gold: 0,
-            notes: "",
-            characterClass: characterClasses[0],
+        const character: Character = createTestCharacter({
             items: [
                 { id: "1", item: items[0] },
                 { id: "2", item: items[1] },
                 { id: "3", item: items[2] },
             ],
-            unlockedAbilityCards: [],
-        };
+        });
 
         removeItem(character, setCharacter, character.items[1]);
 
@@ -109,19 +85,13 @@ describe("removeItem", () => {
     });
 
     it("does not remove any items when the id is invalid", () => {
-        const character = {
-            name: "Test",
-            experience: 0,
-            gold: 0,
-            notes: "",
-            characterClass: characterClasses[0],
+        const character: Character = createTestCharacter({
             items: [
                 { id: "1", item: items[0] },
                 { id: "2", item: items[1] },
                 { id: "3", item: items[2] },
             ],
-            unlockedAbilityCards: [],
-        };
+        });
 
         removeItem(character, setCharacter, { id: "-1", item: items[0] });
 

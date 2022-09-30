@@ -40,6 +40,10 @@ Cypress.Commands.add("findShareLinkTextBox", () => {
     cy.findShareLinkDialog().findByRole("textbox", { name: "Link" });
 });
 
+Cypress.Commands.add("clickCloseButton", () => {
+    cy.findByRole("button", { name: "Close" }).click();
+});
+
 Cypress.Commands.add("selectClass", (name) => {
     cy.findSelectClassButton().click();
 
@@ -66,12 +70,28 @@ Cypress.Commands.add("selectTab", (name: string) => {
     cy.findByRole("tab", { name }).click();
 });
 
+Cypress.Commands.add("findCreateHandButton", () => {
+    cy.findByRole("button", { name: "Create hand" });
+});
+
+Cypress.Commands.add("findShowHandSwitch", () => {
+    cy.findByRole("checkbox", { name: "Show hand" });
+});
+
 Cypress.Commands.add("findActiveAbilityCard", (name: string) => {
     cy.findByRole("checkbox", { name });
 });
 
 Cypress.Commands.add("shouldFindDisabledAbilityCard", (name: string) => {
     cy.findByRole("img", { name }).parent().parent().should("have.attr", "aria-disabled", "true");
+});
+
+Cypress.Commands.add("findEditHandButton", () => {
+    cy.findByRole("button", { name: "Edit hand" });
+});
+
+Cypress.Commands.add("findSelectCardDialog", () => {
+    cy.findByRole("dialog", { name: "Select ability cards" });
 });
 
 Cypress.Commands.add("findItemsAutocomplete", () => {

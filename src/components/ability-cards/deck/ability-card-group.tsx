@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
-import UnlockableAbilityCard from "@/components/ability-cards/unlockable-ability-card";
+import UnlockableAbilityCard from "@/components/ability-cards/deck/unlockable-ability-card";
 import { Card } from "@/components/core/cards";
 
 interface AbilityCardGroupProps {

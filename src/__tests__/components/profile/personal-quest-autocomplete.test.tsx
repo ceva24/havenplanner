@@ -1,18 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import PersonalQuestAutocomplete, { findAndSetPersonalQuest } from "@/components/profile/personal-quest-autocomplete";
-import { characterClasses } from "@/loaders/class";
-import { personalQuests } from "@/loaders/personal-quest";
+import { personalQuests } from "@/loaders/personal-quests";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "Test",
-    experience: 45,
-    gold: 25,
-    notes: "Hello",
-    characterClass: characterClasses[1],
+const character: Character = createTestCharacter({
     personalQuest: personalQuests[2],
-    items: [],
-    unlockedAbilityCards: [],
-};
+});
 
 beforeEach(() => {
     jest.clearAllMocks();

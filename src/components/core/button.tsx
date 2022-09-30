@@ -14,10 +14,6 @@ const Button = ({ text, onClick, startIcon }: ButtonProps) => {
                 margin: "1%",
                 paddingLeft: 3,
                 paddingRight: 3,
-                color: "background.default",
-                backgroundColor: "secondary.main",
-                // eslint-disable-next-line @typescript-eslint/naming-convention
-                "&:hover": { backgroundColor: "secondary.light" },
             }}
             startIcon={startIcon}
             onClick={onClick}

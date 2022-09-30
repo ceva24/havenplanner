@@ -1,26 +1,24 @@
-import { Dispatch, SetStateAction, KeyboardEvent } from "react";
-import LockIcon from "@mui/icons-material/LockTwoTone";
+import { KeyboardEvent } from "react";
 import { Box } from "@mui/material";
+import LockIcon from "@mui/icons-material/LockTwoTone";
 import { Card } from "@/components/core/cards";
-import { isUnlockedAbilityCardForCharacter } from "@/services/character";
 
 interface ActiveAbilityCardProps {
     abilityCard: AbilityCard;
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+    isSelected: boolean;
+    action: () => void;
+    showLockIcon: boolean;
 }
 
-const ActiveAbilityCard = ({ abilityCard, character, setCharacter }: ActiveAbilityCardProps) => {
-    const isSelected = isUnlockedAbilityCardForCharacter(character, abilityCard);
-
+const ActiveAbilityCard = ({ abilityCard, isSelected, action, showLockIcon }: ActiveAbilityCardProps) => {
     const onClick = () => {
-        toggleAbilityCard(character, setCharacter, abilityCard);
+        action();
     };
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
         if (["Space", "Enter"].includes(event.code)) {
             event.preventDefault();
-            toggleAbilityCard(character, setCharacter, abilityCard);
+            action();
         }
     };
 
@@ -34,25 +32,9 @@ const ActiveAbilityCard = ({ abilityCard, character, setCharacter }: ActiveAbili
             onKeyDown={onKeyDown}
         >
             <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
-            {!isSelected && <LockIcon sx={{ position: "absolute", top: 3, right: 1 }} />}
+            {!isSelected && showLockIcon && <LockIcon sx={{ position: "absolute", top: 3, right: 1 }} />}
         </Box>
     );
 };
 
-const toggleAbilityCard = (
-    character: Character,
-    setCharacter: Dispatch<SetStateAction<Character>>,
-    abilityCard: AbilityCard
-) => {
-    const updatedCards = isUnlockedAbilityCardForCharacter(character, abilityCard)
-        ? character.unlockedAbilityCards.filter((card: AbilityCard) => card.id !== abilityCard.id)
-        : character.unlockedAbilityCards.concat([abilityCard]);
-
-    setCharacter({
-        ...character,
-        unlockedAbilityCards: updatedCards,
-    });
-};
-
 export default ActiveAbilityCard;
-export { toggleAbilityCard };

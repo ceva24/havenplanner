@@ -4,8 +4,8 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps } from "@/pages/index";
 import * as encoderService from "@/services/encoder";
-import { characterClasses } from "@/loaders/class";
-import { defaultCharacter } from "@/utils/constants";
+import { defaultCharacter } from "@/constants";
+import { createTestCharacter } from "@/testutils";
 
 jest.mock("@/services/encoder", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
@@ -47,15 +47,7 @@ describe("getServerSideProps", () => {
     });
 
     it("loads character details from the query string parameter", async () => {
-        const character: Character = {
-            name: "Test character",
-            experience: 240,
-            gold: 75,
-            notes: "It's a test",
-            characterClass: characterClasses[2],
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        const character: Character = createTestCharacter();
 
         jest.spyOn(encoderService, "decode").mockImplementationOnce(() => character);
 

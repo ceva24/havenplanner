@@ -20,6 +20,8 @@ declare namespace Cypress {
 
         findShareLinkTextBox(): Chainable<Element>;
 
+        clickCloseButton(): Chainable<Element>;
+
         selectClass(name: string): Chainable<Element>;
 
         findPersonalQuestSwitch(): Chainable<Element>;
@@ -32,9 +34,17 @@ declare namespace Cypress {
 
         selectTab(name: string): Chainable<Element>;
 
+        findCreateHandButton(): Chainable<Element>;
+
+        findShowHandSwitch(): Chainable<Element>;
+
         findActiveAbilityCard(name: string): Chainable<Element>;
 
         shouldFindDisabledAbilityCard(name: string): Chainable<Element>;
+
+        findEditHandButton(): Chainable<Element>;
+
+        findSelectCardDialog(): Chainable<Element>;
 
         findItemsAutocomplete(): Chainable<Element>;
 

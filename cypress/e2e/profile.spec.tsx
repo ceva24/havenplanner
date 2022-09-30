@@ -172,7 +172,7 @@ describe("profile tab", () => {
 
     it("shows the personal quest switch when loading a character with a personal quest", () => {
         cy.visit(
-            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPtNuF"
+            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2hsO2YsO2sxeMuF"
         );
 
         cy.findPersonalQuestSwitch().should("exist");
@@ -188,7 +188,7 @@ describe("profile tab", () => {
 
     it("hides the personal quest by default when loading a character with one set", () => {
         cy.visit(
-            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPtNuF"
+            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2hsO2YsO2sxeMuF"
         );
 
         cy.findDefaultPersonalQuestImage().should("exist");
@@ -196,7 +196,7 @@ describe("profile tab", () => {
 
     it("hides the personal quest when the switch is set to off", () => {
         cy.visit(
-            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPtNuF"
+            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2hsO2YsO2sxeMuF"
         );
 
         cy.findPersonalQuestSwitch().check();
@@ -212,7 +212,7 @@ describe("profile tab", () => {
 
     it("hides the personal quest autocomplete when the switch is set to off", () => {
         cy.visit(
-            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPtNuF"
+            "/?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2hsO2YsO2sxeMuF"
         );
 
         cy.findPersonalQuestSwitch().uncheck();
@@ -309,5 +309,82 @@ describe("profile tab", () => {
         cy.shouldFindDisabledAbilityCard("Quietus");
         cy.shouldFindDisabledAbilityCard("Hook and Chain");
         cy.shouldFindDisabledAbilityCard("Fatal Advance");
+    });
+
+    it("resets the hand when changing the class", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findActiveAbilityCard("Trample").click();
+
+        cy.clickCloseButton();
+
+        cy.findByRole("img", { name: "Trample" }).should("exist");
+
+        cy.selectTab("Profile");
+
+        cy.selectClass("Spellweaver");
+
+        cy.selectClass("Brute");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findActiveAbilityCard("Trample").should("not.be.checked");
+
+        cy.clickCloseButton();
+
+        cy.findByRole("img", { name: "Trample" }).should("not.exist");
+    });
+
+    it("removes higher level cards from the hand when changing level", () => {
+        cy.visit("/");
+
+        cy.findExperienceField().type("400");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Fatal Advance").click();
+        cy.findActiveAbilityCard("Juggernaut").click();
+        cy.findActiveAbilityCard("Hook and Chain").click();
+        cy.findActiveAbilityCard("Brute Force").click();
+        cy.findActiveAbilityCard("Quietus").click();
+        cy.findActiveAbilityCard("Crippling Offensive").click();
+
+        cy.findCreateHandButton().click();
+
+        cy.findActiveAbilityCard("Trample").click();
+        cy.findActiveAbilityCard("Skewer").click();
+
+        cy.findActiveAbilityCard("Fatal Advance").click();
+        cy.findActiveAbilityCard("Juggernaut").click();
+        cy.findActiveAbilityCard("Hook and Chain").click();
+        cy.findActiveAbilityCard("Brute Force").click();
+        cy.findActiveAbilityCard("Quietus").click();
+        cy.findActiveAbilityCard("Crippling Offensive").click();
+
+        cy.clickCloseButton();
+
+        cy.selectTab("Profile");
+
+        cy.findExperienceField().clear();
+
+        cy.selectTab("Ability Cards");
+
+        cy.findShowHandSwitch().should("be.checked");
+
+        cy.findByRole("img", { name: "Trample" }).should("exist");
+        cy.findByRole("img", { name: "Skewer" }).should("exist");
+
+        cy.findByRole("img", { name: "Fatal Advance" }).should("not.exist");
+        cy.findByRole("img", { name: "Juggernaut" }).should("not.exist");
+        cy.findByRole("img", { name: "Hook and Chain" }).should("not.exist");
+        cy.findByRole("img", { name: "Brute Force" }).should("not.exist");
+        cy.findByRole("img", { name: "Quietus" }).should("not.exist");
+        cy.findByRole("img", { name: "Crippling Offensive" }).should("not.exist");
     });
 });

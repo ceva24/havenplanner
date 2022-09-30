@@ -1,9 +1,10 @@
-import { Grid } from "@mui/material";
-import groupBy from "lodash.groupby";
-import { Dispatch, SetStateAction } from "react";
-import AbilityCardGroup from "@/components/ability-cards/ability-card-group";
-
-const abilityCardGroupOrder = ["1", "X", "2", "3", "4", "5", "6", "7", "8", "9"];
+import { Dispatch, SetStateAction, useState } from "react";
+import { Box, Stack, Switch, Typography } from "@mui/material";
+import { useAppSettingsContext } from "@/hooks/app-settings";
+import Button from "@/components/core/button";
+import Deck from "@/components/ability-cards/deck/deck";
+import Hand from "@/components/ability-cards/hand/hand";
+import SelectCardDialog from "@/components/ability-cards/hand/select-card-dialog";
 
 interface AbilityCardsProps {
     character: Character;
@@ -11,37 +12,68 @@ interface AbilityCardsProps {
 }
 
 const AbilityCards = ({ character, setCharacter }: AbilityCardsProps) => {
-    const cardsByLevel = groupBy(
-        character.characterClass.abilityCards,
-        (abilityCard: AbilityCard) => abilityCard.level
+    const { appSettings, setAppSettings } = useAppSettingsContext();
+
+    const [showCreateHandButton, setShowCreateHandButton] = useState<boolean>(
+        character.hand.length === 0 && !appSettings.showHand
     );
 
-    const uniqueLevels = Object.keys(cardsByLevel);
+    const createHand = () => {
+        openSelectCardDialog();
 
-    const orderedLevels = uniqueLevels
-        .slice()
-        .sort((a: string, b: string) => abilityCardGroupOrder.indexOf(a) - abilityCardGroupOrder.indexOf(b));
+        setTimeout(() => {
+            setShowCreateHandButton(false);
+            toggleHand();
+        }, 250);
+    };
+
+    const toggleHand = () => {
+        setAppSettings({ ...appSettings, showHand: !appSettings.showHand });
+    };
+
+    const [selectCardDialogOpen, setSelectCardDialogOpen] = useState<boolean>(false);
+
+    const openSelectCardDialog = () => {
+        setSelectCardDialogOpen(true);
+    };
+
+    const closeSelectCardDialog = () => {
+        setSelectCardDialogOpen(false);
+    };
 
     return (
-        <Grid container>
-            {orderedLevels.map((level: string) => {
-                const cards = cardsByLevel[level];
-                const gridItemSize = cards.length <= 2 ? 6 : 12;
-                const isSelectable = abilityCardGroupOrder.indexOf(level) >= 2;
-
-                return (
-                    <Grid key={level} item xl={gridItemSize} width="100%">
-                        <AbilityCardGroup
-                            level={level}
-                            cards={cards}
-                            isSelectable={isSelectable}
-                            character={character}
-                            setCharacter={setCharacter}
+        <>
+            <Box>
+                {!showCreateHandButton && (
+                    <Stack direction="row" justifyContent="center" spacing={1} paddingBottom={3}>
+                        <Typography>Deck</Typography>
+                        <Switch
+                            id="show-hand-switch"
+                            inputProps={{ "aria-label": "Show hand" }}
+                            checked={appSettings.showHand}
+                            onChange={toggleHand}
                         />
-                    </Grid>
-                );
-            })}
-        </Grid>
+                        <Typography>Hand</Typography>
+                    </Stack>
+                )}
+                {appSettings.showHand ? (
+                    <Hand character={character} openSelectCardDialog={openSelectCardDialog} />
+                ) : (
+                    <Deck character={character} setCharacter={setCharacter} />
+                )}
+                {showCreateHandButton && (
+                    <Box textAlign="center">
+                        <Button text="Create hand" onClick={createHand} />
+                    </Box>
+                )}
+            </Box>
+            <SelectCardDialog
+                character={character}
+                setCharacter={setCharacter}
+                isOpen={selectCardDialogOpen}
+                handleClose={closeSelectCardDialog}
+            />
+        </>
     );
 };
 

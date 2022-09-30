@@ -1,33 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import PersonalQuest from "@/components/profile/personal-quest";
 import AppSettingsProvider from "@/hooks/app-settings";
-import { characterClasses } from "@/loaders/class";
-import { personalQuests } from "@/loaders/personal-quest";
+import { personalQuests } from "@/loaders/personal-quests";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "My Char",
-    experience: 25,
-    gold: 50,
-    notes: "Hello haven",
-    characterClass: characterClasses[0],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter();
 
 const setCharacter = jest.fn();
 
 describe("personal quest", () => {
     it("renders the show personal quest switch when it is set in app settings", () => {
-        const characterWithPersonalQuest: Character = {
-            name: "My Char",
-            experience: 25,
-            gold: 50,
-            notes: "Hello haven",
-            characterClass: characterClasses[0],
+        const characterWithPersonalQuest: Character = createTestCharacter({
             personalQuest: personalQuests[0],
-            items: [],
-            unlockedAbilityCards: [],
-        };
+        });
 
         render(
             <AppSettingsProvider character={characterWithPersonalQuest}>

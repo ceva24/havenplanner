@@ -4,6 +4,8 @@
     "imageUrl": "/images/character-icons/gloomhaven/gh-tinkerer.webp",
     "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-tinkerer.webp",
     "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-tinkerer-back.webp",
+    "cardBackImageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-ti-back.webp",
+    "handSize": 12,
     "abilityCards": [
         {
             "id": 30,

@@ -1,17 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import TabContainer from "@/components/tabs/tab-container";
 import AppSettingsProvider from "@/hooks/app-settings";
-import { characterClasses } from "@/loaders/class";
+import { createTestCharacter } from "@/testutils";
 
-const character: Character = {
-    name: "My Char",
-    experience: 25,
-    gold: 50,
-    notes: "Hello haven",
-    characterClass: characterClasses[0],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter();
 
 describe("tab container", () => {
     it("renders the profile tab", () => {

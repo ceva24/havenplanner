@@ -19,15 +19,16 @@ A web application to create and share character builds for the popular tabletop 
 
 ## 🗒️ Features
 
--   Enter character details, including personal quest with the option to toggle visibility
+-   Enter character details, including selecting a personal quest
 -   See all character ability cards and select unlocked ones
+-   Create a saved hand
 -   Browse and select items
 -   Save and share characters with a shareable link
 
 ### Not yet implemented
 
 -   Character ability card augments
--   Show selected perks and the resulting attack modifier deck composition
+-   Select perks, track battle goal progress, and see the resulting attack modifier deck composition
 -   Locked characters and items
 -   Content from Forgotten Circles, Jaws of the Lion, Crimson Scales and Frosthaven
 
@@ -37,7 +38,7 @@ Built with [TypeScript](https://www.typescriptlang.org), [Next.js](https://nextj
 
 ### Prerequisites
 
-1. The version of Node.js listed in [`.nvmrc`](.nvmrc)
+1. The version of Node.js listed in [`.nvmrc`](../.nvmrc)
 
 2. A Google Chrome installation, to run Lighthouse locally
 

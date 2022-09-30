@@ -2,7 +2,7 @@
 import "@testing-library/cypress/add-commands";
 import "@/support/commands";
 
-describe("ability cards tab", () => {
+describe("ability cards tab - deck", () => {
     it("renders a card", () => {
         cy.visit("/");
 

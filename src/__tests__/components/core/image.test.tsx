@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Image, { createImageUrl } from "@/components/core/image";
-import { baseImageUrl } from "@/utils/constants";
+import { baseImageUrl } from "@/constants";
 
 describe("image", () => {
     it("renders the image", () => {

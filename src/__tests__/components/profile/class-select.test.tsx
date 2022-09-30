@@ -1,20 +1,18 @@
 import { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
-import ClassSelect, { findAndSetCharacter } from "@/components/profile/class-select";
-import { characterClasses } from "@/loaders/class";
-import { defaultCharacter } from "@/utils/constants";
+import ClassSelect, { findAndSetCharacter, resetAbilityCardsTabConfig } from "@/components/profile/class-select";
+import { characterClasses } from "@/loaders/character-classes";
+import { defaultCharacter } from "@/constants";
+import { createTestCharacter } from "@/testutils";
+import AppSettingsProvider from "@/hooks/app-settings";
 
-const character: Character = {
-    name: "Test",
-    experience: 45,
-    gold: 25,
-    notes: "Hello",
-    characterClass: characterClasses[1],
-    items: [],
-    unlockedAbilityCards: [],
-};
+const character: Character = createTestCharacter();
 
 const setCharacter = jest.fn();
+
+const appSettings: AppSettings = { showPersonalQuestButton: false, showPersonalQuest: false, showHand: false };
+
+const setAppSettings = jest.fn();
 
 beforeEach(() => {
     jest.clearAllMocks();
@@ -22,7 +20,11 @@ beforeEach(() => {
 
 describe("class select", () => {
     it("renders", () => {
-        render(<ClassSelect character={character} setCharacter={setCharacter} />);
+        render(
+            <AppSettingsProvider character={character}>
+                <ClassSelect character={character} setCharacter={setCharacter} />
+            </AppSettingsProvider>
+        );
 
         const classSelect = screen.queryByRole("button", { name: "Class" });
 
@@ -30,7 +32,11 @@ describe("class select", () => {
     });
 
     it("renders the class icon", () => {
-        render(<ClassSelect character={character} setCharacter={setCharacter} />);
+        render(
+            <AppSettingsProvider character={character}>
+                <ClassSelect character={character} setCharacter={setCharacter} />
+            </AppSettingsProvider>
+        );
 
         const classIcon = screen.queryByRole("img", {
             name: "Class icon",
@@ -72,15 +78,8 @@ describe("findAndSetCharacter", () => {
     });
 
     it("clears any existing unlocked ability cards", () => {
-        const character: Character = {
-            name: "Test",
-            experience: 45,
-            gold: 25,
-            notes: "Hello",
-            characterClass: characterClasses[1],
-            items: [],
-            unlockedAbilityCards: [characterClasses[1].abilityCards[0]],
-        };
+        const character: Character = createTestCharacter();
+        character.unlockedAbilityCards = [character.characterClass.abilityCards[0]];
 
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = {
@@ -94,6 +93,44 @@ describe("findAndSetCharacter", () => {
             ...character,
             characterClass: characterClasses[3],
             unlockedAbilityCards: [],
+        });
+    });
+
+    it("clears the hand", () => {
+        const character: Character = createTestCharacter();
+        character.hand = [character.characterClass.abilityCards[0]];
+
+        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
+        const event = {
+            target: { value: characterClasses[3].name },
+        } as SelectChangeEvent;
+
+        findAndSetCharacter(event, character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: characterClasses[3],
+            hand: [],
+        });
+    });
+});
+
+describe("resetAbilityCardsTabConfig", () => {
+    it("sets the show hand app setting to false", () => {
+        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
+        const event = {
+            target: { value: characterClasses[3].name },
+        } as SelectChangeEvent;
+
+        const appSettingsShowHand: AppSettings = { ...appSettings, showHand: true };
+
+        resetAbilityCardsTabConfig(appSettingsShowHand, setAppSettings);
+
+        expect(setAppSettings).toHaveBeenCalledTimes(1);
+        expect(setAppSettings).toHaveBeenCalledWith({
+            ...appSettings,
+            showHand: false,
         });
     });
 });

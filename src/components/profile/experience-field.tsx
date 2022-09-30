@@ -16,9 +16,12 @@ interface ExperienceFieldProps {
 const ExperienceField: FC<ExperienceFieldProps> = ({ character, setCharacter, handleChange }: ExperienceFieldProps) => {
     const handleExperienceLoseBlur = () => {
         const newLevel = calculateLevel(character.experience);
-        const validCards = filterInvalidUnlockedAbilityCardsOnLevelChange(character.unlockedAbilityCards, newLevel);
 
-        setCharacter({ ...character, unlockedAbilityCards: validCards });
+        setCharacter({
+            ...character,
+            unlockedAbilityCards: updateUnlockedAbilityCards(character.unlockedAbilityCards, newLevel),
+            hand: updateCardsInHand(character.hand, newLevel),
+        });
     };
 
     return (
@@ -33,10 +36,7 @@ const ExperienceField: FC<ExperienceFieldProps> = ({ character, setCharacter, ha
     );
 };
 
-const filterInvalidUnlockedAbilityCardsOnLevelChange = (
-    unlockedAbilityCards: AbilityCard[],
-    newCharacterLevel: number
-) => {
+const updateUnlockedAbilityCards = (unlockedAbilityCards: AbilityCard[], newCharacterLevel: number): AbilityCard[] => {
     if (newCharacterLevel < 2) return [];
 
     const abilityCardsAtOrBelowCurrentLevel = filterAbilityCardsAtOrBelowCurrentLevel(
@@ -83,10 +83,12 @@ const filterAbilityCardsToMaximumUnlockCount = (
 ): AbilityCard[] => {
     const maxUnlocks = calculateMaximumUnlockCount(newCharacterLevel);
 
-    if (unlockedAbilityCards.length <= maxUnlocks) return unlockedAbilityCards;
+    return unlockedAbilityCards.length <= maxUnlocks ? unlockedAbilityCards : unlockedAbilityCards.slice(0, maxUnlocks);
+};
 
-    return unlockedAbilityCards.slice(0, maxUnlocks);
+const updateCardsInHand = (hand: AbilityCard[], newCharacterLevel: number): AbilityCard[] => {
+    return hand.filter((card: AbilityCard) => abilityCardLevelCanBeUnlockedByCharacter(card.level, newCharacterLevel));
 };
 
 export default ExperienceField;
-export { filterInvalidUnlockedAbilityCardsOnLevelChange };
+export { updateUnlockedAbilityCards, updateCardsInHand };

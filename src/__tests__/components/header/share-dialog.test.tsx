@@ -3,7 +3,7 @@ import ShareDialog from "@/components/header/share-dialog";
 
 describe("share dialog", () => {
     it("renders", () => {
-        render(<ShareDialog isOpen shareableLink="" encodeCharacterError={false} onClose={() => ""} />);
+        render(<ShareDialog isOpen shareableLink="" encodeCharacterError={false} handleClose={() => ""} />);
 
         const shareDialog = screen.queryByRole("dialog", { name: "Share" });
 
@@ -11,7 +11,7 @@ describe("share dialog", () => {
     });
 
     it("renders the shareable link", () => {
-        render(<ShareDialog isOpen shareableLink="Test link" encodeCharacterError={false} onClose={() => ""} />);
+        render(<ShareDialog isOpen shareableLink="Test link" encodeCharacterError={false} handleClose={() => ""} />);
 
         const shareDialog = screen.getByRole("dialog", { name: "Share" });
 
@@ -21,7 +21,7 @@ describe("share dialog", () => {
     });
 
     it("renders an error message when an error has occurred encoding character data", () => {
-        render(<ShareDialog encodeCharacterError isOpen shareableLink="Test link" onClose={() => ""} />);
+        render(<ShareDialog encodeCharacterError isOpen shareableLink="Test link" handleClose={() => ""} />);
 
         const shareDialog = screen.getByRole("dialog", { name: "Share" });
 

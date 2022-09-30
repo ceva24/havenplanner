@@ -35,7 +35,7 @@ const ShareButton = ({ character }: ShareButtonProps) => {
                 shareableLink={shareableLink}
                 encodeCharacterError={encodeCharacterError}
                 isOpen={shareDialogOpen}
-                onClose={handleClose}
+                handleClose={handleClose}
             />
         </>
     );

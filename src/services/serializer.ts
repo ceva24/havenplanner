@@ -1,8 +1,8 @@
 import { v4 as uuid } from "uuid";
-import { characterClasses } from "@/loaders/class";
+import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
-import { personalQuests } from "@/loaders/personal-quest";
-import { defaultCharacter } from "@/utils/constants";
+import { personalQuests } from "@/loaders/personal-quests";
+import { defaultCharacter } from "@/constants";
 
 interface SerializedCharacterData {
     n: string; // Name
@@ -13,6 +13,7 @@ interface SerializedCharacterData {
     p?: number; // Personal quest id
     i: number[]; // Item ids
     u: number[]; // Unlocked ability card ids
+    h: number[]; // Hand ability card ids
 }
 
 const serialize = (character: Character): string => {
@@ -25,6 +26,7 @@ const serialize = (character: Character): string => {
         p: character.personalQuest?.id,
         i: character.items.map((characterItem: CharacterItem) => characterItem.item.id),
         u: character.unlockedAbilityCards.map((abilityCard: AbilityCard) => abilityCard.id),
+        h: character.hand.map((abilityCard: AbilityCard) => abilityCard.id),
     };
 
     return JSON.stringify(characterData);
@@ -44,7 +46,8 @@ const deserialize = (data: string): Character => {
         characterClass,
         ...(personalQuest && { personalQuest }),
         items: deserializeItems(characterData.i),
-        unlockedAbilityCards: deserializeUnlockedAbilityCards(characterData.u, characterClass),
+        unlockedAbilityCards: deserializeAbilityCards(characterData.u, characterClass),
+        hand: deserializeAbilityCards(characterData.h, characterClass),
     };
 
     return character;
@@ -69,7 +72,7 @@ const deserializeItems = (itemIds: number[]): CharacterItem[] => {
     return characterItems.filter((characterItem: CharacterItem) => characterItem.item);
 };
 
-const deserializeUnlockedAbilityCards = (abilityCardIds: number[], characterClass: CharacterClass): AbilityCard[] => {
+const deserializeAbilityCards = (abilityCardIds: number[], characterClass: CharacterClass): AbilityCard[] => {
     const abilityCards = abilityCardIds.map((abilityCardId: number) => {
         return characterClass.abilityCards.find((abilityCard: AbilityCard) => abilityCard.id === abilityCardId);
     });

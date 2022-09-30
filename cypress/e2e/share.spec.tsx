@@ -26,7 +26,7 @@ describe("header", () => {
             .findShareLinkTextBox()
             .should(
                 "have.value",
-                "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtT2HsJ2GtZ2GtLN2HtlxHEuF"
+                "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtT2HsJ2GtZ2GtLN2HtlxHGtYxHEuF"
             );
     });
 
@@ -60,7 +60,7 @@ describe("header", () => {
 
         cy.findShareLinkDialog().should("be.visible");
 
-        cy.findByRole("button", { name: "Close" }).click();
+        cy.clickCloseButton();
 
         cy.findShareLinkDialog().not("should.be.visible");
     });
@@ -117,5 +117,34 @@ describe("header", () => {
 
         cy.findActiveAbilityCard("Fatal Advance").should("have.attr", "aria-checked", "true");
         cy.findActiveAbilityCard("Brute Force").should("have.attr", "aria-checked", "true");
+    });
+
+    it("captures the hand data in a shareable link", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findCreateHandButton().click();
+
+        cy.findActiveAbilityCard("Trample").click();
+        cy.findActiveAbilityCard("Skewer").click();
+
+        cy.clickCloseButton();
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Ability Cards");
+
+        cy.findShowHandSwitch().click();
+
+        cy.findByRole("img", { name: "Trample" }).should("exist");
+        cy.findByRole("img", { name: "Skewer" }).should("exist");
+
+        cy.findEditHandButton().click();
+
+        cy.findActiveAbilityCard("Trample").should("have.attr", "aria-checked", "true");
+        cy.findActiveAbilityCard("Skewer").should("have.attr", "aria-checked", "true");
     });
 });

@@ -1,12 +1,7 @@
-declare module "react-flippy";
-
-interface Flippy {
-    toggle: () => void;
-}
-
 interface AppSettings {
     showPersonalQuestButton: boolean;
     showPersonalQuest: boolean;
+    showHand: boolean;
 }
 
 interface Character {
@@ -18,6 +13,7 @@ interface Character {
     personalQuest?: PersonalQuest;
     items: CharacterItem[];
     unlockedAbilityCards: AbilityCard[];
+    hand: AbilityCard[];
 }
 
 interface CharacterItem {
@@ -34,6 +30,8 @@ interface Asset {
 interface CharacterClass extends Asset {
     characterMatFrontImageUrl: string;
     characterMatBackImageUrl: string;
+    cardBackImageUrl: string;
+    handSize: number;
     abilityCards: AbilityCard[];
 }
 
