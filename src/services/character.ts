@@ -36,6 +36,10 @@ const isUnlockedAbilityCardForCharacter = (character: Character, abilityCard: Ab
     return character.unlockedAbilityCards.some((card: AbilityCard) => card.id === abilityCard.id);
 };
 
+const isCardInHandForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
+    return character.hand.some((card: AbilityCard) => card.id === abilityCard.id);
+};
+
 const abilityCardCanBeUnlockedForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
     const characterLevel = calculateLevel(character.experience);
 
@@ -81,6 +85,7 @@ export {
     calculateLevel,
     getAllAvailableAbilityCardsForCharacter,
     isUnlockedAbilityCardForCharacter,
+    isCardInHandForCharacter,
     abilityCardCanBeUnlockedForCharacter,
     calculateMaximumUnlockCount,
     abilityCardLevelCanBeUnlockedByCharacter,

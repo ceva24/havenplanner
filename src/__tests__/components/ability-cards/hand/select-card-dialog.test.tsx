@@ -78,7 +78,7 @@ describe("addCardToHand", () => {
         };
 
         const abilityCardTwo: AbilityCard = {
-            id: 1,
+            id: 15,
             name: "Juggernaut",
             level: "2",
             imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",

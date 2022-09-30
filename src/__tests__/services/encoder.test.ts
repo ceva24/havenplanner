@@ -42,6 +42,11 @@ const characterWithUnlockedAbilityCards: Character = createTestCharacter({
     unlockedAbilityCards: [characterClasses[3].abilityCards[12], characterClasses[3].abilityCards[13]],
 });
 
+const characterWithHand: Character = createTestCharacter({
+    characterClass: characterClasses[3],
+    hand: [characterClasses[3].abilityCards[12], characterClasses[3].abilityCards[13]],
+});
+
 jest.mock("uuid", () => {
     return {
         v4: jest.fn().mockReturnValueOnce("abc").mockReturnValueOnce("def"),
@@ -90,10 +95,11 @@ describe("encode", () => {
 
     it.each`
         description                                     | character                            | encodedData
-        ${"standard character data"}                    | ${character}                         | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLN2HtlxHEuF"}
-        ${"character data with unicode characters"}     | ${characterWithUnicodeCharacters}    | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsM2GtZ2GtLN2HtlxHEuF"}
-        ${"character data with items"}                  | ${characterWithItems}                | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLsJEMtN2KtlxKDtNuF"}
-        ${"character data with unlocked ability cards"} | ${characterWithUnlockedAbilityCards} | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsM2GtZ2GtLN2HtlxHDsM2gsMLtNuF"}
+        ${"standard character data"}                    | ${character}                         | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLN2HtlxHGtYxHEuF"}
+        ${"character data with unicode characters"}     | ${characterWithUnicodeCharacters}    | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsM2GtZ2GtLN2HtlxHGtYxHEuF"}
+        ${"character data with items"}                  | ${characterWithItems}                | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLsJEMtN2KtlxKDxHDtYxHEuF"}
+        ${"character data with unlocked ability cards"} | ${characterWithUnlockedAbilityCards} | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsM2GtZ2GtLN2HtlxHDsM2gsMLxMDtYxTEuF"}
+        ${"character data with hand"}                   | ${characterWithHand}                 | ${"uDriterisSrisluBrgsbtYRirisEriuA2OsJII2ItX2IsNxHDtUxdDsgtVccfrg2ftmV2r2StT2SsM2GtZ2GtLN2HtlxHGtYxHDsMKEMLtNuF"}
     `("serializes and compresses $description", ({ character, encodedData }) => {
         expect(encode(character)).toEqual(encodedData);
     });
@@ -129,11 +135,12 @@ describe("decode", () => {
     });
 
     it.each`
-        description                                 | encodedData                                                                                          | character
-        ${"standard character data"}                | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLN2HtlxHEuF"}           | ${character}
-        ${"character data with unicode characters"} | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsM2GtZ2GtLN2HtlxHEuF"}        | ${characterWithUnicodeCharacters}
-        ${"character data with items"}              | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLsJEMtN2KtlxKDtNuF"}    | ${characterWithItems}
-        ${"character data with items"}              | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsM2GtZ2GtLN2HtlxHDsM2gsMLtNuF"} | ${characterWithUnlockedAbilityCards}
+        description                                     | encodedData                                                                                                        | character
+        ${"standard character data"}                    | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLN2HtlxHGtYxHEuF"}                    | ${character}
+        ${"character data with unicode characters"}     | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsM2GtZ2GtLN2HtlxHGtYxHEuF"}                 | ${characterWithUnicodeCharacters}
+        ${"character data with items"}                  | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLsJEMtN2KtlxKDxHDtYxHEuF"}            | ${characterWithItems}
+        ${"character data with unlocked ability cards"} | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsM2GtZ2GtLN2HtlxHDsM2gsMLxMDtYxTEuF"}         | ${characterWithUnlockedAbilityCards}
+        ${"character data with hand"}                   | ${"uDriterisSrisluBrgsbtYRirisEriuA2OsJII2ItX2IsNxHDtUxdDsgtVccfrg2ftmV2r2StT2SsM2GtZ2GtLN2HtlxHGtYxHDsMKEMLtNuF"} | ${characterWithHand}
     `("decompresses and deserializes $description", ({ encodedData, character }) => {
         expect(decode(encodedData)).toEqual(character);
     });

@@ -2,6 +2,7 @@ import {
     abilityCardCanBeUnlockedForCharacter,
     calculateLevel,
     getAllAvailableAbilityCardsForCharacter,
+    isCardInHandForCharacter,
     isUnlockedAbilityCardForCharacter,
 } from "@/services/character";
 import { characterClasses } from "@/loaders/character-classes";
@@ -259,5 +260,24 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
         );
 
         expect(availableAbilityCardsIds).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16]);
+    });
+});
+
+describe("isCardInHandForCharacter", () => {
+    it("returns true when the card is in the hand", () => {
+        const character = createTestCharacter();
+        character.hand = [character.characterClass.abilityCards[0]];
+
+        const result = isCardInHandForCharacter(character, character.characterClass.abilityCards[0]);
+
+        expect(result).toEqual(true);
+    });
+
+    it("returns false when the card is not in the hand", () => {
+        const character = createTestCharacter();
+
+        const result = isCardInHandForCharacter(character, character.characterClass.abilityCards[0]);
+
+        expect(result).toEqual(false);
     });
 });
