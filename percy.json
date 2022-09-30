@@ -15,7 +15,7 @@
         "name": "Ability Cards Tab - Hand",
         "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2hsO2YsO2sxeMuF",
         "waitForTimeout": 10000,
-        "execute": "document.querySelector('#ability-cards-tab').click();setTimeout(() => { document.querySelector('#show-hand-switch').click() }, 2000)"
+        "execute": "document.querySelector('#ability-cards-tab').click();setTimeout(() => { document.querySelector('#show-hand-switch').click() }, 5000)"
     },
     {
         "name": "Items Tab",
