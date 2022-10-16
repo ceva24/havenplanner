@@ -11,7 +11,7 @@ const customJestConfig = {
     // Add more setup options before each test is run
     // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
     moduleDirectories: ["node_modules", "<rootDir>/"],
-    setupFilesAfterEnv: ["<rootDir>/src/setup-jest.js"],
+    setupFilesAfterEnv: ["<rootDir>/src/setup-jest.ts"],
     testEnvironment: "jest-environment-jsdom",
     testPathIgnorePatterns: ["<rootDir>/cypress", "<rootDir>/src/__tests__/utils.ts"],
     collectCoverage: true,

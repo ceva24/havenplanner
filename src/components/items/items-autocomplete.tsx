@@ -1,5 +1,6 @@
-import { SyntheticEvent, Dispatch, SetStateAction } from "react";
-import { Autocomplete, AutocompleteRenderInputParams, FormControl, TextField } from "@mui/material";
+import type { Dispatch, SetStateAction, SyntheticEvent } from "react";
+import type { AutocompleteRenderInputParams } from "@mui/material";
+import { Autocomplete, FormControl, TextField } from "@mui/material";
 import { v4 as uuid } from "uuid";
 import { items } from "@/loaders/items";
 

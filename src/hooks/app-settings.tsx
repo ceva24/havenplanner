@@ -1,4 +1,5 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useMemo, useState } from "react";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 
 interface AppSettingsContextProps {
     appSettings: AppSettings;

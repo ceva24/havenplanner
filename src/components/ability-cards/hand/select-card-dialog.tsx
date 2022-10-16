@@ -1,5 +1,5 @@
 import { Box, Dialog, DialogContent, DialogTitle, Stack, Typography } from "@mui/material";
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { getAllAvailableAbilityCardsForCharacter, isCardInHandForCharacter } from "@/services/character";
 import Button from "@/components/core/button";
 import ActiveAbilityCard from "@/components/ability-cards/active-ability-card";

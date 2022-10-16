@@ -1,4 +1,4 @@
-import { KeyboardEvent } from "react";
+import type { KeyboardEvent } from "react";
 import { Box } from "@mui/material";
 import LockIcon from "@mui/icons-material/LockTwoTone";
 import { Card } from "@/components/core/cards";

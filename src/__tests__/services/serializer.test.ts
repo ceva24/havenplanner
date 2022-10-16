@@ -1,4 +1,4 @@
-import { serialize, deserialize } from "@/services/serializer";
+import { deserialize, serialize } from "@/services/serializer";
 import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";

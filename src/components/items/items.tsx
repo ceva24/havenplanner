@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { Grid } from "@mui/material";
 import ItemsAutocomplete from "@/components/items/items-autocomplete";
 import ItemGrid from "@/components/items/item-grid";

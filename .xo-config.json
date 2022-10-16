@@ -1,18 +1,19 @@
 {
     "extends": ["xo-react", "plugin:jsx-a11y/strict", "plugin:prettier/recommended", "plugin:@next/next/recommended"],
     "rules": {
+        "@next/next/no-img-element": "off",
+        "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+        "import/extensions": ["error", { "tsx": "never" }],
         "react/jsx-indent": "off",
         "react/jsx-indent-props": "off",
         "react/jsx-tag-spacing": "off",
         "react/react-in-jsx-scope": "off",
-        "@next/next/no-img-element": "off",
         "react/function-component-definition": [
             "error",
             {
                 "namedComponents": "arrow-function"
             }
-        ],
-        "import/extensions": ["error", { "tsx": "never" }]
+        ]
     },
     "ignores": ["public/**/*", "next-env.d.ts", "*.config.js"]
 }

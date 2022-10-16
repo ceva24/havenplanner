@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, KeyboardEvent } from "react";
+import type { Dispatch, KeyboardEvent, SetStateAction } from "react";
 import { Box } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/HighlightOffTwoTone";
 import { SmallCard } from "@/components/core/cards";

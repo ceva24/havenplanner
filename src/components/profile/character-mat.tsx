@@ -1,5 +1,6 @@
-import { KeyboardEvent, useRef } from "react";
-import Flippy, { FrontSide, BackSide } from "react-flippy";
+import type { KeyboardEvent } from "react";
+import { useRef } from "react";
+import Flippy, { BackSide, FrontSide } from "react-flippy";
 import Image from "@/components/core/image";
 
 interface CharacterMatProps {

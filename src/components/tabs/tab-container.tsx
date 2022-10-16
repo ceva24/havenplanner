@@ -1,5 +1,6 @@
-import { Tabs, Tab, Divider } from "@mui/material";
-import { Dispatch, SetStateAction, SyntheticEvent, useState } from "react";
+import { Divider, Tab, Tabs } from "@mui/material";
+import type { Dispatch, SetStateAction, SyntheticEvent } from "react";
+import { useState } from "react";
 import TabPanel from "@/components/tabs/tab-panel";
 import Profile from "@/components/profile/profile";
 import Items from "@/components/items/items";

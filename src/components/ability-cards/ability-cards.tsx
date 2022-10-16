@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
+import { useState } from "react";
 import { Box, Stack, Switch, Typography } from "@mui/material";
 import { useAppSettingsContext } from "@/hooks/app-settings";
 import Button from "@/components/core/button";

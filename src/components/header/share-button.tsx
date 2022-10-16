@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
+import { useEffect, useState } from "react";
 import ShareIcon from "@mui/icons-material/Share";
 import ShareDialog from "@/components/header/share-dialog";
 import Button from "@/components/core/button";
