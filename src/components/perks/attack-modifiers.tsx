@@ -1,11 +1,11 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { WideCard } from "@/components/core/cards";
-import { defaultAttackModifierDeck } from "@/constants";
+import { baseAttackModifierDeck } from "@/constants";
 
 const attackModifierDeckOrder = ["2x", "+2", "+1", "+0", "-1", "-2", "Miss"];
 
 const AttackModifiers = () => {
-    const orderedAttackModifierDeck = defaultAttackModifierDeck
+    const orderedAttackModifierDeck = baseAttackModifierDeck
         .slice()
         .sort(
             (a: AttackModifierDeckCard, b: AttackModifierDeckCard) =>

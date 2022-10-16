@@ -14,7 +14,7 @@ const defaultCharacter: Character = {
     hand: [],
 };
 
-const defaultAttackModifierDeck: AttackModifierDeckCard[] = [
+const baseAttackModifierDeck: AttackModifierDeckCard[] = [
     {
         card: attackModifiers[0], // 2x
         count: 1,
@@ -45,4 +45,4 @@ const defaultAttackModifierDeck: AttackModifierDeckCard[] = [
     },
 ];
 
-export { baseImageUrl, defaultCharacter, defaultAttackModifierDeck };
+export { baseImageUrl, defaultCharacter, baseAttackModifierDeck };
