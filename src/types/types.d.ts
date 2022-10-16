@@ -46,3 +46,8 @@ interface AbilityCard extends Asset {
 }
 
 interface AttackModifierCard extends Asset {}
+
+interface AttackModifierDeckCard {
+    card: AttackModifierCard;
+    count: number;
+}

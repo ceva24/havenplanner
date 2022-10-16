@@ -16,5 +16,11 @@
         "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2hsO2YsO2sxeMuF",
         "waitForTimeout": 10000,
         "execute": "document.querySelector('#items-tab').click()"
+    },
+    {
+        "name": "Perks Tab",
+        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2hsO2YsO2sxeMuF",
+        "waitForTimeout": 10000,
+        "execute": "document.querySelector('#perks-tab').click()"
     }
 ]

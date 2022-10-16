@@ -14,14 +14,35 @@ const defaultCharacter: Character = {
     hand: [],
 };
 
-const defaultAttackModifierDeck: Array<[AttackModifierCard, number]> = [
-    [attackModifiers[0], 1], // 2x
-    [attackModifiers[1], 1], // +2
-    [attackModifiers[2], 5], // +1
-    [attackModifiers[3], 6], // +0
-    [attackModifiers[4], 5], // -1
-    [attackModifiers[5], 1], // -2
-    [attackModifiers[6], 1], // Miss
+const defaultAttackModifierDeck: AttackModifierDeckCard[] = [
+    {
+        card: attackModifiers[0], // 2x
+        count: 1,
+    },
+    {
+        card: attackModifiers[1], // +2
+        count: 1,
+    },
+    {
+        card: attackModifiers[2], // +1
+        count: 5,
+    },
+    {
+        card: attackModifiers[3], // +0
+        count: 6,
+    },
+    {
+        card: attackModifiers[4], // -1
+        count: 5,
+    },
+    {
+        card: attackModifiers[5], // -2
+        count: 1,
+    },
+    {
+        card: attackModifiers[6], // Miss
+        count: 1,
+    },
 ];
 
 export { baseImageUrl, defaultCharacter, defaultAttackModifierDeck };

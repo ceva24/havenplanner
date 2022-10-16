@@ -3,8 +3,9 @@ import type { Dispatch, SetStateAction, SyntheticEvent } from "react";
 import { useState } from "react";
 import TabPanel from "@/components/tabs/tab-panel";
 import Profile from "@/components/profile/profile";
-import Items from "@/components/items/items";
 import AbilityCards from "@/components/ability-cards/ability-cards";
+import Items from "@/components/items/items";
+import Perks from "@/components/perks/perks";
 
 interface TabContainerProps {
     character: Character;
@@ -29,14 +30,6 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
                     sx={{ typography: "body2" }}
                 />
                 <Tab
-                    disabled
-                    disableRipple
-                    label="Perks"
-                    id="perks-tab"
-                    aria-controls="perks-tabpanel"
-                    sx={{ typography: "body2" }}
-                />
-                <Tab
                     disableRipple
                     label="Ability Cards"
                     id="ability-cards-tab"
@@ -50,6 +43,13 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
                     aria-controls="items-tabpanel"
                     sx={{ typography: "body2" }}
                 />
+                <Tab
+                    disableRipple
+                    label="Perks"
+                    id="perks-tab"
+                    aria-controls="perks-tabpanel"
+                    sx={{ typography: "body2" }}
+                />
             </Tabs>
 
             <Divider />
@@ -57,17 +57,19 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
             <TabPanel currentTabIndex={currentTabIndex} index={0} id="profile-tabpanel" ariaLabelledBy="profile-tab">
                 <Profile character={character} setCharacter={setCharacter} />
             </TabPanel>
-            <TabPanel currentTabIndex={currentTabIndex} index={1} id="perks-tabpanel" ariaLabelledBy="perks-tab" />
             <TabPanel
                 currentTabIndex={currentTabIndex}
-                index={2}
+                index={1}
                 id="ability-cards-tabpanel"
                 ariaLabelledBy="ability-cards-tab"
             >
                 <AbilityCards character={character} setCharacter={setCharacter} />
             </TabPanel>
-            <TabPanel currentTabIndex={currentTabIndex} index={3} id="items-tabpanel" ariaLabelledBy="items-tab">
+            <TabPanel currentTabIndex={currentTabIndex} index={2} id="items-tabpanel" ariaLabelledBy="items-tab">
                 <Items character={character} setCharacter={setCharacter} />
+            </TabPanel>
+            <TabPanel currentTabIndex={currentTabIndex} index={3} id="perks-tabpanel" ariaLabelledBy="perks-tab">
+                <Perks />
             </TabPanel>
         </>
     );

@@ -31,4 +31,17 @@ const SmallCard = ({ src, altText }: CardProps) => {
     );
 };
 
-export { Card, SmallCard };
+const WideCard = ({ src, altText }: CardProps) => {
+    return (
+        <Image
+            webpPath={src}
+            fallbackImageType="jpg"
+            altText={altText}
+            width={200}
+            height={150}
+            style={{ borderRadius: "3%" }}
+        />
+    );
+};
+
+export { Card, SmallCard, WideCard };

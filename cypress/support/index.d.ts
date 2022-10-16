@@ -49,5 +49,7 @@ declare namespace Cypress {
         findItemsAutocomplete(): Chainable<Element>;
 
         addItem(name: string): Chainable<Element>;
+
+        findAttackModifierCardWithCount(name: string, count: number): Chainable<Element>;
     }
 }

@@ -102,3 +102,9 @@ Cypress.Commands.add("addItem", (name: string) => {
     cy.findItemsAutocomplete().click();
     cy.findByRole("option", { name }).click();
 });
+
+Cypress.Commands.add("findAttackModifierCardWithCount", (name: string, count: number) => {
+    cy.findByRole("img", { name: `${name} card` })
+        .closest("[id^=attack-modifier-card-details-]")
+        .findByText(`${count} x`);
+});
