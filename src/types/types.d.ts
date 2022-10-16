@@ -44,3 +44,5 @@ interface Item extends Asset {
 interface AbilityCard extends Asset {
     level: string;
 }
+
+interface AttackModifierCard extends Asset {}
