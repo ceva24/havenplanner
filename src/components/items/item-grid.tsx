@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { Box } from "@mui/material";
 import Item from "@/components/items/item";
 

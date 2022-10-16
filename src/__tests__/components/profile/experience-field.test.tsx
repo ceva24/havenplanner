@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ExperienceField, { updateUnlockedAbilityCards, updateCardsInHand } from "@/components/profile/experience-field";
+import ExperienceField, { updateCardsInHand, updateUnlockedAbilityCards } from "@/components/profile/experience-field";
 import { createTestCharacter } from "@/testutils";
 
 const character: Character = createTestCharacter({ experience: 25 });

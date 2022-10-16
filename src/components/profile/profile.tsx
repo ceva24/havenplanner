@@ -1,5 +1,5 @@
 import { Box, Grid } from "@mui/material";
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import CharacterDetails from "@/components/profile/character-details";
 import CharacterMat from "@/components/profile/character-mat";
 import PersonalQuest from "@/components/profile/personal-quest";

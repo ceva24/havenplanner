@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, FC, SetStateAction } from "react";
+import type { ChangeEvent, Dispatch, FC, SetStateAction } from "react";
 import { TextField } from "@mui/material";
 import {
     abilityCardLevelCanBeUnlockedByCharacter,

@@ -1,6 +1,6 @@
-import { ParsedUrlQuery } from "node:querystring";
+import type { ParsedUrlQuery } from "node:querystring";
 import { render, screen } from "@testing-library/react";
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps } from "@/pages/index";
 import * as encoderService from "@/services/encoder";

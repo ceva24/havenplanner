@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from "next";
+import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
 import Head from "next/head";
 import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { decode } from "@/services/encoder";

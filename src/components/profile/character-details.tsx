@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import type { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { Box, TextField } from "@mui/material";
 import ClassSelect from "@/components/profile/class-select";
 import ExperienceField from "@/components/profile/experience-field";

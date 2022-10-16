@@ -1,5 +1,6 @@
-import { Select, MenuItem, SelectChangeEvent, InputLabel, FormControl, Box } from "@mui/material";
-import { Dispatch, FC, SetStateAction } from "react";
+import type { SelectChangeEvent } from "@mui/material";
+import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import type { Dispatch, FC, SetStateAction } from "react";
 import Image from "@/components/core/image";
 import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/constants";
