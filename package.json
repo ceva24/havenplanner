@@ -48,7 +48,7 @@
         "@types/lzbase62": "^2.0.0",
         "@types/node": "18.7.14",
         "@types/react": "18.0.14",
-        "@types/react-dom": "18.0.6",
+        "@types/react-dom": "18.0.8",
         "@types/uuid": "^8.3.4",
         "cypress": "^10.9.0",
         "eslint": "8.23.0",
