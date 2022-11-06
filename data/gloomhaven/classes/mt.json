@@ -181,5 +181,55 @@
             "level": "9",
             "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-phantasmal-killer.webp"
         }
+    ],
+    "perks": [
+        {
+            "description": "Remove two <-1> cards",
+            "count": 2
+        },
+        {
+            "description": "Remove four <+0> cards",
+            "count": 1
+        },
+        {
+            "description": "Replace two <+1> cards with two <+2> cards",
+            "count": 1
+        },
+        {
+            "description": "Replace one <-2> card with one <+0> card",
+            "count": 1
+        },
+        {
+            "description": "Add one <+2> <ice> card",
+            "count": 2
+        },
+        {
+            "description": "Add two <chain> <+1> cards",
+            "count": 2
+        },
+        {
+            "description": "Add three <chain> PULL <pull> 1 cards",
+            "count": 1
+        },
+        {
+            "description": "Add three <chain> MUDDLE <muddle> cards",
+            "count": 1
+        },
+        {
+            "description": "Add two <chain> IMMOBILIZE <immobilize> cards",
+            "count": 1
+        },
+        {
+            "description": "Add one <chain> STUN <stun> card",
+            "count": 1
+        },
+        {
+            "description": "Add one <chain> DISARM <disarm> card and one <chain> MUDDLE <muddle> card",
+            "count": 1
+        },
+        {
+            "description": "Ignore negative scenario effects",
+            "count": 1
+        }
     ]
 }

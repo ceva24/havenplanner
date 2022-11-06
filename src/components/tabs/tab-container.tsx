@@ -69,7 +69,7 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
                 <Items character={character} setCharacter={setCharacter} />
             </TabPanel>
             <TabPanel currentTabIndex={currentTabIndex} index={3} id="perks-tabpanel" ariaLabelledBy="perks-tab">
-                <Perks />
+                <Perks character={character} />
             </TabPanel>
         </>
     );

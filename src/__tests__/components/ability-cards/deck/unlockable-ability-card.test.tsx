@@ -106,6 +106,7 @@ describe("toggleAbilityCard", () => {
                 cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
                 handSize: 10,
                 abilityCards: [abilityCard],
+                perks: [],
             },
             unlockedAbilityCards: [abilityCard],
         });
@@ -143,6 +144,7 @@ describe("toggleAbilityCard", () => {
                 cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
                 handSize: 10,
                 abilityCards: [abilityCard],
+                perks: [],
             },
             unlockedAbilityCards: [abilityCard],
             hand: [abilityCard],

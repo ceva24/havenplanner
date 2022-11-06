@@ -1,11 +1,21 @@
-import { Box } from "@mui/material";
+import { Grid } from "@mui/material";
+import PerkList from "./perk-list";
 import AttackModifiers from "@/components/perks/attack-modifiers";
 
-const Perks = () => {
+interface PerksProps {
+    character: Character;
+}
+
+const Perks = ({ character }: PerksProps) => {
     return (
-        <Box textAlign="center">
-            <AttackModifiers />
-        </Box>
+        <Grid container spacing={10}>
+            <Grid item lg={4}>
+                <PerkList character={character} />
+            </Grid>
+            <Grid item lg={8}>
+                <AttackModifiers />
+            </Grid>
+        </Grid>
     );
 };
 

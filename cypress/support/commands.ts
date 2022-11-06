@@ -108,3 +108,12 @@ Cypress.Commands.add("findAttackModifierCardWithCount", (name: string, count: nu
         .closest("[id^=attack-modifier-card-details-]")
         .findByText(`${count} x`);
 });
+
+Cypress.Commands.add("shouldHavePerkWithCheckboxCount", (name: string, count: number) => {
+    cy.findByRole("checkbox", { name })
+        .should("exist")
+        .parent()
+        .parent()
+        .findAllByRole("checkbox")
+        .should("have.length", count);
+});

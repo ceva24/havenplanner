@@ -155,6 +155,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
                         imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
                     },
                 ],
+                perks: [],
             },
         });
 
@@ -181,6 +182,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
                         imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
                     },
                 ],
+                perks: [],
             },
         });
 
@@ -207,6 +209,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
                         imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
                     },
                 ],
+                perks: [],
             },
             unlockedAbilityCards: [
                 {
@@ -241,6 +244,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
                         imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
                     },
                 ],
+                perks: [],
             },
         });
 

@@ -187,5 +187,47 @@
             "level": "9",
             "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-pulverize.webp"
         }
+    ],
+    "perks": [
+        {
+            "description": "Remove four <+0> cards",
+            "count": 1
+        },
+        {
+            "description": "Replace one <-1> card with one <+1> card",
+            "count": 3
+        },
+        {
+            "description": "Add one <-2> card and two <+2> cards",
+            "count": 2
+        },
+        {
+            "description": "Add one <+1> IMMOBILIZE <immobilize> card",
+            "count": 2
+        },
+        {
+            "description": "Add one <+2> MUDDLE <muddle> card",
+            "count": 2
+        },
+        {
+            "description": "Add two <chain> PUSH <push> 2 cards",
+            "count": 1
+        },
+        {
+            "description": "Add two <chain> <earth> cards",
+            "count": 2
+        },
+        {
+            "description": "Add two <chain> <air> cards",
+            "count": 1
+        },
+        {
+            "description": "Ignore negative item effects",
+            "count": 1
+        },
+        {
+            "description": "Ignore negative scenario effects",
+            "count": 1
+        }
     ]
 }

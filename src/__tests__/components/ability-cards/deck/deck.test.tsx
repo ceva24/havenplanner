@@ -39,6 +39,7 @@ describe("deck", () => {
                         imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
                     },
                 ],
+                perks: [],
             },
         });
 
@@ -81,6 +82,7 @@ describe("deck", () => {
                         imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
                     },
                 ],
+                perks: [],
             },
         });
 
@@ -129,6 +131,7 @@ describe("deck", () => {
                         imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
                     },
                 ],
+                perks: [],
             },
         });
 

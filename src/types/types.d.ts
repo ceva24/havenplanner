@@ -33,6 +33,7 @@ interface CharacterClass extends Asset {
     cardBackImageUrl: string;
     handSize: number;
     abilityCards: AbilityCard[];
+    perks: Perk[];
 }
 
 interface PersonalQuest extends Asset {}
@@ -49,5 +50,10 @@ interface AttackModifierCard extends Asset {}
 
 interface AttackModifierDeckCard {
     card: AttackModifierCard;
+    count: number;
+}
+
+interface Perk {
+    description: string;
     count: number;
 }

@@ -51,5 +51,7 @@ declare namespace Cypress {
         addItem(name: string): Chainable<Element>;
 
         findAttackModifierCardWithCount(name: string, count: number): Chainable<Element>;
+
+        shouldHavePerkWithCheckboxCount(name: string, count: number): Chainable<Element>;
     }
 }
