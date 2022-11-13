@@ -24,6 +24,8 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
                 {
                     description: "Remove two <-1> cards",
                     count: 1,
+                    add: [],
+                    remove: [],
                 },
             ],
         },

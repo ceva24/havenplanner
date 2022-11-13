@@ -9,6 +9,8 @@ describe("perk list", () => {
             {
                 description: "Remove two <-1> cards",
                 count: 1,
+                add: [],
+                remove: [],
             },
         ];
 
@@ -25,18 +27,26 @@ describe("perk list", () => {
             {
                 description: "Remove two <-1> cards",
                 count: 1,
+                add: [],
+                remove: [],
             },
             {
                 description: "Replace one <-1> card with one <+1> card",
                 count: 1,
+                add: [],
+                remove: [],
             },
             {
                 description: "Add one <+3> card",
                 count: 1,
+                add: [],
+                remove: [],
             },
             {
                 description: "Add two <chain> PIERCE <pierce> 3 cards",
                 count: 1,
+                add: [],
+                remove: [],
             },
         ];
 
@@ -59,6 +69,8 @@ describe("perk list", () => {
             {
                 description: "Add two <+1> cards",
                 count: 2,
+                add: [],
+                remove: [],
             },
         ];
 

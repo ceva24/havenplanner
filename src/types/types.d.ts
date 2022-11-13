@@ -56,4 +56,6 @@ interface AttackModifierDeckCard {
 interface Perk {
     description: string;
     count: number;
+    add: AttackModifierCard[];
+    remove: AttackModifierCard[];
 }
