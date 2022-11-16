@@ -12,6 +12,7 @@ const defaultCharacter: Character = {
     items: [],
     unlockedAbilityCards: [],
     hand: [],
+    gainedPerks: [],
 };
 
 const baseAttackModifierDeck: AttackModifierDeckCard[] = [

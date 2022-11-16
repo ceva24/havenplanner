@@ -48,6 +48,7 @@ const deserialize = (data: string): Character => {
         items: deserializeItems(characterData.i),
         unlockedAbilityCards: deserializeAbilityCards(characterData.u, characterClass),
         hand: deserializeAbilityCards(characterData.h, characterClass),
+        gainedPerks: [],
     };
 
     return character;

@@ -19,7 +19,7 @@ describe("attack modifiers", () => {
     `(
         "renders the base attack modifier deck with $count $attackModifier cards",
         ({ attackModifierName, count }: AttackModifierNameCountProps) => {
-            render(<AttackModifiers />);
+            render(<AttackModifiers gainedPerks={[]} />);
 
             const attackModifierDeckCard = screen
                 .getByRole("img", { name: `${attackModifierName} card` })

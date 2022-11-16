@@ -14,6 +14,7 @@ interface Character {
     items: CharacterItem[];
     unlockedAbilityCards: AbilityCard[];
     hand: AbilityCard[];
+    gainedPerks: GainedPerk[];
 }
 
 interface CharacterItem {
@@ -58,4 +59,9 @@ interface Perk {
     count: number;
     add: AttackModifierCard[];
     remove: AttackModifierCard[];
+}
+
+interface GainedPerk {
+    perk: Perk;
+    checkboxIndex: number;
 }

@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import Perks from "@/components/perks/perks";
 import { createTestCharacter } from "@/testutils";
 
+const setCharacter = jest.fn();
+
 describe("perk list", () => {
     it("renders a perk", () => {
         const character = createTestCharacter();
@@ -14,7 +16,7 @@ describe("perk list", () => {
             },
         ];
 
-        render(<Perks character={character} />);
+        render(<Perks character={character} setCharacter={setCharacter} />);
 
         const perk = screen.queryByRole("checkbox", { name: "Remove two <-1> cards" });
 
@@ -50,7 +52,7 @@ describe("perk list", () => {
             },
         ];
 
-        render(<Perks character={character} />);
+        render(<Perks character={character} setCharacter={setCharacter} />);
 
         const perkOne = screen.queryByRole("checkbox", { name: "Remove two <-1> cards" });
         const perkTwo = screen.queryByRole("checkbox", { name: "Replace one <-1> card with one <+1> card" });
@@ -74,7 +76,7 @@ describe("perk list", () => {
             },
         ];
 
-        render(<Perks character={character} />);
+        render(<Perks character={character} setCharacter={setCharacter} />);
 
         const checkboxes = screen.queryAllByRole("checkbox");
 

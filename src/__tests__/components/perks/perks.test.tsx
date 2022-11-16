@@ -4,7 +4,7 @@ import { createTestCharacter } from "@/testutils";
 
 describe("perks", () => {
     it("renders the attack modifier deck", () => {
-        render(<Perks character={createTestCharacter()} />);
+        render(<Perks character={createTestCharacter()} setCharacter={jest.fn()} />);
 
         const attackModifierCards = screen.queryByRole("region", { name: "Attack Modifier Deck" });
 
@@ -12,7 +12,7 @@ describe("perks", () => {
     });
 
     it("renders the list of perks", () => {
-        render(<Perks character={createTestCharacter()} />);
+        render(<Perks character={createTestCharacter()} setCharacter={jest.fn()} />);
 
         const perkList = screen.queryByRole("region", { name: "Perk List" });
 
