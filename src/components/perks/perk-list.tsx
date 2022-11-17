@@ -81,3 +81,4 @@ const removePerk = (
 };
 
 export default PerkList;
+export { gainPerk, removePerk };

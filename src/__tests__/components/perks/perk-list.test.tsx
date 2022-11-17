@@ -1,8 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import Perks from "@/components/perks/perks";
 import { createTestCharacter } from "@/testutils";
+import { gainPerk, removePerk } from "@/components/perks/perk-list";
+import * as characterService from "@/services/character";
+
+jest.mock("@/services/character");
 
 const setCharacter = jest.fn();
+
+beforeEach(() => {
+    jest.clearAllMocks();
+});
 
 describe("perk list", () => {
     it("renders a perk", () => {
@@ -81,5 +89,100 @@ describe("perk list", () => {
         const checkboxes = screen.queryAllByRole("checkbox");
 
         expect(checkboxes).toHaveLength(2);
+    });
+
+    it("renders checked perks", () => {
+        const character = createTestCharacter();
+
+        const perk: Perk = {
+            description: "Remove two <-1> cards",
+            count: 1,
+            add: [],
+            remove: [],
+        };
+
+        character.characterClass.perks = [perk];
+        character.gainedPerks = [{ perk, checkboxIndex: 0 }];
+
+        jest.spyOn(characterService, "characterHasGainedPerk").mockReturnValue(true);
+
+        render(<Perks character={character} setCharacter={setCharacter} />);
+
+        const perkCheckbox = screen.queryByRole("checkbox", { name: "Remove two <-1> cards" });
+
+        expect(perkCheckbox).toBeChecked();
+    });
+});
+
+describe("gainPerk", () => {
+    it("adds the perk to the character's gained perks", () => {
+        const character: Character = createTestCharacter();
+
+        const perk: Perk = {
+            description: "Remove two <-1> cards",
+            count: 1,
+            add: [],
+            remove: [],
+        };
+
+        gainPerk(perk, 0, character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+
+        const newCharacter: Character = setCharacter.mock.calls[0][0] as Character;
+
+        expect(newCharacter.gainedPerks).toHaveLength(1);
+        expect(newCharacter.gainedPerks[0].perk).toEqual(perk);
+        expect(newCharacter.gainedPerks[0].checkboxIndex).toEqual(0);
+    });
+});
+
+describe("removePerk", () => {
+    it("removes an existing gained perk", () => {
+        const character: Character = createTestCharacter();
+
+        const perk: Perk = {
+            description: "Remove two <-1> cards",
+            count: 1,
+            add: [],
+            remove: [],
+        };
+
+        character.characterClass.perks = [perk];
+        character.gainedPerks = [{ perk, checkboxIndex: 0 }];
+
+        jest.spyOn(characterService, "findCharacterGainedPerk").mockReturnValue(character.gainedPerks[0]);
+
+        removePerk(perk, 0, character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+
+        const newCharacter: Character = setCharacter.mock.calls[0][0] as Character;
+
+        expect(newCharacter.gainedPerks).toHaveLength(0);
+    });
+
+    it("does not remove an existing gained perk with a different checkbox index", () => {
+        const character: Character = createTestCharacter();
+
+        const perk: Perk = {
+            description: "Remove two <-1> cards",
+            count: 1,
+            add: [],
+            remove: [],
+        };
+
+        character.characterClass.perks = [perk];
+        character.gainedPerks = [{ perk, checkboxIndex: 0 }];
+
+        jest.spyOn(characterService, "findCharacterGainedPerk").mockReturnValue({ perk, checkboxIndex: 1 });
+
+        removePerk(perk, 0, character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+
+        const newCharacter: Character = setCharacter.mock.calls[0][0] as Character;
+
+        expect(newCharacter.gainedPerks).toEqual(character.gainedPerks);
     });
 });
