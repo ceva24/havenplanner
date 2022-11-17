@@ -14,7 +14,7 @@ describe("profile tab", () => {
         );
 
         const characterDetailsForm = screen.queryByRole("form", {
-            name: "Character details form",
+            name: "Character Details",
         });
 
         expect(characterDetailsForm).toBeInTheDocument();

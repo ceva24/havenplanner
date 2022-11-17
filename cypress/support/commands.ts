@@ -1,6 +1,6 @@
 Cypress.Commands.add("findCharacterDetailsForm", () => {
     cy.findByRole("form", {
-        name: "Character details form",
+        name: "Character Details",
     });
 });
 

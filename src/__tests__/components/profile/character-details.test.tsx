@@ -18,7 +18,7 @@ describe("character details", () => {
         );
 
         const characterDetailsForm = screen.getByRole("form", {
-            name: "Character details form",
+            name: "Character Details",
         });
 
         expect(characterDetailsForm).toBeInTheDocument();
@@ -32,7 +32,7 @@ describe("character details", () => {
         );
 
         const characterDetailsForm = screen.getByRole("form", {
-            name: "Character details form",
+            name: "Character Details",
         });
         const nameField = within(characterDetailsForm).queryByRole("textbox", {
             name: "Name",
@@ -50,7 +50,7 @@ describe("character details", () => {
         );
 
         const characterDetailsForm = screen.getByRole("form", {
-            name: "Character details form",
+            name: "Character Details",
         });
         const classIcon = within(characterDetailsForm).queryByRole("button", {
             name: "Class",
@@ -67,7 +67,7 @@ describe("character details", () => {
         );
 
         const characterDetailsForm = screen.getByRole("form", {
-            name: "Character details form",
+            name: "Character Details",
         });
         const experienceField = within(characterDetailsForm).queryByRole("textbox", { name: "Experience" });
 
@@ -83,7 +83,7 @@ describe("character details", () => {
         );
 
         const characterDetailsForm = screen.getByRole("form", {
-            name: "Character details form",
+            name: "Character Details",
         });
         const levelField = within(characterDetailsForm).queryByRole("textbox", {
             name: "Level",
@@ -117,7 +117,7 @@ describe("character details", () => {
         );
 
         const characterDetailsForm = screen.getByRole("form", {
-            name: "Character details form",
+            name: "Character Details",
         });
         const goldField = within(characterDetailsForm).queryByRole("textbox", {
             name: "Gold",
@@ -151,7 +151,7 @@ describe("character details", () => {
         );
 
         const characterDetailsForm = screen.getByRole("form", {
-            name: "Character details form",
+            name: "Character Details",
         });
         const notesField = within(characterDetailsForm).queryByRole("textbox", {
             name: "Notes",
