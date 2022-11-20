@@ -1,6 +1,8 @@
 import {
     abilityCardCanBeUnlockedForCharacter,
     calculateLevel,
+    characterHasGainedPerk,
+    findCharacterGainedPerk,
     getAllAvailableAbilityCardsForCharacter,
     isCardInHandForCharacter,
     isUnlockedAbilityCardForCharacter,
@@ -283,5 +285,125 @@ describe("isCardInHandForCharacter", () => {
         const result = isCardInHandForCharacter(character, character.characterClass.abilityCards[0]);
 
         expect(result).toEqual(false);
+    });
+});
+
+describe("characterHasGainedPerk", () => {
+    it("returns true when the character has gained the perk", () => {
+        const character = createTestCharacter();
+
+        const gainedPerk: GainedPerk = {
+            checkboxIndex: 0,
+            perk: {
+                description: "",
+                count: 1,
+                add: [],
+                remove: [],
+            },
+        };
+
+        character.gainedPerks = [gainedPerk];
+
+        const result = characterHasGainedPerk(character, gainedPerk.perk, 0);
+
+        expect(result).toEqual(true);
+    });
+
+    it("returns false when the character has not gained the perk", () => {
+        const character = createTestCharacter();
+
+        const gainedPerk: GainedPerk = {
+            checkboxIndex: 0,
+            perk: {
+                description: "",
+                count: 1,
+                add: [],
+                remove: [],
+            },
+        };
+
+        const result = characterHasGainedPerk(character, gainedPerk.perk, 0);
+
+        expect(result).toEqual(false);
+    });
+
+    it("returns false when the perk exists but the checkbox number is different", () => {
+        const character = createTestCharacter();
+
+        const gainedPerk: GainedPerk = {
+            checkboxIndex: 0,
+            perk: {
+                description: "",
+                count: 1,
+                add: [],
+                remove: [],
+            },
+        };
+
+        character.gainedPerks = [gainedPerk];
+
+        const result = characterHasGainedPerk(character, gainedPerk.perk, 1);
+
+        expect(result).toEqual(false);
+    });
+});
+
+describe("findCharacterGainedPerk", () => {
+    it("returns the gained perk that matches the perk and checkbox number", () => {
+        const character = createTestCharacter();
+
+        const gainedPerk: GainedPerk = {
+            checkboxIndex: 0,
+            perk: {
+                description: "",
+                count: 1,
+                add: [],
+                remove: [],
+            },
+        };
+
+        character.gainedPerks = [gainedPerk];
+
+        const result = findCharacterGainedPerk(character, gainedPerk.perk, 0);
+
+        expect(result).toEqual(gainedPerk);
+    });
+
+    it("returns undefined when the perk does not exist", () => {
+        const character = createTestCharacter();
+
+        const gainedPerk: GainedPerk = {
+            checkboxIndex: 0,
+            perk: {
+                description: "",
+                count: 1,
+                add: [],
+                remove: [],
+            },
+        };
+
+        const result = findCharacterGainedPerk(character, gainedPerk.perk, 0);
+
+        expect(result).toBeUndefined();
+    });
+
+    it("returns undefined when the perk exists but the checkbox number is different", () => {
+        const character = createTestCharacter();
+
+        const gainedPerk: GainedPerk = {
+            checkboxIndex: 0,
+            perk: {
+                description: "",
+                count: 1,
+                add: [],
+                remove: [],
+            },
+        };
+
+        character.gainedPerks = [gainedPerk];
+
+        const result = findCharacterGainedPerk(character, gainedPerk.perk, 1);
+
+        expect(result).toBeUndefined();
     });
 });
