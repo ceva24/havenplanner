@@ -98,9 +98,15 @@ const applyAttackModifierRemovalsTo = (
         (attackModifierDeckCard: AttackModifierDeckCard) => attackModifierDeckCard.card.id === cardToRemove.id
     );
 
-    if (attackModifierDeckCardToRemoveFrom) {
+    if (!attackModifierDeckCardToRemoveFrom) return;
+
+    if (attackModifierDeckCardToRemoveFrom.count > 1) {
         attackModifierDeckCardToRemoveFrom.count--;
+    } else {
+        const indexOfCardToRemove = attackModifierDeck.indexOf(attackModifierDeckCardToRemoveFrom);
+        attackModifierDeck.splice(indexOfCardToRemove, 1);
     }
 };
 
 export default AttackModifiers;
+export { applyPerksTo };
