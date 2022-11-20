@@ -53,5 +53,9 @@ declare namespace Cypress {
         findAttackModifierCardWithCount(name: string, count: number): Chainable<Element>;
 
         shouldHavePerkWithCheckboxCount(name: string, count: number): Chainable<Element>;
+
+        gainPerk(name: string, checkboxIndex: number): Chainable<Element>;
+
+        removePerk(name: string, checkboxIndex: number): Chainable<Element>;
     }
 }

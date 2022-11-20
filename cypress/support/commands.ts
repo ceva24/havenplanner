@@ -117,3 +117,32 @@ Cypress.Commands.add("shouldHavePerkWithCheckboxCount", (name: string, count: nu
         .findAllByRole("checkbox")
         .should("have.length", count);
 });
+
+Cypress.Commands.add("gainPerk", (name: string, checkboxIndex: number) => {
+    if (checkboxIndex === 0) {
+        cy.findByRole("checkbox", { name }).check();
+    } else {
+        cy.findByRole("checkbox", { name })
+            .should("exist")
+            .parent()
+            .parent()
+            .findAllByRole("checkbox")
+            .eq(checkboxIndex)
+            .should("exist")
+            .check();
+    }
+});
+
+Cypress.Commands.add("removePerk", (name: string, checkboxIndex: number) => {
+    if (checkboxIndex === 0) cy.findByRole("checkbox", { name }).uncheck();
+    else {
+        cy.findByRole("checkbox", { name })
+            .should("exist")
+            .parent()
+            .parent()
+            .findAllByRole("checkbox")
+            .eq(checkboxIndex)
+            .should("exist")
+            .uncheck();
+    }
+});

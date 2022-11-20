@@ -204,8 +204,20 @@
         {
             "description": "Replace one {-2} card with one {+0} card",
             "count": 1,
-            "add": [],
-            "remove": []
+            "add": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 329,
+                    "name": "-2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+                }
+            ]
         },
         {
             "description": "Add two {+1} cards",
