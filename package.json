@@ -28,7 +28,7 @@
         "@mui/material": "^5.9.3",
         "lodash.groupby": "^4.6.0",
         "lzbase62": "^2.0.0",
-        "next": "12.2.4",
+        "next": "13.0.5",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-flippy": "^1.1.0",
