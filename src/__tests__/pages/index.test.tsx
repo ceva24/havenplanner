@@ -7,6 +7,12 @@ import * as encoderService from "@/services/encoder";
 import { defaultCharacter } from "@/constants";
 import { createTestCharacter } from "@/testutils";
 
+jest.mock("next/router", () => {
+    return {
+        useRouter: jest.fn(),
+    };
+});
+
 jest.mock("@/services/encoder", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
