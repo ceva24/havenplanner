@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Grid } from "@mui/material";
-import PerkList from "./perk-list";
+import PerkList from "@/components/perks/perk-list";
 import AttackModifiers from "@/components/perks/attack-modifiers";
 
 interface PerksProps {
@@ -15,7 +15,7 @@ const Perks = ({ character, setCharacter }: PerksProps) => {
                 <PerkList character={character} setCharacter={setCharacter} />
             </Grid>
             <Grid item lg={8}>
-                <AttackModifiers gainedPerks={character.gainedPerks} />
+                <AttackModifiers character={character} />
             </Grid>
         </Grid>
     );
