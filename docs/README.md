@@ -28,7 +28,7 @@ A web application to create and share character builds for the popular tabletop 
 ### Not yet implemented
 
 -   Character ability card augments
--   Select perks, track battle goal progress, and see the resulting attack modifier deck composition
+-   Track battle goal progress
 -   Locked characters and items
 -   Content from Forgotten Circles, Jaws of the Lion, Crimson Scales and Frosthaven
 
@@ -50,7 +50,7 @@ Enforces conventional commits via [commitlint](https://github.com/conventional-c
 
 ### Image hosting
 
-Uses [ceva24/worldhaven](https://github.com/ceva24/worldhaven/tree/web-quality) as a CDN for images, hosted at [images.ghplanner.app](https://images.ghplanner.app).
+Uses [ceva24/worldhaven](https://github.com/ceva24/worldhaven/) as a CDN for images, hosted at [images.ghplanner.app](https://images.ghplanner.app).
 
 ### Accessibility
 
