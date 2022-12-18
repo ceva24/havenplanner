@@ -20,20 +20,16 @@ const AttackModifiers = ({ character }: AttackModifiersProps) => {
 
     return (
         <Box component="section" aria-label="Attack Modifier Deck">
-            <Box paddingBottom={5}>
-                <AttackModifiersGrid
-                    initialDeck={baseAttackModifierDeck}
-                    gainedPerks={character.gainedPerks}
-                    orderedCardNames={baseAttackModifierDeckOrder}
-                />
-            </Box>
-            <Box paddingTop={5}>
-                <AttackModifiersGrid
-                    initialDeck={[]}
-                    gainedPerks={character.gainedPerks}
-                    orderedCardNames={classAttackModifierDeckOrder}
-                />
-            </Box>
+            <AttackModifiersGrid
+                initialDeck={baseAttackModifierDeck}
+                gainedPerks={character.gainedPerks}
+                orderedCardNames={baseAttackModifierDeckOrder}
+            />
+            <AttackModifiersGrid
+                initialDeck={[]}
+                gainedPerks={character.gainedPerks}
+                orderedCardNames={classAttackModifierDeckOrder}
+            />
         </Box>
     );
 };

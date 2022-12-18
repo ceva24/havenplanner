@@ -17,7 +17,7 @@ describe("perk list", () => {
         const character = createTestCharacter();
         character.characterClass.perks = [
             {
-                description: "Remove two <-1> cards",
+                description: "Remove two {-1} cards",
                 count: 1,
                 add: [],
                 remove: [],
@@ -26,7 +26,7 @@ describe("perk list", () => {
 
         render(<Perks character={character} setCharacter={setCharacter} />);
 
-        const perk = screen.queryByRole("checkbox", { name: "Remove two <-1> cards" });
+        const perk = screen.queryByRole("checkbox", { name: "Remove two {-1} cards" });
 
         expect(perk).toBeInTheDocument();
     });
@@ -35,25 +35,25 @@ describe("perk list", () => {
         const character = createTestCharacter();
         character.characterClass.perks = [
             {
-                description: "Remove two <-1> cards",
+                description: "Remove two {-1} cards",
                 count: 1,
                 add: [],
                 remove: [],
             },
             {
-                description: "Replace one <-1> card with one <+1> card",
+                description: "Replace one {-1} card with one {+1} card",
                 count: 1,
                 add: [],
                 remove: [],
             },
             {
-                description: "Add one <+3> card",
+                description: "Add one {+3} card",
                 count: 1,
                 add: [],
                 remove: [],
             },
             {
-                description: "Add two <chain> PIERCE <pierce> 3 cards",
+                description: "Add two {chain} PIERCE {pierce} 3 cards",
                 count: 1,
                 add: [],
                 remove: [],
@@ -62,10 +62,10 @@ describe("perk list", () => {
 
         render(<Perks character={character} setCharacter={setCharacter} />);
 
-        const perkOne = screen.queryByRole("checkbox", { name: "Remove two <-1> cards" });
-        const perkTwo = screen.queryByRole("checkbox", { name: "Replace one <-1> card with one <+1> card" });
-        const perkThree = screen.queryByRole("checkbox", { name: "Add one <+3> card" });
-        const perkFour = screen.queryByRole("checkbox", { name: "Add two <chain> PIERCE <pierce> 3 cards" });
+        const perkOne = screen.queryByRole("checkbox", { name: "Remove two {-1} cards" });
+        const perkTwo = screen.queryByRole("checkbox", { name: "Replace one {-1} card with one {+1} card" });
+        const perkThree = screen.queryByRole("checkbox", { name: "Add one {+3} card" });
+        const perkFour = screen.queryByRole("checkbox", { name: "Add two {chain} PIERCE {pierce} 3 cards" });
 
         expect(perkOne).toBeInTheDocument();
         expect(perkTwo).toBeInTheDocument();
@@ -77,7 +77,7 @@ describe("perk list", () => {
         const character = createTestCharacter();
         character.characterClass.perks = [
             {
-                description: "Add two <+1> cards",
+                description: "Add two {+1} cards",
                 count: 2,
                 add: [],
                 remove: [],
@@ -91,11 +91,31 @@ describe("perk list", () => {
         expect(checkboxes).toHaveLength(2);
     });
 
+    it("renders multiple checkboxes with unique labels", () => {
+        const character = createTestCharacter();
+        character.characterClass.perks = [
+            {
+                description: "Add two {+1} cards",
+                count: 2,
+                add: [],
+                remove: [],
+            },
+        ];
+
+        render(<Perks character={character} setCharacter={setCharacter} />);
+
+        const checkboxOne = screen.queryByRole("checkbox", { name: "Add two {+1} cards" });
+        const checkboxTwo = screen.queryByRole("checkbox", { name: "Add two {+1} cards 2" });
+
+        expect(checkboxOne).toBeInTheDocument();
+        expect(checkboxTwo).toBeInTheDocument();
+    });
+
     it("renders checked perks", () => {
         const character = createTestCharacter();
 
         const perk: Perk = {
-            description: "Remove two <-1> cards",
+            description: "Remove two {-1} cards",
             count: 1,
             add: [],
             remove: [],
@@ -108,7 +128,7 @@ describe("perk list", () => {
 
         render(<Perks character={character} setCharacter={setCharacter} />);
 
-        const perkCheckbox = screen.queryByRole("checkbox", { name: "Remove two <-1> cards" });
+        const perkCheckbox = screen.queryByRole("checkbox", { name: "Remove two {-1} cards" });
 
         expect(perkCheckbox).toBeChecked();
     });
@@ -119,7 +139,7 @@ describe("gainPerk", () => {
         const character: Character = createTestCharacter();
 
         const perk: Perk = {
-            description: "Remove two <-1> cards",
+            description: "Remove two {-1} cards",
             count: 1,
             add: [],
             remove: [],
@@ -142,7 +162,7 @@ describe("removePerk", () => {
         const character: Character = createTestCharacter();
 
         const perk: Perk = {
-            description: "Remove two <-1> cards",
+            description: "Remove two {-1} cards",
             count: 1,
             add: [],
             remove: [],
@@ -166,7 +186,7 @@ describe("removePerk", () => {
         const character: Character = createTestCharacter();
 
         const perk: Perk = {
-            description: "Remove two <-1> cards",
+            description: "Remove two {-1} cards",
             count: 1,
             add: [],
             remove: [],

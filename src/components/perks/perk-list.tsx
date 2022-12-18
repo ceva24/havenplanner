@@ -1,5 +1,6 @@
 import type { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { FormControlLabel, Checkbox, Box } from "@mui/material";
+import PerkDescription from "@/components/perks/perk-description";
 import { characterHasGainedPerk, findCharacterGainedPerk } from "@/services/character";
 
 interface PerkListProps {
@@ -23,19 +24,27 @@ const PerkList = ({ character, setCharacter }: PerkListProps) => {
                     <FormControlLabel
                         control={
                             <>
-                                {Array.from({ length: perk.count }).map((item, checkboxIndex) => (
-                                    <Checkbox
-                                        // eslint-disable-next-line react/no-array-index-key
-                                        key={checkboxIndex}
-                                        checked={characterHasGainedPerk(character, perk, checkboxIndex)}
-                                        onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                            handleChange(event, perk, checkboxIndex);
-                                        }}
-                                    />
-                                ))}
+                                {Array.from({ length: perk.count }).map((item, checkboxIndex) => {
+                                    const label =
+                                        checkboxIndex > 0
+                                            ? `${perk.description} ${checkboxIndex + 1}`
+                                            : perk.description;
+
+                                    return (
+                                        <Checkbox
+                                            // eslint-disable-next-line react/no-array-index-key
+                                            key={checkboxIndex}
+                                            checked={characterHasGainedPerk(character, perk, checkboxIndex)}
+                                            inputProps={{ "aria-label": label }}
+                                            onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                                handleChange(event, perk, checkboxIndex);
+                                            }}
+                                        />
+                                    );
+                                })}
                             </>
                         }
-                        label={perk.description}
+                        label={<PerkDescription perk={perk} />}
                     />
                 </Box>
             ))}

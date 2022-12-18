@@ -107,7 +107,7 @@ describe("perks tab", () => {
         cy.findByRole("img", { name: "-2 card" }).should("not.exist");
     });
 
-    it.only("orders class attack modifier cards in the order that they first appear in the perks", () => {
+    it("orders class attack modifier cards in the order that they first appear in the perks", () => {
         cy.visit("/");
 
         cy.selectTab("Perks");
@@ -118,5 +118,13 @@ describe("perks tab", () => {
         cy.findAllByRole("img").eq(-3).should("have.attr", "alt", "chain pierce 3 card");
         cy.findAllByRole("img").eq(-2).should("have.attr", "alt", "chain disarm card");
         cy.findAllByRole("img").eq(-1).should("have.attr", "alt", "chain muddle card");
+    });
+
+    it("displays perk icons", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.findByRole("img", { name: "shield icon" }).should("be.visible");
     });
 });
