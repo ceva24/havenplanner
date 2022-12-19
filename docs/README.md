@@ -20,6 +20,7 @@ A web application to create and share character builds for the popular tabletop 
 ## 🗒️ Features
 
 -   Enter character details, including selecting a personal quest
+-   Select perks and see the resulting attack modifier deck composition
 -   See all character ability cards and select unlocked ones
 -   Create a saved hand
 -   Browse and select items
