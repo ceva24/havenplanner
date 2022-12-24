@@ -187,5 +187,161 @@
             "level": "9",
             "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-pulverize.webp"
         }
+    ],
+    "perks": [
+        {
+            "description": "Remove four {+0} cards",
+            "count": 1,
+            "add": [],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "description": "Replace one {-1} card with one {+1} card",
+            "count": 3,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "description": "Add one {-2} card and two {+2} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 329,
+                    "name": "-2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+                },
+                {
+                    "id": 330,
+                    "name": "+2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                },
+                {
+                    "id": 330,
+                    "name": "+2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {+1} IMMOBILIZE {immobilize} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 81,
+                    "name": "+1 immobilize",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-08.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {+2} MUDDLE {muddle} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 83,
+                    "name": "+2 muddle",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-10.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add two {chain} PUSH {push} 2 cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 84,
+                    "name": "chain push 2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-11.webp"
+                },
+                {
+                    "id": 84,
+                    "name": "chain push 2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-11.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add two {chain} {earth} cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 86,
+                    "name": "chain earth",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-13.webp"
+                },
+                {
+                    "id": 86,
+                    "name": "chain earth",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-13.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add two {chain} {air} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 90,
+                    "name": "chain air",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-17.webp"
+                },
+                {
+                    "id": 90,
+                    "name": "chain air",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-17.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Ignore negative item effects",
+            "count": 1,
+            "add": [],
+            "remove": []
+        },
+        {
+            "description": "Ignore negative scenario effects",
+            "count": 1,
+            "add": [],
+            "remove": []
+        }
     ]
 }

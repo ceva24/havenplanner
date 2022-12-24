@@ -1,6 +1,6 @@
 Cypress.Commands.add("findCharacterDetailsForm", () => {
     cy.findByRole("form", {
-        name: "Character details form",
+        name: "Character Details",
     });
 });
 
@@ -101,4 +101,45 @@ Cypress.Commands.add("findItemsAutocomplete", () => {
 Cypress.Commands.add("addItem", (name: string) => {
     cy.findItemsAutocomplete().click();
     cy.findByRole("option", { name }).click();
+});
+
+Cypress.Commands.add("findAttackModifierCardWithCount", (name: string, count: number) => {
+    cy.findByRole("img", { name: `${name} card` })
+        .closest("[id^=attack-modifier-card-details-]")
+        .findByText(`${count} x`);
+});
+
+Cypress.Commands.add("shouldHavePerkWithCheckboxCount", (name: string, count: number) => {
+    cy.findByRole("checkbox", { name })
+        .should("exist")
+        .parent()
+        .parent()
+        .findAllByRole("checkbox")
+        .should("have.length", count);
+});
+
+Cypress.Commands.add("gainPerk", (name: string, checkboxIndex: number) => {
+    if (checkboxIndex === 0) {
+        cy.findByRole("checkbox", { name }).check();
+    } else {
+        cy.findByRole("checkbox", { name }).parent().parent().findAllByRole("checkbox").eq(checkboxIndex).check();
+    }
+});
+
+Cypress.Commands.add("removePerk", (name: string, checkboxIndex: number) => {
+    if (checkboxIndex === 0) cy.findByRole("checkbox", { name }).uncheck();
+    else {
+        cy.findByRole("checkbox", { name })
+            .should("exist")
+            .parent()
+            .parent()
+            .findAllByRole("checkbox")
+            .eq(checkboxIndex)
+            .should("exist")
+            .uncheck();
+    }
+});
+
+Cypress.Commands.add("clickPerkDescription", (name: string) => {
+    cy.findByRole("checkbox", { name }).parent().parent().children("label").click();
 });

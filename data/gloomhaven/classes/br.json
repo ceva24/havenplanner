@@ -181,5 +181,175 @@
             "level": "9",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-face-your-end.webp"
         }
+    ],
+    "perks": [
+        {
+            "description": "Remove two {-1} cards",
+            "count": 1,
+            "add": [],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                },
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "description": "Replace one {-1} card with one {+1} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "description": "Add two {+1} cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                },
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {+3} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 7,
+                    "name": "+3",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/BR/gh-am-br-07.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add three {chain} PUSH {push} 1 cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 8,
+                    "name": "chain push 1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/BR/gh-am-br-08.webp"
+                },
+                {
+                    "id": 8,
+                    "name": "chain push 1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/BR/gh-am-br-08.webp"
+                },
+                {
+                    "id": 8,
+                    "name": "chain push 1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/BR/gh-am-br-08.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add two {chain} PIERCE {pierce} 3 cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 14,
+                    "name": "chain pierce 3",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/BR/gh-am-br-14.webp"
+                },
+                {
+                    "id": 14,
+                    "name": "chain pierce 3",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/BR/gh-am-br-14.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {chain} STUN {stun} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 16,
+                    "name": "chain stun",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/BR/gh-am-br-16.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {chain} DISARM {disarm} card and one {chain} MUDDLE {muddle} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 18,
+                    "name": "chain disarm",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/BR/gh-am-br-18.webp"
+                },
+                {
+                    "id": 19,
+                    "name": "chain muddle",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/BR/gh-am-br-19.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {chain} ADD TARGET {target} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 20,
+                    "name": "chain add target",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/BR/gh-am-br-20.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {+1} Shield {shield} 1, self card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 22,
+                    "name": "+1 shield 1 self",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/BR/gh-am-br-22.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Ignore negative item effects and add one {+1} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": []
+        }
     ]
 }

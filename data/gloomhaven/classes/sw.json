@@ -169,5 +169,175 @@
             "level": "9",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-inferno.webp"
         }
+    ],
+    "perks": [
+        {
+            "description": "Remove four {+0} cards",
+            "count": 1,
+            "add": [],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "description": "Replace one {-1} card with one {+1} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "description": "Add two {+1} cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                },
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {+0} STUN {stun} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 45,
+                    "name": "+0 stun",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-07.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {+1} WOUND {wound} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 46,
+                    "name": "+1 wound",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-08.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {+1} IMMOBILIZE {immobilize} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 47,
+                    "name": "+1 immobilize",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-09.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {+1} CURSE {curse} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 48,
+                    "name": "+1 curse",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-10.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {+2} {fire} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 49,
+                    "name": "+2 fire",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-11.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {+2} {ice} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 51,
+                    "name": "+2 ice",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-13.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {chain} {earth} and one {chain} {air} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 53,
+                    "name": "chain earth",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-15.webp"
+                },
+                {
+                    "id": 54,
+                    "name": "chain air",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-16.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {chain} {light} and one {chain} {dark} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 55,
+                    "name": "chain light",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-17.webp"
+                },
+                {
+                    "id": 56,
+                    "name": "chain dark",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-18.webp"
+                }
+            ],
+            "remove": []
+        }
     ]
 }

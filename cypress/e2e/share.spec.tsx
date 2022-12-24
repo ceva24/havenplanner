@@ -26,7 +26,7 @@ describe("header", () => {
             .findShareLinkTextBox()
             .should(
                 "have.value",
-                "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtT2HsJ2GtZ2GtLN2HtlxHGtYxHEuF"
+                "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtT2HsJ2GtZ2GtLN2HtlxHGtYxHGtgxHEuF"
             );
     });
 
@@ -65,6 +65,20 @@ describe("header", () => {
         cy.findShareLinkDialog().not("should.be.visible");
     });
 
+    it("shows the personal quest switch when loading a character with a personal quest", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestAutocomplete().click();
+
+        cy.findByRole("option", { name: "Augmented Abilities" }).click();
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.findPersonalQuestSwitch().should("exist");
+    });
+
     it("captures the personal quest in a shareable link", () => {
         cy.visit("/");
 
@@ -79,6 +93,66 @@ describe("header", () => {
         cy.findPersonalQuestSwitch().check();
 
         cy.findPersonalQuestImage("Augmented Abilities").should("exist");
+    });
+
+    it("does not show the personal quest switch when loading a character without a personal quest", () => {
+        cy.visit("/");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.findPersonalQuestSwitch().should("not.exist");
+    });
+
+    it("hides the personal quest by default when loading a character with one set", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestAutocomplete().click();
+
+        cy.findByRole("option", { name: "Augmented Abilities" }).click();
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.findDefaultPersonalQuestImage().should("exist");
+    });
+
+    it("hides the personal quest when the switch is set to off", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestAutocomplete().click();
+
+        cy.findByRole("option", { name: "Augmented Abilities" }).click();
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.findDefaultPersonalQuestImage().should("exist");
+
+        cy.findPersonalQuestImage("Augmented Abilities").should("not.exist");
+
+        cy.findPersonalQuestSwitch().check();
+
+        cy.findPersonalQuestImage("Augmented Abilities").should("exist");
+    });
+
+    it("hides the personal quest autocomplete when the switch is set to off", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestAutocomplete().click();
+
+        cy.findByRole("option", { name: "Augmented Abilities" }).click();
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.findPersonalQuestSwitch().should("not.be.checked");
+
+        cy.findPersonalQuestAutocomplete().should("not.exist");
     });
 
     it("captures item data in a shareable link", () => {
@@ -119,6 +193,26 @@ describe("header", () => {
         cy.findActiveAbilityCard("Brute Force").should("have.attr", "aria-checked", "true");
     });
 
+    it("allows ability card unlocks to be modified when loading a character", () => {
+        cy.visit("/");
+
+        cy.findExperienceField().type("50");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Juggernaut").click().should("have.attr", "aria-checked", "true");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Ability Cards");
+
+        cy.findActiveAbilityCard("Juggernaut").should("have.attr", "aria-checked", "true");
+
+        cy.findActiveAbilityCard("Juggernaut").click().should("have.attr", "aria-checked", "false");
+    });
+
     it("captures the hand data in a shareable link", () => {
         cy.visit("/");
 
@@ -146,5 +240,49 @@ describe("header", () => {
 
         cy.findActiveAbilityCard("Trample").should("have.attr", "aria-checked", "true");
         cy.findActiveAbilityCard("Skewer").should("have.attr", "aria-checked", "true");
+    });
+
+    it("captures gained perks in a shareable link", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainPerk("Remove two {-1} cards", 0);
+        cy.gainPerk("Add two {+1} cards", 0);
+        cy.gainPerk("Add three {chain} PUSH {push} 1 cards", 1);
+        cy.gainPerk("Add one {chain} STUN {stun} card", 0);
+        cy.gainPerk("Add one {chain} STUN {stun} card", 1);
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Perks");
+
+        cy.findByRole("checkbox", { name: "Remove two {-1} cards" }).should("be.checked");
+        cy.findByRole("checkbox", { name: "Add two {+1} cards" }).should("be.checked");
+        cy.findByRole("checkbox", { name: "Add three {chain} PUSH {push} 1 cards 2" }).should("be.checked");
+        cy.findByRole("checkbox", { name: "Add one {chain} STUN {stun} card" }).should("be.checked");
+        cy.findByRole("checkbox", { name: "Add one {chain} STUN {stun} card 2" }).should("be.checked");
+    });
+
+    it("allows gained perks to be modified when loading a character", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainPerk("Add two {+1} cards", 1);
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Perks");
+
+        cy.clickPerkDescription("Add two {+1} cards");
+        cy.clickPerkDescription("Add two {+1} cards");
+
+        cy.findByRole("checkbox", { name: "Add two {+1} cards" }).should("not.be.checked");
+        cy.findByRole("checkbox", { name: "Add two {+1} cards 2" }).should("not.be.checked");
     });
 });

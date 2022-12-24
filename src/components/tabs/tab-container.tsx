@@ -3,8 +3,9 @@ import type { Dispatch, SetStateAction, SyntheticEvent } from "react";
 import { useState } from "react";
 import TabPanel from "@/components/tabs/tab-panel";
 import Profile from "@/components/profile/profile";
-import Items from "@/components/items/items";
 import AbilityCards from "@/components/ability-cards/ability-cards";
+import Items from "@/components/items/items";
+import Perks from "@/components/perks/perks";
 
 interface TabContainerProps {
     character: Character;
@@ -29,7 +30,6 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
                     sx={{ typography: "body2" }}
                 />
                 <Tab
-                    disabled
                     disableRipple
                     label="Perks"
                     id="perks-tab"
@@ -57,7 +57,9 @@ const TabContainer = ({ character, setCharacter }: TabContainerProps) => {
             <TabPanel currentTabIndex={currentTabIndex} index={0} id="profile-tabpanel" ariaLabelledBy="profile-tab">
                 <Profile character={character} setCharacter={setCharacter} />
             </TabPanel>
-            <TabPanel currentTabIndex={currentTabIndex} index={1} id="perks-tabpanel" ariaLabelledBy="perks-tab" />
+            <TabPanel currentTabIndex={currentTabIndex} index={1} id="perks-tabpanel" ariaLabelledBy="perks-tab">
+                <Perks character={character} setCharacter={setCharacter} />
+            </TabPanel>
             <TabPanel
                 currentTabIndex={currentTabIndex}
                 index={2}

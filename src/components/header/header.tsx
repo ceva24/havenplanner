@@ -17,17 +17,7 @@ const Header = ({ character }: HeaderProps) => {
                     </h1>
                 </Box>
                 <Box>
-                    <Grid container>
-                        <Grid item display="flex">
-                            <FormControlLabel
-                                control={<Switch disabled id="show-spoilers-switch" name="Show spoilers" />}
-                                label="Show spoilers"
-                            />
-                        </Grid>
-                        <Grid item>
-                            <ShareButton character={character} />
-                        </Grid>
-                    </Grid>
+                    <ShareButton character={character} />
                 </Box>
             </Toolbar>
         </AppBar>

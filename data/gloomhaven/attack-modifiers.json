@@ -1,0 +1,37 @@
+[
+    {
+        "id": 332,
+        "name": "2x",
+        "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-20.webp"
+    },
+    {
+        "id": 330,
+        "name": "+2",
+        "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+    },
+    {
+        "id": 319,
+        "name": "+1",
+        "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+    },
+    {
+        "id": 313,
+        "name": "+0",
+        "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+    },
+    {
+        "id": 324,
+        "name": "-1",
+        "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+    },
+    {
+        "id": 329,
+        "name": "-2",
+        "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+    },
+    {
+        "id": 331,
+        "name": "Miss",
+        "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-19.webp"
+    }
+]

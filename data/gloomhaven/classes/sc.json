@@ -175,5 +175,191 @@
             "level": "9",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-watch-it-burn.webp"
         }
+    ],
+    "perks": [
+        {
+            "description": "Remove two {-1} cards",
+            "count": 2,
+            "add": [],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                },
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "description": "Remove four {+0} cards",
+            "count": 1,
+            "add": [],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "description": "Replace one {-2} card with one {+0} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 329,
+                    "name": "-2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+                }
+            ]
+        },
+        {
+            "description": "Replace one {-1} card with one {+1} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "description": "Replace one {+0} card with one {+2} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 330,
+                    "name": "+2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "description": "Add two {chain} {+1} cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 61,
+                    "name": "chain +1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-05.webp"
+                },
+                {
+                    "id": 61,
+                    "name": "chain +1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-05.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add two {chain} PIERCE {pierce} 3 cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 65,
+                    "name": "chain pierce 3",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-09.webp"
+                },
+                {
+                    "id": 65,
+                    "name": "chain pierce 3",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-09.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add two {chain} POISON {poison} cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 67,
+                    "name": "chain poison",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-11.webp"
+                },
+                {
+                    "id": 67,
+                    "name": "chain poison",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-11.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add two {chain} MUDDLE {muddle} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 71,
+                    "name": "chain muddle",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-15.webp"
+                },
+                {
+                    "id": 71,
+                    "name": "chain muddle",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-15.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Add one {chain} INVISIBLE {invisible} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 73,
+                    "name": "chain invisible",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-17.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "description": "Ignore negative scenario effects",
+            "count": 1,
+            "add": [],
+            "remove": []
+        }
     ]
 }

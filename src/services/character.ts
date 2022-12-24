@@ -100,6 +100,17 @@ const abilityCardsUnlockedAtLevel = (unlockedAbilityCards: AbilityCard[], abilit
     return unlockedAbilityCards.filter((card: AbilityCard) => card.level === abilityCardLevel);
 };
 
+const characterHasGainedPerk = (character: Character, perk: Perk, checkboxIndex: number): boolean => {
+    return findCharacterGainedPerk(character, perk, checkboxIndex) !== undefined;
+};
+
+const findCharacterGainedPerk = (character: Character, perk: Perk, checkboxIndex: number): GainedPerk | undefined => {
+    return character.gainedPerks.find(
+        (gainedPerk: GainedPerk) =>
+            gainedPerk.perk.description === perk.description && gainedPerk.checkboxIndex === checkboxIndex
+    );
+};
+
 export {
     calculateLevel,
     getAllAvailableAbilityCardsForCharacter,
@@ -109,4 +120,6 @@ export {
     calculateMaximumUnlockCount,
     abilityCardLevelCanBeUnlockedByCharacter,
     abilityCardsUnlockedAtLevel,
+    characterHasGainedPerk,
+    findCharacterGainedPerk,
 };

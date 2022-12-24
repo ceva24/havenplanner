@@ -94,6 +94,7 @@ describe("addCardToHand", () => {
                 cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
                 handSize: 1,
                 abilityCards: [abilityCardOne, abilityCardTwo],
+                perks: [],
             },
             hand: [abilityCardOne],
         });

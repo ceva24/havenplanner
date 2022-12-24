@@ -1,20 +1,26 @@
 [
     {
         "name": "Profile Tab",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2hsO2YsO2sxeMuF",
+        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gth2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPxSDtYxSDsO2hsO2hsO2YsO2sxeHsPxhDxeDtgxeDtL2esI2LxGDsJxGD2nxMEyRDxGD3nxME2qxGE3R2GtNuF",
         "waitForTimeout": 10000,
         "execute": "document.querySelector('#show-personal-quest-switch').click()"
     },
     {
         "name": "Ability Cards Tab",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2hsO2YsO2sxeMuF",
+        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gth2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPxSDtYxSDsO2hsO2hsO2YsO2sxeHsPxhDxeDtgxeDtL2esI2LxGDsJxGD2nxMEyRDxGD3nxME2qxGE3R2GtNuF",
         "waitForTimeout": 10000,
         "execute": "document.querySelector('#ability-cards-tab').click()"
     },
     {
         "name": "Items Tab",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gtg2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2hsO2YsO2sxeMuF",
+        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gth2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPxSDtYxSDsO2hsO2hsO2YsO2sxeHsPxhDxeDtgxeDtL2esI2LxGDsJxGD2nxMEyRDxGD3nxME2qxGE3R2GtNuF",
         "waitForTimeout": 10000,
         "execute": "document.querySelector('#items-tab').click()"
+    },
+    {
+        "name": "Perks Tab",
+        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gth2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPxSDtYxSDsO2hsO2hsO2YsO2sxeHsPxhDxeDtgxeDtL2esI2LxGDsJxGD2nxMEyRDxGD3nxME2qxGE3R2GtNuF",
+        "waitForTimeout": 10000,
+        "execute": "document.querySelector('#perks-tab').click()"
     }
 ]

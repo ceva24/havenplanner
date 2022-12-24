@@ -20,10 +20,19 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
                     imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
                 },
             ],
+            perks: [
+                {
+                    description: "Remove two <-1> cards",
+                    count: 1,
+                    add: [],
+                    remove: [],
+                },
+            ],
         },
         items: [],
         unlockedAbilityCards: [],
         hand: [],
+        gainedPerks: [],
     };
 
     return { ...character, ...characterDetailsToOverride };

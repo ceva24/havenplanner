@@ -47,6 +47,15 @@ const characterWithHand: Character = createTestCharacter({
     hand: [characterClasses[3].abilityCards[12], characterClasses[3].abilityCards[13]],
 });
 
+const characterWithGainedPerks: Character = createTestCharacter({
+    characterClass: characterClasses[3],
+    hand: [characterClasses[3].abilityCards[12], characterClasses[3].abilityCards[13]],
+    gainedPerks: [
+        { perk: characterClasses[3].perks[1], checkboxIndex: 0 },
+        { perk: characterClasses[3].perks[0], checkboxIndex: 1 },
+    ],
+});
+
 jest.mock("uuid", () => {
     return {
         v4: jest.fn().mockReturnValueOnce("abc").mockReturnValueOnce("def"),
@@ -95,11 +104,12 @@ describe("encode", () => {
 
     it.each`
         description                                     | character                            | encodedData
-        ${"standard character data"}                    | ${character}                         | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLN2HtlxHGtYxHEuF"}
-        ${"character data with unicode characters"}     | ${characterWithUnicodeCharacters}    | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsM2GtZ2GtLN2HtlxHGtYxHEuF"}
-        ${"character data with items"}                  | ${characterWithItems}                | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLsJEMtN2KtlxKDxHDtYxHEuF"}
-        ${"character data with unlocked ability cards"} | ${characterWithUnlockedAbilityCards} | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsM2GtZ2GtLN2HtlxHDsM2gsMLxMDtYxTEuF"}
-        ${"character data with hand"}                   | ${characterWithHand}                 | ${"uDriterisSrisluBrgsbtYRirisEriuA2OsJII2ItX2IsNxHDtUxdDsgtVccfrg2ftmV2r2StT2SsM2GtZ2GtLN2HtlxHGtYxHDsMKEMLtNuF"}
+        ${"standard character data"}                    | ${character}                         | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLN2HtlxHGtYxHGtgxHEuF"}
+        ${"character data with unicode characters"}     | ${characterWithUnicodeCharacters}    | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsM2GtZ2GtLN2HtlxHGtYxHGtgxHEuF"}
+        ${"character data with items"}                  | ${characterWithItems}                | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLsJEMtN2KtlxKDxHDtYxHGtgxHEuF"}
+        ${"character data with unlocked ability cards"} | ${characterWithUnlockedAbilityCards} | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsM2GtZ2GtLN2HtlxHDsM2gsMLxMDtYxTGtgxHEuF"}
+        ${"character data with hand"}                   | ${characterWithHand}                 | ${"uDriterisSrisluBrgsbtYRirisEriuA2OsJII2ItX2IsNxHDtUxdDsgtVccfrg2ftmV2r2StT2SsM2GtZ2GtLN2HtlxHGtYxHDsMKEMLxMDtgxTEuF"}
+        ${"character data with gained perks"}           | ${characterWithGainedPerks}          | ${"uDriterisSrisluBrgsbtYRirisEriuA2OsJII2ItX2IsNxHDtUxdDsgtVccfrg2ftmV2r2StT2SsM2GtZ2GtLN2HtlxHGtYxHDsMKEMLxMDtgxMDtLsJEI2LtL3DsJtNNuF"}
     `("serializes and compresses $description", ({ character, encodedData }) => {
         expect(encode(character)).toEqual(encodedData);
     });
@@ -135,12 +145,13 @@ describe("decode", () => {
     });
 
     it.each`
-        description                                     | encodedData                                                                                                        | character
-        ${"standard character data"}                    | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLN2HtlxHGtYxHEuF"}                    | ${character}
-        ${"character data with unicode characters"}     | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsM2GtZ2GtLN2HtlxHGtYxHEuF"}                 | ${characterWithUnicodeCharacters}
-        ${"character data with items"}                  | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLsJEMtN2KtlxKDxHDtYxHEuF"}            | ${characterWithItems}
-        ${"character data with unlocked ability cards"} | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsM2GtZ2GtLN2HtlxHDsM2gsMLxMDtYxTEuF"}         | ${characterWithUnlockedAbilityCards}
-        ${"character data with hand"}                   | ${"uDriterisSrisluBrgsbtYRirisEriuA2OsJII2ItX2IsNxHDtUxdDsgtVccfrg2ftmV2r2StT2SsM2GtZ2GtLN2HtlxHGtYxHDsMKEMLtNuF"} | ${characterWithHand}
+        description                                     | encodedData                                                                                                                               | character
+        ${"standard character data"}                    | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLN2HtlxHGtYxHGtgxHEuF"}                                      | ${character}
+        ${"character data with unicode characters"}     | ${"uDriterisSriwMGZhYIZVYjZBaXYnYUarisEriuA2QsNI2HtX2HsJK2HtUxeGxYDtT2KsM2GtZ2GtLN2HtlxHGtYxHGtgxHEuF"}                                   | ${characterWithUnicodeCharacters}
+        ${"character data with items"}                  | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNI2HtX2HsJK2HtUxjHxZDtT2LsM2GtZ2GtLsJEMtN2KtlxKDxHDtYxHGtgxHEuF"}                              | ${characterWithItems}
+        ${"character data with unlocked ability cards"} | ${"uDriterisSritEVjkrgtTYRiRTkVirisEriuA2VsNII2ItX2IsJK2HtUxkHxaDtT2LsM2GtZ2GtLN2HtlxHDsM2gsMLxMDtYxTGtgxHEuF"}                           | ${characterWithUnlockedAbilityCards}
+        ${"character data with hand"}                   | ${"uDriterisSrisluBrgsbtYRirisEriuA2OsJII2ItX2IsNxHDtUxdDsgtVccfrg2ftmV2r2StT2SsM2GtZ2GtLN2HtlxHGtYxHDsMKEMLxMDtgxTEuF"}                  | ${characterWithHand}
+        ${"character data with gained perks"}           | ${"uDriterisSrisluBrgsbtYRirisEriuA2OsJII2ItX2IsNxHDtUxdDsgtVccfrg2ftmV2r2StT2SsM2GtZ2GtLN2HtlxHGtYxHDsMKEMLxMDtgxMDtLsJEI2LtL3DsJtNNuF"} | ${characterWithGainedPerks}
     `("decompresses and deserializes $description", ({ encodedData, character }) => {
         expect(decode(encodedData)).toEqual(character);
     });

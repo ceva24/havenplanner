@@ -49,5 +49,15 @@ declare namespace Cypress {
         findItemsAutocomplete(): Chainable<Element>;
 
         addItem(name: string): Chainable<Element>;
+
+        findAttackModifierCardWithCount(name: string, count: number): Chainable<Element>;
+
+        shouldHavePerkWithCheckboxCount(name: string, count: number): Chainable<Element>;
+
+        gainPerk(name: string, checkboxIndex: number): Chainable<Element>;
+
+        removePerk(name: string, checkboxIndex: number): Chainable<Element>;
+
+        clickPerkDescription(name: string): Chainable<Element>;
     }
 }
