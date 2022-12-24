@@ -13,7 +13,9 @@ interface PerkLabelProps {
 
 const PerkLabel = ({ perk, labelId, character, setCharacter }: PerkLabelProps) => {
     const handleLabelClick = (perk: Perk) => {
-        const gainedPerks = character.gainedPerks.filter((gainedPerk: GainedPerk) => gainedPerk.perk === perk);
+        const gainedPerks = character.gainedPerks.filter(
+            (gainedPerk: GainedPerk) => gainedPerk.perk.description === perk.description
+        );
 
         if (gainedPerks.length === perk.count) {
             removeGainedPerksForPerk(perk, character, setCharacter);
@@ -46,7 +48,9 @@ const removeGainedPerksForPerk = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>
 ) => {
-    const newGainedPerks = character.gainedPerks.filter((gainedPerk: GainedPerk) => gainedPerk.perk !== perk);
+    const newGainedPerks = character.gainedPerks.filter(
+        (gainedPerk: GainedPerk) => gainedPerk.perk.description !== perk.description
+    );
 
     setCharacter({
         ...character,

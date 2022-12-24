@@ -10,10 +10,11 @@ interface SerializedCharacterData {
     g: number; // Gold
     d: string; // Notes
     c: number; // Character id
-    p?: number; // Personal quest id
+    q?: number; // Personal quest id
     i: number[]; // Item ids
     u: number[]; // Unlocked ability card ids
     h: number[]; // Hand ability card ids
+    p: Array<[number, number]>; // Gained perk and checkbox indices
 }
 
 const serialize = (character: Character): string => {
@@ -23,10 +24,11 @@ const serialize = (character: Character): string => {
         g: character.gold,
         d: character.notes,
         c: character.characterClass.id,
-        p: character.personalQuest?.id,
+        q: character.personalQuest?.id,
         i: character.items.map((characterItem: CharacterItem) => characterItem.item.id),
         u: character.unlockedAbilityCards.map((abilityCard: AbilityCard) => abilityCard.id),
         h: character.hand.map((abilityCard: AbilityCard) => abilityCard.id),
+        p: serializeGainedPerks(character.gainedPerks, character.characterClass),
     };
 
     return JSON.stringify(characterData);
@@ -35,7 +37,7 @@ const serialize = (character: Character): string => {
 const deserialize = (data: string): Character => {
     const characterData = JSON.parse(data) as SerializedCharacterData;
 
-    const personalQuest = deserializePersonalQuest(characterData.p);
+    const personalQuest = deserializePersonalQuest(characterData.q);
     const characterClass = deserializeCharacterClass(characterData.c);
 
     const character: Character = {
@@ -48,7 +50,7 @@ const deserialize = (data: string): Character => {
         items: deserializeItems(characterData.i),
         unlockedAbilityCards: deserializeAbilityCards(characterData.u, characterClass),
         hand: deserializeAbilityCards(characterData.h, characterClass),
-        gainedPerks: [],
+        gainedPerks: deserializeGainedPerks(characterData.p, characterClass),
     };
 
     return character;
@@ -83,6 +85,20 @@ const deserializeAbilityCards = (abilityCardIds: number[], characterClass: Chara
     );
 
     return validAbilityCards;
+};
+
+const serializeGainedPerks = (gainedPerks: GainedPerk[], characterClass: CharacterClass): Array<[number, number]> => {
+    return gainedPerks.map((gainedPerk: GainedPerk) => [
+        characterClass.perks.indexOf(gainedPerk.perk),
+        gainedPerk.checkboxIndex,
+    ]);
+};
+
+const deserializeGainedPerks = (perkIndices: Array<[number, number]>, characterClass: CharacterClass): GainedPerk[] => {
+    return perkIndices.map((perkAndCheckboxIndex: [number, number]) => ({
+        perk: characterClass.perks[perkAndCheckboxIndex[0]],
+        checkboxIndex: perkAndCheckboxIndex[1],
+    }));
 };
 
 export { serialize, deserialize };
