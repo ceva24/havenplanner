@@ -199,7 +199,18 @@
             "description": "Remove two {-1} cards",
             "count": 2,
             "add": [],
-            "remove": []
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                },
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
         },
         {
             "description": "Replace one {-2} card with one {+0} card",
@@ -222,49 +233,117 @@
         {
             "description": "Add two {+1} cards",
             "count": 1,
-            "add": [],
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                },
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add one {+3} card",
             "count": 1,
-            "add": [],
+            "add": [
+                {
+                    "id": 26,
+                    "name": "+3",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-04.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add two {chain} {fire} cards",
             "count": 1,
-            "add": [],
+            "add": [
+                {
+                    "id": 27,
+                    "name": "chain fire",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-05.webp"
+                },
+                {
+                    "id": 27,
+                    "name": "chain fire",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-05.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add three {chain} MUDDLE {muddle} cards",
             "count": 1,
-            "add": [],
+            "add": [
+                {
+                    "id": 29,
+                    "name": "chain muddle",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-07.webp"
+                },
+                {
+                    "id": 29,
+                    "name": "chain muddle",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-07.webp"
+                },
+                {
+                    "id": 29,
+                    "name": "chain muddle",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-07.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add one {+1} WOUND {wound} card",
             "count": 2,
-            "add": [],
+            "add": [
+                {
+                    "id": 32,
+                    "name": "+1 wound",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-10.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add one {+1} IMMOBILIZE {immobilize} card",
             "count": 2,
-            "add": [],
+            "add": [
+                {
+                    "id": 34,
+                    "name": "+1 immobilize",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-12.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add one {+1} HEAL {heal} 2 card",
             "count": 2,
-            "add": [],
+            "add": [
+                {
+                    "id": 36,
+                    "name": "+1 heal 2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-14.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add one {+0} ADD TARGET {target} card",
             "count": 1,
-            "add": [],
+            "add": [
+                {
+                    "id": 38,
+                    "name": "+0 add target",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-16.webp"
+                }
+            ],
             "remove": []
         },
         {

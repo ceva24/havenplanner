@@ -187,66 +187,209 @@
             "description": "Remove two {-1} cards",
             "count": 2,
             "add": [],
-            "remove": []
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                },
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
         },
         {
             "description": "Remove four {+0} cards",
             "count": 1,
             "add": [],
-            "remove": []
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
         },
         {
             "description": "Replace two {+1} cards with two {+2} cards",
             "count": 1,
-            "add": [],
-            "remove": []
+            "add": [
+                {
+                    "id": 330,
+                    "name": "+2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                },
+                {
+                    "id": 330,
+                    "name": "+2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                },
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ]
         },
         {
             "description": "Replace one {-2} card with one {+0} card",
             "count": 1,
-            "add": [],
-            "remove": []
+            "add": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 329,
+                    "name": "-2",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+                }
+            ]
         },
         {
             "description": "Add one {+2} {ice} card",
             "count": 2,
-            "add": [],
+            "add": [
+                {
+                    "id": 95,
+                    "name": "+2 ice",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-04.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add two {chain} {+1} cards",
             "count": 2,
-            "add": [],
+            "add": [
+                {
+                    "id": 97,
+                    "name": "chain +1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-06.webp"
+                },
+                {
+                    "id": 97,
+                    "name": "chain +1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-06.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add three {chain} PULL {pull} 1 cards",
             "count": 1,
-            "add": [],
+            "add": [
+                {
+                    "id": 101,
+                    "name": "chain pull 1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-10.webp"
+                },
+                {
+                    "id": 101,
+                    "name": "chain pull 1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-10.webp"
+                },
+                {
+                    "id": 101,
+                    "name": "chain pull 1",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-10.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add three {chain} MUDDLE {muddle} cards",
             "count": 1,
-            "add": [],
+            "add": [
+                {
+                    "id": 104,
+                    "name": "chain muddle",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-13.webp"
+                },
+                {
+                    "id": 104,
+                    "name": "chain muddle",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-13.webp"
+                },
+                {
+                    "id": 104,
+                    "name": "chain muddle",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-13.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add two {chain} IMMOBILIZE {immobilize} cards",
             "count": 1,
-            "add": [],
+            "add": [
+                {
+                    "id": 108,
+                    "name": "chain immobilize",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-17.webp"
+                },
+                {
+                    "id": 108,
+                    "name": "chain immobilize",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-17.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add one {chain} STUN {stun} card",
             "count": 1,
-            "add": [],
+            "add": [
+                {
+                    "id": 110,
+                    "name": "chain stun",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-19.webp"
+                }
+            ],
             "remove": []
         },
         {
             "description": "Add one {chain} DISARM {disarm} card and one {chain} MUDDLE {muddle} card",
             "count": 1,
-            "add": [],
+            "add": [
+                {
+                    "id": 111,
+                    "name": "chain disarm",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-20.webp"
+                },
+                {
+                    "id": 104,
+                    "name": "chain muddle",
+                    "imageUrl": "/images/attack-modifiers/gloomhaven/MT/gh-am-mt-13.webp"
+                }
+            ],
             "remove": []
         },
         {
