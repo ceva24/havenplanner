@@ -1,6 +1,6 @@
 import type { ChangeEvent, Dispatch, SetStateAction } from "react";
-import { FormControlLabel, Checkbox, Box } from "@mui/material";
-import PerkDescription from "@/components/perks/perk-description";
+import { Checkbox, Box } from "@mui/material";
+import PerkLabel from "@/components/perks/perk-label";
 import { characterHasGainedPerk, findCharacterGainedPerk } from "@/services/character";
 
 interface PerkListProps {
@@ -19,35 +19,33 @@ const PerkList = ({ character, setCharacter }: PerkListProps) => {
 
     return (
         <Box component="section" aria-label="Perk List">
-            {character.characterClass.perks.map((perk: Perk) => (
-                <Box key={perk.description}>
-                    <FormControlLabel
-                        control={
-                            <>
-                                {Array.from({ length: perk.count }).map((item, checkboxIndex) => {
-                                    const label =
-                                        checkboxIndex > 0
-                                            ? `${perk.description} ${checkboxIndex + 1}`
-                                            : perk.description;
+            {character.characterClass.perks.map((perk: Perk, perkIndex: number) => {
+                const perkLabelId = `perk-${perkIndex}-label`;
 
-                                    return (
-                                        <Checkbox
-                                            // eslint-disable-next-line react/no-array-index-key
-                                            key={checkboxIndex}
-                                            checked={characterHasGainedPerk(character, perk, checkboxIndex)}
-                                            inputProps={{ "aria-label": label }}
-                                            onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                                handleChange(event, perk, checkboxIndex);
-                                            }}
-                                        />
-                                    );
-                                })}
-                            </>
-                        }
-                        label={<PerkDescription perk={perk} />}
-                    />
-                </Box>
-            ))}
+                return (
+                    <Box key={perk.description}>
+                        {Array.from({ length: perk.count }).map((item, checkboxIndex) => {
+                            const styleProps =
+                                checkboxIndex === 0
+                                    ? { "aria-labelledby": perkLabelId }
+                                    : { "aria-label": `${perk.description} ${checkboxIndex + 1}` };
+
+                            return (
+                                <Checkbox
+                                    // eslint-disable-next-line react/no-array-index-key
+                                    key={checkboxIndex}
+                                    checked={characterHasGainedPerk(character, perk, checkboxIndex)}
+                                    inputProps={styleProps}
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        handleChange(event, perk, checkboxIndex);
+                                    }}
+                                />
+                            );
+                        })}
+                        <PerkLabel perk={perk} labelId={perkLabelId} />
+                    </Box>
+                );
+            })}
         </Box>
     );
 };

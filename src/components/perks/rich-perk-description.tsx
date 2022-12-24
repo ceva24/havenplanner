@@ -1,11 +1,11 @@
 import reactStringReplace from "react-string-replace";
 import Image from "@/components/core/image";
 
-interface PerkDescriptionProps {
+interface RichPerkDescriptionProps {
     perk: Perk;
 }
 
-const PerkDescription = ({ perk }: PerkDescriptionProps) => {
+const RichPerkDescription = ({ perk }: RichPerkDescriptionProps) => {
     return (
         <>
             {reactStringReplace(perk.description, /{(.*?)}/, (match: string, index: number) => (
@@ -23,4 +23,4 @@ const PerkDescription = ({ perk }: PerkDescriptionProps) => {
     );
 };
 
-export default PerkDescription;
+export default RichPerkDescription;

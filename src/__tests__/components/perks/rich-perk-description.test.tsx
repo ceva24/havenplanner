@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import PerkDescription from "@/components/perks/perk-description";
+import RichPerkDescription from "@/components/perks/rich-perk-description";
 
-describe("perk-description", () => {
+describe("rich-perk-description", () => {
     it("replaces text in curly braces in the perk description with an image", () => {
         const perk: Perk = {
             description: "description with {shield} icon",
@@ -10,7 +10,7 @@ describe("perk-description", () => {
             remove: [],
         };
 
-        render(<PerkDescription perk={perk} />);
+        render(<RichPerkDescription perk={perk} />);
 
         const text = screen.queryByText("description with icon");
         const image = screen.queryByRole("img", { name: "shield icon" });
@@ -27,7 +27,7 @@ describe("perk-description", () => {
             remove: [],
         };
 
-        render(<PerkDescription perk={perk} />);
+        render(<RichPerkDescription perk={perk} />);
 
         const text = screen.queryByText("description with no shield icon");
 
