@@ -127,4 +127,60 @@ describe("perks tab", () => {
 
         cy.findByRole("img", { name: "shield icon" }).should("be.visible");
     });
+
+    it("gains a perk when clicking on the perk description", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.clickPerkDescription("Remove two {-1} cards");
+
+        cy.findByRole("checkbox", { name: "Remove two {-1} cards" }).should("be.checked");
+    });
+
+    it("gains the second perk when clicking on the perk description", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainPerk("Add two {+1} cards", 0);
+
+        cy.findByRole("checkbox", { name: "Add two {+1} cards" }).should("be.checked");
+        cy.findByRole("checkbox", { name: "Add two {+1} cards 2" }).should("not.be.checked");
+
+        cy.clickPerkDescription("Add two {+1} cards");
+
+        cy.findByRole("checkbox", { name: "Add two {+1} cards" }).should("be.checked");
+        cy.findByRole("checkbox", { name: "Add two {+1} cards 2" }).should("be.checked");
+    });
+
+    it("gains the next ungained perk when clicking on the perk description", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainPerk("Add two {+1} cards", 1);
+
+        cy.findByRole("checkbox", { name: "Add two {+1} cards" }).should("not.be.checked");
+        cy.findByRole("checkbox", { name: "Add two {+1} cards 2" }).should("be.checked");
+
+        cy.clickPerkDescription("Add two {+1} cards");
+
+        cy.findByRole("checkbox", { name: "Add two {+1} cards" }).should("be.checked");
+        cy.findByRole("checkbox", { name: "Add two {+1} cards 2" }).should("be.checked");
+    });
+
+    it("removes all perks of that type when clicking on the perk description for a perk that is fully gained", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainPerk("Add two {+1} cards", 0);
+        cy.gainPerk("Add two {+1} cards", 1);
+
+        cy.clickPerkDescription("Add two {+1} cards");
+
+        cy.findByRole("checkbox", { name: "Add two {+1} cards" }).should("not.be.checked");
+        cy.findByRole("checkbox", { name: "Add two {+1} cards 2" }).should("not.be.checked");
+    });
 });

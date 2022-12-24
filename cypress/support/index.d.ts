@@ -57,5 +57,7 @@ declare namespace Cypress {
         gainPerk(name: string, checkboxIndex: number): Chainable<Element>;
 
         removePerk(name: string, checkboxIndex: number): Chainable<Element>;
+
+        clickPerkDescription(name: string): Chainable<Element>;
     }
 }

@@ -9,7 +9,7 @@ interface PerkListProps {
 }
 
 const PerkList = ({ character, setCharacter }: PerkListProps) => {
-    const handleChange = (event: ChangeEvent<HTMLInputElement>, perk: Perk, checkboxIndex: number) => {
+    const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>, perk: Perk, checkboxIndex: number) => {
         if (event.target.checked) {
             gainPerk(perk, checkboxIndex, character, setCharacter);
         } else {
@@ -24,7 +24,7 @@ const PerkList = ({ character, setCharacter }: PerkListProps) => {
 
                 return (
                     <Box key={perk.description}>
-                        {Array.from({ length: perk.count }).map((item, checkboxIndex) => {
+                        {Array.from({ length: perk.count }).map((item: unknown, checkboxIndex: number) => {
                             const styleProps =
                                 checkboxIndex === 0
                                     ? { "aria-labelledby": perkLabelId }
@@ -37,12 +37,17 @@ const PerkList = ({ character, setCharacter }: PerkListProps) => {
                                     checked={characterHasGainedPerk(character, perk, checkboxIndex)}
                                     inputProps={styleProps}
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                        handleChange(event, perk, checkboxIndex);
+                                        handleCheckboxChange(event, perk, checkboxIndex);
                                     }}
                                 />
                             );
                         })}
-                        <PerkLabel perk={perk} labelId={perkLabelId} />
+                        <PerkLabel
+                            perk={perk}
+                            labelId={perkLabelId}
+                            character={character}
+                            setCharacter={setCharacter}
+                        />
                     </Box>
                 );
             })}

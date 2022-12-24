@@ -139,3 +139,7 @@ Cypress.Commands.add("removePerk", (name: string, checkboxIndex: number) => {
             .uncheck();
     }
 });
+
+Cypress.Commands.add("clickPerkDescription", (name: string) => {
+    cy.findByRole("checkbox", { name }).parent().parent().children("label").click();
+});
