@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import Perks from "@/components/perks/perks";
 import { createTestCharacter } from "@/testutils";
 import { gainPerk, removePerk } from "@/components/perks/perk-list";
@@ -86,7 +86,9 @@ describe("perk list", () => {
 
         render(<Perks character={character} setCharacter={setCharacter} />);
 
-        const checkboxes = screen.queryAllByRole("checkbox");
+        const perkList = screen.getByRole("region", { name: "Perk List" });
+
+        const checkboxes = within(perkList).queryAllByRole("checkbox");
 
         expect(checkboxes).toHaveLength(2);
     });
