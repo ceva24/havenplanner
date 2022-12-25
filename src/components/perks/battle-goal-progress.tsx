@@ -1,6 +1,5 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { Checkbox, Grid } from "@mui/material";
-import groupBy from "lodash.groupby";
 import Image from "@/components/core/image";
 
 interface BattleGoalProgressProps {
@@ -9,12 +8,10 @@ interface BattleGoalProgressProps {
 }
 
 const BattleGoalProgress = ({ character, setCharacter }: BattleGoalProgressProps) => {
-    const groups: Record<string, BattleGoalCheckmark[]> = groupsOfThree(character.battleGoalCheckmarks);
-
     return (
         <Grid container>
-            {Object.keys(groups).map((key: string) => (
-                <Grid key={key} item xs={6} md={4}>
+            {character.battleGoalCheckmarkGroups.map((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => (
+                <Grid key={battleGoalCheckmarkGroup.id} item xs={6} md={4}>
                     <Image
                         webpPath="/images/perk-icons/gloomhaven/check.webp"
                         fallbackImageType="png"
@@ -24,13 +21,18 @@ const BattleGoalProgress = ({ character, setCharacter }: BattleGoalProgressProps
                         style={{ verticalAlign: "middle" }}
                     />{" "}
                     :
-                    {groups[key].map((battleGoalCheckmark: BattleGoalCheckmark) => (
+                    {battleGoalCheckmarkGroup.checkmarks.map((battleGoalCheckmark: BattleGoalCheckmark) => (
                         <Checkbox
                             key={battleGoalCheckmark.id}
                             sx={{ paddingLeft: 0.2, paddingRight: 0.2 }}
                             checked={battleGoalCheckmark.value}
                             onChange={() => {
-                                toggleBattleGoalProgress(battleGoalCheckmark, character, setCharacter);
+                                toggleBattleGoalCheckmark(
+                                    battleGoalCheckmarkGroup.id,
+                                    battleGoalCheckmark.id,
+                                    character,
+                                    setCharacter
+                                );
                             }}
                         />
                     ))}
@@ -40,28 +42,20 @@ const BattleGoalProgress = ({ character, setCharacter }: BattleGoalProgressProps
     );
 };
 
-const groupsOfThree = (battleGoalCheckmarks: BattleGoalCheckmark[]): Record<string, BattleGoalCheckmark[]> => {
-    return groupBy(battleGoalCheckmarks, (battleGoalCheckmark: BattleGoalCheckmark) =>
-        Math.floor(battleGoalCheckmark.id / 3)
-    );
-};
-
-const toggleBattleGoalProgress = (
-    battleGoalCheckmark: BattleGoalCheckmark,
+const toggleBattleGoalCheckmark = (
+    battleGoalCheckmarkGroupId: number,
+    battleGoalCheckmarkId: number,
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>
 ) => {
-    const newBattleGoalProgress = character.battleGoalCheckmarks.slice();
+    const newBattleGoalGroups = character.battleGoalCheckmarkGroups.slice();
 
-    const battleGoalProgress = newBattleGoalProgress.find(
-        (checkmark: BattleGoalCheckmark) => checkmark.id === battleGoalCheckmark.id
-    );
-
-    if (battleGoalProgress) battleGoalProgress.value = !battleGoalProgress.value;
+    const checkmark = newBattleGoalGroups[battleGoalCheckmarkGroupId].checkmarks[battleGoalCheckmarkId];
+    checkmark.value = !checkmark.value;
 
     setCharacter({
         ...character,
-        battleGoalCheckmarks: newBattleGoalProgress,
+        battleGoalCheckmarkGroups: newBattleGoalGroups,
     });
 };
 
