@@ -11,6 +11,14 @@ describe("perks", () => {
         expect(attackModifierCards).toBeInTheDocument();
     });
 
+    it("renders the battle goal progress", () => {
+        render(<Perks character={createTestCharacter()} setCharacter={jest.fn()} />);
+
+        const battleGoalProgress = screen.queryByRole("region", { name: "Battle Goal Progress" });
+
+        expect(battleGoalProgress).toBeInTheDocument();
+    });
+
     it("renders the list of perks", () => {
         render(<Perks character={createTestCharacter()} setCharacter={jest.fn()} />);
 

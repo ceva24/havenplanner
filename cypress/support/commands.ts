@@ -143,3 +143,17 @@ Cypress.Commands.add("removePerk", (name: string, checkboxIndex: number) => {
 Cypress.Commands.add("clickPerkDescription", (name: string) => {
     cy.findByRole("checkbox", { name }).parent().parent().children("label").click();
 });
+
+Cypress.Commands.add("gainBattleGoalCheckmark", (battleGoalPerk: number, checkboxIndex: number) => {
+    cy.findByRole("region", { name: `Battle Goal Perk ${battleGoalPerk}` })
+        .findAllByRole("checkbox")
+        .eq(checkboxIndex)
+        .check();
+});
+
+Cypress.Commands.add("loseBattleGoalCheckmark", (battleGoalPerk: number, checkboxIndex: number) => {
+    cy.findByRole("region", { name: `Battle Goal Perk ${battleGoalPerk}` })
+        .findAllByRole("checkbox")
+        .eq(checkboxIndex)
+        .uncheck();
+});

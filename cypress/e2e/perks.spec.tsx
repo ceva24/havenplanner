@@ -183,4 +183,39 @@ describe("perks tab", () => {
         cy.findByRole("checkbox", { name: "Add two {+1} cards" }).should("not.be.checked");
         cy.findByRole("checkbox", { name: "Add two {+1} cards 2" }).should("not.be.checked");
     });
+
+    it("shows the battle goal perks", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.findByRole("region", { name: "Battle Goal Progress" }).findAllByRole("checkbox").should("have.length", 18);
+    });
+
+    it("allows battle goals perks to be gained", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainBattleGoalCheckmark(1, 0);
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").eq(0).should("be.checked");
+    });
+
+    it("allows battle goals perks to be lost", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainBattleGoalCheckmark(1, 0);
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").eq(0).should("be.checked");
+
+        cy.loseBattleGoalCheckmark(1, 0);
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" })
+            .findAllByRole("checkbox")
+            .eq(0)
+            .should("not.be.checked");
+    });
 });

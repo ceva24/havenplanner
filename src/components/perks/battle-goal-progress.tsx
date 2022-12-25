@@ -9,9 +9,16 @@ interface BattleGoalProgressProps {
 
 const BattleGoalProgress = ({ character, setCharacter }: BattleGoalProgressProps) => {
     return (
-        <Grid container>
+        <Grid container component="section" aria-label="Battle Goal Progress">
             {character.battleGoalCheckmarkGroups.map((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => (
-                <Grid key={battleGoalCheckmarkGroup.id} item xs={6} md={4}>
+                <Grid
+                    key={battleGoalCheckmarkGroup.id}
+                    item
+                    xs={6}
+                    md={4}
+                    component="section"
+                    aria-label={`Battle Goal Perk ${battleGoalCheckmarkGroup.id + 1}`}
+                >
                     <Image
                         webpPath="/images/perk-icons/gloomhaven/check.webp"
                         fallbackImageType="png"
@@ -60,3 +67,4 @@ const toggleBattleGoalCheckmark = (
 };
 
 export default BattleGoalProgress;
+export { toggleBattleGoalCheckmark };
