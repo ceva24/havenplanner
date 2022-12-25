@@ -2,7 +2,7 @@ import type { Dispatch, SetStateAction } from "react";
 import { Box, Grid } from "@mui/material";
 import PerkList from "@/components/perks/perk-list";
 import AttackModifiers from "@/components/perks/attack-modifiers";
-import BattleGoals from "@/components/perks/battle-goals";
+import BattleGoalProgress from "@/components/perks/battle-goal-progress";
 
 interface PerksProps {
     character: Character;
@@ -17,7 +17,7 @@ const Perks = ({ character, setCharacter }: PerksProps) => {
                     <PerkList character={character} setCharacter={setCharacter} />
                 </Box>
                 <Box sx={{ marginTop: 8 }} textAlign="center">
-                    <BattleGoals />
+                    <BattleGoalProgress character={character} setCharacter={setCharacter} />
                 </Box>
             </Grid>
             <Grid item lg={7} xl={8}>

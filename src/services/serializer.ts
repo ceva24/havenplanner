@@ -51,6 +51,7 @@ const deserialize = (data: string): Character => {
         unlockedAbilityCards: deserializeAbilityCards(characterData.u, characterClass),
         hand: deserializeAbilityCards(characterData.h, characterClass),
         gainedPerks: deserializeGainedPerks(characterData.p, characterClass),
+        battleGoalCheckmarks: [],
     };
 
     return character;

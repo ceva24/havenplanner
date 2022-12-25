@@ -15,6 +15,7 @@ interface Character {
     unlockedAbilityCards: AbilityCard[];
     hand: AbilityCard[];
     gainedPerks: GainedPerk[];
+    battleGoalCheckmarks: BattleGoalCheckmark[];
 }
 
 interface CharacterItem {
@@ -64,4 +65,9 @@ interface Perk {
 interface GainedPerk {
     perk: Perk;
     checkboxIndex: number;
+}
+
+interface BattleGoalCheckmark {
+    id: number;
+    value: boolean;
 }

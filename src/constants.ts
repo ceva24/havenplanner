@@ -13,6 +13,10 @@ const defaultCharacter: Character = {
     unlockedAbilityCards: [],
     hand: [],
     gainedPerks: [],
+    battleGoalCheckmarks: Array.from({ length: 18 }).map((item: unknown, index: number) => ({
+        id: index,
+        value: false,
+    })),
 };
 
 const baseAttackModifierDeck: AttackModifierDeckCard[] = [
