@@ -10,7 +10,11 @@ const character: Character = createTestCharacter();
 
 const setCharacter = jest.fn();
 
-const appSettings: AppSettings = { showPersonalQuestButton: false, showPersonalQuest: false, showHand: false };
+const appSettings: AppSettings = {
+    showPersonalQuestButton: false,
+    showPersonalQuest: false,
+    selectedAbilityCardsTabIndex: 0,
+};
 
 const setAppSettings = jest.fn();
 
@@ -117,20 +121,15 @@ describe("findAndSetCharacter", () => {
 });
 
 describe("resetAbilityCardsTabConfig", () => {
-    it("sets the show hand app setting to false", () => {
-        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
-        const event = {
-            target: { value: characterClasses[3].name },
-        } as SelectChangeEvent;
-
-        const appSettingsShowHand: AppSettings = { ...appSettings, showHand: true };
+    it("resets the selected ability cards tab index app setting", () => {
+        const appSettingsShowHand: AppSettings = { ...appSettings, selectedAbilityCardsTabIndex: 1 };
 
         resetAbilityCardsTabConfig(appSettingsShowHand, setAppSettings);
 
         expect(setAppSettings).toHaveBeenCalledTimes(1);
         expect(setAppSettings).toHaveBeenCalledWith({
             ...appSettings,
-            showHand: false,
+            selectedAbilityCardsTabIndex: 0,
         });
     });
 });

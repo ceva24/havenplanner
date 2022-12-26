@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ActiveAbilityCard from "@/components/ability-cards/active-ability-card";
+import ActiveAbilityCard from "@/components/ability-cards/toggleable-ability-card";
 import { createTestCharacter } from "@/testutils";
 
 const character: Character = createTestCharacter();
@@ -8,7 +8,7 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe("active ability card", () => {
+describe("toggleable ability card", () => {
     it("renders a checkbox", () => {
         render(
             <ActiveAbilityCard

@@ -3,14 +3,14 @@ import { Box } from "@mui/material";
 import LockIcon from "@mui/icons-material/LockTwoTone";
 import { Card } from "@/components/core/cards";
 
-interface ActiveAbilityCardProps {
+interface ToggleableAbilityCardProps {
     abilityCard: AbilityCard;
     isSelected: boolean;
     action: () => void;
     showLockIcon: boolean;
 }
 
-const ActiveAbilityCard = ({ abilityCard, isSelected, action, showLockIcon }: ActiveAbilityCardProps) => {
+const ToggleableAbilityCard = ({ abilityCard, isSelected, action, showLockIcon }: ToggleableAbilityCardProps) => {
     const onClick = () => {
         action();
     };
@@ -37,4 +37,4 @@ const ActiveAbilityCard = ({ abilityCard, isSelected, action, showLockIcon }: Ac
     );
 };
 
-export default ActiveAbilityCard;
+export default ToggleableAbilityCard;

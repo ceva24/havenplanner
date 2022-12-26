@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import SelectCardDialog, { toggleCardAddedToHand } from "@/components/ability-cards/hand/select-card-dialog";
+import EditHandDialog, { toggleCardAddedToHand } from "@/components/ability-cards/hand/edit-hand-dialog";
 import { createTestCharacter } from "@/testutils";
 
 const character: Character = createTestCharacter();
@@ -10,17 +10,17 @@ beforeEach(() => {
     jest.resetAllMocks();
 });
 
-describe("select card dialog", () => {
+describe("edit hand dialog", () => {
     it("renders", () => {
-        render(<SelectCardDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
+        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
 
-        const selectCardDialog = screen.queryByRole("dialog", { name: "Select ability cards" });
+        const editHandDialog = screen.queryByRole("dialog", { name: "Select ability cards" });
 
-        expect(selectCardDialog).toBeInTheDocument();
+        expect(editHandDialog).toBeInTheDocument();
     });
 
     it("renders the card total", () => {
-        render(<SelectCardDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
+        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
 
         const cardTotal = screen.queryByText("0 / 10");
 
@@ -28,7 +28,7 @@ describe("select card dialog", () => {
     });
 
     it("renders available ability cards", () => {
-        render(<SelectCardDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
+        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
 
         const abilityCard = screen.queryByRole("checkbox", { name: "Trample" });
 
@@ -36,7 +36,7 @@ describe("select card dialog", () => {
     });
 
     it("renders the close button", () => {
-        render(<SelectCardDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
+        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
 
         const closeButton = screen.queryByRole("button", { name: "Close" });
 

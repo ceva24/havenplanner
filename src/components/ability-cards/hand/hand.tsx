@@ -4,10 +4,10 @@ import Button from "@/components/core/button";
 
 interface HandProps {
     character: Character;
-    openSelectCardDialog: () => void;
+    openEditHandDialog: () => void;
 }
 
-const Hand = ({ character, openSelectCardDialog }: HandProps) => {
+const Hand = ({ character, openEditHandDialog }: HandProps) => {
     const emptyHand: unknown[] = Array.from({
         length: character.characterClass.handSize - character.hand.length,
     });
@@ -32,7 +32,7 @@ const Hand = ({ character, openSelectCardDialog }: HandProps) => {
                 })}
             </Box>
             <Box textAlign="center">
-                <Button text="Edit hand" onClick={openSelectCardDialog} />
+                <Button text="Edit hand" onClick={openEditHandDialog} />
             </Box>
         </Box>
     );

@@ -73,7 +73,7 @@ const resetAbilityCardsTabConfig = (
     appSettings: AppSettings,
     setAppSettings: Dispatch<SetStateAction<AppSettings>>
 ) => {
-    setAppSettings({ ...appSettings, showHand: false });
+    setAppSettings({ ...appSettings, selectedAbilityCardsTabIndex: 0 });
 };
 
 export default ClassSelect;

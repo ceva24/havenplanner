@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 import { abilityCardCanBeUnlockedForCharacter, isUnlockedAbilityCardForCharacter } from "@/services/character";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
-import ActiveAbilityCard from "@/components/ability-cards/active-ability-card";
+import ActiveAbilityCard from "@/components/ability-cards/toggleable-ability-card";
 
 interface UnlockableAbilityCardProps {
     abilityCard: AbilityCard;

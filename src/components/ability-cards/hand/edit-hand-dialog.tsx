@@ -2,21 +2,21 @@ import { Box, Dialog, DialogContent, DialogTitle, Stack, Typography } from "@mui
 import type { Dispatch, SetStateAction } from "react";
 import { getAllAvailableAbilityCardsForCharacter, isCardInHandForCharacter } from "@/services/character";
 import Button from "@/components/core/button";
-import ActiveAbilityCard from "@/components/ability-cards/active-ability-card";
+import ActiveAbilityCard from "@/components/ability-cards/toggleable-ability-card";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
 
-interface SelectCardDialogProps {
+interface EditHandDialogProps {
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
     isOpen: boolean;
     handleClose: () => void;
 }
 
-const SelectCardDialog = ({ character, setCharacter, isOpen, handleClose }: SelectCardDialogProps) => {
+const EditHandDialog = ({ character, setCharacter, isOpen, handleClose }: EditHandDialogProps) => {
     return (
-        <Dialog fullScreen open={isOpen} aria-labelledby="select-card-dialog-title" onClose={handleClose}>
+        <Dialog fullScreen open={isOpen} aria-labelledby="edit-hand-dialog-title" onClose={handleClose}>
             <DialogTitle
-                id="select-card-dialog-title"
+                id="edit-hand-dialog-title"
                 color="textPrimary"
                 variant="h2"
                 textAlign="center"
@@ -82,5 +82,5 @@ const wouldBeExceedingHandSizeLimit = (character: Character, abilityCard: Abilit
     );
 };
 
-export default SelectCardDialog;
+export default EditHandDialog;
 export { toggleCardAddedToHand };

@@ -1,7 +1,7 @@
 interface AppSettings {
     showPersonalQuestButton: boolean;
     showPersonalQuest: boolean;
-    showHand: boolean;
+    selectedAbilityCardsTabIndex: number;
 }
 
 interface Character {
