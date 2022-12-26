@@ -20,7 +20,7 @@ A web application to create and share character builds for the popular tabletop 
 ## 🗒️ Features
 
 -   Enter character details, including selecting a personal quest
--   Select perks and see the resulting attack modifier deck composition
+-   Select perks, track battle goal progress and see the resulting attack modifier deck composition
 -   See all character ability cards and select unlocked ones
 -   Create a saved hand
 -   Browse and select items
@@ -29,9 +29,8 @@ A web application to create and share character builds for the popular tabletop 
 ### Not yet implemented
 
 -   Character ability card augments
--   Track battle goal progress
 -   Locked characters and items
--   Content from Forgotten Circles, Jaws of the Lion, Crimson Scales and Frosthaven
+-   Content from Forgotten Circles, Jaws of the Lion, Crimson Scales, Trail of Ashes and Frosthaven
 
 ## 💻 Development
 
