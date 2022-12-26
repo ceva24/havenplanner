@@ -70,14 +70,6 @@ Cypress.Commands.add("selectTab", (name: string) => {
     cy.findByRole("tab", { name }).click();
 });
 
-Cypress.Commands.add("findCreateHandButton", () => {
-    cy.findByRole("button", { name: "Create hand" });
-});
-
-Cypress.Commands.add("findShowHandSwitch", () => {
-    cy.findByRole("checkbox", { name: "Show hand" });
-});
-
 Cypress.Commands.add("findActiveAbilityCard", (name: string) => {
     cy.findByRole("checkbox", { name });
 });
@@ -90,7 +82,7 @@ Cypress.Commands.add("findEditHandButton", () => {
     cy.findByRole("button", { name: "Edit hand" });
 });
 
-Cypress.Commands.add("findSelectCardDialog", () => {
+Cypress.Commands.add("findEditHandDialog", () => {
     cy.findByRole("dialog", { name: "Select ability cards" });
 });
 

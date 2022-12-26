@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import AttackModifiersGrid from "./attack-modifiers-grid";
+import AttackModifiersGrid from "@/components/perks/attack-modifiers-grid";
 import { baseAttackModifierDeck } from "@/constants";
 
 const baseAttackModifierDeckOrder = ["2x", "+2", "+1", "+0", "-1", "-2", "Miss"];

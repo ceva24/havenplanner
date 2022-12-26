@@ -264,7 +264,9 @@ describe("profile tab", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
+
+        cy.findEditHandButton().click();
 
         cy.findActiveAbilityCard("Trample").click();
 
@@ -280,11 +282,7 @@ describe("profile tab", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
-
-        cy.findActiveAbilityCard("Trample").should("not.be.checked");
-
-        cy.clickCloseButton();
+        cy.selectTab("Hand");
 
         cy.findByRole("img", { name: "Trample" }).should("not.exist");
     });
@@ -303,7 +301,9 @@ describe("profile tab", () => {
         cy.findActiveAbilityCard("Quietus").click();
         cy.findActiveAbilityCard("Crippling Offensive").click();
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
+
+        cy.findEditHandButton().click();
 
         cy.findActiveAbilityCard("Trample").click();
         cy.findActiveAbilityCard("Skewer").click();
@@ -322,8 +322,6 @@ describe("profile tab", () => {
         cy.findExperienceField().clear();
 
         cy.selectTab("Ability Cards");
-
-        cy.findShowHandSwitch().should("be.checked");
 
         cy.findByRole("img", { name: "Trample" }).should("exist");
         cy.findByRole("img", { name: "Skewer" }).should("exist");

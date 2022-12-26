@@ -218,7 +218,9 @@ describe("header", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
+
+        cy.findEditHandButton().click();
 
         cy.findActiveAbilityCard("Trample").click();
         cy.findActiveAbilityCard("Skewer").click();
@@ -231,7 +233,7 @@ describe("header", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findShowHandSwitch().click();
+        cy.selectTab("Hand");
 
         cy.findByRole("img", { name: "Trample" }).should("exist");
         cy.findByRole("img", { name: "Skewer" }).should("exist");

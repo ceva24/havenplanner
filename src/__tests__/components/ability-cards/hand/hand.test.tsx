@@ -8,7 +8,7 @@ const setCharacter = jest.fn();
 
 describe("hand", () => {
     it("renders the edit hand button", () => {
-        render(<Hand character={character} openSelectCardDialog={() => ""} />);
+        render(<Hand character={character} openEditHandDialog={() => ""} />);
 
         const editHandButton = screen.queryByRole("button", { name: "Edit hand" });
 
@@ -16,7 +16,7 @@ describe("hand", () => {
     });
 
     it("renders unselected cards equal to the character class hand size", () => {
-        render(<Hand character={character} openSelectCardDialog={() => ""} />);
+        render(<Hand character={character} openEditHandDialog={() => ""} />);
 
         const unselectedCards = screen.queryAllByRole("img", { name: "Unselected card" });
 

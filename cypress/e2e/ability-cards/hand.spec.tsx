@@ -3,100 +3,68 @@ import "@testing-library/cypress/add-commands";
 import "@/support/commands";
 
 describe("ability cards tab - hand", () => {
-    it("displays the select card dialog when pressing the create hand button", () => {
-        cy.visit("/");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findCreateHandButton().click();
-
-        cy.findSelectCardDialog().should("be.visible");
-    });
-
-    it("hides the select card dialog when clicking on the close button", () => {
-        cy.visit("/");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findCreateHandButton().click();
-
-        cy.clickCloseButton();
-
-        cy.findSelectCardDialog().not("should.be.visible");
-    });
-
-    it("shows the hand and show hand switch after closing the select card dialog", () => {
-        cy.visit("/");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findCreateHandButton().click();
-
-        cy.findSelectCardDialog().should("be.visible");
-
-        cy.clickCloseButton();
-
-        cy.findShowHandSwitch().should("be.checked");
-
-        cy.findEditHandButton().should("be.visible");
-    });
-
     it("shows a hand of unselected cards", () => {
         cy.visit("/");
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
-
-        cy.findSelectCardDialog().should("be.visible");
-
-        cy.clickCloseButton();
+        cy.selectTab("Hand");
 
         cy.findAllByRole("img", { name: "Unselected card" }).should("have.length", 10);
     });
 
-    it("retains the state of the show hand switch when toggled on", () => {
+    it("retains the state of the ability cards tabs", () => {
         cy.visit("/");
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
-
-        cy.clickCloseButton();
+        cy.selectTab("Hand");
 
         cy.selectTab("Profile");
 
         cy.selectTab("Ability Cards");
 
-        cy.findShowHandSwitch().should("be.checked");
+        cy.findEditHandButton().should("be.visible");
     });
 
-    it("shows the create hand button again when toggling back to the deck and reloading the tab", () => {
+    it("shows the edit hand dialog when pressing the edit hand button", () => {
         cy.visit("/");
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
+
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
+    });
+
+    it("allows the edit hand dialog to be closed", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.selectTab("Hand");
+
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.clickCloseButton();
 
-        cy.findShowHandSwitch().uncheck();
-
-        cy.selectTab("Profile");
-
-        cy.selectTab("Ability Cards");
-
-        cy.findCreateHandButton().should("be.visible");
+        cy.findEditHandButton().should("be.visible");
     });
 
-    it("only shows level 1 and level X in the select card dialog", () => {
+    it("only shows level 1 and level X in the edit hand dialog", () => {
         cy.visit("/");
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
 
-        cy.findSelectCardDialog().should("be.visible");
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.findByRole("checkbox", { name: "Provoking Roar" }).should("exist");
 
@@ -107,7 +75,7 @@ describe("ability cards tab - hand", () => {
         cy.findByRole("checkbox", { name: "Fatal Advance" }).should("not.exist");
     });
 
-    it("shows level 2 or higher cards in the select card dialog when they have been unlocked", () => {
+    it("shows level 2 or higher cards in the edit hand dialog when they have been unlocked", () => {
         cy.visit("/");
 
         cy.findExperienceField().type("100");
@@ -116,9 +84,11 @@ describe("ability cards tab - hand", () => {
 
         cy.findActiveAbilityCard("Juggernaut").click();
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
 
-        cy.findSelectCardDialog().should("be.visible");
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.findByRole("checkbox", { name: "Juggernaut" }).should("exist");
     });
@@ -130,9 +100,11 @@ describe("ability cards tab - hand", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
 
-        cy.findSelectCardDialog().should("be.visible");
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.findActiveAbilityCard("Trample").click();
 
@@ -148,9 +120,11 @@ describe("ability cards tab - hand", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
 
-        cy.findSelectCardDialog().should("be.visible");
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.findActiveAbilityCard("Trample").focus().type("{enter}");
 
@@ -166,9 +140,11 @@ describe("ability cards tab - hand", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
 
-        cy.findSelectCardDialog().should("be.visible");
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.findActiveAbilityCard("Trample").focus().type(" ");
 
@@ -182,9 +158,11 @@ describe("ability cards tab - hand", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
 
-        cy.findSelectCardDialog().should("be.visible");
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.findActiveAbilityCard("Trample").click();
 
@@ -206,9 +184,11 @@ describe("ability cards tab - hand", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
 
-        cy.findSelectCardDialog().should("be.visible");
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.findActiveAbilityCard("Trample").click();
 
@@ -222,9 +202,11 @@ describe("ability cards tab - hand", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
 
-        cy.findSelectCardDialog().should("be.visible");
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.findActiveAbilityCard("Trample").click();
         cy.findActiveAbilityCard("Eye for an Eye").click();
@@ -251,23 +233,23 @@ describe("ability cards tab - hand", () => {
 
         cy.findActiveAbilityCard("Juggernaut").click();
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
 
-        cy.findSelectCardDialog().should("be.visible");
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.findActiveAbilityCard("Juggernaut").click();
 
         cy.clickCloseButton();
 
-        cy.findShowHandSwitch().should("be.checked");
-
         cy.findByRole("img", { name: "Juggernaut" }).should("exist");
 
-        cy.findShowHandSwitch().uncheck();
+        cy.selectTab("Deck");
 
         cy.findActiveAbilityCard("Juggernaut").click();
 
-        cy.findShowHandSwitch().check();
+        cy.selectTab("Hand");
 
         cy.findByRole("img", { name: "Juggernaut" }).should("not.exist");
     });
@@ -277,9 +259,11 @@ describe("ability cards tab - hand", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
 
-        cy.findSelectCardDialog().should("be.visible");
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.findByText("0 / 10").should("exist");
 
@@ -293,9 +277,11 @@ describe("ability cards tab - hand", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findCreateHandButton().click();
+        cy.selectTab("Hand");
 
-        cy.findSelectCardDialog().should("be.visible");
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("be.visible");
 
         cy.findActiveAbilityCard("Trample").click();
         cy.findActiveAbilityCard("Eye for an Eye").click();
