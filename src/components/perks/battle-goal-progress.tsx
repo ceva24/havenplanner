@@ -1,6 +1,6 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { Checkbox, Grid } from "@mui/material";
-import Image from "@/components/core/image";
+import BattleGoalCheckmarkGroupLabel from "@/components/perks/battle-goal-checkmark-group-label";
 
 interface BattleGoalProgressProps {
     character: Character;
@@ -10,41 +10,54 @@ interface BattleGoalProgressProps {
 const BattleGoalProgress = ({ character, setCharacter }: BattleGoalProgressProps) => {
     return (
         <Grid container component="section" aria-label="Battle Goal Progress">
-            {character.battleGoalCheckmarkGroups.map((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => (
-                <Grid
-                    key={battleGoalCheckmarkGroup.id}
-                    item
-                    xs={6}
-                    md={4}
-                    component="section"
-                    aria-label={`Battle Goal Perk ${battleGoalCheckmarkGroup.id + 1}`}
-                >
-                    <Image
-                        webpPath="/images/perk-icons/gloomhaven/check.webp"
-                        fallbackImageType="png"
-                        altText="check icon"
-                        width={30}
-                        height={30}
-                        style={{ verticalAlign: "middle" }}
-                    />{" "}
-                    :
-                    {battleGoalCheckmarkGroup.checkmarks.map((battleGoalCheckmark: BattleGoalCheckmark) => (
-                        <Checkbox
-                            key={battleGoalCheckmark.id}
-                            sx={{ paddingLeft: 0.2, paddingRight: 0.2 }}
-                            checked={battleGoalCheckmark.value}
-                            onChange={() => {
-                                toggleBattleGoalCheckmark(
-                                    battleGoalCheckmarkGroup.id,
-                                    battleGoalCheckmark.id,
-                                    character,
-                                    setCharacter
-                                );
-                            }}
-                        />
-                    ))}
-                </Grid>
-            ))}
+            {character.battleGoalCheckmarkGroups.map((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => {
+                const battleGoalCheckmarkGroupLabelId = `battle-goal-perk-${battleGoalCheckmarkGroup.id}`;
+                return (
+                    <Grid
+                        key={battleGoalCheckmarkGroup.id}
+                        item
+                        xs={6}
+                        md={4}
+                        component="section"
+                        aria-label={`Battle Goal Perk ${battleGoalCheckmarkGroup.id + 1}`}
+                    >
+                        <BattleGoalCheckmarkGroupLabel
+                            battleGoalCheckmarkGroup={battleGoalCheckmarkGroup}
+                            labelId={battleGoalCheckmarkGroupLabelId}
+                            character={character}
+                            setCharacter={setCharacter}
+                        />{" "}
+                        :
+                        {battleGoalCheckmarkGroup.checkmarks.map((battleGoalCheckmark: BattleGoalCheckmark) => {
+                            const styleProps =
+                                battleGoalCheckmark.id === 0
+                                    ? { "aria-labelledby": battleGoalCheckmarkGroupLabelId }
+                                    : {
+                                          "aria-label": `Battle Goal Perk ${
+                                              battleGoalCheckmarkGroup.id + 1
+                                          } Checkmark ${battleGoalCheckmark.id + 1}`,
+                                      };
+
+                            return (
+                                <Checkbox
+                                    key={battleGoalCheckmark.id}
+                                    sx={{ paddingLeft: 0.2, paddingRight: 0.2 }}
+                                    inputProps={styleProps}
+                                    checked={battleGoalCheckmark.value}
+                                    onChange={() => {
+                                        toggleBattleGoalCheckmark(
+                                            battleGoalCheckmarkGroup.id,
+                                            battleGoalCheckmark.id,
+                                            character,
+                                            setCharacter
+                                        );
+                                    }}
+                                />
+                            );
+                        })}
+                    </Grid>
+                );
+            })}
         </Grid>
     );
 };

@@ -218,4 +218,18 @@ describe("perks tab", () => {
             .eq(0)
             .should("not.be.checked");
     });
+
+    it("removes all checkmarks from a group when clicking on the label for a group that is complete", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainBattleGoalCheckmark(1, 0);
+        cy.gainBattleGoalCheckmark(1, 1);
+        cy.gainBattleGoalCheckmark(1, 2);
+
+        cy.clickBattleGoalGroupLabel(1);
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").should("not.be.checked");
+    });
 });

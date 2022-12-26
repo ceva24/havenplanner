@@ -157,3 +157,9 @@ Cypress.Commands.add("loseBattleGoalCheckmark", (battleGoalPerk: number, checkbo
         .eq(checkboxIndex)
         .uncheck();
 });
+
+Cypress.Commands.add("clickBattleGoalGroupLabel", (battleGoalPerk: number) => {
+    cy.findByRole("region", { name: `Battle Goal Perk ${battleGoalPerk}` })
+        .children("label")
+        .click();
+});

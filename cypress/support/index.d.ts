@@ -63,5 +63,7 @@ declare namespace Cypress {
         gainBattleGoalCheckmark(battleGoalPerk: number, checkboxIndex: number): Chainable<Element>;
 
         loseBattleGoalCheckmark(battleGoalPerk: number, checkboxIndex: number): Chainable<Element>;
+
+        clickBattleGoalGroupLabel(battleGoalPerk: number): Chainable<Element>;
     }
 }
