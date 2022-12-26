@@ -29,7 +29,7 @@ describe("serialize", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"q":518,"i":[],"u":[],"h":[],"p":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"q":518,"i":[],"u":[],"h":[],"p":[],"b":[]}`
         );
     });
 
@@ -45,7 +45,7 @@ describe("serialize", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[],"b":[]}`
         );
     });
 
@@ -65,7 +65,7 @@ describe("serialize", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"p":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"p":[],"b":[]}`
         );
     });
 
@@ -86,7 +86,7 @@ describe("serialize", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,2],"u":[],"h":[],"p":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,2],"u":[],"h":[],"p":[],"b":[]}`
         );
     });
 
@@ -103,7 +103,7 @@ describe("serialize", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[61],"h":[],"p":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[61],"h":[],"p":[],"b":[]}`
         );
     });
 
@@ -120,7 +120,7 @@ describe("serialize", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[61],"p":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[61],"p":[],"b":[]}`
         );
     });
 
@@ -140,14 +140,48 @@ describe("serialize", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[[0,0],[1,1]]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[[0,0],[1,1]],"b":[]}`
+        );
+    });
+
+    it("serializes battle goal progress", () => {
+        const character: Character = createTestCharacter({
+            name: "Test Character",
+            experience: 240,
+            gold: 75,
+            notes: "It's a test",
+            characterClass: characterClasses[2],
+            battleGoalCheckmarkGroups: [
+                {
+                    id: 0,
+                    checkmarks: [
+                        { id: 0, value: true },
+                        { id: 1, value: true },
+                        { id: 2, value: true },
+                    ],
+                },
+                {
+                    id: 1,
+                    checkmarks: [
+                        { id: 0, value: true },
+                        { id: 1, value: false },
+                        { id: 2, value: false },
+                    ],
+                },
+            ],
+        });
+
+        const data: string = serialize(character);
+
+        expect(data).toEqual(
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[],"b":[[true,true,true],[true,false,false]]}`
         );
     });
 });
 
 describe("deserialize", () => {
     it("deserializes character data", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"q":518,"i":[],"u":[],"h":[],"p":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"q":518,"i":[],"u":[],"h":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -160,7 +194,7 @@ describe("deserialize", () => {
     });
 
     it("deserializes item data", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"p":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -170,7 +204,7 @@ describe("deserialize", () => {
     });
 
     it("sets new uuids on character items", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"p":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -180,7 +214,7 @@ describe("deserialize", () => {
     });
 
     it("omits item data that is invalid", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,-1],"u":[],"h":[],"p":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,-1],"u":[],"h":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -189,7 +223,7 @@ describe("deserialize", () => {
     });
 
     it("sets the default character class when the id is invalid", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":-1,"i":[],"u":[],"h":[],"p":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":-1,"i":[],"u":[],"h":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -197,7 +231,7 @@ describe("deserialize", () => {
     });
 
     it("omits the personal quest property when deserializing a character with no personal quest id", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":1,"i":[],"u":[],"h":[],"p":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":1,"i":[],"u":[],"h":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -205,7 +239,7 @@ describe("deserialize", () => {
     });
 
     it("deserializes unlocked ability card data", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[73,74],"h":[],"p":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[73,74],"h":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -215,7 +249,7 @@ describe("deserialize", () => {
     });
 
     it("omits unlocked ability card that is invalid", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[73,15,-2],"h":[],"p":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[73,15,-2],"h":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -224,7 +258,7 @@ describe("deserialize", () => {
     });
 
     it("deserializes hand data", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[73,74],"p":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[73,74],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -234,7 +268,7 @@ describe("deserialize", () => {
     });
 
     it("omits hand that is invalid", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[73,15,-2],"p":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[73,15,-2],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -243,12 +277,26 @@ describe("deserialize", () => {
     });
 
     it("deserializes gained perk data", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[[0,0],[1,1]]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[[0,0],[1,1]],"b":[]}`;
 
         const character: Character = deserialize(data);
 
         expect(character.gainedPerks).toHaveLength(2);
         expect(character.gainedPerks[0]).toEqual({ perk: character.characterClass.perks[0], checkboxIndex: 0 });
         expect(character.gainedPerks[1]).toEqual({ perk: character.characterClass.perks[1], checkboxIndex: 1 });
+    });
+
+    it("deserializes battle goal progress", () => {
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[],"b":[[true,true,true],[true,false,false]]}`;
+
+        const character: Character = deserialize(data);
+
+        expect(character.battleGoalCheckmarkGroups).toHaveLength(2);
+        expect(character.battleGoalCheckmarkGroups[0].checkmarks[0]).toEqual({ id: 0, value: true });
+        expect(character.battleGoalCheckmarkGroups[0].checkmarks[1]).toEqual({ id: 1, value: true });
+        expect(character.battleGoalCheckmarkGroups[0].checkmarks[2]).toEqual({ id: 2, value: true });
+        expect(character.battleGoalCheckmarkGroups[1].checkmarks[0]).toEqual({ id: 0, value: true });
+        expect(character.battleGoalCheckmarkGroups[1].checkmarks[1]).toEqual({ id: 1, value: false });
+        expect(character.battleGoalCheckmarkGroups[1].checkmarks[2]).toEqual({ id: 2, value: false });
     });
 });

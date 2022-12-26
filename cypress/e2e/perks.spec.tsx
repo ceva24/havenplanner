@@ -60,20 +60,6 @@ describe("perks tab", () => {
         cy.findAttackModifierCardWithCount("-1", 5).should("exist");
     });
 
-    it("retains gained perks when moving between tabs", () => {
-        cy.visit("/");
-
-        cy.selectTab("Perks");
-
-        cy.gainPerk("Remove two {-1} cards", 0);
-
-        cy.selectTab("Profile");
-
-        cy.selectTab("Perks");
-
-        cy.findByRole("checkbox", { name: "Remove two {-1} cards" }).should("be.checked");
-    });
-
     it("allows the second checkbox of a perk to be gained", () => {
         cy.visit("/");
 

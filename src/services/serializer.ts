@@ -15,6 +15,7 @@ interface SerializedCharacterData {
     u: number[]; // Unlocked ability card ids
     h: number[]; // Hand ability card ids
     p: Array<[number, number]>; // Gained perk and checkbox indices
+    b: boolean[][]; // Gained battle goal checkmark groups
 }
 
 const serialize = (character: Character): string => {
@@ -29,6 +30,7 @@ const serialize = (character: Character): string => {
         u: character.unlockedAbilityCards.map((abilityCard: AbilityCard) => abilityCard.id),
         h: character.hand.map((abilityCard: AbilityCard) => abilityCard.id),
         p: serializeGainedPerks(character.gainedPerks, character.characterClass),
+        b: serializeGainedBattleGoalCheckmarks(character.battleGoalCheckmarkGroups),
     };
 
     return JSON.stringify(characterData);
@@ -51,7 +53,7 @@ const deserialize = (data: string): Character => {
         unlockedAbilityCards: deserializeAbilityCards(characterData.u, characterClass),
         hand: deserializeAbilityCards(characterData.h, characterClass),
         gainedPerks: deserializeGainedPerks(characterData.p, characterClass),
-        battleGoalCheckmarkGroups: [],
+        battleGoalCheckmarkGroups: deserializeGainedBattleGoalCheckmarks(characterData.b),
     };
 
     return character;
@@ -99,6 +101,22 @@ const deserializeGainedPerks = (perkIndices: Array<[number, number]>, characterC
     return perkIndices.map((perkAndCheckboxIndex: [number, number]) => ({
         perk: characterClass.perks[perkAndCheckboxIndex[0]],
         checkboxIndex: perkAndCheckboxIndex[1],
+    }));
+};
+
+const serializeGainedBattleGoalCheckmarks = (battleGoalCheckmarkGroups: BattleGoalCheckmarkGroup[]): boolean[][] => {
+    return battleGoalCheckmarkGroups.map((checkmarkGroup: BattleGoalCheckmarkGroup) => {
+        return checkmarkGroup.checkmarks.map((checkmark: BattleGoalCheckmark) => checkmark.value);
+    });
+};
+
+const deserializeGainedBattleGoalCheckmarks = (battleGoalIndices: boolean[][]): BattleGoalCheckmarkGroup[] => {
+    return battleGoalIndices.map((checkmarkGroup: boolean[], groupIndex: number) => ({
+        id: groupIndex,
+        checkmarks: checkmarkGroup.map((value: boolean, checkmarkIndex: number) => ({
+            id: checkmarkIndex,
+            value,
+        })),
     }));
 };
 

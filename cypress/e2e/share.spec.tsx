@@ -26,7 +26,7 @@ describe("header", () => {
             .findShareLinkTextBox()
             .should(
                 "have.value",
-                "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtT2HsJ2GtZ2GtLN2HtlxHGtYxHGtgxHEuF"
+                "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtT2HsJ2GtZ2GtLN2HtlxHGtYxHGtgxHGtSxHDtLWRcjVsExGL2ZxU9xUmtNuF"
             );
     });
 
@@ -284,5 +284,52 @@ describe("header", () => {
 
         cy.findByRole("checkbox", { name: "Add two {+1} cards" }).should("not.be.checked");
         cy.findByRole("checkbox", { name: "Add two {+1} cards 2" }).should("not.be.checked");
+    });
+
+    it("captures battle goal progress in a shareable link", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainBattleGoalCheckmark(1, 0);
+        cy.gainBattleGoalCheckmark(1, 1);
+        cy.gainBattleGoalCheckmark(1, 2);
+
+        cy.gainBattleGoalCheckmark(2, 0);
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Perks");
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").should("be.checked");
+
+        cy.findByRole("checkbox", { name: "Battle Goal Perk 2 Checkmark" }).should("be.checked");
+        cy.findByRole("checkbox", { name: "Battle Goal Perk 2 Checkmark 2" }).should("not.be.checked");
+        cy.findByRole("checkbox", { name: "Battle Goal Perk 2 Checkmark 3" }).should("not.be.checked");
+    });
+
+    it("allows battle goal progress to be modified when loading a character", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainBattleGoalCheckmark(1, 0);
+        cy.gainBattleGoalCheckmark(1, 1);
+        cy.gainBattleGoalCheckmark(1, 2);
+
+        cy.gainBattleGoalCheckmark(2, 0);
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Perks");
+
+        cy.clickBattleGoalGroupLabel(1);
+        cy.loseBattleGoalCheckmark(2, 0);
+
+        cy.findByRole("region", { name: "Battle Goal Progress" }).findAllByRole("checkbox").should("not.be.checked");
     });
 });
