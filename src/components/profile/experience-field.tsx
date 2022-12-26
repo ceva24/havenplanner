@@ -44,7 +44,7 @@ const updateUnlockedAbilityCards = (unlockedAbilityCards: AbilityCard[], newChar
         newCharacterLevel
     );
 
-    const abilityCardsWithOneUnlockAtCurrentLevel = filterAbilityCardsWithOnlyOneAtCurrentLevel(
+    const abilityCardsWithOneUnlockAtCurrentLevel = filterAbilityCardsToHaveOnlyOneAtCurrentLevel(
         abilityCardsAtOrBelowCurrentLevel,
         newCharacterLevel
     );
@@ -61,7 +61,7 @@ const filterAbilityCardsAtOrBelowCurrentLevel = (
     );
 };
 
-const filterAbilityCardsWithOnlyOneAtCurrentLevel = (
+const filterAbilityCardsToHaveOnlyOneAtCurrentLevel = (
     unlockedAbilityCards: AbilityCard[],
     newCharacterLevel: number
 ): AbilityCard[] => {
