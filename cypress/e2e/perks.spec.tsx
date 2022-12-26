@@ -219,6 +219,31 @@ describe("perks tab", () => {
             .should("not.be.checked");
     });
 
+    it("gains a battle goal checkmark when clicking on the label for a group", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.clickBattleGoalGroupLabel(1);
+
+        cy.findByRole("checkbox", { name: "Battle Goal Perk 1 Checkmark" }).should("be.checked");
+        cy.findByRole("checkbox", { name: "Battle Goal Perk 1 Checkmark 2" }).should("not.be.checked");
+        cy.findByRole("checkbox", { name: "Battle Goal Perk 1 Checkmark 3" }).should("not.be.checked");
+    });
+
+    it("gains the next ungained battle goal checkmark when clicking on the label for a group", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainBattleGoalCheckmark(1, 0);
+        cy.gainBattleGoalCheckmark(1, 2);
+
+        cy.clickBattleGoalGroupLabel(1);
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").should("be.checked");
+    });
+
     it("removes all checkmarks from a group when clicking on the label for a group that is complete", () => {
         cy.visit("/");
 

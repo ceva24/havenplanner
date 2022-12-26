@@ -22,7 +22,7 @@ const BattleGoalProgress = ({ character, setCharacter }: BattleGoalProgressProps
                         aria-label={`Battle Goal Perk ${battleGoalCheckmarkGroup.id + 1}`}
                     >
                         <BattleGoalCheckmarkGroupLabel
-                            battleGoalCheckmarkGroup={battleGoalCheckmarkGroup}
+                            checkmarkGroup={battleGoalCheckmarkGroup}
                             labelId={battleGoalCheckmarkGroupLabelId}
                             character={character}
                             setCharacter={setCharacter}
