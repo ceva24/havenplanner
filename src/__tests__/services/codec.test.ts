@@ -1,6 +1,7 @@
 import lzbase62 from "lzbase62";
-import { decode, encode } from "@/services/encoder";
-import * as dataSerializer from "@/services/serializer";
+import { decode, encode } from "@/services/codec";
+import * as serializerService from "@/services/serializer";
+import * as deserializerService from "@/services/deserializer";
 import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { createTestCharacter } from "@/testutils";
@@ -91,22 +92,30 @@ jest.mock("@/services/serializer", () => {
     };
 });
 
+jest.mock("@/services/deserializer", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return {
+        __esModule: true,
+        ...jest.requireActual("@/services/deserializer"),
+    };
+});
+
 beforeEach(() => {
     jest.clearAllMocks();
 });
 
 describe("encode", () => {
     it("serializes character data", () => {
-        jest.spyOn(dataSerializer, "serialize").mockReturnValueOnce("");
+        jest.spyOn(serializerService, "serialize").mockReturnValueOnce("");
 
         encode(character);
 
-        expect(dataSerializer.serialize).toHaveBeenCalledTimes(1);
-        expect(dataSerializer.serialize).toHaveBeenCalledWith(character);
+        expect(serializerService.serialize).toHaveBeenCalledTimes(1);
+        expect(serializerService.serialize).toHaveBeenCalledWith(character);
     });
 
     it("compresses character data", () => {
-        jest.spyOn(dataSerializer, "serialize").mockReturnValueOnce("serializedCharacter");
+        jest.spyOn(serializerService, "serialize").mockReturnValueOnce("serializedCharacter");
         jest.spyOn(lzbase62, "compress").mockReturnValueOnce("");
 
         encode(character);
@@ -140,7 +149,7 @@ describe("encode", () => {
 describe("decode", () => {
     it("decompresses character data", () => {
         jest.spyOn(lzbase62, "decompress").mockReturnValueOnce("");
-        jest.spyOn(dataSerializer, "deserialize").mockReturnValueOnce(character);
+        jest.spyOn(deserializerService, "deserialize").mockReturnValueOnce(character);
 
         decode("test");
 
@@ -150,16 +159,16 @@ describe("decode", () => {
 
     it("deserializes character data", () => {
         jest.spyOn(lzbase62, "decompress").mockReturnValueOnce("decompressedCharacter");
-        jest.spyOn(dataSerializer, "deserialize").mockReturnValueOnce(character);
+        jest.spyOn(deserializerService, "deserialize").mockReturnValueOnce(character);
 
         decode("test");
 
-        expect(dataSerializer.deserialize).toHaveBeenCalledTimes(1);
-        expect(dataSerializer.deserialize).toHaveBeenCalledWith("decompressedCharacter");
+        expect(deserializerService.deserialize).toHaveBeenCalledTimes(1);
+        expect(deserializerService.deserialize).toHaveBeenCalledWith("decompressedCharacter");
     });
 
     it("returns the deserialized character", () => {
-        jest.spyOn(dataSerializer, "deserialize").mockReturnValueOnce(character);
+        jest.spyOn(deserializerService, "deserialize").mockReturnValueOnce(character);
 
         const result: Character = decode("test");
 

@@ -18,6 +18,20 @@ interface Character {
     battleGoalCheckmarkGroups: BattleGoalCheckmarkGroup[];
 }
 
+interface SerializedCharacterData {
+    n: string; // Name
+    x: number; // Experience
+    g: number; // Gold
+    d: string; // Notes
+    c: number; // Character id
+    q?: number; // Personal quest id
+    i: number[]; // Item ids
+    u: number[]; // Unlocked ability card ids
+    h: number[]; // Hand ability card ids
+    p: Array<[number, number]>; // Gained perk and checkbox indices
+    b: boolean[][]; // Gained battle goal checkmark groups
+}
+
 interface CharacterItem {
     id: string;
     item: Item;

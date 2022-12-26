@@ -1,5 +1,6 @@
 import { compress, decompress } from "lzbase62";
-import { deserialize, serialize } from "@/services/serializer";
+import { serialize } from "@/services/serializer";
+import { deserialize } from "@/services/deserializer";
 
 const encode = (character: Character): string => {
     const serializedData: string = serialize(character);

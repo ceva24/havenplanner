@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import ShareIcon from "@mui/icons-material/Share";
 import ShareDialog from "@/components/header/share-dialog";
 import Button from "@/components/core/button";
-import { encode } from "@/services/encoder";
+import { encode } from "@/services/codec";
 
 interface ShareButtonProps {
     character: Character;

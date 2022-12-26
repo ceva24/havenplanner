@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ShareButton, { retrieveAndSetShareableLink } from "@/components/header/share-button";
-import * as encoderService from "@/services/encoder";
+import * as encoderService from "@/services/codec";
 import { createTestCharacter } from "@/testutils";
 
 const character: Character = createTestCharacter();
@@ -8,11 +8,11 @@ const character: Character = createTestCharacter();
 const setShareableLink = jest.fn();
 const setEncodeCharacterError = jest.fn();
 
-jest.mock("@/services/encoder", () => {
+jest.mock("@/services/codec", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
         __esModule: true,
-        ...jest.requireActual("@/services/encoder"),
+        ...jest.requireActual("@/services/codec"),
     };
 });
 

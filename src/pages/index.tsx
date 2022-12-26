@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
 import Head from "next/head";
 import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
-import { decode } from "@/services/encoder";
+import { decode } from "@/services/codec";
 import { defaultCharacter } from "@/constants";
 import TabContainer from "@/components/tabs/tab-container";
 import Header from "@/components/header/header";
