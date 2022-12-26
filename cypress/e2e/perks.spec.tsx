@@ -60,20 +60,6 @@ describe("perks tab", () => {
         cy.findAttackModifierCardWithCount("-1", 5).should("exist");
     });
 
-    it("retains gained perks when moving between tabs", () => {
-        cy.visit("/");
-
-        cy.selectTab("Perks");
-
-        cy.gainPerk("Remove two {-1} cards", 0);
-
-        cy.selectTab("Profile");
-
-        cy.selectTab("Perks");
-
-        cy.findByRole("checkbox", { name: "Remove two {-1} cards" }).should("be.checked");
-    });
-
     it("allows the second checkbox of a perk to be gained", () => {
         cy.visit("/");
 
@@ -182,5 +168,79 @@ describe("perks tab", () => {
 
         cy.findByRole("checkbox", { name: "Add two {+1} cards" }).should("not.be.checked");
         cy.findByRole("checkbox", { name: "Add two {+1} cards 2" }).should("not.be.checked");
+    });
+
+    it("shows the battle goal perks", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.findByRole("region", { name: "Battle Goal Progress" }).findAllByRole("checkbox").should("have.length", 18);
+    });
+
+    it("allows battle goals perks to be gained", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainBattleGoalCheckmark(1, 0);
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").eq(0).should("be.checked");
+    });
+
+    it("allows battle goals perks to be lost", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainBattleGoalCheckmark(1, 0);
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").eq(0).should("be.checked");
+
+        cy.loseBattleGoalCheckmark(1, 0);
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" })
+            .findAllByRole("checkbox")
+            .eq(0)
+            .should("not.be.checked");
+    });
+
+    it("gains a battle goal checkmark when clicking on the label for a group", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.clickBattleGoalGroupLabel(1);
+
+        cy.findByRole("checkbox", { name: "Battle Goal Perk 1 Checkmark" }).should("be.checked");
+        cy.findByRole("checkbox", { name: "Battle Goal Perk 1 Checkmark 2" }).should("not.be.checked");
+        cy.findByRole("checkbox", { name: "Battle Goal Perk 1 Checkmark 3" }).should("not.be.checked");
+    });
+
+    it("gains the next ungained battle goal checkmark when clicking on the label for a group", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainBattleGoalCheckmark(1, 0);
+        cy.gainBattleGoalCheckmark(1, 2);
+
+        cy.clickBattleGoalGroupLabel(1);
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").should("be.checked");
+    });
+
+    it("removes all checkmarks from a group when clicking on the label for a group that is complete", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainBattleGoalCheckmark(1, 0);
+        cy.gainBattleGoalCheckmark(1, 1);
+        cy.gainBattleGoalCheckmark(1, 2);
+
+        cy.clickBattleGoalGroupLabel(1);
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").should("not.be.checked");
     });
 });

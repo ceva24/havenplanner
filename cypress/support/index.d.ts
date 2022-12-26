@@ -59,5 +59,11 @@ declare namespace Cypress {
         removePerk(name: string, checkboxIndex: number): Chainable<Element>;
 
         clickPerkDescription(name: string): Chainable<Element>;
+
+        gainBattleGoalCheckmark(battleGoalPerk: number, checkboxIndex: number): Chainable<Element>;
+
+        loseBattleGoalCheckmark(battleGoalPerk: number, checkboxIndex: number): Chainable<Element>;
+
+        clickBattleGoalGroupLabel(battleGoalPerk: number): Chainable<Element>;
     }
 }

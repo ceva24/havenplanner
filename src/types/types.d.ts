@@ -15,6 +15,21 @@ interface Character {
     unlockedAbilityCards: AbilityCard[];
     hand: AbilityCard[];
     gainedPerks: GainedPerk[];
+    battleGoalCheckmarkGroups: BattleGoalCheckmarkGroup[];
+}
+
+interface SerializedCharacterData {
+    n: string; // Name
+    x: number; // Experience
+    g: number; // Gold
+    d: string; // Notes
+    c: number; // Character id
+    q?: number; // Personal quest id
+    i: number[]; // Item ids
+    u: number[]; // Unlocked ability card ids
+    h: number[]; // Hand ability card ids
+    p: Array<[number, number]>; // Gained perk and checkbox indices
+    b: boolean[][]; // Gained battle goal checkmark groups
 }
 
 interface CharacterItem {
@@ -64,4 +79,14 @@ interface Perk {
 interface GainedPerk {
     perk: Perk;
     checkboxIndex: number;
+}
+
+interface BattleGoalCheckmarkGroup {
+    id: number;
+    checkmarks: BattleGoalCheckmark[];
+}
+
+interface BattleGoalCheckmark {
+    id: number;
+    value: boolean;
 }
