@@ -19,7 +19,7 @@ interface Character {
     items: CharacterItem[];
 }
 
-interface SerializedCharacterData {
+interface SerializedCharacter {
     n: string; // Name
     x: number; // Experience
     g: number; // Gold

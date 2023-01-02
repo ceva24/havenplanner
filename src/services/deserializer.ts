@@ -5,7 +5,7 @@ import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
 
 const deserialize = (data: string): Character => {
-    const characterData = JSON.parse(data) as SerializedCharacterData;
+    const characterData = JSON.parse(data) as SerializedCharacter;
 
     const personalQuest = deserializePersonalQuest(characterData.q);
     const characterClass = deserializeCharacterClass(characterData.c);

@@ -1,5 +1,5 @@
 const serialize = (character: Character): string => {
-    const characterData: SerializedCharacterData = {
+    const characterData: SerializedCharacter = {
         n: character.name,
         x: character.experience,
         g: character.gold,
