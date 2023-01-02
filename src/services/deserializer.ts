@@ -17,11 +17,12 @@ const deserialize = (data: string): Character => {
         notes: characterData.d,
         characterClass,
         ...(personalQuest && { personalQuest }),
-        items: deserializeItems(characterData.i),
         unlockedAbilityCards: deserializeAbilityCards(characterData.u, characterClass),
         hand: deserializeAbilityCards(characterData.h, characterClass),
+        gainedEnhancements: [],
         gainedPerks: deserializeGainedPerks(characterData.p, characterClass),
         battleGoalCheckmarkGroups: deserializeGainedBattleGoalCheckmarks(characterData.b),
+        items: deserializeItems(characterData.i),
     };
 };
 

@@ -29,11 +29,12 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
                 },
             ],
         },
-        items: [],
         unlockedAbilityCards: [],
         hand: [],
+        gainedEnhancements: [],
         gainedPerks: [],
         battleGoalCheckmarkGroups: [],
+        items: [],
     };
 
     return { ...character, ...characterDetailsToOverride };

@@ -9,9 +9,9 @@ const defaultCharacter: Character = {
     gold: 0,
     notes: "",
     characterClass: characterClasses[0],
-    items: [],
     unlockedAbilityCards: [],
     hand: [],
+    gainedEnhancements: [],
     gainedPerks: [],
     battleGoalCheckmarkGroups: Array.from<BattleGoalCheckmarkGroup>({ length: 6 }).map(
         (item: unknown, groupIndex: number) => ({
@@ -22,6 +22,7 @@ const defaultCharacter: Character = {
             })),
         })
     ),
+    items: [],
 };
 
 const baseAttackModifierDeck: AttackModifierDeckCard[] = [

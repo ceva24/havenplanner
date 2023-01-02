@@ -11,11 +11,12 @@ interface Character {
     notes: string;
     characterClass: CharacterClass;
     personalQuest?: PersonalQuest;
-    items: CharacterItem[];
     unlockedAbilityCards: AbilityCard[];
     hand: AbilityCard[];
+    gainedEnhancements: GainedEnhancement[];
     gainedPerks: GainedPerk[];
     battleGoalCheckmarkGroups: BattleGoalCheckmarkGroup[];
+    items: CharacterItem[];
 }
 
 interface SerializedCharacterData {
@@ -64,6 +65,8 @@ interface AbilityCard extends Asset {
 
 interface AttackModifierCard extends Asset {}
 
+interface Enhancement extends Asset {}
+
 interface AttackModifierDeckCard {
     card: AttackModifierCard;
     count: number;
@@ -89,4 +92,10 @@ interface BattleGoalCheckmarkGroup {
 interface BattleGoalCheckmark {
     id: number;
     value: boolean;
+}
+
+interface GainedEnhancement {
+    abilityCard: AbilityCard;
+    slot: number;
+    enhancement: Enhancement;
 }

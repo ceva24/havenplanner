@@ -1,0 +1,97 @@
+[
+    {
+        "id": 0,
+        "name": "plus-one",
+        "imageUrl": "images/enhancement-icons/gloomhaven/+1.png"
+    },
+    {
+        "id": 1,
+        "name": "plus-one-small",
+        "imageUrl": "images/enhancement-icons/gloomhaven/+1-sm.png"
+    },
+    {
+        "id": 2,
+        "name": "poison",
+        "imageUrl": "images/enhancement-icons/gloomhaven/poison.png"
+    },
+    {
+        "id": 3,
+        "name": "wound",
+        "imageUrl": "images/enhancement-icons/gloomhaven/wound.png"
+    },
+    {
+        "id": 4,
+        "name": "muddle",
+        "imageUrl": "images/enhancement-icons/gloomhaven/muddle.png"
+    },
+    {
+        "id": 5,
+        "name": "immobilize",
+        "imageUrl": "images/enhancement-icons/gloomhaven/immobilize.png"
+    },
+    {
+        "id": 6,
+        "name": "disarm",
+        "imageUrl": "images/enhancement-icons/gloomhaven/disarm.png"
+    },
+    {
+        "id": 7,
+        "name": "curse",
+        "imageUrl": "images/enhancement-icons/gloomhaven/curse.png"
+    },
+    {
+        "id": 8,
+        "name": "strengthen",
+        "imageUrl": "images/enhancement-icons/gloomhaven/strengthen.png"
+    },
+    {
+        "id": 9,
+        "name": "bless",
+        "imageUrl": "images/enhancement-icons/gloomhaven/bless.png"
+    },
+    {
+        "id": 10,
+        "name": "jump",
+        "imageUrl": "images/enhancement-icons/gloomhaven/jump.png"
+    },
+    {
+        "id": 11,
+        "name": "fire",
+        "imageUrl": "images/enhancement-icons/gloomhaven/fire.png"
+    },
+    {
+        "id": 12,
+        "name": "ice",
+        "imageUrl": "images/enhancement-icons/gloomhaven/ice.png"
+    },
+    {
+        "id": 13,
+        "name": "air",
+        "imageUrl": "images/enhancement-icons/gloomhaven/air.png"
+    },
+    {
+        "id": 14,
+        "name": "earth",
+        "imageUrl": "images/enhancement-icons/gloomhaven/earth.png"
+    },
+    {
+        "id": 15,
+        "name": "light",
+        "imageUrl": "images/enhancement-icons/gloomhaven/light.png"
+    },
+    {
+        "id": 16,
+        "name": "dark",
+        "imageUrl": "images/enhancement-icons/gloomhaven/dark.png"
+    },
+    {
+        "id": 17,
+        "name": "any-element",
+        "imageUrl": "images/enhancement-icons/gloomhaven/any-element.png"
+    },
+    {
+        "id": 18,
+        "name": "hex",
+        "imageUrl": "images/enhancement-icons/gloomhaven/hex.png"
+    }
+]
