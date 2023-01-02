@@ -75,6 +75,7 @@ describe("addCardToHand", () => {
             name: "Trample",
             level: "1",
             imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+            enhancementSlots: [],
         };
 
         const abilityCardTwo: AbilityCard = {
@@ -82,6 +83,7 @@ describe("addCardToHand", () => {
             name: "Juggernaut",
             level: "2",
             imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+            enhancementSlots: [],
         };
 
         const characterWithMaxHandSize: Character = createTestCharacter({

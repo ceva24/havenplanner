@@ -11,181 +11,211 @@
             "id": 116,
             "name": "Opposing Strike",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-opposing-strike.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-opposing-strike.webp",
+            "enhancementSlots": ["attack", "attack"]
         },
         {
             "id": 117,
             "name": "Crushing Grasp",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-crushing-grasp.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-crushing-grasp.webp",
+            "enhancementSlots": ["attack"]
         },
         {
             "id": 118,
             "name": "Avalanche",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-avalanche.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-avalanche.webp",
+            "enhancementSlots": ["attack", "area"]
         },
         {
             "id": 119,
             "name": "Rumbling Advance",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rumbling-advance.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rumbling-advance.webp",
+            "enhancementSlots": ["heal", "range", "move"]
         },
         {
             "id": 120,
             "name": "Massive Boulder",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-massive-boulder.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-massive-boulder.webp",
+            "enhancementSlots": ["attack", "range", "move"]
         },
         {
             "id": 121,
             "name": "Backup Ammunition",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-backup-ammunition.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-backup-ammunition.webp",
+            "enhancementSlots": ["move"]
         },
         {
             "id": 122,
             "name": "Rock Tunnel",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rock-tunnel.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rock-tunnel.webp",
+            "enhancementSlots": ["move"]
         },
         {
             "id": 123,
             "name": "Unstable Upheaval",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-unstable-upheaval.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-unstable-upheaval.webp",
+            "enhancementSlots": ["attack"]
         },
         {
             "id": 124,
             "name": "Crater",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-crater.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-crater.webp",
+            "enhancementSlots": ["attack", "range", "move"]
         },
         {
             "id": 125,
             "name": "Dirt Tornado",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-dirt-tornado.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-dirt-tornado.webp",
+            "enhancementSlots": ["attack", "move"]
         },
         {
             "id": 126,
             "name": "Earthen Clod",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-earthen-clod.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-earthen-clod.webp",
+            "enhancementSlots": ["attack", "heal", "range"]
         },
         {
             "id": 127,
             "name": "Heaving Swing",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-heaving-swing.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-heaving-swing.webp",
+            "enhancementSlots": ["attack", "push"]
         },
         {
             "id": 128,
             "name": "Forceful Storm",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-forceful-storm.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-forceful-storm.webp",
+            "enhancementSlots": ["attack", "area"]
         },
         {
             "id": 129,
             "name": "Nature's Lift",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-natures-lift.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-natures-lift.webp",
+            "enhancementSlots": ["heal", "range", "target"]
         },
         {
             "id": 130,
             "name": "Explosive Punch",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-explosive-punch.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-explosive-punch.webp",
+            "enhancementSlots": ["attack", "move"]
         },
         {
             "id": 131,
             "name": "Sentient Growth",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-sentient-growth.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-sentient-growth.webp",
+            "enhancementSlots": ["attack", "area", "heal", "heal", "attack"]
         },
         {
             "id": 132,
             "name": "Clear the Way",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-clear-the-way.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-clear-the-way.webp",
+            "enhancementSlots": ["attack", "move", "move"]
         },
         {
             "id": 133,
             "name": "Blunt Force",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-blunt-force.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-blunt-force.webp",
+            "enhancementSlots": ["attack", "attack", "move", "retaliate"]
         },
         {
             "id": 134,
             "name": "Rock Slide",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rock-slide.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rock-slide.webp",
+            "enhancementSlots": []
         },
         {
             "id": 135,
             "name": "Kinetic Assault",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-kinetic-assault.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-kinetic-assault.webp",
+            "enhancementSlots": ["move", "attack", "retaliate", "range"]
         },
         {
             "id": 136,
             "name": "Petrify",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-petrify.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-petrify.webp",
+            "enhancementSlots": ["move"]
         },
         {
             "id": 137,
             "name": "Stone Pummel",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-stone-pummel.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-stone-pummel.webp",
+            "enhancementSlots": ["attack", "area", "area"]
         },
         {
             "id": 138,
             "name": "Dig Pit",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-dig-pit.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-dig-pit.webp",
+            "enhancementSlots": ["move"]
         },
         {
             "id": 139,
             "name": "Cataclysm",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-cataclysm.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-cataclysm.webp",
+            "enhancementSlots": ["attack", "move"]
         },
         {
             "id": 140,
             "name": "Meteor",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-meteor.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-meteor.webp",
+            "enhancementSlots": ["attack", "move"]
         },
         {
             "id": 141,
             "name": "Brutal Momentum",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-brutal-momentum.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-brutal-momentum.webp",
+            "enhancementSlots": ["attack", "push"]
         },
         {
             "id": 142,
             "name": "Rocky End",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rocky-end.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rocky-end.webp",
+            "enhancementSlots": []
         },
         {
             "id": 143,
             "name": "Lumbering Bash",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-lumbering-bash.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-lumbering-bash.webp",
+            "enhancementSlots": ["move", "attack"]
         },
         {
             "id": 144,
             "name": "Blind Destruction",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-blind-destruction.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-blind-destruction.webp",
+            "enhancementSlots": ["range", "move"]
         },
         {
             "id": 145,
             "name": "Pulverize",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-pulverize.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-pulverize.webp",
+            "enhancementSlots": ["attack", "push", "attack", "attack"]
         }
     ],
     "perks": [

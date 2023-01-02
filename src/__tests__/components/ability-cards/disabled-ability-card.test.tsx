@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
 
-const abilityCard = {
+const abilityCard: AbilityCard = {
     id: 1,
     name: "Trample",
     level: "2",
     imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+    enhancementSlots: [],
 };
 
 describe("disabled ability card", () => {

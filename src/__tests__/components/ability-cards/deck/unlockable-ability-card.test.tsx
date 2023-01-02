@@ -89,11 +89,12 @@ describe("toggleAbilityCard", () => {
     it("locks a card that is already unlocked", () => {
         jest.spyOn(characterService, "isUnlockedAbilityCardForCharacter").mockReturnValueOnce(true);
 
-        const abilityCard = {
+        const abilityCard: AbilityCard = {
             id: 1,
             name: "Juggernaut",
             level: "2",
             imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+            enhancementSlots: [],
         };
 
         const characterWithUnlockedCard: Character = createTestCharacter({
@@ -127,11 +128,12 @@ describe("toggleAbilityCard", () => {
     it("removes a card being locked from the hand", () => {
         jest.spyOn(characterService, "isUnlockedAbilityCardForCharacter").mockReturnValueOnce(true);
 
-        const abilityCard = {
+        const abilityCard: AbilityCard = {
             id: 1,
             name: "Juggernaut",
             level: "2",
             imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+            enhancementSlots: [],
         };
 
         const characterWithUnlockedCard: Character = createTestCharacter({

@@ -17,9 +17,12 @@ interface PersonalQuest extends Asset {}
 
 interface AbilityCard extends Asset {
     level: string;
+    enhancementSlots: string[];
 }
 
-interface Enhancement extends Asset {}
+interface Enhancement extends Asset {
+    validSlotTypes: string[];
+}
 
 interface Perk {
     description: string;

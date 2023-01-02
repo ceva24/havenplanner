@@ -11,175 +11,204 @@
             "id": 146,
             "name": "Submissive Affliction",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-submissive-affliction.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-submissive-affliction.webp",
+            "enhancementSlots": ["attack"]
         },
         {
             "id": 147,
             "name": "Into the Night",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-into-the-night.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-into-the-night.webp",
+            "enhancementSlots": []
         },
         {
             "id": 148,
             "name": "Fearsome Blade",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-fearsome-blade.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-fearsome-blade.webp",
+            "enhancementSlots": ["attack", "push", "attack", "attack"]
         },
         {
             "id": 149,
             "name": "Feedback Loop",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-feedback-loop.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-feedback-loop.webp",
+            "enhancementSlots": ["attack", "move"]
         },
         {
             "id": 150,
             "name": "Gnawing Horde",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-gnawing-horde.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-gnawing-horde.webp",
+            "enhancementSlots": ["summon", "summon", "summon", "move"]
         },
         {
             "id": 151,
             "name": "The Mind's Weakness",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-the-minds-weakness.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-the-minds-weakness.webp",
+            "enhancementSlots": ["attack", "attack"]
         },
         {
             "id": 152,
             "name": "Parasitic Influence",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-parasitic-influence.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-parasitic-influence.webp",
+            "enhancementSlots": ["attack"]
         },
         {
             "id": 153,
             "name": "Scurry",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-scurry.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-scurry.webp",
+            "enhancementSlots": ["move", "attack"]
         },
         {
             "id": 154,
             "name": "Perverse Edge",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-perverse-edge.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-perverse-edge.webp",
+            "enhancementSlots": ["attack", "attack", "range"]
         },
         {
             "id": 155,
             "name": "Empathetic Assault",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-empathetic-assault.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-empathetic-assault.webp",
+            "enhancementSlots": ["attack", "attack", "move", "heal"]
         },
         {
             "id": 156,
             "name": "Withering Claw",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-withering-claw.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-withering-claw.webp",
+            "enhancementSlots": ["attack"]
         },
         {
             "id": 157,
             "name": "Possession",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-possession.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-possession.webp",
+            "enhancementSlots": []
         },
         {
             "id": 158,
             "name": "Frigid Apparition",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-frigid-apparition.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-frigid-apparition.webp",
+            "enhancementSlots": ["attack", "move"]
         },
         {
             "id": 159,
             "name": "Wretched Creature",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-wretched-creature.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-wretched-creature.webp",
+            "enhancementSlots": ["summon", "summon", "summon", "move"]
         },
         {
             "id": 160,
             "name": "Hostile Takeover",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-hostile-takeover.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-hostile-takeover.webp",
+            "enhancementSlots": ["attack", "range"]
         },
         {
             "id": 161,
             "name": "Brain Leech",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-brain-leech.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-brain-leech.webp",
+            "enhancementSlots": ["attack", "heal", "attack"]
         },
         {
             "id": 162,
             "name": "Silent Scream",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-silent-scream.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-silent-scream.webp",
+            "enhancementSlots": ["attack", "move", "push"]
         },
         {
             "id": 163,
             "name": "Pilfer",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-pilfer.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-pilfer.webp",
+            "enhancementSlots": ["attack", "move", "attack"]
         },
         {
             "id": 164,
             "name": "Cranium Overload",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-cranium-overload.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-cranium-overload.webp",
+            "enhancementSlots": ["attack", "attack", "move"]
         },
         {
             "id": 165,
             "name": "Mass Hysteria",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-mass-hysteria.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-mass-hysteria.webp",
+            "enhancementSlots": ["target"]
         },
         {
             "id": 166,
             "name": "Frozen Mind",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-frozen-mind.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-frozen-mind.webp",
+            "enhancementSlots": ["attack"]
         },
         {
             "id": 167,
             "name": "Corrupting Embrace",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-corrupting-embrace.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-corrupting-embrace.webp",
+            "enhancementSlots": ["attack", "attack", "move"]
         },
         {
             "id": 168,
             "name": "Dark Frenzy",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-dark-frenzy.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-dark-frenzy.webp",
+            "enhancementSlots": ["attack", "move", "attack"]
         },
         {
             "id": 169,
             "name": "Vicious Blood",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-vicious-blood.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-vicious-blood.webp",
+            "enhancementSlots": ["attack", "move", "attack"]
         },
         {
             "id": 170,
             "name": "Psychic Projection",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-psychic-projection.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-psychic-projection.webp",
+            "enhancementSlots": ["heal", "shield"]
         },
         {
             "id": 171,
             "name": "Shared Nightmare",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-shared-nightmare.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-shared-nightmare.webp",
+            "enhancementSlots": ["attack", "target", "move"]
         },
         {
             "id": 172,
             "name": "Domination",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-domination.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-domination.webp",
+            "enhancementSlots": []
         },
         {
             "id": 173,
             "name": "Many as One",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-many-as-one.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-many-as-one.webp",
+            "enhancementSlots": ["summon", "summon"]
         },
         {
             "id": 174,
             "name": "Phantasmal Killer",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-phantasmal-killer.webp"
+            "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-phantasmal-killer.webp",
+            "enhancementSlots": ["attack", "move"]
         }
     ],
     "perks": [

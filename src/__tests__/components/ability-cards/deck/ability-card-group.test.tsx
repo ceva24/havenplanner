@@ -14,6 +14,7 @@ describe("ability card group", () => {
                 name: "Trample",
                 level: "1",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -55,12 +56,14 @@ describe("ability card group", () => {
                 name: "Trample",
                 level: "1",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                enhancementSlots: [],
             },
             {
                 id: 2,
                 name: "Eye for an Eye",
                 level: "1",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-eye-for-an-eye.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -88,6 +91,7 @@ describe("ability card group", () => {
                 name: "Fatal Advance",
                 level: "2",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                enhancementSlots: [],
             },
         ];
 

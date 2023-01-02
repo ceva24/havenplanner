@@ -27,6 +27,7 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 name: "Fatal Advance",
                 level: "2",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -42,6 +43,7 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 name: "Fatal Advance",
                 level: "2",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -57,12 +59,14 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 name: "Fatal Advance",
                 level: "2",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                enhancementSlots: [],
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -79,12 +83,14 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 name: "Fatal Advance",
                 level: "2",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                enhancementSlots: [],
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -100,12 +106,14 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 name: "Brute Force",
                 level: "3",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp",
+                enhancementSlots: [],
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -122,18 +130,21 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 name: "Fatal Advance",
                 level: "2",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                enhancementSlots: [],
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                enhancementSlots: [],
             },
             {
                 id: 15,
                 name: "Juggernaut",
                 level: "2",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -151,36 +162,42 @@ describe("filterInvalidUnlockedAbilityCardsOnLevelChange", () => {
                 name: "Crippling Offensive",
                 level: "7",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp",
+                enhancementSlots: [],
             },
             {
                 id: 17,
                 name: "Brute Force",
                 level: "3",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp",
+                enhancementSlots: [],
             },
             {
                 id: 22,
                 name: "Quietus",
                 level: "6",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp",
+                enhancementSlots: [],
             },
             {
                 id: 15,
                 name: "Juggernaut",
                 level: "2",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+                enhancementSlots: [],
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                enhancementSlots: [],
             },
             {
                 id: 14,
                 name: "Fatal Advance",
                 level: "2",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -200,24 +217,28 @@ describe("filterInvalidCardsInHandOnLevelChange", () => {
                 name: "Crippling Offensive",
                 level: "7",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp",
+                enhancementSlots: [],
             },
             {
                 id: 17,
                 name: "Brute Force",
                 level: "3",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp",
+                enhancementSlots: [],
             },
             {
                 id: 22,
                 name: "Quietus",
                 level: "6",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp",
+                enhancementSlots: [],
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -233,24 +254,28 @@ describe("filterInvalidCardsInHandOnLevelChange", () => {
                 name: "Crippling Offensive",
                 level: "7",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp",
+                enhancementSlots: [],
             },
             {
                 id: 17,
                 name: "Brute Force",
                 level: "3",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp",
+                enhancementSlots: [],
             },
             {
                 id: 22,
                 name: "Quietus",
                 level: "6",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp",
+                enhancementSlots: [],
             },
             {
                 id: 16,
                 name: "Hook and Chain",
                 level: "3",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -268,12 +293,14 @@ describe("filterInvalidCardsInHandOnLevelChange", () => {
                 name: "Trample",
                 level: "1",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                enhancementSlots: [],
             },
             {
                 id: 15,
                 name: "Juggernaut",
                 level: "2",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+                enhancementSlots: [],
             },
         ];
 
@@ -290,6 +317,7 @@ describe("filterInvalidCardsInHandOnLevelChange", () => {
                 name: "Skewer",
                 level: "X",
                 imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
+                enhancementSlots: [],
             },
         ];
 

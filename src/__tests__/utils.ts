@@ -18,6 +18,7 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
                     name: "Trample",
                     level: "1",
                     imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                    enhancementSlots: [],
                 },
             ],
             perks: [

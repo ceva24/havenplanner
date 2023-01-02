@@ -2,96 +2,319 @@
     {
         "id": 0,
         "name": "plus-one",
-        "imageUrl": "images/enhancement-icons/gloomhaven/+1.png"
+        "imageUrl": "images/enhancement-icons/gloomhaven/+1.png",
+        "validSlotTypes": [
+            "move",
+            "attack",
+            "range",
+            "shield",
+            "push",
+            "pull",
+            "pierce",
+            "retaliate",
+            "heal",
+            "target",
+            "summon"
+        ]
     },
     {
         "id": 1,
-        "name": "plus-one-small",
-        "imageUrl": "images/enhancement-icons/gloomhaven/+1-sm.png"
+        "name": "poison",
+        "imageUrl": "images/enhancement-icons/gloomhaven/poison.png",
+        "validSlotTypes": [
+            "attack",
+            "push",
+            "pull",
+            "pierce",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun"
+        ]
     },
     {
         "id": 2,
-        "name": "poison",
-        "imageUrl": "images/enhancement-icons/gloomhaven/poison.png"
+        "name": "wound",
+        "imageUrl": "images/enhancement-icons/gloomhaven/wound.png",
+        "validSlotTypes": [
+            "attack",
+            "push",
+            "pull",
+            "pierce",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun"
+        ]
     },
     {
         "id": 3,
-        "name": "wound",
-        "imageUrl": "images/enhancement-icons/gloomhaven/wound.png"
+        "name": "muddle",
+        "imageUrl": "images/enhancement-icons/gloomhaven/muddle.png",
+        "validSlotTypes": [
+            "attack",
+            "push",
+            "pull",
+            "pierce",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun"
+        ]
     },
     {
         "id": 4,
-        "name": "muddle",
-        "imageUrl": "images/enhancement-icons/gloomhaven/muddle.png"
+        "name": "immobilize",
+        "imageUrl": "images/enhancement-icons/gloomhaven/immobilize.png",
+        "validSlotTypes": [
+            "attack",
+            "push",
+            "pull",
+            "pierce",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun"
+        ]
     },
     {
         "id": 5,
-        "name": "immobilize",
-        "imageUrl": "images/enhancement-icons/gloomhaven/immobilize.png"
+        "name": "disarm",
+        "imageUrl": "images/enhancement-icons/gloomhaven/disarm.png",
+        "validSlotTypes": [
+            "attack",
+            "push",
+            "pull",
+            "pierce",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun"
+        ]
     },
     {
         "id": 6,
-        "name": "disarm",
-        "imageUrl": "images/enhancement-icons/gloomhaven/disarm.png"
+        "name": "curse",
+        "imageUrl": "images/enhancement-icons/gloomhaven/curse.png",
+        "validSlotTypes": [
+            "attack",
+            "push",
+            "pull",
+            "pierce",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun"
+        ]
     },
     {
         "id": 7,
-        "name": "curse",
-        "imageUrl": "images/enhancement-icons/gloomhaven/curse.png"
+        "name": "strengthen",
+        "imageUrl": "images/enhancement-icons/gloomhaven/strengthen.png",
+        "validSlotTypes": ["shield", "retaliate", "heal", "strengthen", "bless", "invisible"]
     },
     {
         "id": 8,
-        "name": "strengthen",
-        "imageUrl": "images/enhancement-icons/gloomhaven/strengthen.png"
+        "name": "bless",
+        "imageUrl": "images/enhancement-icons/gloomhaven/bless.png",
+        "validSlotTypes": ["shield", "retaliate", "heal", "strengthen", "bless", "invisible"]
     },
     {
         "id": 9,
-        "name": "bless",
-        "imageUrl": "images/enhancement-icons/gloomhaven/bless.png"
+        "name": "jump",
+        "imageUrl": "images/enhancement-icons/gloomhaven/jump.png",
+        "validSlotTypes": ["move"]
     },
     {
         "id": 10,
-        "name": "jump",
-        "imageUrl": "images/enhancement-icons/gloomhaven/jump.png"
+        "name": "fire",
+        "imageUrl": "images/enhancement-icons/gloomhaven/fire.png",
+        "validSlotTypes": [
+            "attack",
+            "shield",
+            "push",
+            "pull",
+            "pierce",
+            "retaliate",
+            "heal",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun",
+            "strengthen",
+            "bless",
+            "invisible"
+        ]
     },
     {
         "id": 11,
-        "name": "fire",
-        "imageUrl": "images/enhancement-icons/gloomhaven/fire.png"
+        "name": "ice",
+        "imageUrl": "images/enhancement-icons/gloomhaven/ice.png",
+        "validSlotTypes": [
+            "attack",
+            "shield",
+            "push",
+            "pull",
+            "pierce",
+            "retaliate",
+            "heal",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun",
+            "strengthen",
+            "bless",
+            "invisible"
+        ]
     },
     {
         "id": 12,
-        "name": "ice",
-        "imageUrl": "images/enhancement-icons/gloomhaven/ice.png"
+        "name": "air",
+        "imageUrl": "images/enhancement-icons/gloomhaven/air.png",
+        "validSlotTypes": [
+            "attack",
+            "shield",
+            "push",
+            "pull",
+            "pierce",
+            "retaliate",
+            "heal",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun",
+            "strengthen",
+            "bless",
+            "invisible"
+        ]
     },
     {
         "id": 13,
-        "name": "air",
-        "imageUrl": "images/enhancement-icons/gloomhaven/air.png"
+        "name": "earth",
+        "imageUrl": "images/enhancement-icons/gloomhaven/earth.png",
+        "validSlotTypes": [
+            "attack",
+            "shield",
+            "push",
+            "pull",
+            "pierce",
+            "retaliate",
+            "heal",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun",
+            "strengthen",
+            "bless",
+            "invisible"
+        ]
     },
     {
         "id": 14,
-        "name": "earth",
-        "imageUrl": "images/enhancement-icons/gloomhaven/earth.png"
+        "name": "light",
+        "imageUrl": "images/enhancement-icons/gloomhaven/light.png",
+        "validSlotTypes": [
+            "attack",
+            "shield",
+            "push",
+            "pull",
+            "pierce",
+            "retaliate",
+            "heal",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun",
+            "strengthen",
+            "bless",
+            "invisible"
+        ]
     },
     {
         "id": 15,
-        "name": "light",
-        "imageUrl": "images/enhancement-icons/gloomhaven/light.png"
+        "name": "dark",
+        "imageUrl": "images/enhancement-icons/gloomhaven/dark.png",
+        "validSlotTypes": [
+            "attack",
+            "shield",
+            "push",
+            "pull",
+            "pierce",
+            "retaliate",
+            "heal",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun",
+            "strengthen",
+            "bless",
+            "invisible"
+        ]
     },
     {
         "id": 16,
-        "name": "dark",
-        "imageUrl": "images/enhancement-icons/gloomhaven/dark.png"
+        "name": "any-element",
+        "imageUrl": "images/enhancement-icons/gloomhaven/any-element.png",
+        "validSlotTypes": [
+            "attack",
+            "shield",
+            "push",
+            "pull",
+            "pierce",
+            "retaliate",
+            "heal",
+            "poison",
+            "wound",
+            "muddle",
+            "immobilize",
+            "disarm",
+            "curse",
+            "stun",
+            "strengthen",
+            "bless",
+            "invisible"
+        ]
     },
     {
         "id": 17,
-        "name": "any-element",
-        "imageUrl": "images/enhancement-icons/gloomhaven/any-element.png"
-    },
-    {
-        "id": 18,
         "name": "hex",
-        "imageUrl": "images/enhancement-icons/gloomhaven/hex.png"
+        "imageUrl": "images/enhancement-icons/gloomhaven/hex.png",
+        "validSlotTypes": ["area"]
     }
 ]
