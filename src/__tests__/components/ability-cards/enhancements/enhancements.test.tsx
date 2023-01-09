@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import Enhancements from "@/components/ability-cards/enhancements/enhancements";
 import { createTestCharacter } from "@/testutils";
 
+const setCharacter = jest.fn();
+
 describe("enhancements", () => {
     it("renders the deck", () => {
         const character = createTestCharacter();
@@ -22,7 +24,7 @@ describe("enhancements", () => {
             },
         ];
 
-        render(<Enhancements character={character} />);
+        render(<Enhancements character={character} setCharacter={setCharacter} />);
 
         const cardOne = screen.queryByRole("img", { name: "Trample" });
         const cardTwo = screen.queryByRole("img", { name: "Skewer" });

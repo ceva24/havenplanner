@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "name": "plus-one",
+        "name": "+1",
         "imageUrl": "images/enhancement-icons/gloomhaven/+1.png",
         "validSlotTypes": [
             "move",
@@ -19,7 +19,7 @@
     },
     {
         "id": 1,
-        "name": "poison",
+        "name": "POISON",
         "imageUrl": "images/enhancement-icons/gloomhaven/poison.png",
         "validSlotTypes": [
             "attack",
@@ -37,7 +37,7 @@
     },
     {
         "id": 2,
-        "name": "wound",
+        "name": "WOUND",
         "imageUrl": "images/enhancement-icons/gloomhaven/wound.png",
         "validSlotTypes": [
             "attack",
@@ -55,7 +55,7 @@
     },
     {
         "id": 3,
-        "name": "muddle",
+        "name": "MUDDLE",
         "imageUrl": "images/enhancement-icons/gloomhaven/muddle.png",
         "validSlotTypes": [
             "attack",
@@ -73,7 +73,7 @@
     },
     {
         "id": 4,
-        "name": "immobilize",
+        "name": "IMMOBILIZE",
         "imageUrl": "images/enhancement-icons/gloomhaven/immobilize.png",
         "validSlotTypes": [
             "attack",
@@ -91,7 +91,7 @@
     },
     {
         "id": 5,
-        "name": "disarm",
+        "name": "DISARM",
         "imageUrl": "images/enhancement-icons/gloomhaven/disarm.png",
         "validSlotTypes": [
             "attack",
@@ -109,7 +109,7 @@
     },
     {
         "id": 6,
-        "name": "curse",
+        "name": "CURSE",
         "imageUrl": "images/enhancement-icons/gloomhaven/curse.png",
         "validSlotTypes": [
             "attack",
@@ -127,25 +127,25 @@
     },
     {
         "id": 7,
-        "name": "strengthen",
+        "name": "STRENGTHEN",
         "imageUrl": "images/enhancement-icons/gloomhaven/strengthen.png",
         "validSlotTypes": ["shield", "retaliate", "heal", "strengthen", "bless", "invisible"]
     },
     {
         "id": 8,
-        "name": "bless",
+        "name": "BLESS",
         "imageUrl": "images/enhancement-icons/gloomhaven/bless.png",
         "validSlotTypes": ["shield", "retaliate", "heal", "strengthen", "bless", "invisible"]
     },
     {
         "id": 9,
-        "name": "jump",
+        "name": "Jump",
         "imageUrl": "images/enhancement-icons/gloomhaven/jump.png",
         "validSlotTypes": ["move"]
     },
     {
         "id": 10,
-        "name": "fire",
+        "name": "Fire",
         "imageUrl": "images/enhancement-icons/gloomhaven/fire.png",
         "validSlotTypes": [
             "attack",
@@ -169,7 +169,7 @@
     },
     {
         "id": 11,
-        "name": "ice",
+        "name": "Ice",
         "imageUrl": "images/enhancement-icons/gloomhaven/ice.png",
         "validSlotTypes": [
             "attack",
@@ -193,7 +193,7 @@
     },
     {
         "id": 12,
-        "name": "air",
+        "name": "Air",
         "imageUrl": "images/enhancement-icons/gloomhaven/air.png",
         "validSlotTypes": [
             "attack",
@@ -217,7 +217,7 @@
     },
     {
         "id": 13,
-        "name": "earth",
+        "name": "Earth",
         "imageUrl": "images/enhancement-icons/gloomhaven/earth.png",
         "validSlotTypes": [
             "attack",
@@ -241,7 +241,7 @@
     },
     {
         "id": 14,
-        "name": "light",
+        "name": "Light",
         "imageUrl": "images/enhancement-icons/gloomhaven/light.png",
         "validSlotTypes": [
             "attack",
@@ -265,7 +265,7 @@
     },
     {
         "id": 15,
-        "name": "dark",
+        "name": "Dark",
         "imageUrl": "images/enhancement-icons/gloomhaven/dark.png",
         "validSlotTypes": [
             "attack",
@@ -289,7 +289,7 @@
     },
     {
         "id": 16,
-        "name": "any-element",
+        "name": "Any element",
         "imageUrl": "images/enhancement-icons/gloomhaven/any-element.png",
         "validSlotTypes": [
             "attack",
@@ -313,7 +313,7 @@
     },
     {
         "id": 17,
-        "name": "hex",
+        "name": "Attack Hex",
         "imageUrl": "images/enhancement-icons/gloomhaven/hex.png",
         "validSlotTypes": ["area"]
     }

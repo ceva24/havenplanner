@@ -81,7 +81,7 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
                 id="enhancements-tabpanel"
                 ariaLabelledBy="enhancements-tab"
             >
-                <Enhancements character={character} />
+                <Enhancements character={character} setCharacter={setCharacter} />
             </TabPanel>
         </>
     );

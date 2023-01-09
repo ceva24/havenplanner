@@ -32,6 +32,14 @@ const theme: ThemeOptions = createTheme({
         },
     },
     components: {
+        MuiInputLabel: {
+            styleOverrides: {
+                root: {
+                    color: "white",
+                    opacity: 0.5,
+                },
+            },
+        },
         MuiCssBaseline: {
             styleOverrides: `
               @font-face {
