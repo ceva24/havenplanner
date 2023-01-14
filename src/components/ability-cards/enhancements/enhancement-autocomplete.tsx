@@ -41,12 +41,7 @@ const EnhancementAutocomplete = ({
                 </Box>
             )}
             renderInput={(props: AutocompleteRenderInputParams) => {
-                return (
-                    <TextField
-                        {...props}
-                        label={`${props.inputProps.value ? "" : "Empty spot - "}${getLabelFor(slotType)}`}
-                    />
-                );
+                return <TextField {...props} label={getLabelFor(slotType)} />;
             }}
             onChange={handleChange}
         />
@@ -69,93 +64,50 @@ const getPossibleEnhancementsFor = (slotType: string): Enhancement[] => {
 // eslint-disable-next-line complexity
 const getLabelFor = (enhancementSlot: string) => {
     switch (enhancementSlot) {
-        case "move": {
+        case "move":
             return "Move";
-        }
-
-        case "attack": {
+        case "attack":
             return "Attack";
-        }
-
-        case "range": {
+        case "range":
             return "Range";
-        }
-
-        case "shield": {
+        case "shield":
             return "Shield";
-        }
-
-        case "push": {
+        case "push":
             return "PUSH";
-        }
-
-        case "pull": {
+        case "pull":
             return "PULL";
-        }
-
-        case "pierce": {
+        case "pierce":
             return "PIERCE";
-        }
-
-        case "retaliate": {
+        case "retaliate":
             return "Retaliate";
-        }
-
-        case "heal": {
+        case "heal":
             return "Heal";
-        }
-
-        case "target": {
+        case "target":
             return "ADD TARGET";
-        }
-
-        case "summon": {
+        case "summon":
             return "Summon";
-        }
-
-        case "poison": {
+        case "poison":
             return "POISON";
-        }
-
-        case "wound": {
+        case "wound":
             return "WOUND";
-        }
-
-        case "immobilize": {
+        case "immobilize":
             return "IMMOBILIZE";
-        }
-
-        case "disarm": {
+        case "disarm":
             return "DISARM";
-        }
-
-        case "curse": {
+        case "curse":
             return "CURSE";
-        }
-
-        case "stun": {
+        case "stun":
             return "STUN";
-        }
-
-        case "strengthen": {
+        case "strengthen":
             return "STRENGTHEN";
-        }
-
-        case "bless": {
+        case "bless":
             return "BLESS";
-        }
-
-        case "invisible": {
+        case "invisible":
             return "INVISIBLE";
-        }
-
-        case "area": {
-            return "area attack";
-        }
-
-        default: {
+        case "area":
+            return "Area attack";
+        default:
             return enhancementSlot;
-        }
     }
 };
 

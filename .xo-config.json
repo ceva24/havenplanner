@@ -14,7 +14,8 @@
                 "namedComponents": "arrow-function"
             }
         ],
-        "unicorn/no-array-for-each": "off"
+        "unicorn/no-array-for-each": "off",
+        "unicorn/switch-case-braces": "off"
     },
     "ignores": ["public/**/*", "next-env.d.ts", "*.config.js"]
 }
