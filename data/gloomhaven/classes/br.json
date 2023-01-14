@@ -12,77 +12,77 @@
             "name": "Trample",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
-            "enhancementSlots": ["attack", "pierce", "move", "attack", "attack"]
+            "enhancementSlots": ["Attack", "PIERCE", "Move", "Attack", "Attack"]
         },
         {
             "id": 2,
             "name": "Eye for an Eye",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-eye-for-an-eye.webp",
-            "enhancementSlots": ["retaliate", "heal", "heal"]
+            "enhancementSlots": ["RETALIATE", "Heal", "Heal"]
         },
         {
             "id": 3,
             "name": "Sweeping Blow",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-sweeping-blow.webp",
-            "enhancementSlots": ["attack", "area", "push"]
+            "enhancementSlots": ["Attack", "Area attack", "PUSH"]
         },
         {
             "id": 4,
             "name": "Provoking Roar",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-provoking-roar.webp",
-            "enhancementSlots": ["attack"]
+            "enhancementSlots": ["Attack"]
         },
         {
             "id": 5,
             "name": "Overwhelming Assault",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-overwhelming-assault.webp",
-            "enhancementSlots": ["attack", "attack", "push"]
+            "enhancementSlots": ["Attack", "Attack", "PUSH"]
         },
         {
             "id": 6,
             "name": "Grab and Go",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-grab-and-go.webp",
-            "enhancementSlots": ["move", "move"]
+            "enhancementSlots": ["Move", "Move"]
         },
         {
             "id": 7,
             "name": "Warding Strength",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-warding-strength.webp",
-            "enhancementSlots": ["attack", "push"]
+            "enhancementSlots": ["Attack", "PUSH"]
         },
         {
             "id": 8,
             "name": "Shield Bash",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-shield-bash.webp",
-            "enhancementSlots": ["attack", "attack", "shield", "shield"]
+            "enhancementSlots": ["Attack", "Attack", "Shield", "Shield"]
         },
         {
             "id": 9,
             "name": "Leaping Cleave",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-leaping-cleave.webp",
-            "enhancementSlots": ["attack", "area", "move"]
+            "enhancementSlots": ["Attack", "Area attack", "Move"]
         },
         {
             "id": 10,
             "name": "Spare Dagger",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-spare-dagger.webp",
-            "enhancementSlots": ["attack", "attack"]
+            "enhancementSlots": ["Attack", "Attack"]
         },
         {
             "id": 11,
             "name": "Skewer",
             "level": "X",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
-            "enhancementSlots": ["attack", "area", "move", "move"]
+            "enhancementSlots": ["Attack", "Area attack", "Move", "Move"]
         },
         {
             "id": 12,
@@ -96,119 +96,119 @@
             "name": "Wall of Doom",
             "level": "X",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-wall-of-doom.webp",
-            "enhancementSlots": ["retaliate", "shield"]
+            "enhancementSlots": ["RETALIATE", "Shield"]
         },
         {
             "id": 14,
             "name": "Fatal Advance",
             "level": "2",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
-            "enhancementSlots": ["move"]
+            "enhancementSlots": ["Move"]
         },
         {
             "id": 15,
             "name": "Juggernaut",
             "level": "2",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
-            "enhancementSlots": ["move", "attack"]
+            "enhancementSlots": ["Move", "Attack"]
         },
         {
             "id": 16,
             "name": "Hook and Chain",
             "level": "3",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-hook-and-chain.webp",
-            "enhancementSlots": ["attack", "attack"]
+            "enhancementSlots": ["Attack", "Attack"]
         },
         {
             "id": 17,
             "name": "Brute Force",
             "level": "3",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-brute-force.webp",
-            "enhancementSlots": ["attack", "area", "area", "shield"]
+            "enhancementSlots": ["Attack", "Area attack", "Area attack", "Shield"]
         },
         {
             "id": 18,
             "name": "Unstoppable Charge",
             "level": "4",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-unstoppable-charge.webp",
-            "enhancementSlots": ["attack", "move"]
+            "enhancementSlots": ["Attack", "Move"]
         },
         {
             "id": 19,
             "name": "Devastating Hack",
             "level": "4",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-devastating-hack.webp",
-            "enhancementSlots": ["attack", "attack"]
+            "enhancementSlots": ["Attack", "Attack"]
         },
         {
             "id": 20,
             "name": "Whirlwind",
             "level": "5",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-whirlwind.webp",
-            "enhancementSlots": ["attack", "move", "push"]
+            "enhancementSlots": ["Attack", "Move", "PUSH"]
         },
         {
             "id": 21,
             "name": "Skirmishing Maneuver",
             "level": "5",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-skirmishing-maneuver.webp",
-            "enhancementSlots": ["move", "attack"]
+            "enhancementSlots": ["Move", "Attack"]
         },
         {
             "id": 22,
             "name": "Quietus",
             "level": "6",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-quietus.webp",
-            "enhancementSlots": ["move"]
+            "enhancementSlots": ["Move"]
         },
         {
             "id": 23,
             "name": "Immovable Phalanx",
             "level": "6",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-immovable-phalanx.webp",
-            "enhancementSlots": ["attack", "shield"]
+            "enhancementSlots": ["Attack", "Shield"]
         },
         {
             "id": 24,
             "name": "Defensive Tactics",
             "level": "7",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-defensive-tactics.webp",
-            "enhancementSlots": ["attack", "target"]
+            "enhancementSlots": ["Attack", "ADD TARGET"]
         },
         {
             "id": 25,
             "name": "Crippling Offensive",
             "level": "7",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-crippling-offensive.webp",
-            "enhancementSlots": ["attack", "attack", "move"]
+            "enhancementSlots": ["Attack", "Attack", "Move"]
         },
         {
             "id": 26,
             "name": "Frenzied Onslaught",
             "level": "8",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-frenzied-onslaught.webp",
-            "enhancementSlots": ["attack", "attack"]
+            "enhancementSlots": ["Attack", "Attack"]
         },
         {
             "id": 27,
             "name": "Selfish Retribution",
             "level": "8",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-selfish-retribution.webp",
-            "enhancementSlots": ["move", "move", "retaliate"]
+            "enhancementSlots": ["Move", "Move", "RETALIATE"]
         },
         {
             "id": 28,
             "name": "King of the Hill",
             "level": "9",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-king-of-the-hill.webp",
-            "enhancementSlots": ["attack", "attack", "heal"]
+            "enhancementSlots": ["Attack", "Attack", "Heal"]
         },
         {
             "id": 29,
             "name": "Face Your End",
             "level": "9",
             "imageUrl": "/images/character-ability-cards/gloomhaven/BR/gh-face-your-end.webp",
-            "enhancementSlots": ["attack", "target"]
+            "enhancementSlots": ["Attack", "ADD TARGET"]
         }
     ],
     "perks": [

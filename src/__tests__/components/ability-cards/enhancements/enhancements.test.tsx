@@ -5,7 +5,7 @@ import { createTestCharacter } from "@/testutils";
 const setCharacter = jest.fn();
 
 describe("enhancements", () => {
-    it("renders the deck", () => {
+    it("renders the enhancements", () => {
         const character = createTestCharacter();
         character.characterClass.abilityCards = [
             {
@@ -26,10 +26,10 @@ describe("enhancements", () => {
 
         render(<Enhancements character={character} setCharacter={setCharacter} />);
 
-        const cardOne = screen.queryByRole("img", { name: "Trample" });
-        const cardTwo = screen.queryByRole("img", { name: "Skewer" });
+        const trampleEnhancenments = screen.queryByRole("region", { name: "Trample Enhancements" });
+        const skewerEnhancements = screen.queryByRole("region", { name: "Skewer Enhancements" });
 
-        expect(cardOne).toBeInTheDocument();
-        expect(cardTwo).toBeInTheDocument();
+        expect(trampleEnhancenments).toBeInTheDocument();
+        expect(skewerEnhancements).toBeInTheDocument();
     });
 });

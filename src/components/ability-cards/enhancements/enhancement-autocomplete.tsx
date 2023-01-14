@@ -41,7 +41,7 @@ const EnhancementAutocomplete = ({
                 </Box>
             )}
             renderInput={(props: AutocompleteRenderInputParams) => {
-                return <TextField {...props} label={getLabelFor(slotType)} />;
+                return <TextField {...props} label={slotType} />;
             }}
             onChange={handleChange}
         />
@@ -59,56 +59,6 @@ const getEnhancementSlotValue = (character: Character, abilityCard: AbilityCard,
 
 const getPossibleEnhancementsFor = (slotType: string): Enhancement[] => {
     return enhancements.filter((enhancement: Enhancement) => enhancement.validSlotTypes.includes(slotType));
-};
-
-// eslint-disable-next-line complexity
-const getLabelFor = (enhancementSlot: string) => {
-    switch (enhancementSlot) {
-        case "move":
-            return "Move";
-        case "attack":
-            return "Attack";
-        case "range":
-            return "Range";
-        case "shield":
-            return "Shield";
-        case "push":
-            return "PUSH";
-        case "pull":
-            return "PULL";
-        case "pierce":
-            return "PIERCE";
-        case "retaliate":
-            return "Retaliate";
-        case "heal":
-            return "Heal";
-        case "target":
-            return "ADD TARGET";
-        case "summon":
-            return "Summon";
-        case "poison":
-            return "POISON";
-        case "wound":
-            return "WOUND";
-        case "immobilize":
-            return "IMMOBILIZE";
-        case "disarm":
-            return "DISARM";
-        case "curse":
-            return "CURSE";
-        case "stun":
-            return "STUN";
-        case "strengthen":
-            return "STRENGTHEN";
-        case "bless":
-            return "BLESS";
-        case "invisible":
-            return "INVISIBLE";
-        case "area":
-            return "Area attack";
-        default:
-            return enhancementSlot;
-    }
 };
 
 const gainOrRemoveEnhancement = (
@@ -141,3 +91,4 @@ const gainOrRemoveEnhancement = (
 };
 
 export default EnhancementAutocomplete;
+export { getEnhancementSlotValue, getPossibleEnhancementsFor, gainOrRemoveEnhancement };

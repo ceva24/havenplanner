@@ -20,6 +20,13 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
                     imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
                     enhancementSlots: [],
                 },
+                {
+                    id: 2,
+                    name: "Eye for an Eye",
+                    level: "1",
+                    imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-eye-for-an-eye.webp",
+                    enhancementSlots: ["retaliate", "heal", "heal"],
+                },
             ],
             perks: [
                 {

@@ -12,105 +12,105 @@
             "name": "Fire Orbs",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-fire-orbs.webp",
-            "enhancementSlots": ["attack", "range", "target", "move"]
+            "enhancementSlots": ["Attack", "Range", "ADD TARGET", "Move"]
         },
         {
             "id": 62,
             "name": "Impaling Eruption",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-impaling-eruption.webp",
-            "enhancementSlots": ["attack", "range", "move"]
+            "enhancementSlots": ["Attack", "Range", "Move"]
         },
         {
             "id": 63,
             "name": "Reviving Ether",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-reviving-ether.webp",
-            "enhancementSlots": ["move"]
+            "enhancementSlots": ["Move"]
         },
         {
             "id": 64,
             "name": "Freezing Nova",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-freezing-nova.webp",
-            "enhancementSlots": ["attack", "heal", "heal"]
+            "enhancementSlots": ["Attack", "Heal", "Heal"]
         },
         {
             "id": 65,
             "name": "Mana Bolt",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-mana-bolt.webp",
-            "enhancementSlots": ["attack", "heal", "range"]
+            "enhancementSlots": ["Attack", "Heal", "Range"]
         },
         {
             "id": 66,
             "name": "Frost Armor",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-frost-armor.webp",
-            "enhancementSlots": ["attack"]
+            "enhancementSlots": ["Attack"]
         },
         {
             "id": 67,
             "name": "Flame Strike",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-flame-strike.webp",
-            "enhancementSlots": ["range", "attack", "range"]
+            "enhancementSlots": ["Range", "Attack", "Range"]
         },
         {
             "id": 68,
             "name": "Ride the Wind",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-ride-the-wind.webp",
-            "enhancementSlots": ["move"]
+            "enhancementSlots": ["Move"]
         },
         {
             "id": 69,
             "name": "Crackling Air",
             "level": "X",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-crackling-air.webp",
-            "enhancementSlots": ["move"]
+            "enhancementSlots": ["Move"]
         },
         {
             "id": 70,
             "name": "Hardened Spikes",
             "level": "X",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-hardened-spikes.webp",
-            "enhancementSlots": ["retaliate", "move"]
+            "enhancementSlots": ["RETALIATE", "Move"]
         },
         {
             "id": 71,
             "name": "Aid From the Ether",
             "level": "X",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-aid-from-the-ether.webp",
-            "enhancementSlots": ["heal", "range", "summon", "summon", "summon"]
+            "enhancementSlots": ["Heal", "Range", "Summon", "Summon", "Summon"]
         },
         {
             "id": 72,
             "name": "Flashing Burst",
             "level": "2",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-flashing-burst.webp",
-            "enhancementSlots": ["attack", "range", "move"]
+            "enhancementSlots": ["Attack", "Range", "Move"]
         },
         {
             "id": 73,
             "name": "Icy Blast",
             "level": "2",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-icy-blast.webp",
-            "enhancementSlots": ["attack", "heal", "range"]
+            "enhancementSlots": ["Attack", "Heal", "Range"]
         },
         {
             "id": 74,
             "name": "Cold Fire",
             "level": "3",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-cold-fire.webp",
-            "enhancementSlots": ["area"]
+            "enhancementSlots": ["Area attack"]
         },
         {
             "id": 75,
             "name": "Elemental Aid",
             "level": "3",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-elemental-aid.webp",
-            "enhancementSlots": ["heal", "range"]
+            "enhancementSlots": ["Heal", "Range"]
         },
         {
             "id": 76,
@@ -124,77 +124,77 @@
             "name": "Forked Beam",
             "level": "4",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-forked-beam.webp",
-            "enhancementSlots": ["attack", "target", "move"]
+            "enhancementSlots": ["Attack", "ADD TARGET", "Move"]
         },
         {
             "id": 78,
             "name": "Chromatic Explosion",
             "level": "5",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-chromatic-explosion.webp",
-            "enhancementSlots": ["attack", "move"]
+            "enhancementSlots": ["Attack", "Move"]
         },
         {
             "id": 79,
             "name": "Engulfed in Flames",
             "level": "5",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-engulfed-in-flames.webp",
-            "enhancementSlots": ["attack", "range"]
+            "enhancementSlots": ["Attack", "Range"]
         },
         {
             "id": 80,
             "name": "Living Torch",
             "level": "6",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-living-torch.webp",
-            "enhancementSlots": ["attack", "summon", "summon", "summon"]
+            "enhancementSlots": ["Attack", "Summon", "Summon", "Summon"]
         },
         {
             "id": 81,
             "name": "Frozen Night",
             "level": "6",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-frozen-night.webp",
-            "enhancementSlots": ["attack", "area", "area", "move"]
+            "enhancementSlots": ["Attack", "Area attack", "Area attack", "Move"]
         },
         {
             "id": 82,
             "name": "Twin Restoration",
             "level": "7",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-twin-restoration.webp",
-            "enhancementSlots": ["heal", "target"]
+            "enhancementSlots": ["Heal", "ADD TARGET"]
         },
         {
             "id": 83,
             "name": "Stone Fists",
             "level": "7",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-stone-fists.webp",
-            "enhancementSlots": ["push", "move", "shield"]
+            "enhancementSlots": ["PUSH", "Move", "Shield"]
         },
         {
             "id": 84,
             "name": "Zephyr Wings",
             "level": "8",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-zephyr-wings.webp",
-            "enhancementSlots": ["move", "move"]
+            "enhancementSlots": ["Move", "Move"]
         },
         {
             "id": 85,
             "name": "Cold Front",
             "level": "8",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-cold-front.webp",
-            "enhancementSlots": ["attack", "range"]
+            "enhancementSlots": ["Attack", "Range"]
         },
         {
             "id": 86,
             "name": "Black Hole",
             "level": "9",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-black-hole.webp",
-            "enhancementSlots": ["pull"]
+            "enhancementSlots": ["PULL"]
         },
         {
             "id": 87,
             "name": "Inferno",
             "level": "9",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-inferno.webp",
-            "enhancementSlots": ["retaliate"]
+            "enhancementSlots": ["RETALIATE"]
         }
     ],
     "perks": [
