@@ -51,4 +51,22 @@ describe("ability cards tab - enhancements", () => {
             .should("have.attr", "src")
             .should("include", "enhancement-icons/gloomhaven/poison");
     });
+
+    it("shows the enhancement icon next to selected enhancements", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.selectTab("Enhancements");
+
+        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).click();
+
+        cy.findByRole("option", { name: "POISON" }).click();
+
+        cy.findEnhancementsAutocomplete("Trample", "Attack", 1)
+            .parent()
+            .find("img")
+            .should("have.attr", "src")
+            .should("include", "enhancement-icons/gloomhaven/poison");
+    });
 });

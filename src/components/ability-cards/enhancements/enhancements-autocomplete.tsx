@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { type Dispatch, type HTMLAttributes, type SetStateAction, type SyntheticEvent } from "react";
-import { Autocomplete, type AutocompleteRenderInputParams, Box, TextField } from "@mui/material";
-import { enhancements } from "@/loaders/enhancements";
+import type { Dispatch, HTMLAttributes, SetStateAction, SyntheticEvent } from "react";
+import { Autocomplete, type AutocompleteRenderInputParams, Box } from "@mui/material";
 import Image from "@/components/core/image";
+import EnhancementsAutocompleteInput from "@/components/ability-cards/enhancements/enhancements-autocomplete-input";
+import { enhancements } from "@/loaders/enhancements";
 
-interface EnhancementAutocompleteProps {
+interface EnhancementsAutocompleteProps {
     slotType: string;
     abilityCard: AbilityCard;
     slot: number;
@@ -12,13 +13,13 @@ interface EnhancementAutocompleteProps {
     setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const EnhancementAutocomplete = ({
+const EnhancementsAutocomplete = ({
     slotType,
     abilityCard,
     slot,
     character,
     setCharacter,
-}: EnhancementAutocompleteProps) => {
+}: EnhancementsAutocompleteProps) => {
     const handleChange = (event: SyntheticEvent, value: Enhancement | null) => {
         gainOrRemoveEnhancement(value, abilityCard, slot, character, setCharacter);
     };
@@ -30,7 +31,7 @@ const EnhancementAutocomplete = ({
             options={getPossibleEnhancementsFor(slotType)}
             getOptionLabel={(enhancement: Enhancement) => enhancement.name}
             renderOption={(props: HTMLAttributes<HTMLLIElement>, enhancement: Enhancement) => (
-                <Box component="li" sx={{ "& > picture": { mr: 2, flexShrink: 0 } }} {...props}>
+                <Box component="li" sx={{ "& > picture": { marginRight: 2, flexShrink: 0 } }} {...props}>
                     <Image
                         webpPath={enhancement.imageUrl}
                         fallbackImageType="png"
@@ -41,9 +42,9 @@ const EnhancementAutocomplete = ({
                     {enhancement.name}
                 </Box>
             )}
-            renderInput={(props: AutocompleteRenderInputParams) => {
-                return <TextField {...props} label={slotType} />;
-            }}
+            renderInput={(props: AutocompleteRenderInputParams) => (
+                <EnhancementsAutocompleteInput {...props} slotType={slotType} />
+            )}
             onChange={handleChange}
         />
     );
@@ -91,5 +92,5 @@ const gainOrRemoveEnhancement = (
     });
 };
 
-export default EnhancementAutocomplete;
+export default EnhancementsAutocomplete;
 export { getEnhancementSlotValue, getPossibleEnhancementsFor, gainOrRemoveEnhancement };

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { render, screen } from "@testing-library/react";
-import EnhancementAutocomplete, {
+import EnhancementsAutocomplete, {
     gainOrRemoveEnhancement,
     getEnhancementSlotValue,
     getPossibleEnhancementsFor,
-} from "@/components/ability-cards/enhancements/enhancement-autocomplete";
+} from "@/components/ability-cards/enhancements/enhancements-autocomplete";
 import { enhancements } from "@/loaders/enhancements";
 import { createTestCharacter } from "@/testutils";
 
@@ -22,7 +22,7 @@ beforeEach(() => {
 describe("enhancements autocomplete", () => {
     it("renders", () => {
         render(
-            <EnhancementAutocomplete
+            <EnhancementsAutocomplete
                 slotType="Attack"
                 abilityCard={character.characterClass.abilityCards[0]}
                 slot={1}
