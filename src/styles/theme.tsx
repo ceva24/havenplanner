@@ -39,6 +39,13 @@ const theme: ThemeOptions = createTheme({
                 },
             },
         },
+        MuiAppBar: {
+            styleOverrides: {
+                colorPrimary: {
+                    backgroundColor: "#0f0302",
+                },
+            },
+        },
         MuiCssBaseline: {
             styleOverrides: `
               @font-face {
@@ -63,13 +70,6 @@ const theme: ThemeOptions = createTheme({
                 src: local('Sakkal Majalla'), local('Sakkal Majalla-Regular'), url('/fonts/majalla.ttf') format('woff2');
               }
           `,
-        },
-        MuiAppBar: {
-            styleOverrides: {
-                colorPrimary: {
-                    backgroundColor: "#0f0302",
-                },
-            },
         },
     },
 });
