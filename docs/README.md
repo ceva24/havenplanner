@@ -25,7 +25,7 @@ A web application to create and share character builds for the popular tabletop 
 -   Browse and select items
 -   Save and share characters with a shareable link
 
-### Not yet implemented
+### Not implemented
 
 -   All locked character classes and items
 -   Content from Forgotten Circles, Jaws of the Lion, Crimson Scales, Trail of Ashes and Frosthaven
