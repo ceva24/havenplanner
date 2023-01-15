@@ -40,7 +40,7 @@
             "name": "Gnawing Horde",
             "level": "1",
             "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-gnawing-horde.webp",
-            "enhancementSlots": ["Summon", "Summon", "Summon", "Move"]
+            "enhancementSlots": ["Summon - Health", "Summon - Move", "Summon - Attack", "Move"]
         },
         {
             "id": 151,
@@ -103,7 +103,7 @@
             "name": "Wretched Creature",
             "level": "2",
             "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-wretched-creature.webp",
-            "enhancementSlots": ["Summon", "Summon", "Summon", "Move"]
+            "enhancementSlots": ["Summon - Health", "Summon - Move", "Summon - Attack", "Move"]
         },
         {
             "id": 160,
@@ -201,7 +201,7 @@
             "name": "Many as One",
             "level": "9",
             "imageUrl": "/images/character-ability-cards/gloomhaven/MT/gh-many-as-one.webp",
-            "enhancementSlots": ["Summon", "Summon"]
+            "enhancementSlots": ["Summon - Health", "Summon - Move"]
         },
         {
             "id": 174,

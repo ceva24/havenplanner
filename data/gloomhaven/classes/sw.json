@@ -82,7 +82,7 @@
             "name": "Aid From the Ether",
             "level": "X",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-aid-from-the-ether.webp",
-            "enhancementSlots": ["Heal", "Range", "Summon", "Summon", "Summon"]
+            "enhancementSlots": ["Heal", "Range", "Summon - Health", "Summon - Move", "Summon - Range"]
         },
         {
             "id": 72,
@@ -145,7 +145,7 @@
             "name": "Living Torch",
             "level": "6",
             "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-living-torch.webp",
-            "enhancementSlots": ["Attack", "Summon", "Summon", "Summon"]
+            "enhancementSlots": ["Attack", "Summon - Health", "Summon - Move", "Summon - Range"]
         },
         {
             "id": 81,

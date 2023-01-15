@@ -14,7 +14,10 @@
             "RETALIATE",
             "Heal",
             "ADD TARGET",
-            "Summon"
+            "Summon - Health",
+            "Summon - Move",
+            "Summon - Attack",
+            "Summon - Range"
         ]
     },
     {
