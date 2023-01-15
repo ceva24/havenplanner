@@ -13,6 +13,7 @@ describe("serializer", () => {
             notes: "It's a test",
             characterClass: characterClasses[2],
             personalQuest: personalQuests[8],
+            battleGoalCheckmarkGroups: [],
         });
 
         const data: string = serialize(character);
@@ -29,6 +30,7 @@ describe("serializer", () => {
             gold: 75,
             notes: "It's a test",
             characterClass: characterClasses[2],
+            battleGoalCheckmarkGroups: [],
         });
 
         const data: string = serialize(character);
@@ -45,6 +47,7 @@ describe("serializer", () => {
             gold: 75,
             notes: "It's a test",
             characterClass: characterClasses[2],
+            battleGoalCheckmarkGroups: [],
             items: [
                 { id: "1", item: items[1] },
                 { id: "2", item: items[7] },
@@ -65,6 +68,7 @@ describe("serializer", () => {
             gold: 75,
             notes: "It's a test",
             characterClass: characterClasses[2],
+            battleGoalCheckmarkGroups: [],
             items: [
                 { id: "1", item: items[1] },
                 { id: "2", item: items[1] },
@@ -86,6 +90,7 @@ describe("serializer", () => {
             gold: 75,
             notes: "It's a test",
             characterClass: characterClasses[2],
+            battleGoalCheckmarkGroups: [],
         });
         character.unlockedAbilityCards = [character.characterClass.abilityCards[0]];
 
@@ -103,6 +108,7 @@ describe("serializer", () => {
             gold: 75,
             notes: "It's a test",
             characterClass: characterClasses[2],
+            battleGoalCheckmarkGroups: [],
         });
         character.hand = [character.characterClass.abilityCards[0]];
 
@@ -120,6 +126,7 @@ describe("serializer", () => {
             gold: 75,
             notes: "It's a test",
             characterClass: characterClasses[2],
+            battleGoalCheckmarkGroups: [],
         });
         character.gainedPerks = [
             { perk: character.characterClass.perks[0], checkboxIndex: 0 },

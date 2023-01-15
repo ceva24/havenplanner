@@ -1,3 +1,5 @@
+import { createDefaultBattleGoals } from "@/services/character";
+
 const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): Character => {
     const character: Character = {
         name: "My Char",
@@ -41,7 +43,7 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
         hand: [],
         gainedEnhancements: [],
         gainedPerks: [],
-        battleGoalCheckmarkGroups: [],
+        battleGoalCheckmarkGroups: createDefaultBattleGoals(),
         items: [],
     };
 

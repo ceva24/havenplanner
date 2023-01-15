@@ -14,7 +14,7 @@ beforeEach(() => {
 
 describe("perk list", () => {
     it("renders a perk", () => {
-        const character = createTestCharacter();
+        const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
                 description: "Remove two {-1} cards",
@@ -32,7 +32,7 @@ describe("perk list", () => {
     });
 
     it("renders multiple perks", () => {
-        const character = createTestCharacter();
+        const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
                 description: "Remove two {-1} cards",
@@ -74,7 +74,7 @@ describe("perk list", () => {
     });
 
     it("renders perks with multiple checkboxes", () => {
-        const character = createTestCharacter();
+        const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
                 description: "Add two {+1} cards",
@@ -94,7 +94,7 @@ describe("perk list", () => {
     });
 
     it("renders multiple checkboxes with unique labels", () => {
-        const character = createTestCharacter();
+        const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
                 description: "Add two {+1} cards",
@@ -114,7 +114,7 @@ describe("perk list", () => {
     });
 
     it("renders checked perks", () => {
-        const character = createTestCharacter();
+        const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
 
         const perk: Perk = {
             description: "Remove two {-1} cards",

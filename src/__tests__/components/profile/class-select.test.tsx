@@ -5,6 +5,8 @@ import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/constants";
 import { createTestCharacter } from "@/testutils";
 import AppSettingsProvider from "@/hooks/app-settings";
+import { createDefaultBattleGoals } from "@/services/character";
+import { enhancements } from "@/loaders/enhancements";
 
 const character: Character = createTestCharacter();
 
@@ -116,6 +118,79 @@ describe("findAndSetCharacter", () => {
             ...character,
             characterClass: characterClasses[3],
             hand: [],
+        });
+    });
+
+    it("clears the perks", () => {
+        const character: Character = createTestCharacter();
+
+        const perk: Perk = {
+            description: "Remove two {-1} cards",
+            count: 1,
+            add: [],
+            remove: [],
+        };
+
+        character.characterClass.perks = [perk];
+        character.gainedPerks = [{ perk, checkboxIndex: 0 }];
+
+        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
+        const event = {
+            target: { value: characterClasses[3].name },
+        } as SelectChangeEvent;
+
+        findAndSetCharacter(event, character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: characterClasses[3],
+            gainedPerks: [],
+        });
+    });
+
+    it("clears the battle goals", () => {
+        const character: Character = createTestCharacter();
+        character.battleGoalCheckmarkGroups[0].checkmarks[0].value = true;
+
+        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
+        const event = {
+            target: { value: characterClasses[3].name },
+        } as SelectChangeEvent;
+
+        findAndSetCharacter(event, character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: characterClasses[3],
+            battleGoalCheckmarkGroups: createDefaultBattleGoals(),
+        });
+    });
+
+    it("clears the gained enhancements", () => {
+        const character: Character = createTestCharacter();
+
+        character.gainedEnhancements = [
+            {
+                enhancement: enhancements[0],
+                abilityCard: character.characterClass.abilityCards[0],
+                slot: 0,
+            },
+        ];
+
+        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
+        const event = {
+            target: { value: characterClasses[3].name },
+        } as SelectChangeEvent;
+
+        findAndSetCharacter(event, character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: characterClasses[3],
+            gainedEnhancements: [],
         });
     });
 });

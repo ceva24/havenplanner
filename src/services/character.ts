@@ -23,6 +23,16 @@ const calculateLevel = (experience: number): number => {
     }
 };
 
+const createDefaultBattleGoals = (): BattleGoalCheckmarkGroup[] => {
+    return Array.from<BattleGoalCheckmarkGroup>({ length: 6 }).map((item: unknown, groupIndex: number) => ({
+        id: groupIndex,
+        checkmarks: Array.from<BattleGoalCheckmark>({ length: 3 }).map((item: unknown, checkmarkIndex: number) => ({
+            id: checkmarkIndex,
+            value: false,
+        })),
+    }));
+};
+
 const getAllAvailableAbilityCardsForCharacter = (character: Character) => {
     return character.characterClass.abilityCards
         .filter((abilityCard: AbilityCard) => {
@@ -94,6 +104,7 @@ const findCharacterGainedPerk = (character: Character, perk: Perk, checkboxIndex
 
 export {
     calculateLevel,
+    createDefaultBattleGoals,
     getAllAvailableAbilityCardsForCharacter,
     isUnlockedAbilityCardForCharacter,
     isCardInHandForCharacter,

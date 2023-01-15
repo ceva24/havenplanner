@@ -12,6 +12,7 @@ const character: Character = createTestCharacter({
     gold: 12,
     notes: "Test",
     characterClass: characterClasses[3],
+    battleGoalCheckmarkGroups: [],
 });
 
 const characterWithUnicodeCharacters = createTestCharacter({
@@ -20,6 +21,7 @@ const characterWithUnicodeCharacters = createTestCharacter({
     gold: 12,
     notes: "テスト",
     characterClass: characterClasses[3],
+    battleGoalCheckmarkGroups: [],
 });
 
 const characterWithItems = createTestCharacter({
@@ -28,6 +30,7 @@ const characterWithItems = createTestCharacter({
     gold: 12,
     notes: "Test",
     characterClass: characterClasses[3],
+    battleGoalCheckmarkGroups: [],
     items: [
         { id: "abc", item: items[0] },
         { id: "def", item: items[3] },
@@ -41,11 +44,13 @@ const characterWithUnlockedAbilityCards: Character = createTestCharacter({
     notes: "Test",
     characterClass: characterClasses[3],
     unlockedAbilityCards: [characterClasses[3].abilityCards[12], characterClasses[3].abilityCards[13]],
+    battleGoalCheckmarkGroups: [],
 });
 
 const characterWithHand: Character = createTestCharacter({
     characterClass: characterClasses[3],
     hand: [characterClasses[3].abilityCards[12], characterClasses[3].abilityCards[13]],
+    battleGoalCheckmarkGroups: [],
 });
 
 const characterWithGainedPerks: Character = createTestCharacter({
@@ -54,6 +59,7 @@ const characterWithGainedPerks: Character = createTestCharacter({
         { perk: characterClasses[3].perks[1], checkboxIndex: 0 },
         { perk: characterClasses[3].perks[0], checkboxIndex: 1 },
     ],
+    battleGoalCheckmarkGroups: [],
 });
 
 const characterWithBattleGoalCheckmarks: Character = createTestCharacter({

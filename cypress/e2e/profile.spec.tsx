@@ -333,4 +333,73 @@ describe("profile tab", () => {
         cy.findByRole("img", { name: "Quietus" }).should("not.exist");
         cy.findByRole("img", { name: "Crippling Offensive" }).should("not.exist");
     });
+
+    it("resets gained perks when changing the class", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainPerk("Remove two {-1} cards", 0);
+
+        cy.findByRole("checkbox", { name: "Remove two {-1} cards" }).should("be.checked");
+
+        cy.selectTab("Profile");
+
+        cy.selectClass("Spellweaver");
+
+        cy.selectClass("Brute");
+
+        cy.selectTab("Perks");
+
+        cy.findByRole("checkbox", { name: "Remove two {-1} cards" }).should("not.be.checked");
+    });
+
+    it("resets gained battle goals when changing the class", () => {
+        cy.visit("/");
+
+        cy.selectTab("Perks");
+
+        cy.gainBattleGoalCheckmark(1, 0);
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").eq(0).should("be.checked");
+
+        cy.selectTab("Profile");
+
+        cy.selectClass("Spellweaver");
+
+        cy.selectClass("Brute");
+
+        cy.selectTab("Perks");
+
+        cy.findByRole("region", { name: "Battle Goal Perk 1" })
+            .findAllByRole("checkbox")
+            .eq(0)
+            .should("not.be.checked");
+    });
+
+    it("resets gained enhancements when changing the class", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.selectTab("Enhancements");
+
+        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).click();
+
+        cy.findByRole("option", { name: "POISON" }).click();
+
+        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).should("have.value", "POISON");
+
+        cy.selectTab("Profile");
+
+        cy.selectClass("Spellweaver");
+
+        cy.selectClass("Brute");
+
+        cy.selectTab("Ability Cards");
+
+        cy.selectTab("Enhancements");
+
+        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).should("have.value", "");
+    });
 });
