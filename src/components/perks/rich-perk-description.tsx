@@ -11,7 +11,7 @@ const RichPerkDescription = ({ perk }: RichPerkDescriptionProps) => {
             {reactStringReplace(perk.description, /{(.*?)}/, (match: string, index: number) => (
                 <Image
                     key={`${match}${index}`}
-                    webpPath={`/images/perk-icons/gloomhaven/${match}.webp`}
+                    webpPath={`/perk-icons/gloomhaven/${match}.webp`}
                     fallbackImageType="png"
                     altText={`${match} icon`}
                     width={30}

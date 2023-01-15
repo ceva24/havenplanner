@@ -1,206 +1,206 @@
 {
     "id": 2,
     "name": "Scoundrel",
-    "imageUrl": "/images/character-icons/gloomhaven/gh-scoundrel.webp",
-    "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-scoundrel.webp",
-    "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-scoundrel-back.webp",
-    "cardBackImageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-sc-back.webp",
+    "imageUrl": "/character-icons/gloomhaven/gh-scoundrel.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-scoundrel.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-scoundrel-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/SC/gh-sc-back.webp",
     "handSize": 9,
     "abilityCards": [
         {
             "id": 88,
             "name": "Single Out",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-single-out.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-single-out.webp",
             "enhancementSlots": ["Attack"]
         },
         {
             "id": 89,
             "name": "Flanking Strike",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-flanking-strike.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-flanking-strike.webp",
             "enhancementSlots": ["Attack", "Move"]
         },
         {
             "id": 90,
             "name": "Smoke Bomb",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-smoke-bomb.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-smoke-bomb.webp",
             "enhancementSlots": ["INVISIBLE", "PULL", "Range"]
         },
         {
             "id": 91,
             "name": "Backstab",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-backstab.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-backstab.webp",
             "enhancementSlots": ["Attack", "Attack"]
         },
         {
             "id": 92,
             "name": "Thief's Knack",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-thiefs-knack.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-thiefs-knack.webp",
             "enhancementSlots": ["Attack"]
         },
         {
             "id": 93,
             "name": "Venom Shiv",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-venom-shiv.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-venom-shiv.webp",
             "enhancementSlots": ["Attack", "Move"]
         },
         {
             "id": 94,
             "name": "Throwing Knives",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-throwing-knives.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-throwing-knives.webp",
             "enhancementSlots": ["Range"]
         },
         {
             "id": 95,
             "name": "Quick Hands",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-quick-hands.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-quick-hands.webp",
             "enhancementSlots": ["Move", "Attack"]
         },
         {
             "id": 96,
             "name": "Special Mixture",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-special-mixture.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-special-mixture.webp",
             "enhancementSlots": ["Heal", "Move"]
         },
         {
             "id": 97,
             "name": "Sinister Opportunity",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-sinister-opportunity.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-sinister-opportunity.webp",
             "enhancementSlots": ["Attack", "Move"]
         },
         {
             "id": 98,
             "name": "Trickster's Reversal",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-tricksters-reversal.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-tricksters-reversal.webp",
             "enhancementSlots": ["Attack", "Attack"]
         },
         {
             "id": 99,
             "name": "Swift Bow",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-swift-bow.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-swift-bow.webp",
             "enhancementSlots": ["Attack", "Range", "Move"]
         },
         {
             "id": 100,
             "name": "Open Wound",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-open-wound.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-open-wound.webp",
             "enhancementSlots": ["Attack", "Move"]
         },
         {
             "id": 101,
             "name": "Flintlock",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-flintlock.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-flintlock.webp",
             "enhancementSlots": ["Attack", "Attack", "Range"]
         },
         {
             "id": 102,
             "name": "Hidden Daggers",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-hidden-daggers.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-hidden-daggers.webp",
             "enhancementSlots": ["Attack", "Range", "ADD TARGET", "INVISIBLE"]
         },
         {
             "id": 103,
             "name": "Duelist's Advance",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-duelists-advance.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-duelists-advance.webp",
             "enhancementSlots": ["Move", "Attack"]
         },
         {
             "id": 104,
             "name": "Flurry of Blades",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-flurry-of-blades.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-flurry-of-blades.webp",
             "enhancementSlots": ["Range", "Move"]
         },
         {
             "id": 105,
             "name": "Gruesome Advantage",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-gruesome-advantage.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-gruesome-advantage.webp",
             "enhancementSlots": ["Attack", "Attack"]
         },
         {
             "id": 106,
             "name": "Cull the Weak",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-cull-the-weak.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-cull-the-weak.webp",
             "enhancementSlots": ["Attack"]
         },
         {
             "id": 107,
             "name": "Visage of the Inevitable",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-visage-of-the-inevitable.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-visage-of-the-inevitable.webp",
             "enhancementSlots": ["Move"]
         },
         {
             "id": 108,
             "name": "Crippling Poison",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-crippling-poison.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-crippling-poison.webp",
             "enhancementSlots": ["Attack"]
         },
         {
             "id": 109,
             "name": "Burning Oil",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-burning-oil.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-burning-oil.webp",
             "enhancementSlots": ["Attack", "Range"]
         },
         {
             "id": 110,
             "name": "Stick to the Shadows",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-stick-to-the-shadows.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-stick-to-the-shadows.webp",
             "enhancementSlots": ["Attack", "Attack", "INVISIBLE"]
         },
         {
             "id": 111,
             "name": "Spring the Trap",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-spring-the-trap.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-spring-the-trap.webp",
             "enhancementSlots": []
         },
         {
             "id": 112,
             "name": "Stiletto Storm",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-stiletto-storm.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-stiletto-storm.webp",
             "enhancementSlots": ["Range", "Move", "RETALIATE"]
         },
         {
             "id": 113,
             "name": "Pain's End",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-pains-end.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-pains-end.webp",
             "enhancementSlots": ["Heal", "Heal", "Move"]
         },
         {
             "id": 114,
             "name": "Long Con",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-long-con.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-long-con.webp",
             "enhancementSlots": ["Attack"]
         },
         {
             "id": 115,
             "name": "Watch It Burn",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SC/gh-watch-it-burn.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-watch-it-burn.webp",
             "enhancementSlots": ["Move", "WOUND"]
         }
     ],
@@ -213,12 +213,12 @@
                 {
                     "id": 324,
                     "name": "-1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
                 },
                 {
                     "id": 324,
                     "name": "-1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
                 }
             ]
         },
@@ -230,22 +230,22 @@
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 },
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 },
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 },
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 }
             ]
         },
@@ -256,14 +256,14 @@
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 }
             ],
             "remove": [
                 {
                     "id": 329,
                     "name": "-2",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
                 }
             ]
         },
@@ -274,14 +274,14 @@
                 {
                     "id": 319,
                     "name": "+1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
                 }
             ],
             "remove": [
                 {
                     "id": 324,
                     "name": "-1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
                 }
             ]
         },
@@ -292,14 +292,14 @@
                 {
                     "id": 330,
                     "name": "+2",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
                 }
             ],
             "remove": [
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 }
             ]
         },
@@ -310,12 +310,12 @@
                 {
                     "id": 61,
                     "name": "chain +1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-05.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SC/gh-am-sc-05.webp"
                 },
                 {
                     "id": 61,
                     "name": "chain +1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-05.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SC/gh-am-sc-05.webp"
                 }
             ],
             "remove": []
@@ -327,12 +327,12 @@
                 {
                     "id": 65,
                     "name": "chain pierce 3",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-09.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SC/gh-am-sc-09.webp"
                 },
                 {
                     "id": 65,
                     "name": "chain pierce 3",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-09.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SC/gh-am-sc-09.webp"
                 }
             ],
             "remove": []
@@ -344,12 +344,12 @@
                 {
                     "id": 67,
                     "name": "chain poison",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-11.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SC/gh-am-sc-11.webp"
                 },
                 {
                     "id": 67,
                     "name": "chain poison",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-11.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SC/gh-am-sc-11.webp"
                 }
             ],
             "remove": []
@@ -361,12 +361,12 @@
                 {
                     "id": 71,
                     "name": "chain muddle",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-15.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SC/gh-am-sc-15.webp"
                 },
                 {
                     "id": 71,
                     "name": "chain muddle",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-15.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SC/gh-am-sc-15.webp"
                 }
             ],
             "remove": []
@@ -378,7 +378,7 @@
                 {
                     "id": 73,
                     "name": "chain invisible",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SC/gh-am-sc-17.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SC/gh-am-sc-17.webp"
                 }
             ],
             "remove": []

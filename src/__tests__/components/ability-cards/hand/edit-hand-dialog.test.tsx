@@ -74,7 +74,7 @@ describe("addCardToHand", () => {
             id: 1,
             name: "Trample",
             level: "1",
-            imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+            imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
             enhancementSlots: [],
         };
 
@@ -82,7 +82,7 @@ describe("addCardToHand", () => {
             id: 15,
             name: "Juggernaut",
             level: "2",
-            imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+            imageUrl: "/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
             enhancementSlots: [],
         };
 
@@ -90,10 +90,10 @@ describe("addCardToHand", () => {
             characterClass: {
                 id: 0,
                 name: "Brute",
-                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
                 handSize: 1,
                 abilityCards: [abilityCardOne, abilityCardTwo],
                 perks: [],

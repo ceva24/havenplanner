@@ -37,7 +37,7 @@ const BattleGoalCheckmarkGroupLabel = ({
             onClick={handleLabelClick}
         >
             <Image
-                webpPath="/images/perk-icons/gloomhaven/check.webp"
+                webpPath="/perk-icons/gloomhaven/check.webp"
                 fallbackImageType="png"
                 altText="check icon"
                 width={30}

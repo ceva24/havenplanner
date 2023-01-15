@@ -12,14 +12,14 @@ describe("enhancements", () => {
                 id: 1,
                 name: "Trample",
                 level: "1",
-                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
                 enhancementSlots: [],
             },
             {
                 id: 11,
                 name: "Skewer",
                 level: "X",
-                imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
+                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
                 enhancementSlots: [],
             },
         ];

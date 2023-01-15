@@ -23,7 +23,7 @@ describe("attack modifiers", () => {
                 {
                     id: 22,
                     name: "+1 shield 1 self",
-                    imageUrl: "/images/attack-modifiers/gloomhaven/BR/gh-am-br-22.webp",
+                    imageUrl: "/attack-modifiers/gloomhaven/BR/gh-am-br-22.webp",
                 },
             ],
             remove: [],

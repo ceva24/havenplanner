@@ -5,7 +5,7 @@ const abilityCard: AbilityCard = {
     id: 1,
     name: "Trample",
     level: "2",
-    imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+    imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
     enhancementSlots: [],
 };
 

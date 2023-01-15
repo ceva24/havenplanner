@@ -1,227 +1,227 @@
 {
     "id": 4,
     "name": "Tinkerer",
-    "imageUrl": "/images/character-icons/gloomhaven/gh-tinkerer.webp",
-    "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-tinkerer.webp",
-    "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-tinkerer-back.webp",
-    "cardBackImageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-ti-back.webp",
+    "imageUrl": "/character-icons/gloomhaven/gh-tinkerer.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-tinkerer.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-tinkerer-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/TI/gh-ti-back.webp",
     "handSize": 12,
     "abilityCards": [
         {
             "id": 30,
             "name": "Proximity Mine",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-proximity-mine.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-proximity-mine.webp",
             "enhancementSlots": ["Move"]
         },
         {
             "id": 31,
             "name": "Harmless Contraption",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-harmless-contraption.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-harmless-contraption.webp",
             "enhancementSlots": ["Summon - Health", "Summon - Move", "Heal", "Range"]
         },
         {
             "id": 32,
             "name": "Flamethrower",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-flamethrower.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-flamethrower.webp",
             "enhancementSlots": ["Attack", "Area attack", "Area attack", "Shield"]
         },
         {
             "id": 33,
             "name": "Hook Gun",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-hook-gun.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-hook-gun.webp",
             "enhancementSlots": ["Range", "PULL"]
         },
         {
             "id": 34,
             "name": "Ink Bomb",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-ink-bomb.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-ink-bomb.webp",
             "enhancementSlots": ["Attack", "Move"]
         },
         {
             "id": 35,
             "name": "Net Shooter",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-net-shooter.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-net-shooter.webp",
             "enhancementSlots": ["Area attack", "IMMOBILIZE"]
         },
         {
             "id": 36,
             "name": "Stun Shot",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-stun-shot.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-stun-shot.webp",
             "enhancementSlots": ["Attack", "Range", "Move"]
         },
         {
             "id": 37,
             "name": "Reinvigorating Elixir",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-reinvigorating-elixir.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-reinvigorating-elixir.webp",
             "enhancementSlots": ["Heal", "Range"]
         },
         {
             "id": 38,
             "name": "Restorative Mist",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-restorative-mist.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-restorative-mist.webp",
             "enhancementSlots": ["Heal", "Range", "Move"]
         },
         {
             "id": 39,
             "name": "Energizing Tonic",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-energizing-tonic.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-energizing-tonic.webp",
             "enhancementSlots": ["Heal", "Heal", "Move"]
         },
         {
             "id": 40,
             "name": "Enhancement Field",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-enhancement-field.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-enhancement-field.webp",
             "enhancementSlots": ["Attack"]
         },
         {
             "id": 41,
             "name": "Toxic Bolt",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-toxic-bolt.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-toxic-bolt.webp",
             "enhancementSlots": ["Range", "Attack", "Range"]
         },
         {
             "id": 42,
             "name": "Reviving Shock",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-reviving-shock.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-reviving-shock.webp",
             "enhancementSlots": ["Attack", "ADD TARGET", "Heal", "Heal"]
         },
         {
             "id": 43,
             "name": "Volatile Concoction",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-volatile-concoction.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-volatile-concoction.webp",
             "enhancementSlots": []
         },
         {
             "id": 44,
             "name": "Potent Potables",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-potent-potables.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-potent-potables.webp",
             "enhancementSlots": ["Move"]
         },
         {
             "id": 45,
             "name": "Stamina Booster",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-stamina-booster.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-stamina-booster.webp",
             "enhancementSlots": ["Heal"]
         },
         {
             "id": 46,
             "name": "Disorienting Flash",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-disorienting-flash.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-disorienting-flash.webp",
             "enhancementSlots": ["Range", "ADD TARGET", "Move"]
         },
         {
             "id": 47,
             "name": "Tinkerer's Tools",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-tinkerers-tools.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-tinkerers-tools.webp",
             "enhancementSlots": []
         },
         {
             "id": 48,
             "name": "Crank Bow",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-crank-bow.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-crank-bow.webp",
             "enhancementSlots": ["Attack", "Attack", "Move"]
         },
         {
             "id": 49,
             "name": "Dangerous Contraption",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-dangerous-contraption.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-dangerous-contraption.webp",
             "enhancementSlots": ["Summon - Health", "Summon - Move", "Summon - Attack", "Move"]
         },
         {
             "id": 50,
             "name": "Micro Bots",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-micro-bots.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-micro-bots.webp",
             "enhancementSlots": ["Heal", "Heal", "Move"]
         },
         {
             "id": 51,
             "name": "Noxious Vials",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-noxious-vials.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-noxious-vials.webp",
             "enhancementSlots": ["Attack", "Area attack"]
         },
         {
             "id": 52,
             "name": "Disintegration Beam",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-disintegration-beam.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-disintegration-beam.webp",
             "enhancementSlots": ["Area attack", "Move", "DISARM"]
         },
         {
             "id": 53,
             "name": "Gas Canister",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-gas-canister.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-gas-canister.webp",
             "enhancementSlots": []
         },
         {
             "id": 54,
             "name": "Auto Turret",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-auto-turret.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-auto-turret.webp",
             "enhancementSlots": ["Heal", "Range"]
         },
         {
             "id": 55,
             "name": "Murderous Contraption",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-murderous-contraption.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-murderous-contraption.webp",
             "enhancementSlots": ["Summon - Health", "Summon - Move", "Summon - Attack", "Attack", "Range"]
         },
         {
             "id": 56,
             "name": "Curative Aerosol",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-curative-aerosol.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-curative-aerosol.webp",
             "enhancementSlots": ["Heal", "Heal", "Heal", "ADD TARGET"]
         },
         {
             "id": 57,
             "name": "Jet Propulsion",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-jet-propulsion.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-jet-propulsion.webp",
             "enhancementSlots": ["Move"]
         },
         {
             "id": 58,
             "name": "Harsh Stimulants",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-harsh-stimulants.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-harsh-stimulants.webp",
             "enhancementSlots": ["Attack", "Attack"]
         },
         {
             "id": 59,
             "name": "Lethal Injection",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-lethal-injection.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-lethal-injection.webp",
             "enhancementSlots": ["Move"]
         },
         {
             "id": 60,
             "name": "Chimeric Formula",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/TI/gh-chimeric-formula.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/TI/gh-chimeric-formula.webp",
             "enhancementSlots": []
         }
     ],
@@ -234,12 +234,12 @@
                 {
                     "id": 324,
                     "name": "-1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
                 },
                 {
                     "id": 324,
                     "name": "-1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
                 }
             ]
         },
@@ -250,14 +250,14 @@
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 }
             ],
             "remove": [
                 {
                     "id": 329,
                     "name": "-2",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
                 }
             ]
         },
@@ -268,12 +268,12 @@
                 {
                     "id": 319,
                     "name": "+1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
                 },
                 {
                     "id": 319,
                     "name": "+1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
                 }
             ],
             "remove": []
@@ -285,7 +285,7 @@
                 {
                     "id": 26,
                     "name": "+3",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-04.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/TI/gh-am-ti-04.webp"
                 }
             ],
             "remove": []
@@ -297,12 +297,12 @@
                 {
                     "id": 27,
                     "name": "chain fire",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-05.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/TI/gh-am-ti-05.webp"
                 },
                 {
                     "id": 27,
                     "name": "chain fire",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-05.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/TI/gh-am-ti-05.webp"
                 }
             ],
             "remove": []
@@ -314,17 +314,17 @@
                 {
                     "id": 29,
                     "name": "chain muddle",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-07.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/TI/gh-am-ti-07.webp"
                 },
                 {
                     "id": 29,
                     "name": "chain muddle",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-07.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/TI/gh-am-ti-07.webp"
                 },
                 {
                     "id": 29,
                     "name": "chain muddle",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-07.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/TI/gh-am-ti-07.webp"
                 }
             ],
             "remove": []
@@ -336,7 +336,7 @@
                 {
                     "id": 32,
                     "name": "+1 wound",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-10.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/TI/gh-am-ti-10.webp"
                 }
             ],
             "remove": []
@@ -348,7 +348,7 @@
                 {
                     "id": 34,
                     "name": "+1 immobilize",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-12.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/TI/gh-am-ti-12.webp"
                 }
             ],
             "remove": []
@@ -360,7 +360,7 @@
                 {
                     "id": 36,
                     "name": "+1 heal 2",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-14.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/TI/gh-am-ti-14.webp"
                 }
             ],
             "remove": []
@@ -372,7 +372,7 @@
                 {
                     "id": 38,
                     "name": "+0 add target",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/TI/gh-am-ti-16.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/TI/gh-am-ti-16.webp"
                 }
             ],
             "remove": []

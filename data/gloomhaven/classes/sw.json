@@ -1,199 +1,199 @@
 {
     "id": 3,
     "name": "Spellweaver",
-    "imageUrl": "/images/character-icons/gloomhaven/gh-spellweaver.webp",
-    "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-spellweaver.webp",
-    "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-spellweaver-back.webp",
-    "cardBackImageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-sw-back.webp",
+    "imageUrl": "/character-icons/gloomhaven/gh-spellweaver.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-spellweaver.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-spellweaver-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/SW/gh-sw-back.webp",
     "handSize": 8,
     "abilityCards": [
         {
             "id": 61,
             "name": "Fire Orbs",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-fire-orbs.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-fire-orbs.webp",
             "enhancementSlots": ["Attack", "Range", "ADD TARGET", "Move"]
         },
         {
             "id": 62,
             "name": "Impaling Eruption",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-impaling-eruption.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-impaling-eruption.webp",
             "enhancementSlots": ["Attack", "Range", "Move"]
         },
         {
             "id": 63,
             "name": "Reviving Ether",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-reviving-ether.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-reviving-ether.webp",
             "enhancementSlots": ["Move"]
         },
         {
             "id": 64,
             "name": "Freezing Nova",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-freezing-nova.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-freezing-nova.webp",
             "enhancementSlots": ["Attack", "Heal", "Heal"]
         },
         {
             "id": 65,
             "name": "Mana Bolt",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-mana-bolt.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-mana-bolt.webp",
             "enhancementSlots": ["Attack", "Heal", "Range"]
         },
         {
             "id": 66,
             "name": "Frost Armor",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-frost-armor.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-frost-armor.webp",
             "enhancementSlots": ["Attack"]
         },
         {
             "id": 67,
             "name": "Flame Strike",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-flame-strike.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-flame-strike.webp",
             "enhancementSlots": ["Range", "Attack", "Range"]
         },
         {
             "id": 68,
             "name": "Ride the Wind",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-ride-the-wind.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-ride-the-wind.webp",
             "enhancementSlots": ["Move"]
         },
         {
             "id": 69,
             "name": "Crackling Air",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-crackling-air.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-crackling-air.webp",
             "enhancementSlots": ["Move"]
         },
         {
             "id": 70,
             "name": "Hardened Spikes",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-hardened-spikes.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-hardened-spikes.webp",
             "enhancementSlots": ["RETALIATE", "Move"]
         },
         {
             "id": 71,
             "name": "Aid From the Ether",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-aid-from-the-ether.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-aid-from-the-ether.webp",
             "enhancementSlots": ["Heal", "Range", "Summon - Health", "Summon - Move", "Summon - Range"]
         },
         {
             "id": 72,
             "name": "Flashing Burst",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-flashing-burst.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-flashing-burst.webp",
             "enhancementSlots": ["Attack", "Range", "Move"]
         },
         {
             "id": 73,
             "name": "Icy Blast",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-icy-blast.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-icy-blast.webp",
             "enhancementSlots": ["Attack", "Heal", "Range"]
         },
         {
             "id": 74,
             "name": "Cold Fire",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-cold-fire.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-cold-fire.webp",
             "enhancementSlots": ["Area attack"]
         },
         {
             "id": 75,
             "name": "Elemental Aid",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-elemental-aid.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-elemental-aid.webp",
             "enhancementSlots": ["Heal", "Range"]
         },
         {
             "id": 76,
             "name": "Spirit of Doom",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-spirit-of-doom.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-spirit-of-doom.webp",
             "enhancementSlots": []
         },
         {
             "id": 77,
             "name": "Forked Beam",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-forked-beam.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-forked-beam.webp",
             "enhancementSlots": ["Attack", "ADD TARGET", "Move"]
         },
         {
             "id": 78,
             "name": "Chromatic Explosion",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-chromatic-explosion.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-chromatic-explosion.webp",
             "enhancementSlots": ["Attack", "Move"]
         },
         {
             "id": 79,
             "name": "Engulfed in Flames",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-engulfed-in-flames.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-engulfed-in-flames.webp",
             "enhancementSlots": ["Attack", "Range"]
         },
         {
             "id": 80,
             "name": "Living Torch",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-living-torch.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-living-torch.webp",
             "enhancementSlots": ["Attack", "Summon - Health", "Summon - Move", "Summon - Range"]
         },
         {
             "id": 81,
             "name": "Frozen Night",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-frozen-night.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-frozen-night.webp",
             "enhancementSlots": ["Attack", "Area attack", "Area attack", "Move"]
         },
         {
             "id": 82,
             "name": "Twin Restoration",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-twin-restoration.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-twin-restoration.webp",
             "enhancementSlots": ["Heal", "ADD TARGET"]
         },
         {
             "id": 83,
             "name": "Stone Fists",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-stone-fists.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-stone-fists.webp",
             "enhancementSlots": ["PUSH", "Move", "Shield"]
         },
         {
             "id": 84,
             "name": "Zephyr Wings",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-zephyr-wings.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-zephyr-wings.webp",
             "enhancementSlots": ["Move", "Move"]
         },
         {
             "id": 85,
             "name": "Cold Front",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-cold-front.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-cold-front.webp",
             "enhancementSlots": ["Attack", "Range"]
         },
         {
             "id": 86,
             "name": "Black Hole",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-black-hole.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-black-hole.webp",
             "enhancementSlots": ["PULL"]
         },
         {
             "id": 87,
             "name": "Inferno",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/SW/gh-inferno.webp",
+            "imageUrl": "/character-ability-cards/gloomhaven/SW/gh-inferno.webp",
             "enhancementSlots": ["RETALIATE"]
         }
     ],
@@ -206,22 +206,22 @@
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 },
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 },
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 },
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 }
             ]
         },
@@ -232,14 +232,14 @@
                 {
                     "id": 319,
                     "name": "+1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
                 }
             ],
             "remove": [
                 {
                     "id": 324,
                     "name": "-1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
                 }
             ]
         },
@@ -250,12 +250,12 @@
                 {
                     "id": 319,
                     "name": "+1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
                 },
                 {
                     "id": 319,
                     "name": "+1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
                 }
             ],
             "remove": []
@@ -267,7 +267,7 @@
                 {
                     "id": 45,
                     "name": "+0 stun",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-07.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SW/gh-am-sw-07.webp"
                 }
             ],
             "remove": []
@@ -279,7 +279,7 @@
                 {
                     "id": 46,
                     "name": "+1 wound",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-08.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SW/gh-am-sw-08.webp"
                 }
             ],
             "remove": []
@@ -291,7 +291,7 @@
                 {
                     "id": 47,
                     "name": "+1 immobilize",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-09.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SW/gh-am-sw-09.webp"
                 }
             ],
             "remove": []
@@ -303,7 +303,7 @@
                 {
                     "id": 48,
                     "name": "+1 curse",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-10.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SW/gh-am-sw-10.webp"
                 }
             ],
             "remove": []
@@ -315,7 +315,7 @@
                 {
                     "id": 49,
                     "name": "+2 fire",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-11.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SW/gh-am-sw-11.webp"
                 }
             ],
             "remove": []
@@ -327,7 +327,7 @@
                 {
                     "id": 51,
                     "name": "+2 ice",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-13.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SW/gh-am-sw-13.webp"
                 }
             ],
             "remove": []
@@ -339,12 +339,12 @@
                 {
                     "id": 53,
                     "name": "chain earth",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-15.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SW/gh-am-sw-15.webp"
                 },
                 {
                     "id": 54,
                     "name": "chain air",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-16.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SW/gh-am-sw-16.webp"
                 }
             ],
             "remove": []
@@ -356,12 +356,12 @@
                 {
                     "id": 55,
                     "name": "chain light",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-17.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SW/gh-am-sw-17.webp"
                 },
                 {
                     "id": 56,
                     "name": "chain dark",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/SW/gh-am-sw-18.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/SW/gh-am-sw-18.webp"
                 }
             ],
             "remove": []
