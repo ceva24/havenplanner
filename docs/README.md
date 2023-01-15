@@ -28,7 +28,7 @@ A web application to create and share character builds for the popular tabletop 
 
 ### Not yet implemented
 
--   All locked characters and items
+-   All locked character classes and items
 -   Content from Forgotten Circles, Jaws of the Lion, Crimson Scales, Trail of Ashes and Frosthaven
 
 ## 💻 Development
