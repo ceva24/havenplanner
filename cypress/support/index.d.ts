@@ -42,9 +42,7 @@ declare namespace Cypress {
 
         findEditHandDialog(): Chainable<Element>;
 
-        findItemsAutocomplete(): Chainable<Element>;
-
-        addItem(name: string): Chainable<Element>;
+        findEnhancementsAutocomplete(cardName: string, name: string, index: number): Chainable<Element>;
 
         findAttackModifierCardWithCount(name: string, count: number): Chainable<Element>;
 
@@ -61,5 +59,9 @@ declare namespace Cypress {
         loseBattleGoalCheckmark(battleGoalPerk: number, checkboxIndex: number): Chainable<Element>;
 
         clickBattleGoalGroupLabel(battleGoalPerk: number): Chainable<Element>;
+
+        findItemsAutocomplete(): Chainable<Element>;
+
+        addItem(name: string): Chainable<Element>;
     }
 }

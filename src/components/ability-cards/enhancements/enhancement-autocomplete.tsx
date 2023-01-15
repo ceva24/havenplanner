@@ -36,6 +36,7 @@ const EnhancementAutocomplete = ({
                         fallbackImageType="png"
                         altText={enhancement.name}
                         style={{ verticalAlign: "middle" }}
+                        aria-hidden="true"
                     />
                     {enhancement.name}
                 </Box>
