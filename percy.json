@@ -2,25 +2,35 @@
     {
         "name": "Profile Tab",
         "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gth2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPxSDtYxSDsO2hsO2hsO2YsO2sxeHsPxhDxeDtgxeDtL2esI2LxGDsJxGD2nxMEyRDxGD3nxME2qxGE3R2GxwDtSxwEtkilVsExFJxdDxRntWR5sxGHxTDxOLxUbtNuF",
-        "waitForTimeout": 10000,
         "execute": "document.querySelector('#show-personal-quest-switch').click()"
     },
     {
         "name": "Ability Cards Tab",
         "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gth2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPxSDtYxSDsO2hsO2hsO2YsO2sxeHsPxhDxeDtgxeDtL2esI2LxGDsJxGD2nxMEyRDxGD3nxME2qxGE3R2GxwDtSxwEtkilVsExFJxdDxRntWR5sxGHxTDxOLxUbtNuF",
-        "waitForTimeout": 10000,
-        "execute": "document.querySelector('#ability-cards-tab').click()"
+        "execute": "document.querySelector('#ability-cards-tab').click()",
+        "additionalSnapshots": [
+            {
+                "suffix": " - Hand",
+                "execute": "document.querySelector('#hand-tab').click()"
+            },
+            {
+                "suffix": " - Enhancements",
+                "execute": "document.querySelector('#enhancements-tab').click()"
+            },
+            {
+                "suffix": " - Enhancements - Autocomplete",
+                "execute": "document.querySelector(\"[aria-label='Open']\").click()"
+            }
+        ]
     },
     {
         "name": "Items Tab",
         "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gth2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPxSDtYxSDsO2hsO2hsO2YsO2sxeHsPxhDxeDtgxeDtL2esI2LxGDsJxGD2nxMEyRDxGD3nxME2qxGE3R2GxwDtSxwEtkilVsExFJxdDxRntWR5sxGHxTDxOLxUbtNuF",
-        "waitForTimeout": 10000,
         "execute": "document.querySelector('#items-tab').click()"
     },
     {
         "name": "Perks Tab",
         "url": "http://localhost:3000?character=uDriterisSrisdtcjRrisEriuA2LsKMI2ItX2IsQxHDtUxaDsetifjkuBxcDtT2NsL2Gth2GsNLxbDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsQ2DsPxSDtYxSDsO2hsO2hsO2YsO2sxeHsPxhDxeDtgxeDtL2esI2LxGDsJxGD2nxMEyRDxGD3nxME2qxGE3R2GxwDtSxwEtkilVsExFJxdDxRntWR5sxGHxTDxOLxUbtNuF",
-        "waitForTimeout": 10000,
         "execute": "document.querySelector('#perks-tab').click()"
     }
 ]
