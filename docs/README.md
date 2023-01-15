@@ -15,21 +15,20 @@
 
 ## 👋 Introduction
 
-A web application to create and share character builds for the popular tabletop and digital game [Gloomhaven](https://cephalofair.com/pages/gloomhaven). Inspired by tools like [Dark Souls Character Planner](https://soulsplanner.com/darksouls) and [FFXIV Lodestone](https://na.finalfantasyxiv.com/lodestone/character/).
+A web application to create and share character builds for the popular tabletop and digital game [Gloomhaven](https://cephalofair.com/pages/gloomhaven). Inspired by tools like [Dark Souls Character Planner](https://soulsplanner.com/darksouls), [WoW Armory](https://worldofwarcraft.com/en-gb/search) and [FFXIV Lodestone](https://na.finalfantasyxiv.com/lodestone/character/).
 
 ## 🗒️ Features
 
 -   Enter character details, including selecting a personal quest
 -   Select perks, track battle goal progress and see the resulting attack modifier deck composition
--   See all character ability cards and select unlocked ones
+-   See all character ability cards, unlock cards and add enhancements
 -   Create a saved hand
 -   Browse and select items
 -   Save and share characters with a shareable link
 
 ### Not yet implemented
 
--   Character ability card augments
--   Locked characters and items
+-   All locked characters and items
 -   Content from Forgotten Circles, Jaws of the Lion, Crimson Scales, Trail of Ashes and Frosthaven
 
 ## 💻 Development
