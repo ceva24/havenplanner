@@ -1,7 +1,7 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { Box } from "@mui/material";
-import { Card } from "@/components/core/cards";
 import EnhancementsAutocomplete from "@/components/ability-cards/enhancements/enhancements-autocomplete";
+import AbilityCard from "@/components/ability-cards/ability-card";
 
 interface EnhancementsProps {
     character: Character;
@@ -20,7 +20,7 @@ const Enhancements = ({ character, setCharacter }: EnhancementsProps) => {
                         aria-label={`${abilityCard.name} Enhancements`}
                         sx={{ margin: 1 }}
                     >
-                        <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
+                        <AbilityCard abilityCard={abilityCard} character={character} />
                         {abilityCard.enhancementSlots.map((slotType: string, slot: number) => (
                             // eslint-disable-next-line react/no-array-index-key
                             <Box key={`${abilityCard.id}-${slot}`} marginTop={1} marginBottom={1}>

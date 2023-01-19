@@ -2,8 +2,6 @@ import { characterClasses } from "@/loaders/character-classes";
 import { attackModifiers } from "@/loaders/attack-modifiers";
 import { createDefaultBattleGoals } from "@/services/character";
 
-const baseImageUrl = "https://images.ghplanner.app";
-
 const defaultCharacter: Character = {
     name: "",
     experience: 0,
@@ -49,4 +47,4 @@ const baseAttackModifierDeck: AttackModifierDeckCard[] = [
     },
 ];
 
-export { baseImageUrl, defaultCharacter, baseAttackModifierDeck };
+export { defaultCharacter, baseAttackModifierDeck };

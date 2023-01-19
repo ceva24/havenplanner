@@ -14,6 +14,7 @@
             "@/utils/*": ["src/utils/*"],
             "@/data/*": ["data/*"],
             "@/constants": ["src/constants"],
+            "@/utils": ["src/utils"],
             "@/testutils": ["src/__tests__/utils"]
         }
     },

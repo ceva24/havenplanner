@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import type { Dispatch, SetStateAction } from "react";
 import UnlockableAbilityCard from "@/components/ability-cards/deck/unlockable-ability-card";
-import { Card } from "@/components/core/cards";
+import AbilityCard from "@/components/ability-cards/ability-card";
 
 interface AbilityCardGroupProps {
     level: string;
@@ -32,7 +32,7 @@ const AbilityCardGroup = ({ level, cards, isSelectable, character, setCharacter 
                                 setCharacter={setCharacter}
                             />
                         ) : (
-                            <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
+                            <AbilityCard abilityCard={abilityCard} character={character} />
                         )}
                     </Box>
                 ))}

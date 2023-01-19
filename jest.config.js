@@ -25,9 +25,9 @@ const customJestConfig = {
         "@/services/(.*)": "<rootDir>/src/services/$1",
         "@/styles/(.*)": "<rootDir>/src/styles/$1",
         "@/types/(.*)": "<rootDir>/src/types/$1",
-        "@/utils/(.*)": "<rootDir>/src/utils/$1",
         "@/data/(.*)": "<rootDir>/data/$1",
         "@/constants": "<rootDir>/src/constants",
+        "@/utils": "<rootDir>/src/utils",
         "@/testutils": "<rootDir>/src/__tests__/utils",
     },
 };
