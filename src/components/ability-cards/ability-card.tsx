@@ -75,3 +75,4 @@ const convertEnhancementNameToKey = (enhancementName: string) => {
 };
 
 export default AbilityCard;
+export { enhancedAbilityCardsBaseImageUrl, determineAbilityCardImageUrl, convertEnhancementNameToKey };
