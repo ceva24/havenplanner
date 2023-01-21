@@ -1,12 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import EnhancementsAutocompleteInput from "@/components/ability-cards/enhancements/enhancements-autocomplete-input";
 
+const enhancementSlot: EnhancementSlot = {
+    id: 0,
+    name: "Attack",
+    types: ["numeric", "main-line-targets-enemies"],
+};
+
 describe("enhancements autocomplete input", () => {
     it("renders", () => {
         render(
             <EnhancementsAutocompleteInput
                 fullWidth
-                slotType="Attack"
+                enhancementSlot={enhancementSlot}
                 id="1"
                 disabled={false}
                 size="small"
@@ -25,7 +31,7 @@ describe("enhancements autocomplete input", () => {
         render(
             <EnhancementsAutocompleteInput
                 fullWidth
-                slotType="Attack"
+                enhancementSlot={enhancementSlot}
                 id="1"
                 disabled={false}
                 size="small"

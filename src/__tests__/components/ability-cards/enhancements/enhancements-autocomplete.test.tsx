@@ -10,7 +10,11 @@ import { createTestCharacter } from "@/testutils";
 
 const character = createTestCharacter();
 character.gainedEnhancements = [
-    { abilityCard: character.characterClass.abilityCards[0], slot: 0, enhancement: enhancements[0] },
+    {
+        abilityCard: character.characterClass.abilityCards[0],
+        enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
+        enhancement: enhancements[0],
+    },
 ];
 
 const setCharacter = jest.fn();
@@ -23,9 +27,8 @@ describe("enhancements autocomplete", () => {
     it("renders", () => {
         render(
             <EnhancementsAutocomplete
-                slotType="Attack"
                 abilityCard={character.characterClass.abilityCards[0]}
-                slot={1}
+                enhancementSlot={character.characterClass.abilityCards[0].enhancementSlots[1]}
                 character={character}
                 setCharacter={setCharacter}
             />
@@ -42,7 +45,7 @@ describe("getEnhancementSlotValue", () => {
         const enhancement: Enhancement | null = getEnhancementSlotValue(
             character,
             character.characterClass.abilityCards[0],
-            0
+            character.characterClass.abilityCards[0].enhancementSlots[0]
         );
 
         expect(enhancement).toEqual(character.gainedEnhancements[0].enhancement);
@@ -52,7 +55,7 @@ describe("getEnhancementSlotValue", () => {
         const enhancement: Enhancement | null = getEnhancementSlotValue(
             character,
             character.characterClass.abilityCards[0],
-            1
+            character.characterClass.abilityCards[0].enhancementSlots[1]
         );
 
         expect(enhancement).toBeNull();
@@ -62,7 +65,7 @@ describe("getEnhancementSlotValue", () => {
         const enhancement: Enhancement | null = getEnhancementSlotValue(
             character,
             character.characterClass.abilityCards[0],
-            1
+            character.characterClass.abilityCards[0].enhancementSlots[1]
         );
 
         expect(enhancement).not.toEqual(character.gainedEnhancements[0].enhancement);
@@ -72,7 +75,7 @@ describe("getEnhancementSlotValue", () => {
         const enhancement: Enhancement | null = getEnhancementSlotValue(
             character,
             character.characterClass.abilityCards[1],
-            0
+            character.characterClass.abilityCards[1].enhancementSlots[0]
         );
 
         expect(enhancement).not.toEqual(character.gainedEnhancements[0].enhancement);
@@ -81,7 +84,13 @@ describe("getEnhancementSlotValue", () => {
 
 describe("getPossibleEnhancementsFor", () => {
     it("filters the list of enhancements to valid slot types", () => {
-        const enhancements: Enhancement[] = getPossibleEnhancementsFor("Move");
+        const enhancementSlot: EnhancementSlot = {
+            id: 0,
+            name: "Move",
+            types: ["numeric", "main-line", "move"],
+        };
+
+        const enhancements: Enhancement[] = getPossibleEnhancementsFor(enhancementSlot);
 
         const enhancementNames = enhancements.map((enhancement: Enhancement) => enhancement.name);
 
@@ -94,9 +103,9 @@ describe("gainOrRemoveEnhancement", () => {
     it("gains an enhancement", () => {
         const enhancement = enhancements[0];
         const abilityCard = character.characterClass.abilityCards[0];
-        const slot = 0;
+        const enhancementSlot = character.characterClass.abilityCards[0].enhancementSlots[0];
 
-        gainOrRemoveEnhancement(enhancement, abilityCard, slot, character, setCharacter);
+        gainOrRemoveEnhancement(enhancement, abilityCard, enhancementSlot, character, setCharacter);
 
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
@@ -104,7 +113,7 @@ describe("gainOrRemoveEnhancement", () => {
                 {
                     enhancement,
                     abilityCard,
-                    slot,
+                    enhancementSlot,
                 },
             ],
         });
@@ -112,17 +121,17 @@ describe("gainOrRemoveEnhancement", () => {
 
     it("removes an enhancement", () => {
         const abilityCard = character.characterClass.abilityCards[0];
-        const slot = 0;
+        const enhancementSlot = character.characterClass.abilityCards[0].enhancementSlots[0];
 
         character.gainedEnhancements = [
             {
                 enhancement: enhancements[0],
                 abilityCard,
-                slot,
+                enhancementSlot,
             },
         ];
 
-        gainOrRemoveEnhancement(null, abilityCard, slot, character, setCharacter);
+        gainOrRemoveEnhancement(null, abilityCard, enhancementSlot, character, setCharacter);
 
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
@@ -133,17 +142,17 @@ describe("gainOrRemoveEnhancement", () => {
     it("updates an enhancement", () => {
         const enhancement = enhancements[9];
         const abilityCard = character.characterClass.abilityCards[0];
-        const slot = 0;
+        const enhancementSlot = character.characterClass.abilityCards[0].enhancementSlots[0];
 
         character.gainedEnhancements = [
             {
                 enhancement: enhancements[0],
                 abilityCard,
-                slot,
+                enhancementSlot,
             },
         ];
 
-        gainOrRemoveEnhancement(enhancement, abilityCard, slot, character, setCharacter);
+        gainOrRemoveEnhancement(enhancement, abilityCard, enhancementSlot, character, setCharacter);
 
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
@@ -151,7 +160,7 @@ describe("gainOrRemoveEnhancement", () => {
                 {
                     enhancement,
                     abilityCard,
-                    slot,
+                    enhancementSlot,
                 },
             ],
         });

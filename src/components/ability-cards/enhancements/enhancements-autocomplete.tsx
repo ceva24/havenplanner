@@ -6,29 +6,27 @@ import EnhancementsAutocompleteInput from "@/components/ability-cards/enhancemen
 import { enhancements } from "@/loaders/enhancements";
 
 interface EnhancementsAutocompleteProps {
-    slotType: string;
     abilityCard: AbilityCard;
-    slot: number;
+    enhancementSlot: EnhancementSlot;
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
 const EnhancementsAutocomplete = ({
-    slotType,
     abilityCard,
-    slot,
+    enhancementSlot,
     character,
     setCharacter,
 }: EnhancementsAutocompleteProps) => {
     const handleChange = (event: SyntheticEvent, value: Enhancement | null) => {
-        gainOrRemoveEnhancement(value, abilityCard, slot, character, setCharacter);
+        gainOrRemoveEnhancement(value, abilityCard, enhancementSlot, character, setCharacter);
     };
 
     return (
         <Autocomplete
             disablePortal
-            value={getEnhancementSlotValue(character, abilityCard, slot)}
-            options={getPossibleEnhancementsFor(slotType)}
+            value={getEnhancementSlotValue(character, abilityCard, enhancementSlot)}
+            options={getPossibleEnhancementsFor(enhancementSlot)}
             getOptionLabel={(enhancement: Enhancement) => enhancement.name}
             renderOption={(props: HTMLAttributes<HTMLLIElement>, enhancement: Enhancement) => (
                 <Box component="li" sx={{ "& > picture": { marginRight: 2, flexShrink: 0 } }} {...props}>
@@ -43,44 +41,52 @@ const EnhancementsAutocomplete = ({
                 </Box>
             )}
             renderInput={(props: AutocompleteRenderInputParams) => (
-                <EnhancementsAutocompleteInput {...props} slotType={slotType} />
+                <EnhancementsAutocompleteInput {...props} enhancementSlot={enhancementSlot} />
             )}
             onChange={handleChange}
         />
     );
 };
 
-const getEnhancementSlotValue = (character: Character, abilityCard: AbilityCard, slot: number): Enhancement | null => {
+const getEnhancementSlotValue = (
+    character: Character,
+    abilityCard: AbilityCard,
+    enhancementSlot: EnhancementSlot
+): Enhancement | null => {
     const gainedEnhancement: GainedEnhancement | undefined = character.gainedEnhancements.find(
         (gainedEnhancement: GainedEnhancement) =>
-            gainedEnhancement.abilityCard.id === abilityCard.id && gainedEnhancement.slot === slot
+            gainedEnhancement.abilityCard.id === abilityCard.id &&
+            gainedEnhancement.enhancementSlot.id === enhancementSlot.id
     );
 
     return gainedEnhancement?.enhancement ?? null;
 };
 
-const getPossibleEnhancementsFor = (slotType: string): Enhancement[] => {
-    return enhancements.filter((enhancement: Enhancement) => enhancement.validSlotTypes.includes(slotType));
+const getPossibleEnhancementsFor = (enhancementSlot: EnhancementSlot): Enhancement[] => {
+    return enhancements.filter((enhancement: Enhancement) =>
+        enhancement.validSlotTypes.some((slotType: string) => enhancementSlot.types.includes(slotType))
+    );
 };
 
 const gainOrRemoveEnhancement = (
     enhancement: Enhancement | null,
     abilityCard: AbilityCard,
-    slot: number,
+    enhancementSlot: EnhancementSlot,
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>
     // eslint-disable-next-line max-params
 ) => {
     let gainedEnhancements: GainedEnhancement[] = character.gainedEnhancements.filter(
         (gainedEnhancement: GainedEnhancement) =>
-            gainedEnhancement.abilityCard.id !== abilityCard.id || gainedEnhancement.slot !== slot
+            gainedEnhancement.abilityCard.id !== abilityCard.id ||
+            gainedEnhancement.enhancementSlot.id !== enhancementSlot.id
     );
 
     if (enhancement) {
         gainedEnhancements = gainedEnhancements.concat([
             {
                 abilityCard,
-                slot,
+                enhancementSlot,
                 enhancement,
             },
         ]);

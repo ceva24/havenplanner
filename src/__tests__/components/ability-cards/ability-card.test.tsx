@@ -33,7 +33,7 @@ describe("determineAbilityCardImageUrl", () => {
         character.gainedEnhancements = [
             {
                 abilityCard: character.characterClass.abilityCards[1],
-                slot: 0,
+                enhancementSlot: character.characterClass.abilityCards[1].enhancementSlots[0],
                 enhancement: enhancements[0],
             },
         ];
@@ -48,7 +48,7 @@ describe("determineAbilityCardImageUrl", () => {
         character.gainedEnhancements = [
             {
                 abilityCard: character.characterClass.abilityCards[0],
-                slot: 0,
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
                 enhancement: enhancements[0],
             },
         ];
@@ -63,7 +63,7 @@ describe("determineAbilityCardImageUrl", () => {
         character.gainedEnhancements = [
             {
                 abilityCard: character.characterClass.abilityCards[0],
-                slot: 0,
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
                 enhancement: enhancements[0],
             },
         ];
@@ -89,7 +89,7 @@ describe("determineAbilityCardImageUrl", () => {
         character.gainedEnhancements = [
             {
                 abilityCard: character.characterClass.abilityCards[0],
-                slot: 0,
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
                 enhancement: enhancements[0],
             },
         ];
@@ -106,7 +106,7 @@ describe("determineAbilityCardImageUrl", () => {
         character.gainedEnhancements = [
             {
                 abilityCard: character.characterClass.abilityCards[0],
-                slot: 0,
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
                 enhancement: enhancements[0],
             },
         ];
@@ -121,7 +121,7 @@ describe("determineAbilityCardImageUrl", () => {
         character.gainedEnhancements = [
             {
                 abilityCard: character.characterClass.abilityCards[3],
-                slot: 0,
+                enhancementSlot: character.characterClass.abilityCards[3].enhancementSlots[0],
                 enhancement: enhancements[0],
             },
         ];
@@ -136,12 +136,12 @@ describe("determineAbilityCardImageUrl", () => {
         character.gainedEnhancements = [
             {
                 abilityCard: character.characterClass.abilityCards[3],
-                slot: 0,
+                enhancementSlot: character.characterClass.abilityCards[3].enhancementSlots[0],
                 enhancement: enhancements[0],
             },
             {
                 abilityCard: character.characterClass.abilityCards[0],
-                slot: 0,
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
                 enhancement: enhancements[1],
             },
         ];
@@ -156,7 +156,7 @@ describe("determineAbilityCardImageUrl", () => {
         character.gainedEnhancements = [
             {
                 abilityCard: character.characterClass.abilityCards[1],
-                slot: 1,
+                enhancementSlot: character.characterClass.abilityCards[1].enhancementSlots[1],
                 enhancement: enhancements[0],
             },
         ];
@@ -171,17 +171,17 @@ describe("determineAbilityCardImageUrl", () => {
         character.gainedEnhancements = [
             {
                 abilityCard: character.characterClass.abilityCards[1],
-                slot: 0,
+                enhancementSlot: character.characterClass.abilityCards[1].enhancementSlots[0],
                 enhancement: enhancements[1],
             },
             {
                 abilityCard: character.characterClass.abilityCards[1],
-                slot: 1,
+                enhancementSlot: character.characterClass.abilityCards[1].enhancementSlots[1],
                 enhancement: enhancements[0],
             },
             {
                 abilityCard: character.characterClass.abilityCards[1],
-                slot: 2,
+                enhancementSlot: character.characterClass.abilityCards[1].enhancementSlots[2],
                 enhancement: enhancements[8],
             },
         ];
@@ -196,27 +196,27 @@ describe("determineAbilityCardImageUrl", () => {
         character.gainedEnhancements = [
             {
                 abilityCard: character.characterClass.abilityCards[0],
-                slot: 0,
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
                 enhancement: enhancements[0],
             },
             {
                 abilityCard: character.characterClass.abilityCards[0],
-                slot: 1,
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[1],
                 enhancement: enhancements[1],
             },
             {
                 abilityCard: character.characterClass.abilityCards[0],
-                slot: 2,
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[2],
                 enhancement: enhancements[9],
             },
             {
                 abilityCard: character.characterClass.abilityCards[0],
-                slot: 3,
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[3],
                 enhancement: enhancements[12],
             },
             {
                 abilityCard: character.characterClass.abilityCards[0],
-                slot: 4,
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[4],
                 enhancement: enhancements[16],
             },
         ];

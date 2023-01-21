@@ -175,7 +175,7 @@ describe("findAndSetCharacter", () => {
             {
                 enhancement: enhancements[0],
                 abilityCard: character.characterClass.abilityCards[0],
-                slot: 0,
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
             },
         ];
 

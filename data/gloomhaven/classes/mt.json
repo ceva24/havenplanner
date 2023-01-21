@@ -12,7 +12,13 @@
             "name": "Submissive Affliction",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-submissive-affliction.webp",
-            "enhancementSlots": ["Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 147,
@@ -26,63 +32,187 @@
             "name": "Fearsome Blade",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-fearsome-blade.webp",
-            "enhancementSlots": ["Attack", "PUSH", "Attack", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PUSH",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 149,
             "name": "Feedback Loop",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-feedback-loop.webp",
-            "enhancementSlots": ["Attack", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 150,
             "name": "Gnawing Horde",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-gnawing-horde.webp",
-            "enhancementSlots": ["Summon - Health", "Summon - Move", "Summon - Attack", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Summon - Attack",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 3,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 151,
             "name": "The Mind's Weakness",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-the-minds-weakness.webp",
-            "enhancementSlots": ["Attack", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 152,
             "name": "Parasitic Influence",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-parasitic-influence.webp",
-            "enhancementSlots": ["Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 153,
             "name": "Scurry",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-scurry.webp",
-            "enhancementSlots": ["Move", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 154,
             "name": "Perverse Edge",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-perverse-edge.webp",
-            "enhancementSlots": ["Attack", "Attack", "Range"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 155,
             "name": "Empathetic Assault",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-empathetic-assault.webp",
-            "enhancementSlots": ["Attack", "Attack", "Move", "Heal"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
         },
         {
             "id": 156,
             "name": "Withering Claw",
             "level": "X",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-withering-claw.webp",
-            "enhancementSlots": ["Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 157,
@@ -96,98 +226,292 @@
             "name": "Frigid Apparition",
             "level": "X",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-frigid-apparition.webp",
-            "enhancementSlots": ["Attack", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 159,
             "name": "Wretched Creature",
             "level": "2",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-wretched-creature.webp",
-            "enhancementSlots": ["Summon - Health", "Summon - Move", "Summon - Attack", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Summon - Attack",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 3,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 160,
             "name": "Hostile Takeover",
             "level": "2",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-hostile-takeover.webp",
-            "enhancementSlots": ["Attack", "Range"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 161,
             "name": "Brain Leech",
             "level": "3",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-brain-leech.webp",
-            "enhancementSlots": ["Attack", "Heal", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 162,
             "name": "Silent Scream",
             "level": "3",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-silent-scream.webp",
-            "enhancementSlots": ["Attack", "Move", "PUSH"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "PUSH",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 163,
             "name": "Pilfer",
             "level": "4",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-pilfer.webp",
-            "enhancementSlots": ["Attack", "Move", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 164,
             "name": "Cranium Overload",
             "level": "4",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-cranium-overload.webp",
-            "enhancementSlots": ["Attack", "Attack", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 165,
             "name": "Mass Hysteria",
             "level": "5",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-mass-hysteria.webp",
-            "enhancementSlots": ["ADD TARGET"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 166,
             "name": "Frozen Mind",
             "level": "5",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-frozen-mind.webp",
-            "enhancementSlots": ["Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 167,
             "name": "Corrupting Embrace",
             "level": "6",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-corrupting-embrace.webp",
-            "enhancementSlots": ["Attack", "Attack", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 168,
             "name": "Dark Frenzy",
             "level": "6",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-dark-frenzy.webp",
-            "enhancementSlots": ["Attack", "Move", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 169,
             "name": "Vicious Blood",
             "level": "7",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-vicious-blood.webp",
-            "enhancementSlots": ["Attack", "Move", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 170,
             "name": "Psychic Projection",
             "level": "7",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-psychic-projection.webp",
-            "enhancementSlots": ["Heal", "Shield"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
         },
         {
             "id": 171,
             "name": "Shared Nightmare",
             "level": "8",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-shared-nightmare.webp",
-            "enhancementSlots": ["Attack", "ADD TARGET", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 172,
@@ -201,14 +525,36 @@
             "name": "Many as One",
             "level": "9",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-many-as-one.webp",
-            "enhancementSlots": ["Summon - Health", "Summon - Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                }
+            ]
         },
         {
             "id": 174,
             "name": "Phantasmal Killer",
             "level": "9",
             "imageUrl": "/character-ability-cards/gloomhaven/MT/gh-phantasmal-killer.webp",
-            "enhancementSlots": ["Attack", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         }
     ],
     "perks": [

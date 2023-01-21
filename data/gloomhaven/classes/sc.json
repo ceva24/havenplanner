@@ -12,161 +12,414 @@
             "name": "Single Out",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-single-out.webp",
-            "enhancementSlots": ["Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 89,
             "name": "Flanking Strike",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-flanking-strike.webp",
-            "enhancementSlots": ["Attack", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 90,
             "name": "Smoke Bomb",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-smoke-bomb.webp",
-            "enhancementSlots": ["INVISIBLE", "PULL", "Range"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "INVISIBLE",
+                    "types": ["main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "PULL",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 91,
             "name": "Backstab",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-backstab.webp",
-            "enhancementSlots": ["Attack", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 92,
             "name": "Thief's Knack",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-thiefs-knack.webp",
-            "enhancementSlots": ["Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 93,
             "name": "Venom Shiv",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-venom-shiv.webp",
-            "enhancementSlots": ["Attack", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 94,
             "name": "Throwing Knives",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-throwing-knives.webp",
-            "enhancementSlots": ["Range"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 95,
             "name": "Quick Hands",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-quick-hands.webp",
-            "enhancementSlots": ["Move", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 96,
             "name": "Special Mixture",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-special-mixture.webp",
-            "enhancementSlots": ["Heal", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 97,
             "name": "Sinister Opportunity",
             "level": "X",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-sinister-opportunity.webp",
-            "enhancementSlots": ["Attack", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 98,
             "name": "Trickster's Reversal",
             "level": "X",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-tricksters-reversal.webp",
-            "enhancementSlots": ["Attack", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 99,
             "name": "Swift Bow",
             "level": "X",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-swift-bow.webp",
-            "enhancementSlots": ["Attack", "Range", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 100,
             "name": "Open Wound",
             "level": "2",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-open-wound.webp",
-            "enhancementSlots": ["Attack", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 101,
             "name": "Flintlock",
             "level": "2",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-flintlock.webp",
-            "enhancementSlots": ["Attack", "Attack", "Range"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 102,
             "name": "Hidden Daggers",
             "level": "3",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-hidden-daggers.webp",
-            "enhancementSlots": ["Attack", "Range", "ADD TARGET", "INVISIBLE"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 3,
+                    "name": "INVISIBLE",
+                    "types": ["main-line-targets-allies-or-self"]
+                }
+            ]
         },
         {
             "id": 103,
             "name": "Duelist's Advance",
             "level": "3",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-duelists-advance.webp",
-            "enhancementSlots": ["Move", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 104,
             "name": "Flurry of Blades",
             "level": "4",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-flurry-of-blades.webp",
-            "enhancementSlots": ["Range", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 105,
             "name": "Gruesome Advantage",
             "level": "4",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-gruesome-advantage.webp",
-            "enhancementSlots": ["Attack", "Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 106,
             "name": "Cull the Weak",
             "level": "5",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-cull-the-weak.webp",
-            "enhancementSlots": ["Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 107,
             "name": "Visage of the Inevitable",
             "level": "5",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-visage-of-the-inevitable.webp",
-            "enhancementSlots": ["Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 108,
             "name": "Crippling Poison",
             "level": "6",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-crippling-poison.webp",
-            "enhancementSlots": ["Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 109,
             "name": "Burning Oil",
             "level": "6",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-burning-oil.webp",
-            "enhancementSlots": ["Attack", "Range"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 110,
             "name": "Stick to the Shadows",
             "level": "7",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-stick-to-the-shadows.webp",
-            "enhancementSlots": ["Attack", "Attack", "INVISIBLE"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "INVISIBLE",
+                    "types": ["main-line-targets-allies-or-self"]
+                }
+            ]
         },
         {
             "id": 111,
@@ -180,28 +433,77 @@
             "name": "Stiletto Storm",
             "level": "8",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-stiletto-storm.webp",
-            "enhancementSlots": ["Range", "Move", "RETALIATE"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "RETALIATE",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
         },
         {
             "id": 113,
             "name": "Pain's End",
             "level": "8",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-pains-end.webp",
-            "enhancementSlots": ["Heal", "Heal", "Move"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 114,
             "name": "Long Con",
             "level": "9",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-long-con.webp",
-            "enhancementSlots": ["Attack"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 115,
             "name": "Watch It Burn",
             "level": "9",
             "imageUrl": "/character-ability-cards/gloomhaven/SC/gh-watch-it-burn.webp",
-            "enhancementSlots": ["Move", "WOUND"]
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "WOUND",
+                    "types": ["targets-enemies"]
+                }
+            ]
         }
     ],
     "perks": [

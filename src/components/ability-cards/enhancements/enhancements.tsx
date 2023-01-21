@@ -21,13 +21,11 @@ const Enhancements = ({ character, setCharacter }: EnhancementsProps) => {
                         sx={{ margin: 1 }}
                     >
                         <AbilityCard abilityCard={abilityCard} character={character} />
-                        {abilityCard.enhancementSlots.map((slotType: string, slot: number) => (
-                            // eslint-disable-next-line react/no-array-index-key
-                            <Box key={`${abilityCard.id}-${slot}`} marginTop={1} marginBottom={1}>
+                        {abilityCard.enhancementSlots.map((enhancementSlot: EnhancementSlot) => (
+                            <Box key={`${abilityCard.id}-${enhancementSlot.id}`} marginTop={1} marginBottom={1}>
                                 <EnhancementsAutocomplete
-                                    slotType={slotType}
                                     abilityCard={abilityCard}
-                                    slot={slot}
+                                    enhancementSlot={enhancementSlot}
                                     character={character}
                                     setCharacter={setCharacter}
                                 />

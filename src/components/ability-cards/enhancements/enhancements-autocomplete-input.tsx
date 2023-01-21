@@ -3,10 +3,10 @@ import Image from "@/components/core/image";
 import { enhancements } from "@/loaders/enhancements";
 
 interface EnhancementsAutocompleteInputProps extends AutocompleteRenderInputParams {
-    slotType: string;
+    enhancementSlot: EnhancementSlot;
 }
 
-const EnhancementsAutocompleteInput = ({ slotType, ...props }: EnhancementsAutocompleteInputProps) => {
+const EnhancementsAutocompleteInput = ({ enhancementSlot, ...props }: EnhancementsAutocompleteInputProps) => {
     const enhancement = enhancements.find((enhancement: Enhancement) => enhancement.name === props.inputProps.value);
 
     if (enhancement) {
@@ -21,7 +21,7 @@ const EnhancementsAutocompleteInput = ({ slotType, ...props }: EnhancementsAutoc
         );
     }
 
-    return <TextField label={slotType} {...props} />;
+    return <TextField label={enhancementSlot.name} {...props} />;
 };
 
 export default EnhancementsAutocompleteInput;

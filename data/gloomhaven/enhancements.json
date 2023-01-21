@@ -3,321 +3,108 @@
         "id": 0,
         "name": "+1",
         "imageUrl": "/enhancement-icons/gloomhaven/+1.png",
-        "validSlotTypes": [
-            "Move",
-            "Attack",
-            "Range",
-            "Shield",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "RETALIATE",
-            "Heal",
-            "ADD TARGET",
-            "Summon - Health",
-            "Summon - Move",
-            "Summon - Attack",
-            "Summon - Range"
-        ]
+        "validSlotTypes": ["numeric", "summon-base-stat"]
     },
     {
         "id": 1,
         "name": "POISON",
         "imageUrl": "/enhancement-icons/gloomhaven/poison.png",
-        "validSlotTypes": [
-            "Attack",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN"
-        ]
+        "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
         "id": 2,
         "name": "WOUND",
         "imageUrl": "/enhancement-icons/gloomhaven/wound.png",
-        "validSlotTypes": [
-            "Attack",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN"
-        ]
+        "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
         "id": 3,
         "name": "MUDDLE",
         "imageUrl": "/enhancement-icons/gloomhaven/muddle.png",
-        "validSlotTypes": [
-            "Attack",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN"
-        ]
+        "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
         "id": 4,
         "name": "IMMOBILIZE",
         "imageUrl": "/enhancement-icons/gloomhaven/immobilize.png",
-        "validSlotTypes": [
-            "Attack",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN"
-        ]
+        "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
         "id": 5,
         "name": "DISARM",
         "imageUrl": "/enhancement-icons/gloomhaven/disarm.png",
-        "validSlotTypes": [
-            "Attack",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN"
-        ]
+        "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
         "id": 6,
         "name": "CURSE",
         "imageUrl": "/enhancement-icons/gloomhaven/curse.png",
-        "validSlotTypes": [
-            "Attack",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN"
-        ]
+        "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
         "id": 7,
         "name": "STRENGTHEN",
         "imageUrl": "/enhancement-icons/gloomhaven/strengthen.png",
-        "validSlotTypes": ["Shield", "RETALIATE", "Heal", "STRENGTHEN", "BLESS", "INVISIBLE"]
+        "validSlotTypes": ["main-line-targets-allies-or-self"]
     },
     {
         "id": 8,
         "name": "BLESS",
         "imageUrl": "/enhancement-icons/gloomhaven/bless.png",
-        "validSlotTypes": ["Shield", "RETALIATE", "Heal", "STRENGTHEN", "BLESS", "INVISIBLE"]
+        "validSlotTypes": ["main-line-targets-allies-or-self"]
     },
     {
         "id": 9,
         "name": "Jump",
         "imageUrl": "/enhancement-icons/gloomhaven/jump.png",
-        "validSlotTypes": ["Move"]
+        "validSlotTypes": ["move"]
     },
     {
         "id": 10,
         "name": "Fire",
         "imageUrl": "/enhancement-icons/gloomhaven/fire.png",
-        "validSlotTypes": [
-            "Attack",
-            "Shield",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "RETALIATE",
-            "Heal",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN",
-            "STRENGTHEN",
-            "BLESS",
-            "INVISIBLE"
-        ]
+        "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
         "id": 11,
         "name": "Ice",
         "imageUrl": "/enhancement-icons/gloomhaven/ice.png",
-        "validSlotTypes": [
-            "Attack",
-            "Shield",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "RETALIATE",
-            "Heal",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN",
-            "STRENGTHEN",
-            "BLESS",
-            "INVISIBLE"
-        ]
+        "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
         "id": 12,
         "name": "Air",
         "imageUrl": "/enhancement-icons/gloomhaven/air.png",
-        "validSlotTypes": [
-            "Attack",
-            "Shield",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "RETALIATE",
-            "Heal",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN",
-            "STRENGTHEN",
-            "BLESS",
-            "INVISIBLE"
-        ]
+        "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
         "id": 13,
         "name": "Earth",
         "imageUrl": "/enhancement-icons/gloomhaven/earth.png",
-        "validSlotTypes": [
-            "Attack",
-            "Shield",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "RETALIATE",
-            "Heal",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN",
-            "STRENGTHEN",
-            "BLESS",
-            "INVISIBLE"
-        ]
+        "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
         "id": 14,
         "name": "Light",
         "imageUrl": "/enhancement-icons/gloomhaven/light.png",
-        "validSlotTypes": [
-            "Attack",
-            "Shield",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "RETALIATE",
-            "Heal",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN",
-            "STRENGTHEN",
-            "BLESS",
-            "INVISIBLE"
-        ]
+        "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
         "id": 15,
         "name": "Dark",
         "imageUrl": "/enhancement-icons/gloomhaven/dark.png",
-        "validSlotTypes": [
-            "Attack",
-            "Shield",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "RETALIATE",
-            "Heal",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN",
-            "STRENGTHEN",
-            "BLESS",
-            "INVISIBLE"
-        ]
+        "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
         "id": 16,
         "name": "Any element",
         "imageUrl": "/enhancement-icons/gloomhaven/any-element.png",
-        "validSlotTypes": [
-            "Attack",
-            "Shield",
-            "PUSH",
-            "PULL",
-            "PIERCE",
-            "RETALIATE",
-            "Heal",
-            "POISON",
-            "WOUND",
-            "MUDDLE",
-            "IMMOBILIZE",
-            "DISARM",
-            "CURSE",
-            "STUN",
-            "STRENGTHEN",
-            "BLESS",
-            "INVISIBLE"
-        ]
+        "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
         "id": 17,
         "name": "Attack Hex",
         "imageUrl": "/enhancement-icons/gloomhaven/hex.png",
-        "validSlotTypes": ["Area attack"]
+        "validSlotTypes": ["area-attack"]
     }
 ]

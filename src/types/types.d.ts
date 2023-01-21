@@ -21,7 +21,7 @@ interface Character {
 
 interface GainedEnhancement {
     abilityCard: AbilityCard;
-    slot: number;
+    enhancementSlot: EnhancementSlot;
     enhancement: Enhancement;
 }
 

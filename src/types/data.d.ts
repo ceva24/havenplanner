@@ -1,10 +1,13 @@
 interface Asset {
     id: number;
     name: string;
+}
+
+interface VisualAsset extends Asset {
     imageUrl: string;
 }
 
-interface CharacterClass extends Asset {
+interface CharacterClass extends VisualAsset {
     characterMatFrontImageUrl: string;
     characterMatBackImageUrl: string;
     cardBackImageUrl: string;
@@ -13,14 +16,18 @@ interface CharacterClass extends Asset {
     perks: Perk[];
 }
 
-interface PersonalQuest extends Asset {}
+interface PersonalQuest extends VisualAsset {}
 
-interface AbilityCard extends Asset {
+interface AbilityCard extends VisualAsset {
     level: string;
-    enhancementSlots: string[];
+    enhancementSlots: EnhancementSlot[];
 }
 
-interface Enhancement extends Asset {
+interface EnhancementSlot extends Asset {
+    types: string[];
+}
+
+interface Enhancement extends VisualAsset {
     validSlotTypes: string[];
 }
 
@@ -31,8 +38,8 @@ interface Perk {
     remove: AttackModifierCard[];
 }
 
-interface AttackModifierCard extends Asset {}
+interface AttackModifierCard extends VisualAsset {}
 
-interface Item extends Asset {
+interface Item extends VisualAsset {
     slot: string;
 }
