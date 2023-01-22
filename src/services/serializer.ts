@@ -10,7 +10,7 @@ const serialize = (character: Character): string => {
         u: character.unlockedAbilityCards.map((abilityCard: AbilityCard) => abilityCard.id),
         h: character.hand.map((abilityCard: AbilityCard) => abilityCard.id),
         e: serializeGainedEnhancements(character.gainedEnhancements),
-        p: serializeGainedPerks(character.gainedPerks, character.characterClass),
+        p: serializeGainedPerks(character.gainedPerks),
         b: serializeGainedBattleGoalCheckmarks(character.battleGoalCheckmarkGroups),
     };
 
@@ -25,11 +25,8 @@ const serializeGainedEnhancements = (gainedEnhancements: GainedEnhancement[]): A
     ]);
 };
 
-const serializeGainedPerks = (gainedPerks: GainedPerk[], characterClass: CharacterClass): Array<[number, number]> => {
-    return gainedPerks.map((gainedPerk: GainedPerk) => [
-        characterClass.perks.indexOf(gainedPerk.perk),
-        gainedPerk.checkboxIndex,
-    ]);
+const serializeGainedPerks = (gainedPerks: GainedPerk[]): Array<[number, number]> => {
+    return gainedPerks.map((gainedPerk: GainedPerk) => [gainedPerk.perk.id, gainedPerk.checkboxIndex]);
 };
 
 const serializeGainedBattleGoalCheckmarks = (battleGoalCheckmarkGroups: BattleGoalCheckmarkGroup[]): boolean[][] => {

@@ -4,7 +4,8 @@ import RichPerkDescription from "@/components/perks/rich-perk-description";
 describe("rich-perk-description", () => {
     it("replaces text in curly braces in the perk description with an image", () => {
         const perk: Perk = {
-            description: "description with {shield} icon",
+            id: 0,
+            name: "description with {shield} icon",
             count: 1,
             add: [],
             remove: [],
@@ -21,7 +22,8 @@ describe("rich-perk-description", () => {
 
     it("has no effect on a perk description with no curly braces", () => {
         const perk: Perk = {
-            description: "description with no shield icon",
+            id: 0,
+            name: "description with no shield icon",
             count: 1,
             add: [],
             remove: [],

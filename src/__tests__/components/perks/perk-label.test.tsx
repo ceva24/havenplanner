@@ -22,7 +22,7 @@ describe("perk-label", () => {
             </>
         );
 
-        const checkbox = screen.queryByRole("checkbox", { name: perk.description });
+        const checkbox = screen.queryByRole("checkbox", { name: perk.name });
 
         expect(checkbox).toBeInTheDocument();
     });
@@ -46,7 +46,8 @@ describe("removeGainedPerksForPerk", () => {
     it("removes multiple perks", () => {
         const character = createTestCharacter();
         const perk: Perk = {
-            description: "Remove two <-1> cards",
+            id: 0,
+            name: "Remove two <-1> cards",
             count: 3,
             add: [],
             remove: [],

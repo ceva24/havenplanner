@@ -125,7 +125,8 @@ describe("findAndSetCharacter", () => {
         const character: Character = createTestCharacter();
 
         const perk: Perk = {
-            description: "Remove two {-1} cards",
+            id: 0,
+            name: "Remove two {-1} cards",
             count: 1,
             add: [],
             remove: [],

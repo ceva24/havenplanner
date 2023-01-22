@@ -559,7 +559,8 @@
     ],
     "perks": [
         {
-            "description": "Remove two {-1} cards",
+            "id": 0,
+            "name": "Remove two {-1} cards",
             "count": 2,
             "add": [],
             "remove": [
@@ -576,7 +577,8 @@
             ]
         },
         {
-            "description": "Remove four {+0} cards",
+            "id": 1,
+            "name": "Remove four {+0} cards",
             "count": 1,
             "add": [],
             "remove": [
@@ -603,7 +605,8 @@
             ]
         },
         {
-            "description": "Replace two {+1} cards with two {+2} cards",
+            "id": 2,
+            "name": "Replace two {+1} cards with two {+2} cards",
             "count": 1,
             "add": [
                 {
@@ -631,7 +634,8 @@
             ]
         },
         {
-            "description": "Replace one {-2} card with one {+0} card",
+            "id": 3,
+            "name": "Replace one {-2} card with one {+0} card",
             "count": 1,
             "add": [
                 {
@@ -649,7 +653,8 @@
             ]
         },
         {
-            "description": "Add one {+2} {ice} card",
+            "id": 4,
+            "name": "Add one {+2} {ice} card",
             "count": 2,
             "add": [
                 {
@@ -661,7 +666,8 @@
             "remove": []
         },
         {
-            "description": "Add two {chain} {+1} cards",
+            "id": 5,
+            "name": "Add two {chain} {+1} cards",
             "count": 2,
             "add": [
                 {
@@ -678,7 +684,8 @@
             "remove": []
         },
         {
-            "description": "Add three {chain} PULL {pull} 1 cards",
+            "id": 6,
+            "name": "Add three {chain} PULL {pull} 1 cards",
             "count": 1,
             "add": [
                 {
@@ -700,7 +707,8 @@
             "remove": []
         },
         {
-            "description": "Add three {chain} MUDDLE {muddle} cards",
+            "id": 7,
+            "name": "Add three {chain} MUDDLE {muddle} cards",
             "count": 1,
             "add": [
                 {
@@ -722,7 +730,8 @@
             "remove": []
         },
         {
-            "description": "Add two {chain} IMMOBILIZE {immobilize} cards",
+            "id": 8,
+            "name": "Add two {chain} IMMOBILIZE {immobilize} cards",
             "count": 1,
             "add": [
                 {
@@ -739,7 +748,8 @@
             "remove": []
         },
         {
-            "description": "Add one {chain} STUN {stun} card",
+            "id": 9,
+            "name": "Add one {chain} STUN {stun} card",
             "count": 1,
             "add": [
                 {
@@ -751,7 +761,8 @@
             "remove": []
         },
         {
-            "description": "Add one {chain} DISARM {disarm} card and one {chain} MUDDLE {muddle} card",
+            "id": 10,
+            "name": "Add one {chain} DISARM {disarm} card and one {chain} MUDDLE {muddle} card",
             "count": 1,
             "add": [
                 {
@@ -768,7 +779,8 @@
             "remove": []
         },
         {
-            "description": "Ignore negative scenario effects",
+            "id": 11,
+            "name": "Ignore negative scenario effects",
             "count": 1,
             "add": [],
             "remove": []

@@ -8,7 +8,7 @@ interface RichPerkDescriptionProps {
 const RichPerkDescription = ({ perk }: RichPerkDescriptionProps) => {
     return (
         <>
-            {reactStringReplace(perk.description, /{(.*?)}/, (match: string, index: number) => (
+            {reactStringReplace(perk.name, /{(.*?)}/, (match: string, index: number) => (
                 <Image
                     key={`${match}${index}`}
                     webpPath={`/perk-icons/gloomhaven/${match}.webp`}

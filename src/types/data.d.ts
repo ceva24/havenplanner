@@ -31,8 +31,7 @@ interface Enhancement extends VisualAsset {
     validSlotTypes: string[];
 }
 
-interface Perk {
-    description: string;
+interface Perk extends Asset {
     count: number;
     add: AttackModifierCard[];
     remove: AttackModifierCard[];

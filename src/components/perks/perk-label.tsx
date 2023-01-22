@@ -13,9 +13,7 @@ interface PerkLabelProps {
 
 const PerkLabel = ({ perk, labelId, character, setCharacter }: PerkLabelProps) => {
     const handleLabelClick = (perk: Perk) => {
-        const gainedPerks = character.gainedPerks.filter(
-            (gainedPerk: GainedPerk) => gainedPerk.perk.description === perk.description
-        );
+        const gainedPerks = character.gainedPerks.filter((gainedPerk: GainedPerk) => gainedPerk.perk.id === perk.id);
 
         if (gainedPerks.length === perk.count) {
             removeGainedPerksForPerk(perk, character, setCharacter);
@@ -33,7 +31,7 @@ const PerkLabel = ({ perk, labelId, character, setCharacter }: PerkLabelProps) =
         <FormLabel
             id={labelId}
             sx={{ cursor: "pointer" }}
-            aria-label={perk.description}
+            aria-label={perk.name}
             onClick={() => {
                 handleLabelClick(perk);
             }}
@@ -48,9 +46,7 @@ const removeGainedPerksForPerk = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>
 ) => {
-    const newGainedPerks = character.gainedPerks.filter(
-        (gainedPerk: GainedPerk) => gainedPerk.perk.description !== perk.description
-    );
+    const newGainedPerks = character.gainedPerks.filter((gainedPerk: GainedPerk) => gainedPerk.perk.id !== perk.id);
 
     setCharacter({
         ...character,

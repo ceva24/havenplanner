@@ -35,7 +35,8 @@ describe("attack modifiers", () => {
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
             perk: {
-                description: "",
+                id: 0,
+                name: "",
                 count: 1,
                 add: [baseAttackModifierDeck[2].card],
                 remove: [],
@@ -82,7 +83,8 @@ describe("applyPerksTo", () => {
             {
                 checkboxIndex: 0,
                 perk: {
-                    description: "",
+                    id: 0,
+                    name: "",
                     count: 1,
                     add: [],
                     remove: [],
@@ -107,7 +109,8 @@ describe("applyPerksTo", () => {
             {
                 checkboxIndex: 0,
                 perk: {
-                    description: "",
+                    id: 0,
+                    name: "",
                     count: 1,
                     add: [attackModifiers[3]],
                     remove: [],
@@ -132,7 +135,8 @@ describe("applyPerksTo", () => {
             {
                 checkboxIndex: 0,
                 perk: {
-                    description: "",
+                    id: 0,
+                    name: "",
                     count: 1,
                     add: [],
                     remove: [attackModifiers[3]],
@@ -157,7 +161,8 @@ describe("applyPerksTo", () => {
             {
                 checkboxIndex: 0,
                 perk: {
-                    description: "",
+                    id: 0,
+                    name: "",
                     count: 1,
                     add: [attackModifiers[2]],
                     remove: [],
@@ -184,7 +189,8 @@ describe("applyPerksTo", () => {
             {
                 checkboxIndex: 0,
                 perk: {
-                    description: "",
+                    id: 0,
+                    name: "",
                     count: 1,
                     add: [],
                     remove: [attackModifiers[2]],
@@ -213,7 +219,8 @@ describe("applyPerksTo", () => {
             {
                 checkboxIndex: 0,
                 perk: {
-                    description: "",
+                    id: 0,
+                    name: "",
                     count: 1,
                     add: [attackModifiers[2]],
                     remove: [],
@@ -222,7 +229,8 @@ describe("applyPerksTo", () => {
             {
                 checkboxIndex: 0,
                 perk: {
-                    description: "",
+                    id: 0,
+                    name: "",
                     count: 1,
                     add: [],
                     remove: [attackModifiers[3]],
@@ -248,7 +256,8 @@ describe("applyPerksTo", () => {
             {
                 checkboxIndex: 0,
                 perk: {
-                    description: "",
+                    id: 0,
+                    name: "",
                     count: 1,
                     add: [attackModifiers[2]],
                     remove: [],
@@ -257,7 +266,8 @@ describe("applyPerksTo", () => {
             {
                 checkboxIndex: 0,
                 perk: {
-                    description: "",
+                    id: 0,
+                    name: "",
                     count: 1,
                     add: [attackModifiers[2]],
                     remove: [],
@@ -282,7 +292,8 @@ describe("applyPerksTo", () => {
             {
                 checkboxIndex: 0,
                 perk: {
-                    description: "",
+                    id: 0,
+                    name: "",
                     count: 1,
                     add: [],
                     remove: [attackModifiers[3]],
@@ -307,7 +318,8 @@ describe("applyPerksTo", () => {
             {
                 checkboxIndex: 0,
                 perk: {
-                    description: "",
+                    id: 0,
+                    name: "",
                     count: 1,
                     add: [attackModifiers[3]],
                     remove: [],

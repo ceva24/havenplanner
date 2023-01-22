@@ -535,7 +535,8 @@
     ],
     "perks": [
         {
-            "description": "Remove four {+0} cards",
+            "id": 0,
+            "name": "Remove four {+0} cards",
             "count": 1,
             "add": [],
             "remove": [
@@ -562,7 +563,8 @@
             ]
         },
         {
-            "description": "Replace one {-1} card with one {+1} card",
+            "id": 1,
+            "name": "Replace one {-1} card with one {+1} card",
             "count": 2,
             "add": [
                 {
@@ -580,7 +582,8 @@
             ]
         },
         {
-            "description": "Add two {+1} cards",
+            "id": 2,
+            "name": "Add two {+1} cards",
             "count": 2,
             "add": [
                 {
@@ -597,7 +600,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+0} STUN {stun} card",
+            "id": 3,
+            "name": "Add one {+0} STUN {stun} card",
             "count": 1,
             "add": [
                 {
@@ -609,7 +613,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+1} WOUND {wound} card",
+            "id": 4,
+            "name": "Add one {+1} WOUND {wound} card",
             "count": 1,
             "add": [
                 {
@@ -621,7 +626,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+1} IMMOBILIZE {immobilize} card",
+            "id": 5,
+            "name": "Add one {+1} IMMOBILIZE {immobilize} card",
             "count": 1,
             "add": [
                 {
@@ -633,7 +639,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+1} CURSE {curse} card",
+            "id": 6,
+            "name": "Add one {+1} CURSE {curse} card",
             "count": 1,
             "add": [
                 {
@@ -645,7 +652,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+2} {fire} card",
+            "id": 7,
+            "name": "Add one {+2} {fire} card",
             "count": 2,
             "add": [
                 {
@@ -657,7 +665,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+2} {ice} card",
+            "id": 8,
+            "name": "Add one {+2} {ice} card",
             "count": 2,
             "add": [
                 {
@@ -669,7 +678,8 @@
             "remove": []
         },
         {
-            "description": "Add one {chain} {earth} and one {chain} {air} card",
+            "id": 9,
+            "name": "Add one {chain} {earth} and one {chain} {air} card",
             "count": 1,
             "add": [
                 {
@@ -686,7 +696,8 @@
             "remove": []
         },
         {
-            "description": "Add one {chain} {light} and one {chain} {dark} card",
+            "id": 10,
+            "name": "Add one {chain} {light} and one {chain} {dark} card",
             "count": 1,
             "add": [
                 {

@@ -23,12 +23,12 @@ const PerkList = ({ character, setCharacter }: PerkListProps) => {
                 const perkLabelId = `perk-${perkIndex}-label`;
 
                 return (
-                    <Box key={perk.description}>
+                    <Box key={perk.name}>
                         {Array.from({ length: perk.count }).map((item: unknown, checkboxIndex: number) => {
                             const styleProps =
                                 checkboxIndex === 0
                                     ? { "aria-labelledby": perkLabelId }
-                                    : { "aria-label": `${perk.description} ${checkboxIndex + 1}` };
+                                    : { "aria-label": `${perk.name} ${checkboxIndex + 1}` };
 
                             return (
                                 <Checkbox
@@ -83,7 +83,7 @@ const removePerk = (
     if (!gainedPerk) return;
 
     const newGainedPerks = character.gainedPerks.filter(
-        (perk: GainedPerk, index: number) => index !== character.gainedPerks.indexOf(gainedPerk)
+        (perk: GainedPerk) => perk.perk.id !== gainedPerk.perk.id || perk.checkboxIndex !== gainedPerk.checkboxIndex
     );
 
     setCharacter({

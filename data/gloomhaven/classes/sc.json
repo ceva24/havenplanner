@@ -508,7 +508,8 @@
     ],
     "perks": [
         {
-            "description": "Remove two {-1} cards",
+            "id": 0,
+            "name": "Remove two {-1} cards",
             "count": 2,
             "add": [],
             "remove": [
@@ -525,7 +526,8 @@
             ]
         },
         {
-            "description": "Remove four {+0} cards",
+            "id": 1,
+            "name": "Remove four {+0} cards",
             "count": 1,
             "add": [],
             "remove": [
@@ -552,7 +554,8 @@
             ]
         },
         {
-            "description": "Replace one {-2} card with one {+0} card",
+            "id": 2,
+            "name": "Replace one {-2} card with one {+0} card",
             "count": 1,
             "add": [
                 {
@@ -570,7 +573,8 @@
             ]
         },
         {
-            "description": "Replace one {-1} card with one {+1} card",
+            "id": 3,
+            "name": "Replace one {-1} card with one {+1} card",
             "count": 1,
             "add": [
                 {
@@ -588,7 +592,8 @@
             ]
         },
         {
-            "description": "Replace one {+0} card with one {+2} card",
+            "id": 4,
+            "name": "Replace one {+0} card with one {+2} card",
             "count": 2,
             "add": [
                 {
@@ -606,7 +611,8 @@
             ]
         },
         {
-            "description": "Add two {chain} {+1} cards",
+            "id": 5,
+            "name": "Add two {chain} {+1} cards",
             "count": 2,
             "add": [
                 {
@@ -623,7 +629,8 @@
             "remove": []
         },
         {
-            "description": "Add two {chain} PIERCE {pierce} 3 cards",
+            "id": 6,
+            "name": "Add two {chain} PIERCE {pierce} 3 cards",
             "count": 1,
             "add": [
                 {
@@ -640,7 +647,8 @@
             "remove": []
         },
         {
-            "description": "Add two {chain} POISON {poison} cards",
+            "id": 7,
+            "name": "Add two {chain} POISON {poison} cards",
             "count": 2,
             "add": [
                 {
@@ -657,7 +665,8 @@
             "remove": []
         },
         {
-            "description": "Add two {chain} MUDDLE {muddle} cards",
+            "id": 8,
+            "name": "Add two {chain} MUDDLE {muddle} cards",
             "count": 1,
             "add": [
                 {
@@ -674,7 +683,8 @@
             "remove": []
         },
         {
-            "description": "Add one {chain} INVISIBLE {invisible} card",
+            "id": 9,
+            "name": "Add one {chain} INVISIBLE {invisible} card",
             "count": 1,
             "add": [
                 {
@@ -686,7 +696,8 @@
             "remove": []
         },
         {
-            "description": "Ignore negative scenario effects",
+            "id": 10,
+            "name": "Ignore negative scenario effects",
             "count": 1,
             "add": [],
             "remove": []

@@ -17,7 +17,8 @@ describe("perk list", () => {
         const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
-                description: "Remove two {-1} cards",
+                id: 0,
+                name: "Remove two {-1} cards",
                 count: 1,
                 add: [],
                 remove: [],
@@ -35,25 +36,29 @@ describe("perk list", () => {
         const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
-                description: "Remove two {-1} cards",
+                id: 0,
+                name: "Remove two {-1} cards",
                 count: 1,
                 add: [],
                 remove: [],
             },
             {
-                description: "Replace one {-1} card with one {+1} card",
+                id: 1,
+                name: "Replace one {-1} card with one {+1} card",
                 count: 1,
                 add: [],
                 remove: [],
             },
             {
-                description: "Add one {+3} card",
+                id: 2,
+                name: "Add one {+3} card",
                 count: 1,
                 add: [],
                 remove: [],
             },
             {
-                description: "Add two {chain} PIERCE {pierce} 3 cards",
+                id: 3,
+                name: "Add two {chain} PIERCE {pierce} 3 cards",
                 count: 1,
                 add: [],
                 remove: [],
@@ -77,7 +82,8 @@ describe("perk list", () => {
         const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
-                description: "Add two {+1} cards",
+                id: 0,
+                name: "Add two {+1} cards",
                 count: 2,
                 add: [],
                 remove: [],
@@ -97,7 +103,8 @@ describe("perk list", () => {
         const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
-                description: "Add two {+1} cards",
+                id: 0,
+                name: "Add two {+1} cards",
                 count: 2,
                 add: [],
                 remove: [],
@@ -117,7 +124,8 @@ describe("perk list", () => {
         const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
 
         const perk: Perk = {
-            description: "Remove two {-1} cards",
+            id: 0,
+            name: "Remove two {-1} cards",
             count: 1,
             add: [],
             remove: [],
@@ -141,7 +149,8 @@ describe("gainPerk", () => {
         const character: Character = createTestCharacter();
 
         const perk: Perk = {
-            description: "Remove two {-1} cards",
+            id: 0,
+            name: "Remove two {-1} cards",
             count: 1,
             add: [],
             remove: [],
@@ -164,7 +173,8 @@ describe("removePerk", () => {
         const character: Character = createTestCharacter();
 
         const perk: Perk = {
-            description: "Remove two {-1} cards",
+            id: 0,
+            name: "Remove two {-1} cards",
             count: 1,
             add: [],
             remove: [],
@@ -188,7 +198,8 @@ describe("removePerk", () => {
         const character: Character = createTestCharacter();
 
         const perk: Perk = {
-            description: "Remove two {-1} cards",
+            id: 0,
+            name: "Remove two {-1} cards",
             count: 1,
             add: [],
             remove: [],

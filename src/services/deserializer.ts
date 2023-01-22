@@ -76,9 +76,9 @@ const deserializeGainedEnhancements = (
 };
 
 const deserializeGainedPerks = (perkIndices: Array<[number, number]>, characterClass: CharacterClass): GainedPerk[] => {
-    return perkIndices.map((perkAndCheckboxIndex: [number, number]) => ({
-        perk: characterClass.perks[perkAndCheckboxIndex[0]],
-        checkboxIndex: perkAndCheckboxIndex[1],
+    return perkIndices.map((perkIdAndCheckboxIndex: [number, number]) => ({
+        perk: characterClass.perks[perkIdAndCheckboxIndex[0]],
+        checkboxIndex: perkIdAndCheckboxIndex[1],
     }));
 };
 

@@ -17,7 +17,8 @@ describe("attack modifiers", () => {
 
     it("renders the class attack modifiers", () => {
         const perk: Perk = {
-            description: "Add one {+1} Shield {shield} 1, self card",
+            id: 0,
+            name: "Add one {+1} Shield {shield} 1, self card",
             count: 1,
             add: [
                 {
