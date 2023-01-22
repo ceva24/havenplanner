@@ -599,7 +599,8 @@
     ],
     "perks": [
         {
-            "description": "Remove two {-1} cards",
+            "id": 0,
+            "name": "Remove two {-1} cards",
             "count": 2,
             "add": [],
             "remove": [
@@ -616,7 +617,8 @@
             ]
         },
         {
-            "description": "Replace one {-2} card with one {+0} card",
+            "id": 1,
+            "name": "Replace one {-2} card with one {+0} card",
             "count": 1,
             "add": [
                 {
@@ -634,7 +636,8 @@
             ]
         },
         {
-            "description": "Add two {+1} cards",
+            "id": 2,
+            "name": "Add two {+1} cards",
             "count": 1,
             "add": [
                 {
@@ -651,7 +654,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+3} card",
+            "id": 3,
+            "name": "Add one {+3} card",
             "count": 1,
             "add": [
                 {
@@ -663,7 +667,8 @@
             "remove": []
         },
         {
-            "description": "Add two {chain} {fire} cards",
+            "id": 4,
+            "name": "Add two {chain} {fire} cards",
             "count": 1,
             "add": [
                 {
@@ -680,7 +685,8 @@
             "remove": []
         },
         {
-            "description": "Add three {chain} MUDDLE {muddle} cards",
+            "id": 5,
+            "name": "Add three {chain} MUDDLE {muddle} cards",
             "count": 1,
             "add": [
                 {
@@ -702,7 +708,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+1} WOUND {wound} card",
+            "id": 6,
+            "name": "Add one {+1} WOUND {wound} card",
             "count": 2,
             "add": [
                 {
@@ -714,7 +721,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+1} IMMOBILIZE {immobilize} card",
+            "id": 7,
+            "name": "Add one {+1} IMMOBILIZE {immobilize} card",
             "count": 2,
             "add": [
                 {
@@ -726,7 +734,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+1} HEAL {heal} 2 card",
+            "id": 8,
+            "name": "Add one {+1} HEAL {heal} 2 card",
             "count": 2,
             "add": [
                 {
@@ -738,7 +747,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+0} ADD TARGET {target} card",
+            "id": 9,
+            "name": "Add one {+0} ADD TARGET {target} card",
             "count": 1,
             "add": [
                 {
@@ -750,7 +760,8 @@
             "remove": []
         },
         {
-            "description": "Ignore negative scenario effects",
+            "id": 10,
+            "name": "Ignore negative scenario effects",
             "count": 1,
             "add": [],
             "remove": []

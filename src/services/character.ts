@@ -97,8 +97,7 @@ const characterHasGainedPerk = (character: Character, perk: Perk, checkboxIndex:
 
 const findCharacterGainedPerk = (character: Character, perk: Perk, checkboxIndex: number): GainedPerk | undefined => {
     return character.gainedPerks.find(
-        (gainedPerk: GainedPerk) =>
-            gainedPerk.perk.description === perk.description && gainedPerk.checkboxIndex === checkboxIndex
+        (gainedPerk: GainedPerk) => gainedPerk.perk.id === perk.id && gainedPerk.checkboxIndex === checkboxIndex
     );
 };
 

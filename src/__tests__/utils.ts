@@ -110,7 +110,8 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
             ],
             perks: [
                 {
-                    description: "Remove two <-1> cards",
+                    id: 0,
+                    name: "Remove two <-1> cards",
                     count: 1,
                     add: [],
                     remove: [],

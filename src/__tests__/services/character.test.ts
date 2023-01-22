@@ -327,7 +327,8 @@ describe("characterHasGainedPerk", () => {
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
             perk: {
-                description: "",
+                id: 0,
+                name: "",
                 count: 1,
                 add: [],
                 remove: [],
@@ -347,7 +348,8 @@ describe("characterHasGainedPerk", () => {
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
             perk: {
-                description: "",
+                id: 0,
+                name: "",
                 count: 1,
                 add: [],
                 remove: [],
@@ -365,7 +367,8 @@ describe("characterHasGainedPerk", () => {
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
             perk: {
-                description: "",
+                id: 0,
+                name: "",
                 count: 1,
                 add: [],
                 remove: [],
@@ -387,7 +390,8 @@ describe("findCharacterGainedPerk", () => {
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
             perk: {
-                description: "",
+                id: 0,
+                name: "",
                 count: 1,
                 add: [],
                 remove: [],
@@ -407,7 +411,8 @@ describe("findCharacterGainedPerk", () => {
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
             perk: {
-                description: "",
+                id: 0,
+                name: "",
                 count: 1,
                 add: [],
                 remove: [],
@@ -425,7 +430,8 @@ describe("findCharacterGainedPerk", () => {
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
             perk: {
-                description: "",
+                id: 0,
+                name: "",
                 count: 1,
                 add: [],
                 remove: [],

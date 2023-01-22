@@ -591,7 +591,8 @@
     ],
     "perks": [
         {
-            "description": "Remove two {-1} cards",
+            "id": 0,
+            "name": "Remove two {-1} cards",
             "count": 1,
             "add": [],
             "remove": [
@@ -608,7 +609,8 @@
             ]
         },
         {
-            "description": "Replace one {-1} card with one {+1} card",
+            "id": 1,
+            "name": "Replace one {-1} card with one {+1} card",
             "count": 1,
             "add": [
                 {
@@ -626,7 +628,8 @@
             ]
         },
         {
-            "description": "Add two {+1} cards",
+            "id": 2,
+            "name": "Add two {+1} cards",
             "count": 2,
             "add": [
                 {
@@ -643,7 +646,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+3} card",
+            "id": 3,
+            "name": "Add one {+3} card",
             "count": 1,
             "add": [
                 {
@@ -655,7 +659,8 @@
             "remove": []
         },
         {
-            "description": "Add three {chain} PUSH {push} 1 cards",
+            "id": 4,
+            "name": "Add three {chain} PUSH {push} 1 cards",
             "count": 2,
             "add": [
                 {
@@ -677,7 +682,8 @@
             "remove": []
         },
         {
-            "description": "Add two {chain} PIERCE {pierce} 3 cards",
+            "id": 5,
+            "name": "Add two {chain} PIERCE {pierce} 3 cards",
             "count": 1,
             "add": [
                 {
@@ -694,7 +700,8 @@
             "remove": []
         },
         {
-            "description": "Add one {chain} STUN {stun} card",
+            "id": 6,
+            "name": "Add one {chain} STUN {stun} card",
             "count": 2,
             "add": [
                 {
@@ -706,7 +713,8 @@
             "remove": []
         },
         {
-            "description": "Add one {chain} DISARM {disarm} card and one {chain} MUDDLE {muddle} card",
+            "id": 7,
+            "name": "Add one {chain} DISARM {disarm} card and one {chain} MUDDLE {muddle} card",
             "count": 1,
             "add": [
                 {
@@ -723,7 +731,8 @@
             "remove": []
         },
         {
-            "description": "Add one {chain} ADD TARGET {target} card",
+            "id": 8,
+            "name": "Add one {chain} ADD TARGET {target} card",
             "count": 2,
             "add": [
                 {
@@ -735,7 +744,8 @@
             "remove": []
         },
         {
-            "description": "Add one {+1} Shield {shield} 1, self card",
+            "id": 9,
+            "name": "Add one {+1} Shield {shield} 1, self card",
             "count": 1,
             "add": [
                 {
@@ -747,7 +757,8 @@
             "remove": []
         },
         {
-            "description": "Ignore negative item effects and add one {+1} card",
+            "id": 10,
+            "name": "Ignore negative item effects and add one {+1} card",
             "count": 1,
             "add": [
                 {
