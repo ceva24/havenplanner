@@ -2,6 +2,7 @@ import {
     abilityCardCanBeUnlockedForCharacter,
     calculateLevel,
     characterHasGainedPerk,
+    createDefaultBattleGoals,
     findCharacterGainedPerk,
     getAllAvailableAbilityCardsForCharacter,
     isCardInHandForCharacter,
@@ -40,6 +41,32 @@ describe("calculateLevel", () => {
             expect(calculateLevel(experience)).toEqual(level);
         }
     );
+});
+
+describe("createDefaultBattleGoals", () => {
+    it("creates six checkmark groups", () => {
+        const defaultBattleGoals = createDefaultBattleGoals();
+
+        expect(defaultBattleGoals).toHaveLength(6);
+    });
+
+    it("creates checkmarks groups of three checkmarks", () => {
+        const defaultBattleGoals = createDefaultBattleGoals();
+
+        defaultBattleGoals.forEach((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => {
+            expect(battleGoalCheckmarkGroup.checkmarks).toHaveLength(3);
+        });
+    });
+
+    it("initializes all checkmark values to false", () => {
+        const defaultBattleGoals = createDefaultBattleGoals();
+
+        defaultBattleGoals.forEach((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => {
+            battleGoalCheckmarkGroup.checkmarks.forEach((checkmark: BattleGoalCheckmark) => {
+                expect(checkmark.value).toEqual(false);
+            });
+        });
+    });
 });
 
 describe("isUnlockedAbilityCardForCharacter", () => {
@@ -144,17 +171,18 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
             characterClass: {
                 id: 0,
                 name: "Brute",
-                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
                 handSize: 10,
                 abilityCards: [
                     {
                         id: 1,
                         name: "Trample",
                         level: "1",
-                        imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                        enhancementSlots: [],
                     },
                 ],
                 perks: [],
@@ -171,17 +199,18 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
             characterClass: {
                 id: 0,
                 name: "Brute",
-                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
                 handSize: 10,
                 abilityCards: [
                     {
                         id: 11,
                         name: "Skewer",
                         level: "X",
-                        imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
+                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
+                        enhancementSlots: [],
                     },
                 ],
                 perks: [],
@@ -198,17 +227,18 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
             characterClass: {
                 id: 0,
                 name: "Brute",
-                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
                 handSize: 10,
                 abilityCards: [
                     {
                         id: 14,
                         name: "Fatal Advance",
                         level: "2",
-                        imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                        enhancementSlots: [],
                     },
                 ],
                 perks: [],
@@ -218,7 +248,8 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
                     id: 14,
                     name: "Fatal Advance",
                     level: "2",
-                    imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                    imageUrl: "/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                    enhancementSlots: [],
                 },
             ],
         });
@@ -233,17 +264,18 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
             characterClass: {
                 id: 0,
                 name: "Brute",
-                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
                 handSize: 10,
                 abilityCards: [
                     {
                         id: 14,
                         name: "Fatal Advance",
                         level: "2",
-                        imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                        enhancementSlots: [],
                     },
                 ],
                 perks: [],

@@ -1,3 +1,5 @@
+import { createDefaultBattleGoals } from "@/services/character";
+
 const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): Character => {
     const character: Character = {
         name: "My Char",
@@ -7,17 +9,103 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
         characterClass: {
             id: 0,
             name: "Brute",
-            imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
-            characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
-            characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
-            cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+            imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
+            characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
+            characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
+            cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
             handSize: 10,
             abilityCards: [
                 {
                     id: 1,
                     name: "Trample",
                     level: "1",
-                    imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                    imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                    enhancementSlots: [
+                        {
+                            id: 0,
+                            name: "Attack",
+                            types: ["numeric", "main-line-targets-enemies"],
+                        },
+                        {
+                            id: 1,
+                            name: "PIERCE",
+                            types: ["numeric"],
+                        },
+                        {
+                            id: 2,
+                            name: "Move",
+                            types: ["numeric", "main-line", "move"],
+                        },
+                        {
+                            id: 3,
+                            name: "Attack",
+                            types: ["numeric", "main-line-targets-enemies"],
+                        },
+                        {
+                            id: 4,
+                            name: "Attack",
+                            types: ["numeric", "main-line-targets-enemies"],
+                        },
+                    ],
+                },
+                {
+                    id: 2,
+                    name: "Eye for an Eye",
+                    level: "1",
+                    imageUrl: "/character-ability-cards/gloomhaven/BR/gh-eye-for-an-eye.webp",
+                    enhancementSlots: [
+                        {
+                            id: 0,
+                            name: "RETALIATE",
+                            types: ["numeric", "main-line-targets-allies-or-self"],
+                        },
+                        {
+                            id: 1,
+                            name: "Heal",
+                            types: ["numeric", "main-line-targets-allies-or-self"],
+                        },
+                        {
+                            id: 2,
+                            name: "Heal",
+                            types: ["numeric", "main-line-targets-allies-or-self"],
+                        },
+                    ],
+                },
+                {
+                    id: 3,
+                    name: "Sweeping Blow",
+                    level: "1",
+                    imageUrl: "/character-ability-cards/gloomhaven/BR/gh-sweeping-blow.webp",
+                    enhancementSlots: [
+                        {
+                            id: 0,
+                            name: "Attack",
+                            types: ["numeric", "main-line-targets-enemies"],
+                        },
+                        {
+                            id: 1,
+                            name: "Area attack",
+                            types: ["area-attack"],
+                        },
+                        {
+                            id: 2,
+                            name: "PUSH",
+                            types: ["numeric", "main-line-targets-enemies"],
+                        },
+                    ],
+                },
+                {
+                    id: 4,
+                    name: "Provoking Roar",
+                    level: "1",
+                    imageUrl: "/character-ability-cards/gloomhaven/BR/gh-provoking-roar.webp",
+                    enhancementSlots: [
+                        {
+                            id: 0,
+                            name: "Attack",
+                            types: ["numeric", "main-line-targets-enemies"],
+                        },
+                    ],
                 },
             ],
             perks: [
@@ -29,11 +117,12 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
                 },
             ],
         },
-        items: [],
         unlockedAbilityCards: [],
         hand: [],
+        gainedEnhancements: [],
         gainedPerks: [],
-        battleGoalCheckmarkGroups: [],
+        battleGoalCheckmarkGroups: createDefaultBattleGoals(),
+        items: [],
     };
 
     return { ...character, ...characterDetailsToOverride };

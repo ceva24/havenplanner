@@ -86,13 +86,10 @@ Cypress.Commands.add("findEditHandDialog", () => {
     cy.findByRole("dialog", { name: "Select ability cards" });
 });
 
-Cypress.Commands.add("findItemsAutocomplete", () => {
-    cy.findByRole("combobox", { name: "Add item" });
-});
-
-Cypress.Commands.add("addItem", (name: string) => {
-    cy.findItemsAutocomplete().click();
-    cy.findByRole("option", { name }).click();
+Cypress.Commands.add("findEnhancementsAutocomplete", (cardName: string, name: string, index: number) => {
+    cy.findByRole("region", { name: `${cardName} Enhancements` })
+        .findAllByRole("combobox", { name })
+        .eq(index);
 });
 
 Cypress.Commands.add("findAttackModifierCardWithCount", (name: string, count: number) => {
@@ -154,4 +151,13 @@ Cypress.Commands.add("clickBattleGoalGroupLabel", (battleGoalPerk: number) => {
     cy.findByRole("region", { name: `Battle Goal Perk ${battleGoalPerk}` })
         .children("label")
         .click();
+});
+
+Cypress.Commands.add("findItemsAutocomplete", () => {
+    cy.findByRole("combobox", { name: "Add item" });
+});
+
+Cypress.Commands.add("addItem", (name: string) => {
+    cy.findItemsAutocomplete().click();
+    cy.findByRole("option", { name }).click();
 });

@@ -89,21 +89,22 @@ describe("toggleAbilityCard", () => {
     it("locks a card that is already unlocked", () => {
         jest.spyOn(characterService, "isUnlockedAbilityCardForCharacter").mockReturnValueOnce(true);
 
-        const abilityCard = {
+        const abilityCard: AbilityCard = {
             id: 1,
             name: "Juggernaut",
             level: "2",
-            imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+            imageUrl: "/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+            enhancementSlots: [],
         };
 
         const characterWithUnlockedCard: Character = createTestCharacter({
             characterClass: {
                 id: 0,
                 name: "Brute",
-                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
                 handSize: 10,
                 abilityCards: [abilityCard],
                 perks: [],
@@ -127,21 +128,22 @@ describe("toggleAbilityCard", () => {
     it("removes a card being locked from the hand", () => {
         jest.spyOn(characterService, "isUnlockedAbilityCardForCharacter").mockReturnValueOnce(true);
 
-        const abilityCard = {
+        const abilityCard: AbilityCard = {
             id: 1,
             name: "Juggernaut",
             level: "2",
-            imageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+            imageUrl: "/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+            enhancementSlots: [],
         };
 
         const characterWithUnlockedCard: Character = createTestCharacter({
             characterClass: {
                 id: 0,
                 name: "Brute",
-                imageUrl: "/images/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/images/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/images/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/images/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
+                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
+                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
+                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
                 handSize: 10,
                 abilityCards: [abilityCard],
                 perks: [],

@@ -1,13 +1,14 @@
 import { Box, Tooltip } from "@mui/material";
 import BlockIcon from "@mui/icons-material/Block";
-import { Card } from "@/components/core/cards";
+import AbilityCard from "@/components/ability-cards/ability-card";
 
 interface DisabledAbilityCardProps {
     abilityCard: AbilityCard;
+    character: Character;
     tooltipText: string;
 }
 
-const DisabledAbilityCard = ({ abilityCard, tooltipText }: DisabledAbilityCardProps) => {
+const DisabledAbilityCard = ({ abilityCard, character, tooltipText }: DisabledAbilityCardProps) => {
     return (
         <Tooltip followCursor title={tooltipText}>
             <Box
@@ -17,7 +18,7 @@ const DisabledAbilityCard = ({ abilityCard, tooltipText }: DisabledAbilityCardPr
                 tabIndex={0}
                 sx={{ opacity: 0.5, cursor: "not-allowed", position: "relative" }}
             >
-                <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
+                <AbilityCard abilityCard={abilityCard} character={character} />
                 <BlockIcon sx={{ position: "absolute", top: 3, right: 1 }} />
             </Box>
         </Tooltip>

@@ -1,16 +1,23 @@
 import type { KeyboardEvent } from "react";
 import { Box } from "@mui/material";
 import LockIcon from "@mui/icons-material/LockTwoTone";
-import { Card } from "@/components/core/cards";
+import AbilityCard from "@/components/ability-cards/ability-card";
 
 interface ToggleableAbilityCardProps {
     abilityCard: AbilityCard;
+    character: Character;
     isSelected: boolean;
     action: () => void;
     showLockIcon: boolean;
 }
 
-const ToggleableAbilityCard = ({ abilityCard, isSelected, action, showLockIcon }: ToggleableAbilityCardProps) => {
+const ToggleableAbilityCard = ({
+    abilityCard,
+    character,
+    isSelected,
+    action,
+    showLockIcon,
+}: ToggleableAbilityCardProps) => {
     const onClick = () => {
         action();
     };
@@ -31,7 +38,7 @@ const ToggleableAbilityCard = ({ abilityCard, isSelected, action, showLockIcon }
             onClick={onClick}
             onKeyDown={onKeyDown}
         >
-            <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
+            <AbilityCard abilityCard={abilityCard} character={character} />
             {!isSelected && showLockIcon && <LockIcon sx={{ position: "absolute", top: 3, right: 1 }} />}
         </Box>
     );

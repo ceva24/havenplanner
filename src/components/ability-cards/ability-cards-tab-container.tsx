@@ -3,6 +3,7 @@ import { Tabs, Tab } from "@mui/material";
 import TabPanel from "@/components/tabs/tab-panel";
 import Deck from "@/components/ability-cards/deck/deck";
 import Hand from "@/components/ability-cards/hand/hand";
+import Enhancements from "@/components/ability-cards/enhancements/enhancements";
 import EditHandDialog from "@/components/ability-cards/hand/edit-hand-dialog";
 import { useAppSettingsContext } from "@/hooks/app-settings";
 
@@ -27,14 +28,21 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
                     label="Deck"
                     id="deck-tab"
                     aria-controls="deck-tabpanel"
-                    sx={{ typography: "body2" }}
+                    sx={{ typography: "body2", width: { md: "15%" } }}
                 />
                 <Tab
                     disableRipple
                     label="Hand"
                     id="hand-tab"
                     aria-controls="hand-tabpanel"
-                    sx={{ typography: "body2" }}
+                    sx={{ typography: "body2", width: { md: "15%" } }}
+                />
+                <Tab
+                    disableRipple
+                    label="Enhancements"
+                    id="enhancements-tab"
+                    aria-controls="enhancements-tabpanel"
+                    sx={{ typography: "body2", width: { md: "15%" } }}
                 />
             </Tabs>
 
@@ -66,6 +74,14 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
                         setEditHandDialogOpen(false);
                     }}
                 />
+            </TabPanel>
+            <TabPanel
+                currentTabIndex={appSettings.selectedAbilityCardsTabIndex}
+                index={2}
+                id="enhancements-tabpanel"
+                ariaLabelledBy="enhancements-tab"
+            >
+                <Enhancements character={character} setCharacter={setCharacter} />
             </TabPanel>
         </>
     );

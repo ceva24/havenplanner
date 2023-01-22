@@ -5,6 +5,7 @@ import Image from "@/components/core/image";
 import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/constants";
 import { useAppSettingsContext } from "@/hooks/app-settings";
+import { createDefaultBattleGoals } from "@/services/character";
 
 interface ClassSelectProps {
     character: Character;
@@ -59,11 +60,14 @@ const findAndSetCharacter = (
         }
     );
 
-    const newCharacter = {
+    const newCharacter: Character = {
         ...character,
         characterClass: selectedCharacterClass ?? defaultCharacter.characterClass,
         unlockedAbilityCards: [],
         hand: [],
+        gainedEnhancements: [],
+        gainedPerks: [],
+        battleGoalCheckmarkGroups: createDefaultBattleGoals(),
     };
 
     setCharacter(newCharacter);

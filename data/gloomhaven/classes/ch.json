@@ -1,191 +1,579 @@
 {
     "id": 6,
     "name": "Cragheart",
-    "imageUrl": "/images/character-icons/gloomhaven/gh-cragheart.webp",
-    "characterMatFrontImageUrl": "/images/character-mats/gloomhaven/gh-cragheart.webp",
-    "characterMatBackImageUrl": "/images/character-mats/gloomhaven/gh-cragheart-back.webp",
-    "cardBackImageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-ch-back.webp",
+    "imageUrl": "/character-icons/gloomhaven/gh-cragheart.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-cragheart.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-cragheart-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/CH/gh-ch-back.webp",
     "handSize": 11,
     "abilityCards": [
         {
             "id": 116,
             "name": "Opposing Strike",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-opposing-strike.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-opposing-strike.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 117,
             "name": "Crushing Grasp",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-crushing-grasp.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-crushing-grasp.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 118,
             "name": "Avalanche",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-avalanche.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-avalanche.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                }
+            ]
         },
         {
             "id": 119,
             "name": "Rumbling Advance",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rumbling-advance.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-rumbling-advance.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 120,
             "name": "Massive Boulder",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-massive-boulder.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-massive-boulder.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 121,
             "name": "Backup Ammunition",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-backup-ammunition.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-backup-ammunition.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 122,
             "name": "Rock Tunnel",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rock-tunnel.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-rock-tunnel.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 123,
             "name": "Unstable Upheaval",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-unstable-upheaval.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-unstable-upheaval.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 124,
             "name": "Crater",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-crater.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-crater.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 125,
             "name": "Dirt Tornado",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-dirt-tornado.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-dirt-tornado.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 126,
             "name": "Earthen Clod",
             "level": "1",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-earthen-clod.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-earthen-clod.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 2,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 127,
             "name": "Heaving Swing",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-heaving-swing.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-heaving-swing.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PUSH",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 128,
             "name": "Forceful Storm",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-forceful-storm.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-forceful-storm.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                }
+            ]
         },
         {
             "id": 129,
             "name": "Nature's Lift",
             "level": "X",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-natures-lift.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-natures-lift.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 130,
             "name": "Explosive Punch",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-explosive-punch.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-explosive-punch.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 131,
             "name": "Sentient Growth",
             "level": "2",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-sentient-growth.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-sentient-growth.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 2,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 3,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 132,
             "name": "Clear the Way",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-clear-the-way.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-clear-the-way.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 133,
             "name": "Blunt Force",
             "level": "3",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-blunt-force.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-blunt-force.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "RETALIATE",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
         },
         {
             "id": 134,
             "name": "Rock Slide",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rock-slide.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-rock-slide.webp",
+            "enhancementSlots": []
         },
         {
             "id": 135,
             "name": "Kinetic Assault",
             "level": "4",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-kinetic-assault.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-kinetic-assault.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "RETALIATE",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 3,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 136,
             "name": "Petrify",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-petrify.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-petrify.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 137,
             "name": "Stone Pummel",
             "level": "5",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-stone-pummel.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-stone-pummel.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 2,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                }
+            ]
         },
         {
             "id": 138,
             "name": "Dig Pit",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-dig-pit.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-dig-pit.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 139,
             "name": "Cataclysm",
             "level": "6",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-cataclysm.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-cataclysm.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 140,
             "name": "Meteor",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-meteor.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-meteor.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 141,
             "name": "Brutal Momentum",
             "level": "7",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-brutal-momentum.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-brutal-momentum.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PUSH",
+                    "types": ["numeric"]
+                }
+            ]
         },
         {
             "id": 142,
             "name": "Rocky End",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-rocky-end.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-rocky-end.webp",
+            "enhancementSlots": []
         },
         {
             "id": 143,
             "name": "Lumbering Bash",
             "level": "8",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-lumbering-bash.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-lumbering-bash.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         },
         {
             "id": 144,
             "name": "Blind Destruction",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-blind-destruction.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-blind-destruction.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
         },
         {
             "id": 145,
             "name": "Pulverize",
             "level": "9",
-            "imageUrl": "/images/character-ability-cards/gloomhaven/CH/gh-pulverize.webp"
+            "imageUrl": "/character-ability-cards/gloomhaven/CH/gh-pulverize.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PUSH",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
         }
     ],
     "perks": [
@@ -197,22 +585,22 @@
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 },
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 },
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 },
                 {
                     "id": 313,
                     "name": "+0",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
                 }
             ]
         },
@@ -223,14 +611,14 @@
                 {
                     "id": 319,
                     "name": "+1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
                 }
             ],
             "remove": [
                 {
                     "id": 324,
                     "name": "-1",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
                 }
             ]
         },
@@ -241,17 +629,17 @@
                 {
                     "id": 329,
                     "name": "-2",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
                 },
                 {
                     "id": 330,
                     "name": "+2",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
                 },
                 {
                     "id": 330,
                     "name": "+2",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
                 }
             ],
             "remove": []
@@ -263,7 +651,7 @@
                 {
                     "id": 81,
                     "name": "+1 immobilize",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-08.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/CH/gh-am-ch-08.webp"
                 }
             ],
             "remove": []
@@ -275,7 +663,7 @@
                 {
                     "id": 83,
                     "name": "+2 muddle",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-10.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/CH/gh-am-ch-10.webp"
                 }
             ],
             "remove": []
@@ -287,12 +675,12 @@
                 {
                     "id": 84,
                     "name": "chain push 2",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-11.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/CH/gh-am-ch-11.webp"
                 },
                 {
                     "id": 84,
                     "name": "chain push 2",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-11.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/CH/gh-am-ch-11.webp"
                 }
             ],
             "remove": []
@@ -304,12 +692,12 @@
                 {
                     "id": 86,
                     "name": "chain earth",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-13.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/CH/gh-am-ch-13.webp"
                 },
                 {
                     "id": 86,
                     "name": "chain earth",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-13.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/CH/gh-am-ch-13.webp"
                 }
             ],
             "remove": []
@@ -321,12 +709,12 @@
                 {
                     "id": 90,
                     "name": "chain air",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-17.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/CH/gh-am-ch-17.webp"
                 },
                 {
                     "id": 90,
                     "name": "chain air",
-                    "imageUrl": "/images/attack-modifiers/gloomhaven/CH/gh-am-ch-17.webp"
+                    "imageUrl": "/attack-modifiers/gloomhaven/CH/gh-am-ch-17.webp"
                 }
             ],
             "remove": []

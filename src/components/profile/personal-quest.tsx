@@ -4,7 +4,7 @@ import { Card } from "@/components/core/cards";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
 import { useAppSettingsContext } from "@/hooks/app-settings";
 
-const defaultPersonalQuestCardImageUrl = "/images/personal-quests/gloomhaven/gh-pq-back.webp";
+const defaultPersonalQuestCardImageUrl = "/personal-quests/gloomhaven/gh-pq-back.webp";
 
 interface PersonalQuestProps {
     character: Character;

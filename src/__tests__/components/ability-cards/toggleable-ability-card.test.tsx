@@ -15,6 +15,7 @@ describe("toggleable ability card", () => {
                 isSelected
                 showLockIcon
                 abilityCard={character.characterClass.abilityCards[0]}
+                character={character}
                 action={() => ""}
             />
         );
@@ -30,6 +31,7 @@ describe("toggleable ability card", () => {
                 isSelected
                 showLockIcon
                 abilityCard={character.characterClass.abilityCards[0]}
+                character={character}
                 action={() => ""}
             />
         );
@@ -44,6 +46,7 @@ describe("toggleable ability card", () => {
             <ActiveAbilityCard
                 showLockIcon
                 abilityCard={character.characterClass.abilityCards[0]}
+                character={character}
                 action={() => ""}
                 isSelected={false}
             />

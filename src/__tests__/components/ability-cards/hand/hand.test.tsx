@@ -4,8 +4,6 @@ import { createTestCharacter } from "@/testutils";
 
 const character: Character = createTestCharacter();
 
-const setCharacter = jest.fn();
-
 describe("hand", () => {
     it("renders the edit hand button", () => {
         render(<Hand character={character} openEditHandDialog={() => ""} />);

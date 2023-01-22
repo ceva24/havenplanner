@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 import { abilityCardCanBeUnlockedForCharacter, isUnlockedAbilityCardForCharacter } from "@/services/character";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
-import ActiveAbilityCard from "@/components/ability-cards/toggleable-ability-card";
+import ToggleableAbilityCard from "@/components/ability-cards/toggleable-ability-card";
 
 interface UnlockableAbilityCardProps {
     abilityCard: AbilityCard;
@@ -12,9 +12,10 @@ interface UnlockableAbilityCardProps {
 const UnlockableAbilityCard = ({ abilityCard, character, setCharacter }: UnlockableAbilityCardProps) => {
     if (abilityCardCanBeToggled(abilityCard, character)) {
         return (
-            <ActiveAbilityCard
+            <ToggleableAbilityCard
                 showLockIcon
                 abilityCard={abilityCard}
+                character={character}
                 isSelected={isUnlockedAbilityCardForCharacter(character, abilityCard)}
                 action={() => {
                     toggleAbilityCard(character, setCharacter, abilityCard);
@@ -23,7 +24,13 @@ const UnlockableAbilityCard = ({ abilityCard, character, setCharacter }: Unlocka
         );
     }
 
-    return <DisabledAbilityCard abilityCard={abilityCard} tooltipText="Cannot unlock this ability card" />;
+    return (
+        <DisabledAbilityCard
+            abilityCard={abilityCard}
+            character={character}
+            tooltipText="Cannot unlock this ability card"
+        />
+    );
 };
 
 const abilityCardCanBeToggled = (abilityCard: AbilityCard, character: Character): boolean => {

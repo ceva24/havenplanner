@@ -1,5 +1,7 @@
 import type { CSSProperties } from "react";
-import { baseImageUrl } from "@/constants";
+import { createSafeRelativePath } from "@/utils";
+
+const baseImageUrl = "https://images.ghplanner.app";
 
 interface ImageProps {
     webpPath: string;
@@ -22,11 +24,20 @@ const Image = ({ webpPath, fallbackImageType, altText, ...props }: ImageProps) =
     );
 };
 
-const createImageUrl = (relativePath: string) => {
-    const safeRelativePath = relativePath.startsWith("/") ? relativePath : `/${relativePath}`;
+const createImageUrl = (webpPath: string) => {
+    if (isValidUrl(webpPath)) return webpPath;
 
-    return `${baseImageUrl}${safeRelativePath}`;
+    return baseImageUrl.concat(createSafeRelativePath(webpPath));
+};
+
+const isValidUrl = (webpPath: string) => {
+    try {
+        new URL(webpPath); // eslint-disable-line no-new
+        return true;
+    } catch {
+        return false;
+    }
 };
 
 export default Image;
-export { createImageUrl };
+export { baseImageUrl, createImageUrl };

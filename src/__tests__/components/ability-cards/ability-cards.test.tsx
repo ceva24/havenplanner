@@ -30,6 +30,18 @@ describe("ability cards", () => {
         expect(handTab).toBeInTheDocument();
     });
 
+    it("renders the enhancements tab", () => {
+        render(
+            <AppSettingsProvider character={defaultCharacter}>
+                <AbilityCards character={defaultCharacter} setCharacter={setCharacter} />
+            </AppSettingsProvider>
+        );
+
+        const enhancementsTab = screen.getByRole("tab", { name: "Enhancements" });
+
+        expect(enhancementsTab).toBeInTheDocument();
+    });
+
     it("renders the deck by default", () => {
         render(
             <AppSettingsProvider character={defaultCharacter}>

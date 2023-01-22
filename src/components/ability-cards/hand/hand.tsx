@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import { Card } from "@/components/core/cards";
 import Button from "@/components/core/button";
+import AbilityCard from "@/components/ability-cards/ability-card";
 
 interface HandProps {
     character: Character;
@@ -19,7 +20,7 @@ const Hand = ({ character, openEditHandDialog }: HandProps) => {
                     .sort((a: AbilityCard, b: AbilityCard) => a.id - b.id)
                     .map((abilityCard: AbilityCard) => (
                         <Box key={abilityCard.id} sx={{ margin: 1 }}>
-                            <Card src={abilityCard.imageUrl} altText={abilityCard.name} />
+                            <AbilityCard abilityCard={abilityCard} character={character} />
                         </Box>
                     ))}
                 {emptyHand.map((abilityCard: unknown, index: number) => {

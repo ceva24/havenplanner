@@ -1,7 +1,6 @@
 import { characterClasses } from "@/loaders/character-classes";
 import { attackModifiers } from "@/loaders/attack-modifiers";
-
-const baseImageUrl = "https://images.ghplanner.app";
+import { createDefaultBattleGoals } from "@/services/character";
 
 const defaultCharacter: Character = {
     name: "",
@@ -9,19 +8,12 @@ const defaultCharacter: Character = {
     gold: 0,
     notes: "",
     characterClass: characterClasses[0],
-    items: [],
     unlockedAbilityCards: [],
     hand: [],
+    gainedEnhancements: [],
     gainedPerks: [],
-    battleGoalCheckmarkGroups: Array.from<BattleGoalCheckmarkGroup>({ length: 6 }).map(
-        (item: unknown, groupIndex: number) => ({
-            id: groupIndex,
-            checkmarks: Array.from<BattleGoalCheckmark>({ length: 3 }).map((item: unknown, checkmarkIndex: number) => ({
-                id: checkmarkIndex,
-                value: false,
-            })),
-        })
-    ),
+    battleGoalCheckmarkGroups: createDefaultBattleGoals(),
+    items: [],
 };
 
 const baseAttackModifierDeck: AttackModifierDeckCard[] = [
@@ -55,4 +47,4 @@ const baseAttackModifierDeck: AttackModifierDeckCard[] = [
     },
 ];
 
-export { baseImageUrl, defaultCharacter, baseAttackModifierDeck };
+export { defaultCharacter, baseAttackModifierDeck };

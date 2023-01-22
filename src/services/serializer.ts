@@ -1,5 +1,5 @@
 const serialize = (character: Character): string => {
-    const characterData: SerializedCharacterData = {
+    const characterData: SerializedCharacter = {
         n: character.name,
         x: character.experience,
         g: character.gold,
@@ -9,11 +9,20 @@ const serialize = (character: Character): string => {
         i: character.items.map((characterItem: CharacterItem) => characterItem.item.id),
         u: character.unlockedAbilityCards.map((abilityCard: AbilityCard) => abilityCard.id),
         h: character.hand.map((abilityCard: AbilityCard) => abilityCard.id),
+        e: serializeGainedEnhancements(character.gainedEnhancements),
         p: serializeGainedPerks(character.gainedPerks, character.characterClass),
         b: serializeGainedBattleGoalCheckmarks(character.battleGoalCheckmarkGroups),
     };
 
     return JSON.stringify(characterData);
+};
+
+const serializeGainedEnhancements = (gainedEnhancements: GainedEnhancement[]): Array<[number, number, number]> => {
+    return gainedEnhancements.map((gainedEnhancement: GainedEnhancement) => [
+        gainedEnhancement.abilityCard.id,
+        gainedEnhancement.enhancementSlot.id,
+        gainedEnhancement.enhancement.id,
+    ]);
 };
 
 const serializeGainedPerks = (gainedPerks: GainedPerk[], characterClass: CharacterClass): Array<[number, number]> => {

@@ -2,7 +2,7 @@ import { Box, Dialog, DialogContent, DialogTitle, Stack, Typography } from "@mui
 import type { Dispatch, SetStateAction } from "react";
 import { getAllAvailableAbilityCardsForCharacter, isCardInHandForCharacter } from "@/services/character";
 import Button from "@/components/core/button";
-import ActiveAbilityCard from "@/components/ability-cards/toggleable-ability-card";
+import ToggleableAbilityCard from "@/components/ability-cards/toggleable-ability-card";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
 
 interface EditHandDialogProps {
@@ -36,8 +36,9 @@ const EditHandDialog = ({ character, setCharacter, isOpen, handleClose }: EditHa
                             <Box key={abilityCard.id} sx={{ margin: 1 }}>
                                 {character.hand.length < character.characterClass.handSize ||
                                 isCardInHandForCharacter(character, abilityCard) ? (
-                                    <ActiveAbilityCard
+                                    <ToggleableAbilityCard
                                         abilityCard={abilityCard}
+                                        character={character}
                                         action={() => {
                                             toggleCardAddedToHand(character, setCharacter, abilityCard);
                                         }}
@@ -45,7 +46,11 @@ const EditHandDialog = ({ character, setCharacter, isOpen, handleClose }: EditHa
                                         showLockIcon={false}
                                     />
                                 ) : (
-                                    <DisabledAbilityCard abilityCard={abilityCard} tooltipText="Hand is full" />
+                                    <DisabledAbilityCard
+                                        abilityCard={abilityCard}
+                                        character={character}
+                                        tooltipText="Hand is full"
+                                    />
                                 )}
                             </Box>
                         ))}

@@ -15,26 +15,24 @@
 
 ## 👋 Introduction
 
-A web application to create and share character builds for the popular tabletop and digital game [Gloomhaven](https://cephalofair.com/pages/gloomhaven). Inspired by tools like [Dark Souls Character Planner](https://soulsplanner.com/darksouls) and [FFXIV Lodestone](https://na.finalfantasyxiv.com/lodestone/character/).
+A web application to create and share character builds for the popular tabletop and digital game [Gloomhaven](https://cephalofair.com/pages/gloomhaven). Inspired by tools like [Dark Souls Character Planner](https://soulsplanner.com/darksouls), [WoW Armory](https://worldofwarcraft.com/en-gb/search) and [FFXIV Lodestone](https://na.finalfantasyxiv.com/lodestone/character).
 
 ## 🗒️ Features
 
--   Enter character details, including selecting a personal quest
+-   Enter character details, including selecting a personal quest that can be optionally hidden
 -   Select perks, track battle goal progress and see the resulting attack modifier deck composition
--   See all character ability cards and select unlocked ones
--   Create a saved hand
+-   View and unlock character ability cards, create a saved hand, and add enhancement stickers to cards
 -   Browse and select items
 -   Save and share characters with a shareable link
 
-### Not yet implemented
+### Not implemented
 
--   Character ability card augments
--   Locked characters and items
+-   All locked character classes and items
 -   Content from Forgotten Circles, Jaws of the Lion, Crimson Scales, Trail of Ashes and Frosthaven
 
 ## 💻 Development
 
-Built with [TypeScript](https://www.typescriptlang.org), [Next.js](https://nextjs.org) and [MUI](https://mui.com/) ❤️
+Built with [TypeScript](https://www.typescriptlang.org), [Next.js](https://nextjs.org) and [MUI](https://mui.com) ❤️
 
 ### Prerequisites
 
@@ -44,17 +42,17 @@ Built with [TypeScript](https://www.typescriptlang.org), [Next.js](https://nextj
 
 ### Tooling
 
-Uses [lint-staged](https://github.com/okonet/lint-staged) and [Husky](https://typicode.github.io/husky/) for pre-commit hooks 🐶 _woof_!
+Uses [lint-staged](https://github.com/okonet/lint-staged) and [Husky](https://typicode.github.io/husky) for pre-commit hooks 🐶 _woof_!
 
 Enforces conventional commits via [commitlint](https://github.com/conventional-changelog/commitlint), see [Contribution guidelines](CONTRIBUTING.md) for valid types.
 
 ### Image hosting
 
-Uses [ceva24/worldhaven](https://github.com/ceva24/worldhaven/) as a CDN for images, hosted at [images.ghplanner.app](https://images.ghplanner.app).
+Uses [ceva24/worldhaven](https://github.com/ceva24/worldhaven/tree/web/) as a CDN for images, hosted at [images.ghplanner.app](https://images.ghplanner.app).
 
 ### Accessibility
 
-This application is built for accessibility: it aims to meet at least [WCAG 2.1 AA standards](https://www.w3.org/WAI/standards-guidelines/wcag/) 😊
+This application is built for accessibility: it aims to meet at least [WCAG 2.1 AA standards](https://www.w3.org/WAI/standards-guidelines/wcag) 😊
 
 ### CI/CD
 
