@@ -35,7 +35,7 @@ const theme: ThemeOptions = createTheme({
         MuiInputLabel: {
             styleOverrides: {
                 root: {
-                    opacity: 0.5,
+                    opacity: 0.7,
                 },
             },
         },
