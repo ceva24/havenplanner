@@ -3,6 +3,7 @@ import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
 import { defaultCharacter } from "@/constants";
+import { enhancements } from "@/loaders/enhancements";
 
 jest.mock("uuid", () => {
     return {
@@ -12,7 +13,7 @@ jest.mock("uuid", () => {
 
 describe("deserialize", () => {
     it("deserializes character data", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"q":518,"i":[],"u":[],"h":[],"p":[],"b":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"q":518,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -25,7 +26,7 @@ describe("deserialize", () => {
     });
 
     it("deserializes item data", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"p":[],"b":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"e":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -35,7 +36,7 @@ describe("deserialize", () => {
     });
 
     it("sets new uuids on character items", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"p":[],"b":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"e":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -45,7 +46,7 @@ describe("deserialize", () => {
     });
 
     it("omits item data that is invalid", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,-1],"u":[],"h":[],"p":[],"b":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,-1],"u":[],"h":[],"e":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -54,7 +55,7 @@ describe("deserialize", () => {
     });
 
     it("sets the default character class when the id is invalid", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":-1,"i":[],"u":[],"h":[],"p":[],"b":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":-1,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -62,7 +63,7 @@ describe("deserialize", () => {
     });
 
     it("omits the personal quest property when deserializing a character with no personal quest id", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":1,"i":[],"u":[],"h":[],"p":[],"b":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":1,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -70,7 +71,7 @@ describe("deserialize", () => {
     });
 
     it("deserializes unlocked ability card data", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[73,74],"h":[],"p":[],"b":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[73,74],"h":[],"e":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -80,7 +81,7 @@ describe("deserialize", () => {
     });
 
     it("omits unlocked ability card that is invalid", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[73,15,-2],"h":[],"p":[],"b":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[73,15,-2],"h":[],"e":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -89,7 +90,7 @@ describe("deserialize", () => {
     });
 
     it("deserializes hand data", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[73,74],"p":[],"b":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[73,74],"e":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -99,7 +100,7 @@ describe("deserialize", () => {
     });
 
     it("omits hand that is invalid", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[73,15,-2],"p":[],"b":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[73,15,-2],"e":[],"p":[],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -107,8 +108,27 @@ describe("deserialize", () => {
         expect(character.hand[0]).toEqual(characterClasses[2].abilityCards[12]);
     });
 
+    it("deserializes gained enhancement data", () => {
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[[61,0,1],[62,1,0]],"p":[],"b":[]}`;
+
+        const character: Character = deserialize(data);
+
+        expect(character.gainedEnhancements).toHaveLength(2);
+
+        expect(character.gainedEnhancements[0]).toEqual({
+            abilityCard: character.characterClass.abilityCards[0],
+            enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
+            enhancement: enhancements[1],
+        });
+        expect(character.gainedEnhancements[1]).toEqual({
+            abilityCard: character.characterClass.abilityCards[1],
+            enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[1],
+            enhancement: enhancements[0],
+        });
+    });
+
     it("deserializes gained perk data", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[[0,0],[1,1]],"b":[]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[0,0],[1,1]],"b":[]}`;
 
         const character: Character = deserialize(data);
 
@@ -118,7 +138,7 @@ describe("deserialize", () => {
     });
 
     it("deserializes battle goal progress", () => {
-        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[],"b":[[true,true,true],[true,false,false]]}`;
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[[true,true,true],[true,false,false]]}`;
 
         const character: Character = deserialize(data);
 

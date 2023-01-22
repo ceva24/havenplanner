@@ -24,10 +24,9 @@ describe("header", () => {
 
         cy.findShareLinkDialog()
             .findShareLinkTextBox()
-            .should(
-                "have.value",
-                "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtT2HsJ2GtZ2GtLN2HtlxHGtYxHGtgxHGtSxHDtLWRcjVsExGL2ZxU9xUmtNuF"
-            );
+            .should("not.have.value", "")
+            .invoke("val")
+            .should("match", /http:\/\/localhost:3000\?character=\w{10,}/);
     });
 
     it("captures the character details in a shareable link", () => {

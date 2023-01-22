@@ -60,6 +60,7 @@ interface SerializedCharacter {
     i: number[]; // Item ids
     u: number[]; // Unlocked ability card ids
     h: number[]; // Hand ability card ids
+    e: Array<[number, number, number]>; // Gained enhancement ability card id, slot id and enhancement id
     p: Array<[number, number]>; // Gained perk and checkbox indices
     b: boolean[][]; // Gained battle goal checkmark groups
 }

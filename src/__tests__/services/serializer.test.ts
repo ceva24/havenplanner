@@ -2,6 +2,7 @@ import { serialize } from "@/services/serializer";
 import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
+import { enhancements } from "@/loaders/enhancements";
 import { createTestCharacter } from "@/testutils";
 
 describe("serializer", () => {
@@ -19,7 +20,7 @@ describe("serializer", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"q":518,"i":[],"u":[],"h":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"q":518,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         );
     });
 
@@ -36,7 +37,7 @@ describe("serializer", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         );
     });
 
@@ -57,7 +58,7 @@ describe("serializer", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         );
     });
 
@@ -79,7 +80,7 @@ describe("serializer", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,2],"u":[],"h":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,2],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         );
     });
 
@@ -97,7 +98,7 @@ describe("serializer", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[61],"h":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[61],"h":[],"e":[],"p":[],"b":[]}`
         );
     });
 
@@ -115,7 +116,36 @@ describe("serializer", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[61],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[61],"e":[],"p":[],"b":[]}`
+        );
+    });
+
+    it("serializes gained enhancements", () => {
+        const character: Character = createTestCharacter({
+            name: "Test Character",
+            experience: 240,
+            gold: 75,
+            notes: "It's a test",
+            characterClass: characterClasses[2],
+            battleGoalCheckmarkGroups: [],
+        });
+        character.gainedEnhancements = [
+            {
+                abilityCard: character.characterClass.abilityCards[0],
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
+                enhancement: enhancements[1],
+            },
+            {
+                abilityCard: character.characterClass.abilityCards[1],
+                enhancementSlot: character.characterClass.abilityCards[1].enhancementSlots[1],
+                enhancement: enhancements[0],
+            },
+        ];
+
+        const data: string = serialize(character);
+
+        expect(data).toEqual(
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[[61,0,1],[62,1,0]],"p":[],"b":[]}`
         );
     });
 
@@ -136,7 +166,7 @@ describe("serializer", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[[0,0],[1,1]],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[0,0],[1,1]],"b":[]}`
         );
     });
 
@@ -170,7 +200,7 @@ describe("serializer", () => {
         const data: string = serialize(character);
 
         expect(data).toEqual(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"p":[],"b":[[true,true,true],[true,false,false]]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[[true,true,true],[true,false,false]]}`
         );
     });
 });
