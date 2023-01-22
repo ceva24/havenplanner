@@ -243,6 +243,29 @@ describe("header", () => {
         cy.findActiveAbilityCard("Skewer").should("have.attr", "aria-checked", "true");
     });
 
+    it.only("captures gained enhancements in a shareable link", () => {
+        cy.visit("/");
+
+        cy.selectTab("Ability Cards");
+
+        cy.selectTab("Enhancements");
+
+        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).click();
+        cy.findByRole("option", { name: "POISON" }).click();
+
+        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).should("have.value", "POISON");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Ability Cards");
+
+        cy.selectTab("Enhancements");
+
+        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).should("have.value", "POISON");
+    });
+
     it("captures gained perks in a shareable link", () => {
         cy.visit("/");
 
