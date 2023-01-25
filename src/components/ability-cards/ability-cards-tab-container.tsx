@@ -1,5 +1,6 @@
 import { useState, type SyntheticEvent, type Dispatch, type SetStateAction } from "react";
-import { Tabs, Tab } from "@mui/material";
+import { Tabs, Tab, type TabsTypeMap, useMediaQuery, useTheme } from "@mui/material";
+import { type DefaultComponentProps } from "@mui/material/OverridableComponent";
 import TabPanel from "@/components/tabs/tab-panel";
 import Deck from "@/components/ability-cards/deck/deck";
 import Hand from "@/components/ability-cards/hand/hand";
@@ -15,6 +16,7 @@ interface AbilityCardsTabContainerProps {
 const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabContainerProps) => {
     const { appSettings, setAppSettings } = useAppSettingsContext();
     const [editHandDialogOpen, setEditHandDialogOpen] = useState<boolean>(false);
+    const responsiveTabProps = useResponsiveTabsProps();
 
     const handleChange = (event: SyntheticEvent, value: number) => {
         setAppSettings({ ...appSettings, selectedAbilityCardsTabIndex: value });
@@ -22,7 +24,12 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
 
     return (
         <>
-            <Tabs centered value={appSettings.selectedAbilityCardsTabIndex} onChange={handleChange}>
+            <Tabs
+                centered
+                value={appSettings.selectedAbilityCardsTabIndex}
+                onChange={handleChange}
+                {...responsiveTabProps}
+            >
                 <Tab
                     disableRipple
                     label="Deck"
@@ -85,6 +92,22 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
             </TabPanel>
         </>
     );
+};
+
+const useResponsiveTabsProps = (): Partial<DefaultComponentProps<TabsTypeMap>> => {
+    const theme = useTheme();
+
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down(500));
+    const isMediumScreen = useMediaQuery(theme.breakpoints.down("lg"));
+
+    switch (true) {
+        case isSmallScreen:
+            return { variant: "scrollable", allowScrollButtonsMobile: true };
+        case isMediumScreen:
+            return { variant: "fullWidth" };
+        default:
+            return {};
+    }
 };
 
 export default AbilityCardsTabContainer;
