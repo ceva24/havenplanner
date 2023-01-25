@@ -35,6 +35,8 @@ const EnhancementsAutocomplete = ({
                         fallbackImageType="png"
                         altText={enhancement.name}
                         style={{ verticalAlign: "middle" }}
+                        height={30}
+                        width={30}
                         aria-hidden="true"
                     />
                     {enhancement.name}

@@ -1,4 +1,4 @@
-import Image from "@/components/core/image";
+import { Card } from "@/components/core/cards";
 import { createSafeRelativePath } from "@/utils";
 
 const enhancedAbilityCardsBaseImageUrl = "https://raw.githubusercontent.com/ceva24/worldhaven-enhanced-cards/main";
@@ -9,16 +9,7 @@ interface AbilityCardProps {
 }
 
 const AbilityCard = ({ abilityCard, character }: AbilityCardProps) => {
-    return (
-        <Image
-            webpPath={determineAbilityCardImageUrl(abilityCard, character)}
-            fallbackImageType="jpg"
-            altText={abilityCard.name}
-            width={240}
-            height={320}
-            style={{ maxWidth: "100%", borderRadius: "3%" }}
-        />
-    );
+    return <Card src={determineAbilityCardImageUrl(abilityCard, character)} altText={abilityCard.name} />;
 };
 
 const determineAbilityCardImageUrl = (abilityCard: AbilityCard, character: Character): string => {

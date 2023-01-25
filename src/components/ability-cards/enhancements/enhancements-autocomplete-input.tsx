@@ -16,6 +16,8 @@ const EnhancementsAutocompleteInput = ({ enhancementSlot, ...props }: Enhancemen
                 fallbackImageType="png"
                 altText={enhancement.name}
                 style={{ verticalAlign: "middle" }}
+                height={30}
+                width={30}
                 aria-hidden="true"
             />
         );
