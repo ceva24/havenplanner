@@ -154,6 +154,38 @@ describe("profile tab", () => {
         cy.findDefaultPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-back");
     });
 
+    it("disables the hide personal quest switch when no personal quest has been selected", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestSwitch().should("be.disabled");
+    });
+
+    it("hides the personal quest when the switch is set to on", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestAutocomplete().click();
+
+        cy.findByRole("option", { name: "Augmented Abilities" }).click();
+
+        cy.findPersonalQuestImage("Augmented Abilities").should("exist");
+
+        cy.findPersonalQuestSwitch().check();
+
+        cy.findPersonalQuestImage("Augmented Abilities").should("not.exist");
+    });
+
+    it("hides the personal quest autocomplete when the switch is set to on", () => {
+        cy.visit("/");
+
+        cy.findPersonalQuestAutocomplete().click();
+
+        cy.findByRole("option", { name: "Augmented Abilities" }).click();
+
+        cy.findPersonalQuestSwitch().check();
+
+        cy.findPersonalQuestAutocomplete().should("not.exist");
+    });
+
     it("allows a personal quest to be selected and updates the card image", () => {
         cy.visit("/");
 

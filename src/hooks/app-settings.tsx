@@ -15,7 +15,7 @@ interface AppSettingsProviderProps {
 
 const AppSettingsProvider = ({ character, children }: AppSettingsProviderProps) => {
     const [appSettings, setAppSettings] = useState<AppSettings>({
-        showPersonalQuest: !character.personalQuest,
+        hidePersonalQuest: Boolean(character.personalQuest),
         selectedAbilityCardsTabIndex: 0,
     });
 

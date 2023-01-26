@@ -64,20 +64,6 @@ describe("header", () => {
         cy.findShareLinkDialog().not("should.be.visible");
     });
 
-    it("shows the personal quest switch when loading a character with a personal quest", () => {
-        cy.visit("/");
-
-        cy.findPersonalQuestAutocomplete().click();
-
-        cy.findByRole("option", { name: "Augmented Abilities" }).click();
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.findPersonalQuestSwitch().should("exist");
-    });
-
     it("captures the personal quest in a shareable link", () => {
         cy.visit("/");
 
@@ -89,7 +75,7 @@ describe("header", () => {
 
         cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
 
-        cy.findPersonalQuestSwitch().check();
+        cy.findPersonalQuestSwitch().uncheck();
 
         cy.findPersonalQuestImage("Augmented Abilities").should("exist");
     });
@@ -106,42 +92,6 @@ describe("header", () => {
         cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
 
         cy.findDefaultPersonalQuestImage().should("exist");
-    });
-
-    it("hides the personal quest when the switch is set to off", () => {
-        cy.visit("/");
-
-        cy.findPersonalQuestAutocomplete().click();
-
-        cy.findByRole("option", { name: "Augmented Abilities" }).click();
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.findDefaultPersonalQuestImage().should("exist");
-
-        cy.findPersonalQuestImage("Augmented Abilities").should("not.exist");
-
-        cy.findPersonalQuestSwitch().check();
-
-        cy.findPersonalQuestImage("Augmented Abilities").should("exist");
-    });
-
-    it("hides the personal quest autocomplete when the switch is set to off", () => {
-        cy.visit("/");
-
-        cy.findPersonalQuestAutocomplete().click();
-
-        cy.findByRole("option", { name: "Augmented Abilities" }).click();
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.findPersonalQuestSwitch().should("not.be.checked");
-
-        cy.findPersonalQuestAutocomplete().should("not.exist");
     });
 
     it("captures item data in a shareable link", () => {
