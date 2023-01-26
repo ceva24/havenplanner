@@ -1,6 +1,5 @@
 interface AppSettings {
-    showPersonalQuestButton: boolean;
-    showPersonalQuest: boolean;
+    hidePersonalQuest: boolean;
     selectedAbilityCardsTabIndex: number;
 }
 

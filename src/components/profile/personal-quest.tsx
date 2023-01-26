@@ -15,40 +15,39 @@ const PersonalQuest = ({ character, setCharacter }: PersonalQuestProps) => {
     const { appSettings, setAppSettings } = useAppSettingsContext();
 
     const handleChange = () => {
-        setAppSettings({ ...appSettings, showPersonalQuest: !appSettings.showPersonalQuest });
+        setAppSettings({ ...appSettings, hidePersonalQuest: !appSettings.hidePersonalQuest });
     };
 
     const personalQuestImageUrl =
-        appSettings.showPersonalQuest && character.personalQuest
+        character.personalQuest && !appSettings.hidePersonalQuest
             ? character.personalQuest?.imageUrl
             : defaultPersonalQuestCardImageUrl;
 
     const personalQuestAltText =
-        appSettings.showPersonalQuest && character.personalQuest
+        character.personalQuest && !appSettings.hidePersonalQuest
             ? `Personal quest ${character.personalQuest.name}`
             : "Personal quest";
 
     return (
         <FormControl>
-            {appSettings.showPersonalQuestButton && (
-                <Box textAlign="center">
-                    <FormControlLabel
-                        control={
-                            <Switch
-                                id="show-personal-quest-switch"
-                                name="Show personal quest"
-                                checked={appSettings.showPersonalQuest}
-                                onClick={handleChange}
-                            />
-                        }
-                        label="Show personal quest"
-                    />
-                </Box>
-            )}
+            <Box textAlign="center">
+                <FormControlLabel
+                    control={
+                        <Switch
+                            id="hide-personal-quest-switch"
+                            name="Hide personal quest"
+                            checked={appSettings.hidePersonalQuest}
+                            disabled={!character.personalQuest}
+                            onClick={handleChange}
+                        />
+                    }
+                    label="Hide personal quest"
+                />
+            </Box>
             <Box sx={{ marginTop: 1, marginBottom: 1 }}>
                 <Card src={personalQuestImageUrl} altText={personalQuestAltText} />
             </Box>
-            {appSettings?.showPersonalQuest && (
+            {!appSettings.hidePersonalQuest && (
                 <PersonalQuestAutocomplete character={character} setCharacter={setCharacter} />
             )}
         </FormControl>
