@@ -94,16 +94,6 @@ describe("header", () => {
         cy.findPersonalQuestImage("Augmented Abilities").should("exist");
     });
 
-    it("does not show the personal quest switch when loading a character without a personal quest", () => {
-        cy.visit("/");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.findPersonalQuestSwitch().should("not.exist");
-    });
-
     it("hides the personal quest by default when loading a character with one set", () => {
         cy.visit("/");
 
@@ -243,7 +233,7 @@ describe("header", () => {
         cy.findActiveAbilityCard("Skewer").should("have.attr", "aria-checked", "true");
     });
 
-    it.only("captures gained enhancements in a shareable link", () => {
+    it("captures gained enhancements in a shareable link", () => {
         cy.visit("/");
 
         cy.selectTab("Ability Cards");

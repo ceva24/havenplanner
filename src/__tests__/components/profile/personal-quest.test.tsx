@@ -25,18 +25,6 @@ describe("personal quest", () => {
         expect(showPersonalQuestSwitch).toBeInTheDocument();
     });
 
-    it("does not render the show personal quest switch when it is not set in app settings", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <PersonalQuest character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
-
-        const showPersonalQuestSwitch = screen.queryByRole("checkbox", { name: "Show personal quest" });
-
-        expect(showPersonalQuestSwitch).not.toBeInTheDocument();
-    });
-
     it("renders the personal quest card", () => {
         render(
             <AppSettingsProvider character={character}>

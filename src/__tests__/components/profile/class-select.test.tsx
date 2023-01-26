@@ -13,7 +13,6 @@ const character: Character = createTestCharacter();
 const setCharacter = jest.fn();
 
 const appSettings: AppSettings = {
-    showPersonalQuestButton: false,
     showPersonalQuest: false,
     selectedAbilityCardsTabIndex: 0,
 };

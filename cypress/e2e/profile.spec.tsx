@@ -164,12 +164,6 @@ describe("profile tab", () => {
         cy.findPersonalQuestImage("Augmented Abilities").should("have.attr", "src").should("include", "gh-pq-530");
     });
 
-    it("does not show the personal quest switch by default", () => {
-        cy.visit("/");
-
-        cy.findPersonalQuestSwitch().should("not.exist");
-    });
-
     it("resets unlocked ability cards when changing the class", () => {
         cy.visit("/");
 
