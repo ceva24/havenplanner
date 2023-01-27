@@ -1,13 +1,11 @@
 import { useState } from "react";
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
-import Head from "next/head";
-import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import { decode } from "@/services/codec";
 import { defaultCharacter } from "@/constants";
 import TabContainer from "@/components/tabs/tab-container";
 import Header from "@/components/header/header";
 import AppSettingsProvider from "@/hooks/app-settings";
-import theme from "@/styles/theme";
 import { useClearQueryString } from "@/hooks/use-clear-query-string";
 
 interface IndexProps {
@@ -20,30 +18,17 @@ const Index: NextPage<IndexProps> = ({ initialCharacter }: IndexProps) => {
     useClearQueryString();
 
     return (
-        <ThemeProvider theme={theme}>
-            <AppSettingsProvider character={character}>
-                <CssBaseline />
+        <AppSettingsProvider character={character}>
+            <Header character={character} />
 
-                <Head>
-                    <title>Gloomhaven Character Planner</title>
-                    <meta
-                        name="description"
-                        content="A web application to create character builds for the popular tabletop and digital game Gloomhaven"
-                    />
-                    <link rel="shortcut icon" href="/favicon.png" />
-                </Head>
-
-                <Header character={character} />
-
-                <Container component="main" maxWidth="xl">
-                    <Grid container height="100%" minHeight="45rem" justifyContent="center">
-                        <Grid item xs={12}>
-                            <TabContainer character={character} setCharacter={setCharacter} />
-                        </Grid>
+            <Container component="main" maxWidth="xl">
+                <Grid container height="100%" minHeight="45rem" justifyContent="center">
+                    <Grid item xs={12}>
+                        <TabContainer character={character} setCharacter={setCharacter} />
                     </Grid>
-                </Container>
-            </AppSettingsProvider>
-        </ThemeProvider>
+                </Grid>
+            </Container>
+        </AppSettingsProvider>
     );
 };
 

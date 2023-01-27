@@ -24,4 +24,14 @@ describe("header", () => {
 
         expect(shareButton).toBeInTheDocument();
     });
+
+    it("does not render the share button when no character is passed", () => {
+        render(<Header />);
+
+        const shareButton = screen.queryByRole("button", {
+            name: "Share",
+        });
+
+        expect(shareButton).not.toBeInTheDocument();
+    });
 });
