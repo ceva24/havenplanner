@@ -1,8 +1,8 @@
-import { AppBar, Box, FormControlLabel, Grid, Link, Switch, Toolbar } from "@mui/material";
+import { AppBar, Box, Link, Toolbar } from "@mui/material";
 import ShareButton from "@/components/header/share-button";
 
 interface HeaderProps {
-    character: Character;
+    character?: Character;
 }
 
 const Header = ({ character }: HeaderProps) => {
@@ -16,9 +16,7 @@ const Header = ({ character }: HeaderProps) => {
                         </Link>
                     </h1>
                 </Box>
-                <Box>
-                    <ShareButton character={character} />
-                </Box>
+                <Box>{character && <ShareButton character={character} />}</Box>
             </Toolbar>
         </AppBar>
     );
