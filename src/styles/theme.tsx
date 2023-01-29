@@ -13,6 +13,9 @@ const theme: ThemeOptions = createTheme({
         primary: {
             main: "#c09172",
         },
+        secondary: {
+            main: "#d7d4d9",
+        },
     },
     typography: {
         h1: {

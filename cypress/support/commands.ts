@@ -161,3 +161,11 @@ Cypress.Commands.add("addItem", (name: string) => {
     cy.findItemsAutocomplete().click();
     cy.findByRole("option", { name }).click();
 });
+
+Cypress.Commands.add("openSettings", () => {
+    cy.findByRole("button", { name: "Settings" }).click();
+});
+
+Cypress.Commands.add("findSettingsDrawer", () => {
+    cy.findByRole("presentation", { name: "Settings" });
+});

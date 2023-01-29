@@ -18,7 +18,7 @@
                 "execute": "document.querySelector('#enhancements-tab').click()"
             },
             {
-                "suffix": " - Enhancements - Autocomplete",
+                "suffix": " - Enhancements - Select",
                 "execute": "document.querySelector(\"[aria-label='Open']\").click()"
             }
         ]
@@ -32,5 +32,10 @@
         "name": "Perks Tab",
         "url": "http://localhost:3000?character=uDriterisSrisdtcjRrgsetifjkWRTVrisEriuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2VsO2psP2JxeO302exfE2CsI2OxJE2exJFyXEsPxJE2o3d2SxqDtgxqE35xeExtGx1DxGDxeExGExME2sxME47xwFtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#perks-tab').click()"
+    },
+    {
+        "name": "Settings",
+        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrgsetifjkWRTVrisEriuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2VsO2psP2JxeO302exfE2CsI2OxJE2exJFyXEsPxJE2o3d2SxqDtgxqE35xeExtGx1DxGDxeExGExME2sxME47xwFtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
+        "execute": "document.querySelector('#open-settings-button').click()"
     }
 ]
