@@ -63,5 +63,9 @@ declare namespace Cypress {
         findItemsAutocomplete(): Chainable<Element>;
 
         addItem(name: string): Chainable<Element>;
+
+        openSettings(): Chainable<Element>;
+
+        findSettingsDrawer(): Chainable<Element>;
     }
 }

@@ -25,6 +25,16 @@ describe("header", () => {
         expect(shareButton).toBeInTheDocument();
     });
 
+    it("renders the settings button", () => {
+        render(<Header character={character} />);
+
+        const settingsButton = screen.queryByRole("button", {
+            name: "Settings",
+        });
+
+        expect(settingsButton).toBeInTheDocument();
+    });
+
     it("does not render the share button when no character is passed", () => {
         render(<Header />);
 
@@ -33,5 +43,15 @@ describe("header", () => {
         });
 
         expect(shareButton).not.toBeInTheDocument();
+    });
+
+    it("does not render the settings button when no character is passed", () => {
+        render(<Header />);
+
+        const settingsButton = screen.queryByRole("button", {
+            name: "Settings",
+        });
+
+        expect(settingsButton).not.toBeInTheDocument();
     });
 });

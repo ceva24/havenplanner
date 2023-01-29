@@ -1,5 +1,6 @@
-import { AppBar, Box, Link, Toolbar } from "@mui/material";
+import { AppBar, Box, Grid, Link, Toolbar } from "@mui/material";
 import ShareButton from "@/components/header/share-button";
+import SettingsButton from "@/components/header/settings-button";
 
 interface HeaderProps {
     character?: Character;
@@ -9,14 +10,25 @@ const Header = ({ character }: HeaderProps) => {
     return (
         <AppBar position="static">
             <Toolbar>
-                <Box padding={2.5} sx={{ flexGrow: 1 }}>
+                <Box padding={2} sx={{ flexGrow: 1 }}>
                     <h1 style={{ margin: 0, lineHeight: 1 }}>
                         <Link href="/" underline="none" color="textPrimary" variant="h1">
                             Gloomhaven Character Planner
                         </Link>
                     </h1>
                 </Box>
-                <Box>{character && <ShareButton character={character} />}</Box>
+                {character && (
+                    <Box>
+                        <Grid container textAlign="right">
+                            <Grid item padding={1} sx={{ width: { xs: "100%", sm: "auto" } }}>
+                                <SettingsButton />
+                            </Grid>
+                            <Grid item padding={1} sx={{ width: { xs: "100%", sm: "auto" } }}>
+                                <ShareButton character={character} />
+                            </Grid>
+                        </Grid>
+                    </Box>
+                )}
             </Toolbar>
         </AppBar>
     );
