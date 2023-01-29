@@ -86,9 +86,9 @@ Cypress.Commands.add("findEditHandDialog", () => {
     cy.findByRole("dialog", { name: "Select ability cards" });
 });
 
-Cypress.Commands.add("findEnhancementsAutocomplete", (cardName: string, name: string, index: number) => {
+Cypress.Commands.add("findEnhancementsSelect", (cardName: string, name: string, index: number) => {
     cy.findByRole("region", { name: `${cardName} Enhancements` })
-        .findAllByRole("combobox", { name })
+        .findAllByRole("button", { name })
         .eq(index);
 });
 

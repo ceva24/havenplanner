@@ -190,10 +190,10 @@ describe("header", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).click();
+        cy.findEnhancementsSelect("Trample", "Attack", 1).click();
         cy.findByRole("option", { name: "POISON" }).click();
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).should("have.value", "POISON");
+        cy.findEnhancementsSelect("Trample", "Attack", 1).should("have.text", "POISON");
 
         cy.findShareLinkButton().click();
 
@@ -203,7 +203,7 @@ describe("header", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).should("have.value", "POISON");
+        cy.findEnhancementsSelect("Trample", "Attack", 1).should("have.text", "POISON");
     });
 
     it("captures gained perks in a shareable link", () => {
