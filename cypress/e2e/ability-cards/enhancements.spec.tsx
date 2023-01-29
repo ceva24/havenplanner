@@ -13,14 +13,14 @@ describe("ability cards tab - enhancements", () => {
         cy.findByRole("img", { name: "Trample" }).should("have.attr", "src").should("include", "gh-trample");
     });
 
-    it("renders the enhancements autocompletes for a card", () => {
+    it("renders the enhancements select boxes for a card", () => {
         cy.visit("/");
 
         cy.selectTab("Ability Cards");
 
         cy.selectTab("Enhancements");
 
-        cy.findByRole("region", { name: "Trample Enhancements" }).findAllByRole("combobox").should("have.length", 5);
+        cy.findByRole("region", { name: "Trample Enhancements" }).findAllByRole("button").should("have.length", 5);
     });
 
     it("allows enhancements to be selected", () => {
@@ -30,21 +30,21 @@ describe("ability cards tab - enhancements", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).click();
+        cy.findEnhancementsSelect("Trample", "Attack", 1).click();
 
         cy.findByRole("option", { name: "POISON" }).click();
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).should("have.value", "POISON");
+        cy.findEnhancementsSelect("Trample", "Attack", 1).should("have.text", "POISON");
     });
 
-    it("shows the enhancement icon in the autocomplete drop-down", () => {
+    it("shows the enhancement icon in the select box menu items", () => {
         cy.visit("/");
 
         cy.selectTab("Ability Cards");
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).click();
+        cy.findEnhancementsSelect("Trample", "Attack", 1).click();
 
         cy.findByRole("option", { name: "POISON" })
             .find("img")
@@ -59,11 +59,11 @@ describe("ability cards tab - enhancements", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).click();
+        cy.findEnhancementsSelect("Trample", "Attack", 1).click();
 
         cy.findByRole("option", { name: "POISON" }).click();
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1)
+        cy.findEnhancementsSelect("Trample", "Attack", 1)
             .parent()
             .find("img")
             .should("have.attr", "src")
@@ -77,16 +77,16 @@ describe("ability cards tab - enhancements", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 0).click();
+        cy.findEnhancementsSelect("Trample", "Attack", 0).click();
         cy.findByRole("option", { name: "POISON" }).click();
 
-        cy.findEnhancementsAutocomplete("Trample", "PIERCE", 0).click();
+        cy.findEnhancementsSelect("Trample", "PIERCE", 0).click();
         cy.findByRole("option", { name: "+1" }).click();
 
-        cy.findEnhancementsAutocomplete("Trample", "Move", 0).click();
+        cy.findEnhancementsSelect("Trample", "Move", 0).click();
         cy.findByRole("option", { name: "Jump" }).click();
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).click();
+        cy.findEnhancementsSelect("Trample", "Attack", 1).click();
         cy.findByRole("option", { name: "Fire" }).click();
 
         cy.findByRole("img", { name: "Trample" })
@@ -101,7 +101,7 @@ describe("ability cards tab - enhancements", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 0).click();
+        cy.findEnhancementsSelect("Trample", "Attack", 0).click();
         cy.findByRole("option", { name: "POISON" }).click();
 
         cy.selectTab("Deck");
@@ -120,7 +120,7 @@ describe("ability cards tab - enhancements", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Fatal Advance", "Move", 0).click();
+        cy.findEnhancementsSelect("Fatal Advance", "Move", 0).click();
         cy.findByRole("option", { name: "+1" }).click();
 
         cy.selectTab("Deck");
@@ -137,7 +137,7 @@ describe("ability cards tab - enhancements", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Fatal Advance", "Move", 0).click();
+        cy.findEnhancementsSelect("Fatal Advance", "Move", 0).click();
         cy.findByRole("option", { name: "+1" }).click();
 
         cy.selectTab("Deck");
@@ -154,7 +154,7 @@ describe("ability cards tab - enhancements", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 0).click();
+        cy.findEnhancementsSelect("Trample", "Attack", 0).click();
         cy.findByRole("option", { name: "POISON" }).click();
 
         cy.selectTab("Hand");
@@ -173,7 +173,7 @@ describe("ability cards tab - enhancements", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 0).click();
+        cy.findEnhancementsSelect("Trample", "Attack", 0).click();
         cy.findByRole("option", { name: "POISON" }).click();
 
         cy.selectTab("Hand");

@@ -42,7 +42,7 @@ declare namespace Cypress {
 
         findEditHandDialog(): Chainable<Element>;
 
-        findEnhancementsAutocomplete(cardName: string, name: string, index: number): Chainable<Element>;
+        findEnhancementsSelect(cardName: string, name: string, index: number): Chainable<Element>;
 
         findAttackModifierCardWithCount(name: string, count: number): Chainable<Element>;
 

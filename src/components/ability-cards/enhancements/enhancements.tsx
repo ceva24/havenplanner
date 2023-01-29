@@ -1,6 +1,6 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { Box } from "@mui/material";
-import EnhancementsAutocomplete from "@/components/ability-cards/enhancements/enhancements-autocomplete";
+import EnhancementsSelect from "@/components/ability-cards/enhancements/enhancements-select";
 import AbilityCard from "@/components/ability-cards/ability-card";
 
 interface EnhancementsProps {
@@ -23,7 +23,7 @@ const Enhancements = ({ character, setCharacter }: EnhancementsProps) => {
                         <AbilityCard abilityCard={abilityCard} character={character} />
                         {abilityCard.enhancementSlots.map((enhancementSlot: EnhancementSlot) => (
                             <Box key={`${abilityCard.id}-${enhancementSlot.id}`} marginTop={1} marginBottom={1}>
-                                <EnhancementsAutocomplete
+                                <EnhancementsSelect
                                     abilityCard={abilityCard}
                                     enhancementSlot={enhancementSlot}
                                     character={character}

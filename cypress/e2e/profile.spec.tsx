@@ -410,11 +410,11 @@ describe("profile tab", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).click();
+        cy.findEnhancementsSelect("Trample", "Attack", 1).click();
 
         cy.findByRole("option", { name: "POISON" }).click();
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).should("have.value", "POISON");
+        cy.findEnhancementsSelect("Trample", "Attack", 1).should("have.text", "POISON");
 
         cy.selectTab("Profile");
 
@@ -426,6 +426,6 @@ describe("profile tab", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findEnhancementsAutocomplete("Trample", "Attack", 1).should("have.value", "");
+        cy.findEnhancementsSelect("Trample", "Attack", 1).should("not.have.text");
     });
 });
