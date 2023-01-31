@@ -1,17 +1,13 @@
-import cloneDeep from "lodash.clonedeep";
 import { Box, Grid, Typography } from "@mui/material";
 import { WideCard } from "@/components/core/cards";
 
 interface AttackModifiersGridProps {
-    initialDeck: AttackModifierDeckCard[];
-    gainedPerks: GainedPerk[];
+    deck: AttackModifierDeckCard[];
     orderedCardNames: string[];
 }
 
-const AttackModifiersGrid = ({ initialDeck, gainedPerks, orderedCardNames }: AttackModifiersGridProps) => {
-    const attackModifierDeckWithPerks = applyPerksTo(initialDeck, gainedPerks, orderedCardNames);
-
-    const orderedAttackModifierDeck = attackModifierDeckWithPerks
+const AttackModifiersGrid = ({ deck, orderedCardNames }: AttackModifiersGridProps) => {
+    const orderedAttackModifierDeck = deck
         .slice()
         .sort(
             (a: AttackModifierDeckCard, b: AttackModifierDeckCard) =>
@@ -48,67 +44,4 @@ const AttackModifiersGrid = ({ initialDeck, gainedPerks, orderedCardNames }: Att
     );
 };
 
-const applyPerksTo = (
-    attackModifierDeck: AttackModifierDeckCard[],
-    gainedPerks: GainedPerk[],
-    orderedCardNames: string[]
-): AttackModifierDeckCard[] => {
-    const attackModifierDeckWithPerks = cloneDeep(attackModifierDeck);
-
-    gainedPerks.forEach((gainedPerk: GainedPerk) => {
-        applyChangesOfPerkTo(attackModifierDeckWithPerks, gainedPerk.perk, orderedCardNames);
-    });
-
-    return attackModifierDeckWithPerks;
-};
-
-const applyChangesOfPerkTo = (attackModifierDeck: AttackModifierDeckCard[], perk: Perk, orderedCardNames: string[]) => {
-    perk.add.forEach((attackModifierCard: AttackModifierCard) => {
-        if (orderedCardNames.includes(attackModifierCard.name))
-            applyAttackModifierAdditionsTo(attackModifierDeck, attackModifierCard);
-    });
-
-    perk.remove.forEach((attackModifierCard: AttackModifierCard) => {
-        if (orderedCardNames.includes(attackModifierCard.name))
-            applyAttackModifierRemovalsTo(attackModifierDeck, attackModifierCard);
-    });
-};
-
-const applyAttackModifierAdditionsTo = (
-    attackModifierDeck: AttackModifierDeckCard[],
-    cardToAdd: AttackModifierCard
-) => {
-    const attackModifierDeckCardToAddTo = attackModifierDeck.find(
-        (attackModifierDeckCard: AttackModifierDeckCard) => attackModifierDeckCard.card.id === cardToAdd.id
-    );
-
-    if (attackModifierDeckCardToAddTo) {
-        attackModifierDeckCardToAddTo.count++;
-    } else {
-        attackModifierDeck.push({
-            card: cardToAdd,
-            count: 1,
-        });
-    }
-};
-
-const applyAttackModifierRemovalsTo = (
-    attackModifierDeck: AttackModifierDeckCard[],
-    cardToRemove: AttackModifierCard
-) => {
-    const attackModifierDeckCardToRemoveFrom = attackModifierDeck.find(
-        (attackModifierDeckCard: AttackModifierDeckCard) => attackModifierDeckCard.card.id === cardToRemove.id
-    );
-
-    if (!attackModifierDeckCardToRemoveFrom) return;
-
-    if (attackModifierDeckCardToRemoveFrom.count > 1) {
-        attackModifierDeckCardToRemoveFrom.count--;
-    } else {
-        const indexOfCardToRemove = attackModifierDeck.indexOf(attackModifierDeckCardToRemoveFrom);
-        attackModifierDeck.splice(indexOfCardToRemove, 1);
-    }
-};
-
 export default AttackModifiersGrid;
-export { applyPerksTo };
