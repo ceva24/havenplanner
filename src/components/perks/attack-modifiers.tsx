@@ -49,6 +49,8 @@ const applyPerksTo = (
 };
 
 const applyChangesOfPerkTo = (attackModifierDeck: AttackModifierDeckCard[], perk: Perk) => {
+    if (perk.remove.length > 0 && !attackModifierDeckMeetsRemovalPrerequisites(perk.remove, attackModifierDeck)) return;
+
     perk.add.forEach((attackModifierCard: AttackModifierCard) => {
         applyAttackModifierAdditionsTo(attackModifierDeck, attackModifierCard);
     });
@@ -56,6 +58,15 @@ const applyChangesOfPerkTo = (attackModifierDeck: AttackModifierDeckCard[], perk
     perk.remove.forEach((attackModifierCard: AttackModifierCard) => {
         applyAttackModifierRemovalsTo(attackModifierDeck, attackModifierCard);
     });
+};
+
+const attackModifierDeckMeetsRemovalPrerequisites = (
+    remove: AttackModifierCard[],
+    deck: AttackModifierDeckCard[]
+): boolean => {
+    return remove.every((card: AttackModifierCard) =>
+        deck.some((deckCard: AttackModifierDeckCard) => deckCard.card.id === card.id)
+    );
 };
 
 const applyAttackModifierAdditionsTo = (

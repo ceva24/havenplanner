@@ -299,6 +299,106 @@ describe("applyPerksTo", () => {
 
         expect(attackModifierDeckWithPerks).toEqual(attackModifierDeck);
     });
+
+    it("does not apply perks if the deck does not contain the card to remove when a single card is being replaced", () => {
+        const gainedPerks: GainedPerk[] = [
+            {
+                checkboxIndex: 0,
+                perk: {
+                    id: 0,
+                    name: "",
+                    count: 1,
+                    add: [attackModifiers[3]], // +0
+                    remove: [],
+                },
+            },
+            {
+                checkboxIndex: 0,
+                perk: {
+                    id: 1,
+                    name: "",
+                    count: 1,
+                    add: [attackModifiers[2]], // +1
+                    remove: [attackModifiers[3]], // +0
+                },
+            },
+        ];
+
+        const attackModifierDeckWithPerks = applyPerksTo([], gainedPerks);
+
+        expect(attackModifierDeckWithPerks).toHaveLength(1);
+        expect(attackModifierDeckWithPerks[0].card).toEqual(attackModifiers[2]);
+    });
+
+    it("applies a perk if the perk that adds the card to be removed is gained afterwards", () => {
+        const gainedPerks: GainedPerk[] = [
+            {
+                checkboxIndex: 0,
+                perk: {
+                    id: 1,
+                    name: "",
+                    count: 1,
+                    add: [attackModifiers[2]], // +1
+                    remove: [attackModifiers[3]], // +0
+                },
+            },
+            {
+                checkboxIndex: 0,
+                perk: {
+                    id: 0,
+                    name: "",
+                    count: 1,
+                    add: [attackModifiers[3]], // +0
+                    remove: [],
+                },
+            },
+        ];
+
+        const attackModifierDeckWithPerks = applyPerksTo([], gainedPerks);
+
+        expect(attackModifierDeckWithPerks).toHaveLength(1);
+        expect(attackModifierDeckWithPerks[0].card).toEqual(attackModifiers[2]);
+    });
+
+    it("only applies one instance of a perk if both checkboxes have been gained but the prerequisite has only been gained once", () => {
+        const gainedPerks: GainedPerk[] = [
+            {
+                checkboxIndex: 1,
+                perk: {
+                    id: 1,
+                    name: "",
+                    count: 2,
+                    add: [attackModifiers[2]], // +1
+                    remove: [attackModifiers[3]], // +0
+                },
+            },
+            {
+                checkboxIndex: 0,
+                perk: {
+                    id: 0,
+                    name: "",
+                    count: 2,
+                    add: [attackModifiers[3]], // +0
+                    remove: [],
+                },
+            },
+            {
+                checkboxIndex: 0,
+                perk: {
+                    id: 1,
+                    name: "",
+                    count: 2,
+                    add: [attackModifiers[2]], // +1
+                    remove: [attackModifiers[3]], // +0
+                },
+            },
+        ];
+
+        const attackModifierDeckWithPerks = applyPerksTo([], gainedPerks);
+
+        expect(attackModifierDeckWithPerks).toHaveLength(1);
+        expect(attackModifierDeckWithPerks[0].card).toEqual(attackModifiers[2]);
+    });
 });
 
 describe("splitAttackModifierDeckIntoBaseAndClass", () => {
