@@ -24,10 +24,8 @@ jobs:
           build: npm run build
           start: npm start
           record: true
-          parallel: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # CYPRESS_GROUP: ${{ github.event_name }}
           # COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
