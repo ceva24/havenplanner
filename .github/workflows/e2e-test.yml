@@ -30,5 +30,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
           COMMIT_INFO_SHA: ${{ github.event.pull_request.head.sha }}
-          CYPRESS_TAG: ${{ github.event_name }}
           CYPRESS_GROUP: ${{ github.event_name }}
