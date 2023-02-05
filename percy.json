@@ -30,7 +30,7 @@
         "additionalSnapshots": [
             {
                 "suffix": " - Select",
-                "execute": "document.querySelector('#hand-tab').click()"
+                "execute": "document.querySelector(\"[aria-label='Open']\").click()"
             }
         ]
     },
