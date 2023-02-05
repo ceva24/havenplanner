@@ -25,8 +25,8 @@ jobs:
           start: npm start
           record: true
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           # CYPRESS_GROUP: ${{ github.event_name }}
           # COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
-          # COMMIT_INFO_SHA: ${{ github.event.pull_request.head.sha }}
+          COMMIT_INFO_SHA: ${{ github.event.pull_request.head.sha }}
