@@ -26,7 +26,9 @@ jobs:
           record: true
           group: ${{ github.event_name }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          CYPRESS_GROUP: ${{ github.event_name }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
+          COMMIT_INFO_SHA: ${{ github.event.pull_request.head.sha }}
+          CYPRESS_TAG: ${{ github.event_name }}
+          CYPRESS_GROUP: ${{ github.event_name }}
