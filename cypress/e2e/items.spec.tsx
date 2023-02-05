@@ -77,4 +77,17 @@ describe("items tab", () => {
             cy.wrap(items[3]).should("have.property", "alt", "Minor Power Potion");
         });
     });
+
+    it("shows the equip slot icon in the items autocomplete menu items", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findItemsAutocomplete().click();
+
+        cy.findByRole("option", { name: "Piercing Bow" })
+            .find("img")
+            .should("have.attr", "src")
+            .should("include", "equip-slot-icons/gloomhaven/two-hand");
+    });
 });

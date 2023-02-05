@@ -1,8 +1,8 @@
-import type { Dispatch, SetStateAction, SyntheticEvent } from "react";
-import type { AutocompleteRenderInputParams } from "@mui/material";
-import { Autocomplete, FormControl, TextField } from "@mui/material";
+import type { Dispatch, HTMLAttributes, SetStateAction, SyntheticEvent } from "react";
+import { Autocomplete, type AutocompleteRenderInputParams, Box, FormControl, TextField } from "@mui/material";
 import { v4 as uuid } from "uuid";
 import { items } from "@/loaders/items";
+import Image from "@/components/core/image";
 
 const itemOrder = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
 
@@ -27,6 +27,20 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 getOptionLabel={(item: Item) => {
                     return item.name;
                 }}
+                renderOption={(props: HTMLAttributes<HTMLLIElement>, item: Item) => (
+                    <Box component="li" sx={{ "& > picture": { marginRight: 2, flexShrink: 0 } }} {...props}>
+                        <Image
+                            webpPath={item.slotImageUrl}
+                            fallbackImageType="png"
+                            altText={item.slot}
+                            style={{ verticalAlign: "middle" }}
+                            height={30}
+                            width={30}
+                            aria-hidden="true"
+                        />
+                        {item.name}
+                    </Box>
+                )}
                 renderInput={(props: AutocompleteRenderInputParams) => <TextField {...props} label="Add item" />}
                 onChange={handleChange}
             />
