@@ -19,13 +19,12 @@ jobs:
           node-version-file: .nvmrc
           registry-url: https://npm.pkg.github.com
           cache: npm
-      - uses: cypress-io/github-action@53cc3178f59cc99b5519c29c14a182fb98ea4f31 # v4.1.0
+      - uses: cypress-io/github-action@ca3f666049f4ac2267a75de769535a7cbdc7bfd7 # v5.0.8
         with:
           build: npm run build
           start: npm start
           record: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
