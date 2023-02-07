@@ -127,6 +127,11 @@
                     "id": 1,
                     "name": "IMMOBILIZE",
                     "types": ["main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
                 }
             ]
         },
