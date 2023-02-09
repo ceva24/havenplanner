@@ -15,6 +15,9 @@ const Hand = ({ character, openEditHandDialog }: HandProps) => {
 
     return (
         <Box>
+            <Box textAlign="center">
+                <Button text="Edit hand" onClick={openEditHandDialog} />
+            </Box>
             <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", paddingBottom: 3 }}>
                 {character.hand
                     .sort((a: AbilityCard, b: AbilityCard) => a.id - b.id)
@@ -31,9 +34,6 @@ const Hand = ({ character, openEditHandDialog }: HandProps) => {
                         </Box>
                     );
                 })}
-            </Box>
-            <Box textAlign="center">
-                <Button text="Edit hand" onClick={openEditHandDialog} />
             </Box>
         </Box>
     );
