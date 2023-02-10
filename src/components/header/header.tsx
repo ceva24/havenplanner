@@ -20,10 +20,10 @@ const Header = ({ character }: HeaderProps) => {
                 {character && (
                     <Box>
                         <Grid container textAlign="right">
-                            <Grid item padding={1} sx={{ width: { xs: "100%", sm: "auto" } }}>
+                            <Grid item padding={1} sx={{ width: { xs: "100%", md: "auto" } }}>
                                 <SettingsButton />
                             </Grid>
-                            <Grid item padding={1} sx={{ width: { xs: "100%", sm: "auto" } }}>
+                            <Grid item padding={1} sx={{ width: { xs: "100%", md: "auto" } }}>
                                 <ShareButton character={character} />
                             </Grid>
                         </Grid>

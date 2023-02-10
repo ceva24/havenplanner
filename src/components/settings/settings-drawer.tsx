@@ -21,7 +21,7 @@ const SettingsDrawer = ({ isOpen, onClose }: SettingsDrawerProps) => {
                         <CloseIcon />
                     </IconButton>
                 </Box>
-                <Link href="https://github.com/ceva24/ghplanner.app/issues">
+                <Link href="https://github.com/ceva24/ghplanner.app/issues" target="_blank">
                     <Typography color="main" variant="body1">
                         Report an issue
                     </Typography>
