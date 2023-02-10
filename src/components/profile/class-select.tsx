@@ -1,5 +1,5 @@
 import type { SelectChangeEvent } from "@mui/material";
-import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import type { Dispatch, FC, SetStateAction } from "react";
 import Image from "@/components/core/image";
 import { characterClasses } from "@/loaders/character-classes";
@@ -21,31 +21,30 @@ const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSel
     };
 
     return (
-        <Box>
-            <FormControl sx={{ margin: "1%", width: "60%" }}>
-                <InputLabel id="select-class-label">Class</InputLabel>
-                <Select
-                    value={character.characterClass.name}
-                    label="Class"
-                    labelId="select-class-label"
-                    onChange={handleChange}
-                >
-                    {characterClasses.map((characterClass: CharacterClass) => (
-                        <MenuItem key={characterClass.id} value={characterClass.name}>
-                            {characterClass.name}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
-
-            <Image
-                webpPath={character.characterClass.imageUrl}
-                fallbackImageType="png"
-                altText="Class icon"
-                width={70}
-                height={70}
-            />
-        </Box>
+        <FormControl sx={{ margin: "1%", width: "98%" }}>
+            <InputLabel id="select-class-label">Class</InputLabel>
+            <Select
+                value={character.characterClass.name}
+                label="Class"
+                labelId="select-class-label"
+                onChange={handleChange}
+            >
+                {characterClasses.map((characterClass: CharacterClass) => (
+                    <MenuItem key={characterClass.id} value={characterClass.name}>
+                        <Image
+                            webpPath={characterClass.imageUrl}
+                            fallbackImageType="png"
+                            altText={`${characterClass.name} Class Icon`}
+                            style={{ verticalAlign: "middle", marginRight: 10, flexShrink: 0 }}
+                            height={30}
+                            width={30}
+                            aria-hidden="true"
+                        />
+                        {characterClass.name}
+                    </MenuItem>
+                ))}
+            </Select>
+        </FormControl>
     );
 };
 

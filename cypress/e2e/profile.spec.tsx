@@ -39,10 +39,15 @@ describe("profile tab", () => {
         cy.should("have.value", "Elsa");
     });
 
-    it("shows the class icon", () => {
+    it("shows the class icon in the class select", () => {
         cy.visit("/");
 
-        cy.findCharacterDetailsForm().findByRole("img", { name: "Class icon" }).should("be.visible");
+        cy.findCharacterDetailsForm().findSelectClassButton().click();
+
+        cy.findByRole("option", { name: "Brute" })
+            .find("img")
+            .should("have.attr", "src")
+            .should("include", "character-icons/gloomhaven/gh-brute");
     });
 
     it("allows numerical characters to be entered in the experience text field", () => {

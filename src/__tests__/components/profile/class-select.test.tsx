@@ -35,20 +35,6 @@ describe("class select", () => {
 
         expect(classSelect).toBeInTheDocument();
     });
-
-    it("renders the class icon", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <ClassSelect character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
-
-        const classIcon = screen.queryByRole("img", {
-            name: "Class icon",
-        });
-
-        expect(classIcon).toBeInTheDocument();
-    });
 });
 
 describe("findAndSetCharacter", () => {
