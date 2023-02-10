@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
-import { IconButton } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { TextButton } from "@/components/core/button";
 import SettingsDrawer from "@/components/settings/settings-drawer";
 
 const SettingsButton = () => {
@@ -9,16 +9,13 @@ const SettingsButton = () => {
 
     return (
         <Box>
-            <IconButton
-                id="open-settings-button"
-                color="secondary"
-                aria-label="Settings"
+            <TextButton
+                text="Settings"
+                startIcon={<SettingsIcon />}
                 onClick={() => {
                     setSettingsDrawerIsOpen(true);
                 }}
-            >
-                <SettingsIcon />
-            </IconButton>
+            />
             <SettingsDrawer
                 isOpen={settingsDrawerIsOpen}
                 onClose={() => {

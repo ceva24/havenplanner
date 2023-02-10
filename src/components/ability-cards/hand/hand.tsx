@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { Card } from "@/components/core/cards";
-import Button from "@/components/core/button";
+import { Button } from "@/components/core/button";
 import AbilityCard from "@/components/ability-cards/ability-card";
 
 interface HandProps {

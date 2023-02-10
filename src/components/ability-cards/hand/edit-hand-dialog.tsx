@@ -1,7 +1,7 @@
 import { Box, Dialog, DialogContent, DialogTitle, Stack, Typography } from "@mui/material";
 import type { Dispatch, SetStateAction } from "react";
 import { getAllAvailableAbilityCardsForCharacter, isCardInHandForCharacter } from "@/services/character";
-import Button from "@/components/core/button";
+import { Button } from "@/components/core/button";
 import ToggleableAbilityCard from "@/components/ability-cards/toggleable-ability-card";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
 

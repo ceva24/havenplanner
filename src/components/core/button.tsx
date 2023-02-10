@@ -23,4 +23,22 @@ const Button = ({ text, onClick, startIcon }: ButtonProps) => {
     );
 };
 
-export default Button;
+const TextButton = ({ text, onClick, startIcon }: ButtonProps) => {
+    return (
+        <MuiButton
+            variant="text"
+            color="secondary"
+            sx={{
+                margin: "1%",
+                paddingLeft: 3,
+                paddingRight: 3,
+            }}
+            startIcon={startIcon}
+            onClick={onClick}
+        >
+            <Typography variant="body1">{text}</Typography>
+        </MuiButton>
+    );
+};
+
+export { Button, TextButton };
