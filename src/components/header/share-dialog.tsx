@@ -17,9 +17,9 @@ const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, handleClose 
             <Box id="share-dialog-title" style={{ display: "none" }}>
                 Share
             </Box>
-            <DialogContent sx={{ backgroundColor: "background.default" }}>
+            <DialogContent>
                 <Stack spacing={1}>
-                    <Typography>Copy the link below to share this character:</Typography>
+                    <Typography textAlign="center">Copy the link below to share this character:</Typography>
 
                     <Box component="form" sx={{ display: "flex", alignItems: "center", width: "100%" }}>
                         <TextField

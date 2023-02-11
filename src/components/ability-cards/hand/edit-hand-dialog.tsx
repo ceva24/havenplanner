@@ -15,48 +15,44 @@ interface EditHandDialogProps {
 const EditHandDialog = ({ character, setCharacter, isOpen, handleClose }: EditHandDialogProps) => {
     return (
         <Dialog fullScreen open={isOpen} aria-labelledby="edit-hand-dialog-title" onClose={handleClose}>
-            <AppBar sx={{ position: "relative" }}>
+            <AppBar sx={{ position: "relative", paddingBottom: 2, textAlign: "center" }}>
                 <Toolbar>
-                    <Typography id="edit-hand-dialog-title" variant="h2" textAlign="center" sx={{ ml: 2, flex: 1 }}>
+                    <Typography id="edit-hand-dialog-title" variant="h2" sx={{ marginLeft: 2, flex: 1 }}>
                         Select ability cards
                     </Typography>
                     <IconButton aria-label="Close" onClick={handleClose}>
                         <CloseIcon />
                     </IconButton>
                 </Toolbar>
+                <Typography variant="h2" component="p">
+                    {character.hand.length} / {character.characterClass.handSize}
+                </Typography>
             </AppBar>
             <DialogContent sx={{ backgroundColor: "background.default" }}>
-                <Stack spacing={3}>
-                    <Box textAlign="center">
-                        <Typography variant="h1" component="p">
-                            {character.hand.length} / {character.characterClass.handSize}
-                        </Typography>
-                    </Box>
-                    <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                        {getAllAvailableAbilityCardsForCharacter(character).map((abilityCard: AbilityCard) => (
-                            <Box key={abilityCard.id} sx={{ margin: 1 }}>
-                                {character.hand.length < character.characterClass.handSize ||
-                                isCardInHandForCharacter(character, abilityCard) ? (
-                                    <ToggleableAbilityCard
-                                        abilityCard={abilityCard}
-                                        character={character}
-                                        action={() => {
-                                            toggleCardAddedToHand(character, setCharacter, abilityCard);
-                                        }}
-                                        isSelected={isCardInHandForCharacter(character, abilityCard)}
-                                        showLockIcon={false}
-                                    />
-                                ) : (
-                                    <DisabledAbilityCard
-                                        abilityCard={abilityCard}
-                                        character={character}
-                                        tooltipText="Hand is full"
-                                    />
-                                )}
-                            </Box>
-                        ))}
-                    </Box>
-                </Stack>
+                <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+                    {getAllAvailableAbilityCardsForCharacter(character).map((abilityCard: AbilityCard) => (
+                        <Box key={abilityCard.id} sx={{ margin: 1 }}>
+                            {character.hand.length < character.characterClass.handSize ||
+                            isCardInHandForCharacter(character, abilityCard) ? (
+                                <ToggleableAbilityCard
+                                    abilityCard={abilityCard}
+                                    character={character}
+                                    action={() => {
+                                        toggleCardAddedToHand(character, setCharacter, abilityCard);
+                                    }}
+                                    isSelected={isCardInHandForCharacter(character, abilityCard)}
+                                    showLockIcon={false}
+                                />
+                            ) : (
+                                <DisabledAbilityCard
+                                    abilityCard={abilityCard}
+                                    character={character}
+                                    tooltipText="Hand is full"
+                                />
+                            )}
+                        </Box>
+                    ))}
+                </Box>
             </DialogContent>
         </Dialog>
     );
