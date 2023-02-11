@@ -6,7 +6,7 @@ const character: Character = createTestCharacter();
 
 describe("hand", () => {
     it("renders the edit hand button", () => {
-        render(<Hand character={character} openEditHandDialog={() => ""} />);
+        render(<Hand character={character} openEditHandDialog={jest.fn()} />);
 
         const editHandButton = screen.queryByRole("button", { name: "Edit hand" });
 
@@ -14,7 +14,7 @@ describe("hand", () => {
     });
 
     it("renders unselected cards equal to the character class hand size", () => {
-        render(<Hand character={character} openEditHandDialog={() => ""} />);
+        render(<Hand character={character} openEditHandDialog={jest.fn()} />);
 
         const unselectedCards = screen.queryAllByRole("img", { name: "Unselected card" });
 

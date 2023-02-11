@@ -1,8 +1,8 @@
-import { Box, FormControl, FormControlLabel, Switch } from "@mui/material";
 import type { Dispatch, SetStateAction } from "react";
+import { Box, FormControl, FormControlLabel, Switch } from "@mui/material";
+import { useAppSettingsContext } from "@/hooks/app-settings";
 import { Card } from "@/components/core/cards";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
-import { useAppSettingsContext } from "@/hooks/app-settings";
 
 const defaultPersonalQuestCardImageUrl = "/personal-quests/gloomhaven/gh-pq-back.webp";
 

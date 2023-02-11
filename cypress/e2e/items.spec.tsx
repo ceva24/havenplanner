@@ -90,4 +90,89 @@ describe("items tab", () => {
             .should("have.attr", "src")
             .should("include", "equip-slot-icons/gloomhaven/two-hand");
     });
+
+    it("shows the browse items dialog when pressing the browse items button", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("be.visible");
+    });
+
+    it("allows the browse items dialog to be closed", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("be.visible");
+
+        cy.clickCloseButton();
+
+        cy.findBrowseItemsDialog().should("not.be.visible");
+    });
+
+    it("shows items in the browse items dialog", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("be.visible");
+
+        cy.findByRole("button", { name: "Piercing Bow" }).should("exist");
+        cy.findByRole("button", { name: "Boots of Striding" }).should("exist");
+    });
+
+    it("adds an item from the browse items dialog when clicking on it", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("be.visible");
+
+        cy.findByRole("button", { name: "Piercing Bow" }).click();
+
+        cy.findBrowseItemsDialog().should("not.be.visible");
+
+        cy.findByRole("img", { name: "Piercing Bow" }).should("be.visible");
+    });
+
+    it("adds an item from the browse items dialog when pressing enter", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("be.visible");
+
+        cy.findByRole("button", { name: "Piercing Bow" }).focus().type("{enter}");
+
+        cy.findBrowseItemsDialog().should("not.be.visible");
+
+        cy.findByRole("img", { name: "Piercing Bow" }).should("exist");
+    });
+
+    it("adds an item from the browse items dialog when pressing space", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("be.visible");
+
+        cy.findByRole("button", { name: "Piercing Bow" }).focus().type(" ");
+
+        cy.findBrowseItemsDialog().should("not.be.visible");
+
+        cy.findByRole("img", { name: "Piercing Bow" }).should("exist");
+    });
 });

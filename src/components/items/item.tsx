@@ -32,7 +32,7 @@ const Item = ({ character, setCharacter, characterItem }: ItemProps) => {
                 onClick={onClick}
                 onKeyDown={onKeyDown}
             >
-                <DeleteIcon />
+                <DeleteIcon fontSize="large" />
             </Box>
         </Box>
     );

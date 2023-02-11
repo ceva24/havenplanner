@@ -13,6 +13,14 @@ describe("items", () => {
         expect(addItems).toBeInTheDocument();
     });
 
+    it("renders the browse items button", () => {
+        render(<Items character={character} setCharacter={jest.fn()} />);
+
+        const browseItems = screen.queryByRole("button", { name: "Browse Items" });
+
+        expect(browseItems).toBeInTheDocument();
+    });
+
     it("renders the item grid", () => {
         render(<Items character={character} setCharacter={jest.fn()} />);
 

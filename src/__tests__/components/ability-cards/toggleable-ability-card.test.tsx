@@ -16,7 +16,7 @@ describe("toggleable ability card", () => {
                 showLockIcon
                 abilityCard={character.characterClass.abilityCards[0]}
                 character={character}
-                action={() => ""}
+                action={jest.fn()}
             />
         );
 
@@ -32,7 +32,7 @@ describe("toggleable ability card", () => {
                 showLockIcon
                 abilityCard={character.characterClass.abilityCards[0]}
                 character={character}
-                action={() => ""}
+                action={jest.fn()}
             />
         );
 
@@ -47,7 +47,7 @@ describe("toggleable ability card", () => {
                 showLockIcon
                 abilityCard={character.characterClass.abilityCards[0]}
                 character={character}
-                action={() => ""}
+                action={jest.fn()}
                 isSelected={false}
             />
         );
