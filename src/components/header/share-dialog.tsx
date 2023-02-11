@@ -14,9 +14,9 @@ const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, handleClose 
 
     return (
         <Dialog open={isOpen} sx={{ bottom: 300 }} aria-labelledby="share-dialog-title" onClose={handleClose}>
-            <span id="share-dialog-title" style={{ display: "none" }}>
+            <Box id="share-dialog-title" style={{ display: "none" }}>
                 Share
-            </span>
+            </Box>
             <DialogContent sx={{ backgroundColor: "background.default" }}>
                 <Stack spacing={1}>
                     <Typography>Copy the link below to share this character:</Typography>

@@ -6,7 +6,6 @@ const theme: ThemeOptions = createTheme({
         mode: "dark",
         background: {
             default: "#0f0302",
-            paper: "#0f0302",
         },
         text: {
             primary: "#d7d4d9",

@@ -53,8 +53,8 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
                 <TextField
                     multiline
                     sx={{ width: "98%", margin: "1%" }}
-                    minRows={6}
-                    maxRows={6}
+                    minRows={8}
+                    maxRows={8}
                     id="notes"
                     label="Notes"
                     value={character.notes}
