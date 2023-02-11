@@ -99,8 +99,8 @@ describe("header", () => {
 
         cy.selectTab("Items");
 
-        cy.addItem("Piercing Bow");
-        cy.addItem("Eagle Eye Goggles");
+        cy.addItem("Piercing Bow 009");
+        cy.addItem("Eagle Eye Goggles 006");
 
         cy.findShareLinkButton().click();
 
