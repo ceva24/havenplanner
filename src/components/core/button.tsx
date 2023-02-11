@@ -1,14 +1,16 @@
 import { Button as MuiButton, Typography } from "@mui/material";
 
 interface ButtonProps {
+    id?: string;
     text: string;
     onClick: () => void;
     startIcon?: JSX.Element;
 }
 
-const Button = ({ text, onClick, startIcon }: ButtonProps) => {
+const Button = ({ id, text, onClick, startIcon }: ButtonProps) => {
     return (
         <MuiButton
+            id={id}
             variant="contained"
             sx={{
                 margin: "1%",
@@ -23,9 +25,10 @@ const Button = ({ text, onClick, startIcon }: ButtonProps) => {
     );
 };
 
-const TextButton = ({ text, onClick, startIcon }: ButtonProps) => {
+const TextButton = ({ id, text, onClick, startIcon }: ButtonProps) => {
     return (
         <MuiButton
+            id={id}
             variant="text"
             color="secondary"
             sx={{
