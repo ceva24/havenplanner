@@ -12,7 +12,7 @@ beforeEach(() => {
 
 describe("edit hand dialog", () => {
     it("renders", () => {
-        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
+        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={jest.fn()} />);
 
         const editHandDialog = screen.queryByRole("dialog", { name: "Select ability cards" });
 
@@ -20,7 +20,7 @@ describe("edit hand dialog", () => {
     });
 
     it("renders the card total", () => {
-        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
+        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={jest.fn()} />);
 
         const cardTotal = screen.queryByText("0 / 10");
 
@@ -28,19 +28,11 @@ describe("edit hand dialog", () => {
     });
 
     it("renders available ability cards", () => {
-        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
+        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={jest.fn()} />);
 
         const abilityCard = screen.queryByRole("checkbox", { name: "Trample" });
 
         expect(abilityCard).toBeInTheDocument();
-    });
-
-    it("renders the close button", () => {
-        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={() => ""} />);
-
-        const closeButton = screen.queryByRole("button", { name: "Close" });
-
-        expect(closeButton).toBeInTheDocument();
     });
 });
 

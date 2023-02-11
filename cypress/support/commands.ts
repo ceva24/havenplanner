@@ -162,6 +162,14 @@ Cypress.Commands.add("addItem", (name: string) => {
     cy.findByRole("option", { name }).click();
 });
 
+Cypress.Commands.add("findBrowseItemsButton", () => {
+    cy.findByRole("button", { name: "Browse Items" });
+});
+
+Cypress.Commands.add("findBrowseItemsDialog", () => {
+    cy.findByRole("dialog", { name: "Browse items" });
+});
+
 Cypress.Commands.add("openSettings", () => {
     cy.findByRole("button", { name: "Settings" }).click();
 });

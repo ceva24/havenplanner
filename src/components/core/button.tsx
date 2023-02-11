@@ -1,4 +1,5 @@
 import { Button as MuiButton, Typography } from "@mui/material";
+import theme from "@/styles/theme";
 
 interface ButtonProps {
     id?: string;
@@ -44,4 +45,30 @@ const TextButton = ({ id, text, onClick, startIcon }: ButtonProps) => {
     );
 };
 
-export { Button, TextButton };
+interface IconButtonProps {
+    icon: JSX.Element;
+    label: string;
+    onClick: () => void;
+}
+
+const IconButton = ({ icon, label, onClick }: IconButtonProps) => {
+    return (
+        <MuiButton
+            aria-label={label}
+            variant="contained"
+            startIcon={icon}
+            sx={{
+                "& .MuiButton-startIcon": {
+                    marginX: 0,
+                },
+                "& .MuiButton-startIcon > :nth-of-type(1)": {
+                    // @ts-expect-error no issue with call to .spacing
+                    fontSize: theme.spacing(3) as number,
+                },
+            }}
+            onClick={onClick}
+        />
+    );
+};
+
+export { Button, TextButton, IconButton };

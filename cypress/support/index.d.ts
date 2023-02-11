@@ -64,6 +64,10 @@ declare namespace Cypress {
 
         addItem(name: string): Chainable<Element>;
 
+        findBrowseItemsButton(): Chainable<Element>;
+
+        findBrowseItemsDialog(): Chainable<Element>;
+
         openSettings(): Chainable<Element>;
 
         findSettingsDrawer(): Chainable<Element>;
