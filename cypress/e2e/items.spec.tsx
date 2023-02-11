@@ -8,8 +8,8 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.addItem("Piercing Bow");
-        cy.addItem("Eagle Eye Goggles");
+        cy.addItem("Piercing Bow 009");
+        cy.addItem("Eagle Eye Goggles 006");
 
         cy.findByRole("img", { name: "Piercing Bow" }).should("be.visible");
         cy.findByRole("img", { name: "Eagle Eye Goggles" }).should("be.visible");
@@ -20,8 +20,8 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.addItem("Boots of Striding");
-        cy.addItem("Minor Healing Potion");
+        cy.addItem("Boots of Striding 001");
+        cy.addItem("Minor Healing Potion 012");
 
         cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
         cy.findByRole("img", { name: "Minor Healing Potion" }).should("be.visible");
@@ -37,7 +37,7 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.addItem("Boots of Striding");
+        cy.addItem("Boots of Striding 001");
 
         cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
 
@@ -51,7 +51,7 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.addItem("Boots of Striding");
+        cy.addItem("Boots of Striding 001");
 
         cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
 
@@ -65,10 +65,10 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.addItem("Boots of Striding");
-        cy.addItem("Minor Power Potion");
-        cy.addItem("Piercing Bow");
-        cy.addItem("Minor Healing Potion");
+        cy.addItem("Boots of Striding 001");
+        cy.addItem("Minor Power Potion 014");
+        cy.addItem("Piercing Bow 009");
+        cy.addItem("Minor Healing Potion 012");
 
         cy.findAllByRole("img").then((items) => {
             cy.wrap(items[0]).should("have.property", "alt", "Piercing Bow");
@@ -85,7 +85,7 @@ describe("items tab", () => {
 
         cy.findItemsAutocomplete().click();
 
-        cy.findByRole("option", { name: "Piercing Bow" })
+        cy.findByRole("option", { name: "Piercing Bow 009" })
             .find("img")
             .should("have.attr", "src")
             .should("include", "equip-slot-icons/gloomhaven/two-hand");

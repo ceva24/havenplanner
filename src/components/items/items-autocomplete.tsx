@@ -1,5 +1,12 @@
 import type { Dispatch, HTMLAttributes, SetStateAction, SyntheticEvent } from "react";
-import { Autocomplete, type AutocompleteRenderInputParams, Box, FormControl, TextField } from "@mui/material";
+import {
+    Autocomplete,
+    type AutocompleteRenderInputParams,
+    Box,
+    FormControl,
+    TextField,
+    Typography,
+} from "@mui/material";
 import { v4 as uuid } from "uuid";
 import { items } from "@/loaders/items";
 import Image from "@/components/core/image";
@@ -25,20 +32,25 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 value={null}
                 options={items}
                 getOptionLabel={(item: Item) => {
-                    return item.name;
+                    return `${item.name} ${itemIdWithLeadingZeroes(item.id)}`;
                 }}
                 renderOption={(props: HTMLAttributes<HTMLLIElement>, item: Item) => (
-                    <Box component="li" sx={{ "& > picture": { marginRight: 2, flexShrink: 0 } }} {...props}>
-                        <Image
-                            webpPath={item.slotImageUrl}
-                            fallbackImageType="png"
-                            altText={item.slot}
-                            style={{ verticalAlign: "middle" }}
-                            height={30}
-                            width={30}
-                            aria-hidden="true"
-                        />
-                        {item.name}
+                    <Box component="li" display="flex" {...props}>
+                        <Box sx={{ marginRight: 2, flexShrink: 0 }}>
+                            <Image
+                                webpPath={item.slotImageUrl}
+                                fallbackImageType="png"
+                                altText={item.slot}
+                                style={{ verticalAlign: "middle" }}
+                                height={30}
+                                width={30}
+                                aria-hidden="true"
+                            />
+                        </Box>
+                        <Typography>{item.name}</Typography>
+                        <Typography flexGrow="1" textAlign="right" marginLeft={2}>
+                            {itemIdWithLeadingZeroes(item.id)}
+                        </Typography>
                     </Box>
                 )}
                 renderInput={(props: AutocompleteRenderInputParams) => <TextField {...props} label="Add item" />}
@@ -46,6 +58,10 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
             />
         </FormControl>
     );
+};
+
+const itemIdWithLeadingZeroes = (id: number): string => {
+    return String(id).padStart(3, "0");
 };
 
 // eslint-disable-next-line @typescript-eslint/ban-types
