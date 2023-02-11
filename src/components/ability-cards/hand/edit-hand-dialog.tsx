@@ -1,7 +1,7 @@
-import { Box, Dialog, DialogContent, DialogTitle, Stack, Typography } from "@mui/material";
 import type { Dispatch, SetStateAction } from "react";
+import { AppBar, Box, Dialog, DialogContent, Stack, Toolbar, Typography, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import { getAllAvailableAbilityCardsForCharacter, isCardInHandForCharacter } from "@/services/character";
-import { Button } from "@/components/core/button";
 import ToggleableAbilityCard from "@/components/ability-cards/toggleable-ability-card";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
 
@@ -15,15 +15,16 @@ interface EditHandDialogProps {
 const EditHandDialog = ({ character, setCharacter, isOpen, handleClose }: EditHandDialogProps) => {
     return (
         <Dialog fullScreen open={isOpen} aria-labelledby="edit-hand-dialog-title" onClose={handleClose}>
-            <DialogTitle
-                id="edit-hand-dialog-title"
-                color="textPrimary"
-                variant="h2"
-                textAlign="center"
-                sx={{ backgroundColor: "background.default" }}
-            >
-                Select ability cards
-            </DialogTitle>
+            <AppBar sx={{ position: "relative" }}>
+                <Toolbar>
+                    <Typography id="edit-hand-dialog-title" variant="h2" textAlign="center" sx={{ ml: 2, flex: 1 }}>
+                        Select ability cards
+                    </Typography>
+                    <IconButton aria-label="Close" onClick={handleClose}>
+                        <CloseIcon />
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
             <DialogContent sx={{ backgroundColor: "background.default" }}>
                 <Stack spacing={3}>
                     <Box textAlign="center">
@@ -54,9 +55,6 @@ const EditHandDialog = ({ character, setCharacter, isOpen, handleClose }: EditHa
                                 )}
                             </Box>
                         ))}
-                    </Box>
-                    <Box textAlign="center">
-                        <Button text="Close" onClick={handleClose} />
                     </Box>
                 </Stack>
             </DialogContent>

@@ -10,6 +10,7 @@ const SettingsButton = () => {
     return (
         <Box>
             <TextButton
+                id="open-settings-button"
                 text="Settings"
                 startIcon={<SettingsIcon />}
                 onClick={() => {

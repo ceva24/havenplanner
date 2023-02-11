@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import type { Dispatch, SetStateAction } from "react";
 import CharacterDetails from "@/components/profile/character-details";
 import CharacterMat from "@/components/profile/character-mat";
@@ -18,9 +18,7 @@ const Profile = ({ character, setCharacter }: ProfileProps) => {
             <Grid item xl={8} textAlign="center" width="100%">
                 <Grid container spacing={10}>
                     <Grid item lg={8} width="100%">
-                        <Box>
-                            <CharacterMat characterClass={character.characterClass} />
-                        </Box>
+                        <CharacterMat characterClass={character.characterClass} />
                     </Grid>
                     <Grid item lg={4} width="100%">
                         <PersonalQuest character={character} setCharacter={setCharacter} />

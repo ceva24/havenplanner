@@ -16,10 +16,6 @@
             {
                 "suffix": " - Enhancements",
                 "execute": "document.querySelector('#enhancements-tab').click()"
-            },
-            {
-                "suffix": " - Enhancements - Select",
-                "execute": "document.querySelector(\"[aria-label='Open']\").click()"
             }
         ]
     },

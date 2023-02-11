@@ -6,15 +6,15 @@ interface CardProps {
 }
 
 const Card = ({ src, altText }: CardProps) => {
-    return <CardImage src={src} altText={altText} width={240} height={320} />;
+    return <CardImage src={src} altText={altText} width={300} height={400} />;
 };
 
 const SmallCard = ({ src, altText }: CardProps) => {
-    return <CardImage src={src} altText={altText} width={165} height={244} />;
+    return <CardImage src={src} altText={altText} width={200} height={296} />;
 };
 
 const WideCard = ({ src, altText }: CardProps) => {
-    return <CardImage src={src} altText={altText} width={200} height={150} />;
+    return <CardImage src={src} altText={altText} width={225} height={168.75} />;
 };
 
 interface CardImageProps extends CardProps {
