@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ItemsAutocomplete, { addItem, orderItems } from "@/components/items/items-autocomplete";
 import { items } from "@/loaders/items";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
 
 const mockUuid = "123";
 
@@ -21,7 +21,9 @@ beforeEach(() => {
 
 describe("items autocomplete", () => {
     it("renders", () => {
-        render(<ItemsAutocomplete character={character} setCharacter={setCharacter} />);
+        render(<ItemsAutocomplete character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const itemsAutocomplete = screen.queryByRole("combobox", { name: "Add item" });
 

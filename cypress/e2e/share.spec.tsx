@@ -2,7 +2,7 @@
 import "@testing-library/cypress/add-commands";
 import "@/support/commands";
 
-describe("header", () => {
+describe("share", () => {
     it("shows the share link button", () => {
         cy.visit("/");
 
@@ -295,5 +295,41 @@ describe("header", () => {
         cy.loseBattleGoalCheckmark(2, 0);
 
         cy.findByRole("region", { name: "Battle Goal Progress" }).findAllByRole("checkbox").should("not.be.checked");
+    });
+
+    it("captures higher prosperity item data in a shareable link", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(2);
+
+        cy.addItem("Stun Powder 021");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Items");
+
+        cy.findByRole("img", { name: "Stun Powder" }).should("be.visible");
+    });
+
+    it("sets the prosperity level spoiler setting to the level of the character's highest prosperity item", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(2);
+
+        cy.addItem("Stun Powder 021");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.openSettings();
+
+        cy.shouldHaveProsperityLevel(2);
     });
 });

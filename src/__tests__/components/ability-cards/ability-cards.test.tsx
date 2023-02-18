@@ -1,17 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import AbilityCards from "@/components/ability-cards/ability-cards";
-import { defaultCharacter } from "@/constants";
-import AppSettingsProvider from "@/hooks/app-settings";
+import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
 
+const character = createTestCharacter();
 const setCharacter = jest.fn();
 
 describe("ability cards", () => {
     it("renders the deck tab", () => {
-        render(
-            <AppSettingsProvider character={defaultCharacter}>
-                <AbilityCards character={defaultCharacter} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<AbilityCards character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const deckTab = screen.getByRole("tab", { name: "Deck" });
 
@@ -19,11 +17,9 @@ describe("ability cards", () => {
     });
 
     it("renders the hand tab", () => {
-        render(
-            <AppSettingsProvider character={defaultCharacter}>
-                <AbilityCards character={defaultCharacter} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<AbilityCards character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const handTab = screen.getByRole("tab", { name: "Hand" });
 
@@ -31,11 +27,9 @@ describe("ability cards", () => {
     });
 
     it("renders the enhancements tab", () => {
-        render(
-            <AppSettingsProvider character={defaultCharacter}>
-                <AbilityCards character={defaultCharacter} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<AbilityCards character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const enhancementsTab = screen.getByRole("tab", { name: "Enhancements" });
 
@@ -43,11 +37,9 @@ describe("ability cards", () => {
     });
 
     it("renders the deck by default", () => {
-        render(
-            <AppSettingsProvider character={defaultCharacter}>
-                <AbilityCards character={defaultCharacter} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<AbilityCards character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const level1Cards = screen.queryByRole("region", { name: "Level 1 Ability Cards" });
 

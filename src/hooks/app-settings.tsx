@@ -17,6 +17,9 @@ const AppSettingsProvider = ({ character, children }: AppSettingsProviderProps) 
     const [appSettings, setAppSettings] = useState<AppSettings>({
         hidePersonalQuest: Boolean(character.personalQuest),
         selectedAbilityCardsTabIndex: 0,
+        spoilerSettings: {
+            prosperity: determineInitialProsperity(character),
+        },
     });
 
     const appSettingsValue = useMemo(() => ({ appSettings, setAppSettings }), [appSettings, setAppSettings]);
@@ -32,5 +35,14 @@ const useAppSettingsContext = (): AppSettingsContextProps => {
     return appSettingsContext;
 };
 
+const determineInitialProsperity = (character: Character): number => {
+    if (character.items.length === 0) return 1;
+
+    return Math.max.apply(
+        0,
+        character.items.map((characterItem: CharacterItem) => Number.parseInt(characterItem.item.group, 10))
+    );
+};
+
 export default AppSettingsProvider;
-export { useAppSettingsContext };
+export { useAppSettingsContext, determineInitialProsperity };

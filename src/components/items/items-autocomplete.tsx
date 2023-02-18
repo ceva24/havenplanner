@@ -8,8 +8,9 @@ import {
     Typography,
 } from "@mui/material";
 import { v4 as uuid } from "uuid";
-import { items } from "@/loaders/items";
 import Image from "@/components/core/image";
+import { getItemsForSpoilerSettings } from "@/services/items";
+import { useAppSettingsContext } from "@/hooks/app-settings";
 
 const itemOrder = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
 
@@ -19,6 +20,8 @@ interface ItemsAutocompleteProps {
 }
 
 const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) => {
+    const { appSettings } = useAppSettingsContext();
+
     // eslint-disable-next-line @typescript-eslint/ban-types
     const handleChange = (event: SyntheticEvent, value: Item | null) => {
         addItem(value, character, setCharacter);
@@ -30,7 +33,7 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 disablePortal
                 blurOnSelect
                 value={null}
-                options={items}
+                options={getItemsForSpoilerSettings(appSettings.spoilerSettings.prosperity)}
                 getOptionLabel={(item: Item) => {
                     return `${item.name} ${itemIdWithLeadingZeroes(item.id)}`;
                 }}

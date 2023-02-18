@@ -1,12 +1,14 @@
+import { type Dispatch, type SetStateAction } from "react";
 import { AppBar, Box, Grid, Link, Toolbar } from "@mui/material";
 import ShareButton from "@/components/header/share-button";
 import SettingsButton from "@/components/header/settings-button";
 
 interface HeaderProps {
     character?: Character;
+    setCharacter?: Dispatch<SetStateAction<Character>>;
 }
 
-const Header = ({ character }: HeaderProps) => {
+const Header = ({ character, setCharacter }: HeaderProps) => {
     return (
         <AppBar position="static">
             <Toolbar>
@@ -17,11 +19,11 @@ const Header = ({ character }: HeaderProps) => {
                         </Link>
                     </h1>
                 </Box>
-                {character && (
+                {character && setCharacter && (
                     <Box>
                         <Grid container textAlign="right">
                             <Grid item padding={1} sx={{ width: { xs: "100%", md: "auto" } }}>
-                                <SettingsButton />
+                                <SettingsButton character={character} setCharacter={setCharacter} />
                             </Grid>
                             <Grid item padding={1} sx={{ width: { xs: "100%", md: "auto" } }}>
                                 <ShareButton character={character} />

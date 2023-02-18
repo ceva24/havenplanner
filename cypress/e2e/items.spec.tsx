@@ -175,4 +175,64 @@ describe("items tab", () => {
 
         cy.findByRole("img", { name: "Piercing Bow" }).should("exist");
     });
+
+    it("does not show higher prosperity items in the items autocomplete when the prosperity level spoiler setting is at default", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findItemsAutocomplete().click();
+
+        cy.findByRole("option", { name: "Stun Powder 021" }).should("not.exist");
+    });
+
+    it("shows higher prosperity items in the items autocomplete when the prosperity level spoiler setting has been raised", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(2);
+
+        cy.findItemsAutocomplete().click();
+
+        cy.findByRole("option", { name: "Stun Powder 021" }).should("exist");
+    });
+
+    it("does not show higher prosperity items in the browse items dialog when the prosperity level spoiler setting is at default", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("be.visible");
+
+        cy.findByRole("button", { name: "Stun Powder" }).should("not.exist");
+    });
+
+    it("shows higher prosperity items in the browse items dialog when the prosperity level spoiler setting has been raised", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(2);
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("be.visible");
+
+        cy.findByRole("button", { name: "Stun Powder" }).should("exist");
+    });
+
+    it("allows higher prosperity items to be added", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(2);
+
+        cy.addItem("Stun Powder 021");
+
+        cy.findByRole("img", { name: "Stun Powder" }).should("be.visible");
+    });
 });

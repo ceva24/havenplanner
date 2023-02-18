@@ -177,3 +177,15 @@ Cypress.Commands.add("openSettings", () => {
 Cypress.Commands.add("findSettingsDrawer", () => {
     cy.findByRole("presentation", { name: "Settings" });
 });
+
+Cypress.Commands.add("shouldHaveProsperityLevel", (level: number) => {
+    cy.findByRole("slider", { name: "Prosperity" }).should("have.value", level);
+});
+
+Cypress.Commands.add("setProsperityLevel", (level: number) => {
+    cy.openSettings();
+
+    cy.findByRole("region", { name: "Item Spoilers" }).find("#prosperity-slider").findByText(level).click();
+
+    cy.clickCloseButton();
+});

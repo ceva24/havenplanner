@@ -1,6 +1,11 @@
 interface AppSettings {
     hidePersonalQuest: boolean;
     selectedAbilityCardsTabIndex: number;
+    spoilerSettings: SpoilerSettings;
+}
+
+interface SpoilerSettings {
+    prosperity: number;
 }
 
 interface Character {

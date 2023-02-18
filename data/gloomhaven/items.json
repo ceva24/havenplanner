@@ -4,97 +4,167 @@
         "name": "Boots of Striding",
         "imageUrl": "/items/gloomhaven/1-14/gh-001-boots-of-striding.webp",
         "slot": "Legs",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "1"
     },
     {
         "id": 2,
         "name": "Winged Shoes",
         "imageUrl": "/items/gloomhaven/1-14/gh-002-winged-shoes.webp",
         "slot": "Legs",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "1"
     },
     {
         "id": 3,
         "name": "Hide Armor",
         "imageUrl": "/items/gloomhaven/1-14/gh-003-hide-armor.webp",
         "slot": "Chest",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "1"
     },
     {
         "id": 4,
         "name": "Leather Armor",
         "imageUrl": "/items/gloomhaven/1-14/gh-004-leather-armor.webp",
         "slot": "Chest",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "1"
     },
     {
         "id": 5,
         "name": "Cloak of Invisibility",
         "imageUrl": "/items/gloomhaven/1-14/gh-005-cloak-of-invisibility.webp",
         "slot": "Chest",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "1"
     },
     {
         "id": 6,
         "name": "Eagle Eye Goggles",
         "imageUrl": "/items/gloomhaven/1-14/gh-006-eagle-eye-goggles.webp",
         "slot": "Head",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "1"
     },
     {
         "id": 7,
         "name": "Iron Helmet",
         "imageUrl": "/items/gloomhaven/1-14/gh-007-iron-helmet.webp",
         "slot": "Head",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "1"
     },
     {
         "id": 8,
         "name": "Heater Shield",
         "imageUrl": "/items/gloomhaven/1-14/gh-008-heater-shield.webp",
         "slot": "One Hand",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "1"
     },
     {
         "id": 9,
         "name": "Piercing Bow",
         "imageUrl": "/items/gloomhaven/1-14/gh-009-piercing-bow.webp",
         "slot": "Two Hand",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "1"
     },
     {
         "id": 10,
         "name": "War Hammer",
         "imageUrl": "/items/gloomhaven/1-14/gh-010-war-hammer.webp",
         "slot": "Two Hand",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "1"
     },
     {
         "id": 11,
         "name": "Poison Dagger",
         "imageUrl": "/items/gloomhaven/1-14/gh-011-poison-dagger.webp",
         "slot": "One Hand",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "1"
     },
     {
         "id": 12,
         "name": "Minor Healing Potion",
         "imageUrl": "/items/gloomhaven/1-14/gh-012-minor-healing-potion.webp",
         "slot": "Bag",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "1"
     },
     {
         "id": 13,
         "name": "Minor Stamina Potion",
         "imageUrl": "/items/gloomhaven/1-14/gh-013-minor-stamina-potion.webp",
         "slot": "Bag",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "1"
     },
     {
         "id": 14,
         "name": "Minor Power Potion",
         "imageUrl": "/items/gloomhaven/1-14/gh-014-minor-power-potion.webp",
         "slot": "Bag",
-        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp"
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "1"
+    },
+    {
+        "id": 15,
+        "name": "Boots of Speed",
+        "imageUrl": "/items/gloomhaven/15-21/gh-015-boots-of-speed.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "2"
+    },
+    {
+        "id": 16,
+        "name": "Cloak of Pockets",
+        "imageUrl": "/items/gloomhaven/15-21/gh-016-cloak-of-pockets.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "2"
+    },
+    {
+        "id": 17,
+        "name": "Empowering Talisman",
+        "imageUrl": "/items/gloomhaven/15-21/gh-017-empowering-talisman.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "2"
+    },
+    {
+        "id": 18,
+        "name": "Battle Axe",
+        "imageUrl": "/items/gloomhaven/15-21/gh-018-battle-axe.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "2"
+    },
+    {
+        "id": 19,
+        "name": "Weighted Net",
+        "imageUrl": "/items/gloomhaven/15-21/gh-019-weighted-net.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "2"
+    },
+    {
+        "id": 20,
+        "name": "Minor Mana Potion",
+        "imageUrl": "/items/gloomhaven/15-21/gh-020-minor-mana-potion.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "2"
+    },
+    {
+        "id": 21,
+        "name": "Stun Powder",
+        "imageUrl": "/items/gloomhaven/15-21/gh-021-stun-powder.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "2"
     }
 ]

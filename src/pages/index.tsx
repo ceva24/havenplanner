@@ -19,7 +19,7 @@ const Index: NextPage<IndexProps> = ({ initialCharacter }: IndexProps) => {
 
     return (
         <AppSettingsProvider character={character}>
-            <Header character={character} />
+            <Header character={character} setCharacter={setCharacter} />
 
             <Container component="main" maxWidth="xl">
                 <Grid container height="100%" minHeight="45rem" justifyContent="center">
