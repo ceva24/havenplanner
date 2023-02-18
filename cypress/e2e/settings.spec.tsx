@@ -20,4 +20,14 @@ describe("settings", () => {
 
         cy.findSettingsDrawer().should("not.exist");
     });
+
+    it("allows the item spoiler prosperity level to be set", () => {
+        cy.visit("/");
+
+        cy.setProsperityLevel(7);
+
+        cy.openSettings();
+
+        cy.hasProsperityLevel(7);
+    });
 });

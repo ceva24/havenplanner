@@ -14,6 +14,7 @@ const ProsperitySlider = () => {
         <>
             <Typography id="input-slider">Prosperity</Typography>
             <Slider
+                id="prosperity-slider"
                 sx={{ width: "80%" }}
                 aria-labelledby="input-slider"
                 valueLabelDisplay="off"
