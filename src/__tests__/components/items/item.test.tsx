@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import Item, { removeItem } from "@/components/items/item";
-import { prosperityOneItems } from "@/loaders/items";
+import { items } from "@/loaders/items";
 import { createTestCharacter } from "@/testutils";
 
 const character: Character = createTestCharacter({
     items: [
-        { id: "1", item: prosperityOneItems[8] },
-        { id: "2", item: prosperityOneItems[5] },
+        { id: "1", item: items[8] },
+        { id: "2", item: items[5] },
     ],
 });
 
@@ -37,7 +37,7 @@ describe("item", () => {
 describe("removeItem", () => {
     it("removes an item", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: prosperityOneItems[0] }],
+            items: [{ id: "1", item: items[0] }],
         });
 
         removeItem(character, setCharacter, character.items[0]);
@@ -52,8 +52,8 @@ describe("removeItem", () => {
     it("only removes the correct item when duplicate items are present", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: prosperityOneItems[0] },
-                { id: "2", item: prosperityOneItems[0] },
+                { id: "1", item: items[0] },
+                { id: "2", item: items[0] },
             ],
         });
 
@@ -69,9 +69,9 @@ describe("removeItem", () => {
     it("removes an item from the middle of the list", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: prosperityOneItems[0] },
-                { id: "2", item: prosperityOneItems[1] },
-                { id: "3", item: prosperityOneItems[2] },
+                { id: "1", item: items[0] },
+                { id: "2", item: items[1] },
+                { id: "3", item: items[2] },
             ],
         });
 
@@ -87,13 +87,13 @@ describe("removeItem", () => {
     it("does not remove any items when the id is invalid", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: prosperityOneItems[0] },
-                { id: "2", item: prosperityOneItems[1] },
-                { id: "3", item: prosperityOneItems[2] },
+                { id: "1", item: items[0] },
+                { id: "2", item: items[1] },
+                { id: "3", item: items[2] },
             ],
         });
 
-        removeItem(character, setCharacter, { id: "-1", item: prosperityOneItems[0] });
+        removeItem(character, setCharacter, { id: "-1", item: items[0] });
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);

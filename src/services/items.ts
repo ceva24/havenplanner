@@ -1,14 +1,7 @@
-import { prosperityOneItems, prosperityTwoItems } from "@/loaders/items";
-
-const prosperityTwoList = prosperityOneItems.concat(prosperityTwoItems);
+import { items } from "@/loaders/items";
 
 const getItemsForSpoilerSettings = (prosperity: number): Item[] => {
-    switch (prosperity) {
-        case 1:
-            return prosperityOneItems;
-        default:
-            return prosperityTwoList;
-    }
+    return items.filter((item: Item) => Number.parseInt(item.group, 10) <= prosperity);
 };
 
 export { getItemsForSpoilerSettings };

@@ -1,6 +1,6 @@
 import { serialize } from "@/services/serializer";
 import { characterClasses } from "@/loaders/character-classes";
-import { prosperityOneItems } from "@/loaders/items";
+import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
 import { enhancements } from "@/loaders/enhancements";
 import { createTestCharacter } from "@/testutils";
@@ -50,8 +50,8 @@ describe("serializer", () => {
             characterClass: characterClasses[2],
             battleGoalCheckmarkGroups: [],
             items: [
-                { id: "1", item: prosperityOneItems[1] },
-                { id: "2", item: prosperityOneItems[7] },
+                { id: "1", item: items[1] },
+                { id: "2", item: items[7] },
             ],
         });
 
@@ -71,8 +71,8 @@ describe("serializer", () => {
             characterClass: characterClasses[2],
             battleGoalCheckmarkGroups: [],
             items: [
-                { id: "1", item: prosperityOneItems[1] },
-                { id: "2", item: prosperityOneItems[1] },
+                { id: "1", item: items[1] },
+                { id: "2", item: items[1] },
             ],
             unlockedAbilityCards: [],
         });

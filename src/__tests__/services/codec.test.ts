@@ -3,7 +3,7 @@ import { decode, encode } from "@/services/codec";
 import * as serializerService from "@/services/serializer";
 import * as deserializerService from "@/services/deserializer";
 import { characterClasses } from "@/loaders/character-classes";
-import { prosperityOneItems } from "@/loaders/items";
+import { items } from "@/loaders/items";
 import { enhancements } from "@/loaders/enhancements";
 import { createTestCharacter } from "@/testutils";
 
@@ -33,8 +33,8 @@ const characterWithItems = createTestCharacter({
     characterClass: characterClasses[3],
     battleGoalCheckmarkGroups: [],
     items: [
-        { id: "abc", item: prosperityOneItems[0] },
-        { id: "def", item: prosperityOneItems[3] },
+        { id: "abc", item: items[0] },
+        { id: "def", item: items[3] },
     ],
 });
 

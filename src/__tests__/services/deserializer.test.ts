@@ -1,6 +1,6 @@
 import { deserialize } from "@/services/deserializer";
 import { characterClasses } from "@/loaders/character-classes";
-import { prosperityOneItems } from "@/loaders/items";
+import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
 import { defaultCharacter } from "@/constants";
 import { enhancements } from "@/loaders/enhancements";
@@ -31,8 +31,8 @@ describe("deserialize", () => {
         const character: Character = deserialize(data);
 
         expect(character.items).toHaveLength(2);
-        expect(character.items[0].item).toEqual(prosperityOneItems[1]);
-        expect(character.items[1].item).toEqual(prosperityOneItems[7]);
+        expect(character.items[0].item).toEqual(items[1]);
+        expect(character.items[1].item).toEqual(items[7]);
     });
 
     it("sets new uuids on character items", () => {
@@ -51,7 +51,7 @@ describe("deserialize", () => {
         const character: Character = deserialize(data);
 
         expect(character.items).toHaveLength(1);
-        expect(character.items[0].item).toEqual(prosperityOneItems[1]);
+        expect(character.items[0].item).toEqual(items[1]);
     });
 
     it("sets the default character class when the id is invalid", () => {
