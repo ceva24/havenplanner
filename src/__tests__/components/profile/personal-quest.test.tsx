@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import PersonalQuest from "@/components/profile/personal-quest";
-import AppSettingsProvider from "@/hooks/app-settings";
 import { personalQuests } from "@/loaders/personal-quests";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
 
 const character: Character = createTestCharacter();
 
@@ -14,11 +13,9 @@ describe("personal quest", () => {
             personalQuest: personalQuests[0],
         });
 
-        render(
-            <AppSettingsProvider character={characterWithPersonalQuest}>
-                <PersonalQuest character={characterWithPersonalQuest} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<PersonalQuest character={characterWithPersonalQuest} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const showPersonalQuestSwitch = screen.getByRole("checkbox", { name: "Hide personal quest" });
 
@@ -26,11 +23,9 @@ describe("personal quest", () => {
     });
 
     it("renders the personal quest card", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <PersonalQuest character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<PersonalQuest character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const personalQuestCard = screen.getByRole("img", { name: "Personal quest" });
 
@@ -38,11 +33,9 @@ describe("personal quest", () => {
     });
 
     it("renders the personal quest autocomplete", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <PersonalQuest character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<PersonalQuest character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const personalQuestAutocomplete = screen.getByRole("combobox");
 

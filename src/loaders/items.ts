@@ -1,6 +1,8 @@
 /* eslint-disable import/extensions */
-import itemData from "@/data/gloomhaven/items.json";
+import prosperityOneItemData from "@/data/gloomhaven/items/prosperity-1.json";
+import prosperityTwoItemData from "@/data/gloomhaven/items/prosperity-2.json";
 
-const items: Item[] = itemData;
+const prosperityOneItems: Item[] = prosperityOneItemData;
+const prosperityTwoItems: Item[] = prosperityTwoItemData;
 
-export { items };
+export { prosperityOneItems, prosperityTwoItems };

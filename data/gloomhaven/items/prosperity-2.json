@@ -1,0 +1,51 @@
+[
+    {
+        "id": 15,
+        "name": "Boots of Speed",
+        "imageUrl": "/items/gloomhaven/15-21/gh-015-boots-of-speed.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp"
+    },
+    {
+        "id": 16,
+        "name": "Cloak of Pockets",
+        "imageUrl": "/items/gloomhaven/15-21/gh-016-cloak-of-pockets.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp"
+    },
+    {
+        "id": 17,
+        "name": "Empowering Talisman",
+        "imageUrl": "/items/gloomhaven/15-21/gh-017-empowering-talisman.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp"
+    },
+    {
+        "id": 18,
+        "name": "Battle Axe",
+        "imageUrl": "/items/gloomhaven/15-21/gh-018-battle-axe.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp"
+    },
+    {
+        "id": 19,
+        "name": "Weighted Net",
+        "imageUrl": "/items/gloomhaven/15-21/gh-019-weighted-net.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp"
+    },
+    {
+        "id": 20,
+        "name": "Minor Mana Potion",
+        "imageUrl": "/items/gloomhaven/15-21/gh-020-minor-mana-potion.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp"
+    },
+    {
+        "id": 21,
+        "name": "Stun Powder",
+        "imageUrl": "/items/gloomhaven/15-21/gh-021-stun-powder.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp"
+    }
+]

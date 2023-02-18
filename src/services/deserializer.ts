@@ -1,9 +1,9 @@
 import { v4 as uuid } from "uuid";
 import { defaultCharacter } from "@/constants";
 import { characterClasses } from "@/loaders/character-classes";
-import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
 import { enhancements } from "@/loaders/enhancements";
+import { getItemsForSpoilerSettings } from "@/services/items";
 
 const deserialize = (data: string): Character => {
     const characterData = JSON.parse(data) as SerializedCharacter;
@@ -93,6 +93,8 @@ const deserializeGainedBattleGoalCheckmarks = (battleGoalIndices: boolean[][]): 
 };
 
 const deserializeItems = (itemIds: number[]): CharacterItem[] => {
+    const items = getItemsForSpoilerSettings(9);
+
     const characterItems: CharacterItem[] = itemIds.map((itemId: number) => {
         return { id: uuid(), item: items[itemId - 1] };
     });

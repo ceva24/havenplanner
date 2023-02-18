@@ -1,4 +1,6 @@
+import { type ReactNode } from "react";
 import { createDefaultBattleGoals } from "@/services/character";
+import AppSettingsProvider from "@/hooks/app-settings";
 
 const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): Character => {
     const character: Character = {
@@ -129,4 +131,12 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
     return { ...character, ...characterDetailsToOverride };
 };
 
-export { createTestCharacter };
+interface ProviderProps {
+    children: ReactNode;
+}
+
+const defaultAppSettingsProvider = ({ children }: ProviderProps) => {
+    return <AppSettingsProvider character={createTestCharacter()}>{children}</AppSettingsProvider>;
+};
+
+export { createTestCharacter, defaultAppSettingsProvider };

@@ -1,17 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import TabContainer from "@/components/tabs/tab-container";
-import AppSettingsProvider from "@/hooks/app-settings";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
 
 const character: Character = createTestCharacter();
 
 describe("tab container", () => {
     it("renders the profile tab", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <TabContainer character={character} setCharacter={jest.fn()} />
-            </AppSettingsProvider>
-        );
+        render(<TabContainer character={character} setCharacter={jest.fn()} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const profileTab = screen.getByRole("tab", { name: "Profile" });
 
@@ -19,11 +16,9 @@ describe("tab container", () => {
     });
 
     it("renders the items tab", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <TabContainer character={character} setCharacter={jest.fn()} />
-            </AppSettingsProvider>
-        );
+        render(<TabContainer character={character} setCharacter={jest.fn()} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const itemsTab = screen.getByRole("tab", { name: "Items" });
 
@@ -31,11 +26,9 @@ describe("tab container", () => {
     });
 
     it("renders the ability cards tab", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <TabContainer character={character} setCharacter={jest.fn()} />
-            </AppSettingsProvider>
-        );
+        render(<TabContainer character={character} setCharacter={jest.fn()} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const deckTab = screen.getByRole("tab", { name: "Ability Cards" });
 
@@ -43,11 +36,9 @@ describe("tab container", () => {
     });
 
     it("renders the perks tab", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <TabContainer character={character} setCharacter={jest.fn()} />
-            </AppSettingsProvider>
-        );
+        render(<TabContainer character={character} setCharacter={jest.fn()} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const perksTab = screen.getByRole("tab", { name: "Perks" });
 
@@ -55,11 +46,9 @@ describe("tab container", () => {
     });
 
     it("renders the profile tab panel by default", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <TabContainer character={character} setCharacter={jest.fn()} />
-            </AppSettingsProvider>
-        );
+        render(<TabContainer character={character} setCharacter={jest.fn()} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const profileTabPanel = screen.getByRole("tabpanel", { name: "Profile" });
 

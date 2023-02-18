@@ -1,7 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import CharacterDetails from "@/components/profile/character-details";
-import { createTestCharacter } from "@/testutils";
-import AppSettingsProvider from "@/hooks/app-settings";
+import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
 
 const character: Character = createTestCharacter({ experience: 25 });
 
@@ -11,11 +10,9 @@ const setCharacter = jest.fn();
 
 describe("character details", () => {
     it("renders the form", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <CharacterDetails character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<CharacterDetails character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const characterDetailsForm = screen.getByRole("form", {
             name: "Character Details",
@@ -25,11 +22,9 @@ describe("character details", () => {
     });
 
     it("renders the character name", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <CharacterDetails character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<CharacterDetails character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const characterDetailsForm = screen.getByRole("form", {
             name: "Character Details",
@@ -43,11 +38,9 @@ describe("character details", () => {
     });
 
     it("renders the class select", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <CharacterDetails character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<CharacterDetails character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const characterDetailsForm = screen.getByRole("form", {
             name: "Character Details",
@@ -60,11 +53,9 @@ describe("character details", () => {
     });
 
     it("renders the character experience", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <CharacterDetails character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<CharacterDetails character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const characterDetailsForm = screen.getByRole("form", {
             name: "Character Details",
@@ -76,11 +67,9 @@ describe("character details", () => {
     });
 
     it("renders the character level", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <CharacterDetails character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<CharacterDetails character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const characterDetailsForm = screen.getByRole("form", {
             name: "Character Details",
@@ -94,11 +83,9 @@ describe("character details", () => {
     });
 
     it("displays no experience value when experience is zero", () => {
-        render(
-            <AppSettingsProvider character={poorInexperiencedCharacter}>
-                <CharacterDetails character={poorInexperiencedCharacter} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<CharacterDetails character={poorInexperiencedCharacter} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const experience = screen.queryByRole("textbox", {
             name: "Experience",
@@ -110,11 +97,9 @@ describe("character details", () => {
     });
 
     it("renders the character gold", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <CharacterDetails character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<CharacterDetails character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const characterDetailsForm = screen.getByRole("form", {
             name: "Character Details",
@@ -128,11 +113,9 @@ describe("character details", () => {
     });
 
     it("displays no gold value when gold is zero", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <CharacterDetails character={poorInexperiencedCharacter} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<CharacterDetails character={poorInexperiencedCharacter} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const gold = screen.queryByRole("textbox", {
             name: "Gold",
@@ -144,11 +127,9 @@ describe("character details", () => {
     });
 
     it("renders the character notes", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <CharacterDetails character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<CharacterDetails character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const characterDetailsForm = screen.getByRole("form", {
             name: "Character Details",

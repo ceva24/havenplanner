@@ -17,6 +17,9 @@ const AppSettingsProvider = ({ character, children }: AppSettingsProviderProps) 
     const [appSettings, setAppSettings] = useState<AppSettings>({
         hidePersonalQuest: Boolean(character.personalQuest),
         selectedAbilityCardsTabIndex: 0,
+        spoilerSettings: {
+            prosperity: 1,
+        },
     });
 
     const appSettingsValue = useMemo(() => ({ appSettings, setAppSettings }), [appSettings, setAppSettings]);

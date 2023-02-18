@@ -3,10 +3,9 @@ import { render, screen } from "@testing-library/react";
 import ClassSelect, { findAndSetCharacter, resetAbilityCardsTabConfig } from "@/components/profile/class-select";
 import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/constants";
-import { createTestCharacter } from "@/testutils";
-import AppSettingsProvider from "@/hooks/app-settings";
 import { createDefaultBattleGoals } from "@/services/character";
 import { enhancements } from "@/loaders/enhancements";
+import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
 
 const character: Character = createTestCharacter();
 
@@ -15,6 +14,9 @@ const setCharacter = jest.fn();
 const appSettings: AppSettings = {
     hidePersonalQuest: false,
     selectedAbilityCardsTabIndex: 0,
+    spoilerSettings: {
+        prosperity: 1,
+    },
 };
 
 const setAppSettings = jest.fn();
@@ -25,11 +27,9 @@ beforeEach(() => {
 
 describe("class select", () => {
     it("renders", () => {
-        render(
-            <AppSettingsProvider character={character}>
-                <ClassSelect character={character} setCharacter={setCharacter} />
-            </AppSettingsProvider>
-        );
+        render(<ClassSelect character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const classSelect = screen.queryByRole("button", { name: "Class" });
 

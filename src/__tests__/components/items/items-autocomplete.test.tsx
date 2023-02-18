@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ItemsAutocomplete, { addItem, orderItems } from "@/components/items/items-autocomplete";
-import { items } from "@/loaders/items";
-import { createTestCharacter } from "@/testutils";
+import { prosperityOneItems } from "@/loaders/items";
+import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
 
 const mockUuid = "123";
 
@@ -21,7 +21,9 @@ beforeEach(() => {
 
 describe("items autocomplete", () => {
     it("renders", () => {
-        render(<ItemsAutocomplete character={character} setCharacter={setCharacter} />);
+        render(<ItemsAutocomplete character={character} setCharacter={setCharacter} />, {
+            wrapper: defaultAppSettingsProvider,
+        });
 
         const itemsAutocomplete = screen.queryByRole("combobox", { name: "Add item" });
 
@@ -31,7 +33,7 @@ describe("items autocomplete", () => {
 
 describe("addItem", () => {
     it("adds an item to the character's items", () => {
-        const item = items[3];
+        const item = prosperityOneItems[3];
 
         addItem(item, character, setCharacter);
 
@@ -43,7 +45,7 @@ describe("addItem", () => {
     });
 
     it("generates a uuid for the item", () => {
-        const item = items[3];
+        const item = prosperityOneItems[3];
 
         addItem(item, character, setCharacter);
 
@@ -56,10 +58,10 @@ describe("addItem", () => {
 
     it("adds items to the end of the list", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "123", item: items[2] }],
+            items: [{ id: "123", item: prosperityOneItems[2] }],
         });
 
-        const item = items[3];
+        const item = prosperityOneItems[3];
 
         addItem(item, character, setCharacter);
 
@@ -73,7 +75,7 @@ describe("addItem", () => {
 
     it("allows duplicate items", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "123", item: items[2] }],
+            items: [{ id: "123", item: prosperityOneItems[2] }],
         });
 
         addItem(character.items[0].item, character, setCharacter);
@@ -96,12 +98,12 @@ describe("addItem", () => {
 describe("orderItems", () => {
     it("orders items by slot", () => {
         const characterItems: CharacterItem[] = [
-            { id: "6", item: items[11] }, // Bag
-            { id: "1", item: items[0] }, // Legs
-            { id: "4", item: items[7] }, // One Hand
-            { id: "2", item: items[2] }, // Chest
-            { id: "3", item: items[5] }, // Head
-            { id: "5", item: items[8] }, // Two Hand
+            { id: "6", item: prosperityOneItems[11] }, // Bag
+            { id: "1", item: prosperityOneItems[0] }, // Legs
+            { id: "4", item: prosperityOneItems[7] }, // One Hand
+            { id: "2", item: prosperityOneItems[2] }, // Chest
+            { id: "3", item: prosperityOneItems[5] }, // Head
+            { id: "5", item: prosperityOneItems[8] }, // Two Hand
         ];
 
         const result = orderItems(characterItems);
@@ -116,9 +118,9 @@ describe("orderItems", () => {
 
     it("orders items in the same slot by name", () => {
         const characterItems: CharacterItem[] = [
-            { id: "1", item: items[13] }, // Minor Power Potion
-            { id: "2", item: items[12] }, // Minor Stamina Potion
-            { id: "3", item: items[11] }, // Minor Healing Potion
+            { id: "1", item: prosperityOneItems[13] }, // Minor Power Potion
+            { id: "2", item: prosperityOneItems[12] }, // Minor Stamina Potion
+            { id: "3", item: prosperityOneItems[11] }, // Minor Healing Potion
         ];
 
         const result = orderItems(characterItems);
@@ -130,10 +132,10 @@ describe("orderItems", () => {
 
     it("orders items by slot and then by name", () => {
         const characterItems: CharacterItem[] = [
-            { id: "1", item: items[12] }, // Minor Stamina Potion
-            { id: "2", item: items[9] }, // War Hammer
-            { id: "3", item: items[11] }, // Minor Power Potion
-            { id: "4", item: items[8] }, // Piercing Bow
+            { id: "1", item: prosperityOneItems[12] }, // Minor Stamina Potion
+            { id: "2", item: prosperityOneItems[9] }, // War Hammer
+            { id: "3", item: prosperityOneItems[11] }, // Minor Power Potion
+            { id: "4", item: prosperityOneItems[8] }, // Piercing Bow
         ];
 
         const result = orderItems(characterItems);
@@ -151,7 +153,7 @@ describe("orderItems", () => {
     it.each`
         items
         ${[]}
-        ${[{ id: 1, item: items[0] }]}
+        ${[{ id: 1, item: prosperityOneItems[0] }]}
     `("orders items of length $items.length without error", ({ items }: ItemsProps) => {
         expect(() => orderItems(items)).not.toThrowError();
     });
