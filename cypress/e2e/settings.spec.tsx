@@ -30,4 +30,20 @@ describe("settings", () => {
 
         cy.hasProsperityLevel(7);
     });
+
+    it.only("removes higher prosperity items when lowering the item spoiler prosperity level", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(2);
+
+        cy.addItem("Stun Powder 021");
+
+        cy.findByRole("img", { name: "Stun Powder" }).should("be.visible");
+
+        cy.setProsperityLevel(1);
+
+        cy.findByRole("img", { name: "Stun Powder" }).should("not.exist");
+    });
 });
