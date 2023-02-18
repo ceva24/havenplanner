@@ -178,7 +178,7 @@ Cypress.Commands.add("findSettingsDrawer", () => {
     cy.findByRole("presentation", { name: "Settings" });
 });
 
-Cypress.Commands.add("hasProsperityLevel", (level: number) => {
+Cypress.Commands.add("shouldHaveProsperityLevel", (level: number) => {
     cy.findByRole("slider", { name: "Prosperity" }).should("have.value", level);
 });
 

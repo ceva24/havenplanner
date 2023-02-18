@@ -24,14 +24,14 @@ describe("settings", () => {
     it("allows the item spoiler prosperity level to be set", () => {
         cy.visit("/");
 
-        cy.setProsperityLevel(7);
+        cy.setProsperityLevel(2);
 
         cy.openSettings();
 
-        cy.hasProsperityLevel(7);
+        cy.shouldHaveProsperityLevel(2);
     });
 
-    it.only("removes higher prosperity items when lowering the item spoiler prosperity level", () => {
+    it("removes higher prosperity items when lowering the item spoiler prosperity level", () => {
         cy.visit("/");
 
         cy.selectTab("Items");

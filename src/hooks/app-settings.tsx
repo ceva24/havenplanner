@@ -18,7 +18,7 @@ const AppSettingsProvider = ({ character, children }: AppSettingsProviderProps) 
         hidePersonalQuest: Boolean(character.personalQuest),
         selectedAbilityCardsTabIndex: 0,
         spoilerSettings: {
-            prosperity: 1,
+            prosperity: determineInitialProsperity(character),
         },
     });
 
@@ -35,5 +35,14 @@ const useAppSettingsContext = (): AppSettingsContextProps => {
     return appSettingsContext;
 };
 
+const determineInitialProsperity = (character: Character): number => {
+    if (character.items.length === 0) return 1;
+
+    return Math.max.apply(
+        0,
+        character.items.map((characterItem: CharacterItem) => Number.parseInt(characterItem.item.group, 10))
+    );
+};
+
 export default AppSettingsProvider;
-export { useAppSettingsContext };
+export { useAppSettingsContext, determineInitialProsperity };
