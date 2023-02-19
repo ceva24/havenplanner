@@ -1,10 +1,9 @@
 import { useState } from "react";
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
-import { Container, Grid } from "@mui/material";
 import { decode } from "@/services/codec";
 import { defaultCharacter } from "@/constants";
-import TabContainer from "@/components/tabs/tab-container";
 import Header from "@/components/header/header";
+import AppContainer from "@/components/app-container";
 import AppSettingsProvider from "@/hooks/use-app-settings";
 import { useClearQueryString } from "@/hooks/use-clear-query-string";
 
@@ -20,14 +19,7 @@ const Index: NextPage<IndexProps> = ({ initialCharacter }: IndexProps) => {
     return (
         <AppSettingsProvider character={character}>
             <Header character={character} setCharacter={setCharacter} />
-
-            <Container component="main" maxWidth="xl">
-                <Grid container height="100%" minHeight="45rem" justifyContent="center">
-                    <Grid item xs={12}>
-                        <TabContainer character={character} setCharacter={setCharacter} />
-                    </Grid>
-                </Grid>
-            </Container>
+            <AppContainer character={character} setCharacter={setCharacter} />
         </AppSettingsProvider>
     );
 };
