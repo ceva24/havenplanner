@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { TextButton } from "@/components/core/button";
 import SettingsDrawer from "@/components/settings/settings-drawer";
-import { useAppSettingsContext } from "@/hooks/app-settings";
+import { useAppSettingsContext } from "@/hooks/use-app-settings";
 
 interface SettingsButtonProps {
     character: Character;
@@ -12,7 +12,7 @@ interface SettingsButtonProps {
 
 const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
     const [settingsDrawerIsOpen, setSettingsDrawerIsOpen] = useState<boolean>(false);
-    const { appSettings } = useAppSettingsContext();
+    const [appSettings, setAppSettings] = useAppSettingsContext();
 
     const handleClose = () => {
         removeItemsAboveProsperityLevel(character, setCharacter, appSettings.spoilerSettings.prosperity);

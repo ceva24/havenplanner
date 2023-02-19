@@ -8,6 +8,14 @@ interface AppSettingsContextProps {
 
 const AppSettingsContext = createContext<AppSettingsContextProps | undefined>(undefined);
 
+const useAppSettingsContext = (): [AppSettings, Dispatch<SetStateAction<AppSettings>>] => {
+    const appSettingsContext = useContext(AppSettingsContext);
+
+    if (!appSettingsContext) throw new Error("No AppSettingsContext Provider found when calling useAppSettingsContext");
+
+    return [appSettingsContext.appSettings, appSettingsContext.setAppSettings];
+};
+
 interface AppSettingsProviderProps {
     character: Character;
     children: ReactNode;
@@ -25,14 +33,6 @@ const AppSettingsProvider = ({ character, children }: AppSettingsProviderProps) 
     const appSettingsValue = useMemo(() => ({ appSettings, setAppSettings }), [appSettings, setAppSettings]);
 
     return <AppSettingsContext.Provider value={appSettingsValue}>{children}</AppSettingsContext.Provider>;
-};
-
-const useAppSettingsContext = (): AppSettingsContextProps => {
-    const appSettingsContext = useContext(AppSettingsContext);
-
-    if (!appSettingsContext) throw new Error("No AppSettingsContext Provider found when calling useAppSettingsContext");
-
-    return appSettingsContext;
 };
 
 const determineInitialProsperity = (character: Character): number => {

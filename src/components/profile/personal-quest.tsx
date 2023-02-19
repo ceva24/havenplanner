@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Box, FormControl, FormControlLabel, Switch } from "@mui/material";
-import { useAppSettingsContext } from "@/hooks/app-settings";
+import { useAppSettingsContext } from "@/hooks/use-app-settings";
 import { Card } from "@/components/core/cards";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
 
@@ -12,7 +12,7 @@ interface PersonalQuestProps {
 }
 
 const PersonalQuest = ({ character, setCharacter }: PersonalQuestProps) => {
-    const { appSettings, setAppSettings } = useAppSettingsContext();
+    const [appSettings, setAppSettings] = useAppSettingsContext();
 
     const handleChange = () => {
         setAppSettings({ ...appSettings, hidePersonalQuest: !appSettings.hidePersonalQuest });

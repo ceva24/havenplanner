@@ -1,10 +1,10 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Box, Typography, Slider } from "@mui/material";
 import type { Mark } from "@mui/base/SliderUnstyled";
-import { useAppSettingsContext } from "@/hooks/app-settings";
+import { useAppSettingsContext } from "@/hooks/use-app-settings";
 
 const ProsperitySlider = () => {
-    const { appSettings, setAppSettings } = useAppSettingsContext();
+    const [appSettings, setAppSettings] = useAppSettingsContext();
 
     const onChange = (event: Event, value: number | number[]) => {
         if (typeof value === "number") updateProsperity(value, appSettings, setAppSettings);

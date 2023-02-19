@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Profile from "@/components/profile/profile";
-import AppSettingsProvider from "@/hooks/app-settings";
+import AppSettingsProvider from "@/hooks/use-app-settings";
 import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
 
 const character: Character = createTestCharacter();

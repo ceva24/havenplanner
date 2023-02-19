@@ -5,7 +5,7 @@ import { decode } from "@/services/codec";
 import { defaultCharacter } from "@/constants";
 import TabContainer from "@/components/tabs/tab-container";
 import Header from "@/components/header/header";
-import AppSettingsProvider from "@/hooks/app-settings";
+import AppSettingsProvider from "@/hooks/use-app-settings";
 import { useClearQueryString } from "@/hooks/use-clear-query-string";
 
 interface IndexProps {

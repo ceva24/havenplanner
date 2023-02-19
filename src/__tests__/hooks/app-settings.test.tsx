@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import AppSettingsProvider, { determineInitialProsperity } from "@/hooks/app-settings";
+import AppSettingsProvider, { determineInitialProsperity } from "@/hooks/use-app-settings";
 import PersonalQuest from "@/components/profile/personal-quest";
 import { createTestCharacter } from "@/testutils";
 import { items } from "@/loaders/items";
