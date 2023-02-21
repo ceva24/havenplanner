@@ -2,7 +2,7 @@ import { type AppProps } from "next/app";
 import Head from "next/head";
 import { ErrorBoundary } from "react-error-boundary";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import theme from "@/styles/theme";
+import theme from "@/theme";
 import ErrorTemplate from "@/components/error/error-template";
 
 const App = ({ Component, pageProps }: AppProps) => {

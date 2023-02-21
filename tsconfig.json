@@ -9,11 +9,11 @@
             "@/loaders/*": ["src/loaders/*"],
             "@/pages/*": ["src/pages/*"],
             "@/services/*": ["src/services/*"],
-            "@/styles/*": ["src/styles/*"],
             "@/types/*": ["src/types/*"],
             "@/utils/*": ["src/utils/*"],
             "@/data/*": ["data/*"],
             "@/constants": ["src/constants"],
+            "@/theme": ["src/theme"],
             "@/utils": ["src/utils"],
             "@/testutils": ["src/__tests__/utils"]
         }

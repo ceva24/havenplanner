@@ -1,5 +1,5 @@
 import { Button as MuiButton, Typography } from "@mui/material";
-import theme from "@/styles/theme";
+import theme from "@/theme";
 
 interface ButtonProps {
     id?: string;
