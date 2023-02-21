@@ -46,14 +46,16 @@ const TextButton = ({ id, text, onClick, startIcon }: ButtonProps) => {
 };
 
 interface IconButtonProps {
+    id?: string;
     icon: JSX.Element;
     label: string;
     onClick: () => void;
 }
 
-const IconButton = ({ icon, label, onClick }: IconButtonProps) => {
+const IconButton = ({ id, icon, label, onClick }: IconButtonProps) => {
     return (
         <MuiButton
+            id={id}
             aria-label={label}
             variant="contained"
             startIcon={icon}

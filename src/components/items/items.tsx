@@ -20,6 +20,7 @@ const Items = ({ character, setCharacter }: ItemsProps) => {
                 <Stack direction="row" spacing={3} justifyContent="center">
                     <ItemsAutocomplete character={character} setCharacter={setCharacter} />
                     <IconButton
+                        id="browse-items-button"
                         label="Browse Items"
                         icon={<SearchIcon />}
                         onClick={() => {
