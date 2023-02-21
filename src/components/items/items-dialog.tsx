@@ -4,7 +4,7 @@ import { addItem } from "@/components/items/items-autocomplete";
 import FullScreenDialog from "@/components/core/full-screen-dialog";
 import { SmallCard } from "@/components/core/cards";
 import { getItemsForSpoilerSettings } from "@/services/items";
-import { useAppSettingsContext } from "@/hooks/app-settings";
+import { useAppSettingsContext } from "@/hooks/use-app-settings";
 
 interface ItemsDialogProps {
     isOpen: boolean;
@@ -14,7 +14,7 @@ interface ItemsDialogProps {
 }
 
 const ItemsDialog = ({ isOpen, handleClose, character, setCharacter }: ItemsDialogProps) => {
-    const { appSettings } = useAppSettingsContext();
+    const [appSettings, setAppSettings] = useAppSettingsContext();
 
     const addItemAndClose = (item: Item) => {
         addItem(item, character, setCharacter);

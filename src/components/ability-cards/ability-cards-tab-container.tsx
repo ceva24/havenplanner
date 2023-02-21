@@ -6,7 +6,7 @@ import Deck from "@/components/ability-cards/deck/deck";
 import Hand from "@/components/ability-cards/hand/hand";
 import Enhancements from "@/components/ability-cards/enhancements/enhancements";
 import EditHandDialog from "@/components/ability-cards/hand/edit-hand-dialog";
-import { useAppSettingsContext } from "@/hooks/app-settings";
+import { useAppSettingsContext } from "@/hooks/use-app-settings";
 
 interface AbilityCardsTabContainerProps {
     character: Character;
@@ -14,7 +14,8 @@ interface AbilityCardsTabContainerProps {
 }
 
 const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabContainerProps) => {
-    const { appSettings, setAppSettings } = useAppSettingsContext();
+    const [appSettings, setAppSettings] = useAppSettingsContext();
+
     const [editHandDialogOpen, setEditHandDialogOpen] = useState<boolean>(false);
     const responsiveTabProps = useResponsiveTabsProps();
 

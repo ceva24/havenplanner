@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import TabContainer from "@/components/tabs/tab-container";
+import AppContainer from "@/components/app-container";
 import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
 
 const character: Character = createTestCharacter();
 
-describe("tab container", () => {
+describe("app container", () => {
     it("renders the profile tab", () => {
-        render(<TabContainer character={character} setCharacter={jest.fn()} />, {
+        render(<AppContainer character={character} setCharacter={jest.fn()} />, {
             wrapper: defaultAppSettingsProvider,
         });
 
@@ -16,7 +16,7 @@ describe("tab container", () => {
     });
 
     it("renders the items tab", () => {
-        render(<TabContainer character={character} setCharacter={jest.fn()} />, {
+        render(<AppContainer character={character} setCharacter={jest.fn()} />, {
             wrapper: defaultAppSettingsProvider,
         });
 
@@ -26,7 +26,7 @@ describe("tab container", () => {
     });
 
     it("renders the ability cards tab", () => {
-        render(<TabContainer character={character} setCharacter={jest.fn()} />, {
+        render(<AppContainer character={character} setCharacter={jest.fn()} />, {
             wrapper: defaultAppSettingsProvider,
         });
 
@@ -36,7 +36,7 @@ describe("tab container", () => {
     });
 
     it("renders the perks tab", () => {
-        render(<TabContainer character={character} setCharacter={jest.fn()} />, {
+        render(<AppContainer character={character} setCharacter={jest.fn()} />, {
             wrapper: defaultAppSettingsProvider,
         });
 
@@ -46,7 +46,7 @@ describe("tab container", () => {
     });
 
     it("renders the profile tab panel by default", () => {
-        render(<TabContainer character={character} setCharacter={jest.fn()} />, {
+        render(<AppContainer character={character} setCharacter={jest.fn()} />, {
             wrapper: defaultAppSettingsProvider,
         });
 

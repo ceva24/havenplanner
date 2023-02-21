@@ -10,7 +10,7 @@ import {
 import { v4 as uuid } from "uuid";
 import Image from "@/components/core/image";
 import { getItemsForSpoilerSettings } from "@/services/items";
-import { useAppSettingsContext } from "@/hooks/app-settings";
+import { useAppSettingsContext } from "@/hooks/use-app-settings";
 
 const itemOrder = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
 
@@ -20,7 +20,7 @@ interface ItemsAutocompleteProps {
 }
 
 const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) => {
-    const { appSettings } = useAppSettingsContext();
+    const [appSettings, setAppSettings] = useAppSettingsContext();
 
     // eslint-disable-next-line @typescript-eslint/ban-types
     const handleChange = (event: SyntheticEvent, value: Item | null) => {

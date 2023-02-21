@@ -67,6 +67,8 @@ describe("share", () => {
     it("captures the personal quest in a shareable link", () => {
         cy.visit("/");
 
+        cy.findPersonalQuestSwitch().check();
+
         cy.findPersonalQuestAutocomplete().click();
 
         cy.findByRole("option", { name: "Augmented Abilities" }).click();
@@ -75,23 +77,9 @@ describe("share", () => {
 
         cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
 
-        cy.findPersonalQuestSwitch().uncheck();
+        cy.findPersonalQuestSwitch().check();
 
         cy.findPersonalQuestImage("Augmented Abilities").should("exist");
-    });
-
-    it("hides the personal quest by default when loading a character with one set", () => {
-        cy.visit("/");
-
-        cy.findPersonalQuestAutocomplete().click();
-
-        cy.findByRole("option", { name: "Augmented Abilities" }).click();
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.findDefaultPersonalQuestImage().should("exist");
     });
 
     it("captures item data in a shareable link", () => {

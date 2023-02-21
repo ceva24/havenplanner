@@ -21,7 +21,7 @@ const Header = ({ character, setCharacter }: HeaderProps) => {
                 </Box>
                 {character && setCharacter && (
                     <Box>
-                        <Grid container textAlign="right">
+                        <Grid container textAlign="right" paddingY={{ xs: 1, md: 0 }}>
                             <Grid item padding={1} sx={{ width: { xs: "100%", md: "auto" } }}>
                                 <SettingsButton character={character} setCharacter={setCharacter} />
                             </Grid>

@@ -18,7 +18,7 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
 
     return (
         <Box id="character-details-form" aria-label="Character Details" component="form">
-            <Box sx={{ marginBottom: 2 }}>
+            <Box>
                 <ClassSelect character={character} setCharacter={setCharacter} />
             </Box>
             <Box>

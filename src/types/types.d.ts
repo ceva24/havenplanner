@@ -1,5 +1,5 @@
 interface AppSettings {
-    hidePersonalQuest: boolean;
+    showPersonalQuest: boolean;
     selectedAbilityCardsTabIndex: number;
     spoilerSettings: SpoilerSettings;
 }

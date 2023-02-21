@@ -2,7 +2,12 @@
     {
         "name": "Profile Tab",
         "url": "http://localhost:3000?character=uDriterisSrisdtcjRrgsetifjkWRTVrisEriuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2VsO2psP2JxeO302exfE2CsI2OxJE2exJFyXEsPxJE2o3d2SxqDtgxqE35xeExtGx1DxGDxeExGExME2sxME47xwFtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
-        "execute": "document.querySelector('#hide-personal-quest-switch').click()"
+        "additionalSnapshots": [
+            {
+                "suffix": " - Personal Quest",
+                "execute": "document.querySelector('#show-personal-quest-switch').click()"
+            }
+        ]
     },
     {
         "name": "Ability Cards Tab",
@@ -27,6 +32,10 @@
             {
                 "suffix": " - Select",
                 "execute": "document.querySelector(\"[aria-label='Open']\").click()"
+            },
+            {
+                "suffix": " - Browse Items Dialog",
+                "execute": "document.querySelector('#browse-items-button').click()"
             }
         ]
     },

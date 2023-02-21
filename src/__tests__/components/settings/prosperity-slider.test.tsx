@@ -74,7 +74,7 @@ describe("marks", () => {
 describe("updateProsperity", () => {
     it("updates the prosperity level app setting", () => {
         const appSettings: AppSettings = {
-            hidePersonalQuest: false,
+            showPersonalQuest: false,
             selectedAbilityCardsTabIndex: 0,
             spoilerSettings: {
                 prosperity: 1,

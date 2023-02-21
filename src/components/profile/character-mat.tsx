@@ -18,7 +18,7 @@ const CharacterMat = ({ characterClass }: CharacterMatProps) => {
     };
 
     return (
-        <Flippy ref={ref} style={{ width: "100%" }} tabIndex="0" onKeyDown={onKeyDown}>
+        <Flippy ref={ref} tabIndex="0" onKeyDown={onKeyDown}>
             <FrontSide style={{ padding: 0, boxShadow: "none" }}>
                 <Image
                     webpPath={characterClass.characterMatFrontImageUrl}

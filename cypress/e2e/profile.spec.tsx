@@ -153,46 +153,32 @@ describe("profile tab", () => {
             .should("have.class", "isActive");
     });
 
+    it("hides the character mat and shows the personal quest when checking the personal quest switch", () => {
+        cy.visit("/");
+
+        cy.findByRole("img", { name: "Character mat front" }).should("exist");
+
+        cy.findPersonalQuestAutocomplete().should("not.exist");
+
+        cy.findPersonalQuestSwitch().check();
+
+        cy.findByRole("img", { name: "Character mat front" }).should("not.exist");
+
+        cy.findPersonalQuestAutocomplete().should("exist");
+    });
+
     it("shows the personal quest card back when no personal quest has been selected", () => {
         cy.visit("/");
+
+        cy.findPersonalQuestSwitch().check();
 
         cy.findDefaultPersonalQuestImage().should("have.attr", "src").should("include", "gh-pq-back");
     });
 
-    it("disables the hide personal quest switch when no personal quest has been selected", () => {
-        cy.visit("/");
-
-        cy.findPersonalQuestSwitch().should("be.disabled");
-    });
-
-    it("hides the personal quest when the switch is set to on", () => {
-        cy.visit("/");
-
-        cy.findPersonalQuestAutocomplete().click();
-
-        cy.findByRole("option", { name: "Augmented Abilities" }).click();
-
-        cy.findPersonalQuestImage("Augmented Abilities").should("exist");
-
-        cy.findPersonalQuestSwitch().check();
-
-        cy.findPersonalQuestImage("Augmented Abilities").should("not.exist");
-    });
-
-    it("hides the personal quest autocomplete when the switch is set to on", () => {
-        cy.visit("/");
-
-        cy.findPersonalQuestAutocomplete().click();
-
-        cy.findByRole("option", { name: "Augmented Abilities" }).click();
-
-        cy.findPersonalQuestSwitch().check();
-
-        cy.findPersonalQuestAutocomplete().should("not.exist");
-    });
-
     it("allows a personal quest to be selected and updates the card image", () => {
         cy.visit("/");
+
+        cy.findPersonalQuestSwitch().check();
 
         cy.findPersonalQuestAutocomplete().click();
 

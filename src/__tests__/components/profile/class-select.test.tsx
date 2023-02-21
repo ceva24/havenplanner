@@ -12,7 +12,7 @@ const character: Character = createTestCharacter();
 const setCharacter = jest.fn();
 
 const appSettings: AppSettings = {
-    hidePersonalQuest: false,
+    showPersonalQuest: false,
     selectedAbilityCardsTabIndex: 0,
     spoilerSettings: {
         prosperity: 1,

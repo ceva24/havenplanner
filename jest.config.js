@@ -11,9 +11,13 @@ const customJestConfig = {
     // Add more setup options before each test is run
     // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
     moduleDirectories: ["node_modules", "<rootDir>/"],
-    setupFilesAfterEnv: ["<rootDir>/src/setup-jest.ts"],
+    setupFilesAfterEnv: ["<rootDir>/src/__tests__/setup-jest.ts"],
     testEnvironment: "jest-environment-jsdom",
-    testPathIgnorePatterns: ["<rootDir>/cypress", "<rootDir>/src/__tests__/utils.ts"],
+    testPathIgnorePatterns: [
+        "<rootDir>/cypress",
+        "<rootDir>/src/__tests__/setup-jest.ts",
+        "<rootDir>/src/__tests__/utils.ts",
+    ],
     collectCoverage: true,
     collectCoverageFrom: ["<rootDir>/src/**"],
     coveragePathIgnorePatterns: [".*__snapshots__/.*"],
@@ -23,10 +27,10 @@ const customJestConfig = {
         "@/loaders/(.*)": "<rootDir>/src/loaders/$1",
         "@/pages/(.*)": "<rootDir>/src/pages/$1",
         "@/services/(.*)": "<rootDir>/src/services/$1",
-        "@/styles/(.*)": "<rootDir>/src/styles/$1",
         "@/types/(.*)": "<rootDir>/src/types/$1",
         "@/data/(.*)": "<rootDir>/data/$1",
         "@/constants": "<rootDir>/src/constants",
+        "@/theme": "<rootDir>/src/theme",
         "@/utils": "<rootDir>/src/utils",
         "@/testutils": "<rootDir>/src/__tests__/utils",
     },

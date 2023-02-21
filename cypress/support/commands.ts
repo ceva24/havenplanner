@@ -51,7 +51,7 @@ Cypress.Commands.add("selectClass", (name) => {
 });
 
 Cypress.Commands.add("findPersonalQuestSwitch", () => {
-    cy.findByRole("checkbox", { name: "Hide personal quest" });
+    cy.findByRole("checkbox", { name: "Show personal quest" });
 });
 
 Cypress.Commands.add("findDefaultPersonalQuestImage", () => {
