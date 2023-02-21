@@ -12,45 +12,17 @@ interface PersonalQuestProps {
 }
 
 const PersonalQuest = ({ character, setCharacter }: PersonalQuestProps) => {
-    const [appSettings, setAppSettings] = useAppSettingsContext();
+    const personalQuestImageUrl = character.personalQuest?.imageUrl ?? defaultPersonalQuestCardImageUrl;
 
-    const handleChange = () => {
-        setAppSettings({ ...appSettings, hidePersonalQuest: !appSettings.hidePersonalQuest });
-    };
-
-    const personalQuestImageUrl =
-        character.personalQuest && !appSettings.hidePersonalQuest
-            ? character.personalQuest?.imageUrl
-            : defaultPersonalQuestCardImageUrl;
-
-    const personalQuestAltText =
-        character.personalQuest && !appSettings.hidePersonalQuest
-            ? `Personal quest ${character.personalQuest.name}`
-            : "Personal quest";
+    const personalQuestAltText = character.personalQuest
+        ? `Personal quest ${character.personalQuest.name}`
+        : "Personal quest";
 
     return (
-        <FormControl>
-            <Box textAlign="center">
-                <FormControlLabel
-                    control={
-                        <Switch
-                            id="hide-personal-quest-switch"
-                            name="Hide personal quest"
-                            checked={appSettings.hidePersonalQuest}
-                            disabled={!character.personalQuest}
-                            onClick={handleChange}
-                        />
-                    }
-                    label="Hide personal quest"
-                />
-            </Box>
-            <Box sx={{ marginTop: 1, marginBottom: 1 }}>
-                <Card src={personalQuestImageUrl} altText={personalQuestAltText} />
-            </Box>
-            {!appSettings.hidePersonalQuest && (
-                <PersonalQuestAutocomplete character={character} setCharacter={setCharacter} />
-            )}
-        </FormControl>
+        <Box display="flex" flexDirection="column" gap={1}>
+            <Card src={personalQuestImageUrl} altText={personalQuestAltText} />
+            <PersonalQuestAutocomplete character={character} setCharacter={setCharacter} />
+        </Box>
     );
 };
 

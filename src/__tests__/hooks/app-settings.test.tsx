@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import AppSettingsProvider, { determineInitialProsperity } from "@/hooks/use-app-settings";
-import PersonalQuest from "@/components/profile/personal-quest";
 import { createTestCharacter } from "@/testutils";
 import { items } from "@/loaders/items";
+import ClassSelect from "@/components/profile/class-select";
 
 const character: Character = createTestCharacter();
 
@@ -23,7 +23,7 @@ describe("app settings provider", () => {
 describe("useAppSettingsContext", () => {
     it("throws an error when app settings have not been set", () => {
         expect(() => {
-            render(<PersonalQuest character={character} setCharacter={jest.fn()} />);
+            render(<ClassSelect character={character} setCharacter={jest.fn()} />);
         }).toThrowError("No AppSettingsContext Provider found when calling useAppSettingsContext");
     });
 });

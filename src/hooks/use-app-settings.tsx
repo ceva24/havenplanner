@@ -23,7 +23,7 @@ interface AppSettingsProviderProps {
 
 const AppSettingsProvider = ({ character, children }: AppSettingsProviderProps) => {
     const [appSettings, setAppSettings] = useState<AppSettings>({
-        hidePersonalQuest: Boolean(character.personalQuest),
+        showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 0,
         spoilerSettings: {
             prosperity: determineInitialProsperity(character),

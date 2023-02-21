@@ -26,13 +26,13 @@ describe("profile tab", () => {
         expect(characterMat).toBeInTheDocument();
     });
 
-    it("renders the personal quest", () => {
+    it("renders the personal quest switch", () => {
         render(<Profile character={character} setCharacter={jest.fn()} />, { wrapper: defaultAppSettingsProvider });
 
-        const personalQuest = screen.queryByRole("img", {
-            name: "Personal quest",
+        const personalQuestSwitch = screen.queryByRole("checkbox", {
+            name: "Show personal quest",
         });
 
-        expect(personalQuest).toBeInTheDocument();
+        expect(personalQuestSwitch).toBeInTheDocument();
     });
 });
