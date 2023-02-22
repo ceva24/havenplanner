@@ -131,12 +131,24 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
     return { ...character, ...characterDetailsToOverride };
 };
 
+const createTestAppSettings = (appSetingsDetailsToOverride?: Partial<AppSettings>): AppSettings => {
+    const appSettings: AppSettings = {
+        showPersonalQuest: false,
+        selectedAbilityCardsTabIndex: 1,
+        spoilerSettings: {
+            prosperity: 1,
+        },
+    };
+
+    return { ...appSettings, ...appSetingsDetailsToOverride };
+};
+
 interface DefaultAppSettingsProviderProps {
     children: ReactNode;
 }
 
 const defaultAppSettingsProvider = ({ children }: DefaultAppSettingsProviderProps) => {
-    return <AppSettingsProvider character={createTestCharacter()}>{children}</AppSettingsProvider>;
+    return <AppSettingsProvider>{children}</AppSettingsProvider>;
 };
 
-export { createTestCharacter, defaultAppSettingsProvider };
+export { createTestCharacter, createTestAppSettings, defaultAppSettingsProvider };

@@ -75,5 +75,9 @@ declare namespace Cypress {
         shouldHaveProsperityLevel(level: number): Chainable<Element>;
 
         setProsperityLevel(level: number): Chainable<Element>;
+
+        findLoadCharacterDialog(): Chainable<Element>;
+
+        confirmLoadCharacter(): Chainable<Element>;
     }
 }
