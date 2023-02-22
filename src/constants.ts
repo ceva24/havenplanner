@@ -16,6 +16,10 @@ const defaultCharacter: Character = {
     items: [],
 };
 
+const defaultSpoilerSettings: SpoilerSettings = {
+    prosperity: 1,
+};
+
 const baseAttackModifierDeck: AttackModifierDeckCard[] = [
     {
         card: attackModifiers[0], // 2x
@@ -47,4 +51,4 @@ const baseAttackModifierDeck: AttackModifierDeckCard[] = [
     },
 ];
 
-export { defaultCharacter, baseAttackModifierDeck };
+export { defaultCharacter, defaultSpoilerSettings, baseAttackModifierDeck };

@@ -285,6 +285,64 @@ describe("share", () => {
         cy.findByRole("region", { name: "Battle Goal Progress" }).findAllByRole("checkbox").should("not.be.checked");
     });
 
+    it("shows the load character dialog when loading a character with spoilers", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(2);
+
+        cy.addItem("Stun Powder 021");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.findLoadCharacterDialog().should("exist");
+    });
+
+    it("loads the character when confirming the load character dialog", () => {
+        cy.visit("/");
+
+        cy.selectClass("Spellweaver");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(2);
+
+        cy.addItem("Stun Powder 021");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.confirmLoadCharacter();
+
+        cy.findSelectClassButton().should("have.text", "Spellweaver");
+    });
+
+    it("does not load the character when cancelling the load character dialog", () => {
+        cy.visit("/");
+
+        cy.selectClass("Spellweaver");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(2);
+
+        cy.addItem("Stun Powder 021");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.findLoadCharacterDialog().findByRole("button", { name: "Cancel" }).click();
+
+        cy.findSelectClassButton().should("not.have.text", "Spellweaver");
+
+        cy.findSelectClassButton().should("have.text", "Brute");
+    });
+
     it("captures higher prosperity item data in a shareable link", () => {
         cy.visit("/");
 
@@ -297,6 +355,8 @@ describe("share", () => {
         cy.findShareLinkButton().click();
 
         cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.confirmLoadCharacter();
 
         cy.selectTab("Items");
 
@@ -315,6 +375,8 @@ describe("share", () => {
         cy.findShareLinkButton().click();
 
         cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.confirmLoadCharacter();
 
         cy.openSettings();
 

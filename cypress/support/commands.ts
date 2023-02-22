@@ -189,3 +189,11 @@ Cypress.Commands.add("setProsperityLevel", (level: number) => {
 
     cy.clickCloseButton();
 });
+
+Cypress.Commands.add("findLoadCharacterDialog", () => {
+    cy.findByRole("dialog", { name: "Load character?" });
+});
+
+Cypress.Commands.add("confirmLoadCharacter", () => {
+    cy.findByRole("dialog", { name: "Load character?" }).findByRole("button", { name: "Load" }).click();
+});

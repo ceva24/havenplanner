@@ -1,5 +1,13 @@
-import type { Dispatch, ReactNode, SetStateAction } from "react";
-import { createContext, useContext, useMemo, useState } from "react";
+import {
+    createContext,
+    type Dispatch,
+    type ReactNode,
+    type SetStateAction,
+    useContext,
+    useMemo,
+    useState,
+} from "react";
+import { defaultSpoilerSettings } from "@/constants";
 
 interface AppSettingsContextProps {
     appSettings: AppSettings;
@@ -17,17 +25,14 @@ const useAppSettingsContext = (): [AppSettings, Dispatch<SetStateAction<AppSetti
 };
 
 interface AppSettingsProviderProps {
-    character: Character;
     children: ReactNode;
 }
 
-const AppSettingsProvider = ({ character, children }: AppSettingsProviderProps) => {
+const AppSettingsProvider = ({ children }: AppSettingsProviderProps) => {
     const [appSettings, setAppSettings] = useState<AppSettings>({
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 0,
-        spoilerSettings: {
-            prosperity: determineInitialProsperity(character),
-        },
+        spoilerSettings: defaultSpoilerSettings,
     });
 
     const appSettingsValue = useMemo(() => ({ appSettings, setAppSettings }), [appSettings, setAppSettings]);
@@ -35,14 +40,5 @@ const AppSettingsProvider = ({ character, children }: AppSettingsProviderProps) 
     return <AppSettingsContext.Provider value={appSettingsValue}>{children}</AppSettingsContext.Provider>;
 };
 
-const determineInitialProsperity = (character: Character): number => {
-    if (character.items.length === 0) return 1;
-
-    return Math.max.apply(
-        0,
-        character.items.map((characterItem: CharacterItem) => Number.parseInt(characterItem.item.group, 10))
-    );
-};
-
 export default AppSettingsProvider;
-export { useAppSettingsContext, determineInitialProsperity };
+export { useAppSettingsContext };

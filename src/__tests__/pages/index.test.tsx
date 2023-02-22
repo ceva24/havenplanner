@@ -4,7 +4,7 @@ import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "nex
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps } from "@/pages/index";
 import * as encoderService from "@/services/codec";
-import { defaultCharacter } from "@/constants";
+import { defaultCharacter, defaultSpoilerSettings } from "@/constants";
 import { createTestCharacter } from "@/testutils";
 
 jest.mock("next/router", () => {
@@ -27,7 +27,13 @@ beforeEach(() => {
 
 describe("index page", () => {
     it("renders the tabbed content", () => {
-        render(<Index initialCharacter={defaultCharacter} />);
+        render(
+            <Index
+                initialCharacter={defaultCharacter}
+                spoilerSettings={defaultSpoilerSettings}
+                characterHasSpoilers={false}
+            />
+        );
 
         const profileTab = screen.getByRole("tab", { name: "Profile" });
 
@@ -35,9 +41,25 @@ describe("index page", () => {
     });
 
     it("renders the share button", () => {
-        render(<Index initialCharacter={defaultCharacter} />);
+        render(
+            <Index
+                initialCharacter={defaultCharacter}
+                spoilerSettings={defaultSpoilerSettings}
+                characterHasSpoilers={false}
+            />
+        );
 
         const shareButton = screen.getByRole("button", { name: "Share" });
+
+        expect(shareButton).toBeInTheDocument();
+    });
+
+    it("renders the load character dialog", () => {
+        render(
+            <Index characterHasSpoilers initialCharacter={defaultCharacter} spoilerSettings={defaultSpoilerSettings} />
+        );
+
+        const shareButton = screen.getByRole("dialog", { name: "Load character?" });
 
         expect(shareButton).toBeInTheDocument();
     });

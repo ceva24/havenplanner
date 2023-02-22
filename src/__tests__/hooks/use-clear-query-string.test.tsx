@@ -1,10 +1,11 @@
+import { type NextRouter } from "next/router";
 import { clearQueryString } from "@/hooks/use-clear-query-string";
 
 describe("clear query string", () => {
     it("replaces the url with /", () => {
         const router = {
             replace: jest.fn(),
-        };
+        } as unknown as jest.Mocked<NextRouter>;
 
         clearQueryString(router);
 
