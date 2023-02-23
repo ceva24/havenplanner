@@ -34,6 +34,9 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 blurOnSelect
                 value={null}
                 options={getItemsForSpoilerSettings(appSettings.spoilerSettings.prosperity)}
+                {...(appSettings.spoilerSettings.prosperity < 9 && {
+                    noOptionsText: "No options - check your spoiler settings",
+                })}
                 getOptionLabel={(item: Item) => {
                     return `${item.name} ${itemIdWithLeadingZeroes(item.id)}`;
                 }}

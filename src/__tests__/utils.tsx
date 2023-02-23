@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import { createDefaultBattleGoals } from "@/services/character";
 import AppSettingsProvider from "@/hooks/use-app-settings";
+import { defaultAppSettings } from "@/constants";
 
 const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): Character => {
     const character: Character = {
@@ -143,12 +144,17 @@ const createTestAppSettings = (appSetingsDetailsToOverride?: Partial<AppSettings
     return { ...appSettings, ...appSetingsDetailsToOverride };
 };
 
-interface DefaultAppSettingsProviderProps {
+interface TestAppSettingsProviderProps {
     children: ReactNode;
+    appSettings?: AppSettings;
 }
 
-const defaultAppSettingsProvider = ({ children }: DefaultAppSettingsProviderProps) => {
-    return <AppSettingsProvider>{children}</AppSettingsProvider>;
+const TestAppSettingsProvider = ({ appSettings, children }: TestAppSettingsProviderProps) => {
+    return (
+        <AppSettingsProvider appSettings={appSettings ?? defaultAppSettings} setAppSettings={jest.fn()}>
+            {children}
+        </AppSettingsProvider>
+    );
 };
 
-export { createTestCharacter, createTestAppSettings, defaultAppSettingsProvider };
+export { createTestCharacter, createTestAppSettings, TestAppSettingsProvider };

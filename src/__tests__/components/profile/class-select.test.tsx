@@ -5,7 +5,7 @@ import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/constants";
 import { createDefaultBattleGoals } from "@/services/character";
 import { enhancements } from "@/loaders/enhancements";
-import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
+import { createTestCharacter, TestAppSettingsProvider } from "@/testutils";
 
 const character: Character = createTestCharacter();
 
@@ -28,7 +28,7 @@ beforeEach(() => {
 describe("class select", () => {
     it("renders", () => {
         render(<ClassSelect character={character} setCharacter={setCharacter} />, {
-            wrapper: defaultAppSettingsProvider,
+            wrapper: TestAppSettingsProvider,
         });
 
         const classSelect = screen.queryByRole("button", { name: "Class" });

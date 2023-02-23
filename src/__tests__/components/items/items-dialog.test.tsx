@@ -1,13 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import ItemsDialog from "@/components/items/items-dialog";
-import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
+import { createTestAppSettings, createTestCharacter, TestAppSettingsProvider } from "@/testutils";
 
 const character = createTestCharacter();
+const prosperityNineAppSettings = createTestAppSettings({ spoilerSettings: { prosperity: 9 } });
 
 describe("items dialog", () => {
     it("renders", () => {
         render(<ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
-            wrapper: defaultAppSettingsProvider,
+            wrapper: TestAppSettingsProvider,
         });
 
         const dialog = screen.queryByRole("dialog", { name: "Browse items" });
@@ -17,7 +18,7 @@ describe("items dialog", () => {
 
     it("renders an item", () => {
         render(<ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
-            wrapper: defaultAppSettingsProvider,
+            wrapper: TestAppSettingsProvider,
         });
 
         const item = screen.queryByRole("img", { name: "Piercing Bow" });
@@ -27,11 +28,45 @@ describe("items dialog", () => {
 
     it("renders the items", () => {
         render(<ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
-            wrapper: defaultAppSettingsProvider,
+            wrapper: TestAppSettingsProvider,
         });
 
         const items = screen.queryAllByRole("img");
 
         expect(items).toHaveLength(14);
+    });
+
+    it("renders the items based on the current prosperity level", () => {
+        render(
+            <TestAppSettingsProvider appSettings={prosperityNineAppSettings}>
+                <ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
+            </TestAppSettingsProvider>
+        );
+
+        const items = screen.queryAllByRole("img");
+
+        expect(items).toHaveLength(21);
+    });
+
+    it("renders the spoiler hint if the item prosperity is < 9", () => {
+        render(<ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
+            wrapper: TestAppSettingsProvider,
+        });
+
+        const spoilerHint = screen.queryByText("Change your spoiler settings to see more items...");
+
+        expect(spoilerHint).toBeInTheDocument();
+    });
+
+    it("does not render the spoiler hint if the item prosperity is 9", () => {
+        render(
+            <TestAppSettingsProvider appSettings={prosperityNineAppSettings}>
+                <ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
+            </TestAppSettingsProvider>
+        );
+
+        const spoilerHint = screen.queryByText("Change your spoiler settings to see more items...");
+
+        expect(spoilerHint).not.toBeInTheDocument();
     });
 });

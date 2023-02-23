@@ -1,6 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import LoadCharacterDialog from "@/components/spoiler/load-character-dialog";
-import { createTestAppSettings, createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
+import { createTestAppSettings, createTestCharacter, TestAppSettingsProvider } from "@/testutils";
 
 jest.mock("next/router", () => {
     return {
@@ -21,7 +21,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: defaultAppSettingsProvider }
+            { wrapper: TestAppSettingsProvider }
         );
 
         const dialog = screen.queryByRole("dialog", { name: "Load character?" });
@@ -37,7 +37,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: defaultAppSettingsProvider }
+            { wrapper: TestAppSettingsProvider }
         );
 
         const dialog = screen.queryByRole("dialog", { name: "Load character?" });
@@ -53,7 +53,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: defaultAppSettingsProvider }
+            { wrapper: TestAppSettingsProvider }
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });
@@ -71,7 +71,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: defaultAppSettingsProvider }
+            { wrapper: TestAppSettingsProvider }
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });
@@ -91,7 +91,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: defaultAppSettingsProvider }
+            { wrapper: TestAppSettingsProvider }
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });

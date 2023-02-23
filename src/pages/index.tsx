@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
 import { decode } from "@/services/codec";
 import { hasSpoilers, spoilerSettingsForCharacter } from "@/services/spoiler";
-import { defaultCharacter, defaultSpoilerSettings } from "@/constants";
+import { defaultAppSettings, defaultCharacter, defaultSpoilerSettings } from "@/constants";
 import AppSettingsProvider from "@/hooks/use-app-settings";
 import Header from "@/components/header/header";
 import AppContainer from "@/components/app-container";
@@ -16,9 +16,10 @@ interface IndexProps {
 
 const Index: NextPage<IndexProps> = ({ initialCharacter, spoilerSettings, characterHasSpoilers }: IndexProps) => {
     const [character, setCharacter] = useState<Character>(characterHasSpoilers ? defaultCharacter : initialCharacter);
+    const [appSettings, setAppSettings] = useState<AppSettings>(defaultAppSettings);
 
     return (
-        <AppSettingsProvider>
+        <AppSettingsProvider appSettings={appSettings} setAppSettings={setAppSettings}>
             <Header character={character} setCharacter={setCharacter} />
             <AppContainer character={character} setCharacter={setCharacter} />
             <LoadCharacterDialog

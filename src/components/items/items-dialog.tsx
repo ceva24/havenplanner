@@ -1,5 +1,5 @@
 import type { Dispatch, KeyboardEvent, SetStateAction } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { addItem } from "@/components/items/items-autocomplete";
 import FullScreenDialog from "@/components/core/full-screen-dialog";
 import { SmallCard } from "@/components/core/cards";
@@ -30,22 +30,29 @@ const ItemsDialog = ({ isOpen, handleClose, character, setCharacter }: ItemsDial
 
     return (
         <FullScreenDialog title="Browse items" isOpen={isOpen} handleClose={handleClose}>
-            {getItemsForSpoilerSettings(appSettings.spoilerSettings.prosperity).map((item: Item) => (
-                <Box
-                    key={item.id}
-                    role="button"
-                    tabIndex={0}
-                    sx={{ margin: 1, cursor: "pointer", position: "relative" }}
-                    onClick={() => {
-                        addItemAndClose(item);
-                    }}
-                    onKeyDown={(event: KeyboardEvent<HTMLElement>) => {
-                        onKeyDown(event, item);
-                    }}
-                >
-                    <SmallCard src={item.imageUrl} altText={item.name} />
+            <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+                {getItemsForSpoilerSettings(appSettings.spoilerSettings.prosperity).map((item: Item) => (
+                    <Box
+                        key={item.id}
+                        role="button"
+                        tabIndex={0}
+                        sx={{ margin: 1, cursor: "pointer", position: "relative" }}
+                        onClick={() => {
+                            addItemAndClose(item);
+                        }}
+                        onKeyDown={(event: KeyboardEvent<HTMLElement>) => {
+                            onKeyDown(event, item);
+                        }}
+                    >
+                        <SmallCard src={item.imageUrl} altText={item.name} />
+                    </Box>
+                ))}
+            </Box>
+            {appSettings.spoilerSettings.prosperity < 9 && (
+                <Box textAlign="center" marginY={3}>
+                    <Typography>Change your spoiler settings to see more items...</Typography>
                 </Box>
-            ))}
+            )}
         </FullScreenDialog>
     );
 };
