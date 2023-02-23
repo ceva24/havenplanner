@@ -1,14 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import AppSettingsProvider from "@/hooks/use-app-settings";
-import { createTestCharacter } from "@/testutils";
+import { createTestAppSettings, createTestCharacter } from "@/testutils";
 import ClassSelect from "@/components/profile/class-select";
 
 const character: Character = createTestCharacter();
+const appSettings: AppSettings = createTestAppSettings();
+const setAppSettings = jest.fn();
 
 describe("app settings provider", () => {
     it("renders children", () => {
         render(
-            <AppSettingsProvider>
+            <AppSettingsProvider appSettings={appSettings} setAppSettings={setAppSettings}>
                 <h1>Click me</h1>
             </AppSettingsProvider>
         );

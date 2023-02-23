@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import ProsperitySlider, { marks, updateProsperity } from "@/components/settings/prosperity-slider";
-import { defaultAppSettingsProvider } from "@/testutils";
+import { TestAppSettingsProvider } from "@/testutils";
 
 describe("prosperity slider", () => {
     it("renders", () => {
-        render(<ProsperitySlider />, { wrapper: defaultAppSettingsProvider });
+        render(<ProsperitySlider />, { wrapper: TestAppSettingsProvider });
 
         const prosperitySlider = screen.queryByRole("slider", { name: "Prosperity" });
 
@@ -12,7 +12,7 @@ describe("prosperity slider", () => {
     });
 
     it("has nine steps", () => {
-        render(<ProsperitySlider />, { wrapper: defaultAppSettingsProvider });
+        render(<ProsperitySlider />, { wrapper: TestAppSettingsProvider });
 
         const prosperitySlider = screen.getByRole("slider", { name: "Prosperity" });
 
@@ -20,7 +20,7 @@ describe("prosperity slider", () => {
     });
 
     it("defaults to prosperity level one", () => {
-        render(<ProsperitySlider />, { wrapper: defaultAppSettingsProvider });
+        render(<ProsperitySlider />, { wrapper: TestAppSettingsProvider });
 
         const prosperitySlider = screen.getByRole("slider", { name: "Prosperity" });
 

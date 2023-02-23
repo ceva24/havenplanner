@@ -28,9 +28,7 @@ const FullScreenDialog = ({ title, subtitle, isOpen, handleClose, children }: Fu
                     </Typography>
                 )}
             </AppBar>
-            <DialogContent sx={{ backgroundColor: "background.default" }}>
-                <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>{children}</Box>
-            </DialogContent>
+            <DialogContent sx={{ backgroundColor: "background.default" }}>{children}</DialogContent>
         </Dialog>
     );
 };

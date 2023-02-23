@@ -20,28 +20,30 @@ const EditHandDialog = ({ character, setCharacter, isOpen, handleClose }: EditHa
             isOpen={isOpen}
             handleClose={handleClose}
         >
-            {getAllAvailableAbilityCardsForCharacter(character).map((abilityCard: AbilityCard) => (
-                <Box key={abilityCard.id} sx={{ margin: 1 }}>
-                    {character.hand.length < character.characterClass.handSize ||
-                    isCardInHandForCharacter(character, abilityCard) ? (
-                        <ToggleableAbilityCard
-                            abilityCard={abilityCard}
-                            character={character}
-                            action={() => {
-                                toggleCardAddedToHand(character, setCharacter, abilityCard);
-                            }}
-                            isSelected={isCardInHandForCharacter(character, abilityCard)}
-                            showLockIcon={false}
-                        />
-                    ) : (
-                        <DisabledAbilityCard
-                            abilityCard={abilityCard}
-                            character={character}
-                            tooltipText="Hand is full"
-                        />
-                    )}
-                </Box>
-            ))}
+            <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+                {getAllAvailableAbilityCardsForCharacter(character).map((abilityCard: AbilityCard) => (
+                    <Box key={abilityCard.id} sx={{ margin: 1 }}>
+                        {character.hand.length < character.characterClass.handSize ||
+                        isCardInHandForCharacter(character, abilityCard) ? (
+                            <ToggleableAbilityCard
+                                abilityCard={abilityCard}
+                                character={character}
+                                action={() => {
+                                    toggleCardAddedToHand(character, setCharacter, abilityCard);
+                                }}
+                                isSelected={isCardInHandForCharacter(character, abilityCard)}
+                                showLockIcon={false}
+                            />
+                        ) : (
+                            <DisabledAbilityCard
+                                abilityCard={abilityCard}
+                                character={character}
+                                tooltipText="Hand is full"
+                            />
+                        )}
+                    </Box>
+                ))}
+            </Box>
         </FullScreenDialog>
     );
 };

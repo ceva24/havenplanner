@@ -235,4 +235,28 @@ describe("items tab", () => {
 
         cy.findByRole("img", { name: "Stun Powder" }).should("be.visible");
     });
+
+    it("shows the spoiler hint in the items autocomplete when the prosperity level is < 9", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findItemsAutocomplete().type("Not an item");
+
+        cy.findByText("No options - check your spoiler settings").should("exist");
+    });
+
+    it("does not show the spoiler hint in the items autocomplete when the prosperity level is 9", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(9);
+
+        cy.findItemsAutocomplete().type("Not an item");
+
+        cy.findByText("No options - check your spoiler settings").should("not.exist");
+
+        cy.findByText("No options").should("exist");
+    });
 });

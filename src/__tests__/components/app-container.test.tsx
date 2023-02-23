@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import AppContainer from "@/components/app-container";
-import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
+import { createTestCharacter, TestAppSettingsProvider } from "@/testutils";
 
 const character: Character = createTestCharacter();
 
 describe("app container", () => {
     it("renders the profile tab", () => {
         render(<AppContainer character={character} setCharacter={jest.fn()} />, {
-            wrapper: defaultAppSettingsProvider,
+            wrapper: TestAppSettingsProvider,
         });
 
         const profileTab = screen.getByRole("tab", { name: "Profile" });
@@ -17,7 +17,7 @@ describe("app container", () => {
 
     it("renders the items tab", () => {
         render(<AppContainer character={character} setCharacter={jest.fn()} />, {
-            wrapper: defaultAppSettingsProvider,
+            wrapper: TestAppSettingsProvider,
         });
 
         const itemsTab = screen.getByRole("tab", { name: "Items" });
@@ -27,7 +27,7 @@ describe("app container", () => {
 
     it("renders the ability cards tab", () => {
         render(<AppContainer character={character} setCharacter={jest.fn()} />, {
-            wrapper: defaultAppSettingsProvider,
+            wrapper: TestAppSettingsProvider,
         });
 
         const deckTab = screen.getByRole("tab", { name: "Ability Cards" });
@@ -37,7 +37,7 @@ describe("app container", () => {
 
     it("renders the perks tab", () => {
         render(<AppContainer character={character} setCharacter={jest.fn()} />, {
-            wrapper: defaultAppSettingsProvider,
+            wrapper: TestAppSettingsProvider,
         });
 
         const perksTab = screen.getByRole("tab", { name: "Perks" });
@@ -47,7 +47,7 @@ describe("app container", () => {
 
     it("renders the profile tab panel by default", () => {
         render(<AppContainer character={character} setCharacter={jest.fn()} />, {
-            wrapper: defaultAppSettingsProvider,
+            wrapper: TestAppSettingsProvider,
         });
 
         const profileTabPanel = screen.getByRole("tabpanel", { name: "Profile" });

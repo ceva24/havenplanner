@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import SettingsButton, { removeItemsAboveProsperityLevel } from "@/components/header/settings-button";
-import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
+import { createTestCharacter, TestAppSettingsProvider } from "@/testutils";
 import { items } from "@/loaders/items";
 
 const setCharacter = jest.fn();
@@ -12,7 +12,7 @@ beforeEach(() => {
 describe("settings button", () => {
     it("renders", () => {
         render(<SettingsButton character={createTestCharacter()} setCharacter={setCharacter} />, {
-            wrapper: defaultAppSettingsProvider,
+            wrapper: TestAppSettingsProvider,
         });
 
         const settingsButton = screen.queryByRole("button", { name: "Settings" });

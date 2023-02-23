@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import Header from "@/components/header/header";
-import { createTestCharacter, defaultAppSettingsProvider } from "@/testutils";
+import { createTestCharacter, TestAppSettingsProvider } from "@/testutils";
 
 const character: Character = createTestCharacter();
 const setCharacter = jest.fn();
 
 describe("header", () => {
     it("renders the heading as a link", () => {
-        render(<Header character={character} setCharacter={setCharacter} />, { wrapper: defaultAppSettingsProvider });
+        render(<Header character={character} setCharacter={setCharacter} />, { wrapper: TestAppSettingsProvider });
 
         const headerLink = screen.queryByRole("link", {
             name: "Gloomhaven Character Planner",
@@ -17,7 +17,7 @@ describe("header", () => {
     });
 
     it("renders the share button", () => {
-        render(<Header character={character} setCharacter={setCharacter} />, { wrapper: defaultAppSettingsProvider });
+        render(<Header character={character} setCharacter={setCharacter} />, { wrapper: TestAppSettingsProvider });
 
         const shareButton = screen.queryByRole("button", {
             name: "Share",
@@ -27,7 +27,7 @@ describe("header", () => {
     });
 
     it("renders the settings button", () => {
-        render(<Header character={character} setCharacter={setCharacter} />, { wrapper: defaultAppSettingsProvider });
+        render(<Header character={character} setCharacter={setCharacter} />, { wrapper: TestAppSettingsProvider });
 
         const settingsButton = screen.queryByRole("button", {
             name: "Settings",

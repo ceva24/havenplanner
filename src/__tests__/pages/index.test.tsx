@@ -4,8 +4,8 @@ import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "nex
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps } from "@/pages/index";
 import * as encoderService from "@/services/codec";
-import { defaultCharacter, defaultSpoilerSettings } from "@/constants";
-import { createTestCharacter } from "@/testutils";
+import { defaultCharacter } from "@/constants";
+import { createTestAppSettings, createTestCharacter } from "@/testutils";
 
 jest.mock("next/router", () => {
     return {
@@ -25,12 +25,15 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
+const character = createTestCharacter();
+const appSettings = createTestAppSettings();
+
 describe("index page", () => {
     it("renders the tabbed content", () => {
         render(
             <Index
-                initialCharacter={defaultCharacter}
-                spoilerSettings={defaultSpoilerSettings}
+                initialCharacter={character}
+                spoilerSettings={appSettings.spoilerSettings}
                 characterHasSpoilers={false}
             />
         );
@@ -43,8 +46,8 @@ describe("index page", () => {
     it("renders the share button", () => {
         render(
             <Index
-                initialCharacter={defaultCharacter}
-                spoilerSettings={defaultSpoilerSettings}
+                initialCharacter={character}
+                spoilerSettings={appSettings.spoilerSettings}
                 characterHasSpoilers={false}
             />
         );
@@ -56,7 +59,7 @@ describe("index page", () => {
 
     it("renders the load character dialog", () => {
         render(
-            <Index characterHasSpoilers initialCharacter={defaultCharacter} spoilerSettings={defaultSpoilerSettings} />
+            <Index characterHasSpoilers initialCharacter={character} spoilerSettings={appSettings.spoilerSettings} />
         );
 
         const shareButton = screen.getByRole("dialog", { name: "Load character?" });

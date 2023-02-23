@@ -20,6 +20,12 @@ const defaultSpoilerSettings: SpoilerSettings = {
     prosperity: 1,
 };
 
+const defaultAppSettings: AppSettings = {
+    showPersonalQuest: false,
+    selectedAbilityCardsTabIndex: 0,
+    spoilerSettings: defaultSpoilerSettings,
+};
+
 const baseAttackModifierDeck: AttackModifierDeckCard[] = [
     {
         card: attackModifiers[0], // 2x
@@ -51,4 +57,4 @@ const baseAttackModifierDeck: AttackModifierDeckCard[] = [
     },
 ];
 
-export { defaultCharacter, defaultSpoilerSettings, baseAttackModifierDeck };
+export { defaultCharacter, defaultAppSettings, defaultSpoilerSettings, baseAttackModifierDeck };
