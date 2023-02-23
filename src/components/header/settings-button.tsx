@@ -12,7 +12,7 @@ interface SettingsButtonProps {
 
 const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
     const [settingsDrawerIsOpen, setSettingsDrawerIsOpen] = useState<boolean>(false);
-    const [appSettings, setAppSettings] = useAppSettingsContext();
+    const [appSettings] = useAppSettingsContext();
 
     const handleClose = () => {
         removeItemsAboveProsperityLevel(character, setCharacter, appSettings.spoilerSettings.prosperity);

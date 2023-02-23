@@ -20,7 +20,7 @@ interface ItemsAutocompleteProps {
 }
 
 const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) => {
-    const [appSettings, setAppSettings] = useAppSettingsContext();
+    const [appSettings] = useAppSettingsContext();
 
     // eslint-disable-next-line @typescript-eslint/ban-types
     const handleChange = (event: SyntheticEvent, value: Item | null) => {
