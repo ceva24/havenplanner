@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps } from "@/pages/index";
-import * as encoderService from "@/services/codec";
+import * as encoderService from "@/services/share/codec";
 import { defaultCharacter } from "@/constants";
 import { createTestAppSettings, createTestCharacter } from "@/testutils";
 
@@ -13,11 +13,11 @@ jest.mock("next/router", () => {
     };
 });
 
-jest.mock("@/services/codec", () => {
+jest.mock("@/services/share/codec", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
         __esModule: true,
-        ...jest.requireActual("@/services/codec"),
+        ...jest.requireActual("@/services/share/codec"),
     };
 });
 
