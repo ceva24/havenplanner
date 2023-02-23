@@ -1,7 +1,7 @@
-import { type ReactNode } from "react";
-import { createDefaultBattleGoals } from "@/services/character";
+import type { ReactNode } from "react";
 import AppSettingsProvider from "@/hooks/use-app-settings";
 import { defaultAppSettings } from "@/constants";
+import { createDefaultBattleGoals } from "@/services/perk";
 
 const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): Character => {
     const character: Character = {

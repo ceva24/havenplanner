@@ -1,6 +1,6 @@
 import { characterClasses } from "@/loaders/character-classes";
 import { attackModifiers } from "@/loaders/attack-modifiers";
-import { createDefaultBattleGoals } from "@/services/character";
+import { createDefaultBattleGoals } from "@/services/perk";
 
 const defaultCharacter: Character = {
     name: "",

@@ -3,9 +3,9 @@ import { TextField } from "@mui/material";
 import {
     abilityCardLevelCanBeUnlockedByCharacter,
     abilityCardsUnlockedAtLevel,
-    calculateLevel,
     calculateMaximumUnlockCount,
 } from "@/services/character";
+import { calculateLevel } from "@/services/profile";
 
 interface ExperienceFieldProps {
     character: Character;

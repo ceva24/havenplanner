@@ -1,37 +1,4 @@
-const calculateLevel = (experience: number): number => {
-    switch (true) {
-        case experience < 45:
-            return 1;
-        case experience < 95:
-            return 2;
-        case experience < 150:
-            return 3;
-        case experience < 210:
-            return 4;
-        case experience < 275:
-            return 5;
-        case experience < 345:
-            return 6;
-        case experience < 420:
-            return 7;
-        case experience < 500:
-            return 8;
-        case experience >= 500:
-            return 9;
-        default:
-            return 1;
-    }
-};
-
-const createDefaultBattleGoals = (): BattleGoalCheckmarkGroup[] => {
-    return Array.from<BattleGoalCheckmarkGroup>({ length: 6 }).map((item: unknown, groupIndex: number) => ({
-        id: groupIndex,
-        checkmarks: Array.from<BattleGoalCheckmark>({ length: 3 }).map((item: unknown, checkmarkIndex: number) => ({
-            id: checkmarkIndex,
-            value: false,
-        })),
-    }));
-};
+import { calculateLevel } from "@/services/profile";
 
 const getAllAvailableAbilityCardsForCharacter = (character: Character) => {
     return character.characterClass.abilityCards
@@ -91,19 +58,7 @@ const abilityCardsUnlockedAtLevel = (unlockedAbilityCards: AbilityCard[], abilit
     return unlockedAbilityCards.filter((card: AbilityCard) => card.level === abilityCardLevel);
 };
 
-const characterHasGainedPerk = (character: Character, perk: Perk, checkboxIndex: number): boolean => {
-    return findCharacterGainedPerk(character, perk, checkboxIndex) !== undefined;
-};
-
-const findCharacterGainedPerk = (character: Character, perk: Perk, checkboxIndex: number): GainedPerk | undefined => {
-    return character.gainedPerks.find(
-        (gainedPerk: GainedPerk) => gainedPerk.perk.id === perk.id && gainedPerk.checkboxIndex === checkboxIndex
-    );
-};
-
 export {
-    calculateLevel,
-    createDefaultBattleGoals,
     getAllAvailableAbilityCardsForCharacter,
     isUnlockedAbilityCardForCharacter,
     isCardInHandForCharacter,
@@ -111,6 +66,4 @@ export {
     calculateMaximumUnlockCount,
     abilityCardLevelCanBeUnlockedByCharacter,
     abilityCardsUnlockedAtLevel,
-    characterHasGainedPerk,
-    findCharacterGainedPerk,
 };

@@ -2,9 +2,9 @@ import { render, screen, within } from "@testing-library/react";
 import Perks from "@/components/perks/perks";
 import { createTestCharacter } from "@/testutils";
 import { gainPerk, removePerk } from "@/components/perks/perk-list";
-import * as characterService from "@/services/character";
+import * as perkService from "@/services/perk";
 
-jest.mock("@/services/character");
+jest.mock("@/services/perk");
 
 const setCharacter = jest.fn();
 
@@ -134,7 +134,7 @@ describe("perk list", () => {
         character.characterClass.perks = [perk];
         character.gainedPerks = [{ perk, checkboxIndex: 0 }];
 
-        jest.spyOn(characterService, "characterHasGainedPerk").mockReturnValue(true);
+        jest.spyOn(perkService, "characterHasGainedPerk").mockReturnValue(true);
 
         render(<Perks character={character} setCharacter={setCharacter} />);
 
@@ -183,7 +183,7 @@ describe("removePerk", () => {
         character.characterClass.perks = [perk];
         character.gainedPerks = [{ perk, checkboxIndex: 0 }];
 
-        jest.spyOn(characterService, "findCharacterGainedPerk").mockReturnValue(character.gainedPerks[0]);
+        jest.spyOn(perkService, "findCharacterGainedPerk").mockReturnValue(character.gainedPerks[0]);
 
         removePerk(perk, 0, character, setCharacter);
 
@@ -208,7 +208,7 @@ describe("removePerk", () => {
         character.characterClass.perks = [perk];
         character.gainedPerks = [{ perk, checkboxIndex: 0 }];
 
-        jest.spyOn(characterService, "findCharacterGainedPerk").mockReturnValue({ perk, checkboxIndex: 1 });
+        jest.spyOn(perkService, "findCharacterGainedPerk").mockReturnValue({ perk, checkboxIndex: 1 });
 
         removePerk(perk, 0, character, setCharacter);
 
