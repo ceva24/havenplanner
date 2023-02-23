@@ -5,7 +5,7 @@ import Image from "@/components/core/image";
 import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/constants";
 import { useAppSettingsContext } from "@/hooks/use-app-settings";
-import { createDefaultBattleGoals } from "@/services/perk";
+import { createDefaultBattleGoals } from "@/services/battle-goal";
 
 interface ClassSelectProps {
     character: Character;

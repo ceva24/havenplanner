@@ -5,7 +5,7 @@ import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/constants";
 import { enhancements } from "@/loaders/enhancements";
 import { createTestCharacter, TestAppSettingsProvider } from "@/testutils";
-import { createDefaultBattleGoals } from "@/services/perk";
+import { createDefaultBattleGoals } from "@/services/battle-goal";
 
 const character: Character = createTestCharacter();
 
