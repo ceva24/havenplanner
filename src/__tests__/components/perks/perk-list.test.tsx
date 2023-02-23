@@ -2,9 +2,9 @@ import { render, screen, within } from "@testing-library/react";
 import Perks from "@/components/perks/perks";
 import { createTestCharacter } from "@/testutils";
 import { gainPerk, removePerk } from "@/components/perks/perk-list";
-import * as perkService from "@/services/perk";
+import * as perkService from "@/services/perks/perk";
 
-jest.mock("@/services/perk");
+jest.mock("@/services/perks/perk");
 
 const setCharacter = jest.fn();
 

@@ -1,33 +1,6 @@
 import { attackModifiers } from "@/loaders/attack-modifiers";
-import { createDefaultBattleGoals } from "@/services/battle-goal";
-import { applyPerksTo, characterHasGainedPerk, findCharacterGainedPerk } from "@/services/perk";
+import { applyPerksTo, characterHasGainedPerk, findCharacterGainedPerk } from "@/services/perks/perk";
 import { createTestCharacter } from "@/testutils";
-
-describe("createDefaultBattleGoals", () => {
-    it("creates six checkmark groups", () => {
-        const defaultBattleGoals = createDefaultBattleGoals();
-
-        expect(defaultBattleGoals).toHaveLength(6);
-    });
-
-    it("creates checkmarks groups of three checkmarks", () => {
-        const defaultBattleGoals = createDefaultBattleGoals();
-
-        defaultBattleGoals.forEach((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => {
-            expect(battleGoalCheckmarkGroup.checkmarks).toHaveLength(3);
-        });
-    });
-
-    it("initializes all checkmark values to false", () => {
-        const defaultBattleGoals = createDefaultBattleGoals();
-
-        defaultBattleGoals.forEach((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => {
-            battleGoalCheckmarkGroup.checkmarks.forEach((checkmark: BattleGoalCheckmark) => {
-                expect(checkmark.value).toEqual(false);
-            });
-        });
-    });
-});
 
 describe("characterHasGainedPerk", () => {
     it("returns true when the character has gained the perk", () => {

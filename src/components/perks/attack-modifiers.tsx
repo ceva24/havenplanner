@@ -1,12 +1,12 @@
 import { Box } from "@mui/material";
 import AttackModifiersGrid from "@/components/perks/attack-modifiers-grid";
 import { baseAttackModifierDeck } from "@/constants";
-import { applyPerksTo } from "@/services/perk";
+import { applyPerksTo } from "@/services/perks/perk";
 import {
     baseAttackModifierDeckOrder,
     classAttackModifierCardNames,
     splitAttackModifierDeckIntoBaseAndClass,
-} from "@/services/attack-modifier";
+} from "@/services/perks/attack-modifier";
 
 interface AttackModifiersProps {
     character: Character;

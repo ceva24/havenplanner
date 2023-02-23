@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { WideCard } from "@/components/core/cards";
-import { orderAttackModifierCards } from "@/services/attack-modifier";
+import { orderAttackModifierCards } from "@/services/perks/attack-modifier";
 
 interface AttackModifiersGridProps {
     deck: AttackModifierDeckCard[];
