@@ -9,10 +9,8 @@ import {
 } from "@mui/material";
 import { v4 as uuid } from "uuid";
 import Image from "@/components/core/image";
-import { getItemsForSpoilerSettings } from "@/services/items";
+import { formattedItemId, getItemsForSpoilerSettings, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
 import { useAppSettingsContext } from "@/hooks/use-app-settings";
-
-const itemOrder = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
 
 interface ItemsAutocompleteProps {
     character: Character;
@@ -34,11 +32,11 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 blurOnSelect
                 value={null}
                 options={getItemsForSpoilerSettings(appSettings.spoilerSettings.prosperity)}
-                {...(appSettings.spoilerSettings.prosperity < 9 && {
+                {...(shouldShowItemSpoilerHint(appSettings.spoilerSettings) && {
                     noOptionsText: "No options - check your spoiler settings",
                 })}
                 getOptionLabel={(item: Item) => {
-                    return `${item.name} ${itemIdWithLeadingZeroes(item.id)}`;
+                    return `${item.name} ${formattedItemId(item.id)}`;
                 }}
                 renderOption={(props: HTMLAttributes<HTMLLIElement>, item: Item) => (
                     <Box component="li" display="flex" {...props}>
@@ -55,7 +53,7 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                         </Box>
                         <Typography>{item.name}</Typography>
                         <Typography flexGrow="1" textAlign="right" marginLeft={2}>
-                            {itemIdWithLeadingZeroes(item.id)}
+                            {formattedItemId(item.id)}
                         </Typography>
                     </Box>
                 )}
@@ -64,10 +62,6 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
             />
         </FormControl>
     );
-};
-
-const itemIdWithLeadingZeroes = (id: number): string => {
-    return String(id).padStart(3, "0");
 };
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -84,15 +78,5 @@ const addItem = (item: Item | null, character: Character, setCharacter: Dispatch
     }
 };
 
-const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
-    return characterItems
-        .slice()
-        .sort(
-            (a: CharacterItem, b: CharacterItem) =>
-                itemOrder.indexOf(a.item.slot) - itemOrder.indexOf(b.item.slot) ||
-                a.item.name.localeCompare(b.item.name, ["en"])
-        );
-};
-
 export default ItemsAutocomplete;
-export { addItem, orderItems };
+export { addItem };
