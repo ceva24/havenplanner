@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { createImageUrl } from "@/services/image";
+import { createImageUrl } from "@/services/core/image";
 
 interface ImageProps {
     webpPath: string;

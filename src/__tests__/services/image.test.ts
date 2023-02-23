@@ -1,4 +1,4 @@
-import { baseImageUrl, createImageUrl } from "@/services/image";
+import { baseImageUrl, createImageUrl } from "@/services/core/image";
 
 describe("createImageUrl", () => {
     it("prepends the base url to the relative path", () => {
