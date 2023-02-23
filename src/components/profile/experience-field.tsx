@@ -4,7 +4,7 @@ import {
     abilityCardLevelCanBeUnlockedByCharacter,
     abilityCardsUnlockedAtLevel,
     calculateMaximumUnlockCount,
-} from "@/services/character";
+} from "@/services/ability-cards/ability-card";
 import { calculateLevel } from "@/services/profile";
 
 interface ExperienceFieldProps {

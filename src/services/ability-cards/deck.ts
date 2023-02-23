@@ -1,20 +1,12 @@
 import { calculateLevel } from "@/services/profile";
-
-const getAllAvailableAbilityCardsForCharacter = (character: Character) => {
-    return character.characterClass.abilityCards
-        .filter((abilityCard: AbilityCard) => {
-            return abilityCard.level === "1" || abilityCard.level === "X";
-        })
-        .concat(character.unlockedAbilityCards)
-        .sort((a: AbilityCard, b: AbilityCard) => a.id - b.id);
-};
+import {
+    abilityCardLevelCanBeUnlockedByCharacter,
+    abilityCardsUnlockedAtLevel,
+    calculateMaximumUnlockCount,
+} from "@/services/ability-cards/ability-card";
 
 const isUnlockedAbilityCardForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
     return character.unlockedAbilityCards.some((card: AbilityCard) => card.id === abilityCard.id);
-};
-
-const isCardInHandForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
-    return character.hand.some((card: AbilityCard) => card.id === abilityCard.id);
 };
 
 const abilityCardCanBeUnlockedForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
@@ -29,14 +21,6 @@ const abilityCardCanBeUnlockedForCharacter = (character: Character, abilityCard:
 
 const characterHasAbilityCardUnlocksRemaining = (character: Character, characterLevel: number): boolean => {
     return calculateMaximumUnlockCount(characterLevel) - character.unlockedAbilityCards.length >= 1;
-};
-
-const calculateMaximumUnlockCount = (characterLevel: number): number => {
-    return characterLevel - 1;
-};
-
-const abilityCardLevelCanBeUnlockedByCharacter = (abilityCardLevel: string, characterLevel: number): boolean => {
-    return abilityCardLevel === "X" || Number.parseInt(abilityCardLevel, 10) <= characterLevel;
 };
 
 const isTheSecondCardOfCurrentCharacterLevel = (
@@ -54,16 +38,4 @@ const isTheSecondCardOfCurrentCharacterLevel = (
     return abilityCard.level === characterLevel.toString() && hasAlreadyUnlockedOtherCardAtThisLevel;
 };
 
-const abilityCardsUnlockedAtLevel = (unlockedAbilityCards: AbilityCard[], abilityCardLevel: string) => {
-    return unlockedAbilityCards.filter((card: AbilityCard) => card.level === abilityCardLevel);
-};
-
-export {
-    getAllAvailableAbilityCardsForCharacter,
-    isUnlockedAbilityCardForCharacter,
-    isCardInHandForCharacter,
-    abilityCardCanBeUnlockedForCharacter,
-    calculateMaximumUnlockCount,
-    abilityCardLevelCanBeUnlockedByCharacter,
-    abilityCardsUnlockedAtLevel,
-};
+export { isUnlockedAbilityCardForCharacter, abilityCardCanBeUnlockedForCharacter };

@@ -1,9 +1,9 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Box } from "@mui/material";
-import { getAllAvailableAbilityCardsForCharacter, isCardInHandForCharacter } from "@/services/character";
 import ToggleableAbilityCard from "@/components/ability-cards/toggleable-ability-card";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
 import FullScreenDialog from "@/components/core/full-screen-dialog";
+import { getAllAvailableAbilityCardsForCharacter, isCardInHandForCharacter } from "@/services/ability-cards/hand";
 
 interface EditHandDialogProps {
     character: Character;
