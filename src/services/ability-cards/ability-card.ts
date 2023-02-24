@@ -6,7 +6,7 @@ const abilityCardLevelCanBeUnlockedByCharacter = (abilityCardLevel: string, char
     return abilityCardLevel === "X" || Number.parseInt(abilityCardLevel, 10) <= characterLevel;
 };
 
-const abilityCardsUnlockedAtLevel = (unlockedAbilityCards: AbilityCard[], abilityCardLevel: string) => {
+const abilityCardsUnlockedAtLevel = (unlockedAbilityCards: AbilityCard[], abilityCardLevel: string): AbilityCard[] => {
     return unlockedAbilityCards.filter((card: AbilityCard) => card.level === abilityCardLevel);
 };
 
