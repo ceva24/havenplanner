@@ -5,14 +5,14 @@ import { useClearQueryString } from "@/hooks/use-clear-query-string";
 import { Button, TextButton } from "@/components/core/button";
 import { ItemSpoiler } from "@/components/spoiler/spoiler";
 
-interface ShareDialogProps {
+interface LoadCharacterDialogProps {
     spoilerSettings: SpoilerSettings;
     characterHasSpoilers: boolean;
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const LoadCharacterDialog = ({ spoilerSettings, characterHasSpoilers, character, setCharacter }: ShareDialogProps) => {
+const LoadCharacterDialog = ({ spoilerSettings, characterHasSpoilers, character, setCharacter }: LoadCharacterDialogProps) => {
     const [loadCharacterDialogOpen, setLoadCharacterDialogOpen] = useState<boolean>(characterHasSpoilers);
     const [appSettings, setAppSettings] = useAppSettingsContext();
     const clearQueryString = useClearQueryString();
