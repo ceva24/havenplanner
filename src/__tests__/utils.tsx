@@ -1,7 +1,7 @@
-import { type ReactNode } from "react";
-import { createDefaultBattleGoals } from "@/services/character";
+import type { ReactNode } from "react";
 import AppSettingsProvider from "@/hooks/use-app-settings";
 import { defaultAppSettings } from "@/constants";
+import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
 
 const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): Character => {
     const character: Character = {
@@ -54,7 +54,7 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
                 {
                     id: 2,
                     name: "Eye for an Eye",
-                    level: "1",
+                    level: "2",
                     imageUrl: "/character-ability-cards/gloomhaven/BR/gh-eye-for-an-eye.webp",
                     enhancementSlots: [
                         {
@@ -77,7 +77,7 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
                 {
                     id: 3,
                     name: "Sweeping Blow",
-                    level: "1",
+                    level: "3",
                     imageUrl: "/character-ability-cards/gloomhaven/BR/gh-sweeping-blow.webp",
                     enhancementSlots: [
                         {
@@ -100,7 +100,7 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
                 {
                     id: 4,
                     name: "Provoking Roar",
-                    level: "1",
+                    level: "4",
                     imageUrl: "/character-ability-cards/gloomhaven/BR/gh-provoking-roar.webp",
                     enhancementSlots: [
                         {

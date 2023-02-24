@@ -3,9 +3,9 @@ import { render, screen } from "@testing-library/react";
 import ClassSelect, { findAndSetCharacter, resetAbilityCardsTabConfig } from "@/components/profile/class-select";
 import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/constants";
-import { createDefaultBattleGoals } from "@/services/character";
 import { enhancements } from "@/loaders/enhancements";
 import { createTestCharacter, TestAppSettingsProvider } from "@/testutils";
+import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
 
 const character: Character = createTestCharacter();
 

@@ -1,5 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { WideCard } from "@/components/core/cards";
+import { orderAttackModifierCards } from "@/services/perks/attack-modifier";
 
 interface AttackModifiersGridProps {
     deck: AttackModifierDeckCard[];
@@ -7,12 +8,7 @@ interface AttackModifiersGridProps {
 }
 
 const AttackModifiersGrid = ({ deck, orderedCardNames }: AttackModifiersGridProps) => {
-    const orderedAttackModifierDeck = deck
-        .slice()
-        .sort(
-            (a: AttackModifierDeckCard, b: AttackModifierDeckCard) =>
-                orderedCardNames.indexOf(a.card.name) - orderedCardNames.indexOf(b.card.name)
-        );
+    const orderedAttackModifierDeck = orderAttackModifierCards(deck, orderedCardNames);
 
     return (
         <Grid container spacing={10}>

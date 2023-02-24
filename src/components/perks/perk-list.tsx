@@ -1,7 +1,7 @@
 import type { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { Checkbox, Box } from "@mui/material";
 import PerkLabel from "@/components/perks/perk-label";
-import { characterHasGainedPerk, findCharacterGainedPerk } from "@/services/character";
+import { characterHasGainedPerk, findCharacterGainedPerk } from "@/services/perks/perk";
 
 interface PerkListProps {
     character: Character;

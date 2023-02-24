@@ -1,9 +1,13 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Box } from "@mui/material";
-import { getAllAvailableAbilityCardsForCharacter, isCardInHandForCharacter } from "@/services/character";
 import ToggleableAbilityCard from "@/components/ability-cards/toggleable-ability-card";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
 import FullScreenDialog from "@/components/core/full-screen-dialog";
+import {
+    getAllAvailableAbilityCardsForCharacter,
+    isCardInHandForCharacter,
+    wouldBeExceedingHandSizeLimit,
+} from "@/services/ability-cards/hand";
 
 interface EditHandDialogProps {
     character: Character;
@@ -63,12 +67,6 @@ const toggleCardAddedToHand = (
         ...character,
         hand: newHand,
     });
-};
-
-const wouldBeExceedingHandSizeLimit = (character: Character, abilityCard: AbilityCard) => {
-    return (
-        !isCardInHandForCharacter(character, abilityCard) && character.hand.length === character.characterClass.handSize
-    );
 };
 
 export default EditHandDialog;

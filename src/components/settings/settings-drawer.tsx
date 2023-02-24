@@ -1,6 +1,6 @@
 import { Box, Drawer, IconButton, Link, Slider, Stack, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import ProsperitySlider from "./prosperity-slider";
+import ProsperitySlider from "@/components/settings/prosperity-slider";
 
 interface SettingsDrawerProps {
     isOpen: boolean;

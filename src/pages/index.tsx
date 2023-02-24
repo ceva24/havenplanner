@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
-import { decode } from "@/services/codec";
+import { decode } from "@/services/share/codec";
 import { hasSpoilers, spoilerSettingsForCharacter } from "@/services/spoiler";
 import { defaultAppSettings, defaultCharacter, defaultSpoilerSettings } from "@/constants";
 import AppSettingsProvider from "@/hooks/use-app-settings";

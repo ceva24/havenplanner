@@ -1,7 +1,7 @@
 import lzbase62 from "lzbase62";
-import { decode, encode } from "@/services/codec";
-import * as serializerService from "@/services/serializer";
-import * as deserializerService from "@/services/deserializer";
+import { decode, encode } from "@/services/share/codec";
+import * as serializerService from "@/services/share/serializer";
+import * as deserializerService from "@/services/share/deserializer";
 import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { enhancements } from "@/loaders/enhancements";
@@ -107,19 +107,19 @@ jest.mock("uuid", () => {
     };
 });
 
-jest.mock("@/services/serializer", () => {
+jest.mock("@/services/share/serializer", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
         __esModule: true,
-        ...jest.requireActual("@/services/serializer"),
+        ...jest.requireActual("@/services/share/serializer"),
     };
 });
 
-jest.mock("@/services/deserializer", () => {
+jest.mock("@/services/share/deserializer", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
         __esModule: true,
-        ...jest.requireActual("@/services/deserializer"),
+        ...jest.requireActual("@/services/share/deserializer"),
     };
 });
 

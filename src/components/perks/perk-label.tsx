@@ -1,7 +1,7 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { FormLabel } from "@mui/material";
 import RichPerkDescription from "@/components/perks/rich-perk-description";
-import { characterHasGainedPerk } from "@/services/character";
+import { characterHasGainedPerk } from "@/services/perks/perk";
 import { gainPerk } from "@/components/perks/perk-list";
 
 interface PerkLabelProps {

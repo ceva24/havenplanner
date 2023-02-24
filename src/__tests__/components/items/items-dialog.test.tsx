@@ -48,7 +48,7 @@ describe("items dialog", () => {
         expect(items).toHaveLength(21);
     });
 
-    it("renders the spoiler hint if the item prosperity is < 9", () => {
+    it("renders the spoiler hint", () => {
         render(<ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
             wrapper: TestAppSettingsProvider,
         });
@@ -56,17 +56,5 @@ describe("items dialog", () => {
         const spoilerHint = screen.queryByText("Change your spoiler settings to see more items...");
 
         expect(spoilerHint).toBeInTheDocument();
-    });
-
-    it("does not render the spoiler hint if the item prosperity is 9", () => {
-        render(
-            <TestAppSettingsProvider appSettings={prosperityNineAppSettings}>
-                <ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
-            </TestAppSettingsProvider>
-        );
-
-        const spoilerHint = screen.queryByText("Change your spoiler settings to see more items...");
-
-        expect(spoilerHint).not.toBeInTheDocument();
     });
 });

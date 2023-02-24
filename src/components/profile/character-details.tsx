@@ -2,7 +2,7 @@ import type { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { Box, TextField } from "@mui/material";
 import ClassSelect from "@/components/profile/class-select";
 import ExperienceField from "@/components/profile/experience-field";
-import { calculateLevel } from "@/services/character";
+import { calculateLevel } from "@/services/profile";
 
 interface CharacterDetailsProps {
     character: Character;
