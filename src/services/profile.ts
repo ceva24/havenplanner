@@ -1,3 +1,9 @@
+import {
+    abilityCardLevelCanBeUnlockedByCharacter,
+    abilityCardsUnlockedAtLevel,
+    calculateMaximumUnlockCount,
+} from "@/services/ability-cards/ability-card";
+
 const calculateLevel = (experience: number): number => {
     switch (true) {
         case experience < 45:
@@ -23,4 +29,58 @@ const calculateLevel = (experience: number): number => {
     }
 };
 
-export { calculateLevel };
+const updateUnlockedAbilityCards = (unlockedAbilityCards: AbilityCard[], newCharacterLevel: number): AbilityCard[] => {
+    if (newCharacterLevel < 2) return [];
+
+    const abilityCardsAtOrBelowCurrentLevel = filterAbilityCardsAtOrBelowCurrentLevel(
+        unlockedAbilityCards,
+        newCharacterLevel
+    );
+
+    const abilityCardsWithOneUnlockAtCurrentLevel = filterAbilityCardsToHaveOnlyOneAtCurrentLevel(
+        abilityCardsAtOrBelowCurrentLevel,
+        newCharacterLevel
+    );
+
+    return filterAbilityCardsToMaximumUnlockCount(abilityCardsWithOneUnlockAtCurrentLevel, newCharacterLevel);
+};
+
+const filterAbilityCardsAtOrBelowCurrentLevel = (
+    unlockedAbilityCards: AbilityCard[],
+    newCharacterLevel: number
+): AbilityCard[] => {
+    return unlockedAbilityCards.filter((abilityCard: AbilityCard) =>
+        abilityCardLevelCanBeUnlockedByCharacter(abilityCard.level, newCharacterLevel)
+    );
+};
+
+const filterAbilityCardsToHaveOnlyOneAtCurrentLevel = (
+    unlockedAbilityCards: AbilityCard[],
+    newCharacterLevel: number
+): AbilityCard[] => {
+    const abilityCardsUnlockedAtCurrentLevel = abilityCardsUnlockedAtLevel(
+        unlockedAbilityCards,
+        newCharacterLevel.toString()
+    );
+
+    if (abilityCardsUnlockedAtCurrentLevel.length <= 1) return unlockedAbilityCards;
+
+    const cardsToRemove = new Set(abilityCardsUnlockedAtCurrentLevel.slice(1));
+
+    return unlockedAbilityCards.filter((abilityCard: AbilityCard) => !cardsToRemove.has(abilityCard));
+};
+
+const filterAbilityCardsToMaximumUnlockCount = (
+    unlockedAbilityCards: AbilityCard[],
+    newCharacterLevel: number
+): AbilityCard[] => {
+    const maxUnlocks = calculateMaximumUnlockCount(newCharacterLevel);
+
+    return unlockedAbilityCards.length <= maxUnlocks ? unlockedAbilityCards : unlockedAbilityCards.slice(0, maxUnlocks);
+};
+
+const updateHand = (hand: AbilityCard[], newCharacterLevel: number): AbilityCard[] => {
+    return hand.filter((card: AbilityCard) => abilityCardLevelCanBeUnlockedByCharacter(card.level, newCharacterLevel));
+};
+
+export { calculateLevel, updateUnlockedAbilityCards, updateHand };
