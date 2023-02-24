@@ -11,4 +11,10 @@ const isCardInHandForCharacter = (character: Character, abilityCard: AbilityCard
     return character.hand.some((card: AbilityCard) => card.id === abilityCard.id);
 };
 
-export { getAllAvailableAbilityCardsForCharacter, isCardInHandForCharacter };
+const wouldBeExceedingHandSizeLimit = (character: Character, abilityCard: AbilityCard) => {
+    return (
+        !isCardInHandForCharacter(character, abilityCard) && character.hand.length === character.characterClass.handSize
+    );
+};
+
+export { getAllAvailableAbilityCardsForCharacter, isCardInHandForCharacter, wouldBeExceedingHandSizeLimit };

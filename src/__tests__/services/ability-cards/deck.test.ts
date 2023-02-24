@@ -1,5 +1,11 @@
 import { characterClasses } from "@/loaders/character-classes";
-import { abilityCardCanBeUnlockedForCharacter, isUnlockedAbilityCardForCharacter } from "@/services/ability-cards/deck";
+import {
+    abilityCardCanBeToggled,
+    abilityCardCanBeUnlockedForCharacter,
+    groupCharacterCardsByLevel,
+    isUnlockedAbilityCardForCharacter,
+    uniqueOrderedCardLevels,
+} from "@/services/ability-cards/deck";
 import { createTestCharacter } from "@/testutils";
 
 describe("isUnlockedAbilityCardForCharacter", () => {
@@ -95,5 +101,61 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
         const result = abilityCardCanBeUnlockedForCharacter(character, abilityCard);
 
         expect(result).toEqual(true);
+    });
+});
+
+describe("abilityCardCanBeToggled", () => {
+    it("returns true if the ability card has been unlocked", () => {
+        const character = createTestCharacter();
+        const abilityCard = character.characterClass.abilityCards[1];
+
+        character.unlockedAbilityCards = [abilityCard];
+
+        expect(abilityCardCanBeToggled(abilityCard, character)).toEqual(true);
+    });
+
+    it("returns true if the ability card can be unlocked", () => {
+        const character = createTestCharacter({ experience: 500 });
+        const abilityCard = character.characterClass.abilityCards[1];
+
+        expect(abilityCardCanBeToggled(abilityCard, character)).toEqual(true);
+    });
+
+    it("returns false if the ability card has not been and cannot be unlocked", () => {
+        const character = createTestCharacter({ experience: 1 });
+        const abilityCard = character.characterClass.abilityCards[2];
+
+        expect(abilityCardCanBeToggled(abilityCard, character)).toEqual(false);
+    });
+});
+
+describe("groupCardsByLevel", () => {
+    it("groups cards by level", () => {
+        const character = createTestCharacter();
+
+        const groups = groupCharacterCardsByLevel(character);
+
+        expect(Object.keys(groups)).toEqual(["1", "2", "3", "4"]);
+        expect(groups["1"]).toHaveLength(1);
+        expect(groups["2"]).toHaveLength(1);
+        expect(groups["3"]).toHaveLength(1);
+        expect(groups["4"]).toHaveLength(1);
+    });
+});
+
+describe("uniqueOrderedCardLevels", () => {
+    it("returns a unique ordered list of levels", () => {
+        const character = createTestCharacter();
+        character.characterClass.abilityCards = [
+            character.characterClass.abilityCards[1],
+            character.characterClass.abilityCards[0],
+            character.characterClass.abilityCards[0],
+        ];
+
+        const groups = groupCharacterCardsByLevel(character);
+
+        const uniqueLevels = uniqueOrderedCardLevels(groups);
+
+        expect(uniqueLevels).toEqual(["1", "2"]);
     });
 });

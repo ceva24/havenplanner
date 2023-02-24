@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/react";
 import EnhancementsSelect, {
     gainOrRemoveEnhancement,
     getEnhancementSlotValue,
-    getPossibleEnhancementsFor,
 } from "@/components/ability-cards/enhancements/enhancements-select";
 import { enhancements } from "@/loaders/enhancements";
 import { createTestCharacter } from "@/testutils";
@@ -78,23 +77,6 @@ describe("getEnhancementSlotValue", () => {
         );
 
         expect(enhancementId).not.toEqual(character.gainedEnhancements[0].enhancement.id);
-    });
-});
-
-describe("getPossibleEnhancementsFor", () => {
-    it("filters the list of enhancements to valid slot types", () => {
-        const enhancementSlot: EnhancementSlot = {
-            id: 0,
-            name: "Move",
-            types: ["numeric", "main-line", "move"],
-        };
-
-        const enhancements: Enhancement[] = getPossibleEnhancementsFor(enhancementSlot);
-
-        const enhancementNames = enhancements.map((enhancement: Enhancement) => enhancement.name);
-
-        expect(enhancementNames).toContain("+1");
-        expect(enhancementNames).toContain("Jump");
     });
 });
 

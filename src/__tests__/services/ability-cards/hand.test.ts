@@ -1,5 +1,9 @@
 import { characterClasses } from "@/loaders/character-classes";
-import { getAllAvailableAbilityCardsForCharacter, isCardInHandForCharacter } from "@/services/ability-cards/hand";
+import {
+    getAllAvailableAbilityCardsForCharacter,
+    isCardInHandForCharacter,
+    wouldBeExceedingHandSizeLimit,
+} from "@/services/ability-cards/hand";
 import { createTestCharacter } from "@/testutils";
 
 describe("getAllAvailableAbilityCardsForCharacter", () => {
@@ -154,5 +158,49 @@ describe("isCardInHandForCharacter", () => {
         const result = isCardInHandForCharacter(character, character.characterClass.abilityCards[0]);
 
         expect(result).toEqual(false);
+    });
+});
+
+describe("wouldBeExceedingHandSizeLimit", () => {
+    it("returns false if the card is in hand and the hand size limit has not been met", () => {
+        const character = createTestCharacter();
+
+        const abilityCard = character.characterClass.abilityCards[0];
+
+        character.hand = [abilityCard];
+        character.characterClass.handSize = 10;
+
+        expect(wouldBeExceedingHandSizeLimit(character, abilityCard)).toEqual(false);
+    });
+
+    it("returns false if the card is in hand and the hand size limit has been met", () => {
+        const character = createTestCharacter();
+
+        const abilityCard = character.characterClass.abilityCards[0];
+
+        character.hand = [abilityCard];
+        character.characterClass.handSize = 1;
+
+        expect(wouldBeExceedingHandSizeLimit(character, abilityCard)).toEqual(false);
+    });
+
+    it("returns false if the card is not in hand and the hand size limit has not been met", () => {
+        const character = createTestCharacter();
+
+        const abilityCard = character.characterClass.abilityCards[0];
+
+        character.hand = [];
+        character.characterClass.handSize = 10;
+
+        expect(wouldBeExceedingHandSizeLimit(character, abilityCard)).toEqual(false);
+    });
+
+    it("returns true if the card is not in hand and the hand size limit has been met", () => {
+        const character = createTestCharacter();
+
+        character.hand = [character.characterClass.abilityCards[0]];
+        character.characterClass.handSize = 1;
+
+        expect(wouldBeExceedingHandSizeLimit(character, character.characterClass.abilityCards[1])).toEqual(true);
     });
 });

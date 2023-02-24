@@ -56,7 +56,7 @@ describe("unlockable ability card", () => {
 
     it("renders a disabled ability card when the card cannot be unlocked", () => {
         jest.spyOn(deckService, "isUnlockedAbilityCardForCharacter").mockReturnValueOnce(false);
-        jest.spyOn(deckService, "abilityCardCanBeUnlockedForCharacter").mockReturnValueOnce(false);
+        jest.spyOn(deckService, "abilityCardCanBeToggled").mockReturnValueOnce(false);
 
         render(
             <UnlockableAbilityCard

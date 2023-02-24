@@ -1,9 +1,13 @@
+import type { Dictionary } from "lodash";
+import groupBy from "lodash.groupby";
 import { calculateLevel } from "@/services/profile";
 import {
     abilityCardLevelCanBeUnlockedByCharacter,
     abilityCardsUnlockedAtLevel,
     calculateMaximumUnlockCount,
 } from "@/services/ability-cards/ability-card";
+
+const abilityCardGroupOrder = ["1", "X", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 const isUnlockedAbilityCardForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
     return character.unlockedAbilityCards.some((card: AbilityCard) => card.id === abilityCard.id);
@@ -38,4 +42,29 @@ const isTheSecondCardOfCurrentCharacterLevel = (
     return abilityCard.level === characterLevel.toString() && hasAlreadyUnlockedOtherCardAtThisLevel;
 };
 
-export { isUnlockedAbilityCardForCharacter, abilityCardCanBeUnlockedForCharacter };
+const abilityCardCanBeToggled = (abilityCard: AbilityCard, character: Character): boolean => {
+    return (
+        isUnlockedAbilityCardForCharacter(character, abilityCard) ||
+        abilityCardCanBeUnlockedForCharacter(character, abilityCard)
+    );
+};
+
+const groupCharacterCardsByLevel = (character: Character): Dictionary<AbilityCard[]> => {
+    return groupBy(character.characterClass.abilityCards, (abilityCard: AbilityCard) => abilityCard.level);
+};
+
+const uniqueOrderedCardLevels = (cardsByLevel: Dictionary<AbilityCard[]>) => {
+    const uniqueLevels = Object.keys(cardsByLevel);
+
+    return uniqueLevels
+        .slice()
+        .sort((a: string, b: string) => abilityCardGroupOrder.indexOf(a) - abilityCardGroupOrder.indexOf(b));
+};
+
+export {
+    isUnlockedAbilityCardForCharacter,
+    abilityCardCanBeUnlockedForCharacter,
+    abilityCardCanBeToggled,
+    groupCharacterCardsByLevel,
+    uniqueOrderedCardLevels,
+};

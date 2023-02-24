@@ -2,6 +2,7 @@ import type { Dispatch, SetStateAction } from "react";
 import { Select, MenuItem, type SelectChangeEvent, InputLabel, FormControl } from "@mui/material";
 import Image from "@/components/core/image";
 import { enhancements } from "@/loaders/enhancements";
+import { getPossibleEnhancementsFor } from "@/services/ability-cards/enhancement";
 
 interface EnhancementsSelectProps {
     abilityCard: AbilityCard;
@@ -62,12 +63,6 @@ const getEnhancementSlotValue = (
     return gainedEnhancement?.enhancement?.id ?? "";
 };
 
-const getPossibleEnhancementsFor = (enhancementSlot: EnhancementSlot): Enhancement[] => {
-    return enhancements.filter((enhancement: Enhancement) =>
-        enhancement.validSlotTypes.some((slotType: string) => enhancementSlot.types.includes(slotType))
-    );
-};
-
 const gainOrRemoveEnhancement = (
     enhancementId: string | number,
     abilityCard: AbilityCard,
@@ -101,4 +96,4 @@ const gainOrRemoveEnhancement = (
 };
 
 export default EnhancementsSelect;
-export { getEnhancementSlotValue, getPossibleEnhancementsFor, gainOrRemoveEnhancement };
+export { getEnhancementSlotValue, gainOrRemoveEnhancement };
