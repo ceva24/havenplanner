@@ -8,7 +8,7 @@ describe("settings", () => {
 
         cy.openSettings();
 
-        cy.findSettingsDrawer().should("be.visible");
+        cy.findSettingsDialog().should("be.visible");
     });
 
     it("closes the settings drawer when pressing the close button", () => {
@@ -16,9 +16,9 @@ describe("settings", () => {
 
         cy.openSettings();
 
-        cy.findSettingsDrawer().clickCloseButton();
+        cy.findSettingsDialog().clickCloseButton();
 
-        cy.findSettingsDrawer().should("not.exist");
+        cy.findSettingsDialog().should("not.exist");
     });
 
     it("allows the item spoiler prosperity level to be set", () => {

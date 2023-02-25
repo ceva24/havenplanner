@@ -20,7 +20,7 @@ const AppContainer = ({ character, setCharacter }: AppContainerProps) => {
 
     return (
         <Container component="main" maxWidth="xl">
-            <Grid container height="100%" minHeight="45rem" justifyContent="center">
+            <Grid container height="100%" justifyContent="center">
                 <Grid item xs={12}>
                     <Tabs centered value={currentTabIndex} variant="fullWidth" onChange={handleChange}>
                         <Tab

@@ -13,7 +13,7 @@ const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, handleClose 
     const value = encodeCharacterError ? "Error" : shareableLink;
 
     return (
-        <Dialog open={isOpen} sx={{ bottom: 300 }} aria-labelledby="share-dialog-title" onClose={handleClose}>
+        <Dialog open={isOpen} aria-labelledby="share-dialog-title" onClose={handleClose}>
             <Box id="share-dialog-title" style={{ display: "none" }}>
                 Share
             </Box>
