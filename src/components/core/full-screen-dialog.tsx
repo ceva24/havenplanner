@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Dialog, AppBar, Toolbar, Typography, DialogContent, Box } from "@mui/material";
+import { Dialog, AppBar, Toolbar, Typography, DialogContent, Box, useMediaQuery, useTheme } from "@mui/material";
 import { Button } from "@/components/core/button";
 
 interface FullScreenDialogProps {
@@ -11,19 +11,30 @@ interface FullScreenDialogProps {
 }
 
 const FullScreenDialog = ({ title, subtitle, isOpen, handleClose, children }: FullScreenDialogProps) => {
+    const theme = useTheme();
+
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
     return (
         <Dialog fullScreen open={isOpen} aria-labelledby="dialog-title" onClose={handleClose}>
-            <AppBar sx={{ position: "relative", paddingBottom: 2, textAlign: "center" }}>
+            <AppBar sx={{ position: "relative", paddingY: { xs: 1, md: 0 } }}>
                 <Toolbar>
-                    <Typography id="dialog-title" variant="h2" sx={{ marginLeft: 2, flex: 1 }}>
-                        {title}
-                    </Typography>
-                    <Box sx={{ position: "absolute", right: 0, marginTop: 1, marginRight: 3 }}>
+                    <Box sx={{ flexGrow: 1 }} textAlign="center">
+                        <Typography id="dialog-title" variant="h2" component="span">
+                            {title}
+                        </Typography>
+                        {subtitle && !isSmallScreen && (
+                            <Typography variant="h2" component="span">
+                                {" "}
+                                - {subtitle}
+                            </Typography>
+                        )}
+                    </Box>
+                    <Box>
                         <Button text="Close" onClick={handleClose} />
                     </Box>
                 </Toolbar>
-                {subtitle && (
-                    <Typography variant="h2" component="p">
+                {subtitle && isSmallScreen && (
+                    <Typography variant="h2" component="p" textAlign="center">
                         {subtitle}
                     </Typography>
                 )}

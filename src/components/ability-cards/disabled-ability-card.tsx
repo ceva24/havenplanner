@@ -19,7 +19,7 @@ const DisabledAbilityCard = ({ abilityCard, character, tooltipText }: DisabledAb
                 sx={{ opacity: 0.5, cursor: "not-allowed", position: "relative" }}
             >
                 <AbilityCard abilityCard={abilityCard} character={character} />
-                <BlockIcon sx={{ position: "absolute", top: 3, right: 1 }} />
+                <BlockIcon fontSize="large" sx={{ position: "absolute", top: 3, right: 1 }} />
             </Box>
         </Tooltip>
     );

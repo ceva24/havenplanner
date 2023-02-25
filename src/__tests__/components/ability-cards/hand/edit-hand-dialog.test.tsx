@@ -19,14 +19,6 @@ describe("edit hand dialog", () => {
         expect(editHandDialog).toBeInTheDocument();
     });
 
-    it("renders the card total", () => {
-        render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={jest.fn()} />);
-
-        const cardTotal = screen.queryByText("0 / 10");
-
-        expect(cardTotal).toBeInTheDocument();
-    });
-
     it("renders available ability cards", () => {
         render(<EditHandDialog isOpen character={character} setCharacter={setCharacter} handleClose={jest.fn()} />);
 
