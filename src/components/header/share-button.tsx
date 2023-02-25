@@ -31,7 +31,7 @@ const ShareButton = ({ character }: ShareButtonProps) => {
 
     return (
         <>
-            <Button text="Share" startIcon={<ShareIcon />} onClick={handleOpen} />
+            <Button id="share-button" text="Share" startIcon={<ShareIcon />} onClick={handleOpen} />
             <ShareDialog
                 shareableLink={shareableLink}
                 encodeCharacterError={encodeCharacterError}
