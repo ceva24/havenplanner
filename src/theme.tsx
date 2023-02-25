@@ -9,6 +9,7 @@ const theme: ThemeOptions = createTheme({
         },
         text: {
             primary: "#d7d4d9",
+            secondary: "#b3b1ae",
         },
         primary: {
             main: "#c09172",
