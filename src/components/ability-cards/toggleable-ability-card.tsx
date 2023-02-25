@@ -39,7 +39,9 @@ const ToggleableAbilityCard = ({
             onKeyDown={onKeyDown}
         >
             <AbilityCard abilityCard={abilityCard} character={character} />
-            {!isSelected && showLockIcon && <LockIcon sx={{ position: "absolute", top: 3, right: 1 }} />}
+            {!isSelected && showLockIcon && (
+                <LockIcon fontSize="large" sx={{ position: "absolute", top: 3, right: 1 }} />
+            )}
         </Box>
     );
 };
