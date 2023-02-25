@@ -70,7 +70,7 @@ declare namespace Cypress {
 
         openSettings(): Chainable<Element>;
 
-        findSettingsDrawer(): Chainable<Element>;
+        findSettingsDialog(): Chainable<Element>;
 
         shouldHaveProsperityLevel(level: number): Chainable<Element>;
 

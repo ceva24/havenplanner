@@ -174,8 +174,8 @@ Cypress.Commands.add("openSettings", () => {
     cy.findByRole("button", { name: "Settings" }).click();
 });
 
-Cypress.Commands.add("findSettingsDrawer", () => {
-    cy.findByRole("presentation", { name: "Settings" });
+Cypress.Commands.add("findSettingsDialog", () => {
+    cy.findByRole("dialog", { name: "Settings" });
 });
 
 Cypress.Commands.add("shouldHaveProsperityLevel", (level: number) => {

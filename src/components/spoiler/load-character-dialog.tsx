@@ -12,7 +12,12 @@ interface LoadCharacterDialogProps {
     setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const LoadCharacterDialog = ({ spoilerSettings, characterHasSpoilers, character, setCharacter }: LoadCharacterDialogProps) => {
+const LoadCharacterDialog = ({
+    spoilerSettings,
+    characterHasSpoilers,
+    character,
+    setCharacter,
+}: LoadCharacterDialogProps) => {
     const [loadCharacterDialogOpen, setLoadCharacterDialogOpen] = useState<boolean>(characterHasSpoilers);
     const [appSettings, setAppSettings] = useAppSettingsContext();
     const clearQueryString = useClearQueryString();

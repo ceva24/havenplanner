@@ -1,10 +1,10 @@
 import { render, screen, within } from "@testing-library/react";
-import SettingsDrawer from "@/components/settings/settings-drawer";
 import { TestAppSettingsProvider } from "@/testutils";
+import SettingsDialog from "@/components/settings/settings-dialog";
 
-describe("settings drawer", () => {
+describe("settings dialog", () => {
     it("renders the close button", () => {
-        render(<SettingsDrawer isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
 
         const closeButton = screen.queryByRole("button", { name: "Close" });
 
@@ -12,7 +12,7 @@ describe("settings drawer", () => {
     });
 
     it("renders the report an issue link", () => {
-        render(<SettingsDrawer isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
 
         const reportAnIssueLink = screen.queryByRole("link", { name: "Report an issue" });
 
@@ -20,7 +20,7 @@ describe("settings drawer", () => {
     });
 
     it("renders item spoilers", () => {
-        render(<SettingsDrawer isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
 
         const itemSpoilersSection = screen.queryByRole("region", { name: "Item Spoilers" });
 
@@ -28,7 +28,7 @@ describe("settings drawer", () => {
     });
 
     it("renders the prosperity slider", () => {
-        render(<SettingsDrawer isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
 
         const itemSpoilersSection = screen.getByRole("region", { name: "Item Spoilers" });
 

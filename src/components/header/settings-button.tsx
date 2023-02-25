@@ -2,7 +2,7 @@ import { type Dispatch, type SetStateAction, useState } from "react";
 import Box from "@mui/material/Box";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { TextButton } from "@/components/core/button";
-import SettingsDrawer from "@/components/settings/settings-drawer";
+import SettingsDialog from "@/components/settings/settings-dialog";
 import { useAppSettingsContext } from "@/hooks/use-app-settings";
 
 interface SettingsButtonProps {
@@ -29,7 +29,7 @@ const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
                     setSettingsDrawerIsOpen(true);
                 }}
             />
-            <SettingsDrawer isOpen={settingsDrawerIsOpen} onClose={handleClose} />
+            <SettingsDialog isOpen={settingsDrawerIsOpen} onClose={handleClose} />
         </Box>
     );
 };
