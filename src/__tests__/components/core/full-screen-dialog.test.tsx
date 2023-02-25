@@ -15,18 +15,6 @@ describe("full screen dialog", () => {
         expect(dialog).toBeInTheDocument();
     });
 
-    it("renders a subtitle", () => {
-        render(
-            <FullScreenDialog isOpen title="Test dialog" subtitle="Test subtitle" handleClose={jest.fn()}>
-                <Button>Click me</Button>
-            </FullScreenDialog>
-        );
-
-        const subtitle = screen.queryByText("Test subtitle");
-
-        expect(subtitle).toBeInTheDocument();
-    });
-
     it("renders the children", () => {
         render(
             <FullScreenDialog isOpen title="Test dialog" handleClose={jest.fn()}>

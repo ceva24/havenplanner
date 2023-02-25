@@ -265,11 +265,11 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandDialog().should("be.visible");
 
-        cy.findByText("0 / 10").should("exist");
+        cy.contains("0 / 10");
 
         cy.findActiveAbilityCard("Trample").click();
 
-        cy.findByText("1 / 10").should("exist");
+        cy.contains("1 / 10");
     });
 
     it("does not allow any more cards to be added to the hand once the hand size has been reached", () => {
@@ -294,7 +294,7 @@ describe("ability cards tab - hand", () => {
         cy.findActiveAbilityCard("Leaping Cleave").click();
         cy.findActiveAbilityCard("Spare Dagger").click();
 
-        cy.findByText("10 / 10").should("exist");
+        cy.contains("10 / 10");
 
         cy.shouldFindDisabledAbilityCard("Skewer");
         cy.shouldFindDisabledAbilityCard("Balanced Measure");
