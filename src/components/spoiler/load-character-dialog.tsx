@@ -44,7 +44,6 @@ const LoadCharacterDialog = ({
     return (
         <Dialog
             open={loadCharacterDialogOpen}
-            sx={{ bottom: 300 }}
             aria-labelledby="load-character-dialog-title"
             aria-describedby="load-character-dialog-description"
         >

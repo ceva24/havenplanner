@@ -9,7 +9,7 @@ interface SettingsDialogProps {
 
 const SettingsDialog = ({ isOpen, onClose }: SettingsDialogProps) => {
     return (
-        <Dialog open={isOpen} aria-labelledby="settings-dialog-title" sx={{ bottom: 300 }} onClose={onClose}>
+        <Dialog open={isOpen} aria-labelledby="settings-dialog-title" onClose={onClose}>
             <Box id="settings-dialog-title" style={{ display: "none" }}>
                 Settings
             </Box>
