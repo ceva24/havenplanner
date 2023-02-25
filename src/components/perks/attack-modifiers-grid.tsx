@@ -12,16 +12,16 @@ const AttackModifiersGrid = ({ deck, orderedCardNames }: AttackModifiersGridProp
 
     return (
         <Grid container spacing={10}>
-            <Grid item sx={{ margin: "auto" }}>
-                <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+            <Grid item margin="auto">
+                <Box display="flex" flexWrap="wrap" justifyContent="center">
                     {orderedAttackModifierDeck.map((attackModifierDeckCard: AttackModifierDeckCard) => (
                         <Box
                             key={attackModifierDeckCard.card.id}
                             id={`attack-modifier-card-details-${attackModifierDeckCard.card.id}`}
-                            sx={{ display: "flex" }}
+                            display={{ sm: "flex" }}
                             margin={1}
                         >
-                            <Box margin={1} sx={{ alignSelf: "center" }}>
+                            <Box margin={1} textAlign="center" alignSelf="center">
                                 <Typography variant="h2" component="p">
                                     {attackModifierDeckCard.count} x
                                 </Typography>
