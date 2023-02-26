@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
-import { Box, Typography, Slider } from "@mui/material";
+import { Typography, Slider } from "@mui/material";
 import type { Mark } from "@mui/base/SliderUnstyled";
 import { useAppSettingsContext } from "@/hooks/use-app-settings";
 
@@ -41,7 +41,7 @@ const updateProsperity = (
     appSettings: AppSettings,
     setAppSettings: Dispatch<SetStateAction<AppSettings>>
 ) => {
-    setAppSettings({ ...appSettings, spoilerSettings: { prosperity } });
+    setAppSettings({ ...appSettings, spoilerSettings: { ...appSettings.spoilerSettings, prosperity } });
 };
 
 export default ProsperitySlider;

@@ -6,6 +6,7 @@ interface AppSettings {
 
 interface SpoilerSettings {
     prosperity: number;
+    itemGroups: ItemGroup[];
 }
 
 interface Character {

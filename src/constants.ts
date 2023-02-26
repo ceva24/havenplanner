@@ -1,3 +1,4 @@
+import { itemGroups } from "./loaders/item-groups";
 import { characterClasses } from "@/loaders/character-classes";
 import { attackModifiers } from "@/loaders/attack-modifiers";
 import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
@@ -16,14 +17,13 @@ const defaultCharacter: Character = {
     items: [],
 };
 
-const defaultSpoilerSettings: SpoilerSettings = {
-    prosperity: 1,
-};
-
 const defaultAppSettings: AppSettings = {
     showPersonalQuest: false,
     selectedAbilityCardsTabIndex: 0,
-    spoilerSettings: defaultSpoilerSettings,
+    spoilerSettings: {
+        prosperity: 1,
+        itemGroups: [],
+    },
 };
 
 const baseAttackModifierDeck: AttackModifierDeckCard[] = [
@@ -57,4 +57,4 @@ const baseAttackModifierDeck: AttackModifierDeckCard[] = [
     },
 ];
 
-export { defaultCharacter, defaultAppSettings, defaultSpoilerSettings, baseAttackModifierDeck };
+export { defaultCharacter, defaultAppSettings, baseAttackModifierDeck };

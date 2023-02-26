@@ -4,21 +4,13 @@ import ClassSelect, { findAndSetCharacter, resetAbilityCardsTabConfig } from "@/
 import { characterClasses } from "@/loaders/character-classes";
 import { defaultCharacter } from "@/constants";
 import { enhancements } from "@/loaders/enhancements";
-import { createTestCharacter, TestAppSettingsProvider } from "@/testutils";
+import { createTestAppSettings, createTestCharacter, TestAppSettingsProvider } from "@/testutils";
 import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
 
 const character: Character = createTestCharacter();
-
 const setCharacter = jest.fn();
 
-const appSettings: AppSettings = {
-    showPersonalQuest: false,
-    selectedAbilityCardsTabIndex: 0,
-    spoilerSettings: {
-        prosperity: 1,
-    },
-};
-
+const appSettings: AppSettings = createTestAppSettings();
 const setAppSettings = jest.fn();
 
 beforeEach(() => {

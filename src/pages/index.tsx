@@ -1,12 +1,12 @@
 import { useState } from "react";
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
 import { decode } from "@/services/share/codec";
-import { hasSpoilers, spoilerSettingsForCharacter } from "@/services/spoiler";
-import { defaultAppSettings, defaultCharacter, defaultSpoilerSettings } from "@/constants";
+import { hasSpoilers, spoilerSettingsForCharacter } from "@/services/load";
+import { defaultAppSettings, defaultCharacter } from "@/constants";
 import AppSettingsProvider from "@/hooks/use-app-settings";
 import Header from "@/components/header/header";
 import AppContainer from "@/components/app-container";
-import LoadCharacterDialog from "@/components/spoiler/load-character-dialog";
+import LoadCharacterDialog from "@/components/load/load-character-dialog";
 
 interface IndexProps {
     initialCharacter: Character;
@@ -34,7 +34,7 @@ const Index: NextPage<IndexProps> = ({ initialCharacter, spoilerSettings, charac
 
 const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
     let initialCharacter: Character = defaultCharacter;
-    let spoilerSettings: SpoilerSettings = defaultSpoilerSettings;
+    let spoilerSettings: SpoilerSettings = defaultAppSettings.spoilerSettings;
 
     const encodedCharacterData: string | string[] | undefined = context.query.character;
 

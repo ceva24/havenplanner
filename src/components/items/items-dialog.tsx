@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 import { addItem } from "@/components/items/items-autocomplete";
 import FullScreenDialog from "@/components/core/full-screen-dialog";
 import { SmallCard } from "@/components/core/cards";
-import { getItemsForSpoilerSettings, shouldShowItemSpoilerHint } from "@/services/items";
+import { getItems, shouldShowItemSpoilerHint } from "@/services/items";
 import { useAppSettingsContext } from "@/hooks/use-app-settings";
 
 interface ItemsDialogProps {
@@ -31,7 +31,7 @@ const ItemsDialog = ({ isOpen, handleClose, character, setCharacter }: ItemsDial
     return (
         <FullScreenDialog title="Browse items" isOpen={isOpen} handleClose={handleClose}>
             <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                {getItemsForSpoilerSettings(appSettings.spoilerSettings.prosperity).map((item: Item) => (
+                {getItems(appSettings.spoilerSettings).map((item: Item) => (
                     <Box
                         key={item.id}
                         role="button"

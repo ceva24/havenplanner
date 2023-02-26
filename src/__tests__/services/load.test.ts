@@ -1,5 +1,5 @@
 import { items } from "@/loaders/items";
-import { hasSpoilers, spoilerSettingsForCharacter } from "@/services/spoiler";
+import { hasSpoilers, spoilerSettingsForCharacter } from "@/services/load";
 import { createTestCharacter } from "@/testutils";
 
 describe("spoilerSettingsForCharacter", () => {
@@ -31,6 +31,36 @@ describe("spoilerSettingsForCharacter", () => {
 
         expect(spoilerSettings.prosperity).toEqual(2);
     });
+
+    it("sets active item groups matching the character items", () => {
+        const character = createTestCharacter({
+            items: [{ id: "1", item: items[25] }],
+        });
+
+        const spoilerSettings = spoilerSettingsForCharacter(character);
+
+        expect(spoilerSettings.itemGroups).toHaveLength(1);
+        expect(spoilerSettings.itemGroups[0].name).toEqual("Random Item Designs");
+    });
+
+    it("ignores invalid item groups", () => {
+        const item: Item = {
+            id: 71,
+            name: "Boots of Levitation",
+            imageUrl: "/items/gloomhaven/64-151/gh-071b-boots-of-levitation.webp",
+            slot: "Legs",
+            slotImageUrl: "/equip-slot-icons/gloomhaven/legs.webp",
+            group: "Invalid",
+        };
+
+        const character = createTestCharacter({
+            items: [{ id: "1", item }],
+        });
+
+        const spoilerSettings = spoilerSettingsForCharacter(character);
+
+        expect(spoilerSettings.itemGroups).toHaveLength(0);
+    });
 });
 
 describe("hasSpoilers", () => {
@@ -52,5 +82,24 @@ describe("hasSpoilers", () => {
         const result = hasSpoilers(character);
 
         expect(result).toEqual(false);
+    });
+
+    it("returns true when the character has items in an item group", () => {
+        const item: Item = {
+            id: 71,
+            name: "Boots of Levitation",
+            imageUrl: "/items/gloomhaven/64-151/gh-071b-boots-of-levitation.webp",
+            slot: "Legs",
+            slotImageUrl: "/equip-slot-icons/gloomhaven/legs.webp",
+            group: "Random Item Designs",
+        };
+
+        const character: Character = createTestCharacter({
+            items: [{ id: "1", item }],
+        });
+
+        const result = hasSpoilers(character);
+
+        expect(result).toEqual(true);
     });
 });

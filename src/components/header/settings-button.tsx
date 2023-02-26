@@ -1,6 +1,7 @@
 import { type Dispatch, type SetStateAction, useState } from "react";
 import Box from "@mui/material/Box";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { itemShouldBeHidden } from "@/services/items";
 import { TextButton } from "@/components/core/button";
 import SettingsDialog from "@/components/settings/settings-dialog";
 import { useAppSettingsContext } from "@/hooks/use-app-settings";
@@ -11,12 +12,12 @@ interface SettingsButtonProps {
 }
 
 const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
-    const [settingsDrawerIsOpen, setSettingsDrawerIsOpen] = useState<boolean>(false);
+    const [settingsDialogIsOpen, setSettingsDialogIsOpen] = useState<boolean>(false);
     const [appSettings] = useAppSettingsContext();
 
     const handleClose = () => {
-        removeItemsAboveProsperityLevel(character, setCharacter, appSettings.spoilerSettings.prosperity);
-        setSettingsDrawerIsOpen(false);
+        removeSpoilerItems(character, setCharacter, appSettings.spoilerSettings);
+        setSettingsDialogIsOpen(false);
     };
 
     return (
@@ -26,23 +27,23 @@ const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
                 text="Settings"
                 startIcon={<SettingsIcon />}
                 onClick={() => {
-                    setSettingsDrawerIsOpen(true);
+                    setSettingsDialogIsOpen(true);
                 }}
             />
-            <SettingsDialog isOpen={settingsDrawerIsOpen} onClose={handleClose} />
+            <SettingsDialog isOpen={settingsDialogIsOpen} onClose={handleClose} />
         </Box>
     );
 };
 
-const removeItemsAboveProsperityLevel = (
+const removeSpoilerItems = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
-    prosperity: number
+    spoilerSettings: SpoilerSettings
 ) => {
     const newCharacter = {
         ...character,
         items: character.items.filter(
-            (characterItem: CharacterItem) => Number.parseInt(characterItem.item.group, 10) <= prosperity
+            (characterItem: CharacterItem) => !itemShouldBeHidden(characterItem.item, spoilerSettings)
         ),
     };
 
@@ -50,4 +51,4 @@ const removeItemsAboveProsperityLevel = (
 };
 
 export default SettingsButton;
-export { removeItemsAboveProsperityLevel };
+export { removeSpoilerItems };

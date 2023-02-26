@@ -3,7 +3,7 @@ import { Box, Dialog, DialogContent, Stack, Typography } from "@mui/material";
 import { useAppSettingsContext } from "@/hooks/use-app-settings";
 import { useClearQueryString } from "@/hooks/use-clear-query-string";
 import { Button, TextButton } from "@/components/core/button";
-import { ItemSpoiler } from "@/components/spoiler/spoiler";
+import { ItemSpoiler } from "@/components/load/spoiler";
 
 interface LoadCharacterDialogProps {
     spoilerSettings: SpoilerSettings;
@@ -57,6 +57,9 @@ const LoadCharacterDialog = ({
                         {spoilerSettings.prosperity > 1 && (
                             <ItemSpoiler text={`Prosperity ${spoilerSettings.prosperity}`} />
                         )}
+                        {spoilerSettings.itemGroups.map((itemGroup: ItemGroup) => (
+                            <ItemSpoiler key={itemGroup.id} text={itemGroup.name} />
+                        ))}
                     </Stack>
                     <Box display="flex" gap={1} justifyContent="right">
                         <TextButton

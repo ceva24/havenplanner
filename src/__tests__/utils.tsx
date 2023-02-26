@@ -138,6 +138,7 @@ const createTestAppSettings = (appSetingsDetailsToOverride?: Partial<AppSettings
         selectedAbilityCardsTabIndex: 1,
         spoilerSettings: {
             prosperity: 1,
+            itemGroups: [],
         },
     };
 
