@@ -83,13 +83,13 @@ describe("updateProsperity", () => {
         expect(setAppSettings).toHaveBeenCalledTimes(1);
         expect(setAppSettings).toHaveBeenCalledWith({
             ...appSettings,
-            spoilerSettings: { prosperity: 3, itemGroups: [] },
+            spoilerSettings: { items: { prosperity: 3, itemGroups: [] } },
         });
     });
 
     it("retains the active item groups", () => {
         const appSettings: AppSettings = createTestAppSettings();
-        appSettings.spoilerSettings.itemGroups = [itemGroups[0]];
+        appSettings.spoilerSettings.items.itemGroups = [itemGroups[0]];
 
         const setAppSettings = jest.fn();
 
@@ -98,7 +98,7 @@ describe("updateProsperity", () => {
         expect(setAppSettings).toHaveBeenCalledTimes(1);
         expect(setAppSettings).toHaveBeenCalledWith({
             ...appSettings,
-            spoilerSettings: { prosperity: 3, itemGroups: [itemGroups[0]] },
+            spoilerSettings: { items: { prosperity: 3, itemGroups: [itemGroups[0]] } },
         });
     });
 });

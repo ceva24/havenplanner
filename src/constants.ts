@@ -1,4 +1,3 @@
-import { itemGroups } from "./loaders/item-groups";
 import { characterClasses } from "@/loaders/character-classes";
 import { attackModifiers } from "@/loaders/attack-modifiers";
 import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
@@ -21,8 +20,10 @@ const defaultAppSettings: AppSettings = {
     showPersonalQuest: false,
     selectedAbilityCardsTabIndex: 0,
     spoilerSettings: {
-        prosperity: 1,
-        itemGroups: [],
+        items: {
+            prosperity: 1,
+            itemGroups: [],
+        },
     },
 };
 

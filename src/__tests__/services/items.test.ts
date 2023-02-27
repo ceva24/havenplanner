@@ -1,13 +1,11 @@
 import { itemGroups } from "@/loaders/item-groups";
 import { items } from "@/loaders/items";
 import { formattedItemId, getItems, itemShouldBeHidden, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
-import { createTestAppSettings } from "@/testutils";
+import { createTestAppSettings, createTestItemSpoilerSettings } from "@/testutils";
 
 describe("getItems", () => {
     it("returns items not hidden by spoiler settings", () => {
-        const spoilerSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 2, itemGroups: [] },
-        }).spoilerSettings;
+        const spoilerSettings = createTestItemSpoilerSettings(2);
 
         const items = getItems(spoilerSettings);
 
@@ -29,9 +27,7 @@ describe("itemShouldBeHidden", () => {
     it("returns false when the item is equal to the current prosperity", () => {
         const item = items[20];
 
-        const spoilerSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 2, itemGroups: [] },
-        }).spoilerSettings;
+        const spoilerSettings = createTestItemSpoilerSettings(2);
 
         const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
 
@@ -41,9 +37,7 @@ describe("itemShouldBeHidden", () => {
     it("returns false when the item is below the current prosperity", () => {
         const item = items[20];
 
-        const spoilerSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 8, itemGroups: [] },
-        }).spoilerSettings;
+        const spoilerSettings = createTestItemSpoilerSettings(8);
 
         const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
 
@@ -63,9 +57,7 @@ describe("itemShouldBeHidden", () => {
     it("returns false when the item is in the active item groups", () => {
         const item = items[25];
 
-        const spoilerSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 1, itemGroups: [{ id: 0, name: item.group }] },
-        }).spoilerSettings;
+        const spoilerSettings = createTestItemSpoilerSettings(1, [{ id: 0, name: item.group }]);
 
         const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
 
@@ -155,9 +147,7 @@ describe("orderItems", () => {
 
 describe("shouldShowItemSpoilerHint", () => {
     it("should return true when prosperity level is < 9", () => {
-        const spoilerSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 2, itemGroups: [] },
-        }).spoilerSettings;
+        const spoilerSettings = createTestItemSpoilerSettings(2);
 
         const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
 
@@ -165,9 +155,7 @@ describe("shouldShowItemSpoilerHint", () => {
     });
 
     it("should return true when prosperity level is 9 and no item groups are selected", () => {
-        const spoilerSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 9, itemGroups: [] },
-        }).spoilerSettings;
+        const spoilerSettings = createTestItemSpoilerSettings(9);
 
         const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
 
@@ -175,9 +163,7 @@ describe("shouldShowItemSpoilerHint", () => {
     });
 
     it("should return true when prosperity level is 9 and some item groups are selected", () => {
-        const spoilerSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 9, itemGroups: [itemGroups[0]] },
-        }).spoilerSettings;
+        const spoilerSettings = createTestItemSpoilerSettings(9, [itemGroups[0]]);
 
         const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
 
@@ -185,9 +171,7 @@ describe("shouldShowItemSpoilerHint", () => {
     });
 
     it("should return true when prosperity level is < 9 and all item groups are selected", () => {
-        const spoilerSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 8, itemGroups },
-        }).spoilerSettings;
+        const spoilerSettings = createTestItemSpoilerSettings(8, itemGroups);
 
         const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
 
@@ -195,9 +179,7 @@ describe("shouldShowItemSpoilerHint", () => {
     });
 
     it("should return false when prosperity level is 9 and all item groups are selected", () => {
-        const spoilerSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 9, itemGroups },
-        }).spoilerSettings;
+        const spoilerSettings = createTestItemSpoilerSettings(9, itemGroups);
 
         const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
 

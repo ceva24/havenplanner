@@ -39,16 +39,14 @@ const toggleItemGroup = (
     setAppSettings: Dispatch<SetStateAction<AppSettings>>
 ) => {
     const itemGroups = itemGroupIsActive(itemGroup, appSettings)
-        ? appSettings.spoilerSettings.itemGroups.filter((group: ItemGroup) => !(group.id === itemGroup.id))
-        : appSettings.spoilerSettings.itemGroups.concat(itemGroup);
+        ? appSettings.spoilerSettings.items.itemGroups.filter((group: ItemGroup) => !(group.id === itemGroup.id))
+        : appSettings.spoilerSettings.items.itemGroups.concat(itemGroup);
 
-    setAppSettings({
-        ...appSettings,
-        spoilerSettings: {
-            ...appSettings.spoilerSettings,
-            itemGroups,
-        },
-    });
+    const newAppSettings: AppSettings = { ...appSettings };
+
+    newAppSettings.spoilerSettings.items.itemGroups = itemGroups;
+
+    setAppSettings(newAppSettings);
 };
 
 export default ItemGroups;

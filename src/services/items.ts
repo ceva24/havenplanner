@@ -9,8 +9,8 @@ const getItems = (spoilerSettings: SpoilerSettings): Item[] => {
 
 const itemShouldBeHidden = (item: Item, spoilerSettings: SpoilerSettings): boolean => {
     return !(
-        Number.parseInt(item.group, 10) <= spoilerSettings.prosperity ||
-        spoilerSettings.itemGroups.map((itemGroup: ItemGroup) => itemGroup.name).includes(item.group)
+        Number.parseInt(item.group, 10) <= spoilerSettings.items.prosperity ||
+        spoilerSettings.items.itemGroups.map((itemGroup: ItemGroup) => itemGroup.name).includes(item.group)
     );
 };
 
@@ -29,7 +29,7 @@ const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
 };
 
 const shouldShowItemSpoilerHint = (spoilerSettings: SpoilerSettings): boolean => {
-    return spoilerSettings.prosperity < 9 || spoilerSettings.itemGroups.length !== itemGroups.length;
+    return spoilerSettings.items.prosperity < 9 || spoilerSettings.items.itemGroups.length !== itemGroups.length;
 };
 
 export { getItems, itemShouldBeHidden, formattedItemId, orderItems, shouldShowItemSpoilerHint };

@@ -6,7 +6,7 @@ describe("itemGroupIsActive", () => {
         const itemGroup = { id: 0, name: "Group" };
 
         const appSettings = createTestAppSettings();
-        appSettings.spoilerSettings.itemGroups = [itemGroup];
+        appSettings.spoilerSettings.items.itemGroups = [itemGroup];
 
         const isActive = itemGroupIsActive(itemGroup, appSettings);
 

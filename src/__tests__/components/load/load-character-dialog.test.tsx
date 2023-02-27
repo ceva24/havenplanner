@@ -1,6 +1,11 @@
 import { render, screen, within } from "@testing-library/react";
 import LoadCharacterDialog from "@/components/load/load-character-dialog";
-import { createTestAppSettings, createTestCharacter, TestAppSettingsProvider } from "@/testutils";
+import {
+    createTestAppSettings,
+    createTestCharacter,
+    createTestItemSpoilerSettings,
+    TestAppSettingsProvider,
+} from "@/testutils";
 import { itemGroups } from "@/loaders/item-groups";
 
 jest.mock("next/router", () => {
@@ -50,9 +55,7 @@ describe("load character dialog", () => {
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={
-                    createTestAppSettings({ spoilerSettings: { prosperity: 2, itemGroups: [] } }).spoilerSettings
-                }
+                spoilerSettings={createTestItemSpoilerSettings(2)}
                 character={character}
                 setCharacter={setCharacter}
             />,
@@ -70,9 +73,7 @@ describe("load character dialog", () => {
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={
-                    createTestAppSettings({ spoilerSettings: { prosperity: 2, itemGroups } }).spoilerSettings
-                }
+                spoilerSettings={createTestItemSpoilerSettings(2, itemGroups)}
                 character={character}
                 setCharacter={setCharacter}
             />,
@@ -92,9 +93,7 @@ describe("load character dialog", () => {
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={
-                    createTestAppSettings({ spoilerSettings: { prosperity: 2, itemGroups: [] } }).spoilerSettings
-                }
+                spoilerSettings={createTestItemSpoilerSettings(2)}
                 character={character}
                 setCharacter={setCharacter}
             />,
@@ -109,14 +108,12 @@ describe("load character dialog", () => {
     });
 
     it("renders the load button", () => {
-        const prosperityTwoAppSettings: AppSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 2, itemGroups: [] },
-        });
+        const prosperityTwoSpoilerSettings = createTestItemSpoilerSettings(2);
 
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={prosperityTwoAppSettings.spoilerSettings}
+                spoilerSettings={prosperityTwoSpoilerSettings}
                 character={character}
                 setCharacter={setCharacter}
             />,

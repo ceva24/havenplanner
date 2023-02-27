@@ -8,7 +8,7 @@ describe("spoilerSettingsForCharacter", () => {
 
         const spoilerSettings = spoilerSettingsForCharacter(character);
 
-        expect(spoilerSettings.prosperity).toEqual(1);
+        expect(spoilerSettings.items.prosperity).toEqual(1);
     });
 
     it("sets prosperity to 1 when the character has prosperity 1 items", () => {
@@ -16,7 +16,7 @@ describe("spoilerSettingsForCharacter", () => {
 
         const spoilerSettings = spoilerSettingsForCharacter(character);
 
-        expect(spoilerSettings.prosperity).toEqual(1);
+        expect(spoilerSettings.items.prosperity).toEqual(1);
     });
 
     it("sets prosperity to the level of the highest prosperity item", () => {
@@ -29,7 +29,7 @@ describe("spoilerSettingsForCharacter", () => {
 
         const spoilerSettings = spoilerSettingsForCharacter(character);
 
-        expect(spoilerSettings.prosperity).toEqual(2);
+        expect(spoilerSettings.items.prosperity).toEqual(2);
     });
 
     it("sets active item groups matching the character items", () => {
@@ -39,8 +39,8 @@ describe("spoilerSettingsForCharacter", () => {
 
         const spoilerSettings = spoilerSettingsForCharacter(character);
 
-        expect(spoilerSettings.itemGroups).toHaveLength(1);
-        expect(spoilerSettings.itemGroups[0].name).toEqual("Random Item Designs");
+        expect(spoilerSettings.items.itemGroups).toHaveLength(1);
+        expect(spoilerSettings.items.itemGroups[0].name).toEqual("Random Item Designs");
     });
 
     it("ignores invalid item groups", () => {
@@ -59,7 +59,7 @@ describe("spoilerSettingsForCharacter", () => {
 
         const spoilerSettings = spoilerSettingsForCharacter(character);
 
-        expect(spoilerSettings.itemGroups).toHaveLength(0);
+        expect(spoilerSettings.items.itemGroups).toHaveLength(0);
     });
 });
 

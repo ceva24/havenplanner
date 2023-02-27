@@ -22,7 +22,7 @@ const ProsperitySlider = () => {
                 marks={marks()}
                 min={1}
                 max={9}
-                value={appSettings.spoilerSettings.prosperity}
+                value={appSettings.spoilerSettings.items.prosperity}
                 onChange={onChange}
             />
         </>
@@ -41,7 +41,11 @@ const updateProsperity = (
     appSettings: AppSettings,
     setAppSettings: Dispatch<SetStateAction<AppSettings>>
 ) => {
-    setAppSettings({ ...appSettings, spoilerSettings: { ...appSettings.spoilerSettings, prosperity } });
+    const newAppSettings: AppSettings = { ...appSettings };
+
+    newAppSettings.spoilerSettings.items.prosperity = prosperity;
+
+    setAppSettings(newAppSettings);
 };
 
 export default ProsperitySlider;

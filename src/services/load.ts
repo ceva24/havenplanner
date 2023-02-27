@@ -2,8 +2,10 @@ import { itemGroups } from "@/loaders/item-groups";
 
 const spoilerSettingsForCharacter = (character: Character): SpoilerSettings => {
     return {
-        prosperity: determineInitialProsperity(character),
-        itemGroups: determineItemGroups(character),
+        items: {
+            prosperity: determineInitialProsperity(character),
+            itemGroups: determineItemGroups(character),
+        },
     };
 };
 

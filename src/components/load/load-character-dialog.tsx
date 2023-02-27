@@ -54,10 +54,10 @@ const LoadCharacterDialog = ({
                 <Stack spacing={3}>
                     <Typography textAlign="center">This character contains the following spoilers:</Typography>
                     <Stack spacing={1} paddingLeft={3}>
-                        {spoilerSettings.prosperity > 1 && (
-                            <ItemSpoiler text={`Prosperity ${spoilerSettings.prosperity}`} />
+                        {spoilerSettings.items.prosperity > 1 && (
+                            <ItemSpoiler text={`Prosperity ${spoilerSettings.items.prosperity}`} />
                         )}
-                        {spoilerSettings.itemGroups.map((itemGroup: ItemGroup) => (
+                        {spoilerSettings.items.itemGroups.map((itemGroup: ItemGroup) => (
                             <ItemSpoiler key={itemGroup.id} text={itemGroup.name} />
                         ))}
                     </Stack>

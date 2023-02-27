@@ -1,6 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import SettingsButton, { removeSpoilerItems } from "@/components/header/settings-button";
-import { createTestAppSettings, createTestCharacter, TestAppSettingsProvider } from "@/testutils";
+import {
+    createTestAppSettings,
+    createTestCharacter,
+    createTestItemSpoilerSettings,
+    TestAppSettingsProvider,
+} from "@/testutils";
 import { items } from "@/loaders/items";
 
 const setCharacter = jest.fn();
@@ -53,9 +58,7 @@ describe("removeSpoilerItems", () => {
             items: [{ id: "1", item: items[0] }],
         });
 
-        const prosperityTwoSpoilerSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 2, itemGroups: [] },
-        }).spoilerSettings;
+        const prosperityTwoSpoilerSettings = createTestItemSpoilerSettings(2);
 
         removeSpoilerItems(character, setCharacter, prosperityTwoSpoilerSettings);
 
@@ -101,11 +104,9 @@ describe("removeSpoilerItems", () => {
             items: [{ id: "1", item }],
         });
 
-        const prosperityTwoSpoilerSettings = createTestAppSettings({
-            spoilerSettings: { prosperity: 2, itemGroups: [{ id: 1, name: item.group }] },
-        }).spoilerSettings;
+        const spoilerSettings = createTestItemSpoilerSettings(2, [{ id: 1, name: item.group }]);
 
-        removeSpoilerItems(character, setCharacter, prosperityTwoSpoilerSettings);
+        removeSpoilerItems(character, setCharacter, spoilerSettings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);

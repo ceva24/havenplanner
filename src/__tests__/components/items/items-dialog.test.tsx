@@ -3,7 +3,9 @@ import ItemsDialog from "@/components/items/items-dialog";
 import { createTestAppSettings, createTestCharacter, TestAppSettingsProvider } from "@/testutils";
 
 const character = createTestCharacter();
-const prosperityNineAppSettings = createTestAppSettings({ spoilerSettings: { prosperity: 9, itemGroups: [] } });
+const prosperityNineAppSettings = createTestAppSettings({
+    spoilerSettings: { items: { prosperity: 9, itemGroups: [] } },
+});
 
 describe("items dialog", () => {
     it("renders", () => {

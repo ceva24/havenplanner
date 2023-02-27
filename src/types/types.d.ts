@@ -5,6 +5,10 @@ interface AppSettings {
 }
 
 interface SpoilerSettings {
+    items: ItemSpoilerSettings;
+}
+
+interface ItemSpoilerSettings {
     prosperity: number;
     itemGroups: ItemGroup[];
 }

@@ -19,7 +19,7 @@ describe("item groups", () => {
         ${"Solo Scenario Items"}
     `("renders the $group checkbox", ({ group }: ItemGroupsProps) => {
         const appSettings = createTestAppSettings();
-        appSettings.spoilerSettings.itemGroups = [{ id: 0, name: group }];
+        appSettings.spoilerSettings.items.itemGroups = [{ id: 0, name: group }];
 
         render(
             <TestAppSettingsProvider appSettings={appSettings}>
@@ -47,7 +47,7 @@ describe("toggleItemGroup", () => {
         expect(setAppSettings).toHaveBeenCalledTimes(1);
         expect(setAppSettings).toHaveBeenCalledWith({
             ...appSettings,
-            spoilerSettings: { ...appSettings.spoilerSettings, itemGroups: [itemGroup] },
+            spoilerSettings: { ...appSettings.spoilerSettings, items: { prosperity: 1, itemGroups: [itemGroup] } },
         });
     });
 
@@ -58,14 +58,14 @@ describe("toggleItemGroup", () => {
         };
 
         const appSettings = createTestAppSettings();
-        appSettings.spoilerSettings.itemGroups = [itemGroup];
+        appSettings.spoilerSettings.items.itemGroups = [itemGroup];
 
         toggleItemGroup(itemGroup, appSettings, setAppSettings);
 
         expect(setAppSettings).toHaveBeenCalledTimes(1);
         expect(setAppSettings).toHaveBeenCalledWith({
             ...appSettings,
-            spoilerSettings: { ...appSettings.spoilerSettings, itemGroups: [] },
+            spoilerSettings: { ...appSettings.spoilerSettings, items: { prosperity: 1, itemGroups: [] } },
         });
     });
 });
