@@ -301,6 +301,28 @@ describe("share", () => {
         cy.findLoadCharacterDialog().should("exist");
     });
 
+    it("shows the prosperity and item groups in the load character dialog when loading a character with spoilers", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(2);
+
+        cy.setItemGroupActive("Random Item Designs");
+
+        cy.addItem("Stun Powder 021");
+
+        cy.addItem("Circlet of Elements 075");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.findLoadCharacterDialog().findByText("Prosperity 2").should("exist");
+
+        cy.findLoadCharacterDialog().findByText("Random Item Designs").should("exist");
+    });
+
     it("loads the character when confirming the load character dialog", () => {
         cy.visit("/");
 
@@ -401,5 +423,73 @@ describe("share", () => {
         cy.openSettings();
 
         cy.shouldHaveProsperityLevel(2);
+    });
+
+    it("captures item group item data in a shareable link", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setItemGroupActive("Random Item Designs");
+
+        cy.addItem("Circlet of Elements 075");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.confirmLoadCharacter();
+
+        cy.selectTab("Items");
+
+        cy.findByRole("img", { name: "Circlet of Elements" }).should("be.visible");
+    });
+
+    it("sets the active item groups based on the character's items", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setItemGroupActive("Random Item Designs");
+
+        cy.addItem("Circlet of Elements 075");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.confirmLoadCharacter();
+
+        cy.openSettings();
+
+        cy.shouldHaveActiveItemGroup("Random Item Designs");
+    });
+
+    it("a loaded active item group can be toggled", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setItemGroupActive("Random Item Designs");
+
+        cy.addItem("Circlet of Elements 075");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.confirmLoadCharacter();
+
+        cy.openSettings();
+
+        cy.shouldHaveActiveItemGroup("Random Item Designs");
+
+        cy.findByRole("region", { name: "Item Spoilers" })
+            .findByRole("checkbox", { name: "Random Item Designs" })
+            .uncheck();
+
+        cy.findByRole("region", { name: "Item Spoilers" })
+            .findByRole("checkbox", { name: "Random Item Designs" })
+            .should("not.be.checked");
     });
 });
