@@ -132,16 +132,23 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
     return { ...character, ...characterDetailsToOverride };
 };
 
-const createTestAppSettings = (appSetingsDetailsToOverride?: Partial<AppSettings>): AppSettings => {
+const createTestAppSettings = (appSettingsDetailsToOverride?: Partial<AppSettings>): AppSettings => {
     const appSettings: AppSettings = {
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 1,
-        spoilerSettings: {
-            prosperity: 1,
-        },
+        spoilerSettings: createTestItemSpoilerSettings(),
     };
 
-    return { ...appSettings, ...appSetingsDetailsToOverride };
+    return { ...appSettings, ...appSettingsDetailsToOverride };
+};
+
+const createTestItemSpoilerSettings = (prosperity?: number, itemGroups?: ItemGroup[]): SpoilerSettings => {
+    return {
+        items: {
+            prosperity: prosperity ?? 1,
+            itemGroups: itemGroups ?? [],
+        },
+    };
 };
 
 interface TestAppSettingsProviderProps {
@@ -157,4 +164,4 @@ const TestAppSettingsProvider = ({ appSettings, children }: TestAppSettingsProvi
     );
 };
 
-export { createTestCharacter, createTestAppSettings, TestAppSettingsProvider };
+export { createTestCharacter, createTestAppSettings, createTestItemSpoilerSettings, TestAppSettingsProvider };

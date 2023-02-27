@@ -36,4 +36,14 @@ describe("settings dialog", () => {
 
         expect(prosperitySlider).toBeInTheDocument();
     });
+
+    it("renders the item groups", () => {
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+
+        const itemSpoilersSection = screen.getByRole("region", { name: "Item Spoilers" });
+
+        const itemGroup = within(itemSpoilersSection).queryByRole("checkbox", { name: "Random Item Designs" });
+
+        expect(itemGroup).toBeInTheDocument();
+    });
 });

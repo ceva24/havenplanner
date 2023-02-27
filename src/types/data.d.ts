@@ -44,3 +44,5 @@ interface Item extends VisualAsset {
     slotImageUrl: string;
     group: string;
 }
+
+interface ItemGroup extends Asset {}

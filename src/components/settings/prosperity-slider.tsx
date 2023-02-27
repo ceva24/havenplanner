@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
-import { Box, Typography, Slider } from "@mui/material";
+import { Typography, Slider } from "@mui/material";
 import type { Mark } from "@mui/base/SliderUnstyled";
 import { useAppSettingsContext } from "@/hooks/use-app-settings";
 
@@ -15,14 +15,14 @@ const ProsperitySlider = () => {
             <Typography id="input-slider">Prosperity</Typography>
             <Slider
                 id="prosperity-slider"
-                sx={{ width: 300 }}
+                sx={{ width: { xs: "90%", sm: "80% " } }}
                 aria-labelledby="input-slider"
                 valueLabelDisplay="off"
                 step={1}
                 marks={marks()}
                 min={1}
                 max={9}
-                value={appSettings.spoilerSettings.prosperity}
+                value={appSettings.spoilerSettings.items.prosperity}
                 onChange={onChange}
             />
         </>
@@ -41,7 +41,11 @@ const updateProsperity = (
     appSettings: AppSettings,
     setAppSettings: Dispatch<SetStateAction<AppSettings>>
 ) => {
-    setAppSettings({ ...appSettings, spoilerSettings: { prosperity } });
+    const newAppSettings: AppSettings = { ...appSettings };
+
+    newAppSettings.spoilerSettings.items.prosperity = prosperity;
+
+    setAppSettings(newAppSettings);
 };
 
 export default ProsperitySlider;

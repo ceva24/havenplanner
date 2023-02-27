@@ -1,22 +1,83 @@
+import { itemGroups } from "@/loaders/item-groups";
 import { items } from "@/loaders/items";
-import { formattedItemId, getItemsForSpoilerSettings, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
-import { createTestAppSettings } from "@/testutils";
+import { formattedItemId, getItems, itemShouldBeHidden, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
+import { createTestAppSettings, createTestItemSpoilerSettings } from "@/testutils";
 
-describe("getItemsForSpoilerSettings", () => {
-    it("returns prosperity one items for prosperity level one", () => {
-        const items = getItemsForSpoilerSettings(1);
+describe("getItems", () => {
+    it("returns items not hidden by spoiler settings", () => {
+        const spoilerSettings = createTestItemSpoilerSettings(2);
 
-        expect(items).toHaveLength(14);
-        expect(items[0].name).toEqual("Boots of Striding");
-        expect(items[13].name).toEqual("Minor Power Potion");
-    });
-
-    it("returns prosperity level one and two items for prosperity level two", () => {
-        const items = getItemsForSpoilerSettings(2);
+        const items = getItems(spoilerSettings);
 
         expect(items).toHaveLength(21);
-        expect(items[0].name).toEqual("Boots of Striding");
-        expect(items[20].name).toEqual("Stun Powder");
+    });
+});
+
+describe("itemShouldBeHidden", () => {
+    it("returns true when the item is above the current prosperity", () => {
+        const item = items[20];
+
+        const spoilerSettings = createTestAppSettings().spoilerSettings;
+
+        const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
+
+        expect(shouldBeHidden).toEqual(true);
+    });
+
+    it("returns false when the item is equal to the current prosperity", () => {
+        const item = items[20];
+
+        const spoilerSettings = createTestItemSpoilerSettings(2);
+
+        const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
+
+        expect(shouldBeHidden).toEqual(false);
+    });
+
+    it("returns false when the item is below the current prosperity", () => {
+        const item = items[20];
+
+        const spoilerSettings = createTestItemSpoilerSettings(8);
+
+        const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
+
+        expect(shouldBeHidden).toEqual(false);
+    });
+
+    it("returns true when the item is not in the active item groups", () => {
+        const item = items[25];
+
+        const spoilerSettings = createTestAppSettings().spoilerSettings;
+
+        const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
+
+        expect(shouldBeHidden).toEqual(true);
+    });
+
+    it("returns false when the item is in the active item groups", () => {
+        const item = items[25];
+
+        const spoilerSettings = createTestItemSpoilerSettings(1, [{ id: 0, name: item.group }]);
+
+        const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
+
+        expect(shouldBeHidden).toEqual(false);
+    });
+});
+describe("formattedItemId", () => {
+    interface FormatIdProps {
+        id: number;
+        formattedId: string;
+    }
+
+    it.each`
+        id     | formattedId
+        ${1}   | ${"001"}
+        ${19}  | ${"019"}
+        ${200} | ${"200"}
+    `("formats id $id to $formattedId", ({ id, formattedId }: FormatIdProps) => {
+        const result = formattedItemId(id);
+        expect(result).toEqual(formattedId);
     });
 });
 
@@ -84,34 +145,41 @@ describe("orderItems", () => {
     });
 });
 
-describe("formattedItemId", () => {
-    interface FormatIdProps {
-        id: number;
-        formattedId: string;
-    }
-
-    it.each`
-        id     | formattedId
-        ${1}   | ${"001"}
-        ${19}  | ${"019"}
-        ${200} | ${"200"}
-    `("formats id $id to $formattedId", ({ id, formattedId }: FormatIdProps) => {
-        const result = formattedItemId(id);
-        expect(result).toEqual(formattedId);
-    });
-});
-
 describe("shouldShowItemSpoilerHint", () => {
     it("should return true when prosperity level is < 9", () => {
-        const spoilerSettings = createTestAppSettings({ spoilerSettings: { prosperity: 2 } }).spoilerSettings;
+        const spoilerSettings = createTestItemSpoilerSettings(2);
 
         const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
 
         expect(shouldShow).toEqual(true);
     });
 
-    it("should return false when prosperity level is 9", () => {
-        const spoilerSettings = createTestAppSettings({ spoilerSettings: { prosperity: 9 } }).spoilerSettings;
+    it("should return true when prosperity level is 9 and no item groups are selected", () => {
+        const spoilerSettings = createTestItemSpoilerSettings(9);
+
+        const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
+
+        expect(shouldShow).toEqual(true);
+    });
+
+    it("should return true when prosperity level is 9 and some item groups are selected", () => {
+        const spoilerSettings = createTestItemSpoilerSettings(9, [itemGroups[0]]);
+
+        const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
+
+        expect(shouldShow).toEqual(true);
+    });
+
+    it("should return true when prosperity level is < 9 and all item groups are selected", () => {
+        const spoilerSettings = createTestItemSpoilerSettings(8, itemGroups);
+
+        const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
+
+        expect(shouldShow).toEqual(true);
+    });
+
+    it("should return false when prosperity level is 9 and all item groups are selected", () => {
+        const spoilerSettings = createTestItemSpoilerSettings(9, itemGroups);
 
         const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
 

@@ -35,6 +35,15 @@ describe("deserialize", () => {
         expect(character.items[1].item).toEqual(items[7]);
     });
 
+    it("deserializes spoiler item data", () => {
+        const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[71],"u":[],"h":[],"e":[],"p":[],"b":[]}`;
+
+        const character: Character = deserialize(data);
+
+        expect(character.items).toHaveLength(1);
+        expect(character.items[0].item).toEqual(items[21]);
+    });
+
     it("sets new uuids on character items", () => {
         const data = `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"e":[],"p":[],"b":[]}`;
 

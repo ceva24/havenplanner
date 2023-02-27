@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ProsperitySlider, { marks, updateProsperity } from "@/components/settings/prosperity-slider";
-import { TestAppSettingsProvider } from "@/testutils";
+import { createTestAppSettings, TestAppSettingsProvider } from "@/testutils";
+import { itemGroups } from "@/loaders/item-groups";
 
 describe("prosperity slider", () => {
     it("renders", () => {
@@ -73,13 +74,7 @@ describe("marks", () => {
 
 describe("updateProsperity", () => {
     it("updates the prosperity level app setting", () => {
-        const appSettings: AppSettings = {
-            showPersonalQuest: false,
-            selectedAbilityCardsTabIndex: 0,
-            spoilerSettings: {
-                prosperity: 1,
-            },
-        };
+        const appSettings: AppSettings = createTestAppSettings();
 
         const setAppSettings = jest.fn();
 
@@ -88,7 +83,22 @@ describe("updateProsperity", () => {
         expect(setAppSettings).toHaveBeenCalledTimes(1);
         expect(setAppSettings).toHaveBeenCalledWith({
             ...appSettings,
-            spoilerSettings: { prosperity: 3 },
+            spoilerSettings: { items: { prosperity: 3, itemGroups: [] } },
+        });
+    });
+
+    it("retains the active item groups", () => {
+        const appSettings: AppSettings = createTestAppSettings();
+        appSettings.spoilerSettings.items.itemGroups = [itemGroups[0]];
+
+        const setAppSettings = jest.fn();
+
+        updateProsperity(3, appSettings, setAppSettings);
+
+        expect(setAppSettings).toHaveBeenCalledTimes(1);
+        expect(setAppSettings).toHaveBeenCalledWith({
+            ...appSettings,
+            spoilerSettings: { items: { prosperity: 3, itemGroups: [itemGroups[0]] } },
         });
     });
 });

@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { v4 as uuid } from "uuid";
 import Image from "@/components/core/image";
-import { formattedItemId, getItemsForSpoilerSettings, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
+import { formattedItemId, getItems, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
 import { useAppSettingsContext } from "@/hooks/use-app-settings";
 
 interface ItemsAutocompleteProps {
@@ -31,7 +31,7 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 disablePortal
                 blurOnSelect
                 value={null}
-                options={getItemsForSpoilerSettings(appSettings.spoilerSettings.prosperity)}
+                options={getItems(appSettings.spoilerSettings)}
                 {...(shouldShowItemSpoilerHint(appSettings.spoilerSettings) && {
                     noOptionsText: "No options - check your spoiler settings",
                 })}

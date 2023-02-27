@@ -1,9 +1,15 @@
 import { render, screen } from "@testing-library/react";
-import SettingsButton, { removeItemsAboveProsperityLevel } from "@/components/header/settings-button";
-import { createTestCharacter, TestAppSettingsProvider } from "@/testutils";
+import SettingsButton, { removeSpoilerItems } from "@/components/header/settings-button";
+import {
+    createTestAppSettings,
+    createTestCharacter,
+    createTestItemSpoilerSettings,
+    TestAppSettingsProvider,
+} from "@/testutils";
 import { items } from "@/loaders/items";
 
 const setCharacter = jest.fn();
+const spoilerSettings = createTestAppSettings().spoilerSettings;
 
 beforeEach(() => {
     jest.resetAllMocks();
@@ -21,13 +27,13 @@ describe("settings button", () => {
     });
 });
 
-describe("removeItemsAboveProsperityLevel", () => {
+describe("removeSpoilerItems", () => {
     it("removes an item higher than the current prosperity level", () => {
         const character: Character = createTestCharacter({
             items: [{ id: "1", item: items[20] }],
         });
 
-        removeItemsAboveProsperityLevel(character, setCharacter, 1);
+        removeSpoilerItems(character, setCharacter, spoilerSettings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -41,7 +47,7 @@ describe("removeItemsAboveProsperityLevel", () => {
             items: [{ id: "1", item: items[0] }],
         });
 
-        removeItemsAboveProsperityLevel(character, setCharacter, 1);
+        removeSpoilerItems(character, setCharacter, spoilerSettings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);
@@ -52,7 +58,9 @@ describe("removeItemsAboveProsperityLevel", () => {
             items: [{ id: "1", item: items[0] }],
         });
 
-        removeItemsAboveProsperityLevel(character, setCharacter, 2);
+        const prosperityTwoSpoilerSettings = createTestItemSpoilerSettings(2);
+
+        removeSpoilerItems(character, setCharacter, prosperityTwoSpoilerSettings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);
@@ -66,12 +74,41 @@ describe("removeItemsAboveProsperityLevel", () => {
             ],
         });
 
-        removeItemsAboveProsperityLevel(character, setCharacter, 1);
+        removeSpoilerItems(character, setCharacter, spoilerSettings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
             items: [{ id: "1", item: items[0] }],
         });
+    });
+
+    it("removes items not in the active item groups", () => {
+        const character: Character = createTestCharacter({
+            items: [{ id: "1", item: items[25] }],
+        });
+
+        removeSpoilerItems(character, setCharacter, spoilerSettings);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            items: [],
+        });
+    });
+
+    it("does not remove items in the active item groups", () => {
+        const item = items[25];
+
+        const character: Character = createTestCharacter({
+            items: [{ id: "1", item }],
+        });
+
+        const spoilerSettings = createTestItemSpoilerSettings(2, [{ id: 1, name: item.group }]);
+
+        removeSpoilerItems(character, setCharacter, spoilerSettings);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith(character);
     });
 });

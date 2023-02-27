@@ -224,6 +224,32 @@ describe("items tab", () => {
         cy.findByRole("button", { name: "Stun Powder" }).should("exist");
     });
 
+    it("shows items from an item group in the items autocomplete when the item group's spoiler setting has been checked", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setItemGroupActive("Random Item Designs");
+
+        cy.findItemsAutocomplete().click();
+
+        cy.findByRole("option", { name: "Circlet of Elements 075" }).should("exist");
+    });
+
+    it("shows items from an item group in the browse items dialog when the item group's spoiler setting has been checked", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setItemGroupActive("Random Item Designs");
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("be.visible");
+
+        cy.findByRole("button", { name: "Circlet of Elements" }).should("exist");
+    });
+
     it("allows higher prosperity items to be added", () => {
         cy.visit("/");
 
@@ -236,6 +262,18 @@ describe("items tab", () => {
         cy.findByRole("img", { name: "Stun Powder" }).should("be.visible");
     });
 
+    it("allows item group items to be added", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setItemGroupActive("Random Item Designs");
+
+        cy.addItem("Circlet of Elements 075");
+
+        cy.findByRole("img", { name: "Circlet of Elements" }).should("be.visible");
+    });
+
     it("shows the spoiler hint in the items autocomplete when the prosperity level is < 9", () => {
         cy.visit("/");
 
@@ -246,7 +284,7 @@ describe("items tab", () => {
         cy.findByText("No options - check your spoiler settings").should("exist");
     });
 
-    it("does not show the spoiler hint in the items autocomplete when the prosperity level is 9", () => {
+    it("shows the spoiler hint in the items autocomplete when the prosperity level is 9 but there are inactive item groups", () => {
         cy.visit("/");
 
         cy.selectTab("Items");
@@ -255,8 +293,6 @@ describe("items tab", () => {
 
         cy.findItemsAutocomplete().type("Not an item");
 
-        cy.findByText("No options - check your spoiler settings").should("not.exist");
-
-        cy.findByText("No options").should("exist");
+        cy.findByText("No options - check your spoiler settings").should("exist");
     });
 });

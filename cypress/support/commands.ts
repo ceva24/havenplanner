@@ -190,6 +190,26 @@ Cypress.Commands.add("setProsperityLevel", (level: number) => {
     cy.clickCloseButton();
 });
 
+Cypress.Commands.add("setItemGroupActive", (name: string) => {
+    cy.openSettings();
+
+    cy.findByRole("region", { name: "Item Spoilers" }).findByRole("checkbox", { name }).check();
+
+    cy.clickCloseButton();
+});
+
+Cypress.Commands.add("setItemGroupInactive", (name: string) => {
+    cy.openSettings();
+
+    cy.findByRole("region", { name: "Item Spoilers" }).findByRole("checkbox", { name }).uncheck();
+
+    cy.clickCloseButton();
+});
+
+Cypress.Commands.add("shouldHaveActiveItemGroup", (name: string) => {
+    cy.findByRole("region", { name: "Item Spoilers" }).findByRole("checkbox", { name }).should("be.checked");
+});
+
 Cypress.Commands.add("findLoadCharacterDialog", () => {
     cy.findByRole("dialog", { name: "Load character?" });
 });

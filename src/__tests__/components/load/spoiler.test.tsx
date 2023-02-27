@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ItemSpoiler } from "@/components/spoiler/spoiler";
+import { ItemSpoiler } from "@/components/load/spoiler";
 
 describe("item spoiler", () => {
     it("renders", () => {
