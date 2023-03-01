@@ -128,6 +128,18 @@ describe("items tab", () => {
         cy.findByRole("button", { name: "Boots of Striding" }).should("exist");
     });
 
+    it("shows item groups in the browse items dialog", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("be.visible");
+
+        cy.findByRole("region", { name: "Prosperity 1" }).findByRole("button", { name: "Boots of Striding" });
+    });
+
     it("adds an item from the browse items dialog when clicking on it", () => {
         cy.visit("/");
 

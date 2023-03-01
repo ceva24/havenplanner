@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import ItemsDialog from "@/components/items/items-dialog";
+import { render, screen, within } from "@testing-library/react";
+import BrowseItemsDialog from "@/components/items/browse-items-dialog";
 import { createTestAppSettings, createTestCharacter, TestAppSettingsProvider } from "@/testutils";
 
 const character = createTestCharacter();
@@ -7,9 +7,9 @@ const prosperityNineAppSettings = createTestAppSettings({
     spoilerSettings: { items: { prosperity: 9, itemGroups: [] } },
 });
 
-describe("items dialog", () => {
+describe("browse items dialog", () => {
     it("renders", () => {
-        render(<ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
+        render(<BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
             wrapper: TestAppSettingsProvider,
         });
 
@@ -19,7 +19,7 @@ describe("items dialog", () => {
     });
 
     it("renders an item", () => {
-        render(<ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
+        render(<BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
             wrapper: TestAppSettingsProvider,
         });
 
@@ -29,7 +29,7 @@ describe("items dialog", () => {
     });
 
     it("renders the items", () => {
-        render(<ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
+        render(<BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
             wrapper: TestAppSettingsProvider,
         });
 
@@ -41,7 +41,7 @@ describe("items dialog", () => {
     it("renders the items based on the current prosperity level", () => {
         render(
             <TestAppSettingsProvider appSettings={prosperityNineAppSettings}>
-                <ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
+                <BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
             </TestAppSettingsProvider>
         );
 
@@ -50,8 +50,20 @@ describe("items dialog", () => {
         expect(items).toHaveLength(21);
     });
 
+    it("renders items as item groups", () => {
+        render(<BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
+            wrapper: TestAppSettingsProvider,
+        });
+
+        const itemGroup = screen.getByRole("region", { name: "Prosperity 1" });
+
+        const items = within(itemGroup).queryAllByRole("img");
+
+        expect(items).toHaveLength(14);
+    });
+
     it("renders the spoiler hint", () => {
-        render(<ItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
+        render(<BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
             wrapper: TestAppSettingsProvider,
         });
 

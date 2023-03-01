@@ -1,6 +1,7 @@
+import type { Dictionary } from "lodash";
 import { itemGroups } from "@/loaders/item-groups";
 import { items } from "@/loaders/items";
-import { formattedItemId, getItems, itemShouldBeHidden, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
+import { getItems, getItemsByGroup, itemShouldBeHidden, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
 import { createTestAppSettings, createTestItemSpoilerSettings } from "@/testutils";
 
 describe("getItems", () => {
@@ -10,6 +11,20 @@ describe("getItems", () => {
         const items = getItems(spoilerSettings);
 
         expect(items).toHaveLength(21);
+    });
+});
+
+describe("getItemsByGroup", () => {
+    it("groups items by title", () => {
+        const spoilerSettings = createTestItemSpoilerSettings(1, [itemGroups[0]]);
+
+        const result: Dictionary<Item[]> = getItemsByGroup(spoilerSettings);
+
+        expect(Object.keys(result)).toHaveLength(2);
+        expect(Object.keys(result)).toEqual(["1", "Random Item Designs"]);
+
+        expect(result["1"]).toHaveLength(14);
+        expect(result["Random Item Designs"]).toHaveLength(25);
     });
 });
 
@@ -62,22 +77,6 @@ describe("itemShouldBeHidden", () => {
         const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
 
         expect(shouldBeHidden).toEqual(false);
-    });
-});
-describe("formattedItemId", () => {
-    interface FormatIdProps {
-        id: number;
-        formattedId: string;
-    }
-
-    it.each`
-        id     | formattedId
-        ${1}   | ${"001"}
-        ${19}  | ${"019"}
-        ${200} | ${"200"}
-    `("formats id $id to $formattedId", ({ id, formattedId }: FormatIdProps) => {
-        const result = formattedItemId(id);
-        expect(result).toEqual(formattedId);
     });
 });
 
