@@ -1,21 +1,17 @@
 import type { Dispatch, KeyboardEvent, SetStateAction } from "react";
 import { Box, Typography } from "@mui/material";
-import { addItem } from "@/components/items/items-autocomplete";
-import FullScreenDialog from "@/components/core/full-screen-dialog";
 import { SmallCard } from "@/components/core/cards";
-import { getItems, shouldShowItemSpoilerHint } from "@/services/items";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
+import { addItem } from "@/components/items/items-autocomplete";
 
-interface ItemsDialogProps {
-    isOpen: boolean;
+interface ItemGroupProps {
+    title: string;
+    items: Item[];
     handleClose: () => void;
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const ItemsDialog = ({ isOpen, handleClose, character, setCharacter }: ItemsDialogProps) => {
-    const [appSettings] = useAppSettingsContext();
-
+const ItemGroup = ({ title, items, handleClose, character, setCharacter }: ItemGroupProps) => {
     const addItemAndClose = (item: Item) => {
         addItem(item, character, setCharacter);
         handleClose();
@@ -28,10 +24,20 @@ const ItemsDialog = ({ isOpen, handleClose, character, setCharacter }: ItemsDial
         }
     };
 
+    const formattedTitle = formattedItemGroupTitle(title);
+
     return (
-        <FullScreenDialog title="Browse items" isOpen={isOpen} handleClose={handleClose}>
-            <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                {getItems(appSettings.spoilerSettings).map((item: Item) => (
+        <Box sx={{ textAlign: "center" }}>
+            <Typography color="textPrimary" variant="h2" padding={3} paddingTop={0}>
+                {formattedTitle}
+            </Typography>
+            <Box
+                component="section"
+                aria-label={formattedTitle}
+                paddingBottom={3}
+                sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
+            >
+                {items.map((item: Item) => (
                     <Box
                         key={item.id}
                         role="button"
@@ -48,13 +54,12 @@ const ItemsDialog = ({ isOpen, handleClose, character, setCharacter }: ItemsDial
                     </Box>
                 ))}
             </Box>
-            {shouldShowItemSpoilerHint(appSettings.spoilerSettings) && (
-                <Box textAlign="center" marginY={3}>
-                    <Typography>Change your spoiler settings to see more items...</Typography>
-                </Box>
-            )}
-        </FullScreenDialog>
+        </Box>
     );
 };
 
-export default ItemsDialog;
+const formattedItemGroupTitle = (title: string): string => {
+    return Number.parseInt(title, 10) > 0 ? `Prosperity ${title}` : title;
+};
+
+export default ItemGroup;

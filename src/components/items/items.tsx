@@ -1,7 +1,7 @@
 import { type Dispatch, type SetStateAction, useState } from "react";
 import { Grid, Stack } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import ItemsDialog from "@/components/items/items-dialog";
+import BrowseItemsDialog from "@/components/items/browse-items-dialog";
 import { IconButton } from "@/components/core/button";
 import ItemsAutocomplete from "@/components/items/items-autocomplete";
 import ItemGrid from "@/components/items/item-grid";
@@ -27,7 +27,7 @@ const Items = ({ character, setCharacter }: ItemsProps) => {
                             setItemsDialogOpen(true);
                         }}
                     />
-                    <ItemsDialog
+                    <BrowseItemsDialog
                         isOpen={itemsDialogOpen}
                         handleClose={() => {
                             setItemsDialogOpen(false);

@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { v4 as uuid } from "uuid";
 import Image from "@/components/core/image";
-import { formattedItemId, getItems, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
+import { getItems, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
 import { useAppSettingsContext } from "@/hooks/use-app-settings";
 
 interface ItemsAutocompleteProps {
@@ -64,6 +64,10 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
     );
 };
 
+const formattedItemId = (id: number): string => {
+    return String(id).padStart(3, "0");
+};
+
 // eslint-disable-next-line @typescript-eslint/ban-types
 const addItem = (item: Item | null, character: Character, setCharacter: Dispatch<SetStateAction<Character>>) => {
     if (item?.id) {
@@ -79,4 +83,4 @@ const addItem = (item: Item | null, character: Character, setCharacter: Dispatch
 };
 
 export default ItemsAutocomplete;
-export { addItem };
+export { formattedItemId, addItem };

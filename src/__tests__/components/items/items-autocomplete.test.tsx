@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ItemsAutocomplete, { addItem } from "@/components/items/items-autocomplete";
+import ItemsAutocomplete, { addItem, formattedItemId } from "@/components/items/items-autocomplete";
 import { items } from "@/loaders/items";
 import { createTestCharacter, TestAppSettingsProvider } from "@/testutils";
 
@@ -28,6 +28,23 @@ describe("items autocomplete", () => {
         const itemsAutocomplete = screen.queryByRole("combobox", { name: "Add item" });
 
         expect(itemsAutocomplete).toBeInTheDocument();
+    });
+});
+
+describe("formattedItemId", () => {
+    interface FormatIdProps {
+        id: number;
+        formattedId: string;
+    }
+
+    it.each`
+        id     | formattedId
+        ${1}   | ${"001"}
+        ${19}  | ${"019"}
+        ${200} | ${"200"}
+    `("formats id $id to $formattedId", ({ id, formattedId }: FormatIdProps) => {
+        const result = formattedItemId(id);
+        expect(result).toEqual(formattedId);
     });
 });
 
