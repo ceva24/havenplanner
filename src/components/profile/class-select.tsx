@@ -3,8 +3,7 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import type { Dispatch, FC, SetStateAction } from "react";
 import Image from "@/components/core/image";
 import { characterClasses } from "@/loaders/character-classes";
-import { defaultCharacter } from "@/constants";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
+import { useSettingsContext } from "@/hooks/use-settings";
 import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
 
 interface ClassSelectProps {
@@ -13,11 +12,11 @@ interface ClassSelectProps {
 }
 
 const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSelectProps) => {
-    const [appSettings, setAppSettings] = useAppSettingsContext();
+    const [settings, setSettings] = useSettingsContext();
 
     const handleChange = (event: SelectChangeEvent) => {
-        findAndSetCharacter(event, character, setCharacter);
-        resetAbilityCardsTabConfig(appSettings, setAppSettings);
+        findAndSetCharacter(event, character, setCharacter, settings);
+        resetAbilityCardsTabConfig(settings, setSettings);
     };
 
     return (
@@ -51,7 +50,8 @@ const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSel
 const findAndSetCharacter = (
     event: SelectChangeEvent,
     character: Character,
-    setCharacter: Dispatch<SetStateAction<Character>>
+    setCharacter: Dispatch<SetStateAction<Character>>,
+    settings: Settings
 ) => {
     const selectedCharacterClass: CharacterClass | undefined = characterClasses.find(
         (characterClass: CharacterClass) => {
@@ -61,7 +61,7 @@ const findAndSetCharacter = (
 
     const newCharacter: Character = {
         ...character,
-        characterClass: selectedCharacterClass ?? defaultCharacter.characterClass,
+        characterClass: selectedCharacterClass ?? settings.gameSettings.defaultCharacter.characterClass,
         unlockedAbilityCards: [],
         hand: [],
         gainedEnhancements: [],
@@ -72,11 +72,8 @@ const findAndSetCharacter = (
     setCharacter(newCharacter);
 };
 
-const resetAbilityCardsTabConfig = (
-    appSettings: AppSettings,
-    setAppSettings: Dispatch<SetStateAction<AppSettings>>
-) => {
-    setAppSettings({ ...appSettings, selectedAbilityCardsTabIndex: 0 });
+const resetAbilityCardsTabConfig = (settings: Settings, setSettings: Dispatch<SetStateAction<Settings>>) => {
+    setSettings({ ...settings, selectedAbilityCardsTabIndex: 0 });
 };
 
 export default ClassSelect;

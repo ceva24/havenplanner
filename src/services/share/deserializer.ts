@@ -1,9 +1,9 @@
 import { v4 as uuid } from "uuid";
-import { defaultCharacter } from "@/constants";
 import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
 import { enhancements } from "@/loaders/enhancements";
+import { getDefaultSettings } from "@/services/settings";
 
 const deserialize = (data: string): Character => {
     const characterData = JSON.parse(data) as SerializedCharacter;
@@ -30,7 +30,7 @@ const deserialize = (data: string): Character => {
 const deserializeCharacterClass = (characterClassId: number): CharacterClass => {
     return (
         characterClasses.find((characterClass: CharacterClass) => characterClass.id === characterClassId) ??
-        defaultCharacter.characterClass
+        getDefaultSettings().gameSettings.defaultCharacter.characterClass
     );
 };
 

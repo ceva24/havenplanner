@@ -2,7 +2,6 @@ import { deserialize } from "@/services/share/deserializer";
 import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
-import { defaultCharacter } from "@/constants";
 import { enhancements } from "@/loaders/enhancements";
 
 jest.mock("uuid", () => {
@@ -68,7 +67,7 @@ describe("deserialize", () => {
 
         const character: Character = deserialize(data);
 
-        expect(character.characterClass).toEqual(defaultCharacter.characterClass);
+        expect(character.characterClass.name).toEqual("Brute");
     });
 
     it("omits the personal quest property when deserializing a character with no personal quest id", () => {

@@ -1,8 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import AttackModifiers from "@/components/perks/attack-modifiers";
 import { createTestCharacter } from "@/testutils";
-import { attackModifiers } from "@/loaders/attack-modifiers";
-import { defaultCharacter } from "@/constants";
 
 describe("attack modifiers", () => {
     it("renders the base attack modifiers", () => {

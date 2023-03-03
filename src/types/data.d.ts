@@ -7,6 +7,8 @@ interface VisualAsset extends Asset {
     imageUrl: string;
 }
 
+interface Game extends Asset {}
+
 interface CharacterClass extends VisualAsset {
     characterMatFrontImageUrl: string;
     characterMatBackImageUrl: string;

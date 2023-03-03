@@ -1,4 +1,3 @@
-import { defaultCharacter } from "@/constants";
 import { attackModifiers } from "@/loaders/attack-modifiers";
 import {
     classAttackModifierCardNames,
@@ -80,7 +79,11 @@ describe("splitAttackModifierDeckIntoBaseAndClass", () => {
     it("returns cards from the class modifier deck", () => {
         const deck: AttackModifierDeckCard[] = [
             {
-                card: defaultCharacter.characterClass.perks[3].add[0], // +3
+                card: {
+                    id: 7,
+                    name: "+3",
+                    imageUrl: "/attack-modifiers/gloomhaven/BR/gh-am-br-07.webp",
+                },
                 count: 1,
             },
         ];
@@ -98,7 +101,11 @@ describe("splitAttackModifierDeckIntoBaseAndClass", () => {
                 count: 5,
             },
             {
-                card: defaultCharacter.characterClass.perks[3].add[0], // +3
+                card: {
+                    id: 7,
+                    name: "+3",
+                    imageUrl: "/attack-modifiers/gloomhaven/BR/gh-am-br-07.webp",
+                },
                 count: 1,
             },
         ];

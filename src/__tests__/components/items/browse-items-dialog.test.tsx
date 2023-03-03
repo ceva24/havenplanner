@@ -1,16 +1,16 @@
 import { render, screen, within } from "@testing-library/react";
 import BrowseItemsDialog from "@/components/items/browse-items-dialog";
-import { createTestAppSettings, createTestCharacter, TestAppSettingsProvider } from "@/testutils";
+import { createTestSettings, createTestCharacter, TestSettingsProvider } from "@/testutils";
 
 const character = createTestCharacter();
-const prosperityNineAppSettings = createTestAppSettings({
+const prosperityNineSettings = createTestSettings({
     spoilerSettings: { items: { prosperity: 9, itemGroups: [] } },
 });
 
 describe("browse items dialog", () => {
     it("renders", () => {
         render(<BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
-            wrapper: TestAppSettingsProvider,
+            wrapper: TestSettingsProvider,
         });
 
         const dialog = screen.queryByRole("dialog", { name: "Browse items" });
@@ -20,7 +20,7 @@ describe("browse items dialog", () => {
 
     it("renders an item", () => {
         render(<BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
-            wrapper: TestAppSettingsProvider,
+            wrapper: TestSettingsProvider,
         });
 
         const item = screen.queryByRole("img", { name: "Piercing Bow" });
@@ -30,7 +30,7 @@ describe("browse items dialog", () => {
 
     it("renders the items", () => {
         render(<BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
-            wrapper: TestAppSettingsProvider,
+            wrapper: TestSettingsProvider,
         });
 
         const items = screen.queryAllByRole("img");
@@ -40,9 +40,9 @@ describe("browse items dialog", () => {
 
     it("renders the items based on the current prosperity level", () => {
         render(
-            <TestAppSettingsProvider appSettings={prosperityNineAppSettings}>
+            <TestSettingsProvider settings={prosperityNineSettings}>
                 <BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
-            </TestAppSettingsProvider>
+            </TestSettingsProvider>
         );
 
         const items = screen.queryAllByRole("img");
@@ -52,7 +52,7 @@ describe("browse items dialog", () => {
 
     it("renders items as item groups", () => {
         render(<BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
-            wrapper: TestAppSettingsProvider,
+            wrapper: TestSettingsProvider,
         });
 
         const itemGroup = screen.getByRole("region", { name: "Prosperity 1" });
@@ -64,7 +64,7 @@ describe("browse items dialog", () => {
 
     it("renders the spoiler hint", () => {
         render(<BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
-            wrapper: TestAppSettingsProvider,
+            wrapper: TestSettingsProvider,
         });
 
         const spoilerHint = screen.queryByText("Change your spoiler settings to see more items...");

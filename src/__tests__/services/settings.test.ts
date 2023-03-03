@@ -1,14 +1,14 @@
 import { itemGroupIsActive } from "@/services/settings";
-import { createTestAppSettings } from "@/testutils";
+import { createTestSettings } from "@/testutils";
 
 describe("itemGroupIsActive", () => {
     it("returns true when the item group is active in the app settings", () => {
         const itemGroup = { id: 0, name: "Group" };
 
-        const appSettings = createTestAppSettings();
-        appSettings.spoilerSettings.items.itemGroups = [itemGroup];
+        const settings = createTestSettings();
+        settings.spoilerSettings.items.itemGroups = [itemGroup];
 
-        const isActive = itemGroupIsActive(itemGroup, appSettings);
+        const isActive = itemGroupIsActive(itemGroup, settings);
 
         expect(isActive).toEqual(true);
     });
@@ -16,9 +16,9 @@ describe("itemGroupIsActive", () => {
     it("returns false when the item group is inactive in the app settings", () => {
         const itemGroup = { id: 0, name: "Group" };
 
-        const appSettings = createTestAppSettings();
+        const settings = createTestSettings();
 
-        const isActive = itemGroupIsActive(itemGroup, appSettings);
+        const isActive = itemGroupIsActive(itemGroup, settings);
 
         expect(isActive).toEqual(false);
     });

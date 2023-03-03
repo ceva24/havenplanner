@@ -2,16 +2,15 @@ import type { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import ClassSelect, { findAndSetCharacter, resetAbilityCardsTabConfig } from "@/components/profile/class-select";
 import { characterClasses } from "@/loaders/character-classes";
-import { defaultCharacter } from "@/constants";
 import { enhancements } from "@/loaders/enhancements";
-import { createTestAppSettings, createTestCharacter, TestAppSettingsProvider } from "@/testutils";
+import { createTestSettings, createTestCharacter, TestSettingsProvider } from "@/testutils";
 import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
 
 const character: Character = createTestCharacter();
 const setCharacter = jest.fn();
 
-const appSettings: AppSettings = createTestAppSettings();
-const setAppSettings = jest.fn();
+const settings: Settings = createTestSettings();
+const setSettings = jest.fn();
 
 beforeEach(() => {
     jest.clearAllMocks();
@@ -20,7 +19,7 @@ beforeEach(() => {
 describe("class select", () => {
     it("renders", () => {
         render(<ClassSelect character={character} setCharacter={setCharacter} />, {
-            wrapper: TestAppSettingsProvider,
+            wrapper: TestSettingsProvider,
         });
 
         const classSelect = screen.queryByRole("button", { name: "Class" });
@@ -36,7 +35,7 @@ describe("findAndSetCharacter", () => {
             target: { value: characterClasses[3].name },
         } as SelectChangeEvent;
 
-        findAndSetCharacter(event, character, setCharacter);
+        findAndSetCharacter(event, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -51,12 +50,12 @@ describe("findAndSetCharacter", () => {
             target: { value: "Invalid class" },
         } as SelectChangeEvent;
 
-        findAndSetCharacter(event, character, setCharacter);
+        findAndSetCharacter(event, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            characterClass: defaultCharacter.characterClass,
+            characterClass: settings.gameSettings.defaultCharacter.characterClass,
         });
     });
 
@@ -69,7 +68,7 @@ describe("findAndSetCharacter", () => {
             target: { value: characterClasses[3].name },
         } as SelectChangeEvent;
 
-        findAndSetCharacter(event, character, setCharacter);
+        findAndSetCharacter(event, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -88,7 +87,7 @@ describe("findAndSetCharacter", () => {
             target: { value: characterClasses[3].name },
         } as SelectChangeEvent;
 
-        findAndSetCharacter(event, character, setCharacter);
+        findAndSetCharacter(event, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -117,7 +116,7 @@ describe("findAndSetCharacter", () => {
             target: { value: characterClasses[3].name },
         } as SelectChangeEvent;
 
-        findAndSetCharacter(event, character, setCharacter);
+        findAndSetCharacter(event, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -136,7 +135,7 @@ describe("findAndSetCharacter", () => {
             target: { value: characterClasses[3].name },
         } as SelectChangeEvent;
 
-        findAndSetCharacter(event, character, setCharacter);
+        findAndSetCharacter(event, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -162,7 +161,7 @@ describe("findAndSetCharacter", () => {
             target: { value: characterClasses[3].name },
         } as SelectChangeEvent;
 
-        findAndSetCharacter(event, character, setCharacter);
+        findAndSetCharacter(event, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -175,13 +174,13 @@ describe("findAndSetCharacter", () => {
 
 describe("resetAbilityCardsTabConfig", () => {
     it("resets the selected ability cards tab index app setting", () => {
-        const appSettingsShowHand: AppSettings = { ...appSettings, selectedAbilityCardsTabIndex: 1 };
+        const settingsShowHand: Settings = { ...settings, selectedAbilityCardsTabIndex: 1 };
 
-        resetAbilityCardsTabConfig(appSettingsShowHand, setAppSettings);
+        resetAbilityCardsTabConfig(settingsShowHand, setSettings);
 
-        expect(setAppSettings).toHaveBeenCalledTimes(1);
-        expect(setAppSettings).toHaveBeenCalledWith({
-            ...appSettings,
+        expect(setSettings).toHaveBeenCalledTimes(1);
+        expect(setSettings).toHaveBeenCalledWith({
+            ...settings,
             selectedAbilityCardsTabIndex: 0,
         });
     });

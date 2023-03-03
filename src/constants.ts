@@ -1,31 +1,4 @@
-import { characterClasses } from "@/loaders/character-classes";
 import { attackModifiers } from "@/loaders/attack-modifiers";
-import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
-
-const defaultCharacter: Character = {
-    name: "",
-    experience: 0,
-    gold: 0,
-    notes: "",
-    characterClass: characterClasses[0],
-    unlockedAbilityCards: [],
-    hand: [],
-    gainedEnhancements: [],
-    gainedPerks: [],
-    battleGoalCheckmarkGroups: createDefaultBattleGoals(),
-    items: [],
-};
-
-const defaultAppSettings: AppSettings = {
-    showPersonalQuest: false,
-    selectedAbilityCardsTabIndex: 0,
-    spoilerSettings: {
-        items: {
-            prosperity: 1,
-            itemGroups: [],
-        },
-    },
-};
 
 const baseAttackModifierDeck: AttackModifierDeckCard[] = [
     {
@@ -58,4 +31,4 @@ const baseAttackModifierDeck: AttackModifierDeckCard[] = [
     },
 ];
 
-export { defaultCharacter, defaultAppSettings, baseAttackModifierDeck };
+export { baseAttackModifierDeck };

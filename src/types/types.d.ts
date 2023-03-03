@@ -1,7 +1,14 @@
-interface AppSettings {
+interface Settings {
+    gameSettings: GameSettings;
+    spoilerSettings: SpoilerSettings;
     showPersonalQuest: boolean;
     selectedAbilityCardsTabIndex: number;
-    spoilerSettings: SpoilerSettings;
+}
+
+interface GameSettings {
+    game: Game;
+    itemGroups: ItemGroup[];
+    defaultCharacter: Character;
 }
 
 interface SpoilerSettings {

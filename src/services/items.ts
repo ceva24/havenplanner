@@ -1,6 +1,5 @@
 import type { Dictionary } from "lodash";
 import groupBy from "lodash.groupby";
-import { itemGroups } from "@/loaders/item-groups";
 import { items } from "@/loaders/items";
 
 const itemOrder = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
@@ -32,8 +31,11 @@ const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
         );
 };
 
-const shouldShowItemSpoilerHint = (spoilerSettings: SpoilerSettings): boolean => {
-    return spoilerSettings.items.prosperity < 9 || spoilerSettings.items.itemGroups.length !== itemGroups.length;
+const shouldShowItemSpoilerHint = (settings: Settings): boolean => {
+    return (
+        settings.spoilerSettings.items.prosperity < 9 ||
+        settings.spoilerSettings.items.itemGroups.length !== settings.gameSettings.itemGroups.length
+    );
 };
 
 export { getItems, getItemsByGroup, itemShouldBeHidden, orderItems, shouldShowItemSpoilerHint };

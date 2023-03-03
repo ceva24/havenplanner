@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import ProsperitySlider, { marks, updateProsperity } from "@/components/settings/prosperity-slider";
-import { createTestAppSettings, TestAppSettingsProvider } from "@/testutils";
+import { createTestSettings, TestSettingsProvider } from "@/testutils";
 import { itemGroups } from "@/loaders/item-groups";
 
 describe("prosperity slider", () => {
     it("renders", () => {
-        render(<ProsperitySlider />, { wrapper: TestAppSettingsProvider });
+        render(<ProsperitySlider />, { wrapper: TestSettingsProvider });
 
         const prosperitySlider = screen.queryByRole("slider", { name: "Prosperity" });
 
@@ -13,7 +13,7 @@ describe("prosperity slider", () => {
     });
 
     it("has nine steps", () => {
-        render(<ProsperitySlider />, { wrapper: TestAppSettingsProvider });
+        render(<ProsperitySlider />, { wrapper: TestSettingsProvider });
 
         const prosperitySlider = screen.getByRole("slider", { name: "Prosperity" });
 
@@ -21,7 +21,7 @@ describe("prosperity slider", () => {
     });
 
     it("defaults to prosperity level one", () => {
-        render(<ProsperitySlider />, { wrapper: TestAppSettingsProvider });
+        render(<ProsperitySlider />, { wrapper: TestSettingsProvider });
 
         const prosperitySlider = screen.getByRole("slider", { name: "Prosperity" });
 
@@ -74,30 +74,30 @@ describe("marks", () => {
 
 describe("updateProsperity", () => {
     it("updates the prosperity level app setting", () => {
-        const appSettings: AppSettings = createTestAppSettings();
+        const settings: Settings = createTestSettings();
 
-        const setAppSettings = jest.fn();
+        const setSettings = jest.fn();
 
-        updateProsperity(3, appSettings, setAppSettings);
+        updateProsperity(3, settings, setSettings);
 
-        expect(setAppSettings).toHaveBeenCalledTimes(1);
-        expect(setAppSettings).toHaveBeenCalledWith({
-            ...appSettings,
+        expect(setSettings).toHaveBeenCalledTimes(1);
+        expect(setSettings).toHaveBeenCalledWith({
+            ...settings,
             spoilerSettings: { items: { prosperity: 3, itemGroups: [] } },
         });
     });
 
     it("retains the active item groups", () => {
-        const appSettings: AppSettings = createTestAppSettings();
-        appSettings.spoilerSettings.items.itemGroups = [itemGroups[0]];
+        const settings: Settings = createTestSettings();
+        settings.spoilerSettings.items.itemGroups = [itemGroups[0]];
 
-        const setAppSettings = jest.fn();
+        const setSettings = jest.fn();
 
-        updateProsperity(3, appSettings, setAppSettings);
+        updateProsperity(3, settings, setSettings);
 
-        expect(setAppSettings).toHaveBeenCalledTimes(1);
-        expect(setAppSettings).toHaveBeenCalledWith({
-            ...appSettings,
+        expect(setSettings).toHaveBeenCalledTimes(1);
+        expect(setSettings).toHaveBeenCalledWith({
+            ...settings,
             spoilerSettings: { items: { prosperity: 3, itemGroups: [itemGroups[0]] } },
         });
     });

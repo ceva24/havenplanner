@@ -2,57 +2,76 @@ import { useState } from "react";
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
 import { decode } from "@/services/share/codec";
 import { hasSpoilers, spoilerSettingsForCharacter } from "@/services/load";
-import { defaultAppSettings, defaultCharacter } from "@/constants";
-import AppSettingsProvider from "@/hooks/use-app-settings";
+import SettingsProvider from "@/hooks/use-settings";
 import Header from "@/components/header/header";
 import AppContainer from "@/components/app-container";
 import LoadCharacterDialog from "@/components/load/load-character-dialog";
+import { getDefaultSettings } from "@/services/settings";
 
 interface IndexProps {
-    initialCharacter: Character;
-    spoilerSettings: SpoilerSettings;
-    characterHasSpoilers: boolean;
+    defaultSettings: Settings;
+    loadedCharacter?: Character;
+    loadedSpoilerSettings?: SpoilerSettings;
 }
 
-const Index: NextPage<IndexProps> = ({ initialCharacter, spoilerSettings, characterHasSpoilers }: IndexProps) => {
-    const [character, setCharacter] = useState<Character>(characterHasSpoilers ? defaultCharacter : initialCharacter);
-    const [appSettings, setAppSettings] = useState<AppSettings>(defaultAppSettings);
+const Index: NextPage<IndexProps> = ({ defaultSettings, loadedCharacter, loadedSpoilerSettings }: IndexProps) => {
+    const characterHasSpoilers: boolean = loadedCharacter ? hasSpoilers(loadedCharacter) : false;
+
+    const initialCharacter: Character = determineInitialCharacter(
+        loadedCharacter,
+        characterHasSpoilers,
+        defaultSettings.gameSettings
+    );
+
+    const [character, setCharacter] = useState<Character>(initialCharacter);
+    const [settings, setSettings] = useState<Settings>(defaultSettings);
 
     return (
-        <AppSettingsProvider appSettings={appSettings} setAppSettings={setAppSettings}>
+        <SettingsProvider settings={settings} setSettings={setSettings}>
             <Header character={character} setCharacter={setCharacter} />
             <AppContainer character={character} setCharacter={setCharacter} />
             <LoadCharacterDialog
-                spoilerSettings={spoilerSettings}
+                spoilerSettings={loadedSpoilerSettings ?? defaultSettings.spoilerSettings}
                 characterHasSpoilers={characterHasSpoilers}
-                character={initialCharacter}
+                character={loadedCharacter ?? initialCharacter}
                 setCharacter={setCharacter}
             />
-        </AppSettingsProvider>
+        </SettingsProvider>
     );
 };
 
-const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
-    let initialCharacter: Character = defaultCharacter;
-    let spoilerSettings: SpoilerSettings = defaultAppSettings.spoilerSettings;
+const determineInitialCharacter = (
+    loadedCharacter: Character | undefined,
+    characterHasSpoilers: boolean,
+    defaultGameSettings: GameSettings
+): Character => {
+    return !loadedCharacter || characterHasSpoilers ? defaultGameSettings.defaultCharacter : loadedCharacter;
+};
+
+const getServerSideProps: GetServerSideProps<IndexProps> = async (context: GetServerSidePropsContext) => {
+    let loadedCharacter: Character | undefined;
+    let loadedSpoilerSettings: SpoilerSettings | undefined;
 
     const encodedCharacterData: string | string[] | undefined = context.query.character;
 
     if (typeof encodedCharacterData === "string") {
         try {
-            initialCharacter = decode(encodedCharacterData);
-            spoilerSettings = spoilerSettingsForCharacter(initialCharacter);
-        } catch {}
+            loadedCharacter = decode(encodedCharacterData);
+            loadedSpoilerSettings = spoilerSettingsForCharacter(loadedCharacter);
+        } catch {
+            loadedCharacter = undefined;
+            loadedSpoilerSettings = undefined;
+        }
     }
 
     return {
         props: {
-            initialCharacter,
-            spoilerSettings,
-            characterHasSpoilers: hasSpoilers(initialCharacter),
+            defaultSettings: getDefaultSettings(),
+            ...(loadedCharacter && { loadedCharacter }),
+            ...(loadedSpoilerSettings && { loadedSpoilerSettings }),
         },
     };
 };
 
 export default Index;
-export { getServerSideProps };
+export { getServerSideProps, determineInitialCharacter };

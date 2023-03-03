@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import AppSettingsProvider from "@/hooks/use-app-settings";
-import { defaultAppSettings } from "@/constants";
+import SettingsProvider from "@/hooks/use-settings";
 import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
 
 const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): Character => {
@@ -132,14 +131,38 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
     return { ...character, ...characterDetailsToOverride };
 };
 
-const createTestAppSettings = (appSettingsDetailsToOverride?: Partial<AppSettings>): AppSettings => {
-    const appSettings: AppSettings = {
+const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Settings => {
+    const settings: Settings = {
+        gameSettings: {
+            game: {
+                id: 0,
+                name: "Gloomhaven Test",
+            },
+            itemGroups: [],
+            defaultCharacter: createTestCharacter(),
+        },
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 1,
         spoilerSettings: createTestItemSpoilerSettings(),
     };
 
-    return { ...appSettings, ...appSettingsDetailsToOverride };
+    return { ...settings, ...settingsDetailsToOverride };
+};
+
+const createTestSettingsWithSpoilerSettings = (prosperity: number, itemGroups: ItemGroup[]): Settings => {
+    return {
+        gameSettings: {
+            game: {
+                id: 0,
+                name: "Gloomhaven Test",
+            },
+            itemGroups: [],
+            defaultCharacter: createTestCharacter(),
+        },
+        showPersonalQuest: false,
+        selectedAbilityCardsTabIndex: 1,
+        spoilerSettings: { ...createTestItemSpoilerSettings(), items: { prosperity, itemGroups } },
+    };
 };
 
 const createTestItemSpoilerSettings = (prosperity?: number, itemGroups?: ItemGroup[]): SpoilerSettings => {
@@ -151,17 +174,17 @@ const createTestItemSpoilerSettings = (prosperity?: number, itemGroups?: ItemGro
     };
 };
 
-interface TestAppSettingsProviderProps {
+interface TestSettingsProviderProps {
     children: ReactNode;
-    appSettings?: AppSettings;
+    settings?: Settings;
 }
 
-const TestAppSettingsProvider = ({ appSettings, children }: TestAppSettingsProviderProps) => {
+const TestSettingsProvider = ({ settings, children }: TestSettingsProviderProps) => {
     return (
-        <AppSettingsProvider appSettings={appSettings ?? defaultAppSettings} setAppSettings={jest.fn()}>
+        <SettingsProvider settings={settings ?? createTestSettings()} setSettings={jest.fn()}>
             {children}
-        </AppSettingsProvider>
+        </SettingsProvider>
     );
 };
 
-export { createTestCharacter, createTestAppSettings, createTestItemSpoilerSettings, TestAppSettingsProvider };
+export { createTestCharacter, createTestSettings, createTestSettingsWithSpoilerSettings, TestSettingsProvider };

@@ -2,13 +2,13 @@ import type { Dictionary } from "lodash";
 import { itemGroups } from "@/loaders/item-groups";
 import { items } from "@/loaders/items";
 import { getItems, getItemsByGroup, itemShouldBeHidden, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
-import { createTestAppSettings, createTestItemSpoilerSettings } from "@/testutils";
+import { createTestSettings, createTestSettingsWithSpoilerSettings } from "@/testutils";
 
 describe("getItems", () => {
     it("returns items not hidden by spoiler settings", () => {
-        const spoilerSettings = createTestItemSpoilerSettings(2);
+        const settings = createTestSettingsWithSpoilerSettings(2, []);
 
-        const items = getItems(spoilerSettings);
+        const items = getItems(settings.spoilerSettings);
 
         expect(items).toHaveLength(21);
     });
@@ -16,9 +16,9 @@ describe("getItems", () => {
 
 describe("getItemsByGroup", () => {
     it("groups items by title", () => {
-        const spoilerSettings = createTestItemSpoilerSettings(1, [itemGroups[0]]);
+        const settings = createTestSettingsWithSpoilerSettings(1, [itemGroups[0]]);
 
-        const result: Dictionary<Item[]> = getItemsByGroup(spoilerSettings);
+        const result: Dictionary<Item[]> = getItemsByGroup(settings.spoilerSettings);
 
         expect(Object.keys(result)).toHaveLength(2);
         expect(Object.keys(result)).toEqual(["1", "Random Item Designs"]);
@@ -32,7 +32,7 @@ describe("itemShouldBeHidden", () => {
     it("returns true when the item is above the current prosperity", () => {
         const item = items[20];
 
-        const spoilerSettings = createTestAppSettings().spoilerSettings;
+        const spoilerSettings = createTestSettings().spoilerSettings;
 
         const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
 
@@ -42,9 +42,9 @@ describe("itemShouldBeHidden", () => {
     it("returns false when the item is equal to the current prosperity", () => {
         const item = items[20];
 
-        const spoilerSettings = createTestItemSpoilerSettings(2);
+        const settings = createTestSettingsWithSpoilerSettings(2, []);
 
-        const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
+        const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
         expect(shouldBeHidden).toEqual(false);
     });
@@ -52,9 +52,9 @@ describe("itemShouldBeHidden", () => {
     it("returns false when the item is below the current prosperity", () => {
         const item = items[20];
 
-        const spoilerSettings = createTestItemSpoilerSettings(8);
+        const settings = createTestSettingsWithSpoilerSettings(8, []);
 
-        const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
+        const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
         expect(shouldBeHidden).toEqual(false);
     });
@@ -62,7 +62,7 @@ describe("itemShouldBeHidden", () => {
     it("returns true when the item is not in the active item groups", () => {
         const item = items[25];
 
-        const spoilerSettings = createTestAppSettings().spoilerSettings;
+        const spoilerSettings = createTestSettings().spoilerSettings;
 
         const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
 
@@ -72,9 +72,9 @@ describe("itemShouldBeHidden", () => {
     it("returns false when the item is in the active item groups", () => {
         const item = items[25];
 
-        const spoilerSettings = createTestItemSpoilerSettings(1, [{ id: 0, name: item.group }]);
+        const settings = createTestSettingsWithSpoilerSettings(1, [{ id: 0, name: item.group }]);
 
-        const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
+        const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
         expect(shouldBeHidden).toEqual(false);
     });
@@ -146,41 +146,41 @@ describe("orderItems", () => {
 
 describe("shouldShowItemSpoilerHint", () => {
     it("should return true when prosperity level is < 9", () => {
-        const spoilerSettings = createTestItemSpoilerSettings(2);
+        const settings = createTestSettingsWithSpoilerSettings(2, []);
 
-        const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
+        const shouldShow = shouldShowItemSpoilerHint(settings);
 
         expect(shouldShow).toEqual(true);
     });
 
     it("should return true when prosperity level is 9 and no item groups are selected", () => {
-        const spoilerSettings = createTestItemSpoilerSettings(9);
+        const settings = createTestSettingsWithSpoilerSettings(9, []);
 
-        const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
+        const shouldShow = shouldShowItemSpoilerHint(settings);
 
         expect(shouldShow).toEqual(true);
     });
 
     it("should return true when prosperity level is 9 and some item groups are selected", () => {
-        const spoilerSettings = createTestItemSpoilerSettings(9, [itemGroups[0]]);
+        const settings = createTestSettingsWithSpoilerSettings(9, [itemGroups[0]]);
 
-        const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
+        const shouldShow = shouldShowItemSpoilerHint(settings);
 
         expect(shouldShow).toEqual(true);
     });
 
     it("should return true when prosperity level is < 9 and all item groups are selected", () => {
-        const spoilerSettings = createTestItemSpoilerSettings(8, itemGroups);
+        const settings = createTestSettingsWithSpoilerSettings(8, itemGroups);
 
-        const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
+        const shouldShow = shouldShowItemSpoilerHint(settings);
 
         expect(shouldShow).toEqual(true);
     });
 
     it("should return false when prosperity level is 9 and all item groups are selected", () => {
-        const spoilerSettings = createTestItemSpoilerSettings(9, itemGroups);
+        const settings = createTestSettingsWithSpoilerSettings(9, itemGroups);
 
-        const shouldShow = shouldShowItemSpoilerHint(spoilerSettings);
+        const shouldShow = shouldShowItemSpoilerHint(settings);
 
         expect(shouldShow).toEqual(false);
     });

@@ -1,13 +1,13 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Typography, Slider } from "@mui/material";
 import type { Mark } from "@mui/base/SliderUnstyled";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
+import { useSettingsContext } from "@/hooks/use-settings";
 
 const ProsperitySlider = () => {
-    const [appSettings, setAppSettings] = useAppSettingsContext();
+    const [settings, setSettings] = useSettingsContext();
 
     const onChange = (event: Event, value: number | number[]) => {
-        if (typeof value === "number") updateProsperity(value, appSettings, setAppSettings);
+        if (typeof value === "number") updateProsperity(value, settings, setSettings);
     };
 
     return (
@@ -22,7 +22,7 @@ const ProsperitySlider = () => {
                 marks={marks()}
                 min={1}
                 max={9}
-                value={appSettings.spoilerSettings.items.prosperity}
+                value={settings.spoilerSettings.items.prosperity}
                 onChange={onChange}
             />
         </>
@@ -36,16 +36,12 @@ const marks = (): Mark[] => {
     }));
 };
 
-const updateProsperity = (
-    prosperity: number,
-    appSettings: AppSettings,
-    setAppSettings: Dispatch<SetStateAction<AppSettings>>
-) => {
-    const newAppSettings: AppSettings = { ...appSettings };
+const updateProsperity = (prosperity: number, settings: Settings, setSettings: Dispatch<SetStateAction<Settings>>) => {
+    const newSettings: Settings = { ...settings };
 
-    newAppSettings.spoilerSettings.items.prosperity = prosperity;
+    newSettings.spoilerSettings.items.prosperity = prosperity;
 
-    setAppSettings(newAppSettings);
+    setSettings(newSettings);
 };
 
 export default ProsperitySlider;

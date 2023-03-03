@@ -1,10 +1,9 @@
-import type { Dispatch, KeyboardEvent, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { Box, Typography } from "@mui/material";
-import ItemGroup from "./item-group";
-import { addItem } from "@/components/items/items-autocomplete";
+import ItemGroup from "@/components/items/item-group";
 import FullScreenDialog from "@/components/core/full-screen-dialog";
 import { getItemsByGroup, shouldShowItemSpoilerHint } from "@/services/items";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
+import { useSettingsContext } from "@/hooks/use-settings";
 
 interface BrowseItemsDialogProps {
     isOpen: boolean;
@@ -14,12 +13,12 @@ interface BrowseItemsDialogProps {
 }
 
 const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: BrowseItemsDialogProps) => {
-    const [appSettings] = useAppSettingsContext();
+    const [settings] = useSettingsContext();
 
     return (
         <FullScreenDialog title="Browse items" isOpen={isOpen} handleClose={handleClose}>
             <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                {Object.entries(getItemsByGroup(appSettings.spoilerSettings)).map((itemGroup: [string, Item[]]) => {
+                {Object.entries(getItemsByGroup(settings.spoilerSettings)).map((itemGroup: [string, Item[]]) => {
                     const title: string = itemGroup[0];
                     const items: Item[] = itemGroup[1];
 
@@ -35,7 +34,7 @@ const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: Bro
                     );
                 })}
             </Box>
-            {shouldShowItemSpoilerHint(appSettings.spoilerSettings) && (
+            {shouldShowItemSpoilerHint(settings) && (
                 <Box textAlign="center" marginY={3}>
                     <Typography>Change your spoiler settings to see more items...</Typography>
                 </Box>

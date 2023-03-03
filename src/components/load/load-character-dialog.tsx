@@ -1,6 +1,6 @@
 import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 import { Box, Dialog, DialogContent, Stack, Typography } from "@mui/material";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
+import { useSettingsContext } from "@/hooks/use-settings";
 import { useClearQueryString } from "@/hooks/use-clear-query-string";
 import { Button, TextButton } from "@/components/core/button";
 import { ItemSpoiler } from "@/components/load/spoiler";
@@ -19,7 +19,7 @@ const LoadCharacterDialog = ({
     setCharacter,
 }: LoadCharacterDialogProps) => {
     const [loadCharacterDialogOpen, setLoadCharacterDialogOpen] = useState<boolean>(characterHasSpoilers);
-    const [appSettings, setAppSettings] = useAppSettingsContext();
+    const [settings, setSettings] = useSettingsContext();
     const clearQueryString = useClearQueryString();
 
     useEffect(() => {
@@ -30,8 +30,8 @@ const LoadCharacterDialog = ({
         if (shouldLoadCharacter) {
             setCharacter(character);
 
-            setAppSettings({
-                ...appSettings,
+            setSettings({
+                ...settings,
                 spoilerSettings,
             });
 

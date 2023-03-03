@@ -6,7 +6,7 @@ import Deck from "@/components/ability-cards/deck/deck";
 import Hand from "@/components/ability-cards/hand/hand";
 import Enhancements from "@/components/ability-cards/enhancements/enhancements";
 import EditHandDialog from "@/components/ability-cards/hand/edit-hand-dialog";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
+import { useSettingsContext } from "@/hooks/use-settings";
 
 interface AbilityCardsTabContainerProps {
     character: Character;
@@ -14,20 +14,20 @@ interface AbilityCardsTabContainerProps {
 }
 
 const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabContainerProps) => {
-    const [appSettings, setAppSettings] = useAppSettingsContext();
+    const [settings, setSettings] = useSettingsContext();
 
     const [editHandDialogOpen, setEditHandDialogOpen] = useState<boolean>(false);
     const responsiveTabProps = useResponsiveTabsProps();
 
     const handleChange = (event: SyntheticEvent, value: number) => {
-        setAppSettings({ ...appSettings, selectedAbilityCardsTabIndex: value });
+        setSettings({ ...settings, selectedAbilityCardsTabIndex: value });
     };
 
     return (
         <>
             <Tabs
                 centered
-                value={appSettings.selectedAbilityCardsTabIndex}
+                value={settings.selectedAbilityCardsTabIndex}
                 onChange={handleChange}
                 {...responsiveTabProps}
             >
@@ -55,7 +55,7 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
             </Tabs>
 
             <TabPanel
-                currentTabIndex={appSettings.selectedAbilityCardsTabIndex}
+                currentTabIndex={settings.selectedAbilityCardsTabIndex}
                 index={0}
                 id="deck-tabpanel"
                 ariaLabelledBy="deck-tab"
@@ -63,7 +63,7 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
                 <Deck character={character} setCharacter={setCharacter} />
             </TabPanel>
             <TabPanel
-                currentTabIndex={appSettings.selectedAbilityCardsTabIndex}
+                currentTabIndex={settings.selectedAbilityCardsTabIndex}
                 index={1}
                 id="hand-tabpanel"
                 ariaLabelledBy="hand-tab"
@@ -84,7 +84,7 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
                 />
             </TabPanel>
             <TabPanel
-                currentTabIndex={appSettings.selectedAbilityCardsTabIndex}
+                currentTabIndex={settings.selectedAbilityCardsTabIndex}
                 index={2}
                 id="enhancements-tabpanel"
                 ariaLabelledBy="enhancements-tab"

@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import ItemGroups, { toggleItemGroup } from "@/components/settings/item-groups";
-import { createTestAppSettings, TestAppSettingsProvider } from "@/testutils";
+import { createTestSettings, TestSettingsProvider } from "@/testutils";
 
-const setAppSettings = jest.fn();
+const setSettings = jest.fn();
 
 beforeEach(() => {
     jest.resetAllMocks();
@@ -18,13 +18,13 @@ describe("item groups", () => {
         ${"Other Items"}
         ${"Solo Scenario Items"}
     `("renders the $group checkbox", ({ group }: ItemGroupsProps) => {
-        const appSettings = createTestAppSettings();
-        appSettings.spoilerSettings.items.itemGroups = [{ id: 0, name: group }];
+        const settings = createTestSettings();
+        settings.spoilerSettings.items.itemGroups = [{ id: 0, name: group }];
 
         render(
-            <TestAppSettingsProvider appSettings={appSettings}>
+            <TestSettingsProvider settings={settings}>
                 <ItemGroups />
-            </TestAppSettingsProvider>
+            </TestSettingsProvider>
         );
 
         const itemGroup = screen.queryByRole("checkbox", { name: group });
@@ -40,14 +40,14 @@ describe("toggleItemGroup", () => {
             name: "Item Group",
         };
 
-        const appSettings = createTestAppSettings();
+        const settings = createTestSettings();
 
-        toggleItemGroup(itemGroup, appSettings, setAppSettings);
+        toggleItemGroup(itemGroup, settings, setSettings);
 
-        expect(setAppSettings).toHaveBeenCalledTimes(1);
-        expect(setAppSettings).toHaveBeenCalledWith({
-            ...appSettings,
-            spoilerSettings: { ...appSettings.spoilerSettings, items: { prosperity: 1, itemGroups: [itemGroup] } },
+        expect(setSettings).toHaveBeenCalledTimes(1);
+        expect(setSettings).toHaveBeenCalledWith({
+            ...settings,
+            spoilerSettings: { ...settings.spoilerSettings, items: { prosperity: 1, itemGroups: [itemGroup] } },
         });
     });
 
@@ -57,15 +57,15 @@ describe("toggleItemGroup", () => {
             name: "Item Group",
         };
 
-        const appSettings = createTestAppSettings();
-        appSettings.spoilerSettings.items.itemGroups = [itemGroup];
+        const settings = createTestSettings();
+        settings.spoilerSettings.items.itemGroups = [itemGroup];
 
-        toggleItemGroup(itemGroup, appSettings, setAppSettings);
+        toggleItemGroup(itemGroup, settings, setSettings);
 
-        expect(setAppSettings).toHaveBeenCalledTimes(1);
-        expect(setAppSettings).toHaveBeenCalledWith({
-            ...appSettings,
-            spoilerSettings: { ...appSettings.spoilerSettings, items: { prosperity: 1, itemGroups: [] } },
+        expect(setSettings).toHaveBeenCalledTimes(1);
+        expect(setSettings).toHaveBeenCalledWith({
+            ...settings,
+            spoilerSettings: { ...settings.spoilerSettings, items: { prosperity: 1, itemGroups: [] } },
         });
     });
 });

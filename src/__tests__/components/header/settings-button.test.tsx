@@ -1,15 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import SettingsButton, { removeSpoilerItems } from "@/components/header/settings-button";
 import {
-    createTestAppSettings,
+    createTestSettings,
     createTestCharacter,
-    createTestItemSpoilerSettings,
-    TestAppSettingsProvider,
+    createTestSettingsWithSpoilerSettings,
+    TestSettingsProvider,
 } from "@/testutils";
 import { items } from "@/loaders/items";
 
 const setCharacter = jest.fn();
-const spoilerSettings = createTestAppSettings().spoilerSettings;
+const spoilerSettings = createTestSettings().spoilerSettings;
 
 beforeEach(() => {
     jest.resetAllMocks();
@@ -18,7 +18,7 @@ beforeEach(() => {
 describe("settings button", () => {
     it("renders", () => {
         render(<SettingsButton character={createTestCharacter()} setCharacter={setCharacter} />, {
-            wrapper: TestAppSettingsProvider,
+            wrapper: TestSettingsProvider,
         });
 
         const settingsButton = screen.queryByRole("button", { name: "Settings" });
@@ -58,9 +58,9 @@ describe("removeSpoilerItems", () => {
             items: [{ id: "1", item: items[0] }],
         });
 
-        const prosperityTwoSpoilerSettings = createTestItemSpoilerSettings(2);
+        const prosperityTwoSettings = createTestSettingsWithSpoilerSettings(2, []);
 
-        removeSpoilerItems(character, setCharacter, prosperityTwoSpoilerSettings);
+        removeSpoilerItems(character, setCharacter, prosperityTwoSettings.spoilerSettings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);
@@ -104,9 +104,9 @@ describe("removeSpoilerItems", () => {
             items: [{ id: "1", item }],
         });
 
-        const spoilerSettings = createTestItemSpoilerSettings(2, [{ id: 1, name: item.group }]);
+        const settings = createTestSettingsWithSpoilerSettings(2, [{ id: 1, name: item.group }]);
 
-        removeSpoilerItems(character, setCharacter, spoilerSettings);
+        removeSpoilerItems(character, setCharacter, settings.spoilerSettings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);
