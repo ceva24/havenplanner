@@ -74,4 +74,4 @@ const getServerSideProps: GetServerSideProps<IndexProps> = async (context: GetSe
 };
 
 export default Index;
-export { getServerSideProps, determineInitialCharacter };
+export { getServerSideProps, determineInitialCharacter, type IndexProps };

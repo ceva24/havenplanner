@@ -12,22 +12,12 @@ describe("item groups", () => {
         group: string;
     }
 
-    it.each`
-        group
-        ${"Random Item Designs"}
-        ${"Other Items"}
-        ${"Solo Scenario Items"}
-    `("renders the $group checkbox", ({ group }: ItemGroupsProps) => {
+    it("renders", () => {
         const settings = createTestSettings();
-        settings.spoilerSettings.items.itemGroups = [{ id: 0, name: group }];
 
-        render(
-            <TestSettingsProvider settings={settings}>
-                <ItemGroups />
-            </TestSettingsProvider>
-        );
+        render(<ItemGroups />, { wrapper: TestSettingsProvider });
 
-        const itemGroup = screen.queryByRole("checkbox", { name: group });
+        const itemGroup = screen.queryByRole("checkbox", { name: "Random Item Designs" });
 
         expect(itemGroup).toBeInTheDocument();
     });

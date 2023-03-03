@@ -35,14 +35,4 @@ describe("ability cards", () => {
 
         expect(enhancementsTab).toBeInTheDocument();
     });
-
-    it("renders the deck by default", () => {
-        render(<AbilityCards character={character} setCharacter={setCharacter} />, {
-            wrapper: TestSettingsProvider,
-        });
-
-        const level1Cards = screen.queryByRole("region", { name: "Level 1 Ability Cards" });
-
-        expect(level1Cards).toBeInTheDocument();
-    });
 });

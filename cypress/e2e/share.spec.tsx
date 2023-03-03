@@ -29,6 +29,24 @@ describe("share", () => {
             .should("match", /http:\/\/localhost:3000\?character=\w{10,}/);
     });
 
+    it("hides the share link dialog when clicking on the close button", () => {
+        cy.visit("/");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().should("be.visible");
+
+        cy.clickCloseButton();
+
+        cy.findShareLinkDialog().not("should.be.visible");
+    });
+
+    it("loads the default character when character data is invalid", () => {
+        cy.visit("/?character=abc");
+
+        cy.findSelectClassButton().should("have.text", "Brute");
+    });
+
     it("captures the character details in a shareable link", () => {
         cy.visit("/");
 
@@ -50,18 +68,6 @@ describe("share", () => {
         cy.findExperienceField().should("have.value", "240");
         cy.findGoldField().should("have.value", "100");
         cy.findNotesField().should("have.value", "Test");
-    });
-
-    it("hides the share link dialog when clicking on the close button", () => {
-        cy.visit("/");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().should("be.visible");
-
-        cy.clickCloseButton();
-
-        cy.findShareLinkDialog().not("should.be.visible");
     });
 
     it("captures the personal quest in a shareable link", () => {

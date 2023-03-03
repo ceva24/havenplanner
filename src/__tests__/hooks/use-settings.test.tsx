@@ -7,7 +7,7 @@ const character: Character = createTestCharacter();
 const settings: Settings = createTestSettings();
 const setSettings = jest.fn();
 
-describe("app settings provider", () => {
+describe("settings provider", () => {
     it("renders children", () => {
         render(
             <SettingsProvider settings={settings} setSettings={setSettings}>
@@ -22,7 +22,7 @@ describe("app settings provider", () => {
 });
 
 describe("useSettingsContext", () => {
-    it("throws an error when app settings have not been set", () => {
+    it("throws an error when settings have not been set", () => {
         expect(() => {
             render(<ClassSelect character={character} setCharacter={jest.fn()} />);
         }).toThrowError("No SettingsContext Provider found when calling useSettingsContext");

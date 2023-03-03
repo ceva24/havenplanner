@@ -138,12 +138,17 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
                 id: 0,
                 name: "Gloomhaven Test",
             },
-            itemGroups: [],
+            itemGroups: [{ id: 1, name: "Random Item Designs" }],
             defaultCharacter: createTestCharacter(),
         },
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 1,
-        spoilerSettings: createTestItemSpoilerSettings(),
+        spoilerSettings: {
+            items: {
+                prosperity: 1,
+                itemGroups: [],
+            },
+        },
     };
 
     return { ...settings, ...settingsDetailsToOverride };
@@ -151,25 +156,13 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
 
 const createTestSettingsWithSpoilerSettings = (prosperity: number, itemGroups: ItemGroup[]): Settings => {
     return {
-        gameSettings: {
-            game: {
-                id: 0,
-                name: "Gloomhaven Test",
-            },
-            itemGroups: [],
-            defaultCharacter: createTestCharacter(),
-        },
-        showPersonalQuest: false,
-        selectedAbilityCardsTabIndex: 1,
-        spoilerSettings: { ...createTestItemSpoilerSettings(), items: { prosperity, itemGroups } },
-    };
-};
+        ...createTestSettings(),
 
-const createTestItemSpoilerSettings = (prosperity?: number, itemGroups?: ItemGroup[]): SpoilerSettings => {
-    return {
-        items: {
-            prosperity: prosperity ?? 1,
-            itemGroups: itemGroups ?? [],
+        spoilerSettings: {
+            items: {
+                prosperity,
+                itemGroups,
+            },
         },
     };
 };
