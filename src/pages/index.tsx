@@ -43,9 +43,9 @@ const Index: NextPage<IndexProps> = ({ defaultSettings, loadedCharacter, loadedS
 const determineInitialCharacter = (
     loadedCharacter: Character | undefined,
     characterHasSpoilers: boolean,
-    defaultGameSettings: GameData
+    gameData: GameData
 ): Character => {
-    return !loadedCharacter || characterHasSpoilers ? defaultGameSettings.defaultCharacter : loadedCharacter;
+    return !loadedCharacter || characterHasSpoilers ? gameData.defaultCharacter : loadedCharacter;
 };
 
 const getServerSideProps: GetServerSideProps<IndexProps> = async (context: GetServerSidePropsContext) => {
