@@ -5,7 +5,7 @@ describe("getDefaultSettings", () => {
     it("returns default settings", () => {
         const settings = getDefaultSettings();
 
-        expect(settings.gameSettings.defaultCharacter.characterClass.id).toEqual(1);
+        expect(settings.gameData.defaultCharacter.characterClass.id).toEqual(1);
 
         expect(settings.selectedAbilityCardsTabIndex).toEqual(0);
         expect(settings.showPersonalQuest).toEqual(false);

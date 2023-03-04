@@ -133,7 +133,7 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
 
 const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Settings => {
     const settings: Settings = {
-        gameSettings: {
+        gameData: {
             game: {
                 id: 0,
                 name: "Gloomhaven Test",

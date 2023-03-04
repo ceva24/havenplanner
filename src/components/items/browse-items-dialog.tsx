@@ -18,7 +18,7 @@ const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: Bro
     return (
         <FullScreenDialog title="Browse items" isOpen={isOpen} handleClose={handleClose}>
             <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                {Object.entries(getItemsByGroup(settings.spoilerSettings)).map((itemGroup: [string, Item[]]) => {
+                {Object.entries(getItemsByGroup(settings)).map((itemGroup: [string, Item[]]) => {
                     const title: string = itemGroup[0];
                     const items: Item[] = itemGroup[1];
 

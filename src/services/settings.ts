@@ -1,38 +1,11 @@
-import { games } from "@/loaders/games";
-import { itemGroups } from "@/loaders/item-groups";
-import { characterClasses } from "@/loaders/character-classes";
-import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
+import { getDefaultGameData } from "@/services/game/gloomhaven";
 
 const getDefaultSettings = (): Settings => {
     return {
-        gameSettings: getDefaultGameSettings(),
+        gameData: getDefaultGameData(),
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 0,
         spoilerSettings: getDefaultSpoilerSettings(),
-    };
-};
-
-const getDefaultGameSettings = (): GameSettings => {
-    return {
-        game: games[0],
-        itemGroups,
-        defaultCharacter: getDefaultCharacter(),
-    };
-};
-
-const getDefaultCharacter = (): Character => {
-    return {
-        name: "",
-        experience: 0,
-        gold: 0,
-        notes: "",
-        characterClass: characterClasses[0],
-        unlockedAbilityCards: [],
-        hand: [],
-        gainedEnhancements: [],
-        gainedPerks: [],
-        battleGoalCheckmarkGroups: createDefaultBattleGoals(),
-        items: [],
     };
 };
 

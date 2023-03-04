@@ -1,17 +1,16 @@
 import type { Dictionary } from "lodash";
 import groupBy from "lodash.groupby";
-import { items } from "@/loaders/items";
 
 const itemOrder = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
 
-const getItems = (spoilerSettings: SpoilerSettings): Item[] => {
-    return items.filter((item: Item) => !itemShouldBeHidden(item, spoilerSettings));
+const getItems = (settings: Settings): Item[] => {
+    return settings.gameData.items.filter((item: Item) => !itemShouldBeHidden(item, settings.spoilerSettings));
 };
 
-const getItemsByGroup = (spoilerSettings: SpoilerSettings): Dictionary<Item[]> => {
-    const items = getItems(spoilerSettings);
+const getItemsByGroup = (settings: Settings): Dictionary<Item[]> => {
+    const filteredItems = getItems(settings);
 
-    return groupBy(items, (item: Item) => item.group);
+    return groupBy(filteredItems, (item: Item) => item.group);
 };
 
 const itemShouldBeHidden = (item: Item, spoilerSettings: SpoilerSettings): boolean => {
@@ -34,7 +33,7 @@ const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
 const shouldShowItemSpoilerHint = (settings: Settings): boolean => {
     return (
         settings.spoilerSettings.items.prosperity < 9 ||
-        settings.spoilerSettings.items.itemGroups.length !== settings.gameSettings.itemGroups.length
+        settings.spoilerSettings.items.itemGroups.length !== settings.gameData.itemGroups.length
     );
 };
 

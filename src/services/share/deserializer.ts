@@ -3,7 +3,7 @@ import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
 import { enhancements } from "@/loaders/enhancements";
-import { getDefaultSettings } from "@/services/settings";
+import { getDefaultGameData } from "@/services/game/gloomhaven";
 
 const deserialize = (data: string): Character => {
     const characterData = JSON.parse(data) as SerializedCharacter;
@@ -30,7 +30,7 @@ const deserialize = (data: string): Character => {
 const deserializeCharacterClass = (characterClassId: number): CharacterClass => {
     return (
         characterClasses.find((characterClass: CharacterClass) => characterClass.id === characterClassId) ??
-        getDefaultSettings().gameSettings.defaultCharacter.characterClass
+        getDefaultGameData().defaultCharacter.characterClass
     );
 };
 

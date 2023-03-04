@@ -1,22 +1,26 @@
 import { Box } from "@mui/material";
 import AttackModifiersGrid from "@/components/perks/attack-modifiers-grid";
-import { baseAttackModifierDeck } from "@/constants";
 import { applyPerksTo } from "@/services/perks/perk";
 import {
     baseAttackModifierDeckOrder,
     classAttackModifierCardNames,
     splitAttackModifierDeckIntoBaseAndClass,
 } from "@/services/perks/attack-modifier";
+import { useSettingsContext } from "@/hooks/use-settings";
 
 interface AttackModifiersProps {
     character: Character;
 }
 
 const AttackModifiers = ({ character }: AttackModifiersProps) => {
-    const attackModifierDeckWithPerks = applyPerksTo(baseAttackModifierDeck, character.gainedPerks);
+    const [settings] = useSettingsContext();
 
-    const [initialAttackModifiers, classAttackModifiers] =
-        splitAttackModifierDeckIntoBaseAndClass(attackModifierDeckWithPerks);
+    const attackModifierDeckWithPerks = applyPerksTo(settings.gameData.baseAttackModifierDeck, character.gainedPerks);
+
+    const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(
+        attackModifierDeckWithPerks,
+        settings.gameData.baseAttackModifierDeck
+    );
 
     return (
         <Box component="section" aria-label="Attack Modifier Deck">

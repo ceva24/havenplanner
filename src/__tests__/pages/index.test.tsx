@@ -71,7 +71,7 @@ describe("getServerSideProps", () => {
 
         const data = (await getServerSideProps(context)) as { props: IndexProps };
 
-        expect(data.props.defaultSettings.gameSettings.defaultCharacter).toBeTruthy();
+        expect(data.props.defaultSettings.gameData.defaultCharacter).toBeTruthy();
     });
 });
 

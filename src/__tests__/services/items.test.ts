@@ -163,11 +163,11 @@ describe("shouldShowItemSpoilerHint", () => {
 
     it("should return true when prosperity level is 9 and some item groups are selected", () => {
         const settings = createTestSettingsWithSpoilerSettings(9, []);
-        settings.gameSettings.itemGroups = [
+        settings.gameData.itemGroups = [
             { id: 1, name: "Random Item Designs" },
             { id: 2, name: "Other Items" },
         ];
-        settings.spoilerSettings.items.itemGroups = [settings.gameSettings.itemGroups[0]];
+        settings.spoilerSettings.items.itemGroups = [settings.gameData.itemGroups[0]];
 
         const shouldShow = shouldShowItemSpoilerHint(settings);
 
@@ -176,7 +176,7 @@ describe("shouldShowItemSpoilerHint", () => {
 
     it("should return true when prosperity level is < 9 and all item groups are selected", () => {
         const settings = createTestSettingsWithSpoilerSettings(8, []);
-        settings.spoilerSettings.items.itemGroups = settings.gameSettings.itemGroups;
+        settings.spoilerSettings.items.itemGroups = settings.gameData.itemGroups;
 
         const shouldShow = shouldShowItemSpoilerHint(settings);
 
@@ -185,7 +185,7 @@ describe("shouldShowItemSpoilerHint", () => {
 
     it("should return false when prosperity level is 9 and all item groups are selected", () => {
         const settings = createTestSettingsWithSpoilerSettings(9, []);
-        settings.spoilerSettings.items.itemGroups = settings.gameSettings.itemGroups;
+        settings.spoilerSettings.items.itemGroups = settings.gameData.itemGroups;
 
         const shouldShow = shouldShowItemSpoilerHint(settings);
 

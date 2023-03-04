@@ -31,7 +31,7 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 disablePortal
                 blurOnSelect
                 value={null}
-                options={getItems(settings.spoilerSettings)}
+                options={getItems(settings)}
                 {...(shouldShowItemSpoilerHint(settings) && {
                     noOptionsText: "No options - check your spoiler settings",
                 })}

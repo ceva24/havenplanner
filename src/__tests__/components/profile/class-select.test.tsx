@@ -55,7 +55,7 @@ describe("findAndSetCharacter", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            characterClass: settings.gameSettings.defaultCharacter.characterClass,
+            characterClass: settings.gameData.defaultCharacter.characterClass,
         });
     });
 

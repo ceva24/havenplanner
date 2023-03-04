@@ -20,7 +20,7 @@ const Index: NextPage<IndexProps> = ({ defaultSettings, loadedCharacter, loadedS
     const initialCharacter: Character = determineInitialCharacter(
         loadedCharacter,
         characterHasSpoilers,
-        defaultSettings.gameSettings
+        defaultSettings.gameData
     );
 
     const [character, setCharacter] = useState<Character>(initialCharacter);
@@ -43,7 +43,7 @@ const Index: NextPage<IndexProps> = ({ defaultSettings, loadedCharacter, loadedS
 const determineInitialCharacter = (
     loadedCharacter: Character | undefined,
     characterHasSpoilers: boolean,
-    defaultGameSettings: GameSettings
+    defaultGameSettings: GameData
 ): Character => {
     return !loadedCharacter || characterHasSpoilers ? defaultGameSettings.defaultCharacter : loadedCharacter;
 };

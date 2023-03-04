@@ -1,12 +1,18 @@
 interface Settings {
-    gameSettings: GameSettings;
+    gameData: GameData;
     spoilerSettings: SpoilerSettings;
     showPersonalQuest: boolean;
     selectedAbilityCardsTabIndex: number;
 }
 
-interface GameSettings {
+interface GameData {
     game: Game;
+    characterClasses: CharacterClass[];
+    personalQuests: PersonalQuest[];
+    enhancements: Enhancement[];
+    baseAttackModifierDeck: AttackModifierDeckCard[];
+    battleGoalCheckmarks: BattleGoalCheckmarkGroup[];
+    items: Item[];
     itemGroups: ItemGroup[];
     defaultCharacter: Character;
 }
