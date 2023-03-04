@@ -1,14 +1,14 @@
 import { render, screen, within } from "@testing-library/react";
 import AttackModifiersGrid from "@/components/perks/attack-modifiers-grid";
-import { baseAttackModifierDeck } from "@/constants";
+import { createTestAttackModifierDeckCard } from "@/test/test-fixtures";
 
 describe("attack modifiers", () => {
     it("renders the attack modifier cards", () => {
-        const deck: AttackModifierDeckCard[] = [baseAttackModifierDeck[0]];
+        const deck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+1")];
 
         render(<AttackModifiersGrid deck={deck} orderedCardNames={[]} />);
 
-        const attackModifierCard = screen.getByRole("img", { name: `${baseAttackModifierDeck[0].card.name} card` });
+        const attackModifierCard = screen.getByRole("img", { name: "+1 card" });
 
         const attackModifierDeckCard = attackModifierCard.closest("[id^=attack-modifier-card-details]");
 
@@ -18,7 +18,10 @@ describe("attack modifiers", () => {
     });
 
     it("renders attack modifier cards in the correct order", () => {
-        const deck: AttackModifierDeckCard[] = [baseAttackModifierDeck[2], baseAttackModifierDeck[3]]; // +1
+        const deck: AttackModifierDeckCard[] = [
+            createTestAttackModifierDeckCard(1, "+1"),
+            createTestAttackModifierDeckCard(1, "+0"),
+        ];
 
         render(<AttackModifiersGrid deck={deck} orderedCardNames={["+0", "+1"]} />);
 

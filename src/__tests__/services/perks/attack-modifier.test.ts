@@ -4,7 +4,7 @@ import {
     orderAttackModifierCards,
     splitAttackModifierDeckIntoBaseAndClass,
 } from "@/services/perks/attack-modifier";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestAttackModifierDeckCard, createTestCharacter } from "@/test/test-fixtures";
 
 const perkWithBaseAttackModifier: Perk = {
     id: 1,
@@ -63,14 +63,10 @@ describe("classAttackModifierCardNames", () => {
 
 describe("splitAttackModifierDeckIntoBaseAndClass", () => {
     it("returns cards from the base modifier deck", () => {
-        const deck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[2], // +1
-                count: 5,
-            },
-        ];
+        const deck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+1")];
+        const baseDeck: AttackModifierDeckCard[] = [deck[0]];
 
-        const [initialAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck);
+        const [initialAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
 
         expect(initialAttackModifiers).toHaveLength(1);
         expect(initialAttackModifiers[0]).toEqual(deck[0]);
@@ -78,56 +74,22 @@ describe("splitAttackModifierDeckIntoBaseAndClass", () => {
 
     it("returns cards from the class modifier deck", () => {
         const deck: AttackModifierDeckCard[] = [
-            {
-                card: {
-                    id: 7,
-                    name: "+3",
-                    imageUrl: "/attack-modifiers/gloomhaven/BR/gh-am-br-07.webp",
-                },
-                count: 1,
-            },
+            createTestAttackModifierDeckCard(1, "+1"),
+            createTestAttackModifierDeckCard(2, "+3"),
         ];
+        const baseDeck: AttackModifierDeckCard[] = [deck[0]];
 
-        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck);
-
-        expect(classAttackModifiers).toHaveLength(1);
-        expect(classAttackModifiers[0]).toEqual(deck[0]);
-    });
-
-    it("splits the deck into base attack modifiers and class attack modifiers", () => {
-        const deck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[2], // +1
-                count: 5,
-            },
-            {
-                card: {
-                    id: 7,
-                    name: "+3",
-                    imageUrl: "/attack-modifiers/gloomhaven/BR/gh-am-br-07.webp",
-                },
-                count: 1,
-            },
-        ];
-
-        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck);
-
-        expect(initialAttackModifiers).toHaveLength(1);
-        expect(initialAttackModifiers[0]).toEqual(deck[0]);
+        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
 
         expect(classAttackModifiers).toHaveLength(1);
         expect(classAttackModifiers[0]).toEqual(deck[1]);
     });
 
     it("returns an empty list when there are no class modifiers", () => {
-        const deck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[2], // +1
-                count: 5,
-            },
-        ];
+        const deck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+1")];
+        const baseDeck: AttackModifierDeckCard[] = [deck[0]];
 
-        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck);
+        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
 
         expect(classAttackModifiers).toHaveLength(0);
     });

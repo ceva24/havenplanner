@@ -169,6 +169,17 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
     return { ...character, ...characterDetailsToOverride };
 };
 
+const createTestAttackModifierDeckCard = (id: number, name: string): AttackModifierDeckCard => {
+    return {
+        card: {
+            id,
+            name,
+            imageUrl: "",
+        },
+        count: 1,
+    };
+};
+
 const createTestItem = (id: number, name: string, group: string, slot?: string): Item => {
     return {
         id,
@@ -191,6 +202,7 @@ export {
     createTestSettings,
     createTestSettingsWithSpoilerSettings,
     createTestCharacter,
+    createTestAttackModifierDeckCard,
     createTestItem,
     createTestItemGroup,
 };
