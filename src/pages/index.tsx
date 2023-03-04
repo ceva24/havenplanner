@@ -1,12 +1,12 @@
 import { useState } from "react";
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
-import { decode } from "@/services/share/codec";
+import { getDefaultSettings } from "@/services/settings";
 import { hasSpoilers, spoilerSettingsForCharacter } from "@/services/load";
+import { decode } from "@/services/share/codec";
 import SettingsProvider from "@/hooks/use-settings";
 import Header from "@/components/header/header";
 import AppContainer from "@/components/app-container";
 import LoadCharacterDialog from "@/components/load/load-character-dialog";
-import { getDefaultSettings } from "@/services/settings";
 
 interface IndexProps {
     defaultSettings: Settings;
