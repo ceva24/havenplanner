@@ -32,7 +32,7 @@ const customJestConfig = {
         "@/constants": "<rootDir>/src/constants",
         "@/theme": "<rootDir>/src/theme",
         "@/utils": "<rootDir>/src/utils",
-        "@/testutils": "<rootDir>/src/__tests__/utils",
+        "@/test/(.*)": "<rootDir>/src/__tests__/$1",
     },
 };
 

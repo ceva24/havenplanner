@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Header from "@/components/header/header";
-import { createTestCharacter, TestSettingsProvider } from "@/testutils";
+
+import { createTestCharacter } from "@/test/utils";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character: Character = createTestCharacter();
 const setCharacter = jest.fn();

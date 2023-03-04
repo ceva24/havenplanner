@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ShareButton, { retrieveAndSetShareableLink } from "@/components/header/share-button";
 import * as encoderService from "@/services/share/codec";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/utils";
 
 const character: Character = createTestCharacter();
 

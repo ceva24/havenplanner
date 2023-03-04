@@ -4,7 +4,7 @@ import {
     isCardInHandForCharacter,
     wouldBeExceedingHandSizeLimit,
 } from "@/services/ability-cards/hand";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/utils";
 
 describe("getAllAvailableAbilityCardsForCharacter", () => {
     it("includes level 1 cards", () => {

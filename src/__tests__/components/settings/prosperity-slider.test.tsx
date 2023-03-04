@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ProsperitySlider, { marks, updateProsperity } from "@/components/settings/prosperity-slider";
-import { createTestSettings, TestSettingsProvider } from "@/testutils";
+import { createTestSettings } from "@/test/utils";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 import { itemGroups } from "@/loaders/item-groups";
 
 describe("prosperity slider", () => {

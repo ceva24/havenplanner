@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import PersonalQuest from "@/components/profile/personal-quest";
-import { createTestCharacter, TestSettingsProvider } from "@/testutils";
+
+import { createTestCharacter } from "@/test/utils";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character: Character = createTestCharacter();
 

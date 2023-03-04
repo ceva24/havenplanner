@@ -5,7 +5,7 @@ import {
     createTestItemGroup,
     createTestSettings,
     createTestSettingsWithSpoilerSettings,
-} from "@/testutils";
+} from "@/test/utils";
 
 describe("getItems", () => {
     it("returns items not hidden by spoiler settings", () => {

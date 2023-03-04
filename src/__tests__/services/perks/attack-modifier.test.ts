@@ -4,7 +4,7 @@ import {
     orderAttackModifierCards,
     splitAttackModifierDeckIntoBaseAndClass,
 } from "@/services/perks/attack-modifier";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/utils";
 
 const perkWithBaseAttackModifier: Perk = {
     id: 1,

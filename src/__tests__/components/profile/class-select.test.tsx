@@ -3,8 +3,8 @@ import { render, screen } from "@testing-library/react";
 import ClassSelect, { findAndSetCharacter, resetAbilityCardsTabConfig } from "@/components/profile/class-select";
 import { characterClasses } from "@/loaders/character-classes";
 import { enhancements } from "@/loaders/enhancements";
-import { createTestSettings, createTestCharacter, TestSettingsProvider } from "@/testutils";
-import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
+import { createTestSettings, createTestCharacter } from "@/test/utils";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character: Character = createTestCharacter();
 const setCharacter = jest.fn();

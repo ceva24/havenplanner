@@ -1,6 +1,7 @@
 import { render, screen, within } from "@testing-library/react";
 import BrowseItemsDialog from "@/components/items/browse-items-dialog";
-import { createTestSettings, createTestCharacter, TestSettingsProvider } from "@/testutils";
+import { createTestSettings, createTestCharacter } from "@/test/utils";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character = createTestCharacter();
 const prosperityNineSettings = createTestSettings({

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import SettingsProvider from "@/hooks/use-settings";
-import { createTestSettings, createTestCharacter } from "@/testutils";
+import { createTestSettings, createTestCharacter } from "@/test/utils";
 import ClassSelect from "@/components/profile/class-select";
 
 const character: Character = createTestCharacter();

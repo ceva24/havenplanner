@@ -1,6 +1,3 @@
-import type { ReactNode } from "react";
-import SettingsProvider from "@/hooks/use-settings";
-
 const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Settings => {
     const settings: Settings = {
         gameData: {
@@ -190,24 +187,10 @@ const createTestItemGroup = (id: number, name: string): ItemGroup => {
     };
 };
 
-interface TestSettingsProviderProps {
-    children: ReactNode;
-    settings?: Settings;
-}
-
-const TestSettingsProvider = ({ settings, children }: TestSettingsProviderProps) => {
-    return (
-        <SettingsProvider settings={settings ?? createTestSettings()} setSettings={jest.fn()}>
-            {children}
-        </SettingsProvider>
-    );
-};
-
 export {
     createTestSettings,
     createTestSettingsWithSpoilerSettings,
     createTestCharacter,
-    TestSettingsProvider,
     createTestItem,
     createTestItemGroup,
 };

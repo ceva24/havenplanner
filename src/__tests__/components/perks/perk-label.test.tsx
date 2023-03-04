@@ -1,7 +1,7 @@
 import { Checkbox } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import PerkLabel, { removeGainedPerksForPerk } from "@/components/perks/perk-label";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/utils";
 
 const setCharacter = jest.fn();
 

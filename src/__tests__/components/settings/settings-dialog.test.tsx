@@ -1,6 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
-import { TestSettingsProvider } from "@/testutils";
 import SettingsDialog from "@/components/settings/settings-dialog";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 describe("settings dialog", () => {
     it("renders the close button", () => {

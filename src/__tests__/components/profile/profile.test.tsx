@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Profile from "@/components/profile/profile";
-import SettingsProvider from "@/hooks/use-settings";
-import { createTestCharacter, TestSettingsProvider } from "@/testutils";
+
+import { createTestCharacter } from "@/test/utils";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character: Character = createTestCharacter();
 

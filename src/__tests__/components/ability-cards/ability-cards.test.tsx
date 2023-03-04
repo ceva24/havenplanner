@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import AbilityCards from "@/components/ability-cards/ability-cards";
-import { createTestCharacter, TestSettingsProvider } from "@/testutils";
+
+import { createTestCharacter } from "@/test/utils";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character = createTestCharacter();
 const setCharacter = jest.fn();

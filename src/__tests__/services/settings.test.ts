@@ -1,5 +1,5 @@
 import { getDefaultSettings, itemGroupIsActive } from "@/services/settings";
-import { createTestSettings } from "@/testutils";
+import { createTestSettings } from "@/test/utils";
 
 describe("getDefaultSettings", () => {
     it("returns default settings", () => {

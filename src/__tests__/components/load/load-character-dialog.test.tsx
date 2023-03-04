@@ -1,12 +1,8 @@
 import { render, screen, within } from "@testing-library/react";
 import LoadCharacterDialog from "@/components/load/load-character-dialog";
-import {
-    createTestSettings,
-    createTestCharacter,
-    createTestSettingsWithSpoilerSettings,
-    TestSettingsProvider,
-} from "@/testutils";
+import { createTestSettings, createTestCharacter, createTestSettingsWithSpoilerSettings } from "@/test/utils";
 import { itemGroups } from "@/loaders/item-groups";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 jest.mock("next/router", () => {
     return {

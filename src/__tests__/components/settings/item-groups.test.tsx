@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ItemGroups, { toggleItemGroup } from "@/components/settings/item-groups";
-import { createTestSettings, TestSettingsProvider } from "@/testutils";
+import { createTestSettings } from "@/test/utils";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const setSettings = jest.fn();
 

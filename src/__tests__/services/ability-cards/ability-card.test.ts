@@ -3,7 +3,7 @@ import {
     abilityCardsUnlockedAtLevel,
     calculateMaximumUnlockCount,
 } from "@/services/ability-cards/ability-card";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/utils";
 
 describe("calculateMaximumUnlockCount", () => {
     interface LevelCountProps {

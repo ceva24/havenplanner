@@ -1,6 +1,6 @@
 import { items } from "@/loaders/items";
 import { hasSpoilers, spoilerSettingsForCharacter } from "@/services/load";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/utils";
 
 describe("spoilerSettingsForCharacter", () => {
     it("sets prosperity to 1 when the character has no items", () => {

@@ -6,7 +6,7 @@ import {
     isUnlockedAbilityCardForCharacter,
     uniqueOrderedCardLevels,
 } from "@/services/ability-cards/deck";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/utils";
 
 describe("isUnlockedAbilityCardForCharacter", () => {
     it("returns true when the character's unlocked ability cards includes this card", () => {

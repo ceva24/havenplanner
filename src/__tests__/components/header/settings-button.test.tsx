@@ -1,12 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import SettingsButton, { removeSpoilerItems } from "@/components/header/settings-button";
-import {
-    createTestSettings,
-    createTestCharacter,
-    createTestSettingsWithSpoilerSettings,
-    TestSettingsProvider,
-} from "@/testutils";
 import { items } from "@/loaders/items";
+import SettingsButton, { removeSpoilerItems } from "@/components/header/settings-button";
+import { createTestSettings, createTestCharacter, createTestSettingsWithSpoilerSettings } from "@/test/utils";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const setCharacter = jest.fn();
 const spoilerSettings = createTestSettings().spoilerSettings;

@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import AppContainer from "@/components/app-container";
-import { createTestCharacter, TestSettingsProvider } from "@/testutils";
+import { createTestCharacter } from "@/test/utils";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character: Character = createTestCharacter();
 

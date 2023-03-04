@@ -1,6 +1,6 @@
 import { attackModifiers } from "@/loaders/attack-modifiers";
 import { applyPerksTo, characterHasGainedPerk, findCharacterGainedPerk } from "@/services/perks/perk";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/utils";
 
 describe("characterHasGainedPerk", () => {
     it("returns true when the character has gained the perk", () => {

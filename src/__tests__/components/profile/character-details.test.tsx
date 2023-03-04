@@ -1,6 +1,8 @@
 import { render, screen, within } from "@testing-library/react";
 import CharacterDetails from "@/components/profile/character-details";
-import { createTestCharacter, TestSettingsProvider } from "@/testutils";
+
+import { createTestCharacter } from "@/test/utils";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character: Character = createTestCharacter({ experience: 25 });
 

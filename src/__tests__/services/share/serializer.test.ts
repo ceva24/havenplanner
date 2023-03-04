@@ -3,7 +3,7 @@ import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
 import { enhancements } from "@/loaders/enhancements";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/utils";
 
 describe("serializer", () => {
     it("serializes a character", () => {
