@@ -1,48 +1,58 @@
 import type { Dictionary } from "lodash";
-import { itemGroups } from "@/loaders/item-groups";
-import { items } from "@/loaders/items";
 import { getItems, getItemsByGroup, itemShouldBeHidden, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
-import { createTestSettings, createTestSettingsWithSpoilerSettings } from "@/testutils";
+import {
+    createTestItem,
+    createTestItemGroup,
+    createTestSettings,
+    createTestSettingsWithSpoilerSettings,
+} from "@/testutils";
 
 describe("getItems", () => {
     it("returns items not hidden by spoiler settings", () => {
-        const settings = createTestSettingsWithSpoilerSettings(2, []);
+        const settings = createTestSettingsWithSpoilerSettings(1, []);
+        settings.gameData.items = [createTestItem(0, "Boots of Test", "1"), createTestItem(1, "Cloak of Test", "2")];
 
-        const items = getItems(settings.spoilerSettings);
+        const items = getItems(settings);
 
-        expect(items).toHaveLength(21);
+        expect(items).toHaveLength(1);
     });
 });
 
 describe("getItemsByGroup", () => {
     it("groups items by title", () => {
-        const settings = createTestSettingsWithSpoilerSettings(1, [itemGroups[0]]);
+        const settings = createTestSettingsWithSpoilerSettings(1, [createTestItemGroup(0, "Random Item Designs")]);
+        settings.gameData.items = [
+            createTestItem(0, "Boots of Test", "1"),
+            createTestItem(1, "Boots of Random Item Design Test", "Random Item Designs"),
+        ];
 
-        const result: Dictionary<Item[]> = getItemsByGroup(settings.spoilerSettings);
+        const result: Dictionary<Item[]> = getItemsByGroup(settings);
 
         expect(Object.keys(result)).toHaveLength(2);
         expect(Object.keys(result)).toEqual(["1", "Random Item Designs"]);
 
-        expect(result["1"]).toHaveLength(14);
-        expect(result["Random Item Designs"]).toHaveLength(25);
+        expect(result["1"]).toHaveLength(1);
+        expect(result["Random Item Designs"]).toHaveLength(1);
     });
 });
 
 describe("itemShouldBeHidden", () => {
     it("returns true when the item is above the current prosperity", () => {
-        const item = items[20];
+        const item = createTestItem(0, "Boots of Test", "2");
 
-        const spoilerSettings = createTestSettings().spoilerSettings;
+        const settings = createTestSettings();
+        settings.gameData.items = [item];
 
-        const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
+        const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
         expect(shouldBeHidden).toEqual(true);
     });
 
     it("returns false when the item is equal to the current prosperity", () => {
-        const item = items[20];
+        const item = createTestItem(0, "Boots of Test", "2");
 
         const settings = createTestSettingsWithSpoilerSettings(2, []);
+        settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
@@ -50,9 +60,10 @@ describe("itemShouldBeHidden", () => {
     });
 
     it("returns false when the item is below the current prosperity", () => {
-        const item = items[20];
+        const item = createTestItem(0, "Boots of Test", "2");
 
         const settings = createTestSettingsWithSpoilerSettings(8, []);
+        settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
@@ -60,19 +71,21 @@ describe("itemShouldBeHidden", () => {
     });
 
     it("returns true when the item is not in the active item groups", () => {
-        const item = items[25];
+        const item = createTestItem(0, "Boots of Test", "Random Item Designs");
 
-        const spoilerSettings = createTestSettings().spoilerSettings;
+        const settings = createTestSettingsWithSpoilerSettings(2, []);
+        settings.gameData.items = [item];
 
-        const shouldBeHidden = itemShouldBeHidden(item, spoilerSettings);
+        const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
         expect(shouldBeHidden).toEqual(true);
     });
 
     it("returns false when the item is in the active item groups", () => {
-        const item = items[25];
+        const item = createTestItem(0, "Boots of Test", "Random Item Designs");
 
-        const settings = createTestSettingsWithSpoilerSettings(1, [{ id: 0, name: item.group }]);
+        const settings = createTestSettingsWithSpoilerSettings(2, [createTestItemGroup(0, "Random Item Designs")]);
+        settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
@@ -83,12 +96,12 @@ describe("itemShouldBeHidden", () => {
 describe("orderItems", () => {
     it("orders items by slot", () => {
         const characterItems: CharacterItem[] = [
-            { id: "6", item: items[11] }, // Bag
-            { id: "1", item: items[0] }, // Legs
-            { id: "4", item: items[7] }, // One Hand
-            { id: "2", item: items[2] }, // Chest
-            { id: "3", item: items[5] }, // Head
-            { id: "5", item: items[8] }, // Two Hand
+            { id: "6", item: createTestItem(0, "Test", "1", "Bag") },
+            { id: "1", item: createTestItem(1, "Test", "1", "Legs") },
+            { id: "4", item: createTestItem(2, "Test", "1", "One Hand") },
+            { id: "2", item: createTestItem(3, "Test", "1", "Chest") },
+            { id: "3", item: createTestItem(4, "Test", "1", "Head") },
+            { id: "5", item: createTestItem(5, "Test", "1", "Two Hand") },
         ];
 
         const result = orderItems(characterItems);
@@ -103,9 +116,9 @@ describe("orderItems", () => {
 
     it("orders items in the same slot by name", () => {
         const characterItems: CharacterItem[] = [
-            { id: "1", item: items[13] }, // Minor Power Potion
-            { id: "2", item: items[12] }, // Minor Stamina Potion
-            { id: "3", item: items[11] }, // Minor Healing Potion
+            { id: "1", item: createTestItem(1, "Minor Power Potion", "1") },
+            { id: "2", item: createTestItem(2, "Minor Stamina Potion", "1") },
+            { id: "3", item: createTestItem(3, "Minor Healing Potion", "1") },
         ];
 
         const result = orderItems(characterItems);
@@ -117,10 +130,10 @@ describe("orderItems", () => {
 
     it("orders items by slot and then by name", () => {
         const characterItems: CharacterItem[] = [
-            { id: "1", item: items[12] }, // Minor Stamina Potion
-            { id: "2", item: items[9] }, // War Hammer
-            { id: "3", item: items[11] }, // Minor Power Potion
-            { id: "4", item: items[8] }, // Piercing Bow
+            { id: "1", item: createTestItem(1, "Minor Stamina Potion", "1", "Bag") }, // Minor Stamina Potion
+            { id: "2", item: createTestItem(2, "War Hammer", "1", "One Hand") }, // War Hammer
+            { id: "3", item: createTestItem(3, "Minor Power Potion", "1", "Bag") }, // Minor Power Potion
+            { id: "4", item: createTestItem(4, "Piercing Bow", "1", "Two Hand") }, // Piercing Bow
         ];
 
         const result = orderItems(characterItems);
@@ -138,7 +151,7 @@ describe("orderItems", () => {
     it.each`
         items
         ${[]}
-        ${[{ id: 1, item: items[0] }]}
+        ${[{ id: 1, item: createTestItem(0, "Boots of Test", "1") }]}
     `("orders items of length $items.length without error", ({ items }: ItemsProps) => {
         expect(() => orderItems(items)).not.toThrowError();
     });

@@ -1,6 +1,47 @@
 import type { ReactNode } from "react";
 import SettingsProvider from "@/hooks/use-settings";
-import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
+
+const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Settings => {
+    const settings: Settings = {
+        gameData: {
+            game: {
+                id: 0,
+                name: "Gloomhaven Test",
+            },
+            characterClasses: [],
+            personalQuests: [],
+            enhancements: [],
+            baseAttackModifierDeck: [],
+            battleGoalCheckmarks: [],
+            items: [],
+            itemGroups: [{ id: 1, name: "Random Item Designs" }],
+            defaultCharacter: createTestCharacter(),
+        },
+        showPersonalQuest: false,
+        selectedAbilityCardsTabIndex: 1,
+        spoilerSettings: {
+            items: {
+                prosperity: 1,
+                itemGroups: [],
+            },
+        },
+    };
+
+    return { ...settings, ...settingsDetailsToOverride };
+};
+
+const createTestSettingsWithSpoilerSettings = (prosperity: number, itemGroups: ItemGroup[]): Settings => {
+    return {
+        ...createTestSettings(),
+
+        spoilerSettings: {
+            items: {
+                prosperity,
+                itemGroups,
+            },
+        },
+    };
+};
 
 const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): Character => {
     const character: Character = {
@@ -124,46 +165,28 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
         hand: [],
         gainedEnhancements: [],
         gainedPerks: [],
-        battleGoalCheckmarkGroups: createDefaultBattleGoals(),
+        battleGoalCheckmarkGroups: [],
         items: [],
     };
 
     return { ...character, ...characterDetailsToOverride };
 };
 
-const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Settings => {
-    const settings: Settings = {
-        gameData: {
-            game: {
-                id: 0,
-                name: "Gloomhaven Test",
-            },
-            itemGroups: [{ id: 1, name: "Random Item Designs" }],
-            defaultCharacter: createTestCharacter(),
-        },
-        showPersonalQuest: false,
-        selectedAbilityCardsTabIndex: 1,
-        spoilerSettings: {
-            items: {
-                prosperity: 1,
-                itemGroups: [],
-            },
-        },
+const createTestItem = (id: number, name: string, group: string, slot?: string): Item => {
+    return {
+        id,
+        name,
+        imageUrl: "",
+        slot: slot ?? "Head",
+        slotImageUrl: "",
+        group,
     };
-
-    return { ...settings, ...settingsDetailsToOverride };
 };
 
-const createTestSettingsWithSpoilerSettings = (prosperity: number, itemGroups: ItemGroup[]): Settings => {
+const createTestItemGroup = (id: number, name: string): ItemGroup => {
     return {
-        ...createTestSettings(),
-
-        spoilerSettings: {
-            items: {
-                prosperity,
-                itemGroups,
-            },
-        },
+        id,
+        name,
     };
 };
 
@@ -180,4 +203,11 @@ const TestSettingsProvider = ({ settings, children }: TestSettingsProviderProps)
     );
 };
 
-export { createTestCharacter, createTestSettings, createTestSettingsWithSpoilerSettings, TestSettingsProvider };
+export {
+    createTestSettings,
+    createTestSettingsWithSpoilerSettings,
+    createTestCharacter,
+    TestSettingsProvider,
+    createTestItem,
+    createTestItemGroup,
+};
