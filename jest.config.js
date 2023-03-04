@@ -16,7 +16,8 @@ const customJestConfig = {
     testPathIgnorePatterns: [
         "<rootDir>/cypress",
         "<rootDir>/src/__tests__/setup-jest.ts",
-        "<rootDir>/src/__tests__/utils.ts",
+        "<rootDir>/src/__tests__/test-fixtures.ts",
+        "<rootDir>/src/__tests__/test-settings-provider.ts",
     ],
     collectCoverage: true,
     collectCoverageFrom: ["<rootDir>/src/**"],
