@@ -5,7 +5,7 @@ import * as deserializerService from "@/services/share/deserializer";
 import { characterClasses } from "@/loaders/character-classes";
 import { items } from "@/loaders/items";
 import { enhancements } from "@/loaders/enhancements";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 
 const character: Character = createTestCharacter({
     name: "Test character",

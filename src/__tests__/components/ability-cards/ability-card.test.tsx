@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import AbilityCard from "@/components/ability-cards/ability-card";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 
 describe("ability card", () => {
     it("renders", () => {

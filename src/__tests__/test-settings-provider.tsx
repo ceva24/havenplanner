@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 import SettingsProvider from "@/hooks/use-settings";
-import { createTestSettings } from "@/test/utils";
+import { createTestSettings } from "@/test/test-fixtures";
 
 interface TestSettingsProviderProps {
     settings?: Settings;

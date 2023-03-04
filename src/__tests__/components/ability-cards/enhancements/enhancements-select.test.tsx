@@ -4,7 +4,7 @@ import EnhancementsSelect, {
     getEnhancementSlotValue,
 } from "@/components/ability-cards/enhancements/enhancements-select";
 import { enhancements } from "@/loaders/enhancements";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 
 const character = createTestCharacter();
 character.gainedEnhancements = [

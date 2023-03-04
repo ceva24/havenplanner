@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import UnlockableAbilityCard, { toggleAbilityCard } from "@/components/ability-cards/deck/unlockable-ability-card";
 import * as deckService from "@/services/ability-cards/deck";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 
 const character: Character = createTestCharacter();
 

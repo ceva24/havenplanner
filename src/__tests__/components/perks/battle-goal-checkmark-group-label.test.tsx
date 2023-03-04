@@ -1,5 +1,5 @@
 import { removeCheckmarksForBattleGoalCheckmarkGroup } from "@/components/perks/battle-goal-checkmark-group-label";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 
 const setCharacter = jest.fn();
 

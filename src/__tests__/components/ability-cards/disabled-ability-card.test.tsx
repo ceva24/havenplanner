@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 
 const abilityCard: AbilityCard = {
     id: 1,

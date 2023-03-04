@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Hand from "@/components/ability-cards/hand/hand";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 
 const character: Character = createTestCharacter();
 

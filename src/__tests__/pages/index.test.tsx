@@ -4,7 +4,7 @@ import type { GetServerSidePropsContext } from "next";
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps, type IndexProps } from "@/pages/index";
 import * as encoderService from "@/services/share/codec";
-import { createTestSettings, createTestCharacter } from "@/test/utils";
+import { createTestSettings, createTestCharacter } from "@/test/test-fixtures";
 
 jest.mock("next/router", () => {
     return {

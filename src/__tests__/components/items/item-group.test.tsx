@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ItemGroup from "@/components/items/item-group";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 import { items } from "@/loaders/items";
 
 describe("item group", () => {

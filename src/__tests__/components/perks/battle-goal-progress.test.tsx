@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import BattleGoalProgress, { toggleBattleGoalCheckmark } from "@/components/perks/battle-goal-progress";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 
 const setCharacter = jest.fn();
 

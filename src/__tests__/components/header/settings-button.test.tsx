@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { items } from "@/loaders/items";
 import SettingsButton, { removeSpoilerItems } from "@/components/header/settings-button";
-import { createTestSettings, createTestCharacter, createTestSettingsWithSpoilerSettings } from "@/test/utils";
+import { createTestSettings, createTestCharacter, createTestSettingsWithSpoilerSettings } from "@/test/test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const setCharacter = jest.fn();

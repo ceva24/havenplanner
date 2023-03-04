@@ -1,6 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import LoadCharacterDialog from "@/components/load/load-character-dialog";
-import { createTestSettings, createTestCharacter, createTestSettingsWithSpoilerSettings } from "@/test/utils";
+import { createTestSettings, createTestCharacter, createTestSettingsWithSpoilerSettings } from "@/test/test-fixtures";
 import { itemGroups } from "@/loaders/item-groups";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 

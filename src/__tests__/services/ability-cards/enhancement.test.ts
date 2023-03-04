@@ -5,7 +5,7 @@ import {
     convertEnhancementNameToKey,
     getPossibleEnhancementsFor,
 } from "@/services/ability-cards/enhancement";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 
 describe("determineAbilityCardImageUrl", () => {
     it("returns the ability card image url when there are no gained enhancements", () => {

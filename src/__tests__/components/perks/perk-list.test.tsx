@@ -1,6 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import Perks from "@/components/perks/perks";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 import { gainPerk, removePerk } from "@/components/perks/perk-list";
 import * as perkService from "@/services/perks/perk";
 

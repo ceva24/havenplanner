@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Perks from "@/components/perks/perks";
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 
 describe("perks", () => {
     it("renders the attack modifier deck", () => {

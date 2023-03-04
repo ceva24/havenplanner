@@ -1,6 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import BrowseItemsDialog from "@/components/items/browse-items-dialog";
-import { createTestSettings, createTestCharacter } from "@/test/utils";
+import { createTestSettings, createTestCharacter } from "@/test/test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character = createTestCharacter();

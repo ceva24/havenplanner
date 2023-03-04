@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import AbilityCards from "@/components/ability-cards/ability-cards";
 
-import { createTestCharacter } from "@/test/utils";
+import { createTestCharacter } from "@/test/test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character = createTestCharacter();
