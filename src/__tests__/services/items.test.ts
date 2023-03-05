@@ -5,11 +5,11 @@ import {
     createTestItemGroup,
     createTestSettings,
     createTestSettingsWithSpoilerSettings,
-} from "@/test/test-fixtures";
+} from "@/test/create-test-fixtures";
 
 describe("getItems", () => {
     it("returns items not hidden by spoiler settings", () => {
-        const settings = createTestSettingsWithSpoilerSettings(1, []);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(1, []);
         settings.gameData.items = [createTestItem(0, "Boots of Test", "1"), createTestItem(1, "Cloak of Test", "2")];
 
         const items = getItems(settings);
@@ -20,7 +20,9 @@ describe("getItems", () => {
 
 describe("getItemsByGroup", () => {
     it("groups items by title", () => {
-        const settings = createTestSettingsWithSpoilerSettings(1, [createTestItemGroup(0, "Random Item Designs")]);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(1, [
+            createTestItemGroup(0, "Random Item Designs"),
+        ]);
         settings.gameData.items = [
             createTestItem(0, "Boots of Test", "1"),
             createTestItem(1, "Boots of Random Item Design Test", "Random Item Designs"),
@@ -40,7 +42,7 @@ describe("itemShouldBeHidden", () => {
     it("returns true when the item is above the current prosperity", () => {
         const item = createTestItem(0, "Boots of Test", "2");
 
-        const settings = createTestSettings();
+        const settings: Settings = createTestSettings();
         settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
@@ -51,7 +53,7 @@ describe("itemShouldBeHidden", () => {
     it("returns false when the item is equal to the current prosperity", () => {
         const item = createTestItem(0, "Boots of Test", "2");
 
-        const settings = createTestSettingsWithSpoilerSettings(2, []);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(2, []);
         settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
@@ -62,7 +64,7 @@ describe("itemShouldBeHidden", () => {
     it("returns false when the item is below the current prosperity", () => {
         const item = createTestItem(0, "Boots of Test", "2");
 
-        const settings = createTestSettingsWithSpoilerSettings(8, []);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(8, []);
         settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
@@ -73,7 +75,7 @@ describe("itemShouldBeHidden", () => {
     it("returns true when the item is not in the active item groups", () => {
         const item = createTestItem(0, "Boots of Test", "Random Item Designs");
 
-        const settings = createTestSettingsWithSpoilerSettings(2, []);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(2, []);
         settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
@@ -84,7 +86,9 @@ describe("itemShouldBeHidden", () => {
     it("returns false when the item is in the active item groups", () => {
         const item = createTestItem(0, "Boots of Test", "Random Item Designs");
 
-        const settings = createTestSettingsWithSpoilerSettings(2, [createTestItemGroup(0, "Random Item Designs")]);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(2, [
+            createTestItemGroup(0, "Random Item Designs"),
+        ]);
         settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
@@ -159,7 +163,7 @@ describe("orderItems", () => {
 
 describe("shouldShowItemSpoilerHint", () => {
     it("should return true when prosperity level is < 9", () => {
-        const settings = createTestSettingsWithSpoilerSettings(2, []);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(2, []);
 
         const shouldShow = shouldShowItemSpoilerHint(settings);
 
@@ -167,7 +171,7 @@ describe("shouldShowItemSpoilerHint", () => {
     });
 
     it("should return true when prosperity level is 9 and no item groups are selected", () => {
-        const settings = createTestSettingsWithSpoilerSettings(9, []);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(9, []);
 
         const shouldShow = shouldShowItemSpoilerHint(settings);
 
@@ -175,7 +179,7 @@ describe("shouldShowItemSpoilerHint", () => {
     });
 
     it("should return true when prosperity level is 9 and some item groups are selected", () => {
-        const settings = createTestSettingsWithSpoilerSettings(9, []);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(9, []);
         settings.gameData.itemGroups = [
             { id: 1, name: "Random Item Designs" },
             { id: 2, name: "Other Items" },
@@ -188,7 +192,7 @@ describe("shouldShowItemSpoilerHint", () => {
     });
 
     it("should return true when prosperity level is < 9 and all item groups are selected", () => {
-        const settings = createTestSettingsWithSpoilerSettings(8, []);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(8, []);
         settings.spoilerSettings.items.itemGroups = settings.gameData.itemGroups;
 
         const shouldShow = shouldShowItemSpoilerHint(settings);
@@ -197,7 +201,7 @@ describe("shouldShowItemSpoilerHint", () => {
     });
 
     it("should return false when prosperity level is 9 and all item groups are selected", () => {
-        const settings = createTestSettingsWithSpoilerSettings(9, []);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(9, []);
         settings.spoilerSettings.items.itemGroups = settings.gameData.itemGroups;
 
         const shouldShow = shouldShowItemSpoilerHint(settings);

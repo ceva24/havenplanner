@@ -1,19 +1,31 @@
 import { render, screen } from "@testing-library/react";
 import Perks from "@/components/perks/perks";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 import MockComponent from "@/test/mock-component";
 
-jest.mock("@/components/perks/perk-list", () => () => {
-    return <MockComponent name="Test Perk List" />;
-});
+jest.mock(
+    "@/components/perks/perk-list",
+    () =>
+        function () {
+            return <MockComponent name="Test Perk List" />;
+        }
+);
 
-jest.mock("@/components/perks/battle-goal-progress", () => () => {
-    return <MockComponent name="Test Battle Goal Progress" />;
-});
+jest.mock(
+    "@/components/perks/battle-goal-progress",
+    () =>
+        function () {
+            return <MockComponent name="Test Battle Goal Progress" />;
+        }
+);
 
-jest.mock("@/components/perks/attack-modifiers", () => () => {
-    return <MockComponent name="Test Attack Modifiers" />;
-});
+jest.mock(
+    "@/components/perks/attack-modifiers",
+    () =>
+        function () {
+            return <MockComponent name="Test Attack Modifiers" />;
+        }
+);
 
 describe("perks", () => {
     it("renders the attack modifier deck", () => {

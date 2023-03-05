@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import BattleGoalProgress, { toggleBattleGoalCheckmark } from "@/components/perks/battle-goal-progress";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 const setCharacter = jest.fn();
 
@@ -10,7 +10,7 @@ beforeEach(() => {
 
 describe("battle goal progress", () => {
     it("renders the checkboxes", () => {
-        const character = createTestCharacter({
+        const character: Character = createTestCharacter({
             battleGoalCheckmarkGroups: [
                 { id: 0, checkmarks: [{ id: 0, value: false }] },
                 {
@@ -33,7 +33,7 @@ describe("battle goal progress", () => {
 
 describe("toggleBattleGoalCheckmark", () => {
     it("toggles a checkbox on", () => {
-        const character = createTestCharacter({
+        const character: Character = createTestCharacter({
             battleGoalCheckmarkGroups: [{ id: 0, checkmarks: [{ id: 0, value: false }] }],
         });
 
@@ -47,7 +47,7 @@ describe("toggleBattleGoalCheckmark", () => {
     });
 
     it("toggles a checkbox off", () => {
-        const character = createTestCharacter({
+        const character: Character = createTestCharacter({
             battleGoalCheckmarkGroups: [{ id: 0, checkmarks: [{ id: 0, value: true }] }],
         });
 
@@ -61,7 +61,7 @@ describe("toggleBattleGoalCheckmark", () => {
     });
 
     it("toggles one checkbox among multiple", () => {
-        const character = createTestCharacter({
+        const character: Character = createTestCharacter({
             battleGoalCheckmarkGroups: [
                 { id: 0, checkmarks: [{ id: 0, value: false }] },
                 {

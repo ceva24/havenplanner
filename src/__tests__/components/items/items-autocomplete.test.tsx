@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import ItemsAutocomplete, { addItem, formattedItemId } from "@/components/items/items-autocomplete";
 import { items } from "@/loaders/items";
 
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const mockUuid = "123";

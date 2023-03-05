@@ -4,7 +4,7 @@ import {
     isCardInHandForCharacter,
     wouldBeExceedingHandSizeLimit,
 } from "@/services/ability-cards/hand";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 describe("getAllAvailableAbilityCardsForCharacter", () => {
     it("includes level 1 cards", () => {
@@ -144,7 +144,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
 
 describe("isCardInHandForCharacter", () => {
     it("returns true when the card is in the hand", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         character.hand = [character.characterClass.abilityCards[0]];
 
         const result = isCardInHandForCharacter(character, character.characterClass.abilityCards[0]);
@@ -153,7 +153,7 @@ describe("isCardInHandForCharacter", () => {
     });
 
     it("returns false when the card is not in the hand", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const result = isCardInHandForCharacter(character, character.characterClass.abilityCards[0]);
 
@@ -163,7 +163,7 @@ describe("isCardInHandForCharacter", () => {
 
 describe("wouldBeExceedingHandSizeLimit", () => {
     it("returns false if the card is in hand and the hand size limit has not been met", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const abilityCard = character.characterClass.abilityCards[0];
 
@@ -174,7 +174,7 @@ describe("wouldBeExceedingHandSizeLimit", () => {
     });
 
     it("returns false if the card is in hand and the hand size limit has been met", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const abilityCard = character.characterClass.abilityCards[0];
 
@@ -185,7 +185,7 @@ describe("wouldBeExceedingHandSizeLimit", () => {
     });
 
     it("returns false if the card is not in hand and the hand size limit has not been met", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const abilityCard = character.characterClass.abilityCards[0];
 
@@ -196,7 +196,7 @@ describe("wouldBeExceedingHandSizeLimit", () => {
     });
 
     it("returns true if the card is not in hand and the hand size limit has been met", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         character.hand = [character.characterClass.abilityCards[0]];
         character.characterClass.handSize = 1;

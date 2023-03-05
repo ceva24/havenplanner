@@ -1,9 +1,12 @@
 import type { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import ClassSelect, { findAndSetCharacter, resetAbilityCardsTabConfig } from "@/components/profile/class-select";
-import { characterClasses } from "@/loaders/character-classes";
-import { enhancements } from "@/loaders/enhancements";
-import { createTestSettings, createTestCharacter } from "@/test/test-fixtures";
+import {
+    createTestSettings,
+    createTestCharacter,
+    createTestCharacterClass,
+    createTestEnhancement,
+} from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character: Character = createTestCharacter();
@@ -11,6 +14,13 @@ const setCharacter = jest.fn();
 
 const settings: Settings = createTestSettings();
 const setSettings = jest.fn();
+
+beforeAll(() => {
+    settings.gameData.characterClasses = [
+        createTestCharacterClass(1, "Test Skeleton"),
+        createTestCharacterClass(2, "Test Bandit"),
+    ];
+});
 
 beforeEach(() => {
     jest.clearAllMocks();
@@ -32,7 +42,7 @@ describe("findAndSetCharacter", () => {
     it("sets the character to the selected value", () => {
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = {
-            target: { value: characterClasses[3].name },
+            target: { value: settings.gameData.characterClasses[0].name },
         } as SelectChangeEvent;
 
         findAndSetCharacter(event, character, setCharacter, settings);
@@ -40,7 +50,7 @@ describe("findAndSetCharacter", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            characterClass: characterClasses[3],
+            characterClass: settings.gameData.characterClasses[0],
         });
     });
 
@@ -65,7 +75,7 @@ describe("findAndSetCharacter", () => {
 
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = {
-            target: { value: characterClasses[3].name },
+            target: { value: settings.gameData.characterClasses[0].name },
         } as SelectChangeEvent;
 
         findAndSetCharacter(event, character, setCharacter, settings);
@@ -73,7 +83,7 @@ describe("findAndSetCharacter", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            characterClass: characterClasses[3],
+            characterClass: settings.gameData.characterClasses[0],
             unlockedAbilityCards: [],
         });
     });
@@ -84,7 +94,7 @@ describe("findAndSetCharacter", () => {
 
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = {
-            target: { value: characterClasses[3].name },
+            target: { value: settings.gameData.characterClasses[0].name },
         } as SelectChangeEvent;
 
         findAndSetCharacter(event, character, setCharacter, settings);
@@ -92,7 +102,7 @@ describe("findAndSetCharacter", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            characterClass: characterClasses[3],
+            characterClass: settings.gameData.characterClasses[0],
             hand: [],
         });
     });
@@ -113,7 +123,7 @@ describe("findAndSetCharacter", () => {
 
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = {
-            target: { value: characterClasses[3].name },
+            target: { value: settings.gameData.characterClasses[0].name },
         } as SelectChangeEvent;
 
         findAndSetCharacter(event, character, setCharacter, settings);
@@ -121,7 +131,7 @@ describe("findAndSetCharacter", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            characterClass: characterClasses[3],
+            characterClass: settings.gameData.characterClasses[0],
             gainedPerks: [],
         });
     });
@@ -132,7 +142,7 @@ describe("findAndSetCharacter", () => {
 
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = {
-            target: { value: characterClasses[3].name },
+            target: { value: settings.gameData.characterClasses[0].name },
         } as SelectChangeEvent;
 
         findAndSetCharacter(event, character, setCharacter, settings);
@@ -140,8 +150,8 @@ describe("findAndSetCharacter", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            characterClass: characterClasses[3],
-            battleGoalCheckmarkGroups: createDefaultBattleGoals(),
+            characterClass: settings.gameData.characterClasses[0],
+            battleGoalCheckmarkGroups: settings.gameData.battleGoalCheckmarks.slice(),
         });
     });
 
@@ -150,7 +160,7 @@ describe("findAndSetCharacter", () => {
 
         character.gainedEnhancements = [
             {
-                enhancement: enhancements[0],
+                enhancement: createTestEnhancement(1, "Test Fire", ["test-numeric"]),
                 abilityCard: character.characterClass.abilityCards[0],
                 enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
             },
@@ -158,7 +168,7 @@ describe("findAndSetCharacter", () => {
 
         /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
         const event = {
-            target: { value: characterClasses[3].name },
+            target: { value: settings.gameData.characterClasses[0].name },
         } as SelectChangeEvent;
 
         findAndSetCharacter(event, character, setCharacter, settings);
@@ -166,7 +176,7 @@ describe("findAndSetCharacter", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            characterClass: characterClasses[3],
+            characterClass: settings.gameData.characterClasses[0],
             gainedEnhancements: [],
         });
     });

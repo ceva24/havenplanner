@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ActiveAbilityCard from "@/components/ability-cards/toggleable-ability-card";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 const character: Character = createTestCharacter();
 

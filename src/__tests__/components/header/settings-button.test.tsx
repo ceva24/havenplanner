@@ -1,11 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import { items } from "@/loaders/items";
 import SettingsButton, { removeSpoilerItems } from "@/components/header/settings-button";
-import { createTestSettings, createTestCharacter, createTestSettingsWithSpoilerSettings } from "@/test/test-fixtures";
+import {
+    createTestSettings,
+    createTestCharacter,
+    createTestSettingsWithSpoilerSettings,
+} from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const setCharacter = jest.fn();
-const spoilerSettings = createTestSettings().spoilerSettings;
+const spoilerSettings: SpoilerSettings = createTestSettings().spoilerSettings;
 
 beforeEach(() => {
     jest.resetAllMocks();
@@ -100,7 +104,7 @@ describe("removeSpoilerItems", () => {
             items: [{ id: "1", item }],
         });
 
-        const settings = createTestSettingsWithSpoilerSettings(2, [{ id: 1, name: item.group }]);
+        const settings: Settings = createTestSettingsWithSpoilerSettings(2, [{ id: 1, name: item.group }]);
 
         removeSpoilerItems(character, setCharacter, settings.spoilerSettings);
 

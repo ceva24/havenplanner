@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import EditHandDialog, { toggleCardAddedToHand } from "@/components/ability-cards/hand/edit-hand-dialog";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 const character: Character = createTestCharacter();
 

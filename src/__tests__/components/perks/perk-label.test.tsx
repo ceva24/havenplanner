@@ -1,7 +1,7 @@
 import { Checkbox } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import PerkLabel, { removeGainedPerksForPerk } from "@/components/perks/perk-label";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 const setCharacter = jest.fn();
 
@@ -12,7 +12,7 @@ beforeEach(() => {
 describe("perk-label", () => {
     it("renders with the correct label id and description", () => {
         const labelId = "abc";
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         const perk = character.characterClass.perks[0];
 
         render(
@@ -30,7 +30,7 @@ describe("perk-label", () => {
 
 describe("removeGainedPerksForPerk", () => {
     it("removes a perk", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         const perk = character.characterClass.perks[0];
         character.gainedPerks = [{ perk, checkboxIndex: 0 }];
 
@@ -44,7 +44,7 @@ describe("removeGainedPerksForPerk", () => {
     });
 
     it("removes multiple perks", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         const perk: Perk = {
             id: 0,
             name: "Remove two <-1> cards",

@@ -3,19 +3,29 @@ import EnhancementsSelect, {
     gainOrRemoveEnhancement,
     getEnhancementSlotValue,
 } from "@/components/ability-cards/enhancements/enhancements-select";
-import { enhancements } from "@/loaders/enhancements";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter, createTestEnhancement, createTestSettings } from "@/test/create-test-fixtures";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
-const character = createTestCharacter();
-character.gainedEnhancements = [
-    {
-        abilityCard: character.characterClass.abilityCards[0],
-        enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
-        enhancement: enhancements[0],
-    },
-];
+const character: Character = createTestCharacter();
 
 const setCharacter = jest.fn();
+
+const settings: Settings = createTestSettings();
+
+beforeAll(() => {
+    settings.gameData.enhancements = [
+        createTestEnhancement(1, "Test Fire", ["test-numeric"]),
+        createTestEnhancement(2, "Test Ice", ["test-numeric"]),
+    ];
+
+    character.gainedEnhancements = [
+        {
+            abilityCard: character.characterClass.abilityCards[0],
+            enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
+            enhancement: settings.gameData.enhancements[0],
+        },
+    ];
+});
 
 beforeEach(() => {
     jest.clearAllMocks();
@@ -24,12 +34,14 @@ beforeEach(() => {
 describe("enhancements select", () => {
     it("renders", () => {
         render(
-            <EnhancementsSelect
-                abilityCard={character.characterClass.abilityCards[0]}
-                enhancementSlot={character.characterClass.abilityCards[0].enhancementSlots[1]}
-                character={character}
-                setCharacter={setCharacter}
-            />
+            <TestSettingsProvider settings={settings}>
+                <EnhancementsSelect
+                    abilityCard={character.characterClass.abilityCards[0]}
+                    enhancementSlot={character.characterClass.abilityCards[0].enhancementSlots[1]}
+                    character={character}
+                    setCharacter={setCharacter}
+                />
+            </TestSettingsProvider>
         );
 
         const enhancementsSelect = screen.queryByRole("button", { name: "PIERCE" });
@@ -82,11 +94,18 @@ describe("getEnhancementSlotValue", () => {
 
 describe("gainOrRemoveEnhancement", () => {
     it("gains an enhancement", () => {
-        const enhancement = enhancements[0];
+        const enhancement = settings.gameData.enhancements[0];
         const abilityCard = character.characterClass.abilityCards[0];
         const enhancementSlot = character.characterClass.abilityCards[0].enhancementSlots[0];
 
-        gainOrRemoveEnhancement(enhancement.id, abilityCard, enhancementSlot, character, setCharacter);
+        gainOrRemoveEnhancement(
+            enhancement.id,
+            abilityCard,
+            enhancementSlot,
+            settings.gameData.enhancements,
+            character,
+            setCharacter
+        );
 
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
@@ -106,13 +125,20 @@ describe("gainOrRemoveEnhancement", () => {
 
         character.gainedEnhancements = [
             {
-                enhancement: enhancements[0],
+                enhancement: settings.gameData.enhancements[0],
                 abilityCard,
                 enhancementSlot,
             },
         ];
 
-        gainOrRemoveEnhancement("", abilityCard, enhancementSlot, character, setCharacter);
+        gainOrRemoveEnhancement(
+            "",
+            abilityCard,
+            enhancementSlot,
+            settings.gameData.enhancements,
+            character,
+            setCharacter
+        );
 
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
@@ -121,19 +147,26 @@ describe("gainOrRemoveEnhancement", () => {
     });
 
     it("updates an enhancement", () => {
-        const enhancement = enhancements[9];
+        const enhancement = settings.gameData.enhancements[1];
         const abilityCard = character.characterClass.abilityCards[0];
         const enhancementSlot = character.characterClass.abilityCards[0].enhancementSlots[0];
 
         character.gainedEnhancements = [
             {
-                enhancement: enhancements[0],
+                enhancement: settings.gameData.enhancements[0],
                 abilityCard,
                 enhancementSlot,
             },
         ];
 
-        gainOrRemoveEnhancement(enhancement.id, abilityCard, enhancementSlot, character, setCharacter);
+        gainOrRemoveEnhancement(
+            enhancement.id,
+            abilityCard,
+            enhancementSlot,
+            settings.gameData.enhancements,
+            character,
+            setCharacter
+        );
 
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,

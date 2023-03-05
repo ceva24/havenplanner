@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Item, { removeItem } from "@/components/items/item";
 import { items } from "@/loaders/items";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 const character: Character = createTestCharacter({
     items: [

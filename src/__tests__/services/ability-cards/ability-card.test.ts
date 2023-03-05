@@ -3,7 +3,7 @@ import {
     abilityCardsUnlockedAtLevel,
     calculateMaximumUnlockCount,
 } from "@/services/ability-cards/ability-card";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 describe("calculateMaximumUnlockCount", () => {
     interface LevelCountProps {
@@ -45,7 +45,7 @@ describe("abilityCardLevelCanBeUnlockedByCharacter", () => {
 
 describe("abilityCardsUnlockedAtLevel", () => {
     it("includes unlocked cards that match the level", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         const unlockedAbilityCards = [character.characterClass.abilityCards[0]];
 
         const abilityCardsAtLevel = abilityCardsUnlockedAtLevel(unlockedAbilityCards, "1");
@@ -54,7 +54,7 @@ describe("abilityCardsUnlockedAtLevel", () => {
     });
 
     it("excludes unlocked cards that do not match the level", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         const unlockedAbilityCards = [character.characterClass.abilityCards[0]];
 
         const abilityCardsAtLevel = abilityCardsUnlockedAtLevel(unlockedAbilityCards, "2");

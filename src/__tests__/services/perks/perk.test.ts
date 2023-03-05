@@ -1,10 +1,10 @@
 import { attackModifiers } from "@/loaders/attack-modifiers";
 import { applyPerksTo, characterHasGainedPerk, findCharacterGainedPerk } from "@/services/perks/perk";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 describe("characterHasGainedPerk", () => {
     it("returns true when the character has gained the perk", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
@@ -25,7 +25,7 @@ describe("characterHasGainedPerk", () => {
     });
 
     it("returns false when the character has not gained the perk", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
@@ -44,7 +44,7 @@ describe("characterHasGainedPerk", () => {
     });
 
     it("returns false when the perk exists but the checkbox number is different", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
@@ -67,7 +67,7 @@ describe("characterHasGainedPerk", () => {
 
 describe("findCharacterGainedPerk", () => {
     it("returns the gained perk that matches the perk and checkbox number", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
@@ -88,7 +88,7 @@ describe("findCharacterGainedPerk", () => {
     });
 
     it("returns undefined when the perk does not exist", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,
@@ -107,7 +107,7 @@ describe("findCharacterGainedPerk", () => {
     });
 
     it("returns undefined when the perk exists but the checkbox number is different", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const gainedPerk: GainedPerk = {
             checkboxIndex: 0,

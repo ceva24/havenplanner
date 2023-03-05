@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ItemGroups, { toggleItemGroup } from "@/components/settings/item-groups";
-import { createTestSettings } from "@/test/test-fixtures";
+import { createTestSettings } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const setSettings = jest.fn();
@@ -14,7 +14,7 @@ describe("item groups", () => {
     }
 
     it("renders", () => {
-        const settings = createTestSettings();
+        const settings: Settings = createTestSettings();
 
         render(<ItemGroups />, { wrapper: TestSettingsProvider });
 
@@ -31,7 +31,7 @@ describe("toggleItemGroup", () => {
             name: "Item Group",
         };
 
-        const settings = createTestSettings();
+        const settings: Settings = createTestSettings();
 
         toggleItemGroup(itemGroup, settings, setSettings);
 
@@ -48,7 +48,7 @@ describe("toggleItemGroup", () => {
             name: "Item Group",
         };
 
-        const settings = createTestSettings();
+        const settings: Settings = createTestSettings();
         settings.spoilerSettings.items.itemGroups = [itemGroup];
 
         toggleItemGroup(itemGroup, settings, setSettings);

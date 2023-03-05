@@ -6,7 +6,7 @@ import {
     isUnlockedAbilityCardForCharacter,
     uniqueOrderedCardLevels,
 } from "@/services/ability-cards/deck";
-import { createTestCharacter } from "@/test/test-fixtures";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 describe("isUnlockedAbilityCardForCharacter", () => {
     it("returns true when the character's unlocked ability cards includes this card", () => {
@@ -106,7 +106,7 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
 
 describe("abilityCardCanBeToggled", () => {
     it("returns true if the ability card has been unlocked", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         const abilityCard = character.characterClass.abilityCards[1];
 
         character.unlockedAbilityCards = [abilityCard];
@@ -115,14 +115,14 @@ describe("abilityCardCanBeToggled", () => {
     });
 
     it("returns true if the ability card can be unlocked", () => {
-        const character = createTestCharacter({ experience: 500 });
+        const character: Character = createTestCharacter({ experience: 500 });
         const abilityCard = character.characterClass.abilityCards[1];
 
         expect(abilityCardCanBeToggled(abilityCard, character)).toEqual(true);
     });
 
     it("returns false if the ability card has not been and cannot be unlocked", () => {
-        const character = createTestCharacter({ experience: 1 });
+        const character: Character = createTestCharacter({ experience: 1 });
         const abilityCard = character.characterClass.abilityCards[2];
 
         expect(abilityCardCanBeToggled(abilityCard, character)).toEqual(false);
@@ -131,7 +131,7 @@ describe("abilityCardCanBeToggled", () => {
 
 describe("groupCardsByLevel", () => {
     it("groups cards by level", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const groups = groupCharacterCardsByLevel(character);
 
@@ -145,7 +145,7 @@ describe("groupCardsByLevel", () => {
 
 describe("uniqueOrderedCardLevels", () => {
     it("returns a unique ordered list of levels", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         character.characterClass.abilityCards = [
             character.characterClass.abilityCards[1],
             character.characterClass.abilityCards[0],

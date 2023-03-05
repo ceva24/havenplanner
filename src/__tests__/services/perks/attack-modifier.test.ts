@@ -4,7 +4,7 @@ import {
     orderAttackModifierCards,
     splitAttackModifierDeckIntoBaseAndClass,
 } from "@/services/perks/attack-modifier";
-import { createTestAttackModifierDeckCard, createTestCharacter } from "@/test/test-fixtures";
+import { createTestAttackModifierDeckCard, createTestCharacter } from "@/test/create-test-fixtures";
 
 const perkWithBaseAttackModifier: Perk = {
     id: 1,
@@ -42,7 +42,7 @@ const perkWithClassAttackModifier: Perk = {
 
 describe("classAttackModifierCardNames", () => {
     it("returns names of class-unique attack modifier cards", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         character.characterClass.perks = [perkWithClassAttackModifier];
 
         const names = classAttackModifierCardNames(character.characterClass);
@@ -52,7 +52,7 @@ describe("classAttackModifierCardNames", () => {
     });
 
     it("excludes names of attack modifier cards from the base attack modifier deck", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         character.characterClass.perks = [perkWithBaseAttackModifier];
 
         const names = classAttackModifierCardNames(character.characterClass);

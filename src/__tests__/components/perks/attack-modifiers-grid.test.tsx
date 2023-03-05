@@ -1,6 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import AttackModifiersGrid from "@/components/perks/attack-modifiers-grid";
-import { createTestAttackModifierDeckCard } from "@/test/test-fixtures";
+import { createTestAttackModifierDeckCard } from "@/test/create-test-fixtures";
 
 describe("attack modifiers", () => {
     it("renders the attack modifier cards", () => {
