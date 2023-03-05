@@ -4,8 +4,8 @@ import {
     createTestSettings,
     createTestCharacter,
     createTestSettingsWithSpoilerSettings,
+    createTestItemGroup,
 } from "@/test/create-test-fixtures";
-import { itemGroups } from "@/loaders/item-groups";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 jest.mock("next/router", () => {
@@ -70,6 +70,10 @@ describe("load character dialog", () => {
     });
 
     it("renders the active item groups", () => {
+        const itemGroups: ItemGroup[] = [
+            createTestItemGroup(1, "Random Item Designs"),
+            createTestItemGroup(2, "Solo Scenario Items"),
+        ];
         render(
             <LoadCharacterDialog
                 characterHasSpoilers

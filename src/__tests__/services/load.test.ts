@@ -1,6 +1,5 @@
-import { items } from "@/loaders/items";
 import { hasSpoilers, spoilerSettingsForCharacter } from "@/services/load";
-import { createTestCharacter } from "@/test/create-test-fixtures";
+import { createTestCharacter, createTestItem } from "@/test/create-test-fixtures";
 
 describe("spoilerSettingsForCharacter", () => {
     it("sets prosperity to 1 when the character has no items", () => {
@@ -12,7 +11,9 @@ describe("spoilerSettingsForCharacter", () => {
     });
 
     it("sets prosperity to 1 when the character has prosperity 1 items", () => {
-        const character: Character = createTestCharacter({ items: [{ id: "1", item: items[0] }] });
+        const character: Character = createTestCharacter({
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
+        });
 
         const spoilerSettings = spoilerSettingsForCharacter(character);
 
@@ -22,8 +23,8 @@ describe("spoilerSettingsForCharacter", () => {
     it("sets prosperity to the level of the highest prosperity item", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: items[0] },
-                { id: "2", item: items[20] },
+                { id: "1", item: createTestItem(1, "Boots of Test", "1") },
+                { id: "2", item: createTestItem(1, "Boots of Test", "2") },
             ],
         });
 
@@ -34,7 +35,7 @@ describe("spoilerSettingsForCharacter", () => {
 
     it("sets active item groups matching the character items", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: items[25] }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "Random Item Designs") }],
         });
 
         const spoilerSettings = spoilerSettingsForCharacter(character);
@@ -44,14 +45,7 @@ describe("spoilerSettingsForCharacter", () => {
     });
 
     it("ignores invalid item groups", () => {
-        const item: Item = {
-            id: 71,
-            name: "Boots of Levitation",
-            imageUrl: "/items/gloomhaven/64-151/gh-071b-boots-of-levitation.webp",
-            slot: "Legs",
-            slotImageUrl: "/equip-slot-icons/gloomhaven/legs.webp",
-            group: "Invalid",
-        };
+        const item: Item = createTestItem(1, "Boots of Test", "Blep");
 
         const character: Character = createTestCharacter({
             items: [{ id: "1", item }],
@@ -66,7 +60,7 @@ describe("spoilerSettingsForCharacter", () => {
 describe("hasSpoilers", () => {
     it("returns true when the character has items above prosperity level 1", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: items[20] }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "2") }],
         });
 
         const result = hasSpoilers(character);
@@ -76,7 +70,7 @@ describe("hasSpoilers", () => {
 
     it("returns false when the character has items of prosperity level 1 only", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: items[0] }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
         });
 
         const result = hasSpoilers(character);
@@ -85,14 +79,7 @@ describe("hasSpoilers", () => {
     });
 
     it("returns true when the character has items in an item group", () => {
-        const item: Item = {
-            id: 71,
-            name: "Boots of Levitation",
-            imageUrl: "/items/gloomhaven/64-151/gh-071b-boots-of-levitation.webp",
-            slot: "Legs",
-            slotImageUrl: "/equip-slot-icons/gloomhaven/legs.webp",
-            group: "Random Item Designs",
-        };
+        const item: Item = createTestItem(1, "Boots of Test", "Random Item Designs");
 
         const character: Character = createTestCharacter({
             items: [{ id: "1", item }],

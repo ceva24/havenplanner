@@ -3,7 +3,12 @@ import EnhancementsSelect, {
     gainOrRemoveEnhancement,
     getEnhancementSlotValue,
 } from "@/components/ability-cards/enhancements/enhancements-select";
-import { createTestCharacter, createTestEnhancement, createTestSettings } from "@/test/create-test-fixtures";
+import {
+    createTestAbilityCard,
+    createTestCharacter,
+    createTestEnhancement,
+    createTestSettings,
+} from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character: Character = createTestCharacter();
@@ -16,6 +21,28 @@ beforeAll(() => {
     settings.gameData.enhancements = [
         createTestEnhancement(1, "Test Fire", ["test-numeric"]),
         createTestEnhancement(2, "Test Ice", ["test-numeric"]),
+    ];
+
+    character.characterClass.abilityCards = [
+        createTestAbilityCard(1, "1", "", [
+            {
+                id: 0,
+                name: "Attack",
+                types: ["test-numeric", "test-main-line-targets-enemies"],
+            },
+            {
+                id: 1,
+                name: "PIERCE",
+                types: ["test-numeric"],
+            },
+        ]),
+        createTestAbilityCard(2, "2", "", [
+            {
+                id: 0,
+                name: "Attack",
+                types: ["test-numeric", "test-main-line-targets-enemies"],
+            },
+        ]),
     ];
 
     character.gainedEnhancements = [
@@ -37,14 +64,14 @@ describe("enhancements select", () => {
             <TestSettingsProvider settings={settings}>
                 <EnhancementsSelect
                     abilityCard={character.characterClass.abilityCards[0]}
-                    enhancementSlot={character.characterClass.abilityCards[0].enhancementSlots[1]}
+                    enhancementSlot={character.characterClass.abilityCards[0].enhancementSlots[0]}
                     character={character}
                     setCharacter={setCharacter}
                 />
             </TestSettingsProvider>
         );
 
-        const enhancementsSelect = screen.queryByRole("button", { name: "PIERCE" });
+        const enhancementsSelect = screen.queryByRole("button", { name: "Attack" });
 
         expect(enhancementsSelect).toBeInTheDocument();
     });

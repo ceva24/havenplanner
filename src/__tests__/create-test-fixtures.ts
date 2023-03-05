@@ -1,18 +1,20 @@
 const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Settings => {
+    const characterClass: CharacterClass = createTestCharacterClass(1, "Test Brute");
+
     const settings: Settings = {
         gameData: {
             game: {
                 id: 0,
                 name: "Gloomhaven Test",
             },
-            characterClasses: [],
+            characterClasses: [characterClass],
             personalQuests: [],
             enhancements: [],
             baseAttackModifierDeck: [],
             battleGoalCheckmarks: [{ id: 1, checkmarks: [{ id: 1, value: false }] }],
             items: [],
             itemGroups: [{ id: 1, name: "Random Item Designs" }],
-            defaultCharacter: createTestCharacter(),
+            defaultCharacter: createTestCharacter({ characterClass }),
         },
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 1,
@@ -68,98 +70,10 @@ const createTestCharacterClass = (id: number, name: string): CharacterClass => {
         cardBackImageUrl: "",
         handSize: 10,
         abilityCards: [
-            {
-                id: 1,
-                name: "Trample",
-                level: "1",
-                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
-                enhancementSlots: [
-                    {
-                        id: 0,
-                        name: "Attack",
-                        types: ["test-numeric", "test-main-line-targets-enemies"],
-                    },
-                    {
-                        id: 1,
-                        name: "PIERCE",
-                        types: ["test-numeric"],
-                    },
-                    {
-                        id: 2,
-                        name: "Move",
-                        types: ["test-numeric", "test-main-line", "test-move"],
-                    },
-                    {
-                        id: 3,
-                        name: "Attack",
-                        types: ["test-numeric", "test-main-line-targets-enemies"],
-                    },
-                    {
-                        id: 4,
-                        name: "Attack",
-                        types: ["test-numeric", "test-main-line-targets-enemies"],
-                    },
-                ],
-            },
-            {
-                id: 2,
-                name: "Eye for an Eye",
-                level: "2",
-                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-eye-for-an-eye.webp",
-                enhancementSlots: [
-                    {
-                        id: 0,
-                        name: "RETALIATE",
-                        types: ["test-numeric", "test-main-line-targets-allies-or-self"],
-                    },
-                    {
-                        id: 1,
-                        name: "Heal",
-                        types: ["test-numeric", "test-main-line-targets-allies-or-self"],
-                    },
-                    {
-                        id: 2,
-                        name: "Heal",
-                        types: ["test-numeric", "test-main-line-targets-allies-or-self"],
-                    },
-                ],
-            },
-            {
-                id: 3,
-                name: "Sweeping Blow",
-                level: "3",
-                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-sweeping-blow.webp",
-                enhancementSlots: [
-                    {
-                        id: 0,
-                        name: "Attack",
-                        types: ["test-numeric", "test-main-line-targets-enemies"],
-                    },
-                    {
-                        id: 1,
-                        name: "Area attack",
-                        types: ["test-area-attack"],
-                    },
-                    {
-                        id: 2,
-                        name: "PUSH",
-                        types: ["test-numeric", "test-main-line-targets-enemies"],
-                    },
-                ],
-            },
-            {
-                id: 4,
-                name: "Provoking Roar",
-                level: "4",
-                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-provoking-roar.webp",
-                enhancementSlots: [
-                    {
-                        id: 0,
-                        name: "Attack",
-                        types: ["test-numeric", "test-main-line-targets-enemies"],
-                    },
-                ],
-            },
+            createTestAbilityCard(1, "1", "Trample"),
+            createTestAbilityCard(2, "2", "Eye for an Eye"),
+            createTestAbilityCard(3, "3", "Sweeping Blow"),
+            createTestAbilityCard(4, "4", "Provoking Roar"),
         ],
         perks: [
             {
@@ -170,6 +84,22 @@ const createTestCharacterClass = (id: number, name: string): CharacterClass => {
                 remove: [],
             },
         ],
+    };
+};
+
+const createTestAbilityCard = (
+    id: number,
+    level: string,
+    name?: string,
+    enhancementSlots?: EnhancementSlot[],
+    imageUrl?: string
+): AbilityCard => {
+    return {
+        id,
+        name: name ?? "",
+        level,
+        imageUrl: imageUrl ?? "",
+        enhancementSlots: enhancementSlots ?? [],
     };
 };
 
@@ -224,6 +154,7 @@ export {
     createTestSettingsWithSpoilerSettings,
     createTestCharacter,
     createTestCharacterClass,
+    createTestAbilityCard,
     createTestPersonalQuest,
     createTestEnhancement,
     createTestAttackModifierDeckCard,

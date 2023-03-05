@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import { items } from "@/loaders/items";
 import SettingsButton, { removeSpoilerItems } from "@/components/header/settings-button";
 import {
     createTestSettings,
     createTestCharacter,
     createTestSettingsWithSpoilerSettings,
+    createTestItem,
 } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
@@ -30,7 +30,7 @@ describe("settings button", () => {
 describe("removeSpoilerItems", () => {
     it("removes an item higher than the current prosperity level", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: items[20] }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "9") }],
         });
 
         removeSpoilerItems(character, setCharacter, spoilerSettings);
@@ -44,7 +44,7 @@ describe("removeSpoilerItems", () => {
 
     it("does not remove an item equal to the current prosperity level", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: items[0] }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
         });
 
         removeSpoilerItems(character, setCharacter, spoilerSettings);
@@ -55,7 +55,7 @@ describe("removeSpoilerItems", () => {
 
     it("does not remove an item lower than the current prosperity level", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: items[0] }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
         });
 
         const prosperityTwoSettings = createTestSettingsWithSpoilerSettings(2, []);
@@ -69,8 +69,8 @@ describe("removeSpoilerItems", () => {
     it("removes items higher than the current prosperity level and does not remove items lower than the current prosperity level", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: items[0] },
-                { id: "2", item: items[20] },
+                { id: "1", item: createTestItem(1, "Boots of Test", "1") },
+                { id: "2", item: createTestItem(2, "Boots of Super Test", "9") },
             ],
         });
 
@@ -79,13 +79,13 @@ describe("removeSpoilerItems", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            items: [{ id: "1", item: items[0] }],
+            items: [{ id: "1", item: character.items[0].item }],
         });
     });
 
     it("removes items not in the active item groups", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: items[25] }],
+            items: [{ id: "1", item: createTestItem(1, "Secret Boots of Test", "Random Item Designs") }],
         });
 
         removeSpoilerItems(character, setCharacter, spoilerSettings);
@@ -98,7 +98,7 @@ describe("removeSpoilerItems", () => {
     });
 
     it("does not remove items in the active item groups", () => {
-        const item = items[25];
+        const item = createTestItem(1, "Secret Boots of Test", "Random Item Designs");
 
         const character: Character = createTestCharacter({
             items: [{ id: "1", item }],

@@ -1,4 +1,3 @@
-import { characterClasses } from "@/loaders/character-classes";
 import {
     getAllAvailableAbilityCardsForCharacter,
     isCardInHandForCharacter,
@@ -129,16 +128,17 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
     });
 
     it("sorts cards by id", () => {
-        const character: Character = createTestCharacter({
-            characterClass: characterClasses[0],
-            unlockedAbilityCards: [characterClasses[0].abilityCards[15], characterClasses[0].abilityCards[13]],
-        });
+        const character: Character = createTestCharacter();
+        character.unlockedAbilityCards = [
+            character.characterClass.abilityCards[2],
+            character.characterClass.abilityCards[1],
+        ];
 
         const availableAbilityCardsIds = getAllAvailableAbilityCardsForCharacter(character).map(
             (abilityCard: AbilityCard) => abilityCard.id
         );
 
-        expect(availableAbilityCardsIds).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16]);
+        expect(availableAbilityCardsIds).toEqual([1, 2, 3]);
     });
 });
 

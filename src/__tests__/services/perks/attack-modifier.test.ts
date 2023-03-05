@@ -1,4 +1,3 @@
-import { attackModifiers } from "@/loaders/attack-modifiers";
 import {
     classAttackModifierCardNames,
     orderAttackModifierCards,

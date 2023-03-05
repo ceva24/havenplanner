@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ItemsAutocomplete, { addItem, formattedItemId } from "@/components/items/items-autocomplete";
-import { items } from "@/loaders/items";
 
-import { createTestCharacter } from "@/test/create-test-fixtures";
+import { createTestCharacter, createTestItem } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const mockUuid = "123";
@@ -52,7 +51,7 @@ describe("formattedItemId", () => {
 
 describe("addItem", () => {
     it("adds an item to the character's items", () => {
-        const item = items[3];
+        const item = createTestItem(1, "Boots of Test", "1");
 
         addItem(item, character, setCharacter);
 
@@ -64,7 +63,7 @@ describe("addItem", () => {
     });
 
     it("generates a uuid for the item", () => {
-        const item = items[3];
+        const item = createTestItem(1, "Boots of Test", "1");
 
         addItem(item, character, setCharacter);
 
@@ -77,10 +76,10 @@ describe("addItem", () => {
 
     it("adds items to the end of the list", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "123", item: items[2] }],
+            items: [{ id: "123", item: createTestItem(1, "Boots of Test", "1") }],
         });
 
-        const item = items[3];
+        const item = createTestItem(2, "Cloak of Test", "1");
 
         addItem(item, character, setCharacter);
 
@@ -94,7 +93,7 @@ describe("addItem", () => {
 
     it("allows duplicate items", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "123", item: items[2] }],
+            items: [{ id: "123", item: createTestItem(1, "Boots of Test", "1") }],
         });
 
         addItem(character.items[0].item, character, setCharacter);

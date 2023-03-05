@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ProsperitySlider, { marks, updateProsperity } from "@/components/settings/prosperity-slider";
-import { createTestSettings } from "@/test/create-test-fixtures";
+import { createTestItemGroup, createTestSettings } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
-import { itemGroups } from "@/loaders/item-groups";
 
 describe("prosperity slider", () => {
     it("renders", () => {
@@ -90,7 +89,7 @@ describe("updateProsperity", () => {
 
     it("retains the active item groups", () => {
         const settings: Settings = createTestSettings();
-        settings.spoilerSettings.items.itemGroups = [itemGroups[0]];
+        settings.spoilerSettings.items.itemGroups = [createTestItemGroup(1, "Random Item Designs")];
 
         const setSettings = jest.fn();
 
@@ -99,7 +98,7 @@ describe("updateProsperity", () => {
         expect(setSettings).toHaveBeenCalledTimes(1);
         expect(setSettings).toHaveBeenCalledWith({
             ...settings,
-            spoilerSettings: { items: { prosperity: 3, itemGroups: [itemGroups[0]] } },
+            spoilerSettings: { items: { prosperity: 3, itemGroups: settings.spoilerSettings.items.itemGroups } },
         });
     });
 });

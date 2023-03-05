@@ -1,6 +1,8 @@
-import { attackModifiers } from "@/loaders/attack-modifiers";
 import { applyPerksTo, characterHasGainedPerk, findCharacterGainedPerk } from "@/services/perks/perk";
-import { createTestCharacter } from "@/test/create-test-fixtures";
+import { createTestAttackModifierDeckCard, createTestCharacter } from "@/test/create-test-fixtures";
+
+const plusOne: AttackModifierCard = createTestAttackModifierDeckCard(1, "+1").card;
+const plusZero: AttackModifierCard = createTestAttackModifierDeckCard(2, "+0").card;
 
 describe("characterHasGainedPerk", () => {
     it("returns true when the character has gained the perk", () => {
@@ -130,12 +132,7 @@ describe("findCharacterGainedPerk", () => {
 
 describe("applyPerksTo", () => {
     it("applies empty gained perks", () => {
-        const attackModifierDeck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[3], // +0
-                count: 6,
-            },
-        ];
+        const attackModifierDeck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+0")];
 
         const attackModifierDeckWithPerks = applyPerksTo(attackModifierDeck, []);
 
@@ -143,12 +140,7 @@ describe("applyPerksTo", () => {
     });
 
     it("applies a gained perk that does not affect the attack modifier deck", () => {
-        const attackModifierDeck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[3], // +0
-                count: 6,
-            },
-        ];
+        const attackModifierDeck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+0")];
 
         const gainedPerks: GainedPerk[] = [
             {
@@ -169,12 +161,9 @@ describe("applyPerksTo", () => {
     });
 
     it("applies a perk that adds another copy of an existing card", () => {
-        const attackModifierDeck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[3], // +0
-                count: 6,
-            },
-        ];
+        const deckCard: AttackModifierDeckCard = createTestAttackModifierDeckCard(1, "+0", 6);
+
+        const attackModifierDeck: AttackModifierDeckCard[] = [deckCard];
 
         const gainedPerks: GainedPerk[] = [
             {
@@ -183,7 +172,7 @@ describe("applyPerksTo", () => {
                     id: 0,
                     name: "",
                     count: 1,
-                    add: [attackModifiers[3]],
+                    add: [deckCard.card],
                     remove: [],
                 },
             },
@@ -195,12 +184,9 @@ describe("applyPerksTo", () => {
     });
 
     it("applies a perk that removes a copy of an existing card", () => {
-        const attackModifierDeck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[3], // +0
-                count: 6,
-            },
-        ];
+        const deckCard: AttackModifierDeckCard = createTestAttackModifierDeckCard(1, "+0", 6);
+
+        const attackModifierDeck: AttackModifierDeckCard[] = [deckCard];
 
         const gainedPerks: GainedPerk[] = [
             {
@@ -210,7 +196,7 @@ describe("applyPerksTo", () => {
                     name: "",
                     count: 1,
                     add: [],
-                    remove: [attackModifiers[3]],
+                    remove: [deckCard.card],
                 },
             },
         ];
@@ -221,12 +207,9 @@ describe("applyPerksTo", () => {
     });
 
     it("applies a perk that adds a new card", () => {
-        const attackModifierDeck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[3], // +0
-                count: 6,
-            },
-        ];
+        const deckCard: AttackModifierDeckCard = createTestAttackModifierDeckCard(1, "+0", 6);
+
+        const attackModifierDeck: AttackModifierDeckCard[] = [deckCard];
 
         const gainedPerks: GainedPerk[] = [
             {
@@ -235,7 +218,7 @@ describe("applyPerksTo", () => {
                     id: 0,
                     name: "",
                     count: 1,
-                    add: [attackModifiers[2]],
+                    add: [createTestAttackModifierDeckCard(2, "+1").card],
                     remove: [],
                 },
             },
@@ -244,17 +227,12 @@ describe("applyPerksTo", () => {
         const attackModifierDeckWithPerks = applyPerksTo(attackModifierDeck, gainedPerks);
 
         expect(attackModifierDeckWithPerks).toHaveLength(2);
-        expect(attackModifierDeckWithPerks[1].card).toEqual(attackModifiers[2]);
+        expect(attackModifierDeckWithPerks[1].card).toEqual(gainedPerks[0].perk.add[0]);
         expect(attackModifierDeckWithPerks[1].count).toEqual(1);
     });
 
     it("applies a perk that removes the last copy of an existing card", () => {
-        const attackModifierDeck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[2], // +1
-                count: 1,
-            },
-        ];
+        const attackModifierDeck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+1")];
 
         const gainedPerks: GainedPerk[] = [
             {
@@ -264,7 +242,7 @@ describe("applyPerksTo", () => {
                     name: "",
                     count: 1,
                     add: [],
-                    remove: [attackModifiers[2]],
+                    remove: [attackModifierDeck[0].card],
                 },
             },
         ];
@@ -276,14 +254,8 @@ describe("applyPerksTo", () => {
 
     it("applies a perk that both adds and removes cards", () => {
         const attackModifierDeck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[2], // +1
-                count: 5,
-            },
-            {
-                card: attackModifiers[3], // +0
-                count: 6,
-            },
+            createTestAttackModifierDeckCard(1, "+1", 5),
+            createTestAttackModifierDeckCard(2, "+0", 6),
         ];
 
         const gainedPerks: GainedPerk[] = [
@@ -293,7 +265,7 @@ describe("applyPerksTo", () => {
                     id: 0,
                     name: "",
                     count: 1,
-                    add: [attackModifiers[2]],
+                    add: [attackModifierDeck[0].card],
                     remove: [],
                 },
             },
@@ -304,7 +276,7 @@ describe("applyPerksTo", () => {
                     name: "",
                     count: 1,
                     add: [],
-                    remove: [attackModifiers[3]],
+                    remove: [attackModifierDeck[1].card],
                 },
             },
         ];
@@ -316,12 +288,7 @@ describe("applyPerksTo", () => {
     });
 
     it("applies multiple perks that affect the same card", () => {
-        const attackModifierDeck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[2], // +1
-                count: 5,
-            },
-        ];
+        const attackModifierDeck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+1", 5)];
 
         const gainedPerks: GainedPerk[] = [
             {
@@ -330,7 +297,7 @@ describe("applyPerksTo", () => {
                     id: 0,
                     name: "",
                     count: 1,
-                    add: [attackModifiers[2]],
+                    add: [attackModifierDeck[0].card],
                     remove: [],
                 },
             },
@@ -340,7 +307,7 @@ describe("applyPerksTo", () => {
                     id: 0,
                     name: "",
                     count: 1,
-                    add: [attackModifiers[2]],
+                    add: [attackModifierDeck[0].card],
                     remove: [],
                 },
             },
@@ -352,12 +319,7 @@ describe("applyPerksTo", () => {
     });
 
     it("ignores an attempt to remove a card that doesn't exist", () => {
-        const attackModifierDeck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[2], // +1
-                count: 5,
-            },
-        ];
+        const attackModifierDeck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+1", 5)];
 
         const gainedPerks: GainedPerk[] = [
             {
@@ -367,7 +329,7 @@ describe("applyPerksTo", () => {
                     name: "",
                     count: 1,
                     add: [],
-                    remove: [attackModifiers[3]],
+                    remove: [createTestAttackModifierDeckCard(2, "+2").card],
                 },
             },
         ];
@@ -385,7 +347,7 @@ describe("applyPerksTo", () => {
                     id: 0,
                     name: "",
                     count: 1,
-                    add: [attackModifiers[3]], // +0
+                    add: [plusOne],
                     remove: [],
                 },
             },
@@ -395,8 +357,8 @@ describe("applyPerksTo", () => {
                     id: 1,
                     name: "",
                     count: 1,
-                    add: [attackModifiers[2]], // +1
-                    remove: [attackModifiers[3]], // +0
+                    add: [plusZero],
+                    remove: [plusOne],
                 },
             },
         ];
@@ -404,7 +366,7 @@ describe("applyPerksTo", () => {
         const attackModifierDeckWithPerks = applyPerksTo([], gainedPerks);
 
         expect(attackModifierDeckWithPerks).toHaveLength(1);
-        expect(attackModifierDeckWithPerks[0].card).toEqual(attackModifiers[2]);
+        expect(attackModifierDeckWithPerks[0].card).toEqual(plusZero);
     });
 
     it("applies a perk if the perk that adds the card to be removed is gained afterwards", () => {
@@ -415,8 +377,8 @@ describe("applyPerksTo", () => {
                     id: 1,
                     name: "",
                     count: 1,
-                    add: [attackModifiers[2]], // +1
-                    remove: [attackModifiers[3]], // +0
+                    add: [plusOne],
+                    remove: [plusZero],
                 },
             },
             {
@@ -425,7 +387,7 @@ describe("applyPerksTo", () => {
                     id: 0,
                     name: "",
                     count: 1,
-                    add: [attackModifiers[3]], // +0
+                    add: [plusZero],
                     remove: [],
                 },
             },
@@ -434,7 +396,7 @@ describe("applyPerksTo", () => {
         const attackModifierDeckWithPerks = applyPerksTo([], gainedPerks);
 
         expect(attackModifierDeckWithPerks).toHaveLength(1);
-        expect(attackModifierDeckWithPerks[0].card).toEqual(attackModifiers[2]);
+        expect(attackModifierDeckWithPerks[0].card).toEqual(plusOne);
     });
 
     it("only applies one instance of a perk if both checkboxes have been gained but the prerequisite has only been gained once", () => {
@@ -445,8 +407,8 @@ describe("applyPerksTo", () => {
                     id: 1,
                     name: "",
                     count: 2,
-                    add: [attackModifiers[2]], // +1
-                    remove: [attackModifiers[3]], // +0
+                    add: [plusOne],
+                    remove: [plusZero],
                 },
             },
             {
@@ -455,7 +417,7 @@ describe("applyPerksTo", () => {
                     id: 0,
                     name: "",
                     count: 2,
-                    add: [attackModifiers[3]], // +0
+                    add: [plusOne],
                     remove: [],
                 },
             },
@@ -465,8 +427,8 @@ describe("applyPerksTo", () => {
                     id: 1,
                     name: "",
                     count: 2,
-                    add: [attackModifiers[2]], // +1
-                    remove: [attackModifiers[3]], // +0
+                    add: [plusOne],
+                    remove: [plusZero],
                 },
             },
         ];
@@ -474,6 +436,6 @@ describe("applyPerksTo", () => {
         const attackModifierDeckWithPerks = applyPerksTo([], gainedPerks);
 
         expect(attackModifierDeckWithPerks).toHaveLength(1);
-        expect(attackModifierDeckWithPerks[0].card).toEqual(attackModifiers[2]);
+        expect(attackModifierDeckWithPerks[0].card).toEqual(plusOne);
     });
 });
