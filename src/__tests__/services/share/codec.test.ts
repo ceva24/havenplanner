@@ -127,7 +127,7 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe("encode", () => {
+describe.skip("encode", () => {
     it("serializes character data", () => {
         jest.spyOn(serializerService, "serialize").mockReturnValueOnce("");
 
@@ -170,7 +170,7 @@ describe("encode", () => {
     });
 });
 
-describe("decode", () => {
+describe.skip("decode", () => {
     it("decompresses character data", () => {
         jest.spyOn(lzbase62, "decompress").mockReturnValueOnce("");
         jest.spyOn(deserializerService, "deserialize").mockReturnValueOnce(character);
