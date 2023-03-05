@@ -93,6 +93,7 @@ const createTestAbilityCard = (
     name?: string,
     enhancementSlots?: EnhancementSlot[],
     imageUrl?: string
+    // eslint-disable-next-line max-params
 ): AbilityCard => {
     return {
         id,

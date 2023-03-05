@@ -1,8 +1,8 @@
-import { getDefaultGameData } from "@/services/game/gloomhaven";
+import { getGameData } from "@/services/game/gloomhaven";
 
 const getDefaultSettings = (): Settings => {
     return {
-        gameData: getDefaultGameData(),
+        gameData: getGameData(),
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 0,
         spoilerSettings: getDefaultSpoilerSettings(),
