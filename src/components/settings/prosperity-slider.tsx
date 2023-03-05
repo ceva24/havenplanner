@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Typography, Slider } from "@mui/material";
-import type { Mark } from "@mui/base/SliderUnstyled";
+import type { Mark } from "@mui/base/useSlider";
 import { useSettingsContext } from "@/hooks/use-settings";
 
 const ProsperitySlider = () => {
