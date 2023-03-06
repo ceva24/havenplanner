@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { v4 as uuid } from "uuid";
 import Image from "@/components/core/image";
-import { getItems, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
+import { getItems, shouldShowItemSpoilerHint } from "@/services/items";
 import { useSettingsContext } from "@/hooks/use-settings";
 
 interface ItemsAutocompleteProps {
@@ -75,7 +75,7 @@ const addItem = (item: Item | null, character: Character, setCharacter: Dispatch
 
         const newCharacter = {
             ...character,
-            items: orderItems(character.items.concat([characterItem])),
+            items: character.items.concat([characterItem]),
         };
 
         setCharacter(newCharacter);

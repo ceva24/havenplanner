@@ -106,6 +106,39 @@ describe("share", () => {
         cy.findByRole("img", { name: "Eagle Eye Goggles" }).should("be.visible");
     });
 
+    it("retains item ordering when loading data from a shareable link", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.addItem("Piercing Bow 009");
+        cy.addItem("Eagle Eye Goggles 006");
+
+        cy.findByRole("region", { name: "Item Grid" })
+            .findAllByRole("img")
+            .eq(0)
+            .should("have.attr", "alt", "Piercing Bow");
+        cy.findByRole("region", { name: "Item Grid" })
+            .findAllByRole("img")
+            .eq(1)
+            .should("have.attr", "alt", "Eagle Eye Goggles");
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.selectTab("Items");
+
+        cy.findByRole("region", { name: "Item Grid" })
+            .findAllByRole("img")
+            .eq(0)
+            .should("have.attr", "alt", "Piercing Bow");
+        cy.findByRole("region", { name: "Item Grid" })
+            .findAllByRole("img")
+            .eq(1)
+            .should("have.attr", "alt", "Eagle Eye Goggles");
+    });
+
     it("captures unlocked ability card data in a shareable link", () => {
         cy.visit("/");
 
