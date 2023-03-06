@@ -35,7 +35,6 @@ describe("hasSpoilers", () => {
     });
 });
 
-
 describe("itemGroupIsActive", () => {
     it("returns true when the item group is active in the app settings", () => {
         const itemGroup = { id: 0, name: "Group" };

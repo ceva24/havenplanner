@@ -1,5 +1,7 @@
 import { getDefaultSettings, getSpoilerSettingsForCharacter } from "@/services/settings";
-import { createTestCharacter, createTestItem } from "@/test/create-test-fixtures";
+import { createTestCharacter, createTestItem, createTestSettings } from "@/test/create-test-fixtures";
+
+const settings: Settings = createTestSettings();
 
 describe("getDefaultSettings", () => {
     it("returns default settings", () => {
@@ -15,12 +17,11 @@ describe("getDefaultSettings", () => {
     });
 });
 
-
 describe("spoilerSettingsForCharacter", () => {
     it("sets prosperity to 1 when the character has no items", () => {
         const character: Character = createTestCharacter();
 
-        const spoilerSettings = getSpoilerSettingsForCharacter(character);
+        const spoilerSettings = getSpoilerSettingsForCharacter(character, settings.gameData);
 
         expect(spoilerSettings.items.prosperity).toEqual(1);
     });
@@ -30,7 +31,7 @@ describe("spoilerSettingsForCharacter", () => {
             items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
         });
 
-        const spoilerSettings = getSpoilerSettingsForCharacter(character);
+        const spoilerSettings = getSpoilerSettingsForCharacter(character, settings.gameData);
 
         expect(spoilerSettings.items.prosperity).toEqual(1);
     });
@@ -43,20 +44,23 @@ describe("spoilerSettingsForCharacter", () => {
             ],
         });
 
-        const spoilerSettings = getSpoilerSettingsForCharacter(character);
+        const spoilerSettings = getSpoilerSettingsForCharacter(character, settings.gameData);
 
         expect(spoilerSettings.items.prosperity).toEqual(2);
     });
 
     it("sets active item groups matching the character items", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "Random Item Designs") }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "Test Random Item Designs") }],
         });
 
-        const spoilerSettings = getSpoilerSettingsForCharacter(character);
+        const settingsWithItemGroups: Settings = createTestSettings();
+        settingsWithItemGroups.gameData.itemGroups = [{ id: 1, name: "Test Random Item Designs" }];
+
+        const spoilerSettings = getSpoilerSettingsForCharacter(character, settingsWithItemGroups.gameData);
 
         expect(spoilerSettings.items.itemGroups).toHaveLength(1);
-        expect(spoilerSettings.items.itemGroups[0].name).toEqual("Random Item Designs");
+        expect(spoilerSettings.items.itemGroups[0].name).toEqual("Test Random Item Designs");
     });
 
     it("ignores invalid item groups", () => {
@@ -66,7 +70,7 @@ describe("spoilerSettingsForCharacter", () => {
             items: [{ id: "1", item }],
         });
 
-        const spoilerSettings = getSpoilerSettingsForCharacter(character);
+        const spoilerSettings = getSpoilerSettingsForCharacter(character, settings.gameData);
 
         expect(spoilerSettings.items.itemGroups).toHaveLength(0);
     });
