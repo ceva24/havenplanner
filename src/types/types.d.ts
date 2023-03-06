@@ -73,6 +73,7 @@ interface CharacterItem {
 }
 
 interface SerializedCharacter {
+    a: number; // Game id
     n: string; // Name
     x: number; // Experience
     g: number; // Gold

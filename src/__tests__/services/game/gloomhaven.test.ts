@@ -1,4 +1,4 @@
-import { getGameData } from "@/services/game/gloomhaven";
+import { getGloomhavenGameData } from "@/services/games/gloomhaven";
 
 jest.mock("@/loaders/attack-modifiers", () => ({
     attackModifiers: [],
@@ -34,19 +34,19 @@ beforeEach(() => {
 
 describe("getGameData", () => {
     it("sets the game to the first game in the list", () => {
-        const gameData: GameData = getGameData();
+        const gameData: GameData = getGloomhavenGameData();
 
         expect(gameData.game.name).toEqual("Test Gloomhaven");
     });
 
     it("sets the character class to the first class in the list", () => {
-        const gameData: GameData = getGameData();
+        const gameData: GameData = getGloomhavenGameData();
 
         expect(gameData.defaultCharacter.characterClass.name).toEqual("Test Frog");
     });
 
     it("creates the base attack modifier deck", () => {
-        const gameData: GameData = getGameData();
+        const gameData: GameData = getGloomhavenGameData();
 
         expect(gameData.baseAttackModifierDeck).toHaveLength(7);
         expect(gameData.baseAttackModifierDeck[0].count).toEqual(1);
@@ -59,13 +59,13 @@ describe("getGameData", () => {
     });
 
     it("creates six battle goal checkmark groups", () => {
-        const gameData = getGameData();
+        const gameData = getGloomhavenGameData();
 
         expect(gameData.battleGoalCheckmarks).toHaveLength(6);
     });
 
     it("creates battle goal checkmarks groups of three checkmarks", () => {
-        const gameData = getGameData();
+        const gameData = getGloomhavenGameData();
 
         gameData.battleGoalCheckmarks.forEach((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => {
             expect(battleGoalCheckmarkGroup.checkmarks).toHaveLength(3);
@@ -73,7 +73,7 @@ describe("getGameData", () => {
     });
 
     it("initializes all battle goal checkmark values to false", () => {
-        const gameData = getGameData();
+        const gameData = getGloomhavenGameData();
 
         gameData.battleGoalCheckmarks.forEach((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => {
             battleGoalCheckmarkGroup.checkmarks.forEach((checkmark: BattleGoalCheckmark) => {

@@ -1,5 +1,6 @@
-const serialize = (character: Character): string => {
+const serialize = (character: Character, gameData: GameData): string => {
     const characterData: SerializedCharacter = {
+        a: gameData.game.id,
         n: character.name,
         x: character.experience,
         g: character.gold,

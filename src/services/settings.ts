@@ -1,8 +1,12 @@
-import { getGameData } from "@/services/game/gloomhaven";
+import { getGameDataById } from "@/services/games/game";
 
 const getDefaultSettings = (): Settings => {
+    return getSettingsForGame(1);
+};
+
+const getSettingsForGame = (id: number) => {
     return {
-        gameData: getGameData(),
+        gameData: getGameDataById(id),
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 0,
         spoilerSettings: getDefaultSpoilerSettings(),
@@ -18,8 +22,30 @@ const getDefaultSpoilerSettings = (): SpoilerSettings => {
     };
 };
 
-const itemGroupIsActive = (itemGroup: ItemGroup, settings: Settings) => {
-    return settings.spoilerSettings.items.itemGroups.some((group) => group.id === itemGroup.id);
+const getSpoilerSettingsForCharacter = (character: Character, gameData: GameData): SpoilerSettings => {
+    return {
+        items: {
+            prosperity: determineInitialProsperity(character),
+            itemGroups: determineItemGroups(character, gameData),
+        },
+    };
 };
 
-export { getDefaultSettings, itemGroupIsActive };
+const determineInitialProsperity = (character: Character): number => {
+    if (character.items.length === 0) return 1;
+
+    const itemProsperities: number[] = character.items
+        .filter((characterItem: CharacterItem) => !Number.isNaN(Number(characterItem.item.group)))
+        .map((characterItem: CharacterItem) => Number.parseInt(characterItem.item.group, 10));
+
+    return Math.max.apply(0, itemProsperities);
+};
+
+const determineItemGroups = (character: Character, gameData: GameData): ItemGroup[] => {
+    const itemGroupNames: string[] = character.items.map((characterItem: CharacterItem) => characterItem.item.group);
+    const uniqueItemGroupNames = new Set<string>(itemGroupNames);
+
+    return gameData.itemGroups.filter((itemGroup: ItemGroup) => uniqueItemGroupNames.has(itemGroup.name));
+};
+
+export { getDefaultSettings, getSettingsForGame, getSpoilerSettingsForCharacter };

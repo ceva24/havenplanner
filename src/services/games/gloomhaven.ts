@@ -6,7 +6,7 @@ import { itemGroups } from "@/loaders/item-groups";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
 
-const getGameData = (): GameData => {
+const getGloomhavenGameData = (): GameData => {
     return {
         game: games[0],
         characterClasses,
@@ -79,4 +79,4 @@ const createDefaultBattleGoals = (): BattleGoalCheckmarkGroup[] => {
     }));
 };
 
-export { getGameData };
+export { getGloomhavenGameData };

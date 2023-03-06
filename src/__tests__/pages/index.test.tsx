@@ -29,7 +29,7 @@ const settings: Settings = createTestSettings();
 
 describe("index page", () => {
     it("renders the tabbed content", () => {
-        render(<Index defaultSettings={settings} />);
+        render(<Index initialSettings={settings} />);
 
         const profileTab = screen.getByRole("tab", { name: "Profile" });
 
@@ -37,7 +37,7 @@ describe("index page", () => {
     });
 
     it("renders the share button", () => {
-        render(<Index defaultSettings={settings} />);
+        render(<Index initialSettings={settings} />);
 
         const shareButton = screen.getByRole("button", { name: "Share" });
 
@@ -49,7 +49,7 @@ describe("getServerSideProps", () => {
     it("returns the default settings", async () => {
         const data = (await getServerSideProps(createMockContext({}))) as { props: IndexProps };
 
-        expect(data.props.defaultSettings).toBeTruthy();
+        expect(data.props.initialSettings).toBeTruthy();
     });
 
     it("loads character details from the query string parameter", async () => {
@@ -71,7 +71,7 @@ describe("getServerSideProps", () => {
 
         const data = (await getServerSideProps(context)) as { props: IndexProps };
 
-        expect(data.props.defaultSettings.gameData.defaultCharacter).toBeTruthy();
+        expect(data.props.initialSettings.gameData.defaultCharacter).toBeTruthy();
     });
 });
 

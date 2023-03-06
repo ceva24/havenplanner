@@ -1,15 +1,9 @@
 import { v4 as uuid } from "uuid";
-import { characterClasses } from "@/loaders/character-classes";
-import { items } from "@/loaders/items";
-import { personalQuests } from "@/loaders/personal-quests";
-import { enhancements } from "@/loaders/enhancements";
-import { getGameData } from "@/services/game/gloomhaven";
+import { getGloomhavenGameData } from "@/services/games/gloomhaven";
 
-const deserialize = (data: string): Character => {
-    const characterData = JSON.parse(data) as SerializedCharacter;
-
-    const characterClass = deserializeCharacterClass(characterData.c);
-    const personalQuest = deserializePersonalQuest(characterData.q);
+const deserialize = (characterData: SerializedCharacter, gameData: GameData): Character => {
+    const characterClass = deserializeCharacterClass(characterData.c, gameData);
+    const personalQuest = deserializePersonalQuest(characterData.q, gameData);
 
     return {
         name: characterData.n,
@@ -20,22 +14,25 @@ const deserialize = (data: string): Character => {
         ...(personalQuest && { personalQuest }),
         unlockedAbilityCards: deserializeAbilityCards(characterData.u, characterClass),
         hand: deserializeAbilityCards(characterData.h, characterClass),
-        gainedEnhancements: deserializeGainedEnhancements(characterData.e, characterClass),
+        gainedEnhancements: deserializeGainedEnhancements(characterData.e, characterClass, gameData),
         gainedPerks: deserializeGainedPerks(characterData.p, characterClass),
         battleGoalCheckmarkGroups: deserializeGainedBattleGoalCheckmarks(characterData.b),
-        items: deserializeItems(characterData.i),
+        items: deserializeItems(characterData.i, gameData),
     };
 };
 
-const deserializeCharacterClass = (characterClassId: number): CharacterClass => {
+const deserializeCharacterClass = (characterClassId: number, gameData: GameData): CharacterClass => {
     return (
-        characterClasses.find((characterClass: CharacterClass) => characterClass.id === characterClassId) ??
-        getGameData().defaultCharacter.characterClass
+        gameData.characterClasses.find((characterClass: CharacterClass) => characterClass.id === characterClassId) ??
+        getGloomhavenGameData().defaultCharacter.characterClass
     );
 };
 
-const deserializePersonalQuest = (personalQuestId: number | undefined): PersonalQuest | undefined => {
-    return personalQuests.find((personalQuest: PersonalQuest) => personalQuest.id === personalQuestId);
+const deserializePersonalQuest = (
+    personalQuestId: number | undefined,
+    gameData: GameData
+): PersonalQuest | undefined => {
+    return gameData.personalQuests.find((personalQuest: PersonalQuest) => personalQuest.id === personalQuestId);
 };
 
 const deserializeAbilityCards = (abilityCardIds: number[], characterClass: CharacterClass): AbilityCard[] => {
@@ -52,7 +49,8 @@ const deserializeAbilityCards = (abilityCardIds: number[], characterClass: Chara
 
 const deserializeGainedEnhancements = (
     gainedEnhancementIndices: Array<[number, number, number]>,
-    characterClass: CharacterClass
+    characterClass: CharacterClass,
+    gameData: GameData
 ): GainedEnhancement[] => {
     const gainedEnhancements: GainedEnhancement[] = [];
 
@@ -61,7 +59,7 @@ const deserializeGainedEnhancements = (
             (abilityCard: AbilityCard) => abilityCard.id === cardIdSlotIdEnhcId[0]
         );
         const enhancementSlot = abilityCard?.enhancementSlots[cardIdSlotIdEnhcId[1]];
-        const enhancement = enhancements[cardIdSlotIdEnhcId[2]];
+        const enhancement = gameData.enhancements[cardIdSlotIdEnhcId[2]];
 
         if (abilityCard && enhancementSlot && enhancement) {
             gainedEnhancements.push({
@@ -92,8 +90,8 @@ const deserializeGainedBattleGoalCheckmarks = (battleGoalIndices: boolean[][]): 
     }));
 };
 
-const deserializeItems = (itemIds: number[]): CharacterItem[] => {
-    return items.filter((item: Item) => itemIds.includes(item.id)).map((item: Item) => ({ id: uuid(), item }));
+const deserializeItems = (itemIds: number[], gameData: GameData): CharacterItem[] => {
+    return gameData.items.filter((item: Item) => itemIds.includes(item.id)).map((item: Item) => ({ id: uuid(), item }));
 };
 
 export { deserialize };

@@ -1,7 +1,7 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { FormControlLabel, Checkbox, Box, FormGroup } from "@mui/material";
 import { useSettingsContext } from "@/hooks/use-settings";
-import { itemGroupIsActive } from "@/services/settings";
+import { itemGroupIsActive } from "@/services/spoiler";
 
 const ItemGroups = () => {
     const [settings, setSettings] = useSettingsContext();
