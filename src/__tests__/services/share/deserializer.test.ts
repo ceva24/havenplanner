@@ -42,7 +42,7 @@ describe("deserialize", () => {
 
         const character: Character = deserialize(data, settings.gameData);
 
-        expect(character.characterClass.name).toEqual("Brute");
+        expect(character.characterClass.name).toEqual("Test Brute");
     });
 
     it("omits the personal quest property when deserializing a character with no personal quest id", () => {

@@ -11,7 +11,7 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
             personalQuests: [],
             enhancements: [],
             baseAttackModifierDeck: [],
-            battleGoalCheckmarks: [{ id: 1, checkmarks: [{ id: 1, value: false }] }],
+            battleGoalCheckmarks: [{ id: 0, checkmarks: [{ id: 0, value: false }] }],
             items: [],
             itemGroups: [{ id: 1, name: "Random Item Designs" }],
             defaultCharacter: createTestCharacter({ characterClass }),
@@ -53,7 +53,7 @@ const createTestCharacter = (characterDetailsToOverride?: Partial<Character>): C
         hand: [],
         gainedEnhancements: [],
         gainedPerks: [],
-        battleGoalCheckmarkGroups: [{ id: 1, checkmarks: [{ id: 1, value: false }] }],
+        battleGoalCheckmarkGroups: [{ id: 0, checkmarks: [{ id: 0, value: false }] }],
         items: [],
     };
 

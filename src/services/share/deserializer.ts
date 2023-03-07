@@ -1,5 +1,4 @@
 import { v4 as uuid } from "uuid";
-import { getGloomhavenGameData } from "@/services/games/gloomhaven";
 
 const deserialize = (characterData: SerializedCharacter, gameData: GameData): Character => {
     const characterClass = deserializeCharacterClass(characterData.c, gameData);
@@ -24,7 +23,7 @@ const deserialize = (characterData: SerializedCharacter, gameData: GameData): Ch
 const deserializeCharacterClass = (characterClassId: number, gameData: GameData): CharacterClass => {
     return (
         gameData.characterClasses.find((characterClass: CharacterClass) => characterClass.id === characterClassId) ??
-        getGloomhavenGameData().defaultCharacter.characterClass
+        gameData.defaultCharacter.characterClass
     );
 };
 
