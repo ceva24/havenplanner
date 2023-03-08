@@ -1,4 +1,4 @@
-import { hasSpoilers, itemGroupIsActive } from "@/services/spoiler";
+import { hasSpoilers, isCompletelySpoiled, itemGroupIsActive } from "@/services/spoiler";
 import { createTestCharacter, createTestItem, createTestSettings } from "@/test/create-test-fixtures";
 
 describe("hasSpoilers", () => {
@@ -55,5 +55,60 @@ describe("itemGroupIsActive", () => {
         const isActive = itemGroupIsActive(itemGroup, settings);
 
         expect(isActive).toEqual(false);
+    });
+});
+
+describe("isCompletelySpoiled", () => {
+    it("returns false when prosperity is < 9 and item groups are unchecked", () => {
+        const settings: Settings = createTestSettings({
+            spoilerSettings: {
+                items: {
+                    prosperity: 1,
+                    itemGroups: [],
+                },
+            },
+        });
+
+        const isSpoiled = isCompletelySpoiled(settings);
+
+        expect(isSpoiled).toEqual(false);
+    });
+
+    it("returns false when prosperity is 9 and item groups are unchecked", () => {
+        const settings: Settings = createTestSettings({
+            spoilerSettings: {
+                items: {
+                    prosperity: 9,
+                    itemGroups: [],
+                },
+            },
+        });
+
+        const isSpoiled = isCompletelySpoiled(settings);
+
+        expect(isSpoiled).toEqual(false);
+    });
+
+    it("returns false when prosperity is < 9 and all item groups are checked", () => {
+        const settings: Settings = createTestSettings();
+        settings.spoilerSettings.items.itemGroups = settings.gameData.itemGroups;
+
+        const isSpoiled = isCompletelySpoiled(settings);
+
+        expect(isSpoiled).toEqual(false);
+    });
+
+    it("returns true when prosperity is 9 and all item groups are checked", () => {
+        const settings: Settings = createTestSettings();
+        settings.spoilerSettings = {
+            items: {
+                prosperity: 9,
+                itemGroups: settings.gameData.itemGroups,
+            },
+        };
+
+        const isSpoiled = isCompletelySpoiled(settings);
+
+        expect(isSpoiled).toEqual(true);
     });
 });
