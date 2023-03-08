@@ -85,5 +85,9 @@ declare namespace Cypress {
         findLoadCharacterDialog(): Chainable<Element>;
 
         confirmLoadCharacter(): Chainable<Element>;
+
+        spoilAll(): Chainable<Element>;
+
+        unspoilAll(): Chainable<Element>;
     }
 }
