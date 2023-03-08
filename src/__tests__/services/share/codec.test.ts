@@ -123,6 +123,8 @@ describe("codec", () => {
 
         const data: string = encode(saveData);
 
+        expect(data).toMatch(/\w{100,}/);
+
         const decodedSaveData: SaveData = decode(data);
 
         expect(decodedSaveData.character).toEqual(saveData.character);
@@ -134,6 +136,8 @@ describe("codec", () => {
         const saveData: SaveData = { character, gameData: settings.gameData };
 
         const data: string = encode(saveData);
+
+        expect(data).toMatch(/\w{100,}/);
 
         const decodedSaveData: SaveData = decode(data);
 
@@ -154,6 +158,8 @@ describe("codec", () => {
         const saveData: SaveData = { character, gameData: settings.gameData };
 
         const data: string = encode(saveData);
+
+        expect(data).toMatch(/\w{100,}/);
 
         const decodedSaveData: SaveData = decode(data);
 
@@ -198,6 +204,8 @@ describe("codec", () => {
 
         const data: string = encode(saveData);
 
+        expect(data).toMatch(/\w{100,}/);
+
         const decodedSaveData: SaveData = decode(data);
 
         expect(decodedSaveData.character.items).toHaveLength(character.items.length);
@@ -217,10 +225,14 @@ describe("codec", () => {
 
         const data: string = encode(saveData);
 
+        expect(data).toMatch(/\w{100,}/);
+
         const decodedSaveData: SaveData = decode(data);
 
         expect(decodedSaveData.character).toEqual(saveData.character);
         expect(decodedSaveData.character.unlockedAbilityCards).toHaveLength(2);
+        expect(decodedSaveData.character.unlockedAbilityCards[0]).toBeTruthy();
+        expect(decodedSaveData.character.unlockedAbilityCards[1]).toBeTruthy();
     });
 
     it("serializes and deserializes character data with a hand", () => {
@@ -233,9 +245,106 @@ describe("codec", () => {
 
         const data: string = encode(saveData);
 
+        expect(data).toMatch(/\w{100,}/);
+
         const decodedSaveData: SaveData = decode(data);
 
         expect(decodedSaveData.character).toEqual(saveData.character);
         expect(decodedSaveData.character.hand).toHaveLength(2);
+        expect(decodedSaveData.character.hand[0]).toBeTruthy();
+        expect(decodedSaveData.character.hand[1]).toBeTruthy();
+    });
+
+    it("serializes and deserializes character data with gained enhancements", () => {
+        const enhancement: Enhancement = createTestEnhancement(1, "Test +1", ["test-numeric"]);
+
+        const settings: Settings = createTestSettings();
+        settings.gameData.enhancements = [enhancement];
+
+        settings.gameData.characterClasses[0].abilityCards = [
+            createTestAbilityCard(
+                1,
+                "1",
+                "Trample",
+                [
+                    {
+                        id: 0,
+                        name: "Attack",
+                        types: ["test-numeric"],
+                    },
+                ],
+                "/gloomhaven/BR/gh-trample.webp"
+            ),
+        ];
+
+        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+
+        const character: Character = createTestCharacter({ characterClass: settings.gameData.characterClasses[0] });
+
+        character.gainedEnhancements = [
+            {
+                abilityCard: character.characterClass.abilityCards[0],
+                enhancementSlot: character.characterClass.abilityCards[0].enhancementSlots[0],
+                enhancement,
+            },
+        ];
+
+        const saveData: SaveData = { character, gameData: settings.gameData };
+
+        const data: string = encode(saveData);
+
+        expect(data).toMatch(/\w{100,}/);
+
+        const decodedSaveData: SaveData = decode(data);
+
+        expect(decodedSaveData.character).toEqual(saveData.character);
+        expect(decodedSaveData.character.gainedEnhancements).toHaveLength(1);
+        expect(decodedSaveData.character.gainedEnhancements[0]).toBeTruthy();
+    });
+
+    it("serializes and deserializes character data with gained perks", () => {
+        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+
+        const character: Character = createTestCharacter();
+        character.gainedPerks = [{ perk: character.characterClass.perks[0], checkboxIndex: 0 }];
+
+        const saveData: SaveData = { character, gameData: settings.gameData };
+
+        const data: string = encode(saveData);
+
+        expect(data).toMatch(/\w{100,}/);
+
+        const decodedSaveData: SaveData = decode(data);
+
+        expect(decodedSaveData.character).toEqual(saveData.character);
+        expect(decodedSaveData.character.gainedPerks).toHaveLength(1);
+        expect(decodedSaveData.character.gainedPerks[0]).toBeTruthy();
+    });
+
+    it("serializes and deserializes character data with battle goal checkmarks", () => {
+        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+
+        const character: Character = createTestCharacter();
+        character.battleGoalCheckmarkGroups = [
+            {
+                id: 0,
+                checkmarks: [
+                    { id: 0, value: true },
+                    { id: 1, value: true },
+                ],
+            },
+        ];
+
+        const saveData: SaveData = { character, gameData: settings.gameData };
+
+        const data: string = encode(saveData);
+
+        expect(data).toMatch(/\w{100,}/);
+
+        const decodedSaveData: SaveData = decode(data);
+
+        expect(decodedSaveData.character).toEqual(saveData.character);
+        expect(decodedSaveData.character.battleGoalCheckmarkGroups).toHaveLength(1);
+        expect(decodedSaveData.character.battleGoalCheckmarkGroups[0]).toBeTruthy();
     });
 });
