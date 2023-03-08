@@ -2,7 +2,7 @@
     "ci": {
         "collect": {
             "url": [
-                "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2GtZ2GtL3AsRENEOEJ2QsJKtN2UtlxUDsP2MsPM2D21sPPxSDtYxSDsO2nsO2VsO2psP2JxeHsPxhDxeD3s2exfE2CsI2OxJE2exJF2rxqDxJE2osKxSDxqDtgxqE4VxeExtGx1DxGDxeExGExME2sxME37xwFtSxwEtkilVsExFJxdDxRi6K6V2NxGLxUptNuF"
+                "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF"
             ],
             "startServerCommand": "npm run build && npm start"
         },

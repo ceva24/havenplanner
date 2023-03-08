@@ -1,7 +1,7 @@
 [
     {
         "name": "Profile Tab",
-        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2GtZ2GtL3AsNEOEREJK2DsLtN2UtlxUDsP2csPM2D21sPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD3s2e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE4VsIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6K6V2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "additionalSnapshots": [
             {
                 "suffix": " - Personal Quest",
@@ -11,7 +11,7 @@
     },
     {
         "name": "Ability Cards Tab",
-        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2GtZ2GtL3AsNEOEREJK2DsLtN2UtlxUDsP2csPM2D21sPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD3s2e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE4VsIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6K6V2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#ability-cards-tab').click()",
         "additionalSnapshots": [
             {
@@ -26,7 +26,7 @@
     },
     {
         "name": "Items Tab",
-        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2GtZ2GtL3AsNEOEREJK2DsLtN2UtlxUDsP2csPM2D21sPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD3s2e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE4VsIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6K6V2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#items-tab').click()",
         "additionalSnapshots": [
             {
@@ -41,17 +41,17 @@
     },
     {
         "name": "Perks Tab",
-        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2GtZ2GtL3AsNEOEREJK2DsLtN2UtlxUDsP2csPM2D21sPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD3s2e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE4VsIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6K6V2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#perks-tab').click()"
     },
     {
         "name": "Settings",
-        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2GtZ2GtL3AsNEOEREJK2DsLtN2UtlxUDsP2csPM2D21sPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD3s2e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE4VsIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6K6V2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#open-settings-button').click()"
     },
     {
         "name": "Share Dialog",
-        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2GtZ2GtL3AsNEOEREJK2DsLtN2UtlxUDsP2csPM2D21sPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD3s2e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE4VsIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6K6V2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#share-button').click()"
     },
     {
