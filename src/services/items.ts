@@ -30,11 +30,4 @@ const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
         );
 };
 
-const shouldShowItemSpoilerHint = (settings: Settings): boolean => {
-    return (
-        settings.spoilerSettings.items.prosperity < 9 ||
-        settings.spoilerSettings.items.itemGroups.length !== settings.gameData.itemGroups.length
-    );
-};
-
-export { getItems, getItemsByGroup, itemShouldBeHidden, orderItems, shouldShowItemSpoilerHint };
+export { getItems, getItemsByGroup, itemShouldBeHidden, orderItems };

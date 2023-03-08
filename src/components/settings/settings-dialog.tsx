@@ -1,7 +1,8 @@
-import { Dialog, Box, DialogContent, Stack, Typography, Link, FormGroup } from "@mui/material";
+import { Dialog, Box, DialogContent, Stack, Typography, Link } from "@mui/material";
 import { Button } from "@/components/core/button";
 import ProsperitySlider from "@/components/settings/prosperity-slider";
 import ItemGroups from "@/components/settings/item-groups";
+import SpoilAllSwitch from "@/components/settings/spoil-all-switch";
 
 interface SettingsDialogProps {
     isOpen: boolean;
@@ -16,6 +17,9 @@ const SettingsDialog = ({ isOpen, onClose }: SettingsDialogProps) => {
             </Box>
             <DialogContent>
                 <Stack spacing={5} textAlign="center">
+                    <Box>
+                        <SpoilAllSwitch />
+                    </Box>
                     <Box>
                         <Box component="section" aria-label="Item Spoilers">
                             <ProsperitySlider />

@@ -1,5 +1,5 @@
 import type { Dictionary } from "lodash";
-import { getItems, getItemsByGroup, itemShouldBeHidden, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
+import { getItems, getItemsByGroup, itemShouldBeHidden, orderItems } from "@/services/items";
 import {
     createTestItem,
     createTestItemGroup,
@@ -158,54 +158,5 @@ describe("orderItems", () => {
         ${[{ id: 1, item: createTestItem(0, "Boots of Test", "1") }]}
     `("orders items of length $items.length without error", ({ items }: ItemsProps) => {
         expect(() => orderItems(items)).not.toThrowError();
-    });
-});
-
-describe("shouldShowItemSpoilerHint", () => {
-    it("should return true when prosperity level is < 9", () => {
-        const settings: Settings = createTestSettingsWithSpoilerSettings(2, []);
-
-        const shouldShow = shouldShowItemSpoilerHint(settings);
-
-        expect(shouldShow).toEqual(true);
-    });
-
-    it("should return true when prosperity level is 9 and no item groups are selected", () => {
-        const settings: Settings = createTestSettingsWithSpoilerSettings(9, []);
-
-        const shouldShow = shouldShowItemSpoilerHint(settings);
-
-        expect(shouldShow).toEqual(true);
-    });
-
-    it("should return true when prosperity level is 9 and some item groups are selected", () => {
-        const settings: Settings = createTestSettingsWithSpoilerSettings(9, []);
-        settings.gameData.itemGroups = [
-            { id: 1, name: "Random Item Designs" },
-            { id: 2, name: "Other Items" },
-        ];
-        settings.spoilerSettings.items.itemGroups = [settings.gameData.itemGroups[0]];
-
-        const shouldShow = shouldShowItemSpoilerHint(settings);
-
-        expect(shouldShow).toEqual(true);
-    });
-
-    it("should return true when prosperity level is < 9 and all item groups are selected", () => {
-        const settings: Settings = createTestSettingsWithSpoilerSettings(8, []);
-        settings.spoilerSettings.items.itemGroups = settings.gameData.itemGroups;
-
-        const shouldShow = shouldShowItemSpoilerHint(settings);
-
-        expect(shouldShow).toEqual(true);
-    });
-
-    it("should return false when prosperity level is 9 and all item groups are selected", () => {
-        const settings: Settings = createTestSettingsWithSpoilerSettings(9, []);
-        settings.spoilerSettings.items.itemGroups = settings.gameData.itemGroups;
-
-        const shouldShow = shouldShowItemSpoilerHint(settings);
-
-        expect(shouldShow).toEqual(false);
     });
 });

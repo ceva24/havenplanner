@@ -2,6 +2,7 @@ import { type Dispatch, type SetStateAction } from "react";
 import { AppBar, Box, Grid, Link, Toolbar, Typography } from "@mui/material";
 import ShareButton from "@/components/header/share-button";
 import SettingsButton from "@/components/header/settings-button";
+import SpoilAllSwitch from "@/components/settings/spoil-all-switch";
 
 interface HeaderProps {
     character?: Character;
@@ -22,6 +23,13 @@ const Header = ({ character, setCharacter }: HeaderProps) => {
                 {character && setCharacter && (
                     <Box>
                         <Grid container textAlign="right" paddingY={{ xs: 1, md: 0 }}>
+                            <Grid item padding={1} display={{ xs: "none", md: "flex" }} alignItems="center">
+                                <SpoilAllSwitch
+                                    shouldApplyImmediately
+                                    character={character}
+                                    setCharacter={setCharacter}
+                                />
+                            </Grid>
                             <Grid item padding={1} sx={{ width: { xs: "100%", md: "auto" } }}>
                                 <SettingsButton character={character} setCharacter={setCharacter} />
                             </Grid>

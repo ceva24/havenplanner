@@ -19,6 +19,14 @@ describe("settings dialog", () => {
         expect(reportAnIssueLink).toBeInTheDocument();
     });
 
+    it("renders the spoil all switch", () => {
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestSettingsProvider });
+
+        const spoilAllSwitch = screen.queryByRole("checkbox", { name: "Spoil all" });
+
+        expect(spoilAllSwitch).toBeInTheDocument();
+    });
+
     it("renders item spoilers", () => {
         render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestSettingsProvider });
 

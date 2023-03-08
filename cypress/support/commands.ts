@@ -217,3 +217,11 @@ Cypress.Commands.add("findLoadCharacterDialog", () => {
 Cypress.Commands.add("confirmLoadCharacter", () => {
     cy.findByRole("dialog", { name: "Load character?" }).findByRole("button", { name: "Load" }).click();
 });
+
+Cypress.Commands.add("spoilAll", () => {
+    cy.findByRole("checkbox", { name: "Spoil all" }).check();
+});
+
+Cypress.Commands.add("unspoilAll", () => {
+    cy.findByRole("checkbox", { name: "Spoil all" }).uncheck();
+});

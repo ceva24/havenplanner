@@ -20,6 +20,13 @@ describe("index page", () => {
 
         cy.get("header").should("exist");
     });
+
+    it("renders a spoil all toggle in the header", () => {
+        cy.visit("/");
+
+        cy.get("header").findByRole("checkbox", { name: "Spoil all" }).should("exist");
+    });
+
     it("renders the page content in the main region", () => {
         cy.visit("/");
 
