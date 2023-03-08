@@ -6,4 +6,11 @@ const itemGroupIsActive = (itemGroup: ItemGroup, settings: Settings) => {
     return settings.spoilerSettings.items.itemGroups.some((group) => group.id === itemGroup.id);
 };
 
-export { hasSpoilers, itemGroupIsActive };
+const isCompletelySpoiled = (settings: Settings): boolean => {
+    return (
+        settings.spoilerSettings.items.itemGroups.length === settings.gameData.itemGroups.length &&
+        settings.spoilerSettings.items.prosperity === 9
+    );
+};
+
+export { hasSpoilers, itemGroupIsActive, isCompletelySpoiled };
