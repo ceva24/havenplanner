@@ -46,6 +46,7 @@ const unspoilAll = (
     shouldApplyImmediately?: boolean,
     character?: Character,
     setCharacter?: Dispatch<SetStateAction<Character>>
+    // eslint-disable-next-line max-params
 ) => {
     const spoilerSettings: SpoilerSettings = {
         items: {
@@ -61,3 +62,4 @@ const unspoilAll = (
 };
 
 export default SpoilAllSwitch;
+export { spoilAll, unspoilAll };
