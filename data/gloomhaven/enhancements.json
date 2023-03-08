@@ -1,108 +1,108 @@
 [
     {
-        "id": 0,
+        "id": 1,
         "name": "+1",
         "imageUrl": "/enhancement-icons/gloomhaven/+1.png",
         "validSlotTypes": ["numeric", "summon-base-stat"]
     },
     {
-        "id": 1,
+        "id": 2,
         "name": "POISON",
         "imageUrl": "/enhancement-icons/gloomhaven/poison.png",
         "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
-        "id": 2,
+        "id": 3,
         "name": "WOUND",
         "imageUrl": "/enhancement-icons/gloomhaven/wound.png",
         "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
-        "id": 3,
+        "id": 4,
         "name": "MUDDLE",
         "imageUrl": "/enhancement-icons/gloomhaven/muddle.png",
         "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
-        "id": 4,
+        "id": 5,
         "name": "IMMOBILIZE",
         "imageUrl": "/enhancement-icons/gloomhaven/immobilize.png",
         "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
-        "id": 5,
+        "id": 6,
         "name": "DISARM",
         "imageUrl": "/enhancement-icons/gloomhaven/disarm.png",
         "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
-        "id": 6,
+        "id": 7,
         "name": "CURSE",
         "imageUrl": "/enhancement-icons/gloomhaven/curse.png",
         "validSlotTypes": ["main-line-targets-enemies"]
     },
     {
-        "id": 7,
+        "id": 8,
         "name": "STRENGTHEN",
         "imageUrl": "/enhancement-icons/gloomhaven/strengthen.png",
         "validSlotTypes": ["main-line-targets-allies-or-self"]
     },
     {
-        "id": 8,
+        "id": 9,
         "name": "BLESS",
         "imageUrl": "/enhancement-icons/gloomhaven/bless.png",
         "validSlotTypes": ["main-line-targets-allies-or-self"]
     },
     {
-        "id": 9,
+        "id": 10,
         "name": "Jump",
         "imageUrl": "/enhancement-icons/gloomhaven/jump.png",
         "validSlotTypes": ["move"]
     },
     {
-        "id": 10,
+        "id": 11,
         "name": "Fire",
         "imageUrl": "/enhancement-icons/gloomhaven/fire.png",
         "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
-        "id": 11,
+        "id": 12,
         "name": "Ice",
         "imageUrl": "/enhancement-icons/gloomhaven/ice.png",
         "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
-        "id": 12,
+        "id": 13,
         "name": "Air",
         "imageUrl": "/enhancement-icons/gloomhaven/air.png",
         "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
-        "id": 13,
+        "id": 14,
         "name": "Earth",
         "imageUrl": "/enhancement-icons/gloomhaven/earth.png",
         "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
-        "id": 14,
+        "id": 15,
         "name": "Light",
         "imageUrl": "/enhancement-icons/gloomhaven/light.png",
         "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
-        "id": 15,
+        "id": 16,
         "name": "Dark",
         "imageUrl": "/enhancement-icons/gloomhaven/dark.png",
         "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
-        "id": 16,
+        "id": 17,
         "name": "Any element",
         "imageUrl": "/enhancement-icons/gloomhaven/any-element.png",
         "validSlotTypes": ["main-line", "main-line-targets-enemies", "main-line-targets-allies-or-self"]
     },
     {
-        "id": 17,
+        "id": 18,
         "name": "Attack Hex",
         "imageUrl": "/enhancement-icons/gloomhaven/hex.png",
         "validSlotTypes": ["area-attack"]

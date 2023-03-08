@@ -57,8 +57,14 @@ const deserializeGainedEnhancements = (
         const abilityCard = characterClass.abilityCards.find(
             (abilityCard: AbilityCard) => abilityCard.id === cardIdSlotIdEnhcId[0]
         );
-        const enhancementSlot = abilityCard?.enhancementSlots[cardIdSlotIdEnhcId[1]];
-        const enhancement = gameData.enhancements[cardIdSlotIdEnhcId[2]];
+
+        const enhancementSlot = abilityCard?.enhancementSlots.find(
+            (slot: EnhancementSlot) => slot.id === cardIdSlotIdEnhcId[1]
+        );
+
+        const enhancement = gameData.enhancements.find(
+            (enhancement: Enhancement) => enhancement.id === cardIdSlotIdEnhcId[2]
+        );
 
         if (abilityCard && enhancementSlot && enhancement) {
             gainedEnhancements.push({
