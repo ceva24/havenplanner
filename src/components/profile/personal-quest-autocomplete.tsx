@@ -2,7 +2,7 @@
 import type { Dispatch, SetStateAction, SyntheticEvent } from "react";
 import type { AutocompleteRenderInputParams } from "@mui/material";
 import { Autocomplete, TextField } from "@mui/material";
-import { personalQuests } from "@/loaders/personal-quests";
+import { useSettingsContext } from "@/hooks/use-settings";
 
 interface PersonalQuestAutocompleteProps {
     character: Character;
@@ -10,15 +10,17 @@ interface PersonalQuestAutocompleteProps {
 }
 
 const PersonalQuestAutocomplete = ({ character, setCharacter }: PersonalQuestAutocompleteProps) => {
+    const [settings] = useSettingsContext();
+
     const handleChange = (event: SyntheticEvent, value: PersonalQuest | null) => {
-        findAndSetPersonalQuest(value, character, setCharacter);
+        findAndSetPersonalQuest(value, settings.gameData.personalQuests, character, setCharacter);
     };
 
     return (
         <Autocomplete
             disablePortal
             value={character.personalQuest ?? null}
-            options={personalQuests}
+            options={settings.gameData.personalQuests}
             getOptionLabel={(personalQuest: PersonalQuest) => {
                 return personalQuest.name;
             }}
@@ -30,6 +32,7 @@ const PersonalQuestAutocomplete = ({ character, setCharacter }: PersonalQuestAut
 
 const findAndSetPersonalQuest = (
     personalQuestToSet: PersonalQuest | null,
+    personalQuests: PersonalQuest[],
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>
 ) => {

@@ -1,6 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
-import { Box, FormControl, FormControlLabel, Switch } from "@mui/material";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
+import { Box } from "@mui/material";
 import { Card } from "@/components/core/cards";
 import PersonalQuestAutocomplete from "@/components/profile/personal-quest-autocomplete";
 

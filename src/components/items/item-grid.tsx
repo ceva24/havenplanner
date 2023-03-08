@@ -1,6 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Box } from "@mui/material";
 import Item from "@/components/items/item";
+import { orderItems } from "@/services/items";
 
 interface ItemGridProps {
     character: Character;
@@ -14,7 +15,7 @@ const ItemGrid = ({ character, setCharacter }: ItemGridProps) => {
             aria-label="Item Grid"
             sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
         >
-            {character.items.map((characterItem: CharacterItem, index: number) => (
+            {orderItems(character.items).map((characterItem: CharacterItem, index: number) => (
                 <Item
                     key={characterItem.id}
                     character={character}

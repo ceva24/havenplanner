@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ExperienceField from "@/components/profile/experience-field";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 describe("experience field", () => {
     it("renders", () => {

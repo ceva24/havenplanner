@@ -1,12 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import Items from "@/components/items/items";
-import { createTestCharacter, TestAppSettingsProvider } from "@/testutils";
+
+import { createTestCharacter } from "@/test/create-test-fixtures";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character: Character = createTestCharacter();
 
 describe("items", () => {
     it("renders the items autocomplete", () => {
-        render(<Items character={character} setCharacter={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<Items character={character} setCharacter={jest.fn()} />, { wrapper: TestSettingsProvider });
 
         const addItems = screen.queryByRole("combobox", { name: "Add item" });
 
@@ -14,7 +16,7 @@ describe("items", () => {
     });
 
     it("renders the browse items button", () => {
-        render(<Items character={character} setCharacter={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<Items character={character} setCharacter={jest.fn()} />, { wrapper: TestSettingsProvider });
 
         const browseItems = screen.queryByRole("button", { name: "Browse Items" });
 
@@ -22,7 +24,7 @@ describe("items", () => {
     });
 
     it("renders the item grid", () => {
-        render(<Items character={character} setCharacter={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<Items character={character} setCharacter={jest.fn()} />, { wrapper: TestSettingsProvider });
 
         const itemGrid = screen.queryByRole("region", {
             name: "Item Grid",

@@ -2,10 +2,7 @@ import type { SelectChangeEvent } from "@mui/material";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import type { Dispatch, FC, SetStateAction } from "react";
 import Image from "@/components/core/image";
-import { characterClasses } from "@/loaders/character-classes";
-import { defaultCharacter } from "@/constants";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
-import { createDefaultBattleGoals } from "@/services/perks/battle-goal";
+import { useSettingsContext } from "@/hooks/use-settings";
 
 interface ClassSelectProps {
     character: Character;
@@ -13,11 +10,11 @@ interface ClassSelectProps {
 }
 
 const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSelectProps) => {
-    const [appSettings, setAppSettings] = useAppSettingsContext();
+    const [settings, setSettings] = useSettingsContext();
 
     const handleChange = (event: SelectChangeEvent) => {
-        findAndSetCharacter(event, character, setCharacter);
-        resetAbilityCardsTabConfig(appSettings, setAppSettings);
+        findAndSetCharacterClass(event, character, setCharacter, settings);
+        resetAbilityCardsTabConfig(settings, setSettings);
     };
 
     return (
@@ -29,7 +26,7 @@ const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSel
                 labelId="select-class-label"
                 onChange={handleChange}
             >
-                {characterClasses.map((characterClass: CharacterClass) => (
+                {settings.gameData.characterClasses.map((characterClass: CharacterClass) => (
                     <MenuItem key={characterClass.id} value={characterClass.name}>
                         <Image
                             webpPath={characterClass.imageUrl}
@@ -48,36 +45,34 @@ const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSel
     );
 };
 
-const findAndSetCharacter = (
+const findAndSetCharacterClass = (
     event: SelectChangeEvent,
     character: Character,
-    setCharacter: Dispatch<SetStateAction<Character>>
+    setCharacter: Dispatch<SetStateAction<Character>>,
+    settings: Settings
 ) => {
-    const selectedCharacterClass: CharacterClass | undefined = characterClasses.find(
+    const selectedCharacterClass: CharacterClass | undefined = settings.gameData.characterClasses.find(
         (characterClass: CharacterClass) => {
             return characterClass.name === event.target.value;
         }
     );
 
-    const newCharacter: Character = {
+    const updatedCharacter: Character = {
         ...character,
-        characterClass: selectedCharacterClass ?? defaultCharacter.characterClass,
+        characterClass: selectedCharacterClass ?? settings.gameData.defaultCharacter.characterClass,
         unlockedAbilityCards: [],
         hand: [],
         gainedEnhancements: [],
         gainedPerks: [],
-        battleGoalCheckmarkGroups: createDefaultBattleGoals(),
+        battleGoalCheckmarkGroups: settings.gameData.battleGoalCheckmarks.slice(),
     };
 
-    setCharacter(newCharacter);
+    setCharacter(updatedCharacter);
 };
 
-const resetAbilityCardsTabConfig = (
-    appSettings: AppSettings,
-    setAppSettings: Dispatch<SetStateAction<AppSettings>>
-) => {
-    setAppSettings({ ...appSettings, selectedAbilityCardsTabIndex: 0 });
+const resetAbilityCardsTabConfig = (settings: Settings, setSettings: Dispatch<SetStateAction<Settings>>) => {
+    setSettings({ ...settings, selectedAbilityCardsTabIndex: 0 });
 };
 
 export default ClassSelect;
-export { findAndSetCharacter, resetAbilityCardsTabConfig };
+export { findAndSetCharacterClass as findAndSetCharacter, resetAbilityCardsTabConfig };

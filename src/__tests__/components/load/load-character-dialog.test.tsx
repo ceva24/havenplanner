@@ -1,12 +1,12 @@
 import { render, screen, within } from "@testing-library/react";
 import LoadCharacterDialog from "@/components/load/load-character-dialog";
 import {
-    createTestAppSettings,
+    createTestSettings,
     createTestCharacter,
-    createTestItemSpoilerSettings,
-    TestAppSettingsProvider,
-} from "@/testutils";
-import { itemGroups } from "@/loaders/item-groups";
+    createTestSettingsWithSpoilerSettings,
+    createTestItemGroup,
+} from "@/test/create-test-fixtures";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 jest.mock("next/router", () => {
     return {
@@ -14,8 +14,8 @@ jest.mock("next/router", () => {
     };
 });
 
-const character = createTestCharacter();
-const appSettings = createTestAppSettings();
+const character: Character = createTestCharacter();
+const settings: Settings = createTestSettings();
 const setCharacter = jest.fn();
 
 describe("load character dialog", () => {
@@ -23,11 +23,11 @@ describe("load character dialog", () => {
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={appSettings.spoilerSettings}
+                spoilerSettings={settings.spoilerSettings}
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestAppSettingsProvider }
+            { wrapper: TestSettingsProvider }
         );
 
         const dialog = screen.queryByRole("dialog", { name: "Load character?" });
@@ -38,12 +38,12 @@ describe("load character dialog", () => {
     it("does not render when the character does not have spoilers", () => {
         render(
             <LoadCharacterDialog
-                spoilerSettings={appSettings.spoilerSettings}
+                spoilerSettings={settings.spoilerSettings}
                 characterHasSpoilers={false}
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestAppSettingsProvider }
+            { wrapper: TestSettingsProvider }
         );
 
         const dialog = screen.queryByRole("dialog", { name: "Load character?" });
@@ -55,11 +55,11 @@ describe("load character dialog", () => {
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={createTestItemSpoilerSettings(2)}
+                spoilerSettings={createTestSettingsWithSpoilerSettings(2, []).spoilerSettings}
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestAppSettingsProvider }
+            { wrapper: TestSettingsProvider }
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });
@@ -70,14 +70,18 @@ describe("load character dialog", () => {
     });
 
     it("renders the active item groups", () => {
+        const itemGroups: ItemGroup[] = [
+            createTestItemGroup(1, "Random Item Designs"),
+            createTestItemGroup(2, "Solo Scenario Items"),
+        ];
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={createTestItemSpoilerSettings(2, itemGroups)}
+                spoilerSettings={createTestSettingsWithSpoilerSettings(2, itemGroups).spoilerSettings}
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestAppSettingsProvider }
+            { wrapper: TestSettingsProvider }
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });
@@ -93,11 +97,11 @@ describe("load character dialog", () => {
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={createTestItemSpoilerSettings(2)}
+                spoilerSettings={createTestSettingsWithSpoilerSettings(2, []).spoilerSettings}
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestAppSettingsProvider }
+            { wrapper: TestSettingsProvider }
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });
@@ -108,7 +112,7 @@ describe("load character dialog", () => {
     });
 
     it("renders the load button", () => {
-        const prosperityTwoSpoilerSettings = createTestItemSpoilerSettings(2);
+        const prosperityTwoSpoilerSettings = createTestSettingsWithSpoilerSettings(2, []).spoilerSettings;
 
         render(
             <LoadCharacterDialog
@@ -117,7 +121,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestAppSettingsProvider }
+            { wrapper: TestSettingsProvider }
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });

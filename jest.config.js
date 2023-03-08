@@ -15,8 +15,10 @@ const customJestConfig = {
     testEnvironment: "jest-environment-jsdom",
     testPathIgnorePatterns: [
         "<rootDir>/cypress",
+        "<rootDir>/src/__tests__/create-test-fixtures.ts",
+        "<rootDir>/src/__tests__/mock-component.tsx",
         "<rootDir>/src/__tests__/setup-jest.ts",
-        "<rootDir>/src/__tests__/utils.ts",
+        "<rootDir>/src/__tests__/test-settings-provider.ts",
     ],
     collectCoverage: true,
     collectCoverageFrom: ["<rootDir>/src/**"],
@@ -32,7 +34,7 @@ const customJestConfig = {
         "@/constants": "<rootDir>/src/constants",
         "@/theme": "<rootDir>/src/theme",
         "@/utils": "<rootDir>/src/utils",
-        "@/testutils": "<rootDir>/src/__tests__/utils",
+        "@/test/(.*)": "<rootDir>/src/__tests__/$1",
     },
 };
 

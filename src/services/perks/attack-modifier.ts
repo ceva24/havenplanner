@@ -1,5 +1,4 @@
 import partition from "lodash.partition";
-import { baseAttackModifierDeck } from "@/constants";
 
 const baseAttackModifierDeckOrder = ["2x", "+2", "+1", "+0", "-1", "-2", "Miss"];
 
@@ -15,7 +14,8 @@ const classAttackModifierCardNames = (characterClass: CharacterClass): string[] 
 };
 
 const splitAttackModifierDeckIntoBaseAndClass = (
-    deck: AttackModifierDeckCard[]
+    deck: AttackModifierDeckCard[],
+    baseAttackModifierDeck: AttackModifierDeckCard[]
 ): [AttackModifierDeckCard[], AttackModifierDeckCard[]] => {
     return partition(deck, (card: AttackModifierDeckCard) =>
         baseAttackModifierDeck.some((baseCard: AttackModifierDeckCard) => card.card.id === baseCard.card.id)

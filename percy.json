@@ -1,7 +1,7 @@
 [
     {
         "name": "Profile Tab",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrgsetifjkWRTVrisEriuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2VsO2psP2JxeO302exfE2CsI2OxJE2exJFyXEsPxJE2o3d2SxqDtgxqE35xeExtGx1DxGDxeExGExME2sxME47xwFtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "additionalSnapshots": [
             {
                 "suffix": " - Personal Quest",
@@ -11,7 +11,7 @@
     },
     {
         "name": "Ability Cards Tab",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrgsetifjkWRTVrisEriuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2VsO2psP2JxeO302exfE2CsI2OxJE2exJFyXEsPxJE2o3d2SxqDtgxqE35xeExtGx1DxGDxeExGExME2sxME47xwFtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#ability-cards-tab').click()",
         "additionalSnapshots": [
             {
@@ -26,7 +26,7 @@
     },
     {
         "name": "Items Tab",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrgsetifjkWRTVrisEriuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2VsO2psP2JxeO302exfE2CsI2OxJE2exJFyXEsPxJE2o3d2SxqDtgxqE35xeExtGx1DxGDxeExGExME2sxME47xwFtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#items-tab').click()",
         "additionalSnapshots": [
             {
@@ -41,21 +41,21 @@
     },
     {
         "name": "Perks Tab",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrgsetifjkWRTVrisEriuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2VsO2psP2JxeO302exfE2CsI2OxJE2exJFyXEsPxJE2o3d2SxqDtgxqE35xeExtGx1DxGDxeExGExME2sxME47xwFtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#perks-tab').click()"
     },
     {
         "name": "Settings",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrgsetifjkWRTVrisEriuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2VsO2psP2JxeO302exfE2CsI2OxJE2exJFyXEsPxJE2o3d2SxqDtgxqE35xeExtGx1DxGDxeExGExME2sxME47xwFtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#open-settings-button').click()"
     },
     {
         "name": "Share Dialog",
-        "url": "http://localhost:3000?character=uDriterisSrisdtcjRrgsetifjkWRTVrisEriuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItLsREOENEJ2CsK2DsLtN2UtlxUDsP2ksPM2DsP2DsQxSDtYxSDsO2hsO2VsO2psP2JxeO302exfE2CsI2OxJE2exJFyXEsPxJE2o3d2SxqDtgxqE35xeExtGx1DxGDxeExGExME2sxME47xwFtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
+        "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#share-button').click()"
     },
     {
         "name": "Load Character Dialog",
-        "url": "http://localhost:3000?character=uDriterisSriisEriuA2HsI2GtXxGFtUxTGtT2HsJ2GtZ2GtLsKJtN2JtlxJDxHDtYxHGtVxHGtgxHGtSxHDtLWRcjVsExGL2ZxU9xUmtNuF"
+        "url": "http://localhost:3000?character=uDritRrisSJErite2Grii2HuA2HsI2GtXxGFtUxTGtTxgFtZ2GtLsPNEKJtN2MtlxMDxHDtYxHGtVxHGtgxHGtSxHDtLWRcjVsExGL2ZxU9xUmtNuF"
     }
 ]

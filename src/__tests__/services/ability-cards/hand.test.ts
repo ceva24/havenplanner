@@ -1,10 +1,9 @@
-import { characterClasses } from "@/loaders/character-classes";
 import {
     getAllAvailableAbilityCardsForCharacter,
     isCardInHandForCharacter,
     wouldBeExceedingHandSizeLimit,
 } from "@/services/ability-cards/hand";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 describe("getAllAvailableAbilityCardsForCharacter", () => {
     it("includes level 1 cards", () => {
@@ -129,22 +128,23 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
     });
 
     it("sorts cards by id", () => {
-        const character: Character = createTestCharacter({
-            characterClass: characterClasses[0],
-            unlockedAbilityCards: [characterClasses[0].abilityCards[15], characterClasses[0].abilityCards[13]],
-        });
+        const character: Character = createTestCharacter();
+        character.unlockedAbilityCards = [
+            character.characterClass.abilityCards[2],
+            character.characterClass.abilityCards[1],
+        ];
 
         const availableAbilityCardsIds = getAllAvailableAbilityCardsForCharacter(character).map(
             (abilityCard: AbilityCard) => abilityCard.id
         );
 
-        expect(availableAbilityCardsIds).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16]);
+        expect(availableAbilityCardsIds).toEqual([1, 2, 3]);
     });
 });
 
 describe("isCardInHandForCharacter", () => {
     it("returns true when the card is in the hand", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         character.hand = [character.characterClass.abilityCards[0]];
 
         const result = isCardInHandForCharacter(character, character.characterClass.abilityCards[0]);
@@ -153,7 +153,7 @@ describe("isCardInHandForCharacter", () => {
     });
 
     it("returns false when the card is not in the hand", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const result = isCardInHandForCharacter(character, character.characterClass.abilityCards[0]);
 
@@ -163,7 +163,7 @@ describe("isCardInHandForCharacter", () => {
 
 describe("wouldBeExceedingHandSizeLimit", () => {
     it("returns false if the card is in hand and the hand size limit has not been met", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const abilityCard = character.characterClass.abilityCards[0];
 
@@ -174,7 +174,7 @@ describe("wouldBeExceedingHandSizeLimit", () => {
     });
 
     it("returns false if the card is in hand and the hand size limit has been met", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const abilityCard = character.characterClass.abilityCards[0];
 
@@ -185,7 +185,7 @@ describe("wouldBeExceedingHandSizeLimit", () => {
     });
 
     it("returns false if the card is not in hand and the hand size limit has not been met", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         const abilityCard = character.characterClass.abilityCards[0];
 
@@ -196,7 +196,7 @@ describe("wouldBeExceedingHandSizeLimit", () => {
     });
 
     it("returns true if the card is not in hand and the hand size limit has been met", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
 
         character.hand = [character.characterClass.abilityCards[0]];
         character.characterClass.handSize = 1;

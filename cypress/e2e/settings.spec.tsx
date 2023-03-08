@@ -31,6 +31,22 @@ describe("settings", () => {
         cy.shouldHaveProsperityLevel(2);
     });
 
+    it("shows the item groups", () => {
+        cy.visit("/");
+
+        cy.openSettings();
+
+        cy.findByRole("region", { name: "Item Spoilers" })
+            .findByRole("checkbox", { name: "Random Item Designs" })
+            .should("exist");
+        cy.findByRole("region", { name: "Item Spoilers" })
+            .findByRole("checkbox", { name: "Other Items" })
+            .should("exist");
+        cy.findByRole("region", { name: "Item Spoilers" })
+            .findByRole("checkbox", { name: "Solo Scenario Items" })
+            .should("exist");
+    });
+
     it("allows item groups to be set", () => {
         cy.visit("/");
 

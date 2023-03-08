@@ -1,7 +1,20 @@
-interface AppSettings {
+interface Settings {
+    gameData: GameData;
+    spoilerSettings: SpoilerSettings;
     showPersonalQuest: boolean;
     selectedAbilityCardsTabIndex: number;
-    spoilerSettings: SpoilerSettings;
+}
+
+interface GameData {
+    game: Game;
+    characterClasses: CharacterClass[];
+    personalQuests: PersonalQuest[];
+    enhancements: Enhancement[];
+    baseAttackModifierDeck: AttackModifierDeckCard[];
+    battleGoalCheckmarks: BattleGoalCheckmarkGroup[];
+    items: Item[];
+    itemGroups: ItemGroup[];
+    defaultCharacter: Character;
 }
 
 interface SpoilerSettings {
@@ -60,6 +73,7 @@ interface CharacterItem {
 }
 
 interface SerializedCharacter {
+    a: number; // Game id
     n: string; // Name
     x: number; // Experience
     g: number; // Gold

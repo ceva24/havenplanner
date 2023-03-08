@@ -9,8 +9,8 @@ import {
 } from "@mui/material";
 import { v4 as uuid } from "uuid";
 import Image from "@/components/core/image";
-import { getItems, orderItems, shouldShowItemSpoilerHint } from "@/services/items";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
+import { getItems, shouldShowItemSpoilerHint } from "@/services/items";
+import { useSettingsContext } from "@/hooks/use-settings";
 
 interface ItemsAutocompleteProps {
     character: Character;
@@ -18,7 +18,7 @@ interface ItemsAutocompleteProps {
 }
 
 const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) => {
-    const [appSettings] = useAppSettingsContext();
+    const [settings] = useSettingsContext();
 
     // eslint-disable-next-line @typescript-eslint/ban-types
     const handleChange = (event: SyntheticEvent, value: Item | null) => {
@@ -31,8 +31,8 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 disablePortal
                 blurOnSelect
                 value={null}
-                options={getItems(appSettings.spoilerSettings)}
-                {...(shouldShowItemSpoilerHint(appSettings.spoilerSettings) && {
+                options={getItems(settings)}
+                {...(shouldShowItemSpoilerHint(settings) && {
                     noOptionsText: "No options - check your spoiler settings",
                 })}
                 getOptionLabel={(item: Item) => {
@@ -75,7 +75,7 @@ const addItem = (item: Item | null, character: Character, setCharacter: Dispatch
 
         const newCharacter = {
             ...character,
-            items: orderItems(character.items.concat([characterItem])),
+            items: character.items.concat([characterItem]),
         };
 
         setCharacter(newCharacter);

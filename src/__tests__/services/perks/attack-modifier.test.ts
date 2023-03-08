@@ -1,11 +1,9 @@
-import { defaultCharacter } from "@/constants";
-import { attackModifiers } from "@/loaders/attack-modifiers";
 import {
     classAttackModifierCardNames,
     orderAttackModifierCards,
     splitAttackModifierDeckIntoBaseAndClass,
 } from "@/services/perks/attack-modifier";
-import { createTestCharacter } from "@/testutils";
+import { createTestAttackModifierDeckCard, createTestCharacter } from "@/test/create-test-fixtures";
 
 const perkWithBaseAttackModifier: Perk = {
     id: 1,
@@ -43,7 +41,7 @@ const perkWithClassAttackModifier: Perk = {
 
 describe("classAttackModifierCardNames", () => {
     it("returns names of class-unique attack modifier cards", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         character.characterClass.perks = [perkWithClassAttackModifier];
 
         const names = classAttackModifierCardNames(character.characterClass);
@@ -53,7 +51,7 @@ describe("classAttackModifierCardNames", () => {
     });
 
     it("excludes names of attack modifier cards from the base attack modifier deck", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         character.characterClass.perks = [perkWithBaseAttackModifier];
 
         const names = classAttackModifierCardNames(character.characterClass);
@@ -64,14 +62,10 @@ describe("classAttackModifierCardNames", () => {
 
 describe("splitAttackModifierDeckIntoBaseAndClass", () => {
     it("returns cards from the base modifier deck", () => {
-        const deck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[2], // +1
-                count: 5,
-            },
-        ];
+        const deck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+1")];
+        const baseDeck: AttackModifierDeckCard[] = [deck[0]];
 
-        const [initialAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck);
+        const [initialAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
 
         expect(initialAttackModifiers).toHaveLength(1);
         expect(initialAttackModifiers[0]).toEqual(deck[0]);
@@ -79,48 +73,22 @@ describe("splitAttackModifierDeckIntoBaseAndClass", () => {
 
     it("returns cards from the class modifier deck", () => {
         const deck: AttackModifierDeckCard[] = [
-            {
-                card: defaultCharacter.characterClass.perks[3].add[0], // +3
-                count: 1,
-            },
+            createTestAttackModifierDeckCard(1, "+1"),
+            createTestAttackModifierDeckCard(2, "+3"),
         ];
+        const baseDeck: AttackModifierDeckCard[] = [deck[0]];
 
-        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck);
-
-        expect(classAttackModifiers).toHaveLength(1);
-        expect(classAttackModifiers[0]).toEqual(deck[0]);
-    });
-
-    it("splits the deck into base attack modifiers and class attack modifiers", () => {
-        const deck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[2], // +1
-                count: 5,
-            },
-            {
-                card: defaultCharacter.characterClass.perks[3].add[0], // +3
-                count: 1,
-            },
-        ];
-
-        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck);
-
-        expect(initialAttackModifiers).toHaveLength(1);
-        expect(initialAttackModifiers[0]).toEqual(deck[0]);
+        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
 
         expect(classAttackModifiers).toHaveLength(1);
         expect(classAttackModifiers[0]).toEqual(deck[1]);
     });
 
     it("returns an empty list when there are no class modifiers", () => {
-        const deck: AttackModifierDeckCard[] = [
-            {
-                card: attackModifiers[2], // +1
-                count: 5,
-            },
-        ];
+        const deck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+1")];
+        const baseDeck: AttackModifierDeckCard[] = [deck[0]];
 
-        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck);
+        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
 
         expect(classAttackModifiers).toHaveLength(0);
     });

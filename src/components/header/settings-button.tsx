@@ -4,7 +4,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { itemShouldBeHidden } from "@/services/items";
 import { TextButton } from "@/components/core/button";
 import SettingsDialog from "@/components/settings/settings-dialog";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
+import { useSettingsContext } from "@/hooks/use-settings";
 
 interface SettingsButtonProps {
     character: Character;
@@ -13,10 +13,10 @@ interface SettingsButtonProps {
 
 const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
     const [settingsDialogIsOpen, setSettingsDialogIsOpen] = useState<boolean>(false);
-    const [appSettings] = useAppSettingsContext();
+    const [settings] = useSettingsContext();
 
     const handleClose = () => {
-        removeSpoilerItems(character, setCharacter, appSettings.spoilerSettings);
+        removeSpoilerItems(character, setCharacter, settings.spoilerSettings);
         setSettingsDialogIsOpen(false);
     };
 

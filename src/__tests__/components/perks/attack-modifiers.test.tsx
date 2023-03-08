@@ -1,12 +1,18 @@
 import { render, screen, within } from "@testing-library/react";
 import AttackModifiers from "@/components/perks/attack-modifiers";
-import { createTestCharacter } from "@/testutils";
-import { attackModifiers } from "@/loaders/attack-modifiers";
-import { defaultCharacter } from "@/constants";
+import { createTestAttackModifierDeckCard, createTestCharacter, createTestSettings } from "@/test/create-test-fixtures";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 describe("attack modifiers", () => {
     it("renders the base attack modifiers", () => {
-        render(<AttackModifiers character={createTestCharacter()} />);
+        const settings: Settings = createTestSettings();
+        settings.gameData.baseAttackModifierDeck = [createTestAttackModifierDeckCard(1, "+1", 5)];
+
+        render(
+            <TestSettingsProvider settings={settings}>
+                <AttackModifiers character={createTestCharacter()} />
+            </TestSettingsProvider>
+        );
 
         const attackModifierCard = screen.getByRole("img", { name: "+1 card" });
 
@@ -32,11 +38,11 @@ describe("attack modifiers", () => {
             remove: [],
         };
 
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         character.characterClass.perks = [perk];
         character.gainedPerks = [{ checkboxIndex: 0, perk }];
 
-        render(<AttackModifiers character={character} />);
+        render(<AttackModifiers character={character} />, { wrapper: TestSettingsProvider });
 
         const attackModifierCard = screen.getByRole("img", { name: "+1 shield 1 self card" });
 

@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ItemGroup from "@/components/items/item-group";
-import { createTestCharacter } from "@/testutils";
-import { items } from "@/loaders/items";
+import { createTestCharacter, createTestItem } from "@/test/create-test-fixtures";
 
 describe("item group", () => {
     it("renders the title", () => {
@@ -40,14 +39,14 @@ describe("item group", () => {
         render(
             <ItemGroup
                 title=""
-                items={[items[0]]}
+                items={[createTestItem(1, "Boots of Test", "1")]}
                 handleClose={jest.fn()}
                 character={createTestCharacter()}
                 setCharacter={jest.fn()}
             />
         );
 
-        const item = screen.queryByRole("img", { name: "Boots of Striding" });
+        const item = screen.queryByRole("img", { name: "Boots of Test" });
 
         expect(item).toBeInTheDocument();
     });

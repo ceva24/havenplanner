@@ -15,7 +15,7 @@
             "@/constants": ["src/constants"],
             "@/theme": ["src/theme"],
             "@/utils": ["src/utils"],
-            "@/testutils": ["src/__tests__/utils"]
+            "@/test/*": ["src/__tests__/*"]
         }
     },
     "include": ["src/**/*", "next-env.d.ts", "**/*.ts", "**/*.tsx"],

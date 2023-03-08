@@ -1,11 +1,11 @@
 import { FormControl, FormControlLabel, Switch } from "@mui/material";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
+import { useSettingsContext } from "@/hooks/use-settings";
 
 const PersonalQuestSwitch = () => {
-    const [appSettings, setAppSettings] = useAppSettingsContext();
+    const [settings, setSettings] = useSettingsContext();
 
     const handleChange = () => {
-        setAppSettings({ ...appSettings, showPersonalQuest: !appSettings.showPersonalQuest });
+        setSettings({ ...settings, showPersonalQuest: !settings.showPersonalQuest });
     };
 
     return (
@@ -15,7 +15,7 @@ const PersonalQuestSwitch = () => {
                     <Switch
                         id="show-personal-quest-switch"
                         name="Show personal quest"
-                        checked={appSettings.showPersonalQuest}
+                        checked={settings.showPersonalQuest}
                         onClick={handleChange}
                     />
                 }

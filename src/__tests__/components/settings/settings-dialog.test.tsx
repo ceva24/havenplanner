@@ -1,10 +1,10 @@
 import { render, screen, within } from "@testing-library/react";
-import { TestAppSettingsProvider } from "@/testutils";
 import SettingsDialog from "@/components/settings/settings-dialog";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 describe("settings dialog", () => {
     it("renders the close button", () => {
-        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestSettingsProvider });
 
         const closeButton = screen.queryByRole("button", { name: "Close" });
 
@@ -12,7 +12,7 @@ describe("settings dialog", () => {
     });
 
     it("renders the report an issue link", () => {
-        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestSettingsProvider });
 
         const reportAnIssueLink = screen.queryByRole("link", { name: "Report an issue" });
 
@@ -20,7 +20,7 @@ describe("settings dialog", () => {
     });
 
     it("renders item spoilers", () => {
-        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestSettingsProvider });
 
         const itemSpoilersSection = screen.queryByRole("region", { name: "Item Spoilers" });
 
@@ -28,7 +28,7 @@ describe("settings dialog", () => {
     });
 
     it("renders the prosperity slider", () => {
-        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestSettingsProvider });
 
         const itemSpoilersSection = screen.getByRole("region", { name: "Item Spoilers" });
 
@@ -38,7 +38,7 @@ describe("settings dialog", () => {
     });
 
     it("renders the item groups", () => {
-        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestAppSettingsProvider });
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestSettingsProvider });
 
         const itemSpoilersSection = screen.getByRole("region", { name: "Item Spoilers" });
 

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import DisabledAbilityCard from "@/components/ability-cards/disabled-ability-card";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 const abilityCard: AbilityCard = {
     id: 1,
@@ -10,7 +10,7 @@ const abilityCard: AbilityCard = {
     enhancementSlots: [],
 };
 
-const character = createTestCharacter();
+const character: Character = createTestCharacter();
 
 describe("disabled ability card", () => {
     it("renders a disabled checkbox with tooltip", () => {

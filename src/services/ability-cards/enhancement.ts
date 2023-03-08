@@ -1,4 +1,3 @@
-import { enhancements } from "@/loaders/enhancements";
 import { createSafeRelativePath } from "@/services/core/image";
 
 const enhancedAbilityCardsBaseImageUrl = "https://raw.githubusercontent.com/ceva24/worldhaven-enhanced-cards/main";
@@ -57,7 +56,7 @@ const convertEnhancementNameToKey = (enhancementName: string) => {
         .toLowerCase();
 };
 
-const getPossibleEnhancementsFor = (enhancementSlot: EnhancementSlot): Enhancement[] => {
+const getPossibleEnhancementsFor = (enhancementSlot: EnhancementSlot, enhancements: Enhancement[]): Enhancement[] => {
     return enhancements.filter((enhancement: Enhancement) =>
         enhancement.validSlotTypes.some((slotType: string) => enhancementSlot.types.includes(slotType))
     );

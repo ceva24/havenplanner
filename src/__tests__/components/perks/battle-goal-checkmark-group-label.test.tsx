@@ -1,5 +1,5 @@
 import { removeCheckmarksForBattleGoalCheckmarkGroup } from "@/components/perks/battle-goal-checkmark-group-label";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 const setCharacter = jest.fn();
 
@@ -9,7 +9,7 @@ beforeEach(() => {
 
 describe("removeCheckmarksForBattleGoalCheckmarkGroup", () => {
     it("removes all battle goal checkmarks", () => {
-        const character = createTestCharacter({
+        const character: Character = createTestCharacter({
             battleGoalCheckmarkGroups: [
                 {
                     id: 0,

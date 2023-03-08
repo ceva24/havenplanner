@@ -1,25 +1,24 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { FormControlLabel, Checkbox, Box, FormGroup } from "@mui/material";
-import { itemGroups } from "@/loaders/item-groups";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
-import { itemGroupIsActive } from "@/services/settings";
+import { useSettingsContext } from "@/hooks/use-settings";
+import { itemGroupIsActive } from "@/services/spoiler";
 
 const ItemGroups = () => {
-    const [appSettings, setAppSettings] = useAppSettingsContext();
+    const [settings, setSettings] = useSettingsContext();
 
     const handleChange = (itemGroup: ItemGroup) => {
-        toggleItemGroup(itemGroup, appSettings, setAppSettings);
+        toggleItemGroup(itemGroup, settings, setSettings);
     };
 
     return (
         <FormGroup>
             <Box display="flex" flexWrap="wrap">
-                {itemGroups.map((itemGroup: ItemGroup) => (
+                {settings.gameData.itemGroups.map((itemGroup: ItemGroup) => (
                     <FormControlLabel
                         key={itemGroup.id}
                         control={
                             <Checkbox
-                                checked={itemGroupIsActive(itemGroup, appSettings)}
+                                checked={itemGroupIsActive(itemGroup, settings)}
                                 onChange={() => {
                                     handleChange(itemGroup);
                                 }}
@@ -33,20 +32,16 @@ const ItemGroups = () => {
     );
 };
 
-const toggleItemGroup = (
-    itemGroup: ItemGroup,
-    appSettings: AppSettings,
-    setAppSettings: Dispatch<SetStateAction<AppSettings>>
-) => {
-    const itemGroups = itemGroupIsActive(itemGroup, appSettings)
-        ? appSettings.spoilerSettings.items.itemGroups.filter((group: ItemGroup) => !(group.id === itemGroup.id))
-        : appSettings.spoilerSettings.items.itemGroups.concat(itemGroup);
+const toggleItemGroup = (itemGroup: ItemGroup, settings: Settings, setSettings: Dispatch<SetStateAction<Settings>>) => {
+    const itemGroups = itemGroupIsActive(itemGroup, settings)
+        ? settings.spoilerSettings.items.itemGroups.filter((group: ItemGroup) => !(group.id === itemGroup.id))
+        : settings.spoilerSettings.items.itemGroups.concat(itemGroup);
 
-    const newAppSettings: AppSettings = { ...appSettings };
+    const newSettings: Settings = { ...settings };
 
-    newAppSettings.spoilerSettings.items.itemGroups = itemGroups;
+    newSettings.spoilerSettings.items.itemGroups = itemGroups;
 
-    setAppSettings(newAppSettings);
+    setSettings(newSettings);
 };
 
 export default ItemGroups;

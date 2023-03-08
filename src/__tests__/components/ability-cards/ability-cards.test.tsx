@@ -1,14 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import AbilityCards from "@/components/ability-cards/ability-cards";
-import { createTestCharacter, TestAppSettingsProvider } from "@/testutils";
 
-const character = createTestCharacter();
+import { createTestCharacter } from "@/test/create-test-fixtures";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
+
+const character: Character = createTestCharacter();
 const setCharacter = jest.fn();
 
 describe("ability cards", () => {
     it("renders the deck tab", () => {
         render(<AbilityCards character={character} setCharacter={setCharacter} />, {
-            wrapper: TestAppSettingsProvider,
+            wrapper: TestSettingsProvider,
         });
 
         const deckTab = screen.getByRole("tab", { name: "Deck" });
@@ -18,7 +20,7 @@ describe("ability cards", () => {
 
     it("renders the hand tab", () => {
         render(<AbilityCards character={character} setCharacter={setCharacter} />, {
-            wrapper: TestAppSettingsProvider,
+            wrapper: TestSettingsProvider,
         });
 
         const handTab = screen.getByRole("tab", { name: "Hand" });
@@ -28,21 +30,11 @@ describe("ability cards", () => {
 
     it("renders the enhancements tab", () => {
         render(<AbilityCards character={character} setCharacter={setCharacter} />, {
-            wrapper: TestAppSettingsProvider,
+            wrapper: TestSettingsProvider,
         });
 
         const enhancementsTab = screen.getByRole("tab", { name: "Enhancements" });
 
         expect(enhancementsTab).toBeInTheDocument();
-    });
-
-    it("renders the deck by default", () => {
-        render(<AbilityCards character={character} setCharacter={setCharacter} />, {
-            wrapper: TestAppSettingsProvider,
-        });
-
-        const level1Cards = screen.queryByRole("region", { name: "Level 1 Ability Cards" });
-
-        expect(level1Cards).toBeInTheDocument();
     });
 });

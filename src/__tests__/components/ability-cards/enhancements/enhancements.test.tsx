@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import Enhancements from "@/components/ability-cards/enhancements/enhancements";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 const setCharacter = jest.fn();
 
 describe("enhancements", () => {
     it("renders the enhancements", () => {
-        const character = createTestCharacter();
+        const character: Character = createTestCharacter();
         character.characterClass.abilityCards = [
             {
                 id: 1,

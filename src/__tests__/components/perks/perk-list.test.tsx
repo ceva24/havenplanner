@@ -1,8 +1,9 @@
 import { render, screen, within } from "@testing-library/react";
 import Perks from "@/components/perks/perks";
-import { createTestCharacter } from "@/testutils";
 import { gainPerk, removePerk } from "@/components/perks/perk-list";
 import * as perkService from "@/services/perks/perk";
+import { createTestCharacter } from "@/test/create-test-fixtures";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 jest.mock("@/services/perks/perk");
 
@@ -14,7 +15,7 @@ beforeEach(() => {
 
 describe("perk list", () => {
     it("renders a perk", () => {
-        const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
+        const character: Character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
                 id: 0,
@@ -25,7 +26,7 @@ describe("perk list", () => {
             },
         ];
 
-        render(<Perks character={character} setCharacter={setCharacter} />);
+        render(<Perks character={character} setCharacter={setCharacter} />, { wrapper: TestSettingsProvider });
 
         const perk = screen.queryByRole("checkbox", { name: "Remove two {-1} cards" });
 
@@ -33,7 +34,7 @@ describe("perk list", () => {
     });
 
     it("renders multiple perks", () => {
-        const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
+        const character: Character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
                 id: 0,
@@ -65,7 +66,7 @@ describe("perk list", () => {
             },
         ];
 
-        render(<Perks character={character} setCharacter={setCharacter} />);
+        render(<Perks character={character} setCharacter={setCharacter} />, { wrapper: TestSettingsProvider });
 
         const perkOne = screen.queryByRole("checkbox", { name: "Remove two {-1} cards" });
         const perkTwo = screen.queryByRole("checkbox", { name: "Replace one {-1} card with one {+1} card" });
@@ -79,7 +80,7 @@ describe("perk list", () => {
     });
 
     it("renders perks with multiple checkboxes", () => {
-        const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
+        const character: Character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
                 id: 0,
@@ -90,7 +91,7 @@ describe("perk list", () => {
             },
         ];
 
-        render(<Perks character={character} setCharacter={setCharacter} />);
+        render(<Perks character={character} setCharacter={setCharacter} />, { wrapper: TestSettingsProvider });
 
         const perkList = screen.getByRole("region", { name: "Perk List" });
 
@@ -100,7 +101,7 @@ describe("perk list", () => {
     });
 
     it("renders multiple checkboxes with unique labels", () => {
-        const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
+        const character: Character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
         character.characterClass.perks = [
             {
                 id: 0,
@@ -111,7 +112,7 @@ describe("perk list", () => {
             },
         ];
 
-        render(<Perks character={character} setCharacter={setCharacter} />);
+        render(<Perks character={character} setCharacter={setCharacter} />, { wrapper: TestSettingsProvider });
 
         const checkboxOne = screen.queryByRole("checkbox", { name: "Add two {+1} cards" });
         const checkboxTwo = screen.queryByRole("checkbox", { name: "Add two {+1} cards 2" });
@@ -121,7 +122,7 @@ describe("perk list", () => {
     });
 
     it("renders checked perks", () => {
-        const character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
+        const character: Character = createTestCharacter({ battleGoalCheckmarkGroups: [] });
 
         const perk: Perk = {
             id: 0,
@@ -136,7 +137,7 @@ describe("perk list", () => {
 
         jest.spyOn(perkService, "characterHasGainedPerk").mockReturnValue(true);
 
-        render(<Perks character={character} setCharacter={setCharacter} />);
+        render(<Perks character={character} setCharacter={setCharacter} />, { wrapper: TestSettingsProvider });
 
         const perkCheckbox = screen.queryByRole("checkbox", { name: "Remove two {-1} cards" });
 

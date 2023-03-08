@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Deck from "@/components/ability-cards/deck/deck";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/create-test-fixtures";
 
 const setCharacter = jest.fn();
 

@@ -1,12 +1,37 @@
 import { render, screen } from "@testing-library/react";
 import Perks from "@/components/perks/perks";
-import { createTestCharacter } from "@/testutils";
+import { createTestCharacter } from "@/test/create-test-fixtures";
+import MockComponent from "@/test/mock-component";
+
+jest.mock(
+    "@/components/perks/perk-list",
+    () =>
+        function () {
+            return <MockComponent name="Test Perk List" />;
+        }
+);
+
+jest.mock(
+    "@/components/perks/battle-goal-progress",
+    () =>
+        function () {
+            return <MockComponent name="Test Battle Goal Progress" />;
+        }
+);
+
+jest.mock(
+    "@/components/perks/attack-modifiers",
+    () =>
+        function () {
+            return <MockComponent name="Test Attack Modifiers" />;
+        }
+);
 
 describe("perks", () => {
     it("renders the attack modifier deck", () => {
         render(<Perks character={createTestCharacter()} setCharacter={jest.fn()} />);
 
-        const attackModifierCards = screen.queryByRole("region", { name: "Attack Modifier Deck" });
+        const attackModifierCards = screen.queryByRole("region", { name: "Test Attack Modifiers" });
 
         expect(attackModifierCards).toBeInTheDocument();
     });
@@ -14,7 +39,7 @@ describe("perks", () => {
     it("renders the battle goal progress", () => {
         render(<Perks character={createTestCharacter()} setCharacter={jest.fn()} />);
 
-        const battleGoalProgress = screen.queryByRole("region", { name: "Battle Goal Progress" });
+        const battleGoalProgress = screen.queryByRole("region", { name: "Test Battle Goal Progress" });
 
         expect(battleGoalProgress).toBeInTheDocument();
     });
@@ -22,7 +47,7 @@ describe("perks", () => {
     it("renders the list of perks", () => {
         render(<Perks character={createTestCharacter()} setCharacter={jest.fn()} />);
 
-        const perkList = screen.queryByRole("region", { name: "Perk List" });
+        const perkList = screen.queryByRole("region", { name: "Test Perk List" });
 
         expect(perkList).toBeInTheDocument();
     });

@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Box, Grid } from "@mui/material";
-import { useAppSettingsContext } from "@/hooks/use-app-settings";
+import { useSettingsContext } from "@/hooks/use-settings";
 import CharacterDetails from "@/components/profile/character-details";
 import PersonalQuestSwitch from "@/components/profile/personal-quest-switch";
 import CharacterMat from "@/components/profile/character-mat";
@@ -12,7 +12,7 @@ interface ProfileProps {
 }
 
 const Profile = ({ character, setCharacter }: ProfileProps) => {
-    const [appSettings] = useAppSettingsContext();
+    const [settings] = useSettingsContext();
 
     return (
         <Grid container spacing={{ xs: 5, xl: 10 }}>
@@ -22,7 +22,7 @@ const Profile = ({ character, setCharacter }: ProfileProps) => {
             <Grid item xl={7} textAlign="center" width="100%">
                 <Box display="flex" flexDirection="column" alignItems="center" gap={3}>
                     <PersonalQuestSwitch />
-                    {appSettings.showPersonalQuest ? (
+                    {settings.showPersonalQuest ? (
                         <PersonalQuest character={character} setCharacter={setCharacter} />
                     ) : (
                         <CharacterMat characterClass={character.characterClass} />
