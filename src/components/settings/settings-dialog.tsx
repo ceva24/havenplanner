@@ -1,5 +1,6 @@
 import { Dialog, Box, DialogContent, Stack, Typography, Link } from "@mui/material";
 import { Button } from "@/components/core/button";
+import CharacterClasses from "@/components/settings/character-classes";
 import ProsperitySlider from "@/components/settings/prosperity-slider";
 import ItemGroups from "@/components/settings/item-groups";
 import SpoilAllSwitch from "@/components/settings/spoil-all-switch";
@@ -19,6 +20,11 @@ const SettingsDialog = ({ isOpen, onClose }: SettingsDialogProps) => {
                 <Stack spacing={5} textAlign="center">
                     <Box>
                         <SpoilAllSwitch />
+                    </Box>
+                    <Box>
+                        <Box component="section" aria-label="Character Class Spoilers">
+                            <CharacterClasses />
+                        </Box>
                     </Box>
                     <Box>
                         <Box component="section" aria-label="Item Spoilers">

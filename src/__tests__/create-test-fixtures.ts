@@ -8,6 +8,7 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
                 name: "Gloomhaven Test",
             },
             characterClasses: [characterClass],
+            unlockableCharacterClasses: [],
             personalQuests: [],
             enhancements: [],
             baseAttackModifierDeck: [],
@@ -19,6 +20,7 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 1,
         spoilerSettings: {
+            classes: [],
             items: {
                 prosperity: 1,
                 itemGroups: [],
@@ -34,6 +36,7 @@ const createTestSettingsWithSpoilerSettings = (prosperity: number, itemGroups: I
         ...createTestSettings(),
 
         spoilerSettings: {
+            classes: [],
             items: {
                 prosperity,
                 itemGroups,
@@ -68,6 +71,7 @@ const createTestCharacterClass = (id: number, name: string): CharacterClass => {
         characterMatFrontImageUrl: "",
         characterMatBackImageUrl: "",
         cardBackImageUrl: "",
+        initiallyLocked: false,
         handSize: 10,
         abilityCards: [
             createTestAbilityCard(1, "1", "Trample"),

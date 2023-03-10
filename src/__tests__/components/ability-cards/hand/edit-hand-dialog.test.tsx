@@ -78,6 +78,7 @@ describe("addCardToHand", () => {
                 characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
                 characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
                 cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
+                initiallyLocked: false,
                 handSize: 1,
                 abilityCards: [abilityCardOne, abilityCardTwo],
                 perks: [],

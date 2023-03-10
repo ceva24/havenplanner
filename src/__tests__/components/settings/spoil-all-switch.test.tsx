@@ -24,7 +24,7 @@ describe("spoilAll", () => {
         expect(setSettings).toHaveBeenCalledTimes(1);
         expect(setSettings).toHaveBeenCalledWith({
             ...settings,
-            spoilerSettings: { items: { prosperity: 9, itemGroups: settings.gameData.itemGroups } },
+            spoilerSettings: { classes: [], items: { prosperity: 9, itemGroups: settings.gameData.itemGroups } },
         });
     });
 });
@@ -40,7 +40,7 @@ describe("unspoilAll", () => {
         expect(setSettings).toHaveBeenCalledTimes(1);
         expect(setSettings).toHaveBeenCalledWith({
             ...settings,
-            spoilerSettings: { items: { prosperity: 1, itemGroups: [] } },
+            spoilerSettings: { classes: [], items: { prosperity: 1, itemGroups: [] } },
         });
     });
 });

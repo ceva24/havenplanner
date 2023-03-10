@@ -13,6 +13,7 @@ interface CharacterClass extends VisualAsset {
     characterMatFrontImageUrl: string;
     characterMatBackImageUrl: string;
     cardBackImageUrl: string;
+    initiallyLocked: boolean;
     handSize: number;
     abilityCards: AbilityCard[];
     perks: Perk[];

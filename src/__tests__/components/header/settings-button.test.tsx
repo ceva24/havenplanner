@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import SettingsButton, { removeSpoilerItems } from "@/components/header/settings-button";
+import SettingsButton, { updateCharacterAfterChangingSpoilerSettings } from "@/components/header/settings-button";
 import {
     createTestSettings,
     createTestCharacter,
@@ -9,7 +9,8 @@ import {
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const setCharacter = jest.fn();
-const spoilerSettings: SpoilerSettings = createTestSettings().spoilerSettings;
+
+const settings: Settings = createTestSettings();
 
 beforeEach(() => {
     jest.resetAllMocks();
@@ -27,13 +28,13 @@ describe("settings button", () => {
     });
 });
 
-describe("removeSpoilerItems", () => {
+describe("updateCharacterAfterChangingSpoilerSettings", () => {
     it("removes an item higher than the current prosperity level", () => {
         const character: Character = createTestCharacter({
             items: [{ id: "1", item: createTestItem(1, "Boots of Test", "9") }],
         });
 
-        removeSpoilerItems(character, setCharacter, spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -47,7 +48,7 @@ describe("removeSpoilerItems", () => {
             items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
         });
 
-        removeSpoilerItems(character, setCharacter, spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);
@@ -60,7 +61,7 @@ describe("removeSpoilerItems", () => {
 
         const prosperityTwoSettings = createTestSettingsWithSpoilerSettings(2, []);
 
-        removeSpoilerItems(character, setCharacter, prosperityTwoSettings.spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, prosperityTwoSettings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);
@@ -74,7 +75,7 @@ describe("removeSpoilerItems", () => {
             ],
         });
 
-        removeSpoilerItems(character, setCharacter, spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -88,7 +89,7 @@ describe("removeSpoilerItems", () => {
             items: [{ id: "1", item: createTestItem(1, "Secret Boots of Test", "Random Item Designs") }],
         });
 
-        removeSpoilerItems(character, setCharacter, spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -106,7 +107,7 @@ describe("removeSpoilerItems", () => {
 
         const settings: Settings = createTestSettingsWithSpoilerSettings(2, [{ id: 1, name: item.group }]);
 
-        removeSpoilerItems(character, setCharacter, settings.spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);

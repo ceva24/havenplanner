@@ -5,16 +5,19 @@ const getDefaultSettings = (): Settings => {
 };
 
 const getSettingsForGame = (id: number) => {
+    const gameData: GameData = getGameDataById(id);
+
     return {
-        gameData: getGameDataById(id),
+        gameData,
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 0,
-        spoilerSettings: getDefaultSpoilerSettings(),
+        spoilerSettings: getDefaultSpoilerSettings(gameData),
     };
 };
 
-const getDefaultSpoilerSettings = (): SpoilerSettings => {
+const getDefaultSpoilerSettings = (gameData: GameData): SpoilerSettings => {
     return {
+        classes: [],
         items: {
             prosperity: 1,
             itemGroups: [],
@@ -24,6 +27,7 @@ const getDefaultSpoilerSettings = (): SpoilerSettings => {
 
 const getSpoilerSettingsForCharacter = (character: Character, gameData: GameData): SpoilerSettings => {
     return {
+        classes: [],
         items: {
             prosperity: determineInitialProsperity(character),
             itemGroups: determineItemGroups(character, gameData),

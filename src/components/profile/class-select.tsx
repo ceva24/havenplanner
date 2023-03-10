@@ -3,6 +3,8 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import type { Dispatch, FC, SetStateAction } from "react";
 import Image from "@/components/core/image";
 import { useSettingsContext } from "@/hooks/use-settings";
+import { areCharactersCompletelySpoiled } from "@/services/spoiler";
+import { getCharacterClasses } from "@/services/character-classes";
 
 interface ClassSelectProps {
     character: Character;
@@ -13,7 +15,7 @@ const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSel
     const [settings, setSettings] = useSettingsContext();
 
     const handleChange = (event: SelectChangeEvent) => {
-        findAndSetCharacterClass(event, character, setCharacter, settings);
+        findAndSetCharacterClass(event.target.value, character, setCharacter, settings);
         resetAbilityCardsTabConfig(settings, setSettings);
     };
 
@@ -26,7 +28,7 @@ const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSel
                 labelId="select-class-label"
                 onChange={handleChange}
             >
-                {settings.gameData.characterClasses.map((characterClass: CharacterClass) => (
+                {getCharacterClasses(settings).map((characterClass: CharacterClass) => (
                     <MenuItem key={characterClass.id} value={characterClass.name}>
                         <Image
                             webpPath={characterClass.imageUrl}
@@ -40,20 +42,25 @@ const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSel
                         {characterClass.name}
                     </MenuItem>
                 ))}
+                {!areCharactersCompletelySpoiled(settings) && (
+                    <MenuItem key="spoiler-hint" disabled value="Spoiler hint">
+                        Change your spoiler settings to see more classes...
+                    </MenuItem>
+                )}
             </Select>
         </FormControl>
     );
 };
 
 const findAndSetCharacterClass = (
-    event: SelectChangeEvent,
+    characterClassName: string,
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
     settings: Settings
 ) => {
     const selectedCharacterClass: CharacterClass | undefined = settings.gameData.characterClasses.find(
         (characterClass: CharacterClass) => {
-            return characterClass.name === event.target.value;
+            return characterClass.name === characterClassName;
         }
     );
 
@@ -75,4 +82,4 @@ const resetAbilityCardsTabConfig = (settings: Settings, setSettings: Dispatch<Se
 };
 
 export default ClassSelect;
-export { findAndSetCharacterClass as findAndSetCharacter, resetAbilityCardsTabConfig };
+export { findAndSetCharacterClass, resetAbilityCardsTabConfig };

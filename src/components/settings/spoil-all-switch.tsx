@@ -1,6 +1,6 @@
 import { type ChangeEvent, type Dispatch, type SetStateAction } from "react";
 import { FormControlLabel, Switch } from "@mui/material";
-import { removeSpoilerItems } from "@/components/header/settings-button";
+import { updateCharacterAfterChangingSpoilerSettings } from "@/components/header/settings-button";
 import { useSettingsContext } from "@/hooks/use-settings";
 import { isCompletelySpoiled } from "@/services/spoiler";
 
@@ -31,6 +31,7 @@ const SpoilAllSwitch = ({ shouldApplyImmediately, character, setCharacter }: Spo
 
 const spoilAll = (settings: Settings, setSettings: Dispatch<SetStateAction<Settings>>) => {
     const spoilerSettings: SpoilerSettings = {
+        classes: settings.gameData.unlockableCharacterClasses.slice(),
         items: {
             prosperity: 9,
             itemGroups: settings.gameData.itemGroups.slice(),
@@ -49,16 +50,19 @@ const unspoilAll = (
     // eslint-disable-next-line max-params
 ) => {
     const spoilerSettings: SpoilerSettings = {
+        classes: [],
         items: {
             prosperity: 1,
             itemGroups: [],
         },
     };
 
-    setSettings({ ...settings, spoilerSettings });
+    const newSettings: Settings = { ...settings, spoilerSettings };
+
+    setSettings(newSettings);
 
     if (shouldApplyImmediately && character && setCharacter)
-        removeSpoilerItems(character, setCharacter, spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, newSettings);
 };
 
 export default SpoilAllSwitch;

@@ -62,6 +62,7 @@ describe("isCompletelySpoiled", () => {
     it("returns false when prosperity is < 9 and item groups are unchecked", () => {
         const settings: Settings = createTestSettings({
             spoilerSettings: {
+                classes: [],
                 items: {
                     prosperity: 1,
                     itemGroups: [],
@@ -77,6 +78,7 @@ describe("isCompletelySpoiled", () => {
     it("returns false when prosperity is 9 and item groups are unchecked", () => {
         const settings: Settings = createTestSettings({
             spoilerSettings: {
+                classes: [],
                 items: {
                     prosperity: 9,
                     itemGroups: [],
@@ -101,6 +103,7 @@ describe("isCompletelySpoiled", () => {
     it("returns true when prosperity is 9 and all item groups are checked", () => {
         const settings: Settings = createTestSettings();
         settings.spoilerSettings = {
+            classes: [],
             items: {
                 prosperity: 9,
                 itemGroups: settings.gameData.itemGroups,

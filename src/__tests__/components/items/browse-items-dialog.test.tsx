@@ -8,7 +8,7 @@ const character: Character = createTestCharacter();
 const settings: Settings = createTestSettings();
 
 const prosperityNineSettings = createTestSettings({
-    spoilerSettings: { items: { prosperity: 9, itemGroups: [] } },
+    spoilerSettings: { classes: [], items: { prosperity: 9, itemGroups: [] } },
 });
 
 beforeAll(() => {

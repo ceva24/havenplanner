@@ -11,7 +11,7 @@ import { v4 as uuid } from "uuid";
 import Image from "@/components/core/image";
 import { useSettingsContext } from "@/hooks/use-settings";
 import { getItems } from "@/services/items";
-import { isCompletelySpoiled } from "@/services/spoiler";
+import { areItemsCompletelySpoiled } from "@/services/spoiler";
 
 interface ItemsAutocompleteProps {
     character: Character;
@@ -33,7 +33,7 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 blurOnSelect
                 value={null}
                 options={getItems(settings)}
-                {...(!isCompletelySpoiled(settings) && {
+                {...(!areItemsCompletelySpoiled(settings) && {
                     noOptionsText: "No options - check your spoiler settings",
                 })}
                 getOptionLabel={(item: Item) => {

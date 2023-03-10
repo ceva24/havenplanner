@@ -4,7 +4,9 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { itemShouldBeHidden } from "@/services/items";
 import { TextButton } from "@/components/core/button";
 import SettingsDialog from "@/components/settings/settings-dialog";
+import { findAndSetCharacterClass } from "@/components/profile/class-select";
 import { useSettingsContext } from "@/hooks/use-settings";
+import { isUnlocked } from "@/services/character-classes";
 
 interface SettingsButtonProps {
     character: Character;
@@ -16,7 +18,7 @@ const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
     const [settings] = useSettingsContext();
 
     const handleClose = () => {
-        removeSpoilerItems(character, setCharacter, settings.spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
         setSettingsDialogIsOpen(false);
     };
 
@@ -35,6 +37,15 @@ const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
     );
 };
 
+const updateCharacterAfterChangingSpoilerSettings = (
+    character: Character,
+    setCharacter: Dispatch<SetStateAction<Character>>,
+    settings: Settings
+) => {
+    removeSpoilerItems(character, setCharacter, settings.spoilerSettings);
+    resetCharacterClassIfLocked(character, setCharacter, settings);
+};
+
 const removeSpoilerItems = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
@@ -50,5 +61,15 @@ const removeSpoilerItems = (
     setCharacter(newCharacter);
 };
 
+const resetCharacterClassIfLocked = (
+    character: Character,
+    setCharacter: Dispatch<SetStateAction<Character>>,
+    settings: Settings
+) => {
+    if (!isUnlocked(character.characterClass, settings)) {
+        findAndSetCharacterClass(settings.gameData.defaultCharacter.name, character, setCharacter, settings);
+    }
+};
+
 export default SettingsButton;
-export { removeSpoilerItems };
+export { updateCharacterAfterChangingSpoilerSettings };
