@@ -173,7 +173,7 @@ describe("settings", () => {
         cy.findByRole("img", { name: "Circlet of Elements" }).should("exist");
     });
 
-    it("sets spoiler settings to max when toggling spoil all on in the settings dialog", () => {
+    it("sets item spoiler settings to max when toggling spoil all on in the settings dialog", () => {
         cy.visit("/");
 
         cy.openSettings();

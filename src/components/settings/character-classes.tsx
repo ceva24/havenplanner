@@ -20,6 +20,7 @@ const CharacterClasses = () => {
                             key={unlockableCharacterClassSummary.id}
                             control={
                                 <Switch
+                                    aria-label={unlockableCharacterClassSummary.spoilerSafeName}
                                     checked={characterClassIsUnlocked(unlockableCharacterClassSummary, settings)}
                                     onChange={() => {
                                         handleChange(unlockableCharacterClassSummary);
@@ -65,3 +66,4 @@ const toggleCharacterClass = (
 };
 
 export default CharacterClasses;
+export { toggleCharacterClass };

@@ -1,4 +1,3 @@
-import type { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import ClassSelect, { findAndSetCharacterClass, resetAbilityCardsTabConfig } from "@/components/profile/class-select";
 import {

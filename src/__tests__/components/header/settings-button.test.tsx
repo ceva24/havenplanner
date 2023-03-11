@@ -5,6 +5,7 @@ import {
     createTestCharacter,
     createTestSettingsWithSpoilerSettings,
     createTestItem,
+    createTestCharacterClass,
 } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
@@ -106,6 +107,39 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
         });
 
         const settings: Settings = createTestSettingsWithSpoilerSettings(2, [{ id: 1, name: item.group }]);
+
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith(character);
+    });
+
+    it("resets the character class to default when it is a locked class that is not active", () => {
+        const spoilerCharacterClass: CharacterClass = createTestCharacterClass(2, "Test Spoiler");
+        spoilerCharacterClass.initiallyLocked = true;
+
+        const settings: Settings = createTestSettings();
+        settings.gameData.characterClasses.concat(spoilerCharacterClass);
+
+        const character: Character = createTestCharacter({ characterClass: spoilerCharacterClass });
+
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: settings.gameData.defaultCharacter.characterClass,
+        });
+    });
+
+    it("does not reset the character class to default when it is a starter class", () => {
+        const spoilerCharacterClass: CharacterClass = createTestCharacterClass(2, "Test Spoiler");
+        spoilerCharacterClass.initiallyLocked = true;
+
+        const settings: Settings = createTestSettings();
+        settings.gameData.characterClasses.concat(spoilerCharacterClass);
+
+        const character: Character = createTestCharacter();
 
         updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 

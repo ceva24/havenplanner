@@ -27,6 +27,14 @@ describe("settings dialog", () => {
         expect(spoilAllSwitch).toBeInTheDocument();
     });
 
+    it("renders the class spoilers", () => {
+        render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestSettingsProvider });
+
+        const classSpoilersSection = screen.queryByRole("region", { name: "Class Spoilers" });
+
+        expect(classSpoilersSection).toBeInTheDocument();
+    });
+
     it("renders item spoilers", () => {
         render(<SettingsDialog isOpen onClose={jest.fn()} />, { wrapper: TestSettingsProvider });
 

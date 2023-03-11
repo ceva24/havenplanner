@@ -5,7 +5,7 @@ import { games } from "@/loaders/games";
 import { itemGroups } from "@/loaders/item-groups";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
-import { tounlockableCharacterClassSummary } from "@/transformers/character";
+import { toUnlockableCharacterClassSummary } from "@/transformers/character";
 
 const getGloomhavenGameData = (): GameData => {
     return {
@@ -25,7 +25,7 @@ const getGloomhavenGameData = (): GameData => {
 const unlockableCharacterClasses = (characterClasses: CharacterClass[]): UnlockableCharacterClassSummary[] => {
     return characterClasses
         .filter((characterClass: CharacterClass) => characterClass.initiallyLocked)
-        .map((characterClass: CharacterClass) => tounlockableCharacterClassSummary(characterClass));
+        .map((characterClass: CharacterClass) => toUnlockableCharacterClassSummary(characterClass));
 };
 
 const getDefaultCharacter = (): Character => {

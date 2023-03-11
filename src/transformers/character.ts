@@ -1,4 +1,4 @@
-const tounlockableCharacterClassSummary = (characterClass: CharacterClass): UnlockableCharacterClassSummary => {
+const toUnlockableCharacterClassSummary = (characterClass: CharacterClass): UnlockableCharacterClassSummary => {
     return {
         id: characterClass.id,
         spoilerSafeName: characterClass.spoilerSafeName,
@@ -6,4 +6,4 @@ const tounlockableCharacterClassSummary = (characterClass: CharacterClass): Unlo
     };
 };
 
-export { tounlockableCharacterClassSummary };
+export { toUnlockableCharacterClassSummary };
