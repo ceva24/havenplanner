@@ -18,7 +18,7 @@ interface GameData {
     defaultCharacter: Character;
 }
 
-type UnlockableCharacterClassSummary = Pick<CharacterClass, "id" | "imageUrl">;
+type UnlockableCharacterClassSummary = Pick<CharacterClass, "id" | "imageUrl" | "spoilerSafeName">;
 
 interface SpoilerSettings {
     classes: UnlockableCharacterClassSummary[];

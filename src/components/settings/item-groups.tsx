@@ -12,7 +12,7 @@ const ItemGroups = () => {
 
     return (
         <FormGroup>
-            <Box display="flex" flexWrap="wrap">
+            <Box display="flex" flexWrap="wrap" justifyContent="center">
                 {settings.gameData.itemGroups.map((itemGroup: ItemGroup) => (
                     <FormControlLabel
                         key={itemGroup.id}

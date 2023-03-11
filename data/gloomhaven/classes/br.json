@@ -6,6 +6,7 @@
     "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-brute-back.webp",
     "cardBackImageUrl": "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
     "initiallyLocked": false,
+    "spoilerSafeName": "Brute",
     "handSize": 10,
     "abilityCards": [
         {

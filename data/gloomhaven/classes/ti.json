@@ -6,6 +6,7 @@
     "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-tinkerer-back.webp",
     "cardBackImageUrl": "/character-ability-cards/gloomhaven/TI/gh-ti-back.webp",
     "initiallyLocked": false,
+    "spoilerSafeName": "Tinkerer",
     "handSize": 12,
     "abilityCards": [
         {

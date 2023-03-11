@@ -72,6 +72,7 @@ const createTestCharacterClass = (id: number, name: string): CharacterClass => {
         characterMatBackImageUrl: "",
         cardBackImageUrl: "",
         initiallyLocked: false,
+        spoilerSafeName: "",
         handSize: 10,
         abilityCards: [
             createTestAbilityCard(1, "1", "Trample"),

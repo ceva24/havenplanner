@@ -1,5 +1,6 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { FormGroup, Box, FormControlLabel, Switch } from "@mui/material";
+import Image from "@/components/core/image";
 import { useSettingsContext } from "@/hooks/use-settings";
 import { characterClassIsUnlocked } from "@/services/spoiler";
 
@@ -12,7 +13,7 @@ const CharacterClasses = () => {
 
     return (
         <FormGroup>
-            <Box display="flex" flexWrap="wrap">
+            <Box display="flex" flexWrap="wrap" justifyContent="center" rowGap={3}>
                 {settings.gameData.unlockableCharacterClasses.map(
                     (unlockableCharacterClassSummary: UnlockableCharacterClassSummary) => (
                         <FormControlLabel
@@ -25,7 +26,17 @@ const CharacterClasses = () => {
                                     }}
                                 />
                             }
-                            label={unlockableCharacterClassSummary.id}
+                            label={
+                                <Image
+                                    webpPath={unlockableCharacterClassSummary.imageUrl}
+                                    fallbackImageType="png"
+                                    altText={`${unlockableCharacterClassSummary.spoilerSafeName} Class Icon`}
+                                    style={{ verticalAlign: "middle", marginRight: 10, flexShrink: 0 }}
+                                    height={45}
+                                    width={45}
+                                    aria-hidden="true"
+                                />
+                            }
                         />
                     )
                 )}

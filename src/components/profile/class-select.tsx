@@ -1,6 +1,6 @@
+import type { Dispatch, FC, SetStateAction } from "react";
 import type { SelectChangeEvent } from "@mui/material";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import type { Dispatch, FC, SetStateAction } from "react";
 import Image from "@/components/core/image";
 import { useSettingsContext } from "@/hooks/use-settings";
 import { areCharactersCompletelySpoiled } from "@/services/spoiler";

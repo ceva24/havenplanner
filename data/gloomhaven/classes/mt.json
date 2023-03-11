@@ -6,6 +6,7 @@
     "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-mindthief-back.webp",
     "cardBackImageUrl": "/character-ability-cards/gloomhaven/MT/gh-mt-back.webp",
     "initiallyLocked": false,
+    "spoilerSafeName": "Mindthief",
     "handSize": 10,
     "abilityCards": [
         {

@@ -16,35 +16,24 @@ describe("deck", () => {
     });
 
     it("renders cards of multiple levels", () => {
-        const character: Character = createTestCharacter({
-            characterClass: {
-                id: 0,
-                name: "Brute",
-                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-                initiallyLocked: false,
-                handSize: 10,
-                abilityCards: [
-                    {
-                        id: 1,
-                        name: "Trample",
-                        level: "1",
-                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
-                        enhancementSlots: [],
-                    },
-                    {
-                        id: 11,
-                        name: "Skewer",
-                        level: "X",
-                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
-                        enhancementSlots: [],
-                    },
-                ],
-                perks: [],
+        const character: Character = createTestCharacter();
+
+        character.characterClass.abilityCards = [
+            {
+                id: 1,
+                name: "Trample",
+                level: "1",
+                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                enhancementSlots: [],
             },
-        });
+            {
+                id: 11,
+                name: "Skewer",
+                level: "X",
+                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
+                enhancementSlots: [],
+            },
+        ];
 
         render(<Deck character={character} setCharacter={setCharacter} />);
 
@@ -56,42 +45,31 @@ describe("deck", () => {
     });
 
     it("renders level X cards in the right order", () => {
-        const character: Character = createTestCharacter({
-            characterClass: {
-                id: 0,
-                name: "Brute",
-                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-                initiallyLocked: false,
-                handSize: 10,
-                abilityCards: [
-                    {
-                        id: 1,
-                        name: "Trample",
-                        level: "1",
-                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
-                        enhancementSlots: [],
-                    },
-                    {
-                        id: 15,
-                        name: "Juggernaut",
-                        level: "2",
-                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
-                        enhancementSlots: [],
-                    },
-                    {
-                        id: 11,
-                        name: "Skewer",
-                        level: "X",
-                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
-                        enhancementSlots: [],
-                    },
-                ],
-                perks: [],
+        const character: Character = createTestCharacter();
+
+        character.characterClass.abilityCards = [
+            {
+                id: 1,
+                name: "Trample",
+                level: "1",
+                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                enhancementSlots: [],
             },
-        });
+            {
+                id: 15,
+                name: "Juggernaut",
+                level: "2",
+                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-juggernaut.webp",
+                enhancementSlots: [],
+            },
+            {
+                id: 11,
+                name: "Skewer",
+                level: "X",
+                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
+                enhancementSlots: [],
+            },
+        ];
 
         const { asFragment } = render(<Deck character={character} setCharacter={setCharacter} />);
 
@@ -122,27 +100,17 @@ describe("deck", () => {
     `("renders level $level cards as role $role", ({ level, role }: LevelRoleProps) => {
         const character: Character = createTestCharacter({
             experience: 500,
-            characterClass: {
-                id: 0,
-                name: "Brute",
-                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-                initiallyLocked: false,
-                handSize: 10,
-                abilityCards: [
-                    {
-                        id: 1,
-                        name: "Trample",
-                        level,
-                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
-                        enhancementSlots: [],
-                    },
-                ],
-                perks: [],
-            },
         });
+
+        character.characterClass.abilityCards = [
+            {
+                id: 1,
+                name: "Trample",
+                level,
+                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                enhancementSlots: [],
+            },
+        ];
 
         render(<Deck character={character} setCharacter={setCharacter} />);
 
