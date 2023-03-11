@@ -366,4 +366,50 @@ describe("settings", () => {
 
         cy.findByRole("img", { name: "Circlet of Elements" }).should("not.exist");
     });
+
+    it("shows the spoiler hint in the items autocomplete when the prosperity level is < 9", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.findItemsAutocomplete().type("Not an item");
+
+        cy.findByText("No options - check your spoiler settings").should("exist");
+    });
+
+    it("shows the spoiler hint in the items autocomplete when the prosperity level is 9 but there are inactive item groups", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setProsperityLevel(9);
+
+        cy.findItemsAutocomplete().type("Not an item");
+
+        cy.findByText("No options - check your spoiler settings").should("exist");
+    });
+
+    it("does not show the spoiler hint in the items autocomplete when everything is spoiled", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.spoilAll();
+
+        cy.findItemsAutocomplete().type("Not an item");
+
+        cy.findByText("No options").should("exist");
+    });
+
+    it("does not show the spoiler hint in the classes autocomplete when everything is spoiled", () => {
+        cy.visit("/");
+
+        cy.spoilAll();
+
+        cy.findSelectClassButton().click();
+
+        cy.findByRole("listbox", { name: "Class" })
+            .findByRole("option", { name: "Change your spoiler settings to see more classes..." })
+            .should("not.exist");
+    });
 });
