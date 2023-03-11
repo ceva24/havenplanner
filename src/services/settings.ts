@@ -11,11 +11,11 @@ const getSettingsForGame = (id: number) => {
         gameData,
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 0,
-        spoilerSettings: getDefaultSpoilerSettings(gameData),
+        spoilerSettings: getDefaultSpoilerSettings(),
     };
 };
 
-const getDefaultSpoilerSettings = (gameData: GameData): SpoilerSettings => {
+const getDefaultSpoilerSettings = (): SpoilerSettings => {
     return {
         classes: [],
         items: {

@@ -12,6 +12,7 @@ describe("getDefaultSettings", () => {
         expect(settings.selectedAbilityCardsTabIndex).toEqual(0);
         expect(settings.showPersonalQuest).toEqual(false);
 
+        expect(settings.spoilerSettings.classes).toEqual([]);
         expect(settings.spoilerSettings.items.prosperity).toEqual(1);
         expect(settings.spoilerSettings.items.itemGroups).toEqual([]);
     });

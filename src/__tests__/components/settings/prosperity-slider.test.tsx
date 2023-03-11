@@ -73,7 +73,7 @@ describe("marks", () => {
 });
 
 describe("updateProsperity", () => {
-    it("updates the prosperity level app setting", () => {
+    it("updates the prosperity level setting", () => {
         const settings: Settings = createTestSettings();
 
         const setSettings = jest.fn();

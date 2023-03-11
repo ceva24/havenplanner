@@ -147,7 +147,7 @@ describe("findAndSetCharacter", () => {
 });
 
 describe("resetAbilityCardsTabConfig", () => {
-    it("resets the selected ability cards tab index app setting", () => {
+    it("resets the selected ability cards tab index setting", () => {
         const settingsShowHand: Settings = { ...settings, selectedAbilityCardsTabIndex: 1 };
 
         resetAbilityCardsTabConfig(settingsShowHand, setSettings);
