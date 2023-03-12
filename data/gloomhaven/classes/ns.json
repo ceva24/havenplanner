@@ -1,0 +1,938 @@
+{
+    "id": 10,
+    "name": "Nightshroud",
+    "imageUrl": "/character-icons/gloomhaven/gh-nightshroud.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-nightshroud.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-nightshroud-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/NS/gh-ns-back.webp",
+    "initiallyLocked": true,
+    "spoilerSafeName": "Eclipse",
+    "handSize": 9,
+    "abilityCards": [
+        {
+            "id": 261,
+            "name": "Black Knives",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-black-knives.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 262,
+            "name": "Cloak of Shade",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-cloak-of-shade.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 263,
+            "name": "Empowering Void",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-empowering-void.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 264,
+            "name": "Doomed Breeze",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-doomed-breeze.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 265,
+            "name": "Enervating Wound",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-enervating-wound.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 266,
+            "name": "Spirit of the Night",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-spirit-of-the-night.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 267,
+            "name": "Dancing Shadows",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-dancing-shadows.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 268,
+            "name": "Silent Force",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-silent-force.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 269,
+            "name": "Smoke Step",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-smoke-step.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 270,
+            "name": "Wings of the Night",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-wings-of-the-night.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 271,
+            "name": "Concealed Dominance",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-concealed-dominance.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 272,
+            "name": "Dark Cloud",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-dark-cloud.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 273,
+            "name": "Prepare for the Kill",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-prepare-for-the-kill.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 274,
+            "name": "Soulfire",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-soulfire.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 275,
+            "name": "Terror Blade",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-terror-blade.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 276,
+            "name": "Armor of the Night",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-armor-of-the-night.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 277,
+            "name": "Nightfall",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-nightfall.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 278,
+            "name": "Grim Sustenance",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-grim-sustenance.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 279,
+            "name": "Claws of the Night",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-claws-of-the-night.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 280,
+            "name": "Black Arrow",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-black-arrow.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 281,
+            "name": "Unseen Dread",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-unseen-dread.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 282,
+            "name": "Swallowed by Fear",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-swallowed-by-fear.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 283,
+            "name": "Eyes of the Night",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-eyes-of-the-night.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 284,
+            "name": "Quiet Frenzy",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-quiet-frenzy.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 285,
+            "name": "Gloom Darts",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-gloom-darts.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 286,
+            "name": "Lurking Ruin",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-lurking-ruin.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 287,
+            "name": "Angel of Death",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-angel-of-death.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 288,
+            "name": "Voice of the Night",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-voice-of-the-night.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        }
+    ],
+    "perks": []
+}
