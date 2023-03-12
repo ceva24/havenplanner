@@ -31,7 +31,7 @@ const Index: NextPage<IndexProps> = ({ initialSettings, loadedCharacter, loadedS
             <Header character={character} setCharacter={setCharacter} />
             <AppContainer character={character} setCharacter={setCharacter} />
             <LoadCharacterDialog
-                spoilerSettings={loadedSpoilerSettings ?? initialSettings.spoilerSettings}
+                newSpoilerSettings={loadedSpoilerSettings ?? initialSettings.spoilerSettings}
                 characterHasSpoilers={characterHasSpoilers}
                 character={loadedCharacter ?? initialCharacter}
                 setCharacter={setCharacter}

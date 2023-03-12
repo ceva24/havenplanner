@@ -31,7 +31,7 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
     return { ...settings, ...settingsDetailsToOverride };
 };
 
-const createTestSettingsWithSpoilerSettings = (prosperity: number, itemGroups: ItemGroup[]): Settings => {
+const createTestSettingsWithItemSpoilers = (prosperity: number, itemGroups: ItemGroup[]): Settings => {
     return {
         ...createTestSettings(),
 
@@ -157,7 +157,7 @@ const createTestItemGroup = (id: number, name: string): ItemGroup => {
 
 export {
     createTestSettings,
-    createTestSettingsWithSpoilerSettings,
+    createTestSettingsWithItemSpoilers,
     createTestCharacter,
     createTestCharacterClass,
     createTestAbilityCard,

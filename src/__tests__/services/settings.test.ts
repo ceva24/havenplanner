@@ -1,5 +1,10 @@
 import { getDefaultSettings, getSpoilerSettingsForCharacter } from "@/services/settings";
-import { createTestCharacter, createTestItem, createTestSettings } from "@/test/create-test-fixtures";
+import {
+    createTestCharacter,
+    createTestCharacterClass,
+    createTestItem,
+    createTestSettings,
+} from "@/test/create-test-fixtures";
 
 const settings: Settings = createTestSettings();
 
@@ -18,7 +23,7 @@ describe("getDefaultSettings", () => {
     });
 });
 
-describe("spoilerSettingsForCharacter", () => {
+describe("getSpoilerSettingsForCharacter", () => {
     it("sets prosperity to 1 when the character has no items", () => {
         const character: Character = createTestCharacter();
 
@@ -74,5 +79,27 @@ describe("spoilerSettingsForCharacter", () => {
         const spoilerSettings = getSpoilerSettingsForCharacter(character, settings.gameData);
 
         expect(spoilerSettings.items.itemGroups).toHaveLength(0);
+    });
+
+    it("sets the classes to be empty if the current character class is a starter class", () => {
+        const character: Character = createTestCharacter();
+
+        const spoilerSettings = getSpoilerSettingsForCharacter(character, settings.gameData);
+
+        expect(spoilerSettings.classes).toHaveLength(0);
+    });
+
+    it("sets the classes to include the current character class if it is initially locked", () => {
+        const characterClass: CharacterClass = createTestCharacterClass(2, "Test Spoiler");
+        characterClass.initiallyLocked = true;
+
+        const character: Character = createTestCharacter({
+            characterClass,
+        });
+
+        const spoilerSettings = getSpoilerSettingsForCharacter(character, settings.gameData);
+
+        expect(spoilerSettings.classes).toHaveLength(1);
+        expect(spoilerSettings.classes[0].id).toEqual(2);
     });
 });

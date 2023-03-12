@@ -3,7 +3,7 @@ import SettingsButton, { updateCharacterAfterChangingSpoilerSettings } from "@/c
 import {
     createTestSettings,
     createTestCharacter,
-    createTestSettingsWithSpoilerSettings,
+    createTestSettingsWithItemSpoilers,
     createTestItem,
     createTestCharacterClass,
 } from "@/test/create-test-fixtures";
@@ -60,7 +60,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
             items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
         });
 
-        const prosperityTwoSettings = createTestSettingsWithSpoilerSettings(2, []);
+        const prosperityTwoSettings = createTestSettingsWithItemSpoilers(2, []);
 
         updateCharacterAfterChangingSpoilerSettings(character, setCharacter, prosperityTwoSettings);
 
@@ -106,7 +106,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
             items: [{ id: "1", item }],
         });
 
-        const settings: Settings = createTestSettingsWithSpoilerSettings(2, [{ id: 1, name: item.group }]);
+        const settings: Settings = createTestSettingsWithItemSpoilers(2, [{ id: 1, name: item.group }]);
 
         updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 

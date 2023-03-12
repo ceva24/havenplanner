@@ -3,7 +3,7 @@ import LoadCharacterDialog from "@/components/load/load-character-dialog";
 import {
     createTestSettings,
     createTestCharacter,
-    createTestSettingsWithSpoilerSettings,
+    createTestSettingsWithItemSpoilers,
     createTestItemGroup,
 } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
@@ -23,7 +23,7 @@ describe("load character dialog", () => {
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={settings.spoilerSettings}
+                newSpoilerSettings={settings.spoilerSettings}
                 character={character}
                 setCharacter={setCharacter}
             />,
@@ -38,7 +38,7 @@ describe("load character dialog", () => {
     it("does not render when the character does not have spoilers", () => {
         render(
             <LoadCharacterDialog
-                spoilerSettings={settings.spoilerSettings}
+                newSpoilerSettings={settings.spoilerSettings}
                 characterHasSpoilers={false}
                 character={character}
                 setCharacter={setCharacter}
@@ -51,11 +51,32 @@ describe("load character dialog", () => {
         expect(dialog).not.toBeInTheDocument();
     });
 
+    it("renders character class spoilers", () => {
+        const settings: Settings = createTestSettings();
+        settings.spoilerSettings.classes = [{ id: 2, imageUrl: "", spoilerSafeName: "Test Spoilery" }];
+
+        render(
+            <LoadCharacterDialog
+                characterHasSpoilers
+                newSpoilerSettings={settings.spoilerSettings}
+                character={character}
+                setCharacter={setCharacter}
+            />,
+            { wrapper: TestSettingsProvider }
+        );
+
+        const dialog = screen.getByRole("dialog", { name: "Load character?" });
+
+        const characterClass = within(dialog).queryByText("Test Spoilery");
+
+        expect(characterClass).toBeInTheDocument();
+    });
+
     it("renders the prosperity when it is above 1", () => {
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={createTestSettingsWithSpoilerSettings(2, []).spoilerSettings}
+                newSpoilerSettings={createTestSettingsWithItemSpoilers(2, []).spoilerSettings}
                 character={character}
                 setCharacter={setCharacter}
             />,
@@ -77,7 +98,7 @@ describe("load character dialog", () => {
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={createTestSettingsWithSpoilerSettings(2, itemGroups).spoilerSettings}
+                newSpoilerSettings={createTestSettingsWithItemSpoilers(2, itemGroups).spoilerSettings}
                 character={character}
                 setCharacter={setCharacter}
             />,
@@ -97,7 +118,7 @@ describe("load character dialog", () => {
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={createTestSettingsWithSpoilerSettings(2, []).spoilerSettings}
+                newSpoilerSettings={createTestSettingsWithItemSpoilers(2, []).spoilerSettings}
                 character={character}
                 setCharacter={setCharacter}
             />,
@@ -112,12 +133,12 @@ describe("load character dialog", () => {
     });
 
     it("renders the load button", () => {
-        const prosperityTwoSpoilerSettings = createTestSettingsWithSpoilerSettings(2, []).spoilerSettings;
+        const prosperityTwoSpoilerSettings = createTestSettingsWithItemSpoilers(2, []).spoilerSettings;
 
         render(
             <LoadCharacterDialog
                 characterHasSpoilers
-                spoilerSettings={prosperityTwoSpoilerSettings}
+                newSpoilerSettings={prosperityTwoSpoilerSettings}
                 character={character}
                 setCharacter={setCharacter}
             />,

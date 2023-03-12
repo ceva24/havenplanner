@@ -1,5 +1,8 @@
 const hasSpoilers = (character: Character): boolean => {
-    return character.items.some((characterItem: CharacterItem) => characterItem.item.group !== "1");
+    return (
+        character.characterClass.initiallyLocked ||
+        character.items.some((characterItem: CharacterItem) => characterItem.item.group !== "1")
+    );
 };
 
 const characterClassIsUnlocked = (
@@ -34,6 +37,14 @@ const areItemsCompletelySpoiled = (settings: Settings): boolean => {
     );
 };
 
+const hasCharacterSpoilers = (spoilerSettings: SpoilerSettings): boolean => {
+    return spoilerSettings.classes.length > 0;
+};
+
+const hasItemSpoilers = (spoilerSettings: SpoilerSettings): boolean => {
+    return spoilerSettings.items.prosperity > 1 || spoilerSettings.items.itemGroups.length > 0;
+};
+
 export {
     hasSpoilers,
     characterClassIsUnlocked,
@@ -41,4 +52,6 @@ export {
     isCompletelySpoiled,
     areCharactersCompletelySpoiled,
     areItemsCompletelySpoiled,
+    hasCharacterSpoilers,
+    hasItemSpoilers,
 };

@@ -1,4 +1,11 @@
-import { characterClassIsUnlocked, hasSpoilers, isCompletelySpoiled, itemGroupIsActive } from "@/services/spoiler";
+import {
+    characterClassIsUnlocked,
+    hasCharacterSpoilers,
+    hasItemSpoilers,
+    hasSpoilers,
+    isCompletelySpoiled,
+    itemGroupIsActive,
+} from "@/services/spoiler";
 import {
     createTestCharacter,
     createTestCharacterClass,
@@ -33,6 +40,15 @@ describe("hasSpoilers", () => {
         const character: Character = createTestCharacter({
             items: [{ id: "1", item }],
         });
+
+        const result = hasSpoilers(character);
+
+        expect(result).toEqual(true);
+    });
+
+    it("returns true when the character has an initially locked class", () => {
+        const character: Character = createTestCharacter();
+        character.characterClass.initiallyLocked = true;
 
         const result = hasSpoilers(character);
 
@@ -210,5 +226,63 @@ describe("isCompletelySpoiled", () => {
         const isSpoiled = isCompletelySpoiled(settings);
 
         expect(isSpoiled).toEqual(true);
+    });
+});
+
+describe("hasCharacterSpoilers", () => {
+    it("returns false when there are no unlocked classes", () => {
+        const settings: Settings = createTestSettings();
+        settings.spoilerSettings.classes = [];
+
+        const hasSpoilers = hasCharacterSpoilers(settings.spoilerSettings);
+
+        expect(hasSpoilers).toEqual(false);
+    });
+
+    it("returns true when there are unlocked classes", () => {
+        const settings: Settings = createTestSettings();
+        settings.spoilerSettings.classes = [{ id: 2, imageUrl: "", spoilerSafeName: "Test Spoilery" }];
+
+        const hasSpoilers = hasCharacterSpoilers(settings.spoilerSettings);
+
+        expect(hasSpoilers).toEqual(true);
+    });
+});
+
+describe("hasItemSpoilers", () => {
+    it("returns false when prosperity is 1 and there are no active item groups", () => {
+        const settings: Settings = createTestSettings();
+        settings.spoilerSettings.items = { prosperity: 1, itemGroups: [] };
+
+        const hasSpoilers = hasItemSpoilers(settings.spoilerSettings);
+
+        expect(hasSpoilers).toEqual(false);
+    });
+
+    it("returns true when prosperity is > 1 and there are no active item groups", () => {
+        const settings: Settings = createTestSettings();
+        settings.spoilerSettings.items = { prosperity: 3, itemGroups: [] };
+
+        const hasSpoilers = hasItemSpoilers(settings.spoilerSettings);
+
+        expect(hasSpoilers).toEqual(true);
+    });
+
+    it("returns true when prosperity is 1 and there are active item groups", () => {
+        const settings: Settings = createTestSettings();
+        settings.spoilerSettings.items = { prosperity: 1, itemGroups: [{ id: 1, name: "Random Item Designs" }] };
+
+        const hasSpoilers = hasItemSpoilers(settings.spoilerSettings);
+
+        expect(hasSpoilers).toEqual(true);
+    });
+
+    it("returns true when prosperity is > 1 and there are active item groups", () => {
+        const settings: Settings = createTestSettings();
+        settings.spoilerSettings.items = { prosperity: 3, itemGroups: [{ id: 1, name: "Random Item Designs" }] };
+
+        const hasSpoilers = hasItemSpoilers(settings.spoilerSettings);
+
+        expect(hasSpoilers).toEqual(true);
     });
 });

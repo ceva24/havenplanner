@@ -1,4 +1,5 @@
 import { getGameDataById } from "@/services/games/game";
+import { toUnlockableCharacterClassSummary } from "@/transformers/character";
 
 const getDefaultSettings = (): Settings => {
     return getSettingsForGame(1);
@@ -27,12 +28,18 @@ const getDefaultSpoilerSettings = (): SpoilerSettings => {
 
 const getSpoilerSettingsForCharacter = (character: Character, gameData: GameData): SpoilerSettings => {
     return {
-        classes: [],
+        classes: determineUnlockedClasses(character),
         items: {
             prosperity: determineInitialProsperity(character),
             itemGroups: determineItemGroups(character, gameData),
         },
     };
+};
+
+const determineUnlockedClasses = (character: Character): UnlockableCharacterClassSummary[] => {
+    return character.characterClass.initiallyLocked
+        ? [toUnlockableCharacterClassSummary(character.characterClass)]
+        : [];
 };
 
 const determineInitialProsperity = (character: Character): number => {
