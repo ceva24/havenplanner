@@ -52,7 +52,7 @@ const LoadCharacterDialog = ({
                 Load character?
             </Box>
             <DialogContent id="load-character-dialog-description">
-                <Stack spacing={3} textAlign="center">
+                <Stack spacing={3}>
                     <Typography>This character contains the following spoilers:</Typography>
                     {hasCharacterSpoilers(newSpoilerSettings) && (
                         <Stack spacing={1}>
