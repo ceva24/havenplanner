@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ItemSpoiler } from "@/components/load/spoiler";
+import { CharacterSpoiler, ItemSpoiler } from "@/components/load/spoiler";
 
 describe("item spoiler", () => {
     it("renders", () => {
@@ -8,5 +8,17 @@ describe("item spoiler", () => {
         const itemSpoiler = screen.queryByText("Prosperity 2");
 
         expect(itemSpoiler).toBeInTheDocument();
+    });
+});
+
+describe("character spoiler", () => {
+    it("renders", () => {
+        const summary: UnlockableCharacterClassSummary = { id: 2, imageUrl: "", spoilerSafeName: "Test Spoilery" };
+
+        render(<CharacterSpoiler characterClass={summary} />);
+
+        const characterSpoiler = screen.queryByText("Test Spoilery");
+
+        expect(characterSpoiler).toBeInTheDocument();
     });
 });

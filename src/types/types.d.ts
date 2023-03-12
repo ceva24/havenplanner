@@ -8,6 +8,7 @@ interface Settings {
 interface GameData {
     game: Game;
     characterClasses: CharacterClass[];
+    unlockableCharacterClasses: UnlockableCharacterClassSummary[];
     personalQuests: PersonalQuest[];
     enhancements: Enhancement[];
     baseAttackModifierDeck: AttackModifierDeckCard[];
@@ -17,7 +18,10 @@ interface GameData {
     defaultCharacter: Character;
 }
 
+type UnlockableCharacterClassSummary = Pick<CharacterClass, "id" | "imageUrl" | "spoilerSafeName">;
+
 interface SpoilerSettings {
+    classes: UnlockableCharacterClassSummary[];
     items: ItemSpoilerSettings;
 }
 

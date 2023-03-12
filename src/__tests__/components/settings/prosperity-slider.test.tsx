@@ -73,7 +73,7 @@ describe("marks", () => {
 });
 
 describe("updateProsperity", () => {
-    it("updates the prosperity level app setting", () => {
+    it("updates the prosperity level setting", () => {
         const settings: Settings = createTestSettings();
 
         const setSettings = jest.fn();
@@ -83,7 +83,7 @@ describe("updateProsperity", () => {
         expect(setSettings).toHaveBeenCalledTimes(1);
         expect(setSettings).toHaveBeenCalledWith({
             ...settings,
-            spoilerSettings: { items: { prosperity: 3, itemGroups: [] } },
+            spoilerSettings: { classes: [], items: { prosperity: 3, itemGroups: [] } },
         });
     });
 
@@ -98,7 +98,10 @@ describe("updateProsperity", () => {
         expect(setSettings).toHaveBeenCalledTimes(1);
         expect(setSettings).toHaveBeenCalledWith({
             ...settings,
-            spoilerSettings: { items: { prosperity: 3, itemGroups: settings.spoilerSettings.items.itemGroups } },
+            spoilerSettings: {
+                classes: [],
+                items: { prosperity: 3, itemGroups: settings.spoilerSettings.items.itemGroups },
+            },
         });
     });
 });

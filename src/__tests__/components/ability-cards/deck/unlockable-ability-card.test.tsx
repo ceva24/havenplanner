@@ -97,20 +97,9 @@ describe("toggleAbilityCard", () => {
             enhancementSlots: [],
         };
 
-        const characterWithUnlockedCard: Character = createTestCharacter({
-            characterClass: {
-                id: 0,
-                name: "Brute",
-                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-                handSize: 10,
-                abilityCards: [abilityCard],
-                perks: [],
-            },
-            unlockedAbilityCards: [abilityCard],
-        });
+        const characterWithUnlockedCard: Character = createTestCharacter();
+        characterWithUnlockedCard.characterClass.abilityCards = [abilityCard];
+        characterWithUnlockedCard.unlockedAbilityCards = [abilityCard];
 
         toggleAbilityCard(
             characterWithUnlockedCard,
@@ -136,21 +125,10 @@ describe("toggleAbilityCard", () => {
             enhancementSlots: [],
         };
 
-        const characterWithUnlockedCard: Character = createTestCharacter({
-            characterClass: {
-                id: 0,
-                name: "Brute",
-                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-                handSize: 10,
-                abilityCards: [abilityCard],
-                perks: [],
-            },
-            unlockedAbilityCards: [abilityCard],
-            hand: [abilityCard],
-        });
+        const characterWithUnlockedCard: Character = createTestCharacter();
+        characterWithUnlockedCard.characterClass.abilityCards = [abilityCard];
+        characterWithUnlockedCard.unlockedAbilityCards = [abilityCard];
+
         toggleAbilityCard(
             characterWithUnlockedCard,
             setCharacter,

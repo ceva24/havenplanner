@@ -15,7 +15,10 @@ describe("spoil all switch", () => {
 
 describe("spoilAll", () => {
     it("sets the spoiler settings to maximum", () => {
+        const summary: UnlockableCharacterClassSummary = { id: 2, imageUrl: "", spoilerSafeName: "Test Spoiler" };
+
         const settings: Settings = createTestSettings();
+        settings.gameData.unlockableCharacterClasses = [summary];
 
         const setSettings = jest.fn();
 
@@ -24,7 +27,7 @@ describe("spoilAll", () => {
         expect(setSettings).toHaveBeenCalledTimes(1);
         expect(setSettings).toHaveBeenCalledWith({
             ...settings,
-            spoilerSettings: { items: { prosperity: 9, itemGroups: settings.gameData.itemGroups } },
+            spoilerSettings: { classes: [summary], items: { prosperity: 9, itemGroups: settings.gameData.itemGroups } },
         });
     });
 });
@@ -40,7 +43,7 @@ describe("unspoilAll", () => {
         expect(setSettings).toHaveBeenCalledTimes(1);
         expect(setSettings).toHaveBeenCalledWith({
             ...settings,
-            spoilerSettings: { items: { prosperity: 1, itemGroups: [] } },
+            spoilerSettings: { classes: [], items: { prosperity: 1, itemGroups: [] } },
         });
     });
 });

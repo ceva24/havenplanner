@@ -1,10 +1,12 @@
 import { type Dispatch, type SetStateAction, useState } from "react";
 import Box from "@mui/material/Box";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { itemShouldBeHidden } from "@/services/items";
 import { TextButton } from "@/components/core/button";
 import SettingsDialog from "@/components/settings/settings-dialog";
+import { findAndSetCharacterClass } from "@/components/profile/class-select";
 import { useSettingsContext } from "@/hooks/use-settings";
+import { itemShouldBeHidden } from "@/services/items";
+import { isUnlocked } from "@/services/character-classes";
 
 interface SettingsButtonProps {
     character: Character;
@@ -16,7 +18,7 @@ const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
     const [settings] = useSettingsContext();
 
     const handleClose = () => {
-        removeSpoilerItems(character, setCharacter, settings.spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
         setSettingsDialogIsOpen(false);
     };
 
@@ -35,20 +37,24 @@ const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
     );
 };
 
-const removeSpoilerItems = (
+const updateCharacterAfterChangingSpoilerSettings = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
-    spoilerSettings: SpoilerSettings
+    settings: Settings
 ) => {
     const newCharacter = {
         ...character,
         items: character.items.filter(
-            (characterItem: CharacterItem) => !itemShouldBeHidden(characterItem.item, spoilerSettings)
+            (characterItem: CharacterItem) => !itemShouldBeHidden(characterItem.item, settings.spoilerSettings)
         ),
     };
 
-    setCharacter(newCharacter);
+    if (isUnlocked(character.characterClass, settings)) {
+        setCharacter(newCharacter);
+    } else {
+        findAndSetCharacterClass(settings.gameData.defaultCharacter.name, newCharacter, setCharacter, settings);
+    }
 };
 
 export default SettingsButton;
-export { removeSpoilerItems };
+export { updateCharacterAfterChangingSpoilerSettings };

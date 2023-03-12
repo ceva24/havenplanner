@@ -8,6 +8,7 @@ const setSettings = jest.fn();
 beforeEach(() => {
     jest.resetAllMocks();
 });
+
 describe("item groups", () => {
     interface ItemGroupsProps {
         group: string;

@@ -1,15 +1,17 @@
 import { render, screen } from "@testing-library/react";
-import SettingsButton, { removeSpoilerItems } from "@/components/header/settings-button";
+import SettingsButton, { updateCharacterAfterChangingSpoilerSettings } from "@/components/header/settings-button";
 import {
     createTestSettings,
     createTestCharacter,
-    createTestSettingsWithSpoilerSettings,
+    createTestSettingsWithItemSpoilers,
     createTestItem,
+    createTestCharacterClass,
 } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const setCharacter = jest.fn();
-const spoilerSettings: SpoilerSettings = createTestSettings().spoilerSettings;
+
+const settings: Settings = createTestSettings();
 
 beforeEach(() => {
     jest.resetAllMocks();
@@ -27,13 +29,13 @@ describe("settings button", () => {
     });
 });
 
-describe("removeSpoilerItems", () => {
+describe("updateCharacterAfterChangingSpoilerSettings", () => {
     it("removes an item higher than the current prosperity level", () => {
         const character: Character = createTestCharacter({
             items: [{ id: "1", item: createTestItem(1, "Boots of Test", "9") }],
         });
 
-        removeSpoilerItems(character, setCharacter, spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -47,7 +49,7 @@ describe("removeSpoilerItems", () => {
             items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
         });
 
-        removeSpoilerItems(character, setCharacter, spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);
@@ -58,9 +60,9 @@ describe("removeSpoilerItems", () => {
             items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
         });
 
-        const prosperityTwoSettings = createTestSettingsWithSpoilerSettings(2, []);
+        const prosperityTwoSettings = createTestSettingsWithItemSpoilers(2, []);
 
-        removeSpoilerItems(character, setCharacter, prosperityTwoSettings.spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, prosperityTwoSettings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);
@@ -74,7 +76,7 @@ describe("removeSpoilerItems", () => {
             ],
         });
 
-        removeSpoilerItems(character, setCharacter, spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -88,7 +90,7 @@ describe("removeSpoilerItems", () => {
             items: [{ id: "1", item: createTestItem(1, "Secret Boots of Test", "Random Item Designs") }],
         });
 
-        removeSpoilerItems(character, setCharacter, spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -104,9 +106,42 @@ describe("removeSpoilerItems", () => {
             items: [{ id: "1", item }],
         });
 
-        const settings: Settings = createTestSettingsWithSpoilerSettings(2, [{ id: 1, name: item.group }]);
+        const settings: Settings = createTestSettingsWithItemSpoilers(2, [{ id: 1, name: item.group }]);
 
-        removeSpoilerItems(character, setCharacter, settings.spoilerSettings);
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith(character);
+    });
+
+    it("resets the character class to default when it is a locked class that is not active", () => {
+        const spoilerCharacterClass: CharacterClass = createTestCharacterClass(2, "Test Spoiler");
+        spoilerCharacterClass.initiallyLocked = true;
+
+        const settings: Settings = createTestSettings();
+        settings.gameData.characterClasses.concat(spoilerCharacterClass);
+
+        const character: Character = createTestCharacter({ characterClass: spoilerCharacterClass });
+
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            characterClass: settings.gameData.defaultCharacter.characterClass,
+        });
+    });
+
+    it("does not reset the character class to default when it is a starter class", () => {
+        const spoilerCharacterClass: CharacterClass = createTestCharacterClass(2, "Test Spoiler");
+        spoilerCharacterClass.initiallyLocked = true;
+
+        const settings: Settings = createTestSettings();
+        settings.gameData.characterClasses.concat(spoilerCharacterClass);
+
+        const character: Character = createTestCharacter();
+
+        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);

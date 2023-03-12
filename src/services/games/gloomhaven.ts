@@ -5,11 +5,13 @@ import { games } from "@/loaders/games";
 import { itemGroups } from "@/loaders/item-groups";
 import { items } from "@/loaders/items";
 import { personalQuests } from "@/loaders/personal-quests";
+import { toUnlockableCharacterClassSummary } from "@/transformers/character";
 
 const getGloomhavenGameData = (): GameData => {
     return {
         game: games[0],
         characterClasses,
+        unlockableCharacterClasses: unlockableCharacterClasses(characterClasses),
         personalQuests,
         enhancements,
         baseAttackModifierDeck: createBaseAttackModifierDeck(),
@@ -18,6 +20,12 @@ const getGloomhavenGameData = (): GameData => {
         itemGroups,
         defaultCharacter: getDefaultCharacter(),
     };
+};
+
+const unlockableCharacterClasses = (characterClasses: CharacterClass[]): UnlockableCharacterClassSummary[] => {
+    return characterClasses
+        .filter((characterClass: CharacterClass) => characterClass.initiallyLocked)
+        .map((characterClass: CharacterClass) => toUnlockableCharacterClassSummary(characterClass));
 };
 
 const getDefaultCharacter = (): Character => {

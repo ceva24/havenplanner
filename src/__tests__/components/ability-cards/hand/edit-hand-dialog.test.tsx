@@ -70,20 +70,11 @@ describe("addCardToHand", () => {
             enhancementSlots: [],
         };
 
-        const characterWithMaxHandSize: Character = createTestCharacter({
-            characterClass: {
-                id: 0,
-                name: "Brute",
-                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-                handSize: 1,
-                abilityCards: [abilityCardOne, abilityCardTwo],
-                perks: [],
-            },
-            hand: [abilityCardOne],
-        });
+        const characterWithMaxHandSize: Character = createTestCharacter({});
+
+        characterWithMaxHandSize.characterClass.handSize = 1;
+        characterWithMaxHandSize.characterClass.abilityCards = [abilityCardOne, abilityCardTwo];
+        characterWithMaxHandSize.hand = [abilityCardOne];
 
         toggleCardAddedToHand(characterWithMaxHandSize, setCharacter, abilityCardTwo);
 

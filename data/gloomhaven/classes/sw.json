@@ -5,6 +5,8 @@
     "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-spellweaver.webp",
     "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-spellweaver-back.webp",
     "cardBackImageUrl": "/character-ability-cards/gloomhaven/SW/gh-sw-back.webp",
+    "initiallyLocked": false,
+    "spoilerSafeName": "Spellweaver",
     "handSize": 8,
     "abilityCards": [
         {

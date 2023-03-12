@@ -5,7 +5,10 @@ jest.mock("@/loaders/attack-modifiers", () => ({
 }));
 
 jest.mock("@/loaders/character-classes", () => ({
-    characterClasses: [{ id: 1, name: "Test Frog" }],
+    characterClasses: [
+        { id: 1, name: "Test Frog", initiallyLocked: false },
+        { id: 2, name: "Test Spoiler", initiallyLocked: true },
+    ],
 }));
 
 jest.mock("@/loaders/enhancements", () => ({
@@ -43,6 +46,13 @@ describe("getGameData", () => {
         const gameData: GameData = getGloomhavenGameData();
 
         expect(gameData.defaultCharacter.characterClass.name).toEqual("Test Frog");
+    });
+
+    it("sets the unlockable character classes", () => {
+        const gameData: GameData = getGloomhavenGameData();
+
+        expect(gameData.unlockableCharacterClasses).toHaveLength(1);
+        expect(gameData.unlockableCharacterClasses[0].id).toEqual(2);
     });
 
     it("creates the base attack modifier deck", () => {

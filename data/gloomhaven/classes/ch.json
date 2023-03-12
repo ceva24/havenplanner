@@ -5,6 +5,8 @@
     "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-cragheart.webp",
     "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-cragheart-back.webp",
     "cardBackImageUrl": "/character-ability-cards/gloomhaven/CH/gh-ch-back.webp",
+    "initiallyLocked": false,
+    "spoilerSafeName": "Cragheart",
     "handSize": 11,
     "abilityCards": [
         {

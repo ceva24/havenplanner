@@ -1,6 +1,5 @@
-import type { SelectChangeEvent } from "@mui/material";
 import { render, screen } from "@testing-library/react";
-import ClassSelect, { findAndSetCharacter, resetAbilityCardsTabConfig } from "@/components/profile/class-select";
+import ClassSelect, { findAndSetCharacterClass, resetAbilityCardsTabConfig } from "@/components/profile/class-select";
 import {
     createTestSettings,
     createTestCharacter,
@@ -40,12 +39,7 @@ describe("class select", () => {
 
 describe("findAndSetCharacter", () => {
     it("sets the character to the selected value", () => {
-        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
-        const event = {
-            target: { value: settings.gameData.characterClasses[0].name },
-        } as SelectChangeEvent;
-
-        findAndSetCharacter(event, character, setCharacter, settings);
+        findAndSetCharacterClass(settings.gameData.characterClasses[0].name, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -55,12 +49,7 @@ describe("findAndSetCharacter", () => {
     });
 
     it("sets the character details to default values when the selected class does not exist", () => {
-        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
-        const event = {
-            target: { value: "Invalid class" },
-        } as SelectChangeEvent;
-
-        findAndSetCharacter(event, character, setCharacter, settings);
+        findAndSetCharacterClass("Invalid class", character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -73,12 +62,7 @@ describe("findAndSetCharacter", () => {
         const character: Character = createTestCharacter();
         character.unlockedAbilityCards = [character.characterClass.abilityCards[0]];
 
-        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
-        const event = {
-            target: { value: settings.gameData.characterClasses[0].name },
-        } as SelectChangeEvent;
-
-        findAndSetCharacter(event, character, setCharacter, settings);
+        findAndSetCharacterClass(settings.gameData.characterClasses[0].name, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -92,12 +76,7 @@ describe("findAndSetCharacter", () => {
         const character: Character = createTestCharacter();
         character.hand = [character.characterClass.abilityCards[0]];
 
-        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
-        const event = {
-            target: { value: settings.gameData.characterClasses[0].name },
-        } as SelectChangeEvent;
-
-        findAndSetCharacter(event, character, setCharacter, settings);
+        findAndSetCharacterClass(settings.gameData.characterClasses[0].name, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -121,12 +100,7 @@ describe("findAndSetCharacter", () => {
         character.characterClass.perks = [perk];
         character.gainedPerks = [{ perk, checkboxIndex: 0 }];
 
-        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
-        const event = {
-            target: { value: settings.gameData.characterClasses[0].name },
-        } as SelectChangeEvent;
-
-        findAndSetCharacter(event, character, setCharacter, settings);
+        findAndSetCharacterClass(settings.gameData.characterClasses[0].name, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -140,12 +114,7 @@ describe("findAndSetCharacter", () => {
         const character: Character = createTestCharacter();
         character.battleGoalCheckmarkGroups[0].checkmarks[0].value = true;
 
-        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
-        const event = {
-            target: { value: settings.gameData.characterClasses[0].name },
-        } as SelectChangeEvent;
-
-        findAndSetCharacter(event, character, setCharacter, settings);
+        findAndSetCharacterClass(settings.gameData.characterClasses[0].name, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -166,12 +135,7 @@ describe("findAndSetCharacter", () => {
             },
         ];
 
-        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
-        const event = {
-            target: { value: settings.gameData.characterClasses[0].name },
-        } as SelectChangeEvent;
-
-        findAndSetCharacter(event, character, setCharacter, settings);
+        findAndSetCharacterClass(settings.gameData.characterClasses[0].name, character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -183,7 +147,7 @@ describe("findAndSetCharacter", () => {
 });
 
 describe("resetAbilityCardsTabConfig", () => {
-    it("resets the selected ability cards tab index app setting", () => {
+    it("resets the selected ability cards tab index setting", () => {
         const settingsShowHand: Settings = { ...settings, selectedAbilityCardsTabIndex: 1 };
 
         resetAbilityCardsTabConfig(settingsShowHand, setSettings);

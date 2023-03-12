@@ -7,27 +7,17 @@ import { createTestCharacter } from "@/test/create-test-fixtures";
 
 describe("getAllAvailableAbilityCardsForCharacter", () => {
     it("includes level 1 cards", () => {
-        const character: Character = createTestCharacter({
-            characterClass: {
-                id: 0,
-                name: "Brute",
-                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-                handSize: 10,
-                abilityCards: [
-                    {
-                        id: 1,
-                        name: "Trample",
-                        level: "1",
-                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
-                        enhancementSlots: [],
-                    },
-                ],
-                perks: [],
+        const character: Character = createTestCharacter();
+
+        character.characterClass.abilityCards = [
+            {
+                id: 1,
+                name: "Trample",
+                level: "1",
+                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-trample.webp",
+                enhancementSlots: [],
             },
-        });
+        ];
 
         const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
 
@@ -35,27 +25,17 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
     });
 
     it("includes level X cards", () => {
-        const character: Character = createTestCharacter({
-            characterClass: {
-                id: 0,
-                name: "Brute",
-                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-                handSize: 10,
-                abilityCards: [
-                    {
-                        id: 11,
-                        name: "Skewer",
-                        level: "X",
-                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
-                        enhancementSlots: [],
-                    },
-                ],
-                perks: [],
+        const character: Character = createTestCharacter();
+
+        character.characterClass.abilityCards = [
+            {
+                id: 11,
+                name: "Skewer",
+                level: "X",
+                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-skewer.webp",
+                enhancementSlots: [],
             },
-        });
+        ];
 
         const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
 
@@ -63,36 +43,18 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
     });
 
     it("includes all unlocked ability cards", () => {
-        const character: Character = createTestCharacter({
-            characterClass: {
-                id: 0,
-                name: "Brute",
-                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-                handSize: 10,
-                abilityCards: [
-                    {
-                        id: 14,
-                        name: "Fatal Advance",
-                        level: "2",
-                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
-                        enhancementSlots: [],
-                    },
-                ],
-                perks: [],
-            },
-            unlockedAbilityCards: [
-                {
-                    id: 14,
-                    name: "Fatal Advance",
-                    level: "2",
-                    imageUrl: "/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
-                    enhancementSlots: [],
-                },
-            ],
-        });
+        const abilityCard: AbilityCard = {
+            id: 14,
+            name: "Fatal Advance",
+            level: "2",
+            imageUrl: "/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+            enhancementSlots: [],
+        };
+
+        const character: Character = createTestCharacter();
+
+        character.characterClass.abilityCards = [abilityCard];
+        character.unlockedAbilityCards = [abilityCard];
 
         const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
 
@@ -100,27 +62,17 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
     });
 
     it("excludes locked cards level 2 and above", () => {
-        const character: Character = createTestCharacter({
-            characterClass: {
-                id: 0,
-                name: "Brute",
-                imageUrl: "/character-icons/gloomhaven/gh-brute.webp",
-                characterMatFrontImageUrl: "/character-mats/gloomhaven/gh-brute.webp",
-                characterMatBackImageUrl: "/character-mats/gloomhaven/gh-brute-back.webp",
-                cardBackImageUrl: "/character-ability-cards/gloomhaven/BR/gh-br-back.webp",
-                handSize: 10,
-                abilityCards: [
-                    {
-                        id: 14,
-                        name: "Fatal Advance",
-                        level: "2",
-                        imageUrl: "/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
-                        enhancementSlots: [],
-                    },
-                ],
-                perks: [],
+        const character: Character = createTestCharacter();
+
+        character.characterClass.abilityCards = [
+            {
+                id: 14,
+                name: "Fatal Advance",
+                level: "2",
+                imageUrl: "/character-ability-cards/gloomhaven/BR/gh-fatal-advance.webp",
+                enhancementSlots: [],
             },
-        });
+        ];
 
         const availableAbilityCards = getAllAvailableAbilityCardsForCharacter(character);
 

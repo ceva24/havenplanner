@@ -29,6 +29,7 @@ const customJestConfig = {
         "@/loaders/(.*)": "<rootDir>/src/loaders/$1",
         "@/pages/(.*)": "<rootDir>/src/pages/$1",
         "@/services/(.*)": "<rootDir>/src/services/$1",
+        "@/transformers/(.*)": "<rootDir>/src/transformers/$1",
         "@/types/(.*)": "<rootDir>/src/types/$1",
         "@/data/(.*)": "<rootDir>/data/$1",
         "@/constants": "<rootDir>/src/constants",
