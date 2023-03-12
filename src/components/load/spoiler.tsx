@@ -20,13 +20,7 @@ interface ItemSpoilerProps {
 }
 
 const ItemSpoiler = ({ text }: ItemSpoilerProps) => {
-    return (
-        <Spoiler
-            text={text}
-            altText="Item Spoiler Icon"
-            webpPath="/equip-slot-icons/gloomhaven/bag.webp"
-        />
-    );
+    return <Spoiler text={text} altText="Item Spoiler Icon" webpPath="/equip-slot-icons/gloomhaven/bag.webp" />;
 };
 
 interface SpoilerProps {
