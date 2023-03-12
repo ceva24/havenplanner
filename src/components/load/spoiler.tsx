@@ -11,7 +11,6 @@ const CharacterSpoiler = ({ characterClass }: CharacterSpoilerProps) => {
             text={characterClass.spoilerSafeName}
             altText={`${characterClass.spoilerSafeName} Class Icon`}
             webpPath={characterClass.imageUrl}
-            iconSize={45}
         />
     );
 };
@@ -26,7 +25,6 @@ const ItemSpoiler = ({ text }: ItemSpoilerProps) => {
             text={text}
             altText="Item Spoiler Icon"
             webpPath="/equip-slot-icons/gloomhaven/bag.webp"
-            iconSize={30}
         />
     );
 };
@@ -35,10 +33,9 @@ interface SpoilerProps {
     text: string;
     altText: string;
     webpPath: string;
-    iconSize: number;
 }
 
-const Spoiler = ({ text, altText, webpPath, iconSize }: SpoilerProps) => {
+const Spoiler = ({ text, altText, webpPath }: SpoilerProps) => {
     return (
         <Box>
             <Image
@@ -46,8 +43,8 @@ const Spoiler = ({ text, altText, webpPath, iconSize }: SpoilerProps) => {
                 fallbackImageType="png"
                 altText={altText}
                 style={{ verticalAlign: "middle" }}
-                height={iconSize}
-                width={iconSize}
+                height={30}
+                width={30}
                 aria-hidden="true"
             />
             <Typography component="span" paddingLeft={1}>
