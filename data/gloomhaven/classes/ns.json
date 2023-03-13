@@ -14,33 +14,7 @@
             "name": "Black Knives",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-black-knives.webp",
-            "enhancementSlots": [
-                {
-                    "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                }
-            ]
+            "enhancementSlots": []
         },
         {
             "id": 262,
@@ -55,21 +29,6 @@
                 },
                 {
                     "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
                     "name": "Attack",
                     "types": ["numeric", "main-line-targets-enemies"]
                 }
@@ -80,33 +39,7 @@
             "name": "Empowering Void",
             "level": "1",
             "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-empowering-void.webp",
-            "enhancementSlots": [
-                {
-                    "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                }
-            ]
+            "enhancementSlots": []
         },
         {
             "id": 264,
@@ -121,23 +54,8 @@
                 },
                 {
                     "id": 1,
-                    "name": "PIERCE",
+                    "name": "Range",
                     "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
                 }
             ]
         },
@@ -154,23 +72,8 @@
                 },
                 {
                     "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
                 }
             ]
         },
@@ -182,28 +85,13 @@
             "enhancementSlots": [
                 {
                     "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
                     "name": "Move",
                     "types": ["numeric", "main-line", "move"]
                 },
                 {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
                 }
             ]
         },
@@ -215,28 +103,8 @@
             "enhancementSlots": [
                 {
                     "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
                     "name": "Move",
                     "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
                 }
             ]
         },
@@ -248,28 +116,8 @@
             "enhancementSlots": [
                 {
                     "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
                     "name": "Move",
                     "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
                 }
             ]
         },
@@ -281,28 +129,13 @@
             "enhancementSlots": [
                 {
                     "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
                     "name": "Move",
                     "types": ["numeric", "main-line", "move"]
                 },
                 {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
                 }
             ]
         },
@@ -311,99 +144,21 @@
             "name": "Wings of the Night",
             "level": "X",
             "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-wings-of-the-night.webp",
-            "enhancementSlots": [
-                {
-                    "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                }
-            ]
+            "enhancementSlots": []
         },
         {
             "id": 271,
             "name": "Concealed Dominance",
             "level": "X",
             "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-concealed-dominance.webp",
-            "enhancementSlots": [
-                {
-                    "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                }
-            ]
+            "enhancementSlots": []
         },
         {
             "id": 272,
             "name": "Dark Cloud",
             "level": "X",
             "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-dark-cloud.webp",
-            "enhancementSlots": [
-                {
-                    "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                }
-            ]
+            "enhancementSlots": []
         },
         {
             "id": 273,
@@ -418,8 +173,8 @@
                 },
                 {
                     "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
                 },
                 {
                     "id": 2,
@@ -428,13 +183,8 @@
                 },
                 {
                     "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
                 }
             ]
         },
@@ -446,26 +196,16 @@
             "enhancementSlots": [
                 {
                     "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
+                    "name": "Range",
                     "types": ["numeric"]
                 },
                 {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
+                    "id": 1,
                     "name": "Attack",
                     "types": ["numeric", "main-line-targets-enemies"]
                 },
                 {
-                    "id": 4,
+                    "id": 2,
                     "name": "Attack",
                     "types": ["numeric", "main-line-targets-enemies"]
                 }
@@ -479,28 +219,8 @@
             "enhancementSlots": [
                 {
                     "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
+                    "name": "PUSH",
                     "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
                 }
             ]
         },
@@ -512,28 +232,13 @@
             "enhancementSlots": [
                 {
                     "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
                 },
                 {
                     "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
                 }
             ]
         },
@@ -542,66 +247,14 @@
             "name": "Nightfall",
             "level": "4",
             "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-nightfall.webp",
-            "enhancementSlots": [
-                {
-                    "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                }
-            ]
+            "enhancementSlots": []
         },
         {
             "id": 278,
             "name": "Grim Sustenance",
             "level": "4",
             "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-grim-sustenance.webp",
-            "enhancementSlots": [
-                {
-                    "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                }
-            ]
+            "enhancementSlots": []
         },
         {
             "id": 279,
@@ -611,26 +264,6 @@
             "enhancementSlots": [
                 {
                     "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
                     "name": "Attack",
                     "types": ["numeric", "main-line-targets-enemies"]
                 }
@@ -644,28 +277,8 @@
             "enhancementSlots": [
                 {
                     "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
+                    "name": "Range",
                     "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
                 }
             ]
         },
@@ -682,23 +295,13 @@
                 },
                 {
                     "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
                 },
                 {
                     "id": 2,
                     "name": "Move",
                     "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
                 }
             ]
         },
@@ -712,26 +315,6 @@
                     "id": 0,
                     "name": "Attack",
                     "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
                 }
             ]
         },
@@ -740,66 +323,14 @@
             "name": "Eyes of the Night",
             "level": "7",
             "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-eyes-of-the-night.webp",
-            "enhancementSlots": [
-                {
-                    "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                }
-            ]
+            "enhancementSlots": []
         },
         {
             "id": 284,
             "name": "Quiet Frenzy",
             "level": "7",
             "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-quiet-frenzy.webp",
-            "enhancementSlots": [
-                {
-                    "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                }
-            ]
+            "enhancementSlots": []
         },
         {
             "id": 285,
@@ -809,28 +340,18 @@
             "enhancementSlots": [
                 {
                     "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
+                    "name": "Range",
+                    "types": ["numeric"]
                 },
                 {
                     "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
                 },
                 {
                     "id": 2,
                     "name": "Move",
                     "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
                 }
             ]
         },
@@ -839,33 +360,7 @@
             "name": "Lurking Ruin",
             "level": "8",
             "imageUrl": "/character-ability-cards/gloomhaven/NS/gh-lurking-ruin.webp",
-            "enhancementSlots": [
-                {
-                    "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
-                    "name": "Move",
-                    "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                }
-            ]
+            "enhancementSlots": []
         },
         {
             "id": 287,
@@ -880,23 +375,8 @@
                 },
                 {
                     "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
                     "name": "Move",
                     "types": ["numeric", "main-line", "move"]
-                },
-                {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
                 }
             ]
         },
@@ -908,26 +388,11 @@
             "enhancementSlots": [
                 {
                     "id": 0,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 1,
-                    "name": "PIERCE",
-                    "types": ["numeric"]
-                },
-                {
-                    "id": 2,
                     "name": "Move",
                     "types": ["numeric", "main-line", "move"]
                 },
                 {
-                    "id": 3,
-                    "name": "Attack",
-                    "types": ["numeric", "main-line-targets-enemies"]
-                },
-                {
-                    "id": 4,
+                    "id": 1,
                     "name": "Attack",
                     "types": ["numeric", "main-line-targets-enemies"]
                 }
