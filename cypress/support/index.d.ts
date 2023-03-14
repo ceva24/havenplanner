@@ -76,11 +76,11 @@ declare namespace Cypress {
 
         setProsperityLevel(level: number): Chainable<Element>;
 
-        setItemGroupActive(name: string): Chainable<Element>;
+        setSpoilerActive(name: string): Chainable<Element>;
 
-        setItemGroupInactive(name: string): Chainable<Element>;
+        setSpoilerInactive(name: string): Chainable<Element>;
 
-        shouldHaveActiveItemGroup(name: string): Chainable<Element>;
+        shouldHaveActiveSpoiler(name: string): Chainable<Element>;
 
         findLoadCharacterDialog(): Chainable<Element>;
 

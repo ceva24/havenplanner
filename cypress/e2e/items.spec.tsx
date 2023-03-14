@@ -241,7 +241,7 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.setItemGroupActive("Random Item Designs");
+        cy.setSpoilerActive("Random Item Designs");
 
         cy.findItemsAutocomplete().click();
 
@@ -253,7 +253,7 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.setItemGroupActive("Random Item Designs");
+        cy.setSpoilerActive("Random Item Designs");
 
         cy.findBrowseItemsButton().click();
 
@@ -279,7 +279,7 @@ describe("items tab", () => {
 
         cy.selectTab("Items");
 
-        cy.setItemGroupActive("Random Item Designs");
+        cy.setSpoilerActive("Random Item Designs");
 
         cy.addItem("Circlet of Elements 075");
 
