@@ -170,6 +170,90 @@ describe("perks tab", () => {
         cy.findByRole("checkbox", { name: "Add two {+1} cards 2" }).should("not.be.checked");
     });
 
+    it("applies a perk when its prerequisite perk is met", () => {
+        cy.visit("/");
+
+        cy.spoilAll();
+
+        cy.selectClass("Nightshroud");
+
+        cy.selectTab("Perks");
+
+        cy.gainPerk("Add one {-1} {dark} card", 0);
+        cy.gainPerk("Replace one {-1} {dark} card with one {+1} {dark} card", 0);
+
+        cy.findByRole("img", { name: "-1 dark card" }).should("not.exist");
+        cy.findByRole("img", { name: "+1 dark card" }).should("exist");
+    });
+
+    it("does not apply a perk when its prerequisite perk is not met", () => {
+        cy.visit("/");
+
+        cy.spoilAll();
+
+        cy.selectClass("Nightshroud");
+
+        cy.selectTab("Perks");
+
+        cy.gainPerk("Replace one {-1} {dark} card with one {+1} {dark} card", 0);
+
+        cy.findByRole("img", { name: "+1 dark card" }).should("not.exist");
+        cy.findByRole("img", { name: "-1 dark card" }).should("not.exist");
+    });
+
+    it("removes the application of a perk when its prerequisite perk is unchecked again", () => {
+        cy.visit("/");
+
+        cy.spoilAll();
+
+        cy.selectClass("Nightshroud");
+
+        cy.selectTab("Perks");
+
+        cy.gainPerk("Add one {-1} {dark} card", 0);
+        cy.gainPerk("Replace one {-1} {dark} card with one {+1} {dark} card", 0);
+
+        cy.findByRole("img", { name: "-1 dark card" }).should("not.exist");
+        cy.findByRole("img", { name: "+1 dark card" }).should("exist");
+
+        cy.removePerk("Add one {-1} {dark} card", 0);
+
+        cy.findByRole("img", { name: "-1 dark card" }).should("not.exist");
+        cy.findByRole("img", { name: "+1 dark card" }).should("not.exist");
+    });
+
+    it("only applies a perk with prequisites as many times as its prerequisite is checked", () => {
+        cy.visit("/");
+
+        cy.spoilAll();
+
+        cy.selectClass("Nightshroud");
+
+        cy.selectTab("Perks");
+
+        cy.gainPerk("Add one {-1} {dark} card", 0);
+        cy.gainPerk("Replace one {-1} {dark} card with one {+1} {dark} card", 0);
+        cy.gainPerk("Replace one {-1} {dark} card with one {+1} {dark} card", 1);
+
+        cy.findAllByRole("img", { name: "+1 dark card" }).should("have.length", 1);
+    });
+
+    it("applies a perk with a prerequisite regardless of which prerequisite checkbox is selected", () => {
+        cy.visit("/");
+
+        cy.spoilAll();
+
+        cy.selectClass("Nightshroud");
+
+        cy.selectTab("Perks");
+
+        cy.gainPerk("Add one {-1} {dark} card", 1);
+        cy.gainPerk("Replace one {-1} {dark} card with one {+1} {dark} card", 0);
+
+        cy.findByRole("img", { name: "-1 dark card" }).should("not.exist");
+        cy.findByRole("img", { name: "+1 dark card" }).should("exist");
+    });
+
     it("shows the battle goal perks", () => {
         cy.visit("/");
 
