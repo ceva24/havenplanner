@@ -74,4 +74,46 @@ describe("deserialize", () => {
 
         expect(character.hand).toHaveLength(0);
     });
+
+    it("deserializes perks with non-zero indexed ids", () => {
+        const settings: Settings = createTestSettings();
+
+        settings.gameData.characterClasses[0].perks = [
+            {
+                id: 1,
+                name: "Remove two <-1> cards",
+                count: 1,
+                add: [],
+                remove: [],
+            },
+            {
+                id: 3,
+                name: "Add two <+1> cards",
+                count: 1,
+                add: [],
+                remove: [],
+            },
+        ];
+
+        const data = JSON.parse(
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[1,0],[3,0]],"b":[]}`
+        ) as SerializedCharacter;
+
+        const character: Character = deserialize(data, settings.gameData);
+
+        expect(character.gainedPerks).toHaveLength(2);
+
+        expect(character.gainedPerks[0].perk).toBeTruthy();
+        expect(character.gainedPerks[1].perk).toBeTruthy();
+    });
+
+    it("omits gained perk data that is invalid", () => {
+        const data = JSON.parse(
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[-1, 0]],"b":[]}`
+        ) as SerializedCharacter;
+
+        const character: Character = deserialize(data, settings.gameData);
+
+        expect(character.gainedPerks).toHaveLength(0);
+    });
 });

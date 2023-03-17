@@ -35,7 +35,7 @@ const deserializePersonalQuest = (
 };
 
 const deserializeAbilityCards = (abilityCardIds: number[], characterClass: CharacterClass): AbilityCard[] => {
-    const abilityCards = abilityCardIds.map((abilityCardId: number) => {
+    const abilityCards: Array<AbilityCard | undefined> = abilityCardIds.map((abilityCardId: number) => {
         return characterClass.abilityCards.find((abilityCard: AbilityCard) => abilityCard.id === abilityCardId);
     });
 
@@ -79,10 +79,17 @@ const deserializeGainedEnhancements = (
 };
 
 const deserializeGainedPerks = (perkIndices: Array<[number, number]>, characterClass: CharacterClass): GainedPerk[] => {
-    return perkIndices.map((perkIdAndCheckboxIndex: [number, number]) => ({
-        perk: characterClass.perks[perkIdAndCheckboxIndex[0]],
-        checkboxIndex: perkIdAndCheckboxIndex[1],
-    }));
+    const gainedPerks: Array<GainedPerk | undefined> = perkIndices.map((perkIdAndCheckboxIndex: [number, number]) => {
+        const perk = characterClass.perks.find((perk: Perk) => perk.id === perkIdAndCheckboxIndex[0]);
+
+        return perk ? { perk, checkboxIndex: perkIdAndCheckboxIndex[1] } : undefined;
+    });
+
+    const validGainedPerks: GainedPerk[] = gainedPerks.filter(
+        (gainedPerk): gainedPerk is GainedPerk => typeof gainedPerk?.perk !== "undefined"
+    );
+
+    return validGainedPerks;
 };
 
 const deserializeGainedBattleGoalCheckmarks = (battleGoalIndices: boolean[][]): BattleGoalCheckmarkGroup[] => {

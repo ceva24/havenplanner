@@ -1,7 +1,7 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { AppBar, Box, Grid, Link, Toolbar, Typography } from "@mui/material";
-import ShareButton from "@/components/header/share-button";
-import SettingsButton from "@/components/header/settings-button";
+import ShareButton from "@/components/share/share-button";
+import SettingsButton from "@/components/settings/settings-button";
 import SpoilAllSwitch from "@/components/settings/spoil-all-switch";
 
 interface HeaderProps {

@@ -1,5 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
-import ShareDialog from "@/components/header/share-dialog";
+import ShareDialog from "@/components/share/share-dialog";
 
 describe("share dialog", () => {
     it("renders", () => {

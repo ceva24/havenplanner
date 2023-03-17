@@ -564,7 +564,7 @@
             "remove": []
         },
         {
-            "id": 10,
+            "id": 9,
             "name": "Ignore negative scenario effects and add two {+1} cards",
             "count": 1,
             "add": [
