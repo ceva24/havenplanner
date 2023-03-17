@@ -174,8 +174,8 @@ describe("codec", () => {
 
         const character: Character = createTestCharacter({
             items: [
-                { id: "abc", item: settings.gameData.items[0] },
-                { id: "def", item: settings.gameData.items[1] },
+                { id: "abc", item: settings.gameData.items[0], showAlternativeImage: false },
+                { id: "def", item: settings.gameData.items[1], showAlternativeImage: false },
             ],
         });
 
@@ -198,7 +198,9 @@ describe("codec", () => {
 
         jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
 
-        const character: Character = createTestCharacter({ items: [{ id: "abc", item: settings.gameData.items[0] }] });
+        const character: Character = createTestCharacter({
+            items: [{ id: "abc", item: settings.gameData.items[0], showAlternativeImage: false }],
+        });
 
         const saveData: SaveData = { character, gameData: settings.gameData };
 

@@ -74,6 +74,7 @@ interface BattleGoalCheckmark {
 interface CharacterItem {
     id: string;
     item: Item;
+    showAlternativeImage: boolean;
 }
 
 interface SerializedCharacter {

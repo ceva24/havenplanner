@@ -4,8 +4,8 @@ import { createTestCharacter, createTestItem } from "@/test/create-test-fixtures
 
 const character: Character = createTestCharacter({
     items: [
-        { id: "1", item: createTestItem(1, "Boots of Test", "1") },
-        { id: "2", item: createTestItem(2, "Cloak of Test", "1") },
+        { id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false },
+        { id: "2", item: createTestItem(2, "Cloak of Test", "1"), showAlternativeImage: false },
     ],
 });
 
@@ -36,7 +36,7 @@ describe("item", () => {
 describe("removeItem", () => {
     it("removes an item", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false }],
         });
 
         removeItem(character, setCharacter, character.items[0]);
@@ -53,8 +53,8 @@ describe("removeItem", () => {
 
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item },
-                { id: "2", item },
+                { id: "1", item, showAlternativeImage: false },
+                { id: "2", item, showAlternativeImage: false },
             ],
         });
 
@@ -70,9 +70,9 @@ describe("removeItem", () => {
     it("removes an item from the middle of the list", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: createTestItem(1, "Boots of Test", "1") },
-                { id: "2", item: createTestItem(2, "Cloak of Test", "1") },
-                { id: "3", item: createTestItem(3, "Hat of Test", "1") },
+                { id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false },
+                { id: "2", item: createTestItem(2, "Cloak of Test", "1"), showAlternativeImage: false },
+                { id: "3", item: createTestItem(3, "Hat of Test", "1"), showAlternativeImage: false },
             ],
         });
 
@@ -88,13 +88,13 @@ describe("removeItem", () => {
     it("does not remove any items when the id is invalid", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: createTestItem(1, "Boots of Test", "1") },
-                { id: "2", item: createTestItem(2, "Cloak of Test", "1") },
-                { id: "3", item: createTestItem(3, "Hat of Test", "1") },
+                { id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false },
+                { id: "2", item: createTestItem(2, "Cloak of Test", "1"), showAlternativeImage: false },
+                { id: "3", item: createTestItem(3, "Hat of Test", "1"), showAlternativeImage: false },
             ],
         });
 
-        removeItem(character, setCharacter, { id: "-1", item: character.items[0].item });
+        removeItem(character, setCharacter, { id: "-1", item: character.items[0].item, showAlternativeImage: false });
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);

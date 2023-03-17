@@ -5,7 +5,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-001-boots-of-striding.webp",
         "slot": "Legs",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-002-winged-shoes.webp",
         "slot": "Legs",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-003-hide-armor.webp",
         "slot": "Chest",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-004-leather-armor.webp",
         "slot": "Chest",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-005-cloak-of-invisibility.webp",
         "slot": "Chest",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-006-eagle-eye-goggles.webp",
         "slot": "Head",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-007-iron-helmet.webp",
         "slot": "Head",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 8,
@@ -61,7 +68,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-008-heater-shield.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 9,
@@ -69,7 +77,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-009-piercing-bow.webp",
         "slot": "Two Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 10,
@@ -77,7 +86,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-010-war-hammer.webp",
         "slot": "Two Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 11,
@@ -85,7 +95,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-011-poison-dagger.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 12,
@@ -93,7 +104,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-012-minor-healing-potion.webp",
         "slot": "Bag",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 13,
@@ -101,7 +113,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-013-minor-stamina-potion.webp",
         "slot": "Bag",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 14,
@@ -109,7 +122,8 @@
         "imageUrl": "/items/gloomhaven/1-14/gh-014-minor-power-potion.webp",
         "slot": "Bag",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "1"
+        "group": "1",
+        "alternativeImageUrl": ""
     },
     {
         "id": 15,
@@ -117,7 +131,8 @@
         "imageUrl": "/items/gloomhaven/15-21/gh-015-boots-of-speed.webp",
         "slot": "Legs",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
-        "group": "2"
+        "group": "2",
+        "alternativeImageUrl": ""
     },
     {
         "id": 16,
@@ -125,7 +140,8 @@
         "imageUrl": "/items/gloomhaven/15-21/gh-016-cloak-of-pockets.webp",
         "slot": "Chest",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
-        "group": "2"
+        "group": "2",
+        "alternativeImageUrl": ""
     },
     {
         "id": 17,
@@ -133,7 +149,8 @@
         "imageUrl": "/items/gloomhaven/15-21/gh-017-empowering-talisman.webp",
         "slot": "Head",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
-        "group": "2"
+        "group": "2",
+        "alternativeImageUrl": ""
     },
     {
         "id": 18,
@@ -141,7 +158,8 @@
         "imageUrl": "/items/gloomhaven/15-21/gh-018-battle-axe.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "2"
+        "group": "2",
+        "alternativeImageUrl": ""
     },
     {
         "id": 19,
@@ -149,7 +167,8 @@
         "imageUrl": "/items/gloomhaven/15-21/gh-019-weighted-net.webp",
         "slot": "Two Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
-        "group": "2"
+        "group": "2",
+        "alternativeImageUrl": ""
     },
     {
         "id": 20,
@@ -157,7 +176,8 @@
         "imageUrl": "/items/gloomhaven/15-21/gh-020-minor-mana-potion.webp",
         "slot": "Bag",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "2"
+        "group": "2",
+        "alternativeImageUrl": ""
     },
     {
         "id": 21,
@@ -165,7 +185,8 @@
         "imageUrl": "/items/gloomhaven/15-21/gh-021-stun-powder.webp",
         "slot": "Bag",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "2"
+        "group": "2",
+        "alternativeImageUrl": ""
     },
     {
         "id": 71,
@@ -173,7 +194,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-071b-boots-of-levitation.webp",
         "slot": "Legs",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 72,
@@ -181,7 +203,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-072b-shoes-of-happiness.webp",
         "slot": "Legs",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 73,
@@ -189,7 +212,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-073b-blinking-cape.webp",
         "slot": "Chest",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 74,
@@ -197,7 +221,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-074b-swordedge-armor.webp",
         "slot": "Chest",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 75,
@@ -205,7 +230,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-075b-circlet-of-elements.webp",
         "slot": "Head",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 76,
@@ -213,7 +239,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-076b-chain-hood.webp",
         "slot": "Head",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 77,
@@ -221,7 +248,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-077b-frigid-blade.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 78,
@@ -229,7 +257,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-078b-storm-blade.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 79,
@@ -237,7 +266,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-079b-inferno-blade.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 80,
@@ -245,7 +275,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-080b-tremor-blade.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 81,
@@ -253,7 +284,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-081b-brilliant-blade.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 82,
@@ -261,7 +293,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-082b-night-blade.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 83,
@@ -269,7 +302,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-083b-wand-of-frost.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 84,
@@ -277,7 +311,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-084b-wand-of-storms.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 85,
@@ -285,7 +320,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-085b-wand-of-infernos.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 86,
@@ -293,7 +329,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-086b-wand-of-tremors.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 87,
@@ -301,7 +338,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-087b-wand-of-brilliance.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 88,
@@ -309,7 +347,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-088b-wand-of-darkness.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 89,
@@ -317,7 +356,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-089b-minor-cure-potion.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 90,
@@ -325,7 +365,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-090b-major-cure-potion.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 91,
@@ -333,7 +374,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-091b-steel-ring.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 92,
@@ -341,7 +383,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-092b-dampening-ring.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 93,
@@ -349,7 +392,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-093b-scroll-of-power.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 94,
@@ -357,7 +401,8 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-094b-scroll-of-healing.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     },
     {
         "id": 95,
@@ -365,6 +410,7 @@
         "imageUrl": "/items/gloomhaven/64-151/gh-095b-scroll-of-stamina.webp",
         "slot": "One Hand",
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
-        "group": "Random Item Designs"
+        "group": "Random Item Designs",
+        "alternativeImageUrl": ""
     }
 ]

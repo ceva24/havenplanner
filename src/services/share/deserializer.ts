@@ -103,7 +103,9 @@ const deserializeGainedBattleGoalCheckmarks = (battleGoalIndices: boolean[][]): 
 };
 
 const deserializeItems = (itemIds: number[], gameData: GameData): CharacterItem[] => {
-    return gameData.items.filter((item: Item) => itemIds.includes(item.id)).map((item: Item) => ({ id: uuid(), item }));
+    return gameData.items
+        .filter((item: Item) => itemIds.includes(item.id))
+        .map((item: Item) => ({ id: uuid(), item, showAlternativeImage: false }));
 };
 
 export { deserialize };

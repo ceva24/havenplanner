@@ -6,8 +6,8 @@ describe("item grid", () => {
     it("renders character items", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: createTestItem(1, "Boots of Test", "1") },
-                { id: "2", item: createTestItem(2, "Cloak of Test", "1") },
+                { id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false },
+                { id: "2", item: createTestItem(2, "Cloak of Test", "1"), showAlternativeImage: false },
             ],
         });
 

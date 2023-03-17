@@ -100,12 +100,12 @@ describe("itemShouldBeHidden", () => {
 describe("orderItems", () => {
     it("orders items by slot", () => {
         const characterItems: CharacterItem[] = [
-            { id: "6", item: createTestItem(0, "Test", "1", "Bag") },
-            { id: "1", item: createTestItem(1, "Test", "1", "Legs") },
-            { id: "4", item: createTestItem(2, "Test", "1", "One Hand") },
-            { id: "2", item: createTestItem(3, "Test", "1", "Chest") },
-            { id: "3", item: createTestItem(4, "Test", "1", "Head") },
-            { id: "5", item: createTestItem(5, "Test", "1", "Two Hand") },
+            { id: "6", item: createTestItem(0, "Test", "1", "Bag"), showAlternativeImage: false },
+            { id: "1", item: createTestItem(1, "Test", "1", "Legs"), showAlternativeImage: false },
+            { id: "4", item: createTestItem(2, "Test", "1", "One Hand"), showAlternativeImage: false },
+            { id: "2", item: createTestItem(3, "Test", "1", "Chest"), showAlternativeImage: false },
+            { id: "3", item: createTestItem(4, "Test", "1", "Head"), showAlternativeImage: false },
+            { id: "5", item: createTestItem(5, "Test", "1", "Two Hand"), showAlternativeImage: false },
         ];
 
         const result = orderItems(characterItems);
@@ -120,9 +120,9 @@ describe("orderItems", () => {
 
     it("orders items in the same slot by name", () => {
         const characterItems: CharacterItem[] = [
-            { id: "1", item: createTestItem(1, "Minor Power Potion", "1") },
-            { id: "2", item: createTestItem(2, "Minor Stamina Potion", "1") },
-            { id: "3", item: createTestItem(3, "Minor Healing Potion", "1") },
+            { id: "1", item: createTestItem(1, "Minor Power Potion", "1"), showAlternativeImage: false },
+            { id: "2", item: createTestItem(2, "Minor Stamina Potion", "1"), showAlternativeImage: false },
+            { id: "3", item: createTestItem(3, "Minor Healing Potion", "1"), showAlternativeImage: false },
         ];
 
         const result = orderItems(characterItems);
@@ -134,10 +134,10 @@ describe("orderItems", () => {
 
     it("orders items by slot and then by name", () => {
         const characterItems: CharacterItem[] = [
-            { id: "1", item: createTestItem(1, "Minor Stamina Potion", "1", "Bag") }, // Minor Stamina Potion
-            { id: "2", item: createTestItem(2, "War Hammer", "1", "One Hand") }, // War Hammer
-            { id: "3", item: createTestItem(3, "Minor Power Potion", "1", "Bag") }, // Minor Power Potion
-            { id: "4", item: createTestItem(4, "Piercing Bow", "1", "Two Hand") }, // Piercing Bow
+            { id: "1", item: createTestItem(1, "Minor Stamina Potion", "1", "Bag"), showAlternativeImage: false }, // Minor Stamina Potion
+            { id: "2", item: createTestItem(2, "War Hammer", "1", "One Hand"), showAlternativeImage: false }, // War Hammer
+            { id: "3", item: createTestItem(3, "Minor Power Potion", "1", "Bag"), showAlternativeImage: false }, // Minor Power Potion
+            { id: "4", item: createTestItem(4, "Piercing Bow", "1", "Two Hand"), showAlternativeImage: false }, // Piercing Bow
         ];
 
         const result = orderItems(characterItems);

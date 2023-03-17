@@ -145,6 +145,7 @@ const createTestItem = (id: number, name: string, group: string, slot?: string):
         slot: slot ?? "Head",
         slotImageUrl: "",
         group,
+        alternativeImageUrl: "",
     };
 };
 

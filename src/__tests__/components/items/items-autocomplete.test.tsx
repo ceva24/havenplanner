@@ -70,13 +70,13 @@ describe("addItem", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            items: [{ id: mockUuid, item }],
+            items: [{ id: mockUuid, item, showAlternativeImage: false }],
         });
     });
 
     it("adds items to the end of the list", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "123", item: createTestItem(1, "Boots of Test", "1") }],
+            items: [{ id: "123", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false }],
         });
 
         const item = createTestItem(2, "Cloak of Test", "1");
@@ -93,7 +93,7 @@ describe("addItem", () => {
 
     it("allows duplicate items", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "123", item: createTestItem(1, "Boots of Test", "1") }],
+            items: [{ id: "123", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false }],
         });
 
         addItem(character.items[0].item, character, setCharacter);

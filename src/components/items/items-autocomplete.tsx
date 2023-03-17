@@ -72,7 +72,7 @@ const formattedItemId = (id: number): string => {
 // eslint-disable-next-line @typescript-eslint/ban-types
 const addItem = (item: Item | null, character: Character, setCharacter: Dispatch<SetStateAction<Character>>) => {
     if (item?.id) {
-        const characterItem: CharacterItem = { id: uuid(), item };
+        const characterItem: CharacterItem = { id: uuid(), item, showAlternativeImage: false };
 
         const newCharacter = {
             ...character,

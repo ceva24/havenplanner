@@ -34,7 +34,7 @@ describe("getSpoilerSettingsForCharacter", () => {
 
     it("sets prosperity to 1 when the character has prosperity 1 items", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false }],
         });
 
         const spoilerSettings = getSpoilerSettingsForCharacter(character, settings.gameData);
@@ -45,8 +45,8 @@ describe("getSpoilerSettingsForCharacter", () => {
     it("sets prosperity to the level of the highest prosperity item", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: createTestItem(1, "Boots of Test", "1") },
-                { id: "2", item: createTestItem(1, "Boots of Test", "2") },
+                { id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false },
+                { id: "2", item: createTestItem(1, "Boots of Test", "2"), showAlternativeImage: false },
             ],
         });
 
@@ -57,7 +57,13 @@ describe("getSpoilerSettingsForCharacter", () => {
 
     it("sets active item groups matching the character items", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "Test Random Item Designs") }],
+            items: [
+                {
+                    id: "1",
+                    item: createTestItem(1, "Boots of Test", "Test Random Item Designs"),
+                    showAlternativeImage: false,
+                },
+            ],
         });
 
         const settingsWithItemGroups: Settings = createTestSettings();
@@ -73,7 +79,7 @@ describe("getSpoilerSettingsForCharacter", () => {
         const item: Item = createTestItem(1, "Boots of Test", "Blep");
 
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item }],
+            items: [{ id: "1", item, showAlternativeImage: false }],
         });
 
         const spoilerSettings = getSpoilerSettingsForCharacter(character, settings.gameData);

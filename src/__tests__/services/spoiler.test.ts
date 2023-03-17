@@ -16,7 +16,7 @@ import {
 describe("hasSpoilers", () => {
     it("returns true when the character has items above prosperity level 1", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "2") }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "2"), showAlternativeImage: false }],
         });
 
         const result = hasSpoilers(character);
@@ -26,7 +26,7 @@ describe("hasSpoilers", () => {
 
     it("returns false when the character has items of prosperity level 1 only", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false }],
         });
 
         const result = hasSpoilers(character);
@@ -38,7 +38,7 @@ describe("hasSpoilers", () => {
         const item: Item = createTestItem(1, "Boots of Test", "Random Item Designs");
 
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item }],
+            items: [{ id: "1", item, showAlternativeImage: false }],
         });
 
         const result = hasSpoilers(character);
