@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import CopyLinkButton from "@/components/header/copy-link-button";
+import CopyLinkButton from "@/components/share/copy-link-button";
 
 describe("copy link button", () => {
     it("renders", () => {

@@ -1,6 +1,6 @@
 import { type ChangeEvent, type Dispatch, type SetStateAction } from "react";
 import { FormControlLabel, Switch } from "@mui/material";
-import { updateCharacterAfterChangingSpoilerSettings } from "@/components/header/settings-button";
+import { updateCharacterAfterChangingSpoilerSettings } from "@/components/settings/settings-button";
 import { useSettingsContext } from "@/hooks/use-settings";
 import { isCompletelySpoiled } from "@/services/spoiler";
 

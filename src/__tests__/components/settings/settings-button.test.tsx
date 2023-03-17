@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import SettingsButton, { updateCharacterAfterChangingSpoilerSettings } from "@/components/header/settings-button";
+import SettingsButton, { updateCharacterAfterChangingSpoilerSettings } from "@/components/settings/settings-button";
 import {
     createTestSettings,
     createTestCharacter,
