@@ -190,24 +190,24 @@ Cypress.Commands.add("setProsperityLevel", (level: number) => {
     cy.clickCloseButton();
 });
 
-Cypress.Commands.add("setItemGroupActive", (name: string) => {
+Cypress.Commands.add("setSpoilerActive", (name: string) => {
     cy.openSettings();
 
-    cy.findByRole("region", { name: "Item Spoilers" }).findByRole("checkbox", { name }).check();
+    cy.findByRole("checkbox", { name }).check();
 
     cy.clickCloseButton();
 });
 
-Cypress.Commands.add("setItemGroupInactive", (name: string) => {
+Cypress.Commands.add("setSpoilerInactive", (name: string) => {
     cy.openSettings();
 
-    cy.findByRole("region", { name: "Item Spoilers" }).findByRole("checkbox", { name }).uncheck();
+    cy.findByRole("checkbox", { name }).uncheck();
 
     cy.clickCloseButton();
 });
 
-Cypress.Commands.add("shouldHaveActiveItemGroup", (name: string) => {
-    cy.findByRole("region", { name: "Item Spoilers" }).findByRole("checkbox", { name }).should("be.checked");
+Cypress.Commands.add("shouldHaveActiveSpoiler", (name: string) => {
+    cy.findByRole("checkbox", { name }).should("be.checked");
 });
 
 Cypress.Commands.add("findLoadCharacterDialog", () => {

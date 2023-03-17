@@ -2,25 +2,7 @@
 import "@testing-library/cypress/add-commands";
 import "@/support/commands";
 
-describe("settings", () => {
-    it("opens the settings drawer when pressing the settings button", () => {
-        cy.visit("/");
-
-        cy.openSettings();
-
-        cy.findSettingsDialog().should("exist");
-    });
-
-    it("closes the settings drawer when pressing the close button", () => {
-        cy.visit("/");
-
-        cy.openSettings();
-
-        cy.findSettingsDialog().clickCloseButton();
-
-        cy.findSettingsDialog().should("not.exist");
-    });
-
+describe("settings dialog - items", () => {
     it("allows the item spoiler prosperity level to be set", () => {
         cy.visit("/");
 
@@ -50,11 +32,11 @@ describe("settings", () => {
     it("allows item groups to be set", () => {
         cy.visit("/");
 
-        cy.setItemGroupActive("Random Item Designs");
+        cy.setSpoilerActive("Random Item Designs");
 
         cy.openSettings();
 
-        cy.shouldHaveActiveItemGroup("Random Item Designs");
+        cy.shouldHaveActiveSpoiler("Random Item Designs");
     });
 
     it("removes higher prosperity items when lowering the item spoiler prosperity level", () => {
@@ -78,13 +60,13 @@ describe("settings", () => {
 
         cy.selectTab("Items");
 
-        cy.setItemGroupActive("Random Item Designs");
+        cy.setSpoilerActive("Random Item Designs");
 
         cy.addItem("Circlet of Elements 075");
 
         cy.findByRole("img", { name: "Circlet of Elements" }).should("exist");
 
-        cy.setItemGroupInactive("Random Item Designs");
+        cy.setSpoilerInactive("Random Item Designs");
 
         cy.findByRole("img", { name: "Circlet of Elements" }).should("not.exist");
     });
@@ -96,7 +78,7 @@ describe("settings", () => {
 
         cy.setProsperityLevel(2);
 
-        cy.setItemGroupActive("Random Item Designs");
+        cy.setSpoilerActive("Random Item Designs");
 
         cy.addItem("Stun Powder 021");
 
@@ -116,7 +98,7 @@ describe("settings", () => {
 
         cy.setProsperityLevel(2);
 
-        cy.setItemGroupActive("Random Item Designs");
+        cy.setSpoilerActive("Random Item Designs");
 
         cy.addItem("Stun Powder 021");
 
@@ -124,7 +106,7 @@ describe("settings", () => {
 
         cy.findByRole("img", { name: "Stun Powder" }).should("exist");
 
-        cy.setItemGroupInactive("Random Item Designs");
+        cy.setSpoilerInactive("Random Item Designs");
 
         cy.findByRole("img", { name: "Stun Powder" }).should("exist");
     });
@@ -154,7 +136,7 @@ describe("settings", () => {
 
         cy.selectTab("Items");
 
-        cy.setItemGroupActive("Random Item Designs");
+        cy.setSpoilerActive("Random Item Designs");
 
         cy.addItem("Circlet of Elements 075");
 
@@ -171,160 +153,6 @@ describe("settings", () => {
         cy.clickCloseButton();
 
         cy.findByRole("img", { name: "Circlet of Elements" }).should("exist");
-    });
-
-    it("sets item spoiler settings to max when toggling spoil all on in the settings dialog", () => {
-        cy.visit("/");
-
-        cy.openSettings();
-
-        cy.findByRole("dialog", { name: "Settings" }).spoilAll();
-
-        cy.shouldHaveProsperityLevel(9);
-
-        cy.shouldHaveActiveItemGroup("Random Item Designs");
-        cy.shouldHaveActiveItemGroup("Other Items");
-        cy.shouldHaveActiveItemGroup("Solo Scenario Items");
-    });
-
-    it("sets the header spoil all switch checked when when toggling spoil all on in the settings dialog", () => {
-        cy.visit("/");
-
-        cy.openSettings();
-
-        cy.findByRole("dialog", { name: "Settings" }).spoilAll();
-
-        cy.clickCloseButton();
-
-        cy.get("header").findByRole("checkbox", { name: "Spoil all" }).should("be.checked");
-    });
-
-    it("sets partial spoiler settings to max when toggling spoil all on in the settings dialog", () => {
-        cy.visit("/");
-
-        cy.setProsperityLevel(3);
-
-        cy.setItemGroupActive("Random Item Designs");
-
-        cy.openSettings();
-
-        cy.findByRole("dialog", { name: "Settings" }).spoilAll();
-
-        cy.shouldHaveProsperityLevel(9);
-
-        cy.shouldHaveActiveItemGroup("Random Item Designs");
-
-        cy.shouldHaveActiveItemGroup("Other Items");
-
-        cy.shouldHaveActiveItemGroup("Solo Scenario Items");
-    });
-
-    it("sets the spoil all toggle value to true when individually settings all spoiler settings to max", () => {
-        cy.visit("/");
-
-        cy.setProsperityLevel(9);
-
-        cy.setItemGroupActive("Random Item Designs");
-        cy.setItemGroupActive("Other Items");
-        cy.setItemGroupActive("Solo Scenario Items");
-
-        cy.openSettings();
-
-        cy.findByRole("dialog", { name: "Settings" })
-            .findByRole("checkbox", { name: "Spoil all" })
-            .should("be.checked");
-    });
-
-    it("sets full spoiler settings to min when toggling spoil all off in the settings dialog", () => {
-        cy.visit("/");
-
-        cy.setProsperityLevel(9);
-
-        cy.setItemGroupActive("Random Item Designs");
-        cy.setItemGroupActive("Other Items");
-        cy.setItemGroupActive("Solo Scenario Items");
-
-        cy.openSettings();
-
-        cy.findByRole("dialog", { name: "Settings" }).unspoilAll();
-
-        cy.shouldHaveProsperityLevel(1);
-
-        cy.findByRole("region", { name: "Item Spoilers" })
-            .findByRole("checkbox", { name: "Random Item Designs" })
-            .should("not.be.checked");
-
-        cy.findByRole("region", { name: "Item Spoilers" })
-            .findByRole("checkbox", { name: "Other Items" })
-            .should("not.be.checked");
-
-        cy.findByRole("region", { name: "Item Spoilers" })
-            .findByRole("checkbox", { name: "Solo Scenario Items" })
-            .should("not.be.checked");
-    });
-
-    it("sets spoiler settings to max when toggling spoil all on in the header", () => {
-        cy.visit("/");
-
-        cy.get("header").spoilAll();
-
-        cy.openSettings();
-
-        cy.shouldHaveProsperityLevel(9);
-
-        cy.shouldHaveActiveItemGroup("Random Item Designs");
-
-        cy.shouldHaveActiveItemGroup("Other Items");
-
-        cy.shouldHaveActiveItemGroup("Solo Scenario Items");
-    });
-
-    it("sets partial spoiler settings to max when toggling spoil all on in the header", () => {
-        cy.visit("/");
-
-        cy.setProsperityLevel(3);
-
-        cy.setItemGroupActive("Random Item Designs");
-
-        cy.get("header").spoilAll();
-
-        cy.openSettings();
-
-        cy.shouldHaveProsperityLevel(9);
-
-        cy.shouldHaveActiveItemGroup("Random Item Designs");
-
-        cy.shouldHaveActiveItemGroup("Other Items");
-
-        cy.shouldHaveActiveItemGroup("Solo Scenario Items");
-    });
-
-    it("sets full spoiler settings to min when toggling spoil all off in the header", () => {
-        cy.visit("/");
-
-        cy.setProsperityLevel(9);
-
-        cy.setItemGroupActive("Random Item Designs");
-        cy.setItemGroupActive("Other Items");
-        cy.setItemGroupActive("Solo Scenario Items");
-
-        cy.get("header").unspoilAll();
-
-        cy.openSettings();
-
-        cy.shouldHaveProsperityLevel(1);
-
-        cy.findByRole("region", { name: "Item Spoilers" })
-            .findByRole("checkbox", { name: "Random Item Designs" })
-            .should("not.be.checked");
-
-        cy.findByRole("region", { name: "Item Spoilers" })
-            .findByRole("checkbox", { name: "Other Items" })
-            .should("not.be.checked");
-
-        cy.findByRole("region", { name: "Item Spoilers" })
-            .findByRole("checkbox", { name: "Solo Scenario Items" })
-            .should("not.be.checked");
     });
 
     it("does not remove items from item groups when toggling off and immediately toggling on spoil all in the settings dialog", () => {
@@ -399,17 +227,5 @@ describe("settings", () => {
         cy.findItemsAutocomplete().type("Not an item");
 
         cy.findByText("No options").should("exist");
-    });
-
-    it("does not show the spoiler hint in the classes autocomplete when everything is spoiled", () => {
-        cy.visit("/");
-
-        cy.spoilAll();
-
-        cy.findSelectClassButton().click();
-
-        cy.findByRole("listbox", { name: "Class" })
-            .findByRole("option", { name: "Change your spoiler settings to see more classes..." })
-            .should("not.exist");
     });
 });
