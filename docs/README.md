@@ -1,4 +1,4 @@
-# Gloomhaven Character Planner (WIP)
+# Gloomhaven Character Planner
 
 [![build](https://github.com/ceva24/gloomhaven-character-planner/actions/workflows/build.yml/badge.svg)](https://github.com/ceva24/gloomhaven-character-planner/actions/workflows/build.yml)
 [![tests](https://github.com/ceva24/gloomhaven-character-planner/actions/workflows/test.yml/badge.svg)](https://github.com/ceva24/gloomhaven-character-planner/actions/workflows/test.yml)
@@ -19,15 +19,15 @@ A web application to create and share character builds for the popular tabletop 
 
 ## 🗒️ Features
 
--   Enter character details, including selecting a personal quest that can be optionally hidden
+-   Enter character details and select a personal quest
 -   Select perks, track battle goal progress and see the resulting attack modifier deck composition
 -   View and unlock character ability cards, create a saved hand, and add enhancement stickers to cards
 -   Browse and select items
+-   Configure spoiler settings to show and hide locked classes and items
 -   Save and share characters with a shareable link
 
 ### Not implemented
 
--   All locked character classes and items
 -   Content from Forgotten Circles, Jaws of the Lion, Crimson Scales, Trail of Ashes and Frosthaven
 
 ## 💻 Development
