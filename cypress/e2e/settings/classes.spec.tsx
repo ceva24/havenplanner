@@ -93,14 +93,22 @@ describe("settings dialog - classes", () => {
             .should("exist");
     });
 
+    it("shows the spoiler hint in the class select when some locked classes are spoiled", () => {
+        cy.visit("/");
+
+        cy.setSpoilerActive("Eclipse");
+
+        cy.findSelectClassButton().click();
+
+        cy.findByRole("listbox", { name: "Class" })
+            .findByRole("option", { name: "Change your spoiler settings to see more classes..." })
+            .should("exist");
+    });
+
     it("does not show the spoiler hint in the class select when all locked classes are spoiled", () => {
         cy.visit("/");
 
-        cy.openSettings();
-
-        cy.findByRole("region", { name: "Class Spoilers" }).findAllByRole("checkbox").click();
-
-        cy.clickCloseButton();
+        cy.spoilAll();
 
         cy.findSelectClassButton().click();
 
