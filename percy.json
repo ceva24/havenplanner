@@ -2,10 +2,12 @@
     {
         "name": "Profile Tab",
         "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
+        "waitForTimeout": 10000,
         "additionalSnapshots": [
             {
                 "suffix": " - Personal Quest",
-                "execute": "document.querySelector('#show-personal-quest-switch').click()"
+                "execute": "document.querySelector('#show-personal-quest-switch').click()",
+                "waitForTimeout": 10000
             }
         ]
     },
@@ -13,14 +15,17 @@
         "name": "Ability Cards Tab",
         "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#ability-cards-tab').click()",
+        "waitForTimeout": 10000,
         "additionalSnapshots": [
             {
                 "suffix": " - Hand",
-                "execute": "document.querySelector('#hand-tab').click()"
+                "execute": "document.querySelector('#hand-tab').click()",
+                "waitForTimeout": 10000
             },
             {
                 "suffix": " - Enhancements",
-                "execute": "document.querySelector('#enhancements-tab').click()"
+                "execute": "document.querySelector('#enhancements-tab').click()",
+                "waitForTimeout": 10000
             }
         ]
     },
@@ -28,34 +33,41 @@
         "name": "Items Tab",
         "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
         "execute": "document.querySelector('#items-tab').click()",
+        "waitForTimeout": 10000,
         "additionalSnapshots": [
             {
                 "suffix": " - Select",
-                "execute": "document.querySelector(\"[aria-label='Open']\").click()"
+                "execute": "document.querySelector(\"[aria-label='Open']\").click()",
+                "waitForTimeout": 10000
             },
             {
                 "suffix": " - Browse Items Dialog",
-                "execute": "document.querySelector('#browse-items-button').click()"
+                "execute": "document.querySelector('#browse-items-button').click()",
+                "waitForTimeout": 10000
             }
         ]
     },
     {
         "name": "Perks Tab",
         "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
-        "execute": "document.querySelector('#perks-tab').click()"
+        "execute": "document.querySelector('#perks-tab').click()",
+        "waitForTimeout": 10000
     },
     {
         "name": "Settings",
         "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
-        "execute": "document.querySelector('#open-settings-button').click()"
+        "execute": "document.querySelector('#open-settings-button').click()",
+        "waitForTimeout": 10000
     },
     {
         "name": "Share Dialog",
         "url": "http://localhost:3000?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItL3IsNEOEREJK2DsLtN2UtlxUDsP2ksPM2D3AsPPxSDtYxSDsO2nsO2VsO2rsP2JxeHsPxhDxeD302e2f2Z2YxOD2J2WyLDxJE2QxCDxJG2w2JxqDtgxqE35sIxVD2UxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi6S6d2NxGLxUptNuF",
-        "execute": "document.querySelector('#share-button').click()"
+        "execute": "document.querySelector('#share-button').click()",
+        "waitForTimeout": 10000
     },
     {
         "name": "Load Character Dialog",
-        "url": "http://localhost:3000?character=uDritRrisSJErite2Grii2HuA2HsI2GtXxGFtUxTGtTxgDxODtZ2HtLsK2psPNtN2MtlxMDxHDtYxHGtVxHGtgxHGtSxHDtLWRcjVsExGL2ZxU9xUmtNuF"
+        "url": "http://localhost:3000?character=uDritRrisSJErite2Grii2HuA2HsI2GtXxGFtUxTGtTxgDxODtZ2HtLsK2psPNtN2MtlxMDxHDtYxHGtVxHGtgxHGtSxHDtLWRcjVsExGL2ZxU9xUmtNuF",
+        "waitForTimeout": 10000
     }
 ]
