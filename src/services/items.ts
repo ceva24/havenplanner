@@ -25,8 +25,7 @@ const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
         .slice()
         .sort(
             (a: CharacterItem, b: CharacterItem) =>
-                itemOrder.indexOf(a.item.slot) - itemOrder.indexOf(b.item.slot) ||
-                a.item.name.localeCompare(b.item.name, ["en"])
+                itemOrder.indexOf(a.item.slot) - itemOrder.indexOf(b.item.slot) || a.item.id - b.item.id
         );
 };
 

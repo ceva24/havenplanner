@@ -60,7 +60,7 @@ describe("items tab", () => {
         cy.findByRole("img", { name: "Boots of Striding" }).should("not.exist");
     });
 
-    it("orders items by slot and then name", () => {
+    it("orders items by slot and then id", () => {
         cy.visit("/");
 
         cy.selectTab("Items");

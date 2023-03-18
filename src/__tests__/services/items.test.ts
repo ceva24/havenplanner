@@ -118,11 +118,11 @@ describe("orderItems", () => {
         expect(result[5]).toEqual(characterItems[0]);
     });
 
-    it("orders items in the same slot by name", () => {
+    it("orders items in the same slot by id", () => {
         const characterItems: CharacterItem[] = [
-            { id: "1", item: createTestItem(1, "Minor Power Potion", "1"), showAlternativeImage: false },
-            { id: "2", item: createTestItem(2, "Minor Stamina Potion", "1"), showAlternativeImage: false },
-            { id: "3", item: createTestItem(3, "Minor Healing Potion", "1"), showAlternativeImage: false },
+            { id: "1", item: createTestItem(2, "Minor Power Potion", "1"), showAlternativeImage: false },
+            { id: "2", item: createTestItem(3, "Minor Stamina Potion", "1"), showAlternativeImage: false },
+            { id: "3", item: createTestItem(1, "Minor Healing Potion", "1"), showAlternativeImage: false },
         ];
 
         const result = orderItems(characterItems);
@@ -134,9 +134,9 @@ describe("orderItems", () => {
 
     it("orders items by slot and then by name", () => {
         const characterItems: CharacterItem[] = [
-            { id: "1", item: createTestItem(1, "Minor Stamina Potion", "1", "Bag"), showAlternativeImage: false }, // Minor Stamina Potion
+            { id: "1", item: createTestItem(3, "Minor Stamina Potion", "1", "Bag"), showAlternativeImage: false }, // Minor Stamina Potion
             { id: "2", item: createTestItem(2, "War Hammer", "1", "One Hand"), showAlternativeImage: false }, // War Hammer
-            { id: "3", item: createTestItem(3, "Minor Power Potion", "1", "Bag"), showAlternativeImage: false }, // Minor Power Potion
+            { id: "3", item: createTestItem(1, "Minor Power Potion", "1", "Bag"), showAlternativeImage: false }, // Minor Power Potion
             { id: "4", item: createTestItem(4, "Piercing Bow", "1", "Two Hand"), showAlternativeImage: false }, // Piercing Bow
         ];
 
