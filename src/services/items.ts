@@ -20,6 +20,12 @@ const itemShouldBeHidden = (item: Item, spoilerSettings: SpoilerSettings): boole
     );
 };
 
+const getItemImageUrl = (characterItem: CharacterItem): string => {
+    return characterItem.showAlternativeImage && characterItem.item.alternativeImageUrl
+        ? characterItem.item.alternativeImageUrl
+        : characterItem.item.imageUrl;
+};
+
 const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
     return characterItems
         .slice()
@@ -29,4 +35,4 @@ const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
         );
 };
 
-export { getItems, getItemsByGroup, itemShouldBeHidden, orderItems };
+export { getItems, getItemsByGroup, itemShouldBeHidden, getItemImageUrl, orderItems };

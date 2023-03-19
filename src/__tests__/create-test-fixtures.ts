@@ -137,15 +137,22 @@ const createTestAttackModifierDeckCard = (id: number, name: string, count?: numb
     };
 };
 
-const createTestItem = (id: number, name: string, group: string, slot?: string): Item => {
+const createTestItem = (
+    id: number,
+    name: string,
+    group: string,
+    slot?: string,
+    imageUrl?: string,
+    alternativeImageUrl?: string
+): Item => {
     return {
         id,
         name,
-        imageUrl: "",
+        imageUrl: imageUrl ?? "",
         slot: slot ?? "Head",
         slotImageUrl: "",
         group,
-        alternativeImageUrl: "",
+        alternativeImageUrl: alternativeImageUrl ?? "",
     };
 };
 

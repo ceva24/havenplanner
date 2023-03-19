@@ -1,5 +1,5 @@
 import type { Dictionary } from "lodash";
-import { getItems, getItemsByGroup, itemShouldBeHidden, orderItems } from "@/services/items";
+import { getItemImageUrl, getItems, getItemsByGroup, itemShouldBeHidden, orderItems } from "@/services/items";
 import {
     createTestItem,
     createTestItemGroup,
@@ -94,6 +94,44 @@ describe("itemShouldBeHidden", () => {
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
         expect(shouldBeHidden).toEqual(false);
+    });
+});
+
+describe("getItemImageUrl", () => {
+    it("renders the item image url if showAlternativeImage is false", () => {
+        const characterItem: CharacterItem = {
+            id: "1",
+            item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url"),
+            showAlternativeImage: false,
+        };
+
+        const imageUrl = getItemImageUrl(characterItem);
+
+        expect(imageUrl).toEqual("url");
+    });
+
+    it("renders the item image url if showAlternativeImage is true but it has no alternative image url", () => {
+        const characterItem: CharacterItem = {
+            id: "1",
+            item: createTestItem(1, "Boots of Test", "1", "Legs", "url"),
+            showAlternativeImage: true,
+        };
+
+        const imageUrl = getItemImageUrl(characterItem);
+
+        expect(imageUrl).toEqual("url");
+    });
+
+    it("renders the alternative item image url if showAlternativeImage is true and it has an alternative image url", () => {
+        const characterItem: CharacterItem = {
+            id: "1",
+            item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url"),
+            showAlternativeImage: true,
+        };
+
+        const imageUrl = getItemImageUrl(characterItem);
+
+        expect(imageUrl).toEqual("alternative-url");
     });
 });
 
