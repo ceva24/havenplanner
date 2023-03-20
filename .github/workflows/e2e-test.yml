@@ -19,7 +19,7 @@ jobs:
           node-version-file: .nvmrc
           registry-url: https://npm.pkg.github.com
           cache: npm
-      - uses: cypress-io/github-action@ca3f666049f4ac2267a75de769535a7cbdc7bfd7 # v5.0.8
+      - uses: cypress-io/github-action@d6a783931f8f9913abfe01efe79e067c36da3faf # v5.5.0
         with:
           build: npm run build
           start: npm start
