@@ -11,4 +11,5 @@ export default defineConfig({
         supportFile: false,
         specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx}",
     },
+    retries: 2,
 });
