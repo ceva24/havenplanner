@@ -32,7 +32,7 @@ describe("settings button", () => {
 describe("updateCharacterAfterChangingSpoilerSettings", () => {
     it("removes an item higher than the current prosperity level", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "9") }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "9"), showAlternativeImage: false }],
         });
 
         updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
@@ -46,7 +46,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
 
     it("does not remove an item equal to the current prosperity level", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false }],
         });
 
         updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
@@ -57,7 +57,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
 
     it("does not remove an item lower than the current prosperity level", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false }],
         });
 
         const prosperityTwoSettings = createTestSettingsWithItemSpoilers(2, []);
@@ -71,8 +71,8 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
     it("removes items higher than the current prosperity level and does not remove items lower than the current prosperity level", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: createTestItem(1, "Boots of Test", "1") },
-                { id: "2", item: createTestItem(2, "Boots of Super Test", "9") },
+                { id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false },
+                { id: "2", item: createTestItem(2, "Boots of Super Test", "9"), showAlternativeImage: false },
             ],
         });
 
@@ -81,13 +81,19 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            items: [{ id: "1", item: character.items[0].item }],
+            items: [{ id: "1", item: character.items[0].item, showAlternativeImage: false }],
         });
     });
 
     it("removes items not in the active item groups", () => {
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item: createTestItem(1, "Secret Boots of Test", "Random Item Designs") }],
+            items: [
+                {
+                    id: "1",
+                    item: createTestItem(1, "Secret Boots of Test", "Random Item Designs"),
+                    showAlternativeImage: false,
+                },
+            ],
         });
 
         updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
@@ -103,7 +109,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
         const item = createTestItem(1, "Secret Boots of Test", "Random Item Designs");
 
         const character: Character = createTestCharacter({
-            items: [{ id: "1", item }],
+            items: [{ id: "1", item, showAlternativeImage: false }],
         });
 
         const settings: Settings = createTestSettingsWithItemSpoilers(2, [{ id: 1, name: item.group }]);

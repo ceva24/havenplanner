@@ -20,14 +20,19 @@ const itemShouldBeHidden = (item: Item, spoilerSettings: SpoilerSettings): boole
     );
 };
 
+const getItemImageUrl = (characterItem: CharacterItem): string => {
+    return characterItem.showAlternativeImage && characterItem.item.alternativeImageUrl
+        ? characterItem.item.alternativeImageUrl
+        : characterItem.item.imageUrl;
+};
+
 const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
     return characterItems
         .slice()
         .sort(
             (a: CharacterItem, b: CharacterItem) =>
-                itemOrder.indexOf(a.item.slot) - itemOrder.indexOf(b.item.slot) ||
-                a.item.name.localeCompare(b.item.name, ["en"])
+                itemOrder.indexOf(a.item.slot) - itemOrder.indexOf(b.item.slot) || a.item.id - b.item.id
         );
 };
 
-export { getItems, getItemsByGroup, itemShouldBeHidden, orderItems };
+export { getItems, getItemsByGroup, itemShouldBeHidden, getItemImageUrl, orderItems };

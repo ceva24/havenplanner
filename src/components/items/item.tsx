@@ -1,7 +1,8 @@
 import type { Dispatch, KeyboardEvent, SetStateAction } from "react";
 import { Box } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/HighlightOffTwoTone";
 import { SmallCard } from "@/components/core/cards";
+import RemoveItemButton from "@/components/items/remove-item-button";
+import { getItemImageUrl } from "@/services/items";
 
 interface ItemProps {
     character: Character;
@@ -11,45 +12,58 @@ interface ItemProps {
 
 const Item = ({ character, setCharacter, characterItem }: ItemProps) => {
     const onClick = () => {
-        removeItem(character, setCharacter, characterItem);
+        toggleAlternativeImageUrl(character, setCharacter, characterItem);
     };
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
         if (["Space", "Enter"].includes(event.code)) {
             event.preventDefault();
-            removeItem(character, setCharacter, characterItem);
+            toggleAlternativeImageUrl(character, setCharacter, characterItem);
         }
     };
 
     return (
         <Box sx={{ margin: 1, position: "relative" }}>
-            <SmallCard src={characterItem.item.imageUrl} altText={characterItem.item.name} />
             <Box
-                role="button"
-                aria-label={`Delete ${characterItem.item.name}`}
-                tabIndex={0}
-                sx={{ position: "absolute", top: 3, right: 1, cursor: "pointer" }}
-                onClick={onClick}
-                onKeyDown={onKeyDown}
+                {...(characterItem.item.alternativeImageUrl && {
+                    role: "button",
+                    "aria-label": `Toggle Alternative Image for ${characterItem.item.name}`,
+                    sx: { cursor: "pointer" },
+                    onClick,
+                    onKeyDown,
+                    tabIndex: 0,
+                })}
             >
-                <DeleteIcon fontSize="large" />
+                <SmallCard src={getItemImageUrl(characterItem)} altText={characterItem.item.name} />
             </Box>
+            <RemoveItemButton character={character} setCharacter={setCharacter} characterItem={characterItem} />
         </Box>
     );
 };
 
-const removeItem = (
+const toggleAlternativeImageUrl = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
-    characterItemToRemove: CharacterItem
+    characterItemToToggle: CharacterItem
 ) => {
-    const newCharacter = {
-        ...character,
-        items: character.items.filter((characterItem: CharacterItem) => characterItem.id !== characterItemToRemove.id),
-    };
+    const itemIndex: number = character.items.findIndex((item: CharacterItem) => item.id === characterItemToToggle.id);
 
-    setCharacter(newCharacter);
+    if (itemIndex !== -1) {
+        const newItems: CharacterItem[] = character.items.slice();
+
+        newItems[itemIndex] = {
+            ...characterItemToToggle,
+            showAlternativeImage: !characterItemToToggle.showAlternativeImage,
+        };
+
+        const newCharacter: Character = {
+            ...character,
+            items: newItems,
+        };
+
+        setCharacter(newCharacter);
+    }
 };
 
 export default Item;
-export { removeItem };
+export { toggleAlternativeImageUrl };

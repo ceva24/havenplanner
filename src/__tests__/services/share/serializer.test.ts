@@ -19,12 +19,12 @@ describe("serializer", () => {
 
         const character: Character = createTestCharacter();
         character.items = [
-            { id: "1", item },
-            { id: "2", item },
+            { id: "1", item, showAlternativeImage: false },
+            { id: "2", item, showAlternativeImage: false },
         ];
 
         const data: string = serialize(character, settings.gameData);
 
-        expect(data).toMatch(/"i":\[1,1]/);
+        expect(data).toMatch(/"i":\[\[1,false],\[1,false]]/);
     });
 });

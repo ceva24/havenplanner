@@ -137,14 +137,23 @@ const createTestAttackModifierDeckCard = (id: number, name: string, count?: numb
     };
 };
 
-const createTestItem = (id: number, name: string, group: string, slot?: string): Item => {
+const createTestItem = (
+    id: number,
+    name: string,
+    group: string,
+    slot?: string,
+    imageUrl?: string,
+    alternativeImageUrl?: string
+    // eslint-disable-next-line max-params
+): Item => {
     return {
         id,
         name,
-        imageUrl: "",
+        imageUrl: imageUrl ?? "",
         slot: slot ?? "Head",
         slotImageUrl: "",
         group,
+        alternativeImageUrl: alternativeImageUrl ?? "",
     };
 };
 

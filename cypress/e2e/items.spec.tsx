@@ -60,7 +60,7 @@ describe("items tab", () => {
         cy.findByRole("img", { name: "Boots of Striding" }).should("not.exist");
     });
 
-    it("orders items by slot and then name", () => {
+    it("orders items by slot and then id", () => {
         cy.visit("/");
 
         cy.selectTab("Items");
@@ -284,5 +284,81 @@ describe("items tab", () => {
         cy.addItem("Circlet of Elements 075");
 
         cy.findByRole("img", { name: "Circlet of Elements" }).should("be.visible");
+    });
+
+    it("does not allow items with no alternative image to be toggled", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.addItem("Piercing Bow 009");
+
+        cy.findByRole("button", { name: "Toggle Alternative Image for Piercing Bow" }).should("not.exist");
+    });
+
+    it("allows items with an alternative image to be toggled", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setSpoilerActive("Random Item Designs");
+
+        cy.addItem("Circlet of Elements 075");
+
+        cy.findByRole("img", { name: "Circlet of Elements" })
+            .should("have.attr", "src")
+            .should("include", "gh-075b-circlet-of-elements");
+
+        cy.findByRole("button", { name: "Toggle Alternative Image for Circlet of Elements" }).should("exist");
+
+        cy.findByRole("button", { name: "Toggle Alternative Image for Circlet of Elements" }).click();
+
+        cy.findByRole("img", { name: "Circlet of Elements" })
+            .should("have.attr", "src")
+            .should("include", "gh-075a-circlet-of-elements");
+    });
+
+    it("allows items with an alternative image to be toggled by pressing enter", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setSpoilerActive("Random Item Designs");
+
+        cy.addItem("Circlet of Elements 075");
+
+        cy.findByRole("img", { name: "Circlet of Elements" })
+            .should("have.attr", "src")
+            .should("include", "gh-075b-circlet-of-elements");
+
+        cy.findByRole("button", { name: "Toggle Alternative Image for Circlet of Elements" }).should("exist");
+
+        cy.findByRole("button", { name: "Toggle Alternative Image for Circlet of Elements" }).focus().type("{enter}");
+
+        cy.findByRole("img", { name: "Circlet of Elements" })
+            .should("have.attr", "src")
+            .should("include", "gh-075a-circlet-of-elements");
+    });
+
+    it("allows items with an alternative image to be toggled by pressing space", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setSpoilerActive("Random Item Designs");
+
+        cy.addItem("Circlet of Elements 075");
+
+        cy.findByRole("img", { name: "Circlet of Elements" })
+            .should("have.attr", "src")
+            .should("include", "gh-075b-circlet-of-elements");
+
+        cy.findByRole("button", { name: "Toggle Alternative Image for Circlet of Elements" }).should("exist");
+
+        cy.findByRole("button", { name: "Toggle Alternative Image for Circlet of Elements" }).focus().type(" ");
+
+        cy.findByRole("img", { name: "Circlet of Elements" })
+            .should("have.attr", "src")
+            .should("include", "gh-075a-circlet-of-elements");
     });
 });

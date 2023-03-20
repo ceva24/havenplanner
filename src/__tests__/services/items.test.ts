@@ -1,5 +1,5 @@
 import type { Dictionary } from "lodash";
-import { getItems, getItemsByGroup, itemShouldBeHidden, orderItems } from "@/services/items";
+import { getItemImageUrl, getItems, getItemsByGroup, itemShouldBeHidden, orderItems } from "@/services/items";
 import {
     createTestItem,
     createTestItemGroup,
@@ -97,15 +97,53 @@ describe("itemShouldBeHidden", () => {
     });
 });
 
+describe("getItemImageUrl", () => {
+    it("renders the item image url if showAlternativeImage is false", () => {
+        const characterItem: CharacterItem = {
+            id: "1",
+            item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url"),
+            showAlternativeImage: false,
+        };
+
+        const imageUrl = getItemImageUrl(characterItem);
+
+        expect(imageUrl).toEqual("url");
+    });
+
+    it("renders the item image url if showAlternativeImage is true but it has no alternative image url", () => {
+        const characterItem: CharacterItem = {
+            id: "1",
+            item: createTestItem(1, "Boots of Test", "1", "Legs", "url"),
+            showAlternativeImage: true,
+        };
+
+        const imageUrl = getItemImageUrl(characterItem);
+
+        expect(imageUrl).toEqual("url");
+    });
+
+    it("renders the alternative item image url if showAlternativeImage is true and it has an alternative image url", () => {
+        const characterItem: CharacterItem = {
+            id: "1",
+            item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url"),
+            showAlternativeImage: true,
+        };
+
+        const imageUrl = getItemImageUrl(characterItem);
+
+        expect(imageUrl).toEqual("alternative-url");
+    });
+});
+
 describe("orderItems", () => {
     it("orders items by slot", () => {
         const characterItems: CharacterItem[] = [
-            { id: "6", item: createTestItem(0, "Test", "1", "Bag") },
-            { id: "1", item: createTestItem(1, "Test", "1", "Legs") },
-            { id: "4", item: createTestItem(2, "Test", "1", "One Hand") },
-            { id: "2", item: createTestItem(3, "Test", "1", "Chest") },
-            { id: "3", item: createTestItem(4, "Test", "1", "Head") },
-            { id: "5", item: createTestItem(5, "Test", "1", "Two Hand") },
+            { id: "6", item: createTestItem(0, "Test", "1", "Bag"), showAlternativeImage: false },
+            { id: "1", item: createTestItem(1, "Test", "1", "Legs"), showAlternativeImage: false },
+            { id: "4", item: createTestItem(2, "Test", "1", "One Hand"), showAlternativeImage: false },
+            { id: "2", item: createTestItem(3, "Test", "1", "Chest"), showAlternativeImage: false },
+            { id: "3", item: createTestItem(4, "Test", "1", "Head"), showAlternativeImage: false },
+            { id: "5", item: createTestItem(5, "Test", "1", "Two Hand"), showAlternativeImage: false },
         ];
 
         const result = orderItems(characterItems);
@@ -118,11 +156,11 @@ describe("orderItems", () => {
         expect(result[5]).toEqual(characterItems[0]);
     });
 
-    it("orders items in the same slot by name", () => {
+    it("orders items in the same slot by id", () => {
         const characterItems: CharacterItem[] = [
-            { id: "1", item: createTestItem(1, "Minor Power Potion", "1") },
-            { id: "2", item: createTestItem(2, "Minor Stamina Potion", "1") },
-            { id: "3", item: createTestItem(3, "Minor Healing Potion", "1") },
+            { id: "1", item: createTestItem(2, "Minor Power Potion", "1"), showAlternativeImage: false },
+            { id: "2", item: createTestItem(3, "Minor Stamina Potion", "1"), showAlternativeImage: false },
+            { id: "3", item: createTestItem(1, "Minor Healing Potion", "1"), showAlternativeImage: false },
         ];
 
         const result = orderItems(characterItems);
@@ -134,10 +172,10 @@ describe("orderItems", () => {
 
     it("orders items by slot and then by name", () => {
         const characterItems: CharacterItem[] = [
-            { id: "1", item: createTestItem(1, "Minor Stamina Potion", "1", "Bag") }, // Minor Stamina Potion
-            { id: "2", item: createTestItem(2, "War Hammer", "1", "One Hand") }, // War Hammer
-            { id: "3", item: createTestItem(3, "Minor Power Potion", "1", "Bag") }, // Minor Power Potion
-            { id: "4", item: createTestItem(4, "Piercing Bow", "1", "Two Hand") }, // Piercing Bow
+            { id: "1", item: createTestItem(3, "Minor Stamina Potion", "1", "Bag"), showAlternativeImage: false }, // Minor Stamina Potion
+            { id: "2", item: createTestItem(2, "War Hammer", "1", "One Hand"), showAlternativeImage: false }, // War Hammer
+            { id: "3", item: createTestItem(1, "Minor Power Potion", "1", "Bag"), showAlternativeImage: false }, // Minor Power Potion
+            { id: "4", item: createTestItem(4, "Piercing Bow", "1", "Two Hand"), showAlternativeImage: false }, // Piercing Bow
         ];
 
         const result = orderItems(characterItems);

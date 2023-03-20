@@ -1,11 +1,19 @@
 import { render, screen } from "@testing-library/react";
-import Item, { removeItem } from "@/components/items/item";
+import Item, { toggleAlternativeImageUrl } from "@/components/items/item";
 import { createTestCharacter, createTestItem } from "@/test/create-test-fixtures";
 
 const character: Character = createTestCharacter({
     items: [
-        { id: "1", item: createTestItem(1, "Boots of Test", "1") },
-        { id: "2", item: createTestItem(2, "Cloak of Test", "1") },
+        {
+            id: "1",
+            item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url"),
+            showAlternativeImage: false,
+        },
+        {
+            id: "2",
+            item: createTestItem(2, "Cloak of Test", "1", "Chest", "url", "alternative-url"),
+            showAlternativeImage: false,
+        },
     ],
 });
 
@@ -33,70 +41,62 @@ describe("item", () => {
     });
 });
 
-describe("removeItem", () => {
-    it("removes an item", () => {
-        const character: Character = createTestCharacter({
-            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1") }],
-        });
-
-        removeItem(character, setCharacter, character.items[0]);
-
-        expect(setCharacter).toHaveBeenCalledTimes(1);
-        expect(setCharacter).toHaveBeenCalledWith({
-            ...character,
-            items: [],
-        });
-    });
-
-    it("only removes the correct item when duplicate items are present", () => {
-        const item: Item = createTestItem(1, "Boots of Test", "1");
-
+describe("toggleAlternativeImageUrl", () => {
+    it("toggles an alternative image url from false to true", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item },
-                { id: "2", item },
+                {
+                    id: "1",
+                    item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url"),
+                    showAlternativeImage: false,
+                },
             ],
         });
 
-        removeItem(character, setCharacter, character.items[1]);
+        toggleAlternativeImageUrl(character, setCharacter, character.items[0]);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
-        expect(setCharacter).toHaveBeenCalledWith({
-            ...character,
-            items: [character.items[0]],
-        });
+
+        expect(setCharacter.mock.calls[0][0].items[0].showAlternativeImage).toEqual(true);
     });
 
-    it("removes an item from the middle of the list", () => {
+    it("toggles an alternative image url from true to false", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: createTestItem(1, "Boots of Test", "1") },
-                { id: "2", item: createTestItem(2, "Cloak of Test", "1") },
-                { id: "3", item: createTestItem(3, "Hat of Test", "1") },
+                {
+                    id: "1",
+                    item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url"),
+                    showAlternativeImage: true,
+                },
             ],
         });
 
-        removeItem(character, setCharacter, character.items[1]);
+        toggleAlternativeImageUrl(character, setCharacter, character.items[0]);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
-        expect(setCharacter).toHaveBeenCalledWith({
-            ...character,
-            items: [character.items[0], character.items[2]],
-        });
+
+        expect(setCharacter.mock.calls[0][0].items[0].showAlternativeImage).toEqual(false);
     });
 
-    it("does not remove any items when the id is invalid", () => {
+    it("ignores an item not currently owned by the character", () => {
         const character: Character = createTestCharacter({
             items: [
-                { id: "1", item: createTestItem(1, "Boots of Test", "1") },
-                { id: "2", item: createTestItem(2, "Cloak of Test", "1") },
-                { id: "3", item: createTestItem(3, "Hat of Test", "1") },
+                {
+                    id: "1",
+                    item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url"),
+                    showAlternativeImage: true,
+                },
             ],
         });
 
-        removeItem(character, setCharacter, { id: "-1", item: character.items[0].item });
+        const invalidItem: CharacterItem = {
+            id: "2",
+            item: createTestItem(2, "Cloak of Test", "2"),
+            showAlternativeImage: true,
+        };
 
-        expect(setCharacter).toHaveBeenCalledTimes(1);
-        expect(setCharacter).toHaveBeenCalledWith(character);
+        toggleAlternativeImageUrl(character, setCharacter, invalidItem);
+
+        expect(setCharacter).not.toHaveBeenCalled();
     });
 });
