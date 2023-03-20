@@ -7,7 +7,7 @@ const serialize = (character: Character, gameData: GameData): string => {
         d: character.notes,
         c: character.characterClass.id,
         q: character.personalQuest?.id,
-        i: character.items.map((characterItem: CharacterItem) => characterItem.item.id),
+        i: serializeItems(character.items),
         u: character.unlockedAbilityCards.map((abilityCard: AbilityCard) => abilityCard.id),
         h: character.hand.map((abilityCard: AbilityCard) => abilityCard.id),
         e: serializeGainedEnhancements(character.gainedEnhancements),
@@ -16,6 +16,10 @@ const serialize = (character: Character, gameData: GameData): string => {
     };
 
     return JSON.stringify(characterData);
+};
+
+const serializeItems = (items: CharacterItem[]): Array<[number, boolean]> => {
+    return items.map((characterItem: CharacterItem) => [characterItem.item.id, characterItem.showAlternativeImage]);
 };
 
 const serializeGainedEnhancements = (gainedEnhancements: GainedEnhancement[]): Array<[number, number, number]> => {

@@ -85,7 +85,7 @@ interface SerializedCharacter {
     d: string; // Notes
     c: number; // Character id
     q?: number; // Personal quest id
-    i: number[]; // Item ids
+    i: Array<[number, boolean]>; // Item ids and show alternative image values
     u: number[]; // Unlocked ability card ids
     h: number[]; // Hand ability card ids
     e: Array<[number, number, number]>; // Gained enhancement ability card id, slot id and enhancement id

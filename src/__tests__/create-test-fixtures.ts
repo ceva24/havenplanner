@@ -144,6 +144,7 @@ const createTestItem = (
     slot?: string,
     imageUrl?: string,
     alternativeImageUrl?: string
+    // eslint-disable-next-line max-params
 ): Item => {
     return {
         id,

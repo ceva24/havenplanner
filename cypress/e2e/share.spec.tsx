@@ -603,4 +603,30 @@ describe("share", () => {
             .findByRole("checkbox", { name: "Eclipse" })
             .should("not.be.checked");
     });
+
+    it("captures item alternative image status in a shareable link", () => {
+        cy.visit("/");
+
+        cy.selectTab("Items");
+
+        cy.setSpoilerActive("Random Item Designs");
+
+        cy.addItem("Circlet of Elements 075");
+
+        cy.findByRole("button", { name: "Toggle Alternative Image for Circlet of Elements" }).click();
+
+        cy.findShareLinkButton().click();
+
+        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
+
+        cy.confirmLoadCharacter();
+
+        cy.selectTab("Items");
+
+        cy.findByRole("img", { name: "Circlet of Elements" }).should("be.visible");
+
+        cy.findByRole("img", { name: "Circlet of Elements" })
+            .should("have.attr", "src")
+            .should("include", "gh-075a-circlet-of-elements");
+    });
 });

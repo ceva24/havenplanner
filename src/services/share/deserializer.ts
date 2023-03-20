@@ -102,10 +102,38 @@ const deserializeGainedBattleGoalCheckmarks = (battleGoalIndices: boolean[][]): 
     }));
 };
 
-const deserializeItems = (itemIds: number[], gameData: GameData): CharacterItem[] => {
-    return gameData.items
-        .filter((item: Item) => itemIds.includes(item.id))
-        .map((item: Item) => ({ id: uuid(), item, showAlternativeImage: false }));
+const deserializeItems = (itemData: Array<[number, boolean]>, gameData: GameData): CharacterItem[] => {
+    // Const itemIds: number[] = itemData.map((itemIdAndUrl: [number, boolean]) => itemIdAndUrl[0]);
+
+    // const validItemData: Array<[number, boolean]> = itemData.filter((itemIdAndUrl: [number, boolean]) => gameData.items.some((item: Item) => item.id === itemIdAndUrl[0]))
+
+    const characterItems = itemData.map((itemIdAndUrl: [number, boolean]) => {
+        const item: Item | undefined = gameData.items.find((item: Item) => item.id === itemIdAndUrl[0]);
+
+        return {
+            id: uuid(),
+            item,
+            showAlternativeImage: itemIdAndUrl[1],
+        };
+    });
+
+    const validCharacterItems: CharacterItem[] = characterItems.filter(
+        (characterItem): characterItem is CharacterItem => typeof characterItem.item !== "undefined"
+    );
+
+    return validCharacterItems;
+
+    // Return gameData.items
+    //     .filter((item: Item) => itemIds.includes(item.id))
+    //     .map((item: Item) => ({ id: uuid(), item, showAlternativeImage: false }));
 };
+
+/*
+    Const validAbilityCards: AbilityCard[] = abilityCards.filter(
+        (abilityCard): abilityCard is AbilityCard => typeof abilityCard !== "undefined"
+    );
+
+    return validAbilityCards;
+*/
 
 export { deserialize };

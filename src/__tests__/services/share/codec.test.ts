@@ -349,4 +349,26 @@ describe("codec", () => {
         expect(decodedSaveData.character.battleGoalCheckmarkGroups).toHaveLength(1);
         expect(decodedSaveData.character.battleGoalCheckmarkGroups[0]).toBeTruthy();
     });
+
+    it("serializes and deserializes character data for items with alternative images", () => {
+        const settings: Settings = createTestSettings();
+        settings.gameData.items = [createTestItem(1, "Boots of Test", "Random Item Designs", "Legs", "url", "alt-url")];
+
+        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+
+        const character: Character = createTestCharacter({
+            items: [{ id: "abc", item: settings.gameData.items[0], showAlternativeImage: true }],
+        });
+
+        const saveData: SaveData = { character, gameData: settings.gameData };
+
+        const data: string = encode(saveData);
+
+        expect(data).toMatch(/\w{100,}/);
+
+        const decodedSaveData: SaveData = decode(data);
+
+        expect(decodedSaveData.character.items).toHaveLength(character.items.length);
+        expect(decodedSaveData.character.items[0].showAlternativeImage).toEqual(true);
+    });
 });

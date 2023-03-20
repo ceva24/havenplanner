@@ -15,7 +15,7 @@ describe("deserialize", () => {
         settings.gameData.items = [createTestItem(2, "Boots of Test", "1"), createTestItem(8, "Cloak of Test", "1")];
 
         const data = JSON.parse(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[2,8],"u":[],"h":[],"e":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[[2,false],[8,false]],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
         const character: Character = deserialize(data, settings.gameData);
@@ -27,7 +27,7 @@ describe("deserialize", () => {
 
     it("omits item data that is invalid", () => {
         const data = JSON.parse(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[-1],"u":[],"h":[],"e":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[[-1,false]],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
         const character: Character = deserialize(data, settings.gameData);

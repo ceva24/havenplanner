@@ -25,6 +25,6 @@ describe("serializer", () => {
 
         const data: string = serialize(character, settings.gameData);
 
-        expect(data).toMatch(/"i":\[1,1]/);
+        expect(data).toMatch(/"i":\[\[1,false],\[1,false]]/);
     });
 });
