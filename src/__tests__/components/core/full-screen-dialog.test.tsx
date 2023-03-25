@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import FullScreenDialog from "@/components/core/full-screen-dialog";
 
 describe("full screen dialog", () => {

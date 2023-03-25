@@ -10,13 +10,7 @@ beforeEach(() => {
 });
 
 describe("item groups", () => {
-    interface ItemGroupsProps {
-        group: string;
-    }
-
     it("renders", () => {
-        const settings: Settings = createTestSettings();
-
         render(<ItemGroups />, { wrapper: TestSettingsProvider });
 
         const itemGroup = screen.queryByRole("checkbox", { name: "Random Item Designs" });

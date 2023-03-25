@@ -1,4 +1,5 @@
 import {
+    type SplitAttackModifiers,
     classAttackModifierCardNames,
     orderAttackModifierCards,
     splitAttackModifierDeckIntoBaseAndClass,
@@ -65,10 +66,10 @@ describe("splitAttackModifierDeckIntoBaseAndClass", () => {
         const deck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+1")];
         const baseDeck: AttackModifierDeckCard[] = [deck[0]];
 
-        const [initialAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
+        const splitAttackModifiers: SplitAttackModifiers = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
 
-        expect(initialAttackModifiers).toHaveLength(1);
-        expect(initialAttackModifiers[0]).toEqual(deck[0]);
+        expect(splitAttackModifiers.initialAttackModifiers).toHaveLength(1);
+        expect(splitAttackModifiers.initialAttackModifiers[0]).toEqual(deck[0]);
     });
 
     it("returns cards from the class modifier deck", () => {
@@ -78,19 +79,19 @@ describe("splitAttackModifierDeckIntoBaseAndClass", () => {
         ];
         const baseDeck: AttackModifierDeckCard[] = [deck[0]];
 
-        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
+        const splitAttackModifiers: SplitAttackModifiers = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
 
-        expect(classAttackModifiers).toHaveLength(1);
-        expect(classAttackModifiers[0]).toEqual(deck[1]);
+        expect(splitAttackModifiers.classAttackModifiers).toHaveLength(1);
+        expect(splitAttackModifiers.classAttackModifiers[0]).toEqual(deck[1]);
     });
 
     it("returns an empty list when there are no class modifiers", () => {
         const deck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+1")];
         const baseDeck: AttackModifierDeckCard[] = [deck[0]];
 
-        const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
+        const splitAttackModifiers: SplitAttackModifiers = splitAttackModifierDeckIntoBaseAndClass(deck, baseDeck);
 
-        expect(classAttackModifiers).toHaveLength(0);
+        expect(splitAttackModifiers.classAttackModifiers).toHaveLength(0);
     });
 });
 

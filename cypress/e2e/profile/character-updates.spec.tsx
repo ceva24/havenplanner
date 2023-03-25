@@ -2,8 +2,6 @@
 import "@testing-library/cypress/add-commands";
 import "@/support/commands";
 
-const characterClasses = ["Brute", "Scoundrel", "Spellweaver", "Tinkerer", "Mindthief", "Cragheart"];
-
 describe("profile tab - character updates", () => {
     it("retains the character details when changing the class", () => {
         cy.visit("/");

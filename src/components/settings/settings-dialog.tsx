@@ -21,7 +21,7 @@ const SettingsDialog = ({ isOpen, onClose }: SettingsDialogProps) => {
                     <Box>
                         <SpoilAllSwitch />
                     </Box>
-                    <Box textAlign="left">
+                    <Box>
                         <Box component="section" aria-label="Class Spoilers">
                             <CharacterClasses />
                         </Box>

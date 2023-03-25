@@ -418,26 +418,6 @@ describe("share", () => {
         cy.findSelectClassButton().should("have.text", "Brute");
     });
 
-    it("retains the character data in the url when cancelling the load character dialog", () => {
-        cy.visit("/");
-
-        cy.selectClass("Spellweaver");
-
-        cy.selectTab("Items");
-
-        cy.setProsperityLevel(2);
-
-        cy.addItem("Stun Powder 021");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.findLoadCharacterDialog().findByRole("button", { name: "Cancel" }).click();
-
-        cy.location("search").should("match", /character=\w{10,}/);
-    });
-
     it("captures higher prosperity item data in a shareable link", () => {
         cy.visit("/");
 

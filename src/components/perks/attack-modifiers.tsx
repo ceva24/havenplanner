@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import AttackModifiersGrid from "@/components/perks/attack-modifiers-grid";
 import { applyPerksTo } from "@/services/perks/perk";
 import {
+    type SplitAttackModifiers,
     baseAttackModifierDeckOrder,
     classAttackModifierCardNames,
     splitAttackModifierDeckIntoBaseAndClass,
@@ -17,16 +18,19 @@ const AttackModifiers = ({ character }: AttackModifiersProps) => {
 
     const attackModifierDeckWithPerks = applyPerksTo(settings.gameData.baseAttackModifierDeck, character.gainedPerks);
 
-    const [initialAttackModifiers, classAttackModifiers] = splitAttackModifierDeckIntoBaseAndClass(
+    const splitAttackModifiers: SplitAttackModifiers = splitAttackModifierDeckIntoBaseAndClass(
         attackModifierDeckWithPerks,
         settings.gameData.baseAttackModifierDeck
     );
 
     return (
         <Box component="section" aria-label="Attack Modifier Deck">
-            <AttackModifiersGrid deck={initialAttackModifiers} orderedCardNames={baseAttackModifierDeckOrder} />
             <AttackModifiersGrid
-                deck={classAttackModifiers}
+                deck={splitAttackModifiers.initialAttackModifiers}
+                orderedCardNames={baseAttackModifierDeckOrder}
+            />
+            <AttackModifiersGrid
+                deck={splitAttackModifiers.classAttackModifiers}
                 orderedCardNames={classAttackModifierCardNames(character.characterClass)}
             />
         </Box>

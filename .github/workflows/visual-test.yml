@@ -24,6 +24,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm run build
       - run: npm start &
-      - run: npm run percy
+      - run: npm run vis
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

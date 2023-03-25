@@ -1,0 +1,694 @@
+{
+    "id": 13,
+    "name": "Soothsinger",
+    "imageUrl": "/character-icons/gloomhaven/gh-soothsinger.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-soothsinger.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-soothsinger-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/SS/gh-ss-back.webp",
+    "initiallyLocked": true,
+    "spoilerSafeName": "Music Note",
+    "handSize": 9,
+    "abilityCards": [
+        {
+            "id": 348,
+            "name": "Power Ballad",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-power-ballad.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "STRENGTHEN",
+                    "types": ["main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 349,
+            "name": "Defensive Ditty",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-defensive-ditty.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 350,
+            "name": "Song of Speed",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-song-of-speed.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 351,
+            "name": "Tuning the Outcome",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-tuning-the-outcome.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "BLESS",
+                    "types": ["main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "CURSE",
+                    "types": ["main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 352,
+            "name": "Call to Action",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-call-to-action.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 353,
+            "name": "Warding Dagger",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-warding-dagger.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 354,
+            "name": "Throw Voice",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-throw-voice.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                }
+            ]
+        },
+        {
+            "id": 355,
+            "name": "Singing Arrow",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-singing-arrow.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 356,
+            "name": "Marching Beat",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-marching-beat.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 357,
+            "name": "Wistful Wounding",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-wistful-wounding.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 358,
+            "name": "Unending Chant",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-unending-chant.webp",
+            "enhancementSlots": [
+                {
+                    "id": 2,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 359,
+            "name": "Nimble Knife",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-nimble-knife.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "BLESS",
+                    "types": ["main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 360,
+            "name": "Soothing Lullaby",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-soothing-lullaby.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 361,
+            "name": "Change Tempo",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-change-tempo.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 362,
+            "name": "Echoing Aria",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-echoing-aria.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 363,
+            "name": "Crippling Chorus",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-crippling-chorus.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "STUN",
+                    "types": ["main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "DISARM",
+                    "types": ["main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 364,
+            "name": "Disorienting Dirge",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-disorienting-dirge.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "CURSE",
+                    "types": ["main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "BLESS",
+                    "types": ["main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 365,
+            "name": "Inspiring Anthem",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-inspiring-anthem.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 366,
+            "name": "Melody and Harmony",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-melody-and-harmony.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 367,
+            "name": "Mobilizing Measure",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-mobilizing-measure.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 368,
+            "name": "Pull the Strings",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-pull-the-strings.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 369,
+            "name": "Provoke Terror",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-provoke-terror.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "PUSH",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 370,
+            "name": "Nightmare Serenade",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-nightmare-serenade.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                }
+            ]
+        },
+        {
+            "id": 371,
+            "name": "Booming Proclamation",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-booming-proclamation.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PUSH",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 372,
+            "name": "Tranquil Trill",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-tranquil-trill.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "DISARM",
+                    "types": ["main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 373,
+            "name": "Commanding Presence",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-commanding-presence.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 374,
+            "name": "Captivating Performance",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-captivating-performance.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "STUN",
+                    "types": ["main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 375,
+            "name": "Shadow Puppets",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/SS/gh-shadow-puppets.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        }
+    ],
+    "perks": [
+        {
+            "id": 0,
+            "name": "Remove two {-1} cards",
+            "count": 2,
+            "add": [],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                },
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Remove one {-2} card",
+            "count": 1,
+            "add": [],
+            "remove": [
+                {
+                    "id": 329,
+                    "name": "-2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Replace two {+1} cards with one {+4} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 225,
+                    "name": "+4",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-01.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                },
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Replace one {+0} card with one {+1} IMMOBILIZE {immobilize} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 227,
+                    "name": "+1 immobilize",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-03.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Replace one {+0} card with one {+1} DISARM {disarm} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 228,
+                    "name": "+1 disarm",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-04.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Replace one {+0} card with one {+2} WOUND {wound} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 229,
+                    "name": "+2 wound",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-05.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Replace one {+0} card with one {+2} POISON {poison} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 230,
+                    "name": "+2 poison",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-06.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Replace one {+0} card with one {+2} CURSE {curse} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 231,
+                    "name": "+2 curse",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-07.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Replace one {+0} card with one {+3} MUDDLE {muddle} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 232,
+                    "name": "+3 muddle",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-08.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Replace one {-1} card with one {+0} STUN {stun} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 233,
+                    "name": "+0 stun",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-09.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Add 3 {chain} {+1} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 234,
+                    "name": "chain +1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-10.webp"
+                },
+                {
+                    "id": 234,
+                    "name": "chain +1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-10.webp"
+                },
+                {
+                    "id": 234,
+                    "name": "chain +1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-10.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 11,
+            "name": "Add 2 {chain} CURSE {curse} cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 237,
+                    "name": "chain curse",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-13.webp"
+                },
+                {
+                    "id": 237,
+                    "name": "chain curse",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SS/gh-am-ss-13.webp"
+                }
+            ],
+            "remove": []
+        }
+    ]
+}

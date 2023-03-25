@@ -7,6 +7,7 @@ import SettingsProvider from "@/hooks/use-settings";
 import Header from "@/components/header/header";
 import AppContainer from "@/components/app-container";
 import LoadCharacterDialog from "@/components/load/load-character-dialog";
+import { useClearQueryString } from "@/hooks/use-clear-query-string";
 
 interface IndexProps {
     initialSettings: Settings;
@@ -25,6 +26,8 @@ const Index: NextPage<IndexProps> = ({ initialSettings, loadedCharacter, loadedS
 
     const [character, setCharacter] = useState<Character>(initialCharacter);
     const [settings, setSettings] = useState<Settings>(initialSettings);
+
+    useClearQueryString();
 
     return (
         <SettingsProvider settings={settings} setSettings={setSettings}>

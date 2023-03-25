@@ -13,13 +13,23 @@ const classAttackModifierCardNames = (characterClass: CharacterClass): string[] 
     );
 };
 
+interface SplitAttackModifiers {
+    initialAttackModifiers: AttackModifierDeckCard[];
+    classAttackModifiers: AttackModifierDeckCard[];
+}
+
 const splitAttackModifierDeckIntoBaseAndClass = (
     deck: AttackModifierDeckCard[],
     baseAttackModifierDeck: AttackModifierDeckCard[]
-): [AttackModifierDeckCard[], AttackModifierDeckCard[]] => {
-    return partition(deck, (card: AttackModifierDeckCard) =>
+): SplitAttackModifiers => {
+    const [initialAttackModifiers, classAttackModifiers] = partition(deck, (card: AttackModifierDeckCard) =>
         baseAttackModifierDeck.some((baseCard: AttackModifierDeckCard) => card.card.id === baseCard.card.id)
     );
+
+    return {
+        initialAttackModifiers,
+        classAttackModifiers,
+    };
 };
 
 const orderAttackModifierCards = (
@@ -39,4 +49,5 @@ export {
     classAttackModifierCardNames,
     splitAttackModifierDeckIntoBaseAndClass,
     orderAttackModifierCards,
+    type SplitAttackModifiers,
 };

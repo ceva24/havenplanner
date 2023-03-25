@@ -6,7 +6,8 @@ import sc from "@/data/gloomhaven/classes/sc.json";
 import ch from "@/data/gloomhaven/classes/ch.json";
 import mt from "@/data/gloomhaven/classes/mt.json";
 import ns from "@/data/gloomhaven/classes/ns.json";
+import ss from "@/data/gloomhaven/classes/ss.json";
 
-const characterClasses: CharacterClass[] = [br, sc, sw, ti, mt, ch, ns];
+const characterClasses: CharacterClass[] = [br, sc, sw, ti, mt, ch, ns, ss];
 
 export { characterClasses };
