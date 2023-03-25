@@ -19,6 +19,7 @@
         "check": "npm run check-format && npm run lint && npm run check-types && npm run test",
         "fc": "npm run fix-lint && npm run format && npm run check",
         "bs": "npm run build && npm start",
+        "cy": "cypress open",
         "prepare": "husky install"
     },
     "dependencies": {
