@@ -15,7 +15,7 @@ const ItemGrid = ({ character, setCharacter }: ItemGridProps) => {
             aria-label="Item Grid"
             sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
         >
-            {orderItems(character.items).map((characterItem: CharacterItem, index: number) => (
+            {orderItems(character.items).map((characterItem: CharacterItem) => (
                 <Item
                     key={characterItem.id}
                     character={character}

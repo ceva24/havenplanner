@@ -32,7 +32,7 @@ const createEnhancedAbilityCardPath = (abilityCard: AbilityCard) => {
 const createEnhancedAbilityCardFilename = (abilityCard: AbilityCard, character: Character): string => {
     let filename = "";
 
-    abilityCard.enhancementSlots.forEach((enhancementSlot: EnhancementSlot, index: number) => {
+    abilityCard.enhancementSlots.forEach((enhancementSlot: EnhancementSlot) => {
         const gainedEnhancement: GainedEnhancement | undefined = character.gainedEnhancements.find(
             (enhc: GainedEnhancement) =>
                 enhc.enhancementSlot.id === enhancementSlot.id && enhc.abilityCard.id === abilityCard.id
