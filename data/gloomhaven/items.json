@@ -189,6 +189,195 @@
         "alternativeImageUrl": ""
     },
     {
+        "id": 22,
+        "name": "Heavy Greaves",
+        "imageUrl": "/items/gloomhaven/22-28/gh-022-heavy-greaves.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "3",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 23,
+        "name": "Chainmail",
+        "imageUrl": "/items/gloomhaven/22-28/gh-023-chainmail.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "3",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 24,
+        "name": "Amulet of Life",
+        "imageUrl": "/items/gloomhaven/22-28/gh-024-amulet-of-life.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "3",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 25,
+        "name": "Jagged Sword",
+        "imageUrl": "/items/gloomhaven/22-28/gh-025-jagged-sword.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "3",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 26,
+        "name": "Long Spear",
+        "imageUrl": "/items/gloomhaven/22-28/gh-026-long-spear.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "3",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 27,
+        "name": "Major Healing Potion",
+        "imageUrl": "/items/gloomhaven/22-28/gh-027-major-healing-potion.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "3",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 28,
+        "name": "Moon Earring",
+        "imageUrl": "/items/gloomhaven/22-28/gh-028-moon-earring.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "3",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 29,
+        "name": "Comfortable Shoes",
+        "imageUrl": "items/gloomhaven/29-35/gh-029-comfortable-shoes.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "4",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 30,
+        "name": "Studded Leather",
+        "imageUrl": "items/gloomhaven/29-35/gh-030-studded-leather.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "4",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 31,
+        "name": "Hawk Helm",
+        "imageUrl": "items/gloomhaven/29-35/gh-031-hawk-helm.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "4",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 32,
+        "name": "Tower Shield",
+        "imageUrl": "items/gloomhaven/29-35/gh-032-tower-shield.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "4",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 33,
+        "name": "Volatile Bomb",
+        "imageUrl": "items/gloomhaven/29-35/gh-033-volatile-bomb.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "4",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 34,
+        "name": "Major Stamina Potion",
+        "imageUrl": "items/gloomhaven/29-35/gh-034-major-stamina-potion.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "4",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 35,
+        "name": "Falcon Figurine",
+        "imageUrl": "items/gloomhaven/29-35/gh-035-falcon-figurine.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "4",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 36,
+        "name": "Boots Of Dashing",
+        "imageUrl": "items/gloomhaven/36-42/gh-036-boots-of-dashing.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "5",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 37,
+        "name": "Robes Of Evocation",
+        "imageUrl": "items/gloomhaven/36-42/gh-037-robes-of-evocation.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "5",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 38,
+        "name": "Heavy Basinet",
+        "imageUrl": "items/gloomhaven/36-42/gh-038-heavy-basinet.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "5",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 39,
+        "name": "Hooked Chain",
+        "imageUrl": "items/gloomhaven/36-42/gh-039-hooked-chain.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "5",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 40,
+        "name": "Versatile Dagger",
+        "imageUrl": "items/gloomhaven/36-42/gh-040-versatile-dagger.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "5",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 41,
+        "name": "Major Power Potion",
+        "imageUrl": "items/gloomhaven/36-42/gh-041-major-power-potion.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "5",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 42,
+        "name": "Ring Of Haste",
+        "imageUrl": "items/gloomhaven/36-42/gh-042-ring-of-haste.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "5",
+        "alternativeImageUrl": ""
+    },
+    {
         "id": 71,
         "name": "Boots of Levitation",
         "imageUrl": "/items/gloomhaven/64-151/gh-071b-boots-of-levitation.webp",
