@@ -441,6 +441,69 @@
         "alternativeImageUrl": ""
     },
     {
+        "id": 50,
+        "name": "Steel Sabatons",
+        "imageUrl": "items/gloomhaven/50-56/gh-050-steel-sabatons.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 51,
+        "name": "Shadow Armor",
+        "imageUrl": "items/gloomhaven/50-56/gh-051-shadow-armor.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 52,
+        "name": "Protective Charm",
+        "imageUrl": "items/gloomhaven/50-56/gh-052-protective-charm.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 53,
+        "name": "Black Knife",
+        "imageUrl": "items/gloomhaven/50-56/gh-053-black-knife.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 54,
+        "name": "Staff Of Eminence",
+        "imageUrl": "items/gloomhaven/50-56/gh-054-staff-of-eminence.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 55,
+        "name": "Super Healing Potion",
+        "imageUrl": "items/gloomhaven/50-56/gh-055-super-healing-potion.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 56,
+        "name": "Ring Of Brutality",
+        "imageUrl": "items/gloomhaven/50-56/gh-056-ring-of-brutality.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
         "id": 71,
         "name": "Boots of Levitation",
         "imageUrl": "/items/gloomhaven/64-151/gh-071b-boots-of-levitation.webp",
