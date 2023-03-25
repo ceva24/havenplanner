@@ -1,33 +1,33 @@
 import { getGloomhavenGameData } from "@/services/games/gloomhaven";
 
-jest.mock("@/loaders/attack-modifiers", () => ({
+jest.mock("@/loaders/gloomhaven/attack-modifiers", () => ({
     attackModifiers: [],
 }));
 
-jest.mock("@/loaders/character-classes", () => ({
+jest.mock("@/loaders/gloomhaven/character-classes", () => ({
     characterClasses: [
         { id: 1, name: "Test Frog", initiallyLocked: false },
         { id: 2, name: "Test Spoiler", initiallyLocked: true },
     ],
 }));
 
-jest.mock("@/loaders/enhancements", () => ({
+jest.mock("@/loaders/gloomhaven/enhancements", () => ({
     enhancements: [],
 }));
 
-jest.mock("@/loaders/games", () => ({
+jest.mock("@/loaders/gloomhaven/games", () => ({
     games: [{ id: 1, name: "Test Gloomhaven" }],
 }));
 
-jest.mock("@/loaders/item-groups", () => ({
+jest.mock("@/loaders/gloomhaven/item-groups", () => ({
     itemGroups: [],
 }));
 
-jest.mock("@/loaders/items", () => ({
+jest.mock("@/loaders/gloomhaven/items", () => ({
     items: [],
 }));
 
-jest.mock("@/loaders/personal-quests", () => ({
+jest.mock("@/loaders/gloomhaven/personal-quests", () => ({
     personalQuests: [],
 }));
 

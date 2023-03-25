@@ -1,10 +1,10 @@
-import { attackModifiers } from "@/loaders/attack-modifiers";
-import { characterClasses } from "@/loaders/character-classes";
-import { enhancements } from "@/loaders/enhancements";
-import { games } from "@/loaders/games";
-import { itemGroups } from "@/loaders/item-groups";
-import { items } from "@/loaders/items";
-import { personalQuests } from "@/loaders/personal-quests";
+import { attackModifiers } from "@/loaders/gloomhaven/attack-modifiers";
+import { characterClasses } from "@/loaders/gloomhaven/character-classes";
+import { enhancements } from "@/loaders/gloomhaven/enhancements";
+import { games } from "@/loaders/gloomhaven/games";
+import { itemGroups } from "@/loaders/gloomhaven/item-groups";
+import { items } from "@/loaders/gloomhaven/items";
+import { personalQuests } from "@/loaders/gloomhaven/personal-quests";
 import { toUnlockableCharacterClassSummary } from "@/transformers/character";
 
 const getGloomhavenGameData = (): GameData => {
