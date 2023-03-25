@@ -567,6 +567,69 @@
         "alternativeImageUrl": ""
     },
     {
+        "id": 64,
+        "name": "Boots Of Sprinting",
+        "imageUrl": "items/gloomhaven/64-151/gh-064-boots-of-sprinting.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 65,
+        "name": "Platemail",
+        "imageUrl": "items/gloomhaven/64-151/gh-065-platemail.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 66,
+        "name": "Mask Of Terror",
+        "imageUrl": "items/gloomhaven/64-151/gh-066-mask-of-terror.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 67,
+        "name": "Balanced Blade",
+        "imageUrl": "items/gloomhaven/64-151/gh-067-balanced-blade.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 68,
+        "name": "Halberd",
+        "imageUrl": "items/gloomhaven/64-151/gh-068-halberd.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 69,
+        "name": "Star Earring",
+        "imageUrl": "items/gloomhaven/64-151/gh-069-star-earring.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 70,
+        "name": "Second Chance Ring",
+        "imageUrl": "items/gloomhaven/64-151/gh-070-second-chance-ring.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
         "id": 71,
         "name": "Boots of Levitation",
         "imageUrl": "/items/gloomhaven/64-151/gh-071b-boots-of-levitation.webp",
