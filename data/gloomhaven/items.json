@@ -378,6 +378,69 @@
         "alternativeImageUrl": ""
     },
     {
+        "id": 43,
+        "name": "Boots Of Quickness",
+        "imageUrl": "items/gloomhaven/43-49/gh-043-boots-of-quickness.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 44,
+        "name": "Splintmail",
+        "imageUrl": "items/gloomhaven/43-49/gh-044-splintmail.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 45,
+        "name": "Pendant Of Dark Pacts",
+        "imageUrl": "items/gloomhaven/43-49/gh-045-pendant-of-dark-pacts.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 46,
+        "name": "Spiked Shield",
+        "imageUrl": "items/gloomhaven/43-49/gh-046-spiked-shield.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 47,
+        "name": "Reaping Scythe",
+        "imageUrl": "items/gloomhaven/43-49/gh-047-reaping-scythe.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 48,
+        "name": "Major Mana Potion",
+        "imageUrl": "items/gloomhaven/43-49/gh-048-major-mana-potion.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 49,
+        "name": "Sun Earring",
+        "imageUrl": "items/gloomhaven/43-49/gh-049-sun-earring.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
         "id": 71,
         "name": "Boots of Levitation",
         "imageUrl": "/items/gloomhaven/64-151/gh-071b-boots-of-levitation.webp",
