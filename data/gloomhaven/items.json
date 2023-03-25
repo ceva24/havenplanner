@@ -378,6 +378,258 @@
         "alternativeImageUrl": ""
     },
     {
+        "id": 43,
+        "name": "Boots Of Quickness",
+        "imageUrl": "items/gloomhaven/43-49/gh-043-boots-of-quickness.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 44,
+        "name": "Splintmail",
+        "imageUrl": "items/gloomhaven/43-49/gh-044-splintmail.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 45,
+        "name": "Pendant Of Dark Pacts",
+        "imageUrl": "items/gloomhaven/43-49/gh-045-pendant-of-dark-pacts.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 46,
+        "name": "Spiked Shield",
+        "imageUrl": "items/gloomhaven/43-49/gh-046-spiked-shield.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 47,
+        "name": "Reaping Scythe",
+        "imageUrl": "items/gloomhaven/43-49/gh-047-reaping-scythe.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 48,
+        "name": "Major Mana Potion",
+        "imageUrl": "items/gloomhaven/43-49/gh-048-major-mana-potion.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 49,
+        "name": "Sun Earring",
+        "imageUrl": "items/gloomhaven/43-49/gh-049-sun-earring.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "6",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 50,
+        "name": "Steel Sabatons",
+        "imageUrl": "items/gloomhaven/50-56/gh-050-steel-sabatons.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 51,
+        "name": "Shadow Armor",
+        "imageUrl": "items/gloomhaven/50-56/gh-051-shadow-armor.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 52,
+        "name": "Protective Charm",
+        "imageUrl": "items/gloomhaven/50-56/gh-052-protective-charm.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 53,
+        "name": "Black Knife",
+        "imageUrl": "items/gloomhaven/50-56/gh-053-black-knife.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 54,
+        "name": "Staff Of Eminence",
+        "imageUrl": "items/gloomhaven/50-56/gh-054-staff-of-eminence.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 55,
+        "name": "Super Healing Potion",
+        "imageUrl": "items/gloomhaven/50-56/gh-055-super-healing-potion.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 56,
+        "name": "Ring Of Brutality",
+        "imageUrl": "items/gloomhaven/50-56/gh-056-ring-of-brutality.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "7",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 57,
+        "name": "Serene Sandals",
+        "imageUrl": "items/gloomhaven/57-63/gh-057-serene-sandals.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "8",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 58,
+        "name": "Cloak Of Phasing",
+        "imageUrl": "items/gloomhaven/57-63/gh-058-cloak-of-phasing.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "8",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 59,
+        "name": "Telescopic Lens",
+        "imageUrl": "items/gloomhaven/57-63/gh-059-telescopic-lens.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "8",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 60,
+        "name": "Unstable Explosives",
+        "imageUrl": "items/gloomhaven/57-63/gh-060-unstable-explosives.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "8",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 61,
+        "name": "Wall Shield",
+        "imageUrl": "items/gloomhaven/57-63/gh-061-wall-shield.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "8",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 62,
+        "name": "Doom Powder",
+        "imageUrl": "items/gloomhaven/57-63/gh-062-doom-powder.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "8",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 63,
+        "name": "Lucky Eye",
+        "imageUrl": "items/gloomhaven/57-63/gh-063-lucky-eye.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "8",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 64,
+        "name": "Boots Of Sprinting",
+        "imageUrl": "items/gloomhaven/64-151/gh-064-boots-of-sprinting.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 65,
+        "name": "Platemail",
+        "imageUrl": "items/gloomhaven/64-151/gh-065-platemail.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 66,
+        "name": "Mask Of Terror",
+        "imageUrl": "items/gloomhaven/64-151/gh-066-mask-of-terror.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 67,
+        "name": "Balanced Blade",
+        "imageUrl": "items/gloomhaven/64-151/gh-067-balanced-blade.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 68,
+        "name": "Halberd",
+        "imageUrl": "items/gloomhaven/64-151/gh-068-halberd.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 69,
+        "name": "Star Earring",
+        "imageUrl": "items/gloomhaven/64-151/gh-069-star-earring.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 70,
+        "name": "Second Chance Ring",
+        "imageUrl": "items/gloomhaven/64-151/gh-070-second-chance-ring.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "9",
+        "alternativeImageUrl": ""
+    },
+    {
         "id": 71,
         "name": "Boots of Levitation",
         "imageUrl": "/items/gloomhaven/64-151/gh-071b-boots-of-levitation.webp",
@@ -601,5 +853,500 @@
         "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
         "group": "Random Item Designs",
         "alternativeImageUrl": "/items/gloomhaven/64-151/gh-095a-scroll-of-stamina.webp"
+    },
+    {
+        "id": 96,
+        "name": "Rocket Boots",
+        "imageUrl": "items/gloomhaven/64-151/gh-096-rocket-boots.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 97,
+        "name": "Endurance Footwraps",
+        "imageUrl": "items/gloomhaven/64-151/gh-097-endurance-footwraps.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 98,
+        "name": "Drakescale Boots",
+        "imageUrl": "items/gloomhaven/64-151/gh-098-drakescale-boots.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 99,
+        "name": "Magma Waders",
+        "imageUrl": "items/gloomhaven/64-151/gh-099-magma-waders.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 100,
+        "name": "Robes Of Summoning",
+        "imageUrl": "items/gloomhaven/64-151/gh-100-robes-of-summoning.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 101,
+        "name": "Second Skin",
+        "imageUrl": "items/gloomhaven/64-151/gh-101-second-skin.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 102,
+        "name": "Sacrificial Robes",
+        "imageUrl": "items/gloomhaven/64-151/gh-102-sacrificial-robes.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 103,
+        "name": "Drakescale Armor",
+        "imageUrl": "items/gloomhaven/64-151/gh-103-drakescale-armor.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 104,
+        "name": "Steam Armor",
+        "imageUrl": "items/gloomhaven/64-151/gh-104-steam-armor.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 105,
+        "name": "Flea Bitten Shawl",
+        "imageUrl": "items/gloomhaven/64-151/gh-105-flea-bitten-shawl.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 106,
+        "name": "Necklace Of Teeth",
+        "imageUrl": "items/gloomhaven/64-151/gh-106-necklace-of-teeth.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 107,
+        "name": "Horned Helm",
+        "imageUrl": "items/gloomhaven/64-151/gh-107-horned-helm.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 108,
+        "name": "Drakescale Helm",
+        "imageUrl": "items/gloomhaven/64-151/gh-108-drakescale-helm.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 109,
+        "name": "Thiefs Hood",
+        "imageUrl": "items/gloomhaven/64-151/gh-109-thiefs-hood.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 110,
+        "name": "Helm Of The Mountain",
+        "imageUrl": "items/gloomhaven/64-151/gh-110-helm-of-the-mountain.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 111,
+        "name": "Wave Crest",
+        "imageUrl": "items/gloomhaven/64-151/gh-111-wave-crest.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 112,
+        "name": "Ancient Drill",
+        "imageUrl": "items/gloomhaven/64-151/gh-112-ancient-drill.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 113,
+        "name": "Skullbane Axe",
+        "imageUrl": "items/gloomhaven/64-151/gh-113-skullbane-axe.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 114,
+        "name": "Staff Of Xorn",
+        "imageUrl": "items/gloomhaven/64-151/gh-114-staff-of-xorn.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 115,
+        "name": "Mountain Hammer",
+        "imageUrl": "items/gloomhaven/64-151/gh-115-mountain-hammer.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 116,
+        "name": "Fueled Falchion",
+        "imageUrl": "items/gloomhaven/64-151/gh-116-fueled-falchion.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 117,
+        "name": "Bloody Axe",
+        "imageUrl": "items/gloomhaven/64-151/gh-117-bloody-axe.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 118,
+        "name": "Staff Of Elements",
+        "imageUrl": "items/gloomhaven/64-151/gh-118-staff-of-elements.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 119,
+        "name": "Skull Of Hatred",
+        "imageUrl": "items/gloomhaven/64-151/gh-119-skull-of-hatred.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 120,
+        "name": "Staff Of Summoning",
+        "imageUrl": "items/gloomhaven/64-151/gh-120-staff-of-summoning.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 121,
+        "name": "Orb Of Dawn",
+        "imageUrl": "items/gloomhaven/64-151/gh-121-orb-of-dawn.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 122,
+        "name": "Orb Of Twilight",
+        "imageUrl": "items/gloomhaven/64-151/gh-122-orb-of-twilight.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 123,
+        "name": "Ring Of Skulls",
+        "imageUrl": "items/gloomhaven/64-151/gh-123-ring-of-skulls.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 124,
+        "name": "Doomed Compass",
+        "imageUrl": "items/gloomhaven/64-151/gh-124-doomed-compass.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 125,
+        "name": "Curious Gear",
+        "imageUrl": "items/gloomhaven/64-151/gh-125-curious-gear.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 126,
+        "name": "Remote Spider",
+        "imageUrl": "items/gloomhaven/64-151/gh-126-remote-spider.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 127,
+        "name": "Giant Remote Spider",
+        "imageUrl": "items/gloomhaven/64-151/gh-127-giant-remote-spider.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 128,
+        "name": "Black Censer",
+        "imageUrl": "items/gloomhaven/64-151/gh-128-black-censer.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 129,
+        "name": "Black Card",
+        "imageUrl": "items/gloomhaven/64-151/gh-129-black-card.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 130,
+        "name": "Helix Ring",
+        "imageUrl": "items/gloomhaven/64-151/gh-130-helix-ring.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 131,
+        "name": "Heart Of The Betrayer",
+        "imageUrl": "items/gloomhaven/64-151/gh-131-heart-of-the-betrayer.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 132,
+        "name": "Power Core",
+        "imageUrl": "items/gloomhaven/64-151/gh-132-power-core.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 133,
+        "name": "Resonant Crystal",
+        "imageUrl": "items/gloomhaven/64-151/gh-133-resonant-crystal.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Other Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 134,
+        "name": "Imposing Blade",
+        "imageUrl": "items/gloomhaven/64-151/gh-134-imposing-blade.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 135,
+        "name": "Focusing Ray",
+        "imageUrl": "items/gloomhaven/64-151/gh-135-focusing-ray.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 136,
+        "name": "Volatile Elixir",
+        "imageUrl": "items/gloomhaven/64-151/gh-136-volatile-elixir.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 137,
+        "name": "Silent Stiletto",
+        "imageUrl": "items/gloomhaven/64-151/gh-137-silent-stiletto.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 138,
+        "name": "Stone Charm",
+        "imageUrl": "items/gloomhaven/64-151/gh-138-stone-charm.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 139,
+        "name": "Psychic Knife",
+        "imageUrl": "items/gloomhaven/64-151/gh-139-psychic-knife.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 140,
+        "name": "Sun Shield",
+        "imageUrl": "items/gloomhaven/64-151/gh-140-sun-shield.webp",
+        "slot": "One Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 141,
+        "name": "Utility Belt",
+        "imageUrl": "items/gloomhaven/64-151/gh-141-utility-belt.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 142,
+        "name": "Phasing Idol",
+        "imageUrl": "items/gloomhaven/64-151/gh-142-phasing-idol.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 143,
+        "name": "Smoke Elixir",
+        "imageUrl": "items/gloomhaven/64-151/gh-143-smoke-elixir.webp",
+        "slot": "Bag",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/bag.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 144,
+        "name": "Pendant Of The Plague",
+        "imageUrl": "items/gloomhaven/64-151/gh-144-pendant-of-the-plague.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 145,
+        "name": "Mask Of Death",
+        "imageUrl": "items/gloomhaven/64-151/gh-145-mask-of-death.webp",
+        "slot": "Head",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/head.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 146,
+        "name": "Masters Lute",
+        "imageUrl": "items/gloomhaven/64-151/gh-146-masters-lute.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 147,
+        "name": "Cloak Of The Hunter",
+        "imageUrl": "items/gloomhaven/64-151/gh-147-cloak-of-the-hunter.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 148,
+        "name": "Doctors Coat",
+        "imageUrl": "items/gloomhaven/64-151/gh-148-doctors-coat.webp",
+        "slot": "Chest",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/chest.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 149,
+        "name": "Elemental Boots",
+        "imageUrl": "items/gloomhaven/64-151/gh-149-elemental-boots.webp",
+        "slot": "Legs",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/legs.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
+    },
+    {
+        "id": 150,
+        "name": "Staff Of Command",
+        "imageUrl": "items/gloomhaven/64-151/gh-150-staff-of-command.webp",
+        "slot": "Two Hand",
+        "slotImageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp",
+        "group": "Solo Scenario Items",
+        "alternativeImageUrl": ""
     }
 ]
