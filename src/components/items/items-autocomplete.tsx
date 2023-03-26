@@ -10,8 +10,9 @@ import {
 import { v4 as uuid } from "uuid";
 import Image from "@/components/core/image";
 import { useSettingsContext } from "@/hooks/use-settings";
-import { getItems } from "@/services/items";
+import { filterItems } from "@/services/items";
 import { areItemsCompletelySpoiled } from "@/services/spoiler";
+import { items } from "@/loaders/gloomhaven/items";
 
 interface ItemsAutocompleteProps {
     character: Character;
@@ -32,7 +33,7 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 disablePortal
                 blurOnSelect
                 value={null}
-                options={getItems(settings)}
+                options={filterItems(items, settings.spoilerSettings)}
                 {...(!areItemsCompletelySpoiled(settings) && {
                     noOptionsText: "No options - check your spoiler settings",
                 })}

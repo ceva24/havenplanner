@@ -1,5 +1,5 @@
 import type { Dictionary } from "lodash";
-import { getItemImageUrl, getItems, getItemsByGroup, itemShouldBeHidden, orderItems } from "@/services/items";
+import { getItemImageUrl, filterItems, filterAndGroupItems, itemShouldBeHidden, orderItems } from "@/services/items";
 import {
     createTestItem,
     createTestItemGroup,
@@ -10,11 +10,11 @@ import {
 describe("getItems", () => {
     it("returns items not hidden by spoiler settings", () => {
         const settings: Settings = createTestSettingsWithItemSpoilers(1, []);
-        settings.gameData.items = [createTestItem(0, "Boots of Test", "1"), createTestItem(1, "Cloak of Test", "2")];
+        const items: Item[] = [createTestItem(0, "Boots of Test", "1"), createTestItem(1, "Cloak of Test", "2")];
 
-        const items = getItems(settings);
+        const filteredItems = filterItems(items, settings.spoilerSettings);
 
-        expect(items).toHaveLength(1);
+        expect(filteredItems).toHaveLength(1);
     });
 });
 
@@ -23,12 +23,12 @@ describe("getItemsByGroup", () => {
         const settings: Settings = createTestSettingsWithItemSpoilers(1, [
             createTestItemGroup(0, "Random Item Designs"),
         ]);
-        settings.gameData.items = [
+        const items: Item[] = [
             createTestItem(0, "Boots of Test", "1"),
             createTestItem(1, "Boots of Random Item Design Test", "Random Item Designs"),
         ];
 
-        const result: Dictionary<Item[]> = getItemsByGroup(settings);
+        const result: Dictionary<Item[]> = filterAndGroupItems(items, settings.spoilerSettings);
 
         expect(Object.keys(result)).toHaveLength(2);
         expect(Object.keys(result)).toEqual(["1", "Random Item Designs"]);
@@ -43,7 +43,6 @@ describe("itemShouldBeHidden", () => {
         const item = createTestItem(0, "Boots of Test", "2");
 
         const settings: Settings = createTestSettings();
-        settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
@@ -54,7 +53,6 @@ describe("itemShouldBeHidden", () => {
         const item = createTestItem(0, "Boots of Test", "2");
 
         const settings: Settings = createTestSettingsWithItemSpoilers(2, []);
-        settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
@@ -65,7 +63,6 @@ describe("itemShouldBeHidden", () => {
         const item = createTestItem(0, "Boots of Test", "2");
 
         const settings: Settings = createTestSettingsWithItemSpoilers(8, []);
-        settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
@@ -76,7 +73,6 @@ describe("itemShouldBeHidden", () => {
         const item = createTestItem(0, "Boots of Test", "Random Item Designs");
 
         const settings: Settings = createTestSettingsWithItemSpoilers(2, []);
-        settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 
@@ -89,7 +85,6 @@ describe("itemShouldBeHidden", () => {
         const settings: Settings = createTestSettingsWithItemSpoilers(2, [
             createTestItemGroup(0, "Random Item Designs"),
         ]);
-        settings.gameData.items = [item];
 
         const shouldBeHidden = itemShouldBeHidden(item, settings.spoilerSettings);
 

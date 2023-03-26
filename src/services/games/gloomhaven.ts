@@ -7,16 +7,17 @@ import { items } from "@/loaders/gloomhaven/items";
 import { personalQuests } from "@/loaders/gloomhaven/personal-quests";
 import { toUnlockableCharacterClassSummary } from "@/transformers/character";
 
+const gloomhaven: Game = games[0];
+
 const getGloomhavenGameData = (): GameData => {
     return {
-        game: games[0],
+        game: gloomhaven,
         characterClasses,
         unlockableCharacterClasses: unlockableCharacterClasses(characterClasses),
         personalQuests,
         enhancements,
         baseAttackModifierDeck: createBaseAttackModifierDeck(),
         battleGoalCheckmarks: createDefaultBattleGoals(),
-        items,
         itemGroups,
         defaultCharacter: getDefaultCharacter(),
     };
@@ -87,4 +88,11 @@ const createDefaultBattleGoals = (): BattleGoalCheckmarkGroup[] => {
     }));
 };
 
-export { getGloomhavenGameData };
+const getGloomhavenItemData = (): ItemData => {
+    return {
+        game: gloomhaven,
+        items,
+    };
+};
+
+export { getGloomhavenGameData, getGloomhavenItemData };

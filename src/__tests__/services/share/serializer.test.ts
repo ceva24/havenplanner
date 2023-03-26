@@ -15,7 +15,6 @@ describe("serializer", () => {
     it("serializes duplicate items", () => {
         const item: Item = createTestItem(1, "Boots of Test", "1");
         const settings: Settings = createTestSettings();
-        settings.gameData.items = [item];
 
         const character: Character = createTestCharacter();
         character.items = [

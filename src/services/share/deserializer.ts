@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 
-const deserialize = (characterData: SerializedCharacter, gameData: GameData): Character => {
+const deserialize = (characterData: SerializedCharacter, gameData: GameData, items: Item[]): Character => {
     const characterClass = deserializeCharacterClass(characterData.c, gameData);
     const personalQuest = deserializePersonalQuest(characterData.q, gameData);
 
@@ -16,7 +16,7 @@ const deserialize = (characterData: SerializedCharacter, gameData: GameData): Ch
         gainedEnhancements: deserializeGainedEnhancements(characterData.e, characterClass, gameData),
         gainedPerks: deserializeGainedPerks(characterData.p, characterClass),
         battleGoalCheckmarkGroups: deserializeGainedBattleGoalCheckmarks(characterData.b),
-        items: deserializeItems(characterData.i, gameData),
+        items: deserializeItems(characterData.i, items),
     };
 };
 
@@ -102,13 +102,9 @@ const deserializeGainedBattleGoalCheckmarks = (battleGoalIndices: boolean[][]): 
     }));
 };
 
-const deserializeItems = (itemData: Array<[number, boolean]>, gameData: GameData): CharacterItem[] => {
-    // Const itemIds: number[] = itemData.map((itemIdAndUrl: [number, boolean]) => itemIdAndUrl[0]);
-
-    // const validItemData: Array<[number, boolean]> = itemData.filter((itemIdAndUrl: [number, boolean]) => gameData.items.some((item: Item) => item.id === itemIdAndUrl[0]))
-
+const deserializeItems = (itemData: Array<[number, boolean]>, items: Item[]): CharacterItem[] => {
     const characterItems = itemData.map((itemIdAndUrl: [number, boolean]) => {
-        const item: Item | undefined = gameData.items.find((item: Item) => item.id === itemIdAndUrl[0]);
+        const item: Item | undefined = items.find((item: Item) => item.id === itemIdAndUrl[0]);
 
         return {
             id: uuid(),
@@ -122,18 +118,6 @@ const deserializeItems = (itemData: Array<[number, boolean]>, gameData: GameData
     );
 
     return validCharacterItems;
-
-    // Return gameData.items
-    //     .filter((item: Item) => itemIds.includes(item.id))
-    //     .map((item: Item) => ({ id: uuid(), item, showAlternativeImage: false }));
 };
-
-/*
-    Const validAbilityCards: AbilityCard[] = abilityCards.filter(
-        (abilityCard): abilityCard is AbilityCard => typeof abilityCard !== "undefined"
-    );
-
-    return validAbilityCards;
-*/
 
 export { deserialize };

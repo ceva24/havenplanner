@@ -1,6 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import BrowseItemsDialog from "@/components/items/browse-items-dialog";
-import { createTestSettings, createTestCharacter, createTestItem } from "@/test/create-test-fixtures";
+import { createTestSettings, createTestCharacter } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 const character: Character = createTestCharacter();
@@ -9,17 +9,6 @@ const settings: Settings = createTestSettings();
 
 const prosperityNineSettings = createTestSettings({
     spoilerSettings: { classes: [], items: { prosperity: 9, itemGroups: [] } },
-});
-
-beforeAll(() => {
-    const items = [
-        createTestItem(1, "Testing Bow", "1"),
-        createTestItem(2, "Boots of Test", "1"),
-        createTestItem(3, "Powerful Boots of Test", "2"),
-    ];
-
-    settings.gameData.items = items;
-    prosperityNineSettings.gameData.items = items;
 });
 
 describe("browse items dialog", () => {
@@ -40,7 +29,7 @@ describe("browse items dialog", () => {
             </TestSettingsProvider>
         );
 
-        const item = screen.queryByRole("img", { name: "Testing Bow" });
+        const item = screen.queryByRole("img", { name: "Boots of Striding" });
 
         expect(item).toBeInTheDocument();
     });
@@ -54,7 +43,7 @@ describe("browse items dialog", () => {
 
         const items = screen.queryAllByRole("img");
 
-        expect(items).toHaveLength(2);
+        expect(items).toHaveLength(14);
     });
 
     it("renders the items based on the current prosperity level", () => {
@@ -66,7 +55,7 @@ describe("browse items dialog", () => {
 
         const items = screen.queryAllByRole("img");
 
-        expect(items).toHaveLength(3);
+        expect(items).toHaveLength(70);
     });
 
     it("renders items as item groups", () => {
@@ -80,7 +69,7 @@ describe("browse items dialog", () => {
 
         const items = within(itemGroup).queryAllByRole("img");
 
-        expect(items).toHaveLength(2);
+        expect(items).toHaveLength(14);
     });
 
     it("renders the spoiler hint", () => {

@@ -2,9 +2,10 @@ import type { Dispatch, SetStateAction } from "react";
 import { Box, Typography } from "@mui/material";
 import ItemGroup from "@/components/items/item-group";
 import FullScreenDialog from "@/components/core/full-screen-dialog";
-import { getItemsByGroup } from "@/services/items";
+import { filterAndGroupItems } from "@/services/items";
 import { useSettingsContext } from "@/hooks/use-settings";
 import { areItemsCompletelySpoiled } from "@/services/spoiler";
+import { items } from "@/loaders/gloomhaven/items";
 
 interface BrowseItemsDialogProps {
     isOpen: boolean;
@@ -19,21 +20,23 @@ const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: Bro
     return (
         <FullScreenDialog title="Browse items" isOpen={isOpen} handleClose={handleClose}>
             <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                {Object.entries(getItemsByGroup(settings)).map((itemGroup: [string, Item[]]) => {
-                    const title: string = itemGroup[0];
-                    const items: Item[] = itemGroup[1];
+                {Object.entries(filterAndGroupItems(items, settings.spoilerSettings)).map(
+                    (itemGroup: [string, Item[]]) => {
+                        const title: string = itemGroup[0];
+                        const items: Item[] = itemGroup[1];
 
-                    return (
-                        <ItemGroup
-                            key={title}
-                            title={title}
-                            items={items}
-                            handleClose={handleClose}
-                            character={character}
-                            setCharacter={setCharacter}
-                        />
-                    );
-                })}
+                        return (
+                            <ItemGroup
+                                key={title}
+                                title={title}
+                                items={items}
+                                handleClose={handleClose}
+                                character={character}
+                                setCharacter={setCharacter}
+                            />
+                        );
+                    }
+                )}
             </Box>
             {!areItemsCompletelySpoiled(settings) && (
                 <Box textAlign="center" marginY={3}>

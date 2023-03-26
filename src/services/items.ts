@@ -3,12 +3,12 @@ import groupBy from "lodash.groupby";
 
 const itemOrder = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
 
-const getItems = (settings: Settings): Item[] => {
-    return settings.gameData.items.filter((item: Item) => !itemShouldBeHidden(item, settings.spoilerSettings));
+const filterItems = (items: Item[], spoilerSettings: SpoilerSettings): Item[] => {
+    return items.filter((item: Item) => !itemShouldBeHidden(item, spoilerSettings));
 };
 
-const getItemsByGroup = (settings: Settings): Dictionary<Item[]> => {
-    const filteredItems = getItems(settings);
+const filterAndGroupItems = (items: Item[], spoilerSettings: SpoilerSettings): Dictionary<Item[]> => {
+    const filteredItems = filterItems(items, spoilerSettings);
 
     return groupBy(filteredItems, (item: Item) => item.group);
 };
@@ -35,4 +35,4 @@ const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
         );
 };
 
-export { getItems, getItemsByGroup, itemShouldBeHidden, getItemImageUrl, orderItems };
+export { filterItems, filterAndGroupItems, itemShouldBeHidden, getItemImageUrl, orderItems };
