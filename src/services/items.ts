@@ -7,10 +7,8 @@ const filterItems = (items: Item[], spoilerSettings: SpoilerSettings): Item[] =>
     return items.filter((item: Item) => !itemShouldBeHidden(item, spoilerSettings));
 };
 
-const filterAndGroupItems = (items: Item[], spoilerSettings: SpoilerSettings): Dictionary<Item[]> => {
-    const filteredItems = filterItems(items, spoilerSettings);
-
-    return groupBy(filteredItems, (item: Item) => item.group);
+const groupItems = (items: Item[]): Dictionary<Item[]> => {
+    return groupBy(items, (item: Item) => item.group);
 };
 
 const itemShouldBeHidden = (item: Item, spoilerSettings: SpoilerSettings): boolean => {
@@ -35,4 +33,4 @@ const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
         );
 };
 
-export { filterItems, filterAndGroupItems, itemShouldBeHidden, getItemImageUrl, orderItems };
+export { filterItems, groupItems, itemShouldBeHidden, getItemImageUrl, orderItems };

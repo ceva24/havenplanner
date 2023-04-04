@@ -1,5 +1,5 @@
 import type { Dictionary } from "lodash";
-import { getItemImageUrl, filterItems, filterAndGroupItems, itemShouldBeHidden, orderItems } from "@/services/items";
+import { getItemImageUrl, filterItems, groupItems, itemShouldBeHidden, orderItems } from "@/services/items";
 import {
     createTestItem,
     createTestItemGroup,
@@ -20,15 +20,12 @@ describe("getItems", () => {
 
 describe("getItemsByGroup", () => {
     it("groups items by title", () => {
-        const settings: Settings = createTestSettingsWithItemSpoilers(1, [
-            createTestItemGroup(0, "Random Item Designs"),
-        ]);
         const items: Item[] = [
             createTestItem(0, "Boots of Test", "1"),
             createTestItem(1, "Boots of Random Item Design Test", "Random Item Designs"),
         ];
 
-        const result: Dictionary<Item[]> = filterAndGroupItems(items, settings.spoilerSettings);
+        const result: Dictionary<Item[]> = groupItems(items);
 
         expect(Object.keys(result)).toHaveLength(2);
         expect(Object.keys(result)).toEqual(["1", "Random Item Designs"]);

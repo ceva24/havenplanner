@@ -10,16 +10,15 @@ import {
 import { v4 as uuid } from "uuid";
 import Image from "@/components/core/image";
 import { useSettingsContext } from "@/hooks/use-settings";
-import { filterItems } from "@/services/items";
 import { areItemsCompletelySpoiled } from "@/services/spoiler";
-import { items } from "@/loaders/gloomhaven/items";
 
 interface ItemsAutocompleteProps {
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
+    items: Item[];
 }
 
-const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) => {
+const ItemsAutocomplete = ({ character, setCharacter, items }: ItemsAutocompleteProps) => {
     const [settings] = useSettingsContext();
 
     // eslint-disable-next-line @typescript-eslint/ban-types
@@ -33,7 +32,7 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 disablePortal
                 blurOnSelect
                 value={null}
-                options={filterItems(items, settings.spoilerSettings)}
+                options={items}
                 {...(!areItemsCompletelySpoiled(settings) && {
                     noOptionsText: "No options - check your spoiler settings",
                 })}

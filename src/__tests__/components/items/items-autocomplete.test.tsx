@@ -22,7 +22,7 @@ beforeEach(() => {
 
 describe("items autocomplete", () => {
     it("renders", () => {
-        render(<ItemsAutocomplete character={character} setCharacter={setCharacter} />, {
+        render(<ItemsAutocomplete character={character} setCharacter={setCharacter} items={[]} />, {
             wrapper: TestSettingsProvider,
         });
 
