@@ -12,14 +12,13 @@ interface ItemsProps {
 }
 
 const Items = ({ character, setCharacter }: ItemsProps) => {
-    const [items, setItems] = useState<Item[]>([]);
     const [itemsDialogOpen, setItemsDialogOpen] = useState<boolean>(false);
 
     return (
         <Grid container spacing={5}>
             <Grid item xs={12}>
                 <Stack direction="row" spacing={3} justifyContent="center">
-                    <ItemsAutocomplete character={character} setCharacter={setCharacter} items={items} />
+                    <ItemsAutocomplete character={character} setCharacter={setCharacter} />
                     <IconButton
                         id="browse-items-button"
                         label="Browse Items"
@@ -35,7 +34,6 @@ const Items = ({ character, setCharacter }: ItemsProps) => {
                         }}
                         character={character}
                         setCharacter={setCharacter}
-                        items={items}
                     />
                 </Stack>
             </Grid>

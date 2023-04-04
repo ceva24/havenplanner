@@ -4,6 +4,7 @@ import ItemGroup from "@/components/items/item-group";
 import FullScreenDialog from "@/components/core/full-screen-dialog";
 import { groupItems } from "@/services/items";
 import { useSettingsContext } from "@/hooks/use-settings";
+import { type UseItems, useItems } from "@/hooks/use-items";
 import { areItemsCompletelySpoiled } from "@/services/spoiler";
 
 interface BrowseItemsDialogProps {
@@ -11,16 +12,16 @@ interface BrowseItemsDialogProps {
     handleClose: () => void;
     character: Character;
     setCharacter: Dispatch<SetStateAction<Character>>;
-    items: Item[];
 }
 
-const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter, items }: BrowseItemsDialogProps) => {
+const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: BrowseItemsDialogProps) => {
     const [settings] = useSettingsContext();
+    const { items }: UseItems = useItems(settings);
 
     return (
         <FullScreenDialog title="Browse items" isOpen={isOpen} handleClose={handleClose}>
             <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                {Object.entries(groupItems(items)).map((itemGroup: [string, Item[]]) => {
+                {Object.entries(groupItems(items ?? [])).map((itemGroup: [string, Item[]]) => {
                     const title: string = itemGroup[0];
                     const items: Item[] = itemGroup[1];
 
