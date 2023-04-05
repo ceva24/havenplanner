@@ -36,4 +36,4 @@ const fetch = async (settings: Settings): Promise<Item[]> => {
         .then((response: AxiosResponse<ItemsResponseData>) => response.data.items);
 };
 
-export { useItems, type UseItems };
+export { useItems, type UseItems, fetch };
