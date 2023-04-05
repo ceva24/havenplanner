@@ -13,7 +13,6 @@ interface GameData {
     enhancements: Enhancement[];
     baseAttackModifierDeck: AttackModifierDeckCard[];
     battleGoalCheckmarks: BattleGoalCheckmarkGroup[];
-    items: Item[];
     itemGroups: ItemGroup[];
     defaultCharacter: Character;
 }
@@ -28,6 +27,11 @@ interface SpoilerSettings {
 interface ItemSpoilerSettings {
     prosperity: number;
     itemGroups: ItemGroup[];
+}
+
+interface ItemData {
+    game: Game;
+    items: Item[];
 }
 
 interface Character {

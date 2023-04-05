@@ -13,7 +13,6 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
             enhancements: [],
             baseAttackModifierDeck: [],
             battleGoalCheckmarks: [{ id: 0, checkmarks: [{ id: 0, value: false }] }],
-            items: [],
             itemGroups: [{ id: 1, name: "Random Item Designs" }],
             defaultCharacter: createTestCharacter({ characterClass }),
         },

@@ -9,6 +9,7 @@
     "rules": {
         "@next/next/no-img-element": "off",
         "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+        "@typescript-eslint/no-implicit-any-catch": "off",
         "import/extensions": ["error", { "tsx": "never" }],
         "react/jsx-indent": "off",
         "react/jsx-indent-props": "off",

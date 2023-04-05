@@ -1,33 +1,33 @@
-import { getGloomhavenGameData } from "@/services/games/gloomhaven";
+import { getGloomhavenGameData, getGloomhavenItemData } from "@/services/games/gloomhaven";
 
-jest.mock("@/loaders/attack-modifiers", () => ({
+jest.mock("@/loaders/gloomhaven/attack-modifiers", () => ({
     attackModifiers: [],
 }));
 
-jest.mock("@/loaders/character-classes", () => ({
+jest.mock("@/loaders/gloomhaven/character-classes", () => ({
     characterClasses: [
         { id: 1, name: "Test Frog", initiallyLocked: false },
         { id: 2, name: "Test Spoiler", initiallyLocked: true },
     ],
 }));
 
-jest.mock("@/loaders/enhancements", () => ({
+jest.mock("@/loaders/gloomhaven/enhancements", () => ({
     enhancements: [],
 }));
 
-jest.mock("@/loaders/games", () => ({
+jest.mock("@/loaders/gloomhaven/games", () => ({
     games: [{ id: 1, name: "Test Gloomhaven" }],
 }));
 
-jest.mock("@/loaders/item-groups", () => ({
+jest.mock("@/loaders/gloomhaven/item-groups", () => ({
     itemGroups: [],
 }));
 
-jest.mock("@/loaders/items", () => ({
-    items: [],
+jest.mock("@/loaders/gloomhaven/items", () => ({
+    items: [{ id: 0, name: "Boots of Test" }],
 }));
 
-jest.mock("@/loaders/personal-quests", () => ({
+jest.mock("@/loaders/gloomhaven/personal-quests", () => ({
     personalQuests: [],
 }));
 
@@ -69,13 +69,13 @@ describe("getGameData", () => {
     });
 
     it("creates six battle goal checkmark groups", () => {
-        const gameData = getGloomhavenGameData();
+        const gameData: GameData = getGloomhavenGameData();
 
         expect(gameData.battleGoalCheckmarks).toHaveLength(6);
     });
 
     it("creates battle goal checkmarks groups of three checkmarks", () => {
-        const gameData = getGloomhavenGameData();
+        const gameData: GameData = getGloomhavenGameData();
 
         gameData.battleGoalCheckmarks.forEach((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => {
             expect(battleGoalCheckmarkGroup.checkmarks).toHaveLength(3);
@@ -83,12 +83,27 @@ describe("getGameData", () => {
     });
 
     it("initializes all battle goal checkmark values to false", () => {
-        const gameData = getGloomhavenGameData();
+        const gameData: GameData = getGloomhavenGameData();
 
         gameData.battleGoalCheckmarks.forEach((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => {
             battleGoalCheckmarkGroup.checkmarks.forEach((checkmark: BattleGoalCheckmark) => {
                 expect(checkmark.value).toEqual(false);
             });
         });
+    });
+});
+
+describe("getGloomhavenItemData", () => {
+    it("sets the game to the first game in the list", () => {
+        const itemData: ItemData = getGloomhavenItemData();
+
+        expect(itemData.game.name).toEqual("Test Gloomhaven");
+    });
+
+    it("sets the items", () => {
+        const itemData: ItemData = getGloomhavenItemData();
+
+        expect(itemData.items).toHaveLength(1);
+        expect(itemData.items[0].name).toEqual("Boots of Test");
     });
 });

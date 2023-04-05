@@ -44,10 +44,10 @@ interface Perk extends Asset {
 interface AttackModifierCard extends VisualAsset {}
 
 interface Item extends VisualAsset {
-    alternativeImageUrl: string;
     slot: string;
     slotImageUrl: string;
     group: string;
+    alternativeImageUrl?: string;
 }
 
 interface ItemGroup extends Asset {}

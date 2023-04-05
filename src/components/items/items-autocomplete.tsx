@@ -10,7 +10,7 @@ import {
 import { v4 as uuid } from "uuid";
 import Image from "@/components/core/image";
 import { useSettingsContext } from "@/hooks/use-settings";
-import { getItems } from "@/services/items";
+import { type UseItems, useItems } from "@/hooks/use-items";
 import { areItemsCompletelySpoiled } from "@/services/spoiler";
 
 interface ItemsAutocompleteProps {
@@ -20,6 +20,7 @@ interface ItemsAutocompleteProps {
 
 const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) => {
     const [settings] = useSettingsContext();
+    const { items, isLoading, isError }: UseItems = useItems(settings);
 
     // eslint-disable-next-line @typescript-eslint/ban-types
     const handleChange = (event: SyntheticEvent, value: Item | null) => {
@@ -32,10 +33,8 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 disablePortal
                 blurOnSelect
                 value={null}
-                options={getItems(settings)}
-                {...(!areItemsCompletelySpoiled(settings) && {
-                    noOptionsText: "No options - check your spoiler settings",
-                })}
+                options={items ?? []}
+                noOptionsText={noOptionsText(isLoading, isError, settings)}
                 getOptionLabel={(item: Item) => {
                     return `${item.name} ${formattedItemId(item.id)}`;
                 }}
@@ -63,6 +62,19 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
             />
         </FormControl>
     );
+};
+
+const noOptionsText = (isLoading: boolean, isError: boolean, settings: Settings) => {
+    switch (true) {
+        case isError:
+            return "Failed to load items";
+        case isLoading:
+            return "Loading...";
+        case !areItemsCompletelySpoiled(settings):
+            return "No options - check your spoiler settings";
+        default:
+            return "No options";
+    }
 };
 
 const formattedItemId = (id: number): string => {

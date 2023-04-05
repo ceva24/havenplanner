@@ -12,13 +12,13 @@ const settings: Settings = createTestSettings();
 describe("deserialize", () => {
     it("sets new uuids on character items", () => {
         const settings: Settings = createTestSettings();
-        settings.gameData.items = [createTestItem(2, "Boots of Test", "1"), createTestItem(8, "Cloak of Test", "1")];
+        const items: Item[] = [createTestItem(2, "Boots of Test", "1"), createTestItem(8, "Cloak of Test", "1")];
 
         const data = JSON.parse(
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[[2,false],[8,false]],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData);
+        const character: Character = deserialize(data, settings.gameData, items);
 
         expect(character.items).toHaveLength(2);
         expect(character.items[0].id).toEqual("123");
@@ -30,7 +30,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[[-1,false]],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData);
+        const character: Character = deserialize(data, settings.gameData, []);
 
         expect(character.items).toHaveLength(0);
     });
@@ -40,7 +40,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":-1,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData);
+        const character: Character = deserialize(data, settings.gameData, []);
 
         expect(character.characterClass.name).toEqual("Test Brute");
     });
@@ -50,7 +50,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":1,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData);
+        const character: Character = deserialize(data, settings.gameData, []);
 
         expect(character).not.toHaveProperty("personalQuest");
     });
@@ -60,7 +60,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[-2],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData);
+        const character: Character = deserialize(data, settings.gameData, []);
 
         expect(character.unlockedAbilityCards).toHaveLength(0);
     });
@@ -70,7 +70,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[-2],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData);
+        const character: Character = deserialize(data, settings.gameData, []);
 
         expect(character.hand).toHaveLength(0);
     });
@@ -99,7 +99,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[1,0],[3,0]],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData);
+        const character: Character = deserialize(data, settings.gameData, []);
 
         expect(character.gainedPerks).toHaveLength(2);
 
@@ -112,7 +112,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[-1, 0]],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData);
+        const character: Character = deserialize(data, settings.gameData, []);
 
         expect(character.gainedPerks).toHaveLength(0);
     });
