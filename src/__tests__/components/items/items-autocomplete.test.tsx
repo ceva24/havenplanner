@@ -4,11 +4,15 @@ import ItemsAutocomplete, { addItem, formattedItemId } from "@/components/items/
 import { createTestCharacter, createTestItem } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
-const mockUuid = "123";
-
 jest.mock("uuid", () => {
     return {
-        v4: () => mockUuid,
+        v4: jest.fn().mockReturnValue("123"),
+    };
+});
+
+jest.mock("@/hooks/use-items", () => {
+    return {
+        useItems: jest.fn().mockReturnValue({ items: [], isLoading: false, isError: false }),
     };
 });
 
@@ -70,7 +74,7 @@ describe("addItem", () => {
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
             ...character,
-            items: [{ id: mockUuid, item, showAlternativeImage: false }],
+            items: [{ id: "123", item, showAlternativeImage: false }],
         });
     });
 
