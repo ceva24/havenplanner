@@ -1,5 +1,5 @@
 import { compress, decompress } from "lzbase62";
-import { getGameDataById, getItemsByGameId } from "@/services/games/game";
+import { getClassesByGameId, getGameDataById, getItemsByGameId } from "@/services/games/game";
 import { serialize } from "@/services/share/serializer";
 import { deserialize } from "@/services/share/deserializer";
 
@@ -20,9 +20,10 @@ const decode = (data: string): SaveData => {
     const characterData = JSON.parse(serializedData) as SerializedCharacter;
 
     const gameData: GameData = getGameDataById(characterData.a);
+    const classes: CharacterClass[] = getClassesByGameId(characterData.a);
     const items: Item[] = getItemsByGameId(characterData.a);
 
-    return { character: deserialize(characterData, gameData, items), gameData };
+    return { character: deserialize(characterData, gameData, classes, items), gameData };
 };
 
 export { encode, decode, type SaveData };

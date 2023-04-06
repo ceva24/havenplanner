@@ -4,7 +4,8 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import Image from "@/components/core/image";
 import { useSettingsContext } from "@/hooks/use-settings";
 import { areCharactersCompletelySpoiled } from "@/services/spoiler";
-import { getCharacterClasses } from "@/services/character-classes";
+import { filterCharacterClasses } from "@/services/character-classes";
+import { characterClasses } from "@/loaders/gloomhaven/character-classes";
 
 interface ClassSelectProps {
     character: Character;
@@ -28,20 +29,22 @@ const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSel
                 labelId="select-class-label"
                 onChange={handleChange}
             >
-                {getCharacterClasses(settings).map((characterClass: CharacterClass) => (
-                    <MenuItem key={characterClass.id} value={characterClass.name}>
-                        <Image
-                            webpPath={characterClass.imageUrl}
-                            fallbackImageType="png"
-                            altText={`${characterClass.name} Class Icon`}
-                            style={{ verticalAlign: "middle", marginRight: 10, flexShrink: 0 }}
-                            height={30}
-                            width={30}
-                            aria-hidden="true"
-                        />
-                        {characterClass.name}
-                    </MenuItem>
-                ))}
+                {filterCharacterClasses(characterClasses, settings.spoilerSettings).map(
+                    (characterClass: CharacterClass) => (
+                        <MenuItem key={characterClass.id} value={characterClass.name}>
+                            <Image
+                                webpPath={characterClass.imageUrl}
+                                fallbackImageType="png"
+                                altText={`${characterClass.name} Class Icon`}
+                                style={{ verticalAlign: "middle", marginRight: 10, flexShrink: 0 }}
+                                height={30}
+                                width={30}
+                                aria-hidden="true"
+                            />
+                            {characterClass.name}
+                        </MenuItem>
+                    )
+                )}
                 {!areCharactersCompletelySpoiled(settings) && (
                     <MenuItem key="spoiler-hint" disabled value="Spoiler hint">
                         Change your spoiler settings to see more classes...
@@ -58,7 +61,7 @@ const findAndSetCharacterClass = (
     setCharacter: Dispatch<SetStateAction<Character>>,
     settings: Settings
 ) => {
-    const selectedCharacterClass: CharacterClass | undefined = settings.gameData.characterClasses.find(
+    const selectedCharacterClass: CharacterClass | undefined = characterClasses.find(
         (characterClass: CharacterClass) => {
             return characterClass.name === characterClassName;
         }

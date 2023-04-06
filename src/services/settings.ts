@@ -1,5 +1,5 @@
 import { getGameDataById } from "@/services/games/game";
-import { toUnlockableCharacterClassSummary } from "@/transformers/character";
+import { toUnlockableCharacterClassSummary } from "@/transformers/unlockable-character-class-summary";
 
 const getDefaultSettings = (): Settings => {
     return getSettingsForGame(1);

@@ -49,7 +49,7 @@ const updateCharacterAfterChangingSpoilerSettings = (
         ),
     };
 
-    if (isUnlocked(character.characterClass, settings)) {
+    if (isUnlocked(character.characterClass, settings.spoilerSettings)) {
         setCharacter(newCharacter);
     } else {
         findAndSetCharacterClass(settings.gameData.defaultCharacter.name, newCharacter, setCharacter, settings);

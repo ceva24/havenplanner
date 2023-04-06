@@ -2,6 +2,7 @@ import { getGameDataById, getItemsByGameId } from "@/services/games/game";
 
 jest.mock("@/services/games/gloomhaven", () => ({
     getGloomhavenGameData: jest.fn().mockReturnValue({ game: { id: 0, name: "Test Gloomy" } }),
+    getGloomhavenCharacterClassData: jest.fn().mockReturnValue({ game: { id: 0, name: "Test Gloomy" }, classes: [] }),
     getGloomhavenItemData: jest.fn().mockReturnValue({
         game: { id: 0, name: "Test Gloomy" },
         items: [

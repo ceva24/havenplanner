@@ -125,7 +125,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
         spoilerCharacterClass.initiallyLocked = true;
 
         const settings: Settings = createTestSettings();
-        settings.gameData.characterClasses.concat(spoilerCharacterClass);
+        settings.gameData.initialCharacterClasses.concat(spoilerCharacterClass);
 
         const character: Character = createTestCharacter({ characterClass: spoilerCharacterClass });
 
@@ -143,7 +143,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
         spoilerCharacterClass.initiallyLocked = true;
 
         const settings: Settings = createTestSettings();
-        settings.gameData.characterClasses.concat(spoilerCharacterClass);
+        settings.gameData.initialCharacterClasses.concat(spoilerCharacterClass);
 
         const character: Character = createTestCharacter();
 

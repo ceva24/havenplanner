@@ -1,7 +1,12 @@
 import { v4 as uuid } from "uuid";
 
-const deserialize = (characterData: SerializedCharacter, gameData: GameData, items: Item[]): Character => {
-    const characterClass = deserializeCharacterClass(characterData.c, gameData);
+const deserialize = (
+    characterData: SerializedCharacter,
+    gameData: GameData,
+    classes: CharacterClass[],
+    items: Item[]
+): Character => {
+    const characterClass = deserializeCharacterClass(characterData.c, gameData, classes);
     const personalQuest = deserializePersonalQuest(characterData.q, gameData);
 
     return {
@@ -20,9 +25,13 @@ const deserialize = (characterData: SerializedCharacter, gameData: GameData, ite
     };
 };
 
-const deserializeCharacterClass = (characterClassId: number, gameData: GameData): CharacterClass => {
+const deserializeCharacterClass = (
+    characterClassId: number,
+    gameData: GameData,
+    classes: CharacterClass[]
+): CharacterClass => {
     return (
-        gameData.characterClasses.find((characterClass: CharacterClass) => characterClass.id === characterClassId) ??
+        classes.find((characterClass: CharacterClass) => characterClass.id === characterClassId) ??
         gameData.defaultCharacter.characterClass
     );
 };

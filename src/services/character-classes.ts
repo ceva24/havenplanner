@@ -1,16 +1,17 @@
-const getCharacterClasses = (settings: Settings): CharacterClass[] => {
-    return settings.gameData.characterClasses.filter((characterClass: CharacterClass) =>
-        isUnlocked(characterClass, settings)
-    );
+const filterCharacterClasses = (
+    characterClasses: CharacterClass[],
+    spoilerSettings: SpoilerSettings
+): CharacterClass[] => {
+    return characterClasses.filter((characterClass: CharacterClass) => isUnlocked(characterClass, spoilerSettings));
 };
 
-const isUnlocked = (characterClass: CharacterClass, settings: Settings): boolean => {
+const isUnlocked = (characterClass: CharacterClass, spoilerSettings: SpoilerSettings): boolean => {
     return (
         !characterClass.initiallyLocked ||
-        settings.spoilerSettings.classes.some(
+        spoilerSettings.classes.some(
             (unlockedClass: UnlockableCharacterClassSummary) => unlockedClass.id === characterClass.id
         )
     );
 };
 
-export { getCharacterClasses, isUnlocked };
+export { filterCharacterClasses, isUnlocked };

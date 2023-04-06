@@ -7,7 +7,7 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
                 id: 0,
                 name: "Gloomhaven Test",
             },
-            characterClasses: [characterClass],
+            initialCharacterClasses: [characterClass],
             unlockableCharacterClasses: [],
             personalQuests: [],
             enhancements: [],

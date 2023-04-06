@@ -5,31 +5,40 @@ import { games } from "@/loaders/gloomhaven/games";
 import { itemGroups } from "@/loaders/gloomhaven/item-groups";
 import { items } from "@/loaders/gloomhaven/items";
 import { personalQuests } from "@/loaders/gloomhaven/personal-quests";
-import { toUnlockableCharacterClassSummary } from "@/transformers/character";
+import { toCharacterClassSummary } from "@/transformers/character-class-summary";
+import { toUnlockableCharacterClassSummary } from "@/transformers/unlockable-character-class-summary";
 
 const gloomhaven: Game = games[0];
 
 const getGloomhavenGameData = (): GameData => {
     return {
         game: gloomhaven,
-        characterClasses,
-        unlockableCharacterClasses: unlockableCharacterClasses(characterClasses),
+        initialCharacterClasses: createCharacterClassSummaries(characterClasses),
+        unlockableCharacterClasses: createUnlockableCharacterClassSummaries(characterClasses),
         personalQuests,
         enhancements,
         baseAttackModifierDeck: createBaseAttackModifierDeck(),
         battleGoalCheckmarks: createDefaultBattleGoals(),
         itemGroups,
-        defaultCharacter: getDefaultCharacter(),
+        defaultCharacter: createDefaultCharacter(),
     };
 };
 
-const unlockableCharacterClasses = (characterClasses: CharacterClass[]): UnlockableCharacterClassSummary[] => {
+const createCharacterClassSummaries = (characterClasses: CharacterClass[]): CharacterClassSummary[] => {
+    return characterClasses
+        .filter((characterClass: CharacterClass) => !characterClass.initiallyLocked)
+        .map((characterClass: CharacterClass) => toCharacterClassSummary(characterClass));
+};
+
+const createUnlockableCharacterClassSummaries = (
+    characterClasses: CharacterClass[]
+): UnlockableCharacterClassSummary[] => {
     return characterClasses
         .filter((characterClass: CharacterClass) => characterClass.initiallyLocked)
         .map((characterClass: CharacterClass) => toUnlockableCharacterClassSummary(characterClass));
 };
 
-const getDefaultCharacter = (): Character => {
+const createDefaultCharacter = (): Character => {
     return {
         name: "",
         experience: 0,
@@ -88,6 +97,13 @@ const createDefaultBattleGoals = (): BattleGoalCheckmarkGroup[] => {
     }));
 };
 
+const getGloomhavenCharacterClassData = (): CharacterClassData => {
+    return {
+        game: gloomhaven,
+        classes: characterClasses,
+    };
+};
+
 const getGloomhavenItemData = (): ItemData => {
     return {
         game: gloomhaven,
@@ -95,4 +111,4 @@ const getGloomhavenItemData = (): ItemData => {
     };
 };
 
-export { getGloomhavenGameData, getGloomhavenItemData };
+export { getGloomhavenGameData, getGloomhavenCharacterClassData, getGloomhavenItemData };
