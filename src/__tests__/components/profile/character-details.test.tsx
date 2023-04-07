@@ -39,21 +39,6 @@ describe("character details", () => {
         expect(nameField).toHaveValue("My Char");
     });
 
-    it("renders the class select", () => {
-        render(<CharacterDetails character={character} setCharacter={setCharacter} />, {
-            wrapper: TestSettingsProvider,
-        });
-
-        const characterDetailsForm = screen.getByRole("form", {
-            name: "Character Details",
-        });
-        const classIcon = within(characterDetailsForm).queryByRole("button", {
-            name: "Class",
-        });
-
-        expect(classIcon).toBeInTheDocument();
-    });
-
     it("renders the character experience", () => {
         render(<CharacterDetails character={character} setCharacter={setCharacter} />, {
             wrapper: TestSettingsProvider,

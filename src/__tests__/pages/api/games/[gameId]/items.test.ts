@@ -3,9 +3,9 @@ import { type Mocks, createMocks } from "node-mocks-http";
 import { createTestItem, createTestSettings } from "@/test/create-test-fixtures";
 import * as gameService from "@/services/games/game";
 import * as itemsService from "@/services/items";
-import handler from "@/pages/api/items";
+import handler from "@/pages/api/games/[gameId]/items";
 
-const itemsRequestData: ItemsRequestData = { gameId: 1, spoilerSettings: createTestSettings().spoilerSettings };
+const itemsRequestData: GameDataRequest = { spoilerSettings: createTestSettings().spoilerSettings };
 
 jest.mock("@/services/games/game", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
@@ -54,7 +54,7 @@ describe("items", () => {
 
         handler(req, res);
 
-        const expectedResponse: ItemsResponseData = {
+        const expectedResponse: ItemDataResponse = {
             items: [item],
         };
 
@@ -73,7 +73,7 @@ describe("items", () => {
 
         handler(req, res);
 
-        const expectedResponse: ErrorResponseData = {
+        const expectedResponse: ErrorResponse = {
             error: "Game ID not found",
         };
 
@@ -86,16 +86,9 @@ describe("items", () => {
 
         handler(req, res);
 
-        const expectedResponse: ErrorResponseData = {
+        const expectedResponse: ErrorResponse = {
             error: {
                 issues: [
-                    {
-                        code: "invalid_type",
-                        expected: "number",
-                        received: "undefined",
-                        path: ["gameId"],
-                        message: "Required",
-                    },
                     {
                         code: "invalid_type",
                         expected: "object",

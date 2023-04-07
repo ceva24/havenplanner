@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import BrowseItemsDialog from "@/components/items/browse-items-dialog";
 import { createTestSettings, createTestCharacter, createTestItem } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
-import * as useItemsHook from "@/hooks/use-items";
+import * as useItemsHook from "@/hooks/data/use-items";
 
 const character: Character = createTestCharacter();
 
@@ -10,11 +10,11 @@ const settings: Settings = createTestSettings();
 
 const item: Item = createTestItem(1, "Boots of Test", "1");
 
-jest.mock("@/hooks/use-items", () => {
+jest.mock("@/hooks/data/use-items", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
         __esModule: true,
-        ...jest.requireActual("@/hooks/use-items"),
+        ...jest.requireActual("@/hooks/data/use-items"),
     };
 });
 

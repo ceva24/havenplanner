@@ -30,12 +30,12 @@ describe("settings button", () => {
 });
 
 describe("updateCharacterAfterChangingSpoilerSettings", () => {
-    it("removes an item higher than the current prosperity level", () => {
+    it("removes an item higher than the current prosperity level", async () => {
         const character: Character = createTestCharacter({
             items: [{ id: "1", item: createTestItem(1, "Boots of Test", "9"), showAlternativeImage: false }],
         });
 
-        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+        await updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -44,31 +44,31 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
         });
     });
 
-    it("does not remove an item equal to the current prosperity level", () => {
+    it("does not remove an item equal to the current prosperity level", async () => {
         const character: Character = createTestCharacter({
             items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false }],
         });
 
-        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+        await updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);
     });
 
-    it("does not remove an item lower than the current prosperity level", () => {
+    it("does not remove an item lower than the current prosperity level", async () => {
         const character: Character = createTestCharacter({
             items: [{ id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false }],
         });
 
         const prosperityTwoSettings = createTestSettingsWithItemSpoilers(2, []);
 
-        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, prosperityTwoSettings);
+        await updateCharacterAfterChangingSpoilerSettings(character, setCharacter, prosperityTwoSettings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);
     });
 
-    it("removes items higher than the current prosperity level and does not remove items lower than the current prosperity level", () => {
+    it("removes items higher than the current prosperity level and does not remove items lower than the current prosperity level", async () => {
         const character: Character = createTestCharacter({
             items: [
                 { id: "1", item: createTestItem(1, "Boots of Test", "1"), showAlternativeImage: false },
@@ -76,7 +76,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
             ],
         });
 
-        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+        await updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -85,7 +85,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
         });
     });
 
-    it("removes items not in the active item groups", () => {
+    it("removes items not in the active item groups", async () => {
         const character: Character = createTestCharacter({
             items: [
                 {
@@ -96,7 +96,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
             ],
         });
 
-        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+        await updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -105,7 +105,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
         });
     });
 
-    it("does not remove items in the active item groups", () => {
+    it("does not remove items in the active item groups", async () => {
         const item = createTestItem(1, "Secret Boots of Test", "Random Item Designs");
 
         const character: Character = createTestCharacter({
@@ -114,13 +114,13 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
 
         const settings: Settings = createTestSettingsWithItemSpoilers(2, [{ id: 1, name: item.group }]);
 
-        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+        await updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);
     });
 
-    it("resets the character class to default when it is a locked class that is not active", () => {
+    it("resets the character class to default when it is a locked class that is not active", async () => {
         const spoilerCharacterClass: CharacterClass = createTestCharacterClass(2, "Test Spoiler");
         spoilerCharacterClass.initiallyLocked = true;
 
@@ -129,7 +129,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
 
         const character: Character = createTestCharacter({ characterClass: spoilerCharacterClass });
 
-        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+        await updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith({
@@ -138,7 +138,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
         });
     });
 
-    it("does not reset the character class to default when it is a starter class", () => {
+    it("does not reset the character class to default when it is a starter class", async () => {
         const spoilerCharacterClass: CharacterClass = createTestCharacterClass(2, "Test Spoiler");
         spoilerCharacterClass.initiallyLocked = true;
 
@@ -147,7 +147,7 @@ describe("updateCharacterAfterChangingSpoilerSettings", () => {
 
         const character: Character = createTestCharacter();
 
-        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+        await updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
         expect(setCharacter).toHaveBeenCalledWith(character);

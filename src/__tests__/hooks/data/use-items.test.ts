@@ -1,6 +1,6 @@
 import useSWRImmutable from "swr/immutable"; // eslint-disable-line n/file-extension-in-import
 import axios from "axios";
-import { fetch, useItems } from "@/hooks/use-items";
+import { fetch, useItems } from "@/hooks/data/use-items";
 import { createTestItem, createTestSettings } from "@/test/create-test-fixtures";
 
 const settings: Settings = createTestSettings();
@@ -24,7 +24,7 @@ describe("use items", () => {
         useItems(settings);
 
         const expectedKey: string = JSON.stringify([
-            "/api/items",
+            "/api/games/0/items",
             settings.gameData.game.id,
             settings.spoilerSettings.items,
         ]);
@@ -36,24 +36,14 @@ describe("use items", () => {
 
 describe("fetch", () => {
     it("calls the items endpoint", async () => {
-        await fetch(settings);
+        await fetch("/api/games/1/items", settings);
 
         expect(mockAxios.post).toHaveBeenCalledTimes(1);
-        expect(mockAxios.post).toHaveBeenCalledWith("/api/items", expect.anything());
-    });
-
-    it("passes the game id", async () => {
-        await fetch(settings);
-
-        expect(mockAxios.post).toHaveBeenCalledTimes(1);
-        expect(mockAxios.post).toHaveBeenCalledWith(
-            expect.anything(),
-            expect.objectContaining({ gameId: settings.gameData.game.id })
-        );
+        expect(mockAxios.post).toHaveBeenCalledWith("/api/games/1/items", expect.anything());
     });
 
     it("passes the spoiler settings", async () => {
-        await fetch(settings);
+        await fetch("/api/games/1/items", settings);
 
         expect(mockAxios.post).toHaveBeenCalledTimes(1);
         expect(mockAxios.post).toHaveBeenCalledWith(
@@ -63,7 +53,7 @@ describe("fetch", () => {
     });
 
     it("returns the items from the response", async () => {
-        const items = await fetch(settings);
+        const items = await fetch("/api/games/1/items", settings);
 
         expect(items).toHaveLength(1);
         expect(items[0].name).toEqual("Boots of Test");

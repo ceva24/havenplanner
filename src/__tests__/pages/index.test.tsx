@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import type { GetServerSidePropsContext } from "next";
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps, type IndexProps } from "@/pages/index";
-import * as encoderService from "@/services/share/codec";
+import * as decoderService from "@/services/share/decoder";
 import * as settingsService from "@/services/settings";
 import { createTestSettings, createTestCharacter } from "@/test/create-test-fixtures";
 
@@ -13,11 +13,11 @@ jest.mock("next/router", () => {
     };
 });
 
-jest.mock("@/services/share/codec", () => {
+jest.mock("@/services/share/decoder", () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
         __esModule: true,
-        ...jest.requireActual("@/services/share/codec"),
+        ...jest.requireActual("@/services/share/decoder"),
     };
 });
 
@@ -77,7 +77,7 @@ describe("getServerSideProps", () => {
     });
 
     it("loads character details from the query string parameter", async () => {
-        jest.spyOn(encoderService, "decode").mockReturnValueOnce({ character, gameData: settings.gameData });
+        jest.spyOn(decoderService, "decode").mockReturnValueOnce({ character, gameData: settings.gameData });
         jest.spyOn(settingsService, "getSettingsForGame").mockReturnValueOnce(settings);
 
         const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
@@ -88,7 +88,7 @@ describe("getServerSideProps", () => {
     });
 
     it("loads spoiler settings based on the save data in the query string", async () => {
-        jest.spyOn(encoderService, "decode").mockReturnValueOnce({ character, gameData: settings.gameData });
+        jest.spyOn(decoderService, "decode").mockReturnValueOnce({ character, gameData: settings.gameData });
         jest.spyOn(settingsService, "getSpoilerSettingsForCharacter").mockReturnValueOnce(settings.spoilerSettings);
         jest.spyOn(settingsService, "getSettingsForGame").mockReturnValueOnce(settings);
 
@@ -100,7 +100,7 @@ describe("getServerSideProps", () => {
     });
 
     it("creates initial based on the save data in the query string", async () => {
-        jest.spyOn(encoderService, "decode").mockReturnValueOnce({ character, gameData: settings.gameData });
+        jest.spyOn(decoderService, "decode").mockReturnValueOnce({ character, gameData: settings.gameData });
         jest.spyOn(settingsService, "getSettingsForGame").mockReturnValueOnce(settings);
 
         const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
@@ -111,7 +111,7 @@ describe("getServerSideProps", () => {
     });
 
     it("returns a default character if loading the character from the query string parameter fails", async () => {
-        jest.spyOn(encoderService, "decode").mockImplementationOnce(() => {
+        jest.spyOn(decoderService, "decode").mockImplementationOnce(() => {
             throw new Error("Error");
         });
 

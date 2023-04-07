@@ -10,7 +10,7 @@ jest.mock("uuid", () => {
     };
 });
 
-jest.mock("@/hooks/use-items", () => {
+jest.mock("@/hooks/data/use-items", () => {
     return {
         useItems: jest.fn().mockReturnValue({ items: [], isLoading: false, isError: false }),
     };

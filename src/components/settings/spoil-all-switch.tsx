@@ -13,11 +13,11 @@ interface SpoilAllSwitchProps {
 const SpoilAllSwitch = ({ shouldApplyImmediately, character, setCharacter }: SpoilAllSwitchProps) => {
     const [settings, setSettings] = useSettingsContext();
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>, shouldSpoilAll: boolean) => {
+    const handleChange = async (event: ChangeEvent<HTMLInputElement>, shouldSpoilAll: boolean) => {
         if (shouldSpoilAll) {
             spoilAll(settings, setSettings);
         } else {
-            unspoilAll(settings, setSettings, shouldApplyImmediately, character, setCharacter);
+            await unspoilAll(settings, setSettings, shouldApplyImmediately, character, setCharacter);
         }
     };
 
@@ -41,7 +41,7 @@ const spoilAll = (settings: Settings, setSettings: Dispatch<SetStateAction<Setti
     setSettings({ ...settings, spoilerSettings });
 };
 
-const unspoilAll = (
+const unspoilAll = async (
     settings: Settings,
     setSettings: Dispatch<SetStateAction<Settings>>,
     shouldApplyImmediately?: boolean,
@@ -62,7 +62,7 @@ const unspoilAll = (
     setSettings(newSettings);
 
     if (shouldApplyImmediately && character && setCharacter)
-        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, newSettings);
+        await updateCharacterAfterChangingSpoilerSettings(character, setCharacter, newSettings);
 };
 
 export default SpoilAllSwitch;

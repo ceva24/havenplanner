@@ -3,10 +3,10 @@ import { v4 as uuid } from "uuid";
 const deserialize = (
     characterData: SerializedCharacter,
     gameData: GameData,
-    classes: CharacterClass[],
+    characterClasses: CharacterClass[],
     items: Item[]
 ): Character => {
-    const characterClass = deserializeCharacterClass(characterData.c, gameData, classes);
+    const characterClass = deserializeCharacterClass(characterData.c, gameData, characterClasses);
     const personalQuest = deserializePersonalQuest(characterData.q, gameData);
 
     return {
@@ -28,10 +28,10 @@ const deserialize = (
 const deserializeCharacterClass = (
     characterClassId: number,
     gameData: GameData,
-    classes: CharacterClass[]
+    characterClasses: CharacterClass[]
 ): CharacterClass => {
     return (
-        classes.find((characterClass: CharacterClass) => characterClass.id === characterClassId) ??
+        characterClasses.find((characterClass: CharacterClass) => characterClass.id === characterClassId) ??
         gameData.defaultCharacter.characterClass
     );
 };

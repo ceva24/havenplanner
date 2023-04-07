@@ -4,7 +4,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import ShareDialog from "@/components/share/share-dialog";
 import { Button } from "@/components/core/button";
 import { useSettingsContext } from "@/hooks/use-settings";
-import { encode } from "@/services/share/codec";
+import { encode } from "@/services/share/encoder";
 
 interface ShareButtonProps {
     character: Character;
@@ -71,4 +71,4 @@ const generateAndSetShareableLink = (
 };
 
 export default ShareButton;
-export { generateAndSetShareableLink as retrieveAndSetShareableLink };
+export { generateAndSetShareableLink };

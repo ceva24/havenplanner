@@ -16,7 +16,7 @@ const getGameDataById = (id: number): GameData => {
     return gameData;
 };
 
-const getClassesByGameId = (gameId: number): CharacterClass[] => {
+const getCharacterClassesByGameId = (gameId: number): CharacterClass[] => {
     const classData: CharacterClassData | undefined = classDataList.find(
         (data: CharacterClassData) => data.game.id === gameId
     );
@@ -24,6 +24,19 @@ const getClassesByGameId = (gameId: number): CharacterClass[] => {
     if (!classData) throw new Error(`Character class data for game with id '${gameId}' not found`);
 
     return classData.classes;
+};
+
+const getCharacterClassByIdAndGameId = (characterClassId: number, gameId: number): CharacterClass => {
+    const characterClasses: CharacterClass[] = getCharacterClassesByGameId(gameId);
+
+    const characterClass: CharacterClass | undefined = characterClasses.find(
+        (characterClass: CharacterClass) => characterClass.id === characterClassId
+    );
+
+    if (!characterClass)
+        throw new Error(`Character class with id '${characterClassId}' for game with id '${gameId}' not found`);
+
+    return characterClass;
 };
 
 const getItemsByGameId = (gameId: number): Item[] => {
@@ -34,4 +47,4 @@ const getItemsByGameId = (gameId: number): Item[] => {
     return itemData.items;
 };
 
-export { getGameDataById, getClassesByGameId, getItemsByGameId };
+export { getGameDataById, getCharacterClassesByGameId, getCharacterClassByIdAndGameId, getItemsByGameId };

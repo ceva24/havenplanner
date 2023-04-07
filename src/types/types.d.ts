@@ -88,6 +88,11 @@ interface CharacterItem {
     showAlternativeImage: boolean;
 }
 
+interface SaveData {
+    character: Character;
+    gameData: GameData;
+}
+
 interface SerializedCharacter {
     a: number; // Game id
     n: string; // Name

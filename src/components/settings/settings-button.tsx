@@ -17,8 +17,8 @@ const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
     const [settingsDialogIsOpen, setSettingsDialogIsOpen] = useState<boolean>(false);
     const [settings] = useSettingsContext();
 
-    const handleClose = () => {
-        updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
+    const handleClose = async () => {
+        await updateCharacterAfterChangingSpoilerSettings(character, setCharacter, settings);
         setSettingsDialogIsOpen(false);
     };
 
@@ -37,7 +37,7 @@ const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
     );
 };
 
-const updateCharacterAfterChangingSpoilerSettings = (
+const updateCharacterAfterChangingSpoilerSettings = async (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
     settings: Settings
@@ -52,7 +52,13 @@ const updateCharacterAfterChangingSpoilerSettings = (
     if (isUnlocked(character.characterClass, settings.spoilerSettings)) {
         setCharacter(newCharacter);
     } else {
-        findAndSetCharacterClass(settings.gameData.defaultCharacter.name, newCharacter, setCharacter, settings);
+        await findAndSetCharacterClass(
+            settings.gameData.defaultCharacter.name,
+            [{ ...settings.gameData.defaultCharacter.characterClass }],
+            newCharacter,
+            setCharacter,
+            settings
+        );
     }
 };
 

@@ -10,7 +10,7 @@ import {
 import { v4 as uuid } from "uuid";
 import Image from "@/components/core/image";
 import { useSettingsContext } from "@/hooks/use-settings";
-import { type UseItems, useItems } from "@/hooks/use-items";
+import { useItems, type UseItems } from "@/hooks/data/use-items";
 import { areItemsCompletelySpoiled } from "@/services/spoiler";
 
 interface ItemsAutocompleteProps {

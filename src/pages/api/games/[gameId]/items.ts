@@ -1,19 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { z as zod, ZodError } from "zod";
-import { spoilerSettingsSchema } from "src/schemas/spoiler-settings";
+import { ZodError } from "zod";
 import { getItemsByGameId } from "@/services/games/game";
 import { filterItems } from "@/services/items";
+import { gameDataSchema } from "@/schemas/game-data";
 
-const schema: zod.ZodType<ItemsRequestData> = zod.object({
-    gameId: zod.number(),
-    spoilerSettings: spoilerSettingsSchema,
-});
-
-const handler = (request: NextApiRequest, response: NextApiResponse<ItemsResponseData | ErrorResponseData>) => {
+const handler = (request: NextApiRequest, response: NextApiResponse<ItemDataResponse | ErrorResponse>) => {
     try {
-        const requestData: ItemsRequestData = schema.parse(request.body);
+        const gameId: number = Number.parseInt(request.query.gameId as string, 10);
 
-        const items: Item[] = getItemsByGameId(requestData.gameId);
+        const requestData: GameDataRequest = gameDataSchema.parse(request.body);
+
+        const items: Item[] = getItemsByGameId(gameId);
 
         const filteredItems: Item[] = filterItems(items, requestData.spoilerSettings);
 
