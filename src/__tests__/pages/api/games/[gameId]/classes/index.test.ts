@@ -1,24 +1,29 @@
 import { type NextApiRequest, type NextApiResponse } from "next";
 import { type Mocks, createMocks } from "node-mocks-http";
-import { createTestItem, createTestSettings } from "@/test/create-test-fixtures";
+import { createTestCharacterClass, createTestSettings } from "@/test/create-test-fixtures";
 import * as gameService from "@/services/games/game";
-import * as itemsService from "@/services/items";
-import handler from "@/pages/api/games/[gameId]/items";
+import * as characterClassesService from "@/services/character-classes";
+import * as characterClassSummaryTransformer from "@/transformers/character-class-summary";
+import handler from "@/pages/api/games/[gameId]/classes";
 
 const gameDataRequest: GameDataRequest = { spoilerSettings: createTestSettings().spoilerSettings };
 
+const characterClass: CharacterClass = createTestCharacterClass(1, "Test Brute");
+
 jest.mock("@/services/games/game");
 
-jest.mock("@/services/items");
+jest.mock("@/services/character-classes");
+
+jest.mock("@/transformers/character-class-summary");
 
 beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe("items", () => {
-    it("retrieves and filters items", () => {
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
-        jest.spyOn(itemsService, "filterItems").mockReturnValueOnce([]);
+describe("classes", () => {
+    it("retrieves and filters character classes", () => {
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([]);
+        jest.spyOn(characterClassesService, "filterCharacterClasses").mockReturnValueOnce([characterClass]);
 
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
 
@@ -26,15 +31,21 @@ describe("items", () => {
 
         handler(req, res);
 
-        expect(gameService.getItemsByGameId).toHaveBeenCalledTimes(1);
-        expect(itemsService.filterItems).toHaveBeenCalledTimes(1);
+        expect(gameService.getCharacterClassesByGameId).toHaveBeenCalledTimes(1);
+        expect(characterClassesService.filterCharacterClasses).toHaveBeenCalledTimes(1);
+        expect(characterClassSummaryTransformer.toCharacterClassSummary).toHaveBeenCalledTimes(1);
     });
 
-    it("returns 200 OK and the list of items for a successful request", () => {
-        const item: Item = createTestItem(1, "Boots of Test", "1");
+    it("returns 200 OK and the list of character class summaries for a successful request", () => {
+        const characterClassSummary: CharacterClassSummary = { id: 1, name: "Test Brute", imageUrl: "brute.webp" };
 
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
-        jest.spyOn(itemsService, "filterItems").mockReturnValueOnce([item]);
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([]);
+        jest.spyOn(characterClassesService, "filterCharacterClasses").mockReturnValueOnce([characterClass]);
+        jest.spyOn(characterClassSummaryTransformer, "toCharacterClassSummary").mockReturnValueOnce({
+            id: 1,
+            name: "Test Brute",
+            imageUrl: "brute.webp",
+        });
 
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
 
@@ -42,8 +53,8 @@ describe("items", () => {
 
         handler(req, res);
 
-        const expectedResponse: ItemDataResponse = {
-            items: [item],
+        const expectedResponse: ClassSummariesDataResponse = {
+            classes: [characterClassSummary],
         };
 
         expect(res.statusCode).toEqual(200);
@@ -51,7 +62,7 @@ describe("items", () => {
     });
 
     it("returns 500 Error and an error for an unexpected error", () => {
-        jest.spyOn(gameService, "getItemsByGameId").mockImplementationOnce(() => {
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockImplementationOnce(() => {
             throw new Error("Game ID not found");
         });
 

@@ -24,4 +24,4 @@ const makeCharacterClassRequest = async (gameId: number, characterClassId: numbe
     return response.data.class;
 };
 
-export { requestCharacterClass };
+export { requestCharacterClass, characterClassCache };
