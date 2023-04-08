@@ -1,7 +1,7 @@
 {
     "id": 10,
     "name": "Nightshroud",
-    "imageUrl": "/character-icons/gloomhaven/gh-nightshroud.webp",
+    "imageUrl": "/character-icons/gloomhaven/gh-eclipse.webp",
     "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-nightshroud.webp",
     "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-nightshroud-back.webp",
     "cardBackImageUrl": "/character-ability-cards/gloomhaven/NS/gh-ns-back.webp",
