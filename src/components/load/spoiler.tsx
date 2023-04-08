@@ -31,7 +31,7 @@ interface SpoilerProps {
 
 const Spoiler = ({ text, altText, webpPath }: SpoilerProps) => {
     return (
-        <Box>
+        <Box display="flex" justifyContent="center">
             <Image
                 webpPath={webpPath}
                 fallbackImageType="png"
@@ -41,7 +41,7 @@ const Spoiler = ({ text, altText, webpPath }: SpoilerProps) => {
                 width={30}
                 aria-hidden="true"
             />
-            <Typography component="span" paddingLeft={1}>
+            <Typography width={200} overflow="hidden" textOverflow="ellipsis">
                 {text}
             </Typography>
         </Box>

@@ -33,14 +33,6 @@ const areItemsCompletelySpoiled = (settings: Settings): boolean => {
     );
 };
 
-const hasCharacterSpoilers = (spoilerSettings: SpoilerSettings): boolean => {
-    return spoilerSettings.classes.length > 0;
-};
-
-const hasItemSpoilers = (spoilerSettings: SpoilerSettings): boolean => {
-    return spoilerSettings.items.prosperity > 1 || spoilerSettings.items.itemGroups.length > 0;
-};
-
 export {
     hasSpoilers,
     characterClassIsUnlocked,
@@ -48,6 +40,4 @@ export {
     isCompletelySpoiled,
     areCharactersCompletelySpoiled,
     areItemsCompletelySpoiled,
-    hasCharacterSpoilers,
-    hasItemSpoilers,
 };
