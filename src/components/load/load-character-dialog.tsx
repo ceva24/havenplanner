@@ -1,9 +1,8 @@
 import { type Dispatch, type SetStateAction, useState } from "react";
-import { Box, Dialog, DialogContent, Stack, Typography } from "@mui/material";
+import { Box, Dialog, DialogContent, Grid, Stack, Typography } from "@mui/material";
 import { useSettingsContext } from "@/hooks/use-settings";
 import { Button, TextButton } from "@/components/core/button";
 import { CharacterSpoiler, ItemSpoiler } from "@/components/load/spoiler";
-import { hasCharacterSpoilers, hasItemSpoilers } from "@/services/spoiler";
 
 interface LoadCharacterDialogProps {
     newSpoilerSettings: SpoilerSettings;
@@ -49,23 +48,25 @@ const LoadCharacterDialog = ({
             <DialogContent id="load-character-dialog-description">
                 <Stack spacing={3} textAlign="center">
                     <Typography>This character contains the following spoilers:</Typography>
-                    {hasCharacterSpoilers(newSpoilerSettings) && (
-                        <Stack spacing={1}>
+                    <Box>
+                        <Grid container spacing={1}>
                             {newSpoilerSettings.classes.map((characterClass: UnlockableCharacterClassSummary) => (
-                                <CharacterSpoiler key={characterClass.id} characterClass={characterClass} />
+                                <Grid key={characterClass.id} item xs={12}>
+                                    <CharacterSpoiler key={characterClass.id} characterClass={characterClass} />
+                                </Grid>
                             ))}
-                        </Stack>
-                    )}
-                    {hasItemSpoilers(newSpoilerSettings) && (
-                        <Stack spacing={1}>
                             {newSpoilerSettings.items.prosperity > 1 && (
-                                <ItemSpoiler text={`Prosperity ${newSpoilerSettings.items.prosperity}`} />
+                                <Grid item xs={12}>
+                                    <ItemSpoiler text={`Prosperity ${newSpoilerSettings.items.prosperity}`} />
+                                </Grid>
                             )}
                             {newSpoilerSettings.items.itemGroups.map((itemGroup: ItemGroup) => (
-                                <ItemSpoiler key={itemGroup.id} text={itemGroup.name} />
+                                <Grid key={itemGroup.id} item xs={12}>
+                                    <ItemSpoiler key={itemGroup.id} text={itemGroup.name} />
+                                </Grid>
                             ))}
-                        </Stack>
-                    )}
+                        </Grid>
+                    </Box>
                     <Box display="flex" gap={1} justifyContent="right">
                         <TextButton
                             text="Cancel"
