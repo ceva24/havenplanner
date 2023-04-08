@@ -1,20 +1,20 @@
 import { type NextApiRequest, type NextApiResponse } from "next";
 import { type Mocks, createMocks } from "node-mocks-http";
 import { createTestCharacterClass, createTestSettings } from "@/test/create-test-fixtures";
-import * as gameService from "@/services/games/game";
-import * as characterClassesService from "@/services/character-classes";
-import * as characterClassSummaryTransformer from "@/transformers/character-class-summary";
+import * as gameService from "@/server/services/games/game";
+import * as characterClassesService from "@/server/services/character-classes";
+import * as characterClassSummaryTransformer from "@/server/transformers/character-class-summary";
 import handler from "@/pages/api/games/[gameId]/classes";
 
 const gameDataRequest: GameDataRequest = { spoilerSettings: createTestSettings().spoilerSettings };
 
 const characterClass: CharacterClass = createTestCharacterClass(1, "Test Brute");
 
-jest.mock("@/services/games/game");
+jest.mock("@/server/services/games/game");
 
-jest.mock("@/services/character-classes");
+jest.mock("@/server/services/character-classes");
 
-jest.mock("@/transformers/character-class-summary");
+jest.mock("@/server/transformers/character-class-summary");
 
 beforeEach(() => {
     jest.clearAllMocks();

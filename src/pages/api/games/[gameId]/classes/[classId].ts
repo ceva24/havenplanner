@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ZodError } from "zod";
-import { getCharacterClassByIdAndGameId } from "@/services/games/game";
+import { getCharacterClassByIdAndGameId } from "@/server/services/games/game";
 
 const handler = (request: NextApiRequest, response: NextApiResponse<ClassDataResponse | ErrorResponse>) => {
     try {

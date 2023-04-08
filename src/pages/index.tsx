@@ -1,13 +1,13 @@
 import { useState } from "react";
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
-import { getDefaultSettings, getSettingsForGame, getSpoilerSettingsForCharacter } from "@/services/settings";
-import { decode } from "@/services/share/decoder";
-import { hasSpoilers } from "@/services/spoiler";
-import SettingsProvider from "@/hooks/use-settings";
-import Header from "@/components/header/header";
-import AppContainer from "@/components/app-container";
-import LoadCharacterDialog from "@/components/load/load-character-dialog";
-import { useClearQueryString } from "@/hooks/use-clear-query-string";
+import { getDefaultSettings, getSettingsForGame, getSpoilerSettingsForCharacter } from "@/server/services/settings";
+import { decode } from "@/server/services/load/decoder";
+import { hasSpoilers } from "@/client/services/spoiler";
+import SettingsProvider from "@/client/hooks/use-settings";
+import Header from "@/client/components/header/header";
+import AppContainer from "@/client/components/app-container";
+import LoadCharacterDialog from "@/client/components/load/load-character-dialog";
+import { useClearQueryString } from "@/client/hooks/use-clear-query-string";
 
 interface IndexProps {
     initialSettings: Settings;

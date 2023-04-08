@@ -3,8 +3,8 @@ import { render, screen } from "@testing-library/react";
 import type { GetServerSidePropsContext } from "next";
 import { createMocks } from "node-mocks-http";
 import Index, { getServerSideProps, type IndexProps } from "@/pages/index";
-import * as decoderService from "@/services/share/decoder";
-import * as settingsService from "@/services/settings";
+import * as decoderService from "@/server/services/load/decoder";
+import * as settingsService from "@/server/services/settings";
 import { createTestSettings, createTestCharacter } from "@/test/create-test-fixtures";
 
 jest.mock("next/router", () => {
@@ -13,9 +13,9 @@ jest.mock("next/router", () => {
     };
 });
 
-jest.mock("@/services/share/decoder");
+jest.mock("@/server/services/load/decoder");
 
-jest.mock("@/services/settings");
+jest.mock("@/server/services/settings");
 
 beforeEach(() => {
     jest.clearAllMocks();

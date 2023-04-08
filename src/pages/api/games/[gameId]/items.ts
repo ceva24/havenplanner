@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ZodError } from "zod";
-import { getItemsByGameId } from "@/services/games/game";
-import { filterItems } from "@/services/items";
-import { gameDataSchema } from "@/schemas/game-data";
+import { getItemsByGameId } from "@/server/services/games/game";
+import { filterItems } from "@/client/services/items";
+import { gameDataSchema } from "@/server/schemas/game-data";
 
 const handler = (request: NextApiRequest, response: NextApiResponse<ItemDataResponse | ErrorResponse>) => {
     try {

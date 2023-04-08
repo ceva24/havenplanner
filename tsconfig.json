@@ -5,18 +5,11 @@
         "useUnknownInCatchVariables": true,
         "baseUrl": ".",
         "paths": {
-            "@/components/*": ["src/components/*"],
-            "@/hooks/*": ["src/hooks/*"],
-            "@/loaders/*": ["src/loaders/*"],
+            "@/client/*": ["src/client/*"],
+            "@/server/*": ["src/server/*"],
             "@/pages/*": ["src/pages/*"],
-            "@/services/*": ["src/services/*"],
-            "@/transformers/*": ["src/transformers/*"],
-            "@/schemas/*": ["src/schemas/*"],
             "@/types/*": ["src/types/*"],
-            "@/utils/*": ["src/utils/*"],
             "@/data/*": ["data/*"],
-            "@/constants": ["src/constants"],
-            "@/theme": ["src/theme"],
             "@/test/*": ["src/__tests__/*"]
         }
     },
