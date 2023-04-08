@@ -7,21 +7,9 @@ import handler from "@/pages/api/games/[gameId]/items";
 
 const itemsRequestData: GameDataRequest = { spoilerSettings: createTestSettings().spoilerSettings };
 
-jest.mock("@/services/games/game", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/games/game"),
-    };
-});
+jest.mock("@/services/games/game");
 
-jest.mock("@/services/items", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/items"),
-    };
-});
+jest.mock("@/services/items");
 
 beforeEach(() => {
     jest.clearAllMocks();

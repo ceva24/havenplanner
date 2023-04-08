@@ -13,21 +13,9 @@ jest.mock("next/router", () => {
     };
 });
 
-jest.mock("@/services/share/decoder", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/share/decoder"),
-    };
-});
+jest.mock("@/services/share/decoder");
 
-jest.mock("@/services/settings", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/settings"),
-    };
-});
+jest.mock("@/services/settings");
 
 beforeEach(() => {
     jest.clearAllMocks();
@@ -114,6 +102,8 @@ describe("getServerSideProps", () => {
         jest.spyOn(decoderService, "decode").mockImplementationOnce(() => {
             throw new Error("Error");
         });
+
+        jest.spyOn(settingsService, "getDefaultSettings").mockReturnValueOnce(settings);
 
         const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
 

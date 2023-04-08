@@ -10,16 +10,12 @@ const settings: Settings = createTestSettings();
 
 const item: Item = createTestItem(1, "Boots of Test", "1");
 
-jest.mock("@/hooks/data/use-items", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/hooks/data/use-items"),
-    };
-});
+jest.mock("@/hooks/data/use-items");
 
 describe("browse items dialog", () => {
     it("renders", () => {
+        jest.spyOn(useItemsHook, "useItems").mockReturnValueOnce({ items: [item], isLoading: false, isError: false });
+
         render(<BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />, {
             wrapper: TestSettingsProvider,
         });

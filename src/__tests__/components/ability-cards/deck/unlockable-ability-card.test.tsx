@@ -7,13 +7,7 @@ const character: Character = createTestCharacter();
 
 const setCharacter = jest.fn();
 
-jest.mock("@/services/ability-cards/deck", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/ability-cards/deck"),
-    };
-});
+jest.mock("@/services/ability-cards/deck");
 
 beforeEach(() => {
     jest.resetAllMocks();
@@ -21,8 +15,8 @@ beforeEach(() => {
 
 describe("unlockable ability card", () => {
     it("renders an active ability card when the card is unlocked", () => {
+        jest.spyOn(deckService, "abilityCardCanBeToggled").mockReturnValueOnce(true);
         jest.spyOn(deckService, "isUnlockedAbilityCardForCharacter").mockReturnValueOnce(true);
-        jest.spyOn(deckService, "abilityCardCanBeUnlockedForCharacter").mockReturnValueOnce(false);
 
         render(
             <UnlockableAbilityCard
@@ -38,8 +32,8 @@ describe("unlockable ability card", () => {
     });
 
     it("renders an active ability card when the card can be unlocked", () => {
+        jest.spyOn(deckService, "abilityCardCanBeToggled").mockReturnValueOnce(true);
         jest.spyOn(deckService, "isUnlockedAbilityCardForCharacter").mockReturnValueOnce(false);
-        jest.spyOn(deckService, "abilityCardCanBeUnlockedForCharacter").mockReturnValueOnce(true);
 
         render(
             <UnlockableAbilityCard
@@ -55,8 +49,8 @@ describe("unlockable ability card", () => {
     });
 
     it("renders a disabled ability card when the card cannot be unlocked", () => {
-        jest.spyOn(deckService, "isUnlockedAbilityCardForCharacter").mockReturnValueOnce(false);
         jest.spyOn(deckService, "abilityCardCanBeToggled").mockReturnValueOnce(false);
+        jest.spyOn(deckService, "isUnlockedAbilityCardForCharacter").mockReturnValueOnce(false);
 
         render(
             <UnlockableAbilityCard

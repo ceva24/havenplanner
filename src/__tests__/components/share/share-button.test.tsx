@@ -11,13 +11,7 @@ const settings: Settings = createTestSettings();
 const setShareableLink = jest.fn();
 const setEncodeCharacterError = jest.fn();
 
-jest.mock("@/services/share/encoder", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/share/encoder"),
-    };
-});
+jest.mock("@/services/share/encoder");
 
 beforeEach(() => {
     jest.clearAllMocks();

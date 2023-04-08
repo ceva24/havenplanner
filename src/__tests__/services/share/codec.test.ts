@@ -10,13 +10,7 @@ import {
     createTestSettings,
 } from "@/test/create-test-fixtures";
 
-jest.mock("@/services/games/game", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/games/game"),
-    };
-});
+jest.mock("@/services/games/game");
 
 beforeEach(() => {
     jest.resetAllMocks();

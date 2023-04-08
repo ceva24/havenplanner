@@ -3,13 +3,7 @@ import * as serializerService from "@/services/share/serializer";
 import { encode } from "@/services/share/encoder";
 import { createTestCharacter, createTestSettings } from "@/test/create-test-fixtures";
 
-jest.mock("@/services/share/serializer", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/share/serializer"),
-    };
-});
+jest.mock("@/services/share/serializer");
 
 beforeEach(() => {
     jest.resetAllMocks();

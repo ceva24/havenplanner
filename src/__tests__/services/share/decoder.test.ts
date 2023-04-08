@@ -4,21 +4,9 @@ import * as deserializerService from "@/services/share/deserializer";
 import { decode } from "@/services/share/decoder";
 import { createTestCharacter, createTestSettings } from "@/test/create-test-fixtures";
 
-jest.mock("@/services/games/game", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/games/game"),
-    };
-});
+jest.mock("@/services/games/game");
 
-jest.mock("@/services/share/deserializer", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/share/deserializer"),
-    };
-});
+jest.mock("@/services/share/deserializer");
 
 beforeEach(() => {
     jest.resetAllMocks();
