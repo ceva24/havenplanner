@@ -1,7 +1,7 @@
 {
     "id": 13,
     "name": "Soothsinger",
-    "imageUrl": "/character-icons/gloomhaven/gh-soothsinger.webp",
+    "imageUrl": "/character-icons/gloomhaven/gh-music-note.webp",
     "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-soothsinger.webp",
     "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-soothsinger-back.webp",
     "cardBackImageUrl": "/character-ability-cards/gloomhaven/SS/gh-ss-back.webp",
