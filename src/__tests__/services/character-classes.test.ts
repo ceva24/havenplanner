@@ -1,15 +1,21 @@
-import { getCharacterClasses, isUnlocked } from "@/services/character-classes";
+import { filterCharacterClasses, isUnlocked } from "@/services/character-classes";
 import { createTestCharacterClass, createTestSettings } from "@/test/create-test-fixtures";
 
 describe("getCharacterClasses", () => {
     it("returns character classes not hidden by spoiler settings", () => {
+        const initialClass: CharacterClass = createTestCharacterClass(1, "Test Brute");
+        initialClass.initiallyLocked = false;
+
         const spoilerClass: CharacterClass = createTestCharacterClass(2, "Test Spoiler");
         spoilerClass.initiallyLocked = true;
 
         const settings: Settings = createTestSettings();
-        settings.gameData.characterClasses.push(spoilerClass);
+        settings.gameData.initialCharacterClasses.push(spoilerClass);
 
-        const characterClasses: CharacterClass[] = getCharacterClasses(settings);
+        const characterClasses: CharacterClass[] = filterCharacterClasses(
+            [initialClass, spoilerClass],
+            settings.spoilerSettings
+        );
 
         expect(characterClasses).toHaveLength(1);
         expect(characterClasses[0].name).toEqual("Test Brute");
@@ -22,10 +28,10 @@ describe("isUnlocked", () => {
         spoilerClass.initiallyLocked = true;
 
         const settings: Settings = createTestSettings();
-        settings.gameData.characterClasses.push(spoilerClass);
+        settings.gameData.initialCharacterClasses.push(spoilerClass);
         settings.spoilerSettings.classes = [{ id: 2, imageUrl: "", spoilerSafeName: "Test Spoilery" }];
 
-        const result = isUnlocked(spoilerClass, settings);
+        const result = isUnlocked(spoilerClass, settings.spoilerSettings);
 
         expect(result).toEqual(true);
     });
@@ -35,17 +41,20 @@ describe("isUnlocked", () => {
         spoilerClass.initiallyLocked = true;
 
         const settings: Settings = createTestSettings();
-        settings.gameData.characterClasses.push(spoilerClass);
+        settings.gameData.initialCharacterClasses.push(spoilerClass);
 
-        const result = isUnlocked(spoilerClass, settings);
+        const result = isUnlocked(spoilerClass, settings.spoilerSettings);
 
         expect(result).toEqual(false);
     });
 
     it("returns true when the character class is a starter class", () => {
+        const characterClass: CharacterClass = createTestCharacterClass(1, "Test Brute");
+        characterClass.initiallyLocked = false;
+
         const settings: Settings = createTestSettings();
 
-        const result = isUnlocked(settings.gameData.characterClasses[0], settings);
+        const result = isUnlocked(characterClass, settings.spoilerSettings);
 
         expect(result).toEqual(true);
     });

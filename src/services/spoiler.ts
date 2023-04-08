@@ -23,11 +23,7 @@ const isCompletelySpoiled = (settings: Settings): boolean => {
 };
 
 const areCharactersCompletelySpoiled = (settings: Settings): boolean => {
-    const initiallyLockedClasses: CharacterClass[] = settings.gameData.characterClasses.filter(
-        (characterClass: CharacterClass) => characterClass.initiallyLocked
-    );
-
-    return initiallyLockedClasses.length === settings.spoilerSettings.classes.length;
+    return settings.spoilerSettings.classes.length === settings.gameData.unlockableCharacterClasses.length;
 };
 
 const areItemsCompletelySpoiled = (settings: Settings): boolean => {

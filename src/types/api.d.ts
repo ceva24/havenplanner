@@ -1,12 +1,19 @@
-interface ItemsRequestData {
-    gameId: number;
+interface GameDataRequest {
     spoilerSettings: SpoilerSettings;
 }
 
-interface ItemsResponseData {
+interface ClassSummariesDataResponse {
+    classes: CharacterClassSummary[];
+}
+
+interface ClassDataResponse {
+    class: CharacterClass;
+}
+
+interface ItemDataResponse {
     items: Item[];
 }
 
-interface ErrorResponseData {
+interface ErrorResponse {
     error: string | Pick<ZodError, "issues">;
 }

@@ -1,8 +1,6 @@
-import lzbase62 from "lzbase62";
 import * as gameService from "@/services/games/game";
-import * as serializerService from "@/services/share/serializer";
-import * as deserializerService from "@/services/share/deserializer";
-import { decode, encode, type SaveData } from "@/services/share/codec";
+import { encode } from "@/services/share/encoder";
+import { decode } from "@/services/share/decoder";
 import {
     createTestAbilityCard,
     createTestCharacter,
@@ -12,109 +10,16 @@ import {
     createTestSettings,
 } from "@/test/create-test-fixtures";
 
-jest.mock("@/services/games/game", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/games/game"),
-    };
-});
-
-jest.mock("@/services/share/serializer", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/share/serializer"),
-    };
-});
-
-jest.mock("@/services/share/deserializer", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/share/deserializer"),
-    };
-});
+jest.mock("@/services/games/game");
 
 beforeEach(() => {
     jest.resetAllMocks();
 });
 
-const character: Character = createTestCharacter();
 const settings: Settings = createTestSettings();
-
-describe("encode", () => {
-    it("serializes character data", () => {
-        jest.spyOn(serializerService, "serialize").mockReturnValueOnce("");
-
-        encode({ character, gameData: settings.gameData });
-
-        expect(serializerService.serialize).toHaveBeenCalledTimes(1);
-        expect(serializerService.serialize).toHaveBeenCalledWith(character, settings.gameData);
-    });
-
-    it("compresses character data", () => {
-        jest.spyOn(serializerService, "serialize").mockReturnValueOnce("serializedCharacter");
-        jest.spyOn(lzbase62, "compress").mockReturnValueOnce("");
-
-        encode({ character, gameData: settings.gameData });
-
-        expect(lzbase62.compress).toHaveBeenCalledTimes(1);
-        expect(lzbase62.compress).toHaveBeenCalledWith("serializedCharacter");
-    });
-
-    it("returns the serialized and compressed character data", () => {
-        jest.spyOn(lzbase62, "compress").mockReturnValueOnce("123");
-
-        const encodedData = encode({ character, gameData: settings.gameData });
-
-        expect(encodedData).toEqual("123");
-    });
-});
-
-describe("decode", () => {
-    it("decompresses character data", () => {
-        jest.spyOn(lzbase62, "decompress").mockReturnValueOnce(JSON.stringify(character));
-        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
-        jest.spyOn(deserializerService, "deserialize").mockReturnValueOnce(character);
-
-        decode("test");
-
-        expect(lzbase62.decompress).toHaveBeenCalledTimes(1);
-        expect(lzbase62.decompress).toHaveBeenCalledWith("test");
-    });
-
-    it("looks up game data and deserializes character data", () => {
-        jest.spyOn(lzbase62, "decompress").mockReturnValueOnce(JSON.stringify(character));
-        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
-        jest.spyOn(deserializerService, "deserialize").mockReturnValueOnce(character);
-
-        decode("test");
-
-        expect(deserializerService.deserialize).toHaveBeenCalledTimes(1);
-        expect(deserializerService.deserialize).toHaveBeenCalledWith(character, settings.gameData, []);
-    });
-
-    it("returns the deserialized character and game data", () => {
-        jest.spyOn(lzbase62, "decompress").mockReturnValueOnce(JSON.stringify(character));
-        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
-        jest.spyOn(deserializerService, "deserialize").mockReturnValueOnce(character);
-
-        const result: SaveData = decode("test");
-
-        expect(result.character).toEqual(character);
-        expect(result.gameData).toEqual(settings.gameData);
-    });
-});
 
 describe("codec", () => {
     it("serializes and deserializes character data", () => {
-        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
-
         const character: Character = createTestCharacter({
             name: "My Gloomy Char",
             experience: 10,
@@ -122,6 +27,10 @@ describe("codec", () => {
             notes: "Hello decode haven",
             characterClass: createTestCharacterClass(1, "Test Brute"),
         });
+
+        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([character.characterClass]);
+        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
 
         const saveData: SaveData = { character, gameData: settings.gameData };
 
@@ -136,7 +45,10 @@ describe("codec", () => {
 
     it("serializes and deserializes game data", () => {
         jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([]);
         jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
+
+        const character: Character = createTestCharacter();
 
         const saveData: SaveData = { character, gameData: settings.gameData };
 
@@ -150,9 +62,6 @@ describe("codec", () => {
     });
 
     it("serializes and deserializes character data with unicode characters", () => {
-        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
-
         const character: Character = createTestCharacter({
             name: "テストキャラクター",
             experience: 10,
@@ -160,6 +69,10 @@ describe("codec", () => {
             notes: "テスト",
             characterClass: createTestCharacterClass(1, "Test Brute"),
         });
+
+        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([character.characterClass]);
+        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
 
         const saveData: SaveData = { character, gameData: settings.gameData };
 
@@ -176,15 +89,16 @@ describe("codec", () => {
         const settings: Settings = createTestSettings();
         const items: Item[] = [createTestItem(2, "Boots of Test", "1"), createTestItem(8, "Cloak of Test", "1")];
 
-        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce(items);
-
         const character: Character = createTestCharacter({
             items: [
                 { id: "abc", item: items[0], showAlternativeImage: false },
                 { id: "def", item: items[1], showAlternativeImage: false },
             ],
         });
+
+        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([character.characterClass]);
+        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce(items);
 
         const saveData: SaveData = { character, gameData: settings.gameData };
 
@@ -205,12 +119,13 @@ describe("codec", () => {
         const settings: Settings = createTestSettings();
         const items: Item[] = [createTestItem(1, "Boots of Test", "Random Item Designs")];
 
-        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce(items);
-
         const character: Character = createTestCharacter({
             items: [{ id: "abc", item: items[0], showAlternativeImage: false }],
         });
+
+        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([character.characterClass]);
+        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce(items);
 
         const saveData: SaveData = { character, gameData: settings.gameData };
 
@@ -225,14 +140,15 @@ describe("codec", () => {
     });
 
     it("serializes and deserializes character data with unlocked ability cards", () => {
-        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
-
         const character: Character = createTestCharacter();
         character.unlockedAbilityCards = [
             character.characterClass.abilityCards[2],
             character.characterClass.abilityCards[3],
         ];
+
+        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([character.characterClass]);
+        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
 
         const saveData: SaveData = { character, gameData: settings.gameData };
 
@@ -249,11 +165,12 @@ describe("codec", () => {
     });
 
     it("serializes and deserializes character data with a hand", () => {
-        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
-
         const character: Character = createTestCharacter();
         character.hand = [character.characterClass.abilityCards[0], character.characterClass.abilityCards[1]];
+
+        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([character.characterClass]);
+        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
 
         const saveData: SaveData = { character, gameData: settings.gameData };
 
@@ -275,7 +192,11 @@ describe("codec", () => {
         const settings: Settings = createTestSettings();
         settings.gameData.enhancements = [enhancement];
 
-        settings.gameData.characterClasses[0].abilityCards = [
+        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
+
+        const character: Character = createTestCharacter();
+        character.characterClass.abilityCards = [
             createTestAbilityCard(
                 1,
                 "1",
@@ -291,10 +212,7 @@ describe("codec", () => {
             ),
         ];
 
-        jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
-        jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
-
-        const character: Character = createTestCharacter({ characterClass: settings.gameData.characterClasses[0] });
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([character.characterClass]);
 
         character.gainedEnhancements = [
             {
@@ -319,6 +237,7 @@ describe("codec", () => {
 
     it("serializes and deserializes character data with gained perks", () => {
         jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([]);
         jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
 
         const character: Character = createTestCharacter();
@@ -339,6 +258,7 @@ describe("codec", () => {
 
     it("serializes and deserializes character data with battle goal checkmarks", () => {
         jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([]);
         jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
 
         const character: Character = createTestCharacter();
@@ -370,6 +290,7 @@ describe("codec", () => {
         const items: Item[] = [createTestItem(1, "Boots of Test", "Random Item Designs", "Legs", "url", "alt-url")];
 
         jest.spyOn(gameService, "getGameDataById").mockReturnValueOnce(settings.gameData);
+        jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([]);
         jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce(items);
 
         const character: Character = createTestCharacter({

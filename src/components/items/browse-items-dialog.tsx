@@ -4,7 +4,7 @@ import ItemGroup from "@/components/items/item-group";
 import FullScreenDialog from "@/components/core/full-screen-dialog";
 import { groupItems } from "@/services/items";
 import { useSettingsContext } from "@/hooks/use-settings";
-import { type UseItems, useItems } from "@/hooks/use-items";
+import { useItems, type UseItems } from "@/hooks/data/use-items";
 import { areItemsCompletelySpoiled } from "@/services/spoiler";
 
 interface BrowseItemsDialogProps {

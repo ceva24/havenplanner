@@ -166,7 +166,6 @@ describe("isCompletelySpoiled", () => {
         const summary: UnlockableCharacterClassSummary = { id: 2, imageUrl: "", spoilerSafeName: "Test Spoilery" };
 
         const settings: Settings = createTestSettings();
-        settings.gameData.characterClasses.push(characterClass);
         settings.gameData.unlockableCharacterClasses = [summary];
 
         settings.spoilerSettings = {
@@ -189,7 +188,6 @@ describe("isCompletelySpoiled", () => {
         const summary: UnlockableCharacterClassSummary = { id: 2, imageUrl: "", spoilerSafeName: "Test Spoilery" };
 
         const settings: Settings = createTestSettings();
-        settings.gameData.characterClasses.push(characterClass);
         settings.gameData.unlockableCharacterClasses = [summary];
 
         settings.spoilerSettings = {
@@ -206,13 +204,9 @@ describe("isCompletelySpoiled", () => {
     });
 
     it("returns true when all item settings are spoiled and all characters are", () => {
-        const characterClass: CharacterClass = createTestCharacterClass(2, "Test Spoiler");
-        characterClass.initiallyLocked = true;
-
         const summary: UnlockableCharacterClassSummary = { id: 2, imageUrl: "", spoilerSafeName: "Test Spoilery" };
 
         const settings: Settings = createTestSettings();
-        settings.gameData.characterClasses.push(characterClass);
         settings.gameData.unlockableCharacterClasses = [summary];
 
         settings.spoilerSettings = {

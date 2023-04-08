@@ -11,12 +11,12 @@
             "@/pages/*": ["src/pages/*"],
             "@/services/*": ["src/services/*"],
             "@/transformers/*": ["src/transformers/*"],
+            "@/schemas/*": ["src/schemas/*"],
             "@/types/*": ["src/types/*"],
             "@/utils/*": ["src/utils/*"],
             "@/data/*": ["data/*"],
             "@/constants": ["src/constants"],
             "@/theme": ["src/theme"],
-            "@/utils": ["src/utils"],
             "@/test/*": ["src/__tests__/*"]
         }
     },

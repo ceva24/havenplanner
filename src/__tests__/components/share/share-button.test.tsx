@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import ShareButton, { retrieveAndSetShareableLink } from "@/components/share/share-button";
-import * as encoderService from "@/services/share/codec";
+import ShareButton, { generateAndSetShareableLink } from "@/components/share/share-button";
+import * as encoderService from "@/services/share/encoder";
 import { createTestCharacter, createTestSettings } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
@@ -11,13 +11,7 @@ const settings: Settings = createTestSettings();
 const setShareableLink = jest.fn();
 const setEncodeCharacterError = jest.fn();
 
-jest.mock("@/services/share/codec", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return {
-        __esModule: true,
-        ...jest.requireActual("@/services/share/codec"),
-    };
-});
+jest.mock("@/services/share/encoder");
 
 beforeEach(() => {
     jest.clearAllMocks();
@@ -37,7 +31,7 @@ describe("generateAndSetShareableLink", () => {
     it("encodes character data", () => {
         jest.spyOn(encoderService, "encode").mockReturnValueOnce("");
 
-        retrieveAndSetShareableLink(character, settings.gameData, "", setShareableLink, setEncodeCharacterError);
+        generateAndSetShareableLink(character, settings.gameData, "", setShareableLink, setEncodeCharacterError);
 
         expect(encoderService.encode).toHaveBeenCalledTimes(1);
         expect(encoderService.encode).toHaveBeenCalledWith({ character, gameData: settings.gameData });
@@ -46,14 +40,14 @@ describe("generateAndSetShareableLink", () => {
     it("sets the shareable link", () => {
         jest.spyOn(encoderService, "encode").mockReturnValueOnce("abcde");
 
-        retrieveAndSetShareableLink(character, settings.gameData, "", setShareableLink, setEncodeCharacterError);
+        generateAndSetShareableLink(character, settings.gameData, "", setShareableLink, setEncodeCharacterError);
 
         expect(setShareableLink).toHaveBeenCalledTimes(1);
         expect(setShareableLink.mock.calls[0][0]).toMatch(/\?character=abcde/);
     });
 
     it("does not retrieve the encoded character data if the shareable link is still populated from before", async () => {
-        retrieveAndSetShareableLink(character, settings.gameData, "abcde", setShareableLink, setEncodeCharacterError);
+        generateAndSetShareableLink(character, settings.gameData, "abcde", setShareableLink, setEncodeCharacterError);
 
         expect(encoderService.encode).not.toHaveBeenCalled();
         expect(setShareableLink).not.toHaveBeenCalled();
@@ -65,7 +59,7 @@ describe("generateAndSetShareableLink", () => {
             throw new Error("Error");
         });
 
-        retrieveAndSetShareableLink(character, settings.gameData, "", setShareableLink, setEncodeCharacterError);
+        generateAndSetShareableLink(character, settings.gameData, "", setShareableLink, setEncodeCharacterError);
 
         expect(setShareableLink).not.toHaveBeenCalled();
 

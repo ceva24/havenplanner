@@ -1,3 +1,7 @@
+type CharacterClassSummary = Pick<CharacterClass, "id" | "name" | "imageUrl">;
+
+type UnlockableCharacterClassSummary = Pick<CharacterClass, "id" | "spoilerSafeName" | "imageUrl">;
+
 interface Settings {
     gameData: GameData;
     spoilerSettings: SpoilerSettings;
@@ -7,7 +11,7 @@ interface Settings {
 
 interface GameData {
     game: Game;
-    characterClasses: CharacterClass[];
+    initialCharacterClasses: CharacterClassSummary[];
     unlockableCharacterClasses: UnlockableCharacterClassSummary[];
     personalQuests: PersonalQuest[];
     enhancements: Enhancement[];
@@ -17,8 +21,6 @@ interface GameData {
     defaultCharacter: Character;
 }
 
-type UnlockableCharacterClassSummary = Pick<CharacterClass, "id" | "imageUrl" | "spoilerSafeName">;
-
 interface SpoilerSettings {
     classes: UnlockableCharacterClassSummary[];
     items: ItemSpoilerSettings;
@@ -27,6 +29,11 @@ interface SpoilerSettings {
 interface ItemSpoilerSettings {
     prosperity: number;
     itemGroups: ItemGroup[];
+}
+
+interface CharacterClassData {
+    game: Game;
+    classes: CharacterClass[];
 }
 
 interface ItemData {
@@ -79,6 +86,11 @@ interface CharacterItem {
     id: string;
     item: Item;
     showAlternativeImage: boolean;
+}
+
+interface SaveData {
+    character: Character;
+    gameData: GameData;
 }
 
 interface SerializedCharacter {

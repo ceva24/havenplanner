@@ -1,5 +1,5 @@
 import { deserialize } from "@/services/share/deserializer";
-import { createTestItem, createTestSettings } from "@/test/create-test-fixtures";
+import { createTestCharacterClass, createTestItem, createTestSettings } from "@/test/create-test-fixtures";
 
 jest.mock("uuid", () => {
     return {
@@ -8,6 +8,8 @@ jest.mock("uuid", () => {
 });
 
 const settings: Settings = createTestSettings();
+
+const classes: CharacterClass[] = [createTestCharacterClass(3, "Test Brute")];
 
 describe("deserialize", () => {
     it("sets new uuids on character items", () => {
@@ -18,7 +20,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[[2,false],[8,false]],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData, items);
+        const character: Character = deserialize(data, settings.gameData, classes, items);
 
         expect(character.items).toHaveLength(2);
         expect(character.items[0].id).toEqual("123");
@@ -30,7 +32,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[[-1,false]],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData, []);
+        const character: Character = deserialize(data, settings.gameData, classes, []);
 
         expect(character.items).toHaveLength(0);
     });
@@ -40,7 +42,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":-1,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData, []);
+        const character: Character = deserialize(data, settings.gameData, classes, []);
 
         expect(character.characterClass.name).toEqual("Test Brute");
     });
@@ -50,7 +52,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":1,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData, []);
+        const character: Character = deserialize(data, settings.gameData, classes, []);
 
         expect(character).not.toHaveProperty("personalQuest");
     });
@@ -60,7 +62,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[-2],"h":[],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData, []);
+        const character: Character = deserialize(data, settings.gameData, classes, []);
 
         expect(character.unlockedAbilityCards).toHaveLength(0);
     });
@@ -70,15 +72,14 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[-2],"e":[],"p":[],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData, []);
+        const character: Character = deserialize(data, settings.gameData, classes, []);
 
         expect(character.hand).toHaveLength(0);
     });
 
     it("deserializes perks with non-zero indexed ids", () => {
-        const settings: Settings = createTestSettings();
-
-        settings.gameData.characterClasses[0].perks = [
+        const characterClass: CharacterClass = createTestCharacterClass(3, "Test Brute");
+        characterClass.perks = [
             {
                 id: 1,
                 name: "Remove two <-1> cards",
@@ -95,11 +96,13 @@ describe("deserialize", () => {
             },
         ];
 
+        const settings: Settings = createTestSettings();
+
         const data = JSON.parse(
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[1,0],[3,0]],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData, []);
+        const character: Character = deserialize(data, settings.gameData, [characterClass], []);
 
         expect(character.gainedPerks).toHaveLength(2);
 
@@ -112,7 +115,7 @@ describe("deserialize", () => {
             `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[-1, 0]],"b":[]}`
         ) as SerializedCharacter;
 
-        const character: Character = deserialize(data, settings.gameData, []);
+        const character: Character = deserialize(data, settings.gameData, classes, []);
 
         expect(character.gainedPerks).toHaveLength(0);
     });

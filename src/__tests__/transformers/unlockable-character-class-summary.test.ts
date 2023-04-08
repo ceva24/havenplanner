@@ -1,5 +1,5 @@
-import { createTestCharacterClass } from "../create-test-fixtures";
-import { toUnlockableCharacterClassSummary } from "@/transformers/character";
+import { toUnlockableCharacterClassSummary } from "@/transformers/unlockable-character-class-summary";
+import { createTestCharacterClass } from "@/test/create-test-fixtures";
 
 describe("toUnlockableCharacterClassSummary", () => {
     it("converts a class to a spoiler safe summary", () => {
@@ -9,6 +9,6 @@ describe("toUnlockableCharacterClassSummary", () => {
 
         const summary: UnlockableCharacterClassSummary = toUnlockableCharacterClassSummary(characterClass);
 
-        expect(summary).toEqual({ id: 2, imageUrl: "/test", spoilerSafeName: "Test Spoilery" });
+        expect(summary).toEqual({ id: 2, spoilerSafeName: "Test Spoilery", imageUrl: "/test" });
     });
 });

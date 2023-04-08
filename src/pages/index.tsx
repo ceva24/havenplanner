@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
 import { getDefaultSettings, getSettingsForGame, getSpoilerSettingsForCharacter } from "@/services/settings";
-import { decode, type SaveData } from "@/services/share/codec";
+import { decode } from "@/services/share/decoder";
 import { hasSpoilers } from "@/services/spoiler";
 import SettingsProvider from "@/hooks/use-settings";
 import Header from "@/components/header/header";

@@ -33,12 +33,12 @@ describe("spoilAll", () => {
 });
 
 describe("unspoilAll", () => {
-    it("sets the spoiler settings to minimum", () => {
+    it("sets the spoiler settings to minimum", async () => {
         const settings: Settings = createTestSettings();
 
         const setSettings = jest.fn();
 
-        unspoilAll(settings, setSettings);
+        await unspoilAll(settings, setSettings);
 
         expect(setSettings).toHaveBeenCalledTimes(1);
         expect(setSettings).toHaveBeenCalledWith({

@@ -16,4 +16,8 @@ const spoilerSettingsSchema: zod.ZodType<SpoilerSettings> = zod.object({
     items: itemSpoilerSettingsSchema,
 });
 
-export { spoilerSettingsSchema };
+const gameDataSchema: zod.ZodType<GameDataRequest> = zod.object({
+    spoilerSettings: spoilerSettingsSchema,
+});
+
+export { gameDataSchema };

@@ -1,8 +1,6 @@
 import axios, { type AxiosError, type AxiosResponse } from "axios";
 import useSWRImmutable from "swr/immutable"; // eslint-disable-line n/file-extension-in-import
 
-const url = "/api/items";
-
 interface UseItems {
     items?: Item[];
     isLoading: boolean;
@@ -10,9 +8,11 @@ interface UseItems {
 }
 
 const useItems = (settings: Settings): UseItems => {
+    const url = `/api/games/${settings.gameData.game.id}/items`;
+
     const { data, error } = useSWRImmutable<Item[], AxiosError>(
         JSON.stringify([url, settings.gameData.game.id, settings.spoilerSettings.items]),
-        async () => fetch(settings),
+        async () => fetch(url, settings),
         {
             keepPreviousData: true,
         }
@@ -25,15 +25,14 @@ const useItems = (settings: Settings): UseItems => {
     };
 };
 
-const fetch = async (settings: Settings): Promise<Item[]> => {
-    const body: ItemsRequestData = {
-        gameId: settings.gameData.game.id,
+const fetch = async (url: string, settings: Settings): Promise<Item[]> => {
+    const body: GameDataRequest = {
         spoilerSettings: settings.spoilerSettings,
     };
 
     return axios
-        .post<ItemsResponseData>(url, body)
-        .then((response: AxiosResponse<ItemsResponseData>) => response.data.items);
+        .post<ItemDataResponse>(url, body)
+        .then((response: AxiosResponse<ItemDataResponse>) => response.data.items);
 };
 
 export { useItems, type UseItems, fetch };
