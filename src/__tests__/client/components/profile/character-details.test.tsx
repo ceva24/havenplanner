@@ -1,6 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
 import CharacterDetails from "@/client/components/profile/character-details";
-
 import { createTestCharacter } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 

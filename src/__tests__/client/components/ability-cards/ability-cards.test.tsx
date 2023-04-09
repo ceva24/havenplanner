@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import AbilityCards from "@/client/components/ability-cards/ability-cards";
-
 import { createTestCharacter } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 

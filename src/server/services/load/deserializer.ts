@@ -49,7 +49,7 @@ const deserializeAbilityCards = (abilityCardIds: number[], characterClass: Chara
     });
 
     const validAbilityCards: AbilityCard[] = abilityCards.filter(
-        (abilityCard): abilityCard is AbilityCard => typeof abilityCard !== "undefined"
+        (abilityCard): abilityCard is AbilityCard => abilityCard !== undefined
     );
 
     return validAbilityCards;
@@ -95,7 +95,7 @@ const deserializeGainedPerks = (perkIndices: Array<[number, number]>, characterC
     });
 
     const validGainedPerks: GainedPerk[] = gainedPerks.filter(
-        (gainedPerk): gainedPerk is GainedPerk => typeof gainedPerk?.perk !== "undefined"
+        (gainedPerk): gainedPerk is GainedPerk => gainedPerk?.perk !== undefined
     );
 
     return validGainedPerks;
@@ -123,7 +123,7 @@ const deserializeItems = (itemData: Array<[number, boolean]>, items: Item[]): Ch
     });
 
     const validCharacterItems: CharacterItem[] = characterItems.filter(
-        (characterItem): characterItem is CharacterItem => typeof characterItem.item !== "undefined"
+        (characterItem): characterItem is CharacterItem => characterItem.item !== undefined
     );
 
     return validCharacterItems;
