@@ -11,6 +11,7 @@
         "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
         "@typescript-eslint/no-implicit-any-catch": "off",
         "import/extensions": ["error", { "tsx": "never" }],
+        "import/no-extraneous-dependencies": ["error", { "includeTypes": false }],
         "react/jsx-indent": "off",
         "react/jsx-indent-props": "off",
         "react/jsx-no-duplicate-props": ["error", { "ignoreCase": false }],
