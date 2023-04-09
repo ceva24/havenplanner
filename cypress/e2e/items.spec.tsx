@@ -4,7 +4,7 @@ import "@/support/commands";
 
 describe("items tab", () => {
     it("allows items to be added", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -16,7 +16,7 @@ describe("items tab", () => {
     });
 
     it("allows items to be deleted", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -33,7 +33,7 @@ describe("items tab", () => {
     });
 
     it("allows items to be deleted by pressing space", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -47,7 +47,7 @@ describe("items tab", () => {
     });
 
     it("allows items to be deleted by pressing enter", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -61,7 +61,7 @@ describe("items tab", () => {
     });
 
     it("orders items by slot and then id", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -79,7 +79,7 @@ describe("items tab", () => {
     });
 
     it("shows the equip slot icon in the items autocomplete menu items", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -92,7 +92,7 @@ describe("items tab", () => {
     });
 
     it("shows the browse items dialog when pressing the browse items button", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -102,7 +102,7 @@ describe("items tab", () => {
     });
 
     it("allows the browse items dialog to be closed", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -116,7 +116,7 @@ describe("items tab", () => {
     });
 
     it("shows items in the browse items dialog", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -129,7 +129,7 @@ describe("items tab", () => {
     });
 
     it("shows item groups in the browse items dialog", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -141,7 +141,7 @@ describe("items tab", () => {
     });
 
     it("adds an item from the browse items dialog when clicking on it", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -157,7 +157,7 @@ describe("items tab", () => {
     });
 
     it("adds an item from the browse items dialog when pressing enter", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -173,7 +173,7 @@ describe("items tab", () => {
     });
 
     it("adds an item from the browse items dialog when pressing space", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -189,7 +189,7 @@ describe("items tab", () => {
     });
 
     it("does not show higher prosperity items in the items autocomplete when the prosperity level spoiler setting is at default", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -199,7 +199,7 @@ describe("items tab", () => {
     });
 
     it("shows higher prosperity items in the items autocomplete when the prosperity level spoiler setting has been raised", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -211,7 +211,7 @@ describe("items tab", () => {
     });
 
     it("does not show higher prosperity items in the browse items dialog when the prosperity level spoiler setting is at default", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -223,7 +223,7 @@ describe("items tab", () => {
     });
 
     it("shows higher prosperity items in the browse items dialog when the prosperity level spoiler setting has been raised", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -237,7 +237,7 @@ describe("items tab", () => {
     });
 
     it("shows items from an item group in the items autocomplete when the item group's spoiler setting has been checked", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -249,7 +249,7 @@ describe("items tab", () => {
     });
 
     it("shows items from an item group in the browse items dialog when the item group's spoiler setting has been checked", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -263,7 +263,7 @@ describe("items tab", () => {
     });
 
     it("allows higher prosperity items to be added", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -275,7 +275,7 @@ describe("items tab", () => {
     });
 
     it("allows item group items to be added", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -287,7 +287,7 @@ describe("items tab", () => {
     });
 
     it("does not allow items with no alternative image to be toggled", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -297,7 +297,7 @@ describe("items tab", () => {
     });
 
     it("allows items with an alternative image to be toggled", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -319,7 +319,7 @@ describe("items tab", () => {
     });
 
     it("allows items with an alternative image to be toggled by pressing enter", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -341,7 +341,7 @@ describe("items tab", () => {
     });
 
     it("allows items with an alternative image to be toggled by pressing space", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 

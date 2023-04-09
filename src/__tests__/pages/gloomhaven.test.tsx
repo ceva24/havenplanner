@@ -2,7 +2,7 @@ import type { ParsedUrlQuery } from "node:querystring";
 import { render, screen } from "@testing-library/react";
 import type { GetServerSidePropsContext } from "next";
 import { createMocks } from "node-mocks-http";
-import Index, { getServerSideProps, type IndexProps } from "@/pages/index";
+import GloomhavenPage, { getServerSideProps, type GloomhavenPageProps } from "@/pages/gloomhaven";
 import * as decoderService from "@/server/services/load/decoder";
 import * as settingsService from "@/server/services/settings";
 import { createTestSettings, createTestCharacter } from "@/test/create-test-fixtures";
@@ -24,9 +24,9 @@ beforeEach(() => {
 const character: Character = createTestCharacter();
 const settings: Settings = createTestSettings();
 
-describe("index page", () => {
+describe("gloomhaven page", () => {
     it("renders the tabbed content", () => {
-        render(<Index initialSettings={settings} />);
+        render(<GloomhavenPage initialSettings={settings} />);
 
         const profileTab = screen.getByRole("tab", { name: "Profile" });
 
@@ -34,7 +34,7 @@ describe("index page", () => {
     });
 
     it("renders the share button", () => {
-        render(<Index initialSettings={settings} />);
+        render(<GloomhavenPage initialSettings={settings} />);
 
         const shareButton = screen.getByRole("button", { name: "Share" });
 
@@ -51,14 +51,14 @@ describe("getServerSideProps", () => {
             return settings;
         });
 
-        const data = (await getServerSideProps(createMockContext({}))) as { props: IndexProps };
+        const data = (await getServerSideProps(createMockContext({}))) as { props: GloomhavenPageProps };
 
         expect(getDefaultSettingsImplementation).toHaveBeenCalledTimes(1);
         expect(data.props.initialSettings).toEqual(settings);
     });
 
     it("returns no loaded character or spoiler settings when there is no save data to load", async () => {
-        const data = (await getServerSideProps(createMockContext({}))) as { props: IndexProps };
+        const data = (await getServerSideProps(createMockContext({}))) as { props: GloomhavenPageProps };
 
         expect(data.props.loadedCharacter).toBeFalsy();
         expect(data.props.loadedSpoilerSettings).toBeFalsy();
@@ -70,7 +70,7 @@ describe("getServerSideProps", () => {
 
         const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
 
-        const data = (await getServerSideProps(context)) as { props: IndexProps };
+        const data = (await getServerSideProps(context)) as { props: GloomhavenPageProps };
 
         expect(data.props.loadedCharacter).toEqual(character);
     });
@@ -82,7 +82,7 @@ describe("getServerSideProps", () => {
 
         const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
 
-        const data = (await getServerSideProps(context)) as { props: IndexProps };
+        const data = (await getServerSideProps(context)) as { props: GloomhavenPageProps };
 
         expect(data.props.loadedSpoilerSettings).toEqual(settings.spoilerSettings);
     });
@@ -93,7 +93,7 @@ describe("getServerSideProps", () => {
 
         const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
 
-        const data = (await getServerSideProps(context)) as { props: IndexProps };
+        const data = (await getServerSideProps(context)) as { props: GloomhavenPageProps };
 
         expect(data.props.initialSettings).toEqual(settings);
     });
@@ -107,7 +107,7 @@ describe("getServerSideProps", () => {
 
         const context: GetServerSidePropsContext = createMockContext({ character: "abc" });
 
-        const data = (await getServerSideProps(context)) as { props: IndexProps };
+        const data = (await getServerSideProps(context)) as { props: GloomhavenPageProps };
 
         expect(data.props.initialSettings.gameData.defaultCharacter).toBeTruthy();
     });

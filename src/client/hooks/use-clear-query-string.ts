@@ -10,7 +10,7 @@ const useClearQueryString = () => {
 };
 
 const clearQueryString = (router: NextRouter) => {
-    void router?.replace("/", undefined, { shallow: true });
+    void router?.replace(router.pathname, undefined, { shallow: true });
 };
 
 export { useClearQueryString, clearQueryString };

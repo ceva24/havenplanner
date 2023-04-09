@@ -4,7 +4,7 @@ import "@/support/commands";
 
 describe("perks tab", () => {
     it("displays the base attack modifier deck", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -18,7 +18,7 @@ describe("perks tab", () => {
     });
 
     it("displays the perks", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -39,7 +39,7 @@ describe("perks tab", () => {
     });
 
     it("allows a perk to be gained and updates the attack modifier count", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -49,7 +49,7 @@ describe("perks tab", () => {
     });
 
     it("allows perks to be removed and updates the attack modifier count", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -61,7 +61,7 @@ describe("perks tab", () => {
     });
 
     it("allows the second checkbox of a perk to be gained", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -72,7 +72,7 @@ describe("perks tab", () => {
     });
 
     it("shows a new attack modifier card when gaining a perk that adds it", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -82,7 +82,7 @@ describe("perks tab", () => {
     });
 
     it("removes an attack modifier card when gaining a perk that removes the last copy of it", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectClass("Tinkerer");
 
@@ -94,7 +94,7 @@ describe("perks tab", () => {
     });
 
     it("orders class attack modifier cards in the order that they first appear in the perks", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -107,7 +107,7 @@ describe("perks tab", () => {
     });
 
     it("displays perk icons", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -115,7 +115,7 @@ describe("perks tab", () => {
     });
 
     it("gains a perk when clicking on the perk description", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -125,7 +125,7 @@ describe("perks tab", () => {
     });
 
     it("gains the second perk when clicking on the perk description", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -141,7 +141,7 @@ describe("perks tab", () => {
     });
 
     it("gains the next ungained perk when clicking on the perk description", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -157,7 +157,7 @@ describe("perks tab", () => {
     });
 
     it("removes all perks of that type when clicking on the perk description for a perk that is fully gained", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -171,7 +171,7 @@ describe("perks tab", () => {
     });
 
     it("applies a perk when its prerequisite perk is met", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.spoilAll();
 
@@ -187,7 +187,7 @@ describe("perks tab", () => {
     });
 
     it("does not apply a perk when its prerequisite perk is not met", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.spoilAll();
 
@@ -202,7 +202,7 @@ describe("perks tab", () => {
     });
 
     it("removes the application of a perk when its prerequisite perk is unchecked again", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.spoilAll();
 
@@ -223,7 +223,7 @@ describe("perks tab", () => {
     });
 
     it("only applies a perk with prequisites as many times as its prerequisite is checked", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.spoilAll();
 
@@ -239,7 +239,7 @@ describe("perks tab", () => {
     });
 
     it("applies a perk with a prerequisite regardless of which prerequisite checkbox is selected", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.spoilAll();
 
@@ -255,7 +255,7 @@ describe("perks tab", () => {
     });
 
     it("shows the battle goal perks", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -263,7 +263,7 @@ describe("perks tab", () => {
     });
 
     it("allows battle goals perks to be gained", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -273,7 +273,7 @@ describe("perks tab", () => {
     });
 
     it("allows battle goals perks to be lost", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -290,7 +290,7 @@ describe("perks tab", () => {
     });
 
     it("gains a battle goal checkmark when clicking on the label for a group", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -302,7 +302,7 @@ describe("perks tab", () => {
     });
 
     it("gains the next ungained battle goal checkmark when clicking on the label for a group", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -315,7 +315,7 @@ describe("perks tab", () => {
     });
 
     it("removes all checkmarks from a group when clicking on the label for a group that is complete", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 

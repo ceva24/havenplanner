@@ -5,18 +5,19 @@ import SettingsButton from "@/client/components/settings/settings-button";
 import SpoilAllSwitch from "@/client/components/settings/spoil-all-switch";
 
 interface HeaderProps {
+    title: string;
     character?: Character;
     setCharacter?: Dispatch<SetStateAction<Character>>;
 }
 
-const Header = ({ character, setCharacter }: HeaderProps) => {
+const Header = ({ title, character, setCharacter }: HeaderProps) => {
     return (
         <AppBar position="static">
             <Toolbar>
                 <Box sx={{ flexGrow: 1 }}>
                     <Typography component="h1" style={{ lineHeight: 1 }}>
                         <Link href="/" underline="none" color="textPrimary" variant="h1">
-                            Gloomhaven Character Planner
+                            {title}
                         </Link>
                     </Typography>
                 </Box>

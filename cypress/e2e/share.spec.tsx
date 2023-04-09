@@ -4,13 +4,13 @@ import "@/support/commands";
 
 describe("share", () => {
     it("shows the share link button", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findShareLinkButton().should("be.visible");
     });
 
     it("shows a dialog when clicking the share link button", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findShareLinkButton().click();
 
@@ -18,7 +18,7 @@ describe("share", () => {
     });
 
     it("populates the link field with the shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findShareLinkButton().click();
 
@@ -26,11 +26,11 @@ describe("share", () => {
             .findShareLinkTextBox()
             .should("not.have.value", "")
             .invoke("val")
-            .should("match", /http:\/\/localhost:3000\?character=\w{10,}/);
+            .should("match", /http:\/\/localhost:3000\/gloomhaven\?character=\w{10,}/);
     });
 
     it("hides the share link dialog when clicking on the close button", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findShareLinkButton().click();
 
@@ -48,7 +48,7 @@ describe("share", () => {
     });
 
     it("captures the character details in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectClass("Spellweaver");
 
@@ -71,7 +71,7 @@ describe("share", () => {
     });
 
     it("captures the personal quest in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findPersonalQuestSwitch().check();
 
@@ -89,7 +89,7 @@ describe("share", () => {
     });
 
     it("captures item data in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -107,7 +107,7 @@ describe("share", () => {
     });
 
     it("retains item ordering when loading data from a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -140,7 +140,7 @@ describe("share", () => {
     });
 
     it("captures unlocked ability card data in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("100");
 
@@ -160,7 +160,7 @@ describe("share", () => {
     });
 
     it("allows ability card unlocks to be modified when loading a character", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("50");
 
@@ -180,7 +180,7 @@ describe("share", () => {
     });
 
     it("captures the hand data in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -211,7 +211,7 @@ describe("share", () => {
     });
 
     it("captures gained enhancements in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -234,7 +234,7 @@ describe("share", () => {
     });
 
     it("captures gained perks in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -258,7 +258,7 @@ describe("share", () => {
     });
 
     it("allows gained perks to be modified when loading a character", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -278,7 +278,7 @@ describe("share", () => {
     });
 
     it("captures battle goal progress in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -302,7 +302,7 @@ describe("share", () => {
     });
 
     it("allows battle goal progress to be modified when loading a character", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -325,7 +325,7 @@ describe("share", () => {
     });
 
     it("shows the load character dialog when loading a character with spoilers", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -341,7 +341,7 @@ describe("share", () => {
     });
 
     it("shows the prosperity and item groups in the load character dialog when loading a character with item spoilers", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -363,7 +363,7 @@ describe("share", () => {
     });
 
     it("shows the class in the load character dialog when loading a character with class spoilers", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.spoilAll();
 
@@ -377,7 +377,7 @@ describe("share", () => {
     });
 
     it("loads the character when confirming the load character dialog", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectClass("Spellweaver");
 
@@ -397,7 +397,7 @@ describe("share", () => {
     });
 
     it("does not load the character when cancelling the load character dialog", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectClass("Spellweaver");
 
@@ -419,7 +419,7 @@ describe("share", () => {
     });
 
     it("captures higher prosperity item data in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -439,7 +439,7 @@ describe("share", () => {
     });
 
     it("sets the prosperity level spoiler setting to the level of the character's highest prosperity item", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -459,7 +459,7 @@ describe("share", () => {
     });
 
     it("captures item group item data in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -479,7 +479,7 @@ describe("share", () => {
     });
 
     it("sets the active item groups based on the character's items", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -499,7 +499,7 @@ describe("share", () => {
     });
 
     it("a loaded active item group can be toggled", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -527,7 +527,7 @@ describe("share", () => {
     });
 
     it("captures locked class data in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.spoilAll();
 
@@ -543,7 +543,7 @@ describe("share", () => {
     });
 
     it("sets the unlocked class based on the character's class", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.spoilAll();
 
@@ -561,7 +561,7 @@ describe("share", () => {
     });
 
     it("a loaded class can be toggled", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.spoilAll();
 
@@ -585,7 +585,7 @@ describe("share", () => {
     });
 
     it("captures item alternative image status in a shareable link", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 

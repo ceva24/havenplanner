@@ -5,11 +5,12 @@ describe("clear query string", () => {
     it("replaces the url with /", () => {
         const router = {
             replace: jest.fn(),
+            pathname: "/gloomhaven",
         } as unknown as jest.Mocked<NextRouter>;
 
         clearQueryString(router);
 
         expect(router.replace).toHaveBeenCalledTimes(1);
-        expect(router.replace.mock.calls[0][0]).toEqual("/");
+        expect(router.replace.mock.calls[0][0]).toEqual("/gloomhaven");
     });
 });

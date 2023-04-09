@@ -63,7 +63,7 @@ const generateAndSetShareableLink = (
         try {
             const encodedCharacterData = encode({ character, gameData });
 
-            setShareableLink(`${location.origin}?character=${encodedCharacterData}`);
+            setShareableLink(`${location.href}?character=${encodedCharacterData}`);
         } catch {
             setEncodeCharacterError(true);
         }
