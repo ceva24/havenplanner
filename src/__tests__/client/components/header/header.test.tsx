@@ -8,7 +8,9 @@ const setCharacter = jest.fn();
 
 describe("header", () => {
     it("renders the heading as a link", () => {
-        render(<Header character={character} setCharacter={setCharacter} />, { wrapper: TestSettingsProvider });
+        render(<Header title="Gloomhaven Character Planner" character={character} setCharacter={setCharacter} />, {
+            wrapper: TestSettingsProvider,
+        });
 
         const headerLink = screen.queryByRole("link", {
             name: "Gloomhaven Character Planner",
@@ -18,7 +20,9 @@ describe("header", () => {
     });
 
     it("renders the share button", () => {
-        render(<Header character={character} setCharacter={setCharacter} />, { wrapper: TestSettingsProvider });
+        render(<Header title="Gloomhaven Character Planner" character={character} setCharacter={setCharacter} />, {
+            wrapper: TestSettingsProvider,
+        });
 
         const shareButton = screen.queryByRole("button", {
             name: "Share",
@@ -28,7 +32,9 @@ describe("header", () => {
     });
 
     it("renders the settings button", () => {
-        render(<Header character={character} setCharacter={setCharacter} />, { wrapper: TestSettingsProvider });
+        render(<Header title="Gloomhaven Character Planner" character={character} setCharacter={setCharacter} />, {
+            wrapper: TestSettingsProvider,
+        });
 
         const settingsButton = screen.queryByRole("button", {
             name: "Settings",
@@ -38,7 +44,9 @@ describe("header", () => {
     });
 
     it("renders the spoil all switch", () => {
-        render(<Header character={character} setCharacter={setCharacter} />, { wrapper: TestSettingsProvider });
+        render(<Header title="Gloomhaven Character Planner" character={character} setCharacter={setCharacter} />, {
+            wrapper: TestSettingsProvider,
+        });
 
         const spoilAllSwitch = screen.queryByRole("checkbox", { name: "Spoil all" });
 
@@ -46,7 +54,7 @@ describe("header", () => {
     });
 
     it("does not render the share button when no character is passed", () => {
-        render(<Header />);
+        render(<Header title="Gloomhaven Character Planner" />);
 
         const shareButton = screen.queryByRole("button", {
             name: "Share",
@@ -56,7 +64,7 @@ describe("header", () => {
     });
 
     it("does not render the settings button when no character is passed", () => {
-        render(<Header />);
+        render(<Header title="Gloomhaven Character Planner" />);
 
         const settingsButton = screen.queryByRole("button", {
             name: "Settings",
@@ -66,7 +74,7 @@ describe("header", () => {
     });
 
     it("does not render the spoil all switch when no character is passed", () => {
-        render(<Header />);
+        render(<Header title="Gloomhaven Character Planner" />);
 
         const spoilAllSwitch = screen.queryByRole("checkbox", { name: "Spoil all" });
 

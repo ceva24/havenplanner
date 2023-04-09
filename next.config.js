@@ -4,6 +4,15 @@ const nextConfig = {
         locales: ["en-US"],
         defaultLocale: "en-US",
     },
+    async redirects() {
+        return [
+            {
+                source: "/",
+                destination: "/gloomhaven",
+                permanent: false,
+            },
+        ];
+    },
 };
 
 module.exports = nextConfig;

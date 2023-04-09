@@ -4,7 +4,7 @@ import "@/support/commands";
 
 describe("profile tab", () => {
     it("shows a list of classes in the class select list", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findSelectClassButton().click();
 
@@ -12,19 +12,19 @@ describe("profile tab", () => {
     });
 
     it("shows the character details", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findCharacterDetailsForm().should("be.visible");
     });
 
     it("has the first class selected on page load", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findByRole("button", { name: "Class" }).should("have.text", "Brute");
     });
 
     it("allows a name to be entered", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findNameField().type("Elsa");
 
@@ -32,7 +32,7 @@ describe("profile tab", () => {
     });
 
     it("shows the class icon in the class select", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findCharacterDetailsForm().findSelectClassButton().click();
 
@@ -43,7 +43,7 @@ describe("profile tab", () => {
     });
 
     it("allows numerical characters to be entered in the experience text field", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("123");
 
@@ -51,7 +51,7 @@ describe("profile tab", () => {
     });
 
     it("doesn't allow non-numerical characters to be entered in the experience text field", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("hello");
 
@@ -59,7 +59,7 @@ describe("profile tab", () => {
     });
 
     it("changes the level when changing the experience value", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findLevelField().should("have.value", "1");
 
@@ -69,7 +69,7 @@ describe("profile tab", () => {
     });
 
     it("allows numerical characters to be entered in the gold text field", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findGoldField().type("123");
 
@@ -77,7 +77,7 @@ describe("profile tab", () => {
     });
 
     it("doesn't allow non-numerical characters to be entered in the gold text field", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findGoldField().type("hello");
 
@@ -85,7 +85,7 @@ describe("profile tab", () => {
     });
 
     it("allows notes to be entered", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findNotesField().type("Loves cold weather");
 
@@ -93,7 +93,7 @@ describe("profile tab", () => {
     });
 
     it("shows the front of character mat", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findByRole("img", { name: "Character mat front" })
             .parentsUntil("flippy-cardContainer")
@@ -101,7 +101,7 @@ describe("profile tab", () => {
     });
 
     it("rotates the character mat when clicking on it", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findByRole("img", { name: "Character mat front" })
             .click()
@@ -110,7 +110,7 @@ describe("profile tab", () => {
     });
 
     it("rotates the character mat when pressing space", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findByRole("img", { name: "Character mat front" })
             .closest(".flippy-container")
@@ -121,7 +121,7 @@ describe("profile tab", () => {
     });
 
     it("rotates the character mat when pressing enter", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findByRole("img", { name: "Character mat front" })
             .closest(".flippy-container")
@@ -132,7 +132,7 @@ describe("profile tab", () => {
     });
 
     it("hides the character mat and shows the personal quest when checking the personal quest switch", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findByRole("img", { name: "Character mat front" }).should("exist");
 
@@ -146,7 +146,7 @@ describe("profile tab", () => {
     });
 
     it("shows the personal quest card back when no personal quest has been selected", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findPersonalQuestSwitch().check();
 
@@ -154,7 +154,7 @@ describe("profile tab", () => {
     });
 
     it("allows a personal quest to be selected and updates the card image", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findPersonalQuestSwitch().check();
 

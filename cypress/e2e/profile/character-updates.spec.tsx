@@ -4,7 +4,7 @@ import "@/support/commands";
 
 describe("profile tab - character updates", () => {
     it("retains the character details when changing the class", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findNameField().type("Elsa").should("have.value", "Elsa");
         cy.findExperienceField().type("123").should("have.value", "123");
@@ -18,7 +18,7 @@ describe("profile tab - character updates", () => {
     });
 
     it("resets unlocked ability cards when changing the class", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("100");
 
@@ -37,7 +37,7 @@ describe("profile tab - character updates", () => {
     });
 
     it("removes an unlocked ability card for a higher level when the character level decreases", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("100");
 
@@ -57,7 +57,7 @@ describe("profile tab - character updates", () => {
     });
 
     it("removes an unlocked ability card for a higher level when the character level decreases", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("100");
 
@@ -78,7 +78,7 @@ describe("profile tab - character updates", () => {
     });
 
     it("removes higher level cards, removes new current level unlocks and then removes recently selected cards exceeding the maximum number of unlocks when decreasing character level by a significant amount", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("400");
 
@@ -107,7 +107,7 @@ describe("profile tab - character updates", () => {
     });
 
     it("resets the hand when changing the class", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -135,7 +135,7 @@ describe("profile tab - character updates", () => {
     });
 
     it("removes higher level cards from the hand when changing level", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("400");
 
@@ -182,7 +182,7 @@ describe("profile tab - character updates", () => {
     });
 
     it("resets gained perks when changing the class", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -202,7 +202,7 @@ describe("profile tab - character updates", () => {
     });
 
     it("resets gained battle goals when changing the class", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Perks");
 
@@ -225,7 +225,7 @@ describe("profile tab - character updates", () => {
     });
 
     it("resets gained enhancements when changing the class", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 

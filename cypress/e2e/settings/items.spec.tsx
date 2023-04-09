@@ -4,7 +4,7 @@ import "@/support/commands";
 
 describe("settings dialog - items", () => {
     it("allows the item spoiler prosperity level to be set", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.setProsperityLevel(2);
 
@@ -14,7 +14,7 @@ describe("settings dialog - items", () => {
     });
 
     it("shows the item groups", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.openSettings();
 
@@ -30,7 +30,7 @@ describe("settings dialog - items", () => {
     });
 
     it("allows item groups to be set", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.setSpoilerActive("Random Item Designs");
 
@@ -40,7 +40,7 @@ describe("settings dialog - items", () => {
     });
 
     it("removes higher prosperity items when lowering the item spoiler prosperity level", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -56,7 +56,7 @@ describe("settings dialog - items", () => {
     });
 
     it("removes items from an item group when marking that item group inactive", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -72,7 +72,7 @@ describe("settings dialog - items", () => {
     });
 
     it("does not remove items from an item group when lowering the item prosperity level", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -92,7 +92,7 @@ describe("settings dialog - items", () => {
     });
 
     it("does not remove higher prosperity items when marking an item group inactive", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -112,7 +112,7 @@ describe("settings dialog - items", () => {
     });
 
     it("does not remove higher prosperity items when lowering and immediately raising the item prosperity again", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -132,7 +132,7 @@ describe("settings dialog - items", () => {
     });
 
     it("does not remove items from item groups when deactivating and immediately reactivating the item group again", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -156,7 +156,7 @@ describe("settings dialog - items", () => {
     });
 
     it("does not remove items from item groups when toggling off and immediately toggling on spoil all in the settings dialog", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -180,7 +180,7 @@ describe("settings dialog - items", () => {
     });
 
     it("does remove items from item groups when toggling off and immediately toggling on spoil all in the header", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -196,7 +196,7 @@ describe("settings dialog - items", () => {
     });
 
     it("shows the spoiler hint in the items autocomplete when the prosperity level is < 9", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -206,7 +206,7 @@ describe("settings dialog - items", () => {
     });
 
     it("shows the spoiler hint in the items autocomplete when the prosperity level is 9 but there are inactive item groups", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 
@@ -218,7 +218,7 @@ describe("settings dialog - items", () => {
     });
 
     it("does not show the spoiler hint in the items autocomplete when everything is spoiled", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
 

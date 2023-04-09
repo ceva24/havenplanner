@@ -4,7 +4,7 @@ import "@/support/commands";
 
 describe("ability cards tab - hand", () => {
     it("shows a hand of unselected cards", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -14,7 +14,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("retains the state of the ability cards tabs", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -28,7 +28,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("shows the edit hand dialog when pressing the edit hand button", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -40,7 +40,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("allows the edit hand dialog to be closed", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -56,7 +56,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("only shows level 1 and level X in the edit hand dialog", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -76,7 +76,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("shows level 2 or higher cards in the edit hand dialog when they have been unlocked", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("100");
 
@@ -94,7 +94,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("allows ability cards to be added to the hand", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("100");
 
@@ -114,7 +114,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("allows ability cards to be added to the hand by pressing enter", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("100");
 
@@ -134,7 +134,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("allows ability cards to be added to the hand by pressing space", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("100");
 
@@ -154,7 +154,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("allows ability cards to be removed from the hand", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -180,7 +180,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("shows unselected cards equal to the remaining spaces in the hand", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -198,7 +198,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("shows no unselected cards when the hand is filled", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -225,7 +225,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("removes a card from the hand when locking it", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("100");
 
@@ -255,7 +255,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("shows a running counter of the number of cards in hand", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -273,7 +273,7 @@ describe("ability cards tab - hand", () => {
     });
 
     it("does not allow any more cards to be added to the hand once the hand size has been reached", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 

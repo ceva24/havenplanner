@@ -6,7 +6,7 @@ describe("404 page", () => {
         render(<NotFoundPage />);
 
         const headerLink = screen.queryByRole("link", {
-            name: "Gloomhaven Character Planner",
+            name: "HavenPlanner",
         });
 
         expect(headerLink).toBeInTheDocument();

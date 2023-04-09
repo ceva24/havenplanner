@@ -4,7 +4,7 @@ import "@/support/commands";
 
 describe("ability cards tab - deck", () => {
     it("renders a card", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -15,7 +15,7 @@ describe("ability cards tab - deck", () => {
     });
 
     it("renders level 1 cards", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -23,7 +23,7 @@ describe("ability cards tab - deck", () => {
     });
 
     it("renders level X cards", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -31,7 +31,7 @@ describe("ability cards tab - deck", () => {
     });
 
     it("renders level 2-9 cards", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -46,7 +46,7 @@ describe("ability cards tab - deck", () => {
     });
 
     it("renders active cards as locked by default", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("500");
 
@@ -56,7 +56,7 @@ describe("ability cards tab - deck", () => {
     });
 
     it("unlocks an active card when clicking on it", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("500");
 
@@ -66,7 +66,7 @@ describe("ability cards tab - deck", () => {
     });
 
     it("unlocks an active card when pressing space", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("500");
 
@@ -76,7 +76,7 @@ describe("ability cards tab - deck", () => {
     });
 
     it("unlocks an active card when pressing enter", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("500");
 
@@ -86,7 +86,7 @@ describe("ability cards tab - deck", () => {
     });
 
     it("does not allow the unlocking of an ability card that is a higher level than the character", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("55");
 
@@ -96,7 +96,7 @@ describe("ability cards tab - deck", () => {
     });
 
     it("does not allow the unlocking of ability cards when the maximum number have already been unlocked", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("100");
 
@@ -109,7 +109,7 @@ describe("ability cards tab - deck", () => {
     });
 
     it("does not allow the unlocking of an ability card of the same level as the character when the other card at that level has already been unlocked", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("100");
 

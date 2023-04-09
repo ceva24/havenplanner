@@ -4,7 +4,7 @@ import "@/support/commands";
 
 describe("ability cards tab - enhancements", () => {
     it("renders a card", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -14,7 +14,7 @@ describe("ability cards tab - enhancements", () => {
     });
 
     it("renders the enhancements select boxes for a card", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -24,7 +24,7 @@ describe("ability cards tab - enhancements", () => {
     });
 
     it("allows enhancements to be selected", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -38,7 +38,7 @@ describe("ability cards tab - enhancements", () => {
     });
 
     it("shows the enhancement icon in the select box menu items", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -53,7 +53,7 @@ describe("ability cards tab - enhancements", () => {
     });
 
     it("shows the enhancement icon next to selected enhancements", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -71,7 +71,7 @@ describe("ability cards tab - enhancements", () => {
     });
 
     it("updates the ability card image to show the enhanced card when selecting enhancements", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -95,7 +95,7 @@ describe("ability cards tab - enhancements", () => {
     });
 
     it("shows enhanced ability card images in the deck", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -112,7 +112,7 @@ describe("ability cards tab - enhancements", () => {
     });
 
     it("shows enhanced ability card images in the deck for locked cards", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.findExperienceField().type("120");
 
@@ -131,7 +131,7 @@ describe("ability cards tab - enhancements", () => {
     });
 
     it("shows enhanced ability card images in the deck for disabled cards", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -148,7 +148,7 @@ describe("ability cards tab - enhancements", () => {
     });
 
     it("shows enhanced ability card images in the edit hand dialog", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
@@ -167,7 +167,7 @@ describe("ability cards tab - enhancements", () => {
     });
 
     it("shows enhanced ability card images in the hand", () => {
-        cy.visit("/");
+        cy.visit("/gloomhaven");
 
         cy.selectTab("Ability Cards");
 
