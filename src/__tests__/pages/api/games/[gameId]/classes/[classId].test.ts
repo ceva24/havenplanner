@@ -1,12 +1,12 @@
 import { type NextApiRequest, type NextApiResponse } from "next";
 import { type Mocks, createMocks } from "node-mocks-http";
 import { createTestCharacterClass } from "@/test/create-test-fixtures";
-import * as gameService from "@/services/games/game";
+import * as gameService from "@/server/services/games/game";
 import handler from "@/pages/api/games/[gameId]/classes/[classId]";
 
 const characterClass: CharacterClass = createTestCharacterClass(1, "Test Brute");
 
-jest.mock("@/services/games/game");
+jest.mock("@/server/services/games/game");
 
 beforeEach(() => {
     jest.clearAllMocks();

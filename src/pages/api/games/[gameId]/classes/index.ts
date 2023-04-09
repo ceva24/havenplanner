@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ZodError } from "zod";
-import { getCharacterClassesByGameId } from "@/services/games/game";
-import { gameDataSchema } from "@/schemas/game-data";
-import { filterCharacterClasses } from "@/services/character-classes";
-import { toCharacterClassSummary } from "@/transformers/character-class-summary";
+import { getCharacterClassesByGameId } from "@/server/services/games/game";
+import { gameDataSchema } from "@/server/schemas/game-data";
+import { filterCharacterClasses } from "@/server/services/character-classes";
+import { toCharacterClassSummary } from "@/server/transformers/character-class-summary";
 
 const handler = (request: NextApiRequest, response: NextApiResponse<ClassSummariesDataResponse | ErrorResponse>) => {
     try {
