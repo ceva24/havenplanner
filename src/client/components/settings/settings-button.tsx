@@ -6,7 +6,7 @@ import SettingsDialog from "@/client/components/settings/settings-dialog";
 import { findAndSetCharacterClass } from "@/client/components/profile/class-select";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 import { itemShouldBeHidden } from "@/shared/services/items";
-import { isUnlocked } from "@/server/services/character-classes";
+import { isInitialOrUnlockedClass } from "@/shared/services/character-classes";
 
 interface SettingsButtonProps {
     character: Character;
@@ -49,7 +49,7 @@ const updateCharacterAfterChangingSpoilerSettings = async (
         ),
     };
 
-    if (isUnlocked(character.characterClass, settings.spoilerSettings)) {
+    if (isInitialOrUnlockedClass(character.characterClass, settings.spoilerSettings)) {
         setCharacter(newCharacter);
     } else {
         await findAndSetCharacterClass(
