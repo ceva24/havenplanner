@@ -2,14 +2,14 @@ import { type NextApiRequest, type NextApiResponse } from "next";
 import { type Mocks, createMocks } from "node-mocks-http";
 import { createTestItem, createTestSettings } from "@/test/create-test-fixtures";
 import * as gameService from "@/server/services/games/game";
-import * as itemsService from "@/client/services/items";
+import * as itemsService from "@/server/services/items";
 import handler from "@/pages/api/games/[gameId]/items";
 
 const gameDataRequest: GameDataRequest = { spoilerSettings: createTestSettings().spoilerSettings };
 
 jest.mock("@/server/services/games/game");
 
-jest.mock("@/client/services/items");
+jest.mock("@/server/services/items");
 
 beforeEach(() => {
     jest.clearAllMocks();

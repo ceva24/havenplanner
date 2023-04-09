@@ -3,19 +3,8 @@ import groupBy from "lodash.groupby";
 
 const itemOrder = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
 
-const filterItems = (items: Item[], spoilerSettings: SpoilerSettings): Item[] => {
-    return items.filter((item: Item) => !itemShouldBeHidden(item, spoilerSettings));
-};
-
 const groupItems = (items: Item[]): Dictionary<Item[]> => {
     return groupBy(items, (item: Item) => item.group);
-};
-
-const itemShouldBeHidden = (item: Item, spoilerSettings: SpoilerSettings): boolean => {
-    return !(
-        Number.parseInt(item.group, 10) <= spoilerSettings.items.prosperity ||
-        spoilerSettings.items.itemGroups.map((itemGroup: ItemGroup) => itemGroup.name).includes(item.group)
-    );
 };
 
 const getItemImageUrl = (characterItem: CharacterItem): string => {
@@ -33,4 +22,4 @@ const orderItems = (characterItems: CharacterItem[]): CharacterItem[] => {
         );
 };
 
-export { filterItems, groupItems, itemShouldBeHidden, getItemImageUrl, orderItems };
+export { groupItems, getItemImageUrl, orderItems };

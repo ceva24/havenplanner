@@ -26,6 +26,7 @@ const customJestConfig = {
     moduleNameMapper: {
         "@/client/(.*)": "<rootDir>/src/client/$1",
         "@/server/(.*)": "<rootDir>/src/server/$1",
+        "@/shared/(.*)": "<rootDir>/src/shared/$1",
         "@/pages/(.*)": "<rootDir>/src/pages/$1",
         "@/types/(.*)": "<rootDir>/src/types/$1",
         "@/data/(.*)": "<rootDir>/data/$1",

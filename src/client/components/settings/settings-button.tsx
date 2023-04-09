@@ -5,7 +5,7 @@ import { TextButton } from "@/client/components/core/button";
 import SettingsDialog from "@/client/components/settings/settings-dialog";
 import { findAndSetCharacterClass } from "@/client/components/profile/class-select";
 import { useSettingsContext } from "@/client/hooks/use-settings";
-import { itemShouldBeHidden } from "@/client/services/items";
+import { itemShouldBeHidden } from "@/shared/services/items";
 import { isUnlocked } from "@/server/services/character-classes";
 
 interface SettingsButtonProps {
