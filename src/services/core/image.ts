@@ -1,4 +1,4 @@
-const baseImageUrl = "https://images.ghplanner.app";
+const baseImageUrl = "https://images.havenplanner.app";
 
 const createSafeRelativePath = (path: string) => {
     return path.startsWith("/") ? path : "/".concat(path);

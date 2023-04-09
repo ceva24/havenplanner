@@ -1,6 +1,6 @@
 # Contributing
 
-Please [raise an issue](https://github.com/ceva24/gloomhaven-character-planner/issues) if you would like to discuss a feature or bugfix.
+Please [raise an issue](https://github.com/ceva24/havenplanner/issues) if you would like to discuss a feature or bugfix.
 
 ## Commit messages
 

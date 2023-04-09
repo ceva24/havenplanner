@@ -32,7 +32,7 @@ const SettingsDialog = ({ isOpen, onClose }: SettingsDialogProps) => {
                             <ItemGroups />
                         </Box>
                     </Box>
-                    <Link href="https://github.com/ceva24/ghplanner.app/issues" target="_blank">
+                    <Link href="https://github.com/ceva24/havenplanner/issues" target="_blank">
                         <Typography variant="body1">Report an issue</Typography>
                     </Link>
                     <Box>
