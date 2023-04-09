@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import PersonalQuest from "@/client/components/profile/personal-quest";
-
 import { createTestCharacter } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 

@@ -22,7 +22,7 @@ const PerkLabel = ({ perk, labelId, character, setCharacter }: PerkLabelProps) =
                 (index: number) => !characterHasGainedPerk(character, perk, index)
             );
 
-            if (typeof indexOfFirstUngainedPerkCheckbox !== "undefined")
+            if (indexOfFirstUngainedPerkCheckbox !== undefined)
                 gainPerk(perk, indexOfFirstUngainedPerkCheckbox, character, setCharacter);
         }
     };

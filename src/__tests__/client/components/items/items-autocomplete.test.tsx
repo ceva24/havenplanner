@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import ItemsAutocomplete, { addItem, formattedItemId } from "@/client/components/items/items-autocomplete";
-
 import { createTestCharacter, createTestItem } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
 
