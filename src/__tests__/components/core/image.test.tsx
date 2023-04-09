@@ -37,7 +37,7 @@ describe("image", () => {
     it("does not alter the webp path to append the base url if it is already a valid url", () => {
         render(
             <Image
-                webpPath="https://test.ghplanner.app/personal-quests/gloomhaven/gh-pq-back.webp"
+                webpPath="https://test.havenplanner.app/personal-quests/gloomhaven/gh-pq-back.webp"
                 fallbackImageType="jpg"
                 altText="Personal quest"
             />
@@ -47,6 +47,8 @@ describe("image", () => {
             name: "Personal quest",
         });
 
-        expect(image.getAttribute("src")).toMatch("https://test.ghplanner.app/personal-quests/gloomhaven/gh-pq-back");
+        expect(image.getAttribute("src")).toMatch(
+            "https://test.havenplanner.app/personal-quests/gloomhaven/gh-pq-back"
+        );
     });
 });

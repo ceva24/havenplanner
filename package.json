@@ -1,5 +1,5 @@
 {
-    "name": "gloomhaven-character-planner",
+    "name": "havenplanner",
     "private": true,
     "scripts": {
         "dev": "next dev",
