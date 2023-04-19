@@ -31,7 +31,9 @@ const fetch = async (url: string, settings: Settings): Promise<CharacterClassSum
     };
 
     return axios
-        .post<ClassSummariesDataResponse>(url, body)
+        .post<ClassSummariesDataResponse>(url, body, {
+            headers: { "content-type": "application/json", accept: "application/json" },
+        })
         .then((response: AxiosResponse<ClassSummariesDataResponse>) => response.data.classes);
 };
 

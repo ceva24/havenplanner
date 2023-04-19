@@ -19,7 +19,9 @@ const requestCharacterClass = async (gameId: number, characterClassId: number): 
 const makeCharacterClassRequest = async (gameId: number, characterClassId: number): Promise<CharacterClass> => {
     const url = `/api/games/${gameId}/classes/${characterClassId}`;
 
-    const response: AxiosResponse<ClassDataResponse> = await axios.get<ClassDataResponse>(url);
+    const response: AxiosResponse<ClassDataResponse> = await axios.get<ClassDataResponse>(url, {
+        headers: { "content-type": "application/json", accept: "application/json" },
+    });
 
     return response.data.class;
 };

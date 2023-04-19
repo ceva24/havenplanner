@@ -1,4 +1,6 @@
 import { type NextApiRequest, type NextApiResponse } from "next";
+import HttpMethod from "http-method-enum";
+import { ReasonPhrases, StatusCodes } from "http-status-codes";
 import { type Mocks, createMocks } from "node-mocks-http";
 import { createTestItem, createTestSettings } from "@/test/create-test-fixtures";
 import * as gameService from "@/server/services/games/game";
@@ -20,7 +22,9 @@ describe("items", () => {
         jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
         jest.spyOn(itemsService, "filterItems").mockReturnValueOnce([]);
 
-        const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
+        const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>({
+            method: HttpMethod.POST,
+        });
 
         req._setBody(gameDataRequest);
 
@@ -30,13 +34,15 @@ describe("items", () => {
         expect(itemsService.filterItems).toHaveBeenCalledTimes(1);
     });
 
-    it("returns 200 OK and the list of items for a successful request", () => {
+    it("returns OK and the list of items for a successful request", () => {
         const item: Item = createTestItem(1, "Boots of Test", "1");
 
         jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
         jest.spyOn(itemsService, "filterItems").mockReturnValueOnce([item]);
 
-        const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
+        const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>({
+            method: HttpMethod.POST,
+        });
 
         req._setBody(gameDataRequest);
 
@@ -46,16 +52,18 @@ describe("items", () => {
             items: [item],
         };
 
-        expect(res.statusCode).toEqual(200);
+        expect(res.statusCode).toEqual(StatusCodes.OK);
         expect(res._getJSONData()).toEqual(expectedResponse);
     });
 
-    it("returns 500 Error and an error for an unexpected error", () => {
+    it("returns Internal Server Error and an error message for an unexpected error", () => {
         jest.spyOn(gameService, "getItemsByGameId").mockImplementationOnce(() => {
             throw new Error("Game ID not found");
         });
 
-        const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
+        const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>({
+            method: HttpMethod.POST,
+        });
 
         req._setBody(gameDataRequest);
 
@@ -65,12 +73,14 @@ describe("items", () => {
             error: "Game ID not found",
         };
 
-        expect(res.statusCode).toEqual(500);
+        expect(res.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);
         expect(res._getJSONData()).toEqual(expectedResponse);
     });
 
-    it("returns 500 Error and the error issues for a request parsing error", () => {
-        const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>();
+    it("returns Bad Request and the error issues for a request parsing error", () => {
+        const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>({
+            method: HttpMethod.POST,
+        });
 
         handler(req, res);
 
@@ -88,7 +98,22 @@ describe("items", () => {
             },
         };
 
-        expect(res.statusCode).toEqual(500);
+        expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+        expect(res._getJSONData()).toEqual(expectedResponse);
+    });
+
+    it("returns Method Not Allowed for a non-POST method", () => {
+        const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>({
+            method: HttpMethod.GET,
+        });
+
+        handler(req, res);
+
+        const expectedResponse: ErrorResponse = {
+            error: ReasonPhrases.METHOD_NOT_ALLOWED,
+        };
+
+        expect(res.statusCode).toEqual(StatusCodes.METHOD_NOT_ALLOWED);
         expect(res._getJSONData()).toEqual(expectedResponse);
     });
 });

@@ -18,7 +18,17 @@ describe("requestCharacterClass", () => {
         await requestCharacterClass(1, 2);
 
         expect(mockAxios.get).toHaveBeenCalledTimes(1);
-        expect(mockAxios.get).toHaveBeenCalledWith("/api/games/1/classes/2");
+        expect(mockAxios.get).toHaveBeenCalledWith("/api/games/1/classes/2", expect.anything());
+    });
+
+    it("sets the appropriate headers", async () => {
+        await requestCharacterClass(1, 2);
+
+        expect(mockAxios.get).toHaveBeenCalledTimes(1);
+        expect(mockAxios.get).toHaveBeenCalledWith(
+            expect.anything(),
+            expect.objectContaining({ headers: { "content-type": "application/json", accept: "application/json" } })
+        );
     });
 
     it("returns the character class data from the api endpoint", async () => {
