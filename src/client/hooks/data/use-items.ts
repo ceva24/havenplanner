@@ -31,7 +31,9 @@ const fetch = async (url: string, settings: Settings): Promise<Item[]> => {
     };
 
     return axios
-        .post<ItemDataResponse>(url, body)
+        .post<ItemDataResponse>(url, body, {
+            headers: { "content-type": "application/json", accept: "application/json" },
+        })
         .then((response: AxiosResponse<ItemDataResponse>) => response.data.items);
 };
 

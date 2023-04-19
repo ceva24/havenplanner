@@ -39,7 +39,18 @@ describe("fetch", () => {
         await fetch("/api/games/1/items", settings);
 
         expect(mockAxios.post).toHaveBeenCalledTimes(1);
-        expect(mockAxios.post).toHaveBeenCalledWith("/api/games/1/items", expect.anything());
+        expect(mockAxios.post).toHaveBeenCalledWith("/api/games/1/items", expect.anything(), expect.anything());
+    });
+
+    it("sets the appropriate headers", async () => {
+        await fetch("/api/games/1/classes", settings);
+
+        expect(mockAxios.post).toHaveBeenCalledTimes(1);
+        expect(mockAxios.post).toHaveBeenCalledWith(
+            expect.anything(),
+            expect.anything(),
+            expect.objectContaining({ headers: { "content-type": "application/json", accept: "application/json" } })
+        );
     });
 
     it("passes the spoiler settings", async () => {
@@ -48,7 +59,8 @@ describe("fetch", () => {
         expect(mockAxios.post).toHaveBeenCalledTimes(1);
         expect(mockAxios.post).toHaveBeenCalledWith(
             expect.anything(),
-            expect.objectContaining({ spoilerSettings: settings.spoilerSettings })
+            expect.objectContaining({ spoilerSettings: settings.spoilerSettings }),
+            expect.anything()
         );
     });
 
