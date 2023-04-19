@@ -1,10 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import HttpMethod from "http-method-enum";
+import { StatusCodes, ReasonPhrases } from "http-status-codes";
 import { ZodError } from "zod";
 import { getItemsByGameId } from "@/server/services/games/game";
 import { filterItems } from "@/server/services/items";
 import { gameDataSchema } from "@/server/schemas/game-data";
 
 const handler = (request: NextApiRequest, response: NextApiResponse<ItemDataResponse | ErrorResponse>) => {
+    if (request.method !== HttpMethod.POST) {
+        response.status(StatusCodes.METHOD_NOT_ALLOWED).json({ error: ReasonPhrases.METHOD_NOT_ALLOWED });
+        return;
+    }
+
     try {
         const gameId: number = Number.parseInt(request.query.gameId as string, 10);
 
