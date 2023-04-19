@@ -29,7 +29,7 @@ const handler = (request: NextApiRequest, response: NextApiResponse<ClassSummari
         response.status(StatusCodes.OK).json({ classes: classSummaries });
     } catch (error) {
         if (error instanceof ZodError) {
-            response.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: { issues: error.issues } });
+            response.status(StatusCodes.BAD_REQUEST).json({ error: { issues: error.issues } });
         } else {
             response.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: (error as Error).message });
         }

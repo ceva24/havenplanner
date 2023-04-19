@@ -34,7 +34,7 @@ describe("items", () => {
         expect(itemsService.filterItems).toHaveBeenCalledTimes(1);
     });
 
-    it("returns 200 OK and the list of items for a successful request", () => {
+    it("returns OK and the list of items for a successful request", () => {
         const item: Item = createTestItem(1, "Boots of Test", "1");
 
         jest.spyOn(gameService, "getItemsByGameId").mockReturnValueOnce([]);
@@ -52,11 +52,11 @@ describe("items", () => {
             items: [item],
         };
 
-        expect(res.statusCode).toEqual(200);
+        expect(res.statusCode).toEqual(StatusCodes.OK);
         expect(res._getJSONData()).toEqual(expectedResponse);
     });
 
-    it("returns 500 Error and an error for an unexpected error", () => {
+    it("returns Internal Server Error and an error message for an unexpected error", () => {
         jest.spyOn(gameService, "getItemsByGameId").mockImplementationOnce(() => {
             throw new Error("Game ID not found");
         });
@@ -73,11 +73,11 @@ describe("items", () => {
             error: "Game ID not found",
         };
 
-        expect(res.statusCode).toEqual(500);
+        expect(res.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);
         expect(res._getJSONData()).toEqual(expectedResponse);
     });
 
-    it("returns 500 Error and the error issues for a request parsing error", () => {
+    it("returns Bad Request and the error issues for a request parsing error", () => {
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>({
             method: HttpMethod.POST,
         });
@@ -98,11 +98,11 @@ describe("items", () => {
             },
         };
 
-        expect(res.statusCode).toEqual(500);
+        expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(res._getJSONData()).toEqual(expectedResponse);
     });
 
-    it("returns 405 Method Not Allowed for a non-POST method", () => {
+    it("returns Method Not Allowed for a non-POST method", () => {
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>({
             method: HttpMethod.GET,
         });

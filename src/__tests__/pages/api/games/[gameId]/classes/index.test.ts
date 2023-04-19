@@ -40,7 +40,7 @@ describe("classes", () => {
         expect(characterClassSummaryTransformer.toCharacterClassSummary).toHaveBeenCalledTimes(1);
     });
 
-    it("returns 200 OK and the list of character class summaries for a successful request", () => {
+    it("returns OK and the list of character class summaries for a successful request", () => {
         const characterClassSummary: CharacterClassSummary = { id: 1, name: "Test Brute", imageUrl: "brute.webp" };
 
         jest.spyOn(gameService, "getCharacterClassesByGameId").mockReturnValueOnce([]);
@@ -67,7 +67,7 @@ describe("classes", () => {
         expect(res._getJSONData()).toEqual(expectedResponse);
     });
 
-    it("returns 500 Error and an error for an unexpected error", () => {
+    it("returns Internal Server Error and an error message for an unexpected error", () => {
         jest.spyOn(gameService, "getCharacterClassesByGameId").mockImplementationOnce(() => {
             throw new Error("Game ID not found");
         });
@@ -88,7 +88,7 @@ describe("classes", () => {
         expect(res._getJSONData()).toEqual(expectedResponse);
     });
 
-    it("returns 500 Error and the error issues for a request parsing error", () => {
+    it("returns Bad Request and the error issues for a request parsing error", () => {
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>({
             method: HttpMethod.POST,
         });
@@ -109,11 +109,11 @@ describe("classes", () => {
             },
         };
 
-        expect(res.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);
+        expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(res._getJSONData()).toEqual(expectedResponse);
     });
 
-    it("returns 405 Method Not Allowed for a non-POST method", () => {
+    it("returns Method Not Allowed for a non-POST method", () => {
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>({
             method: HttpMethod.GET,
         });

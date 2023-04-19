@@ -30,7 +30,7 @@ describe("classes", () => {
         expect(res._getJSONData()).toEqual(expectedResponse);
     });
 
-    it("returns 500 Error and an error for an unexpected error", () => {
+    it("returns Internal Server Error and an error message for an unexpected error", () => {
         jest.spyOn(gameService, "getCharacterClassByIdAndGameId").mockImplementationOnce(() => {
             throw new Error("Game ID not found");
         });
@@ -47,7 +47,7 @@ describe("classes", () => {
         expect(res._getJSONData()).toEqual(expectedResponse);
     });
 
-    it("returns 405 Method Not Allowed for a non-GET method", () => {
+    it("returns Method Not Allowed for a non-GET method", () => {
         const { req, res }: Mocks<NextApiRequest, NextApiResponse> = createMocks<NextApiRequest, NextApiResponse>({
             method: HttpMethod.POST,
         });
