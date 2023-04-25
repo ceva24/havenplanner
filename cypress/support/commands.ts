@@ -17,7 +17,7 @@ Cypress.Commands.add("findExperienceField", () => {
 });
 
 Cypress.Commands.add("findLevelField", () => {
-    cy.findCharacterDetailsForm().findByRole("textbox", { name: "Level" });
+    cy.findCharacterDetailsForm().findByRole("spinbutton", { name: "Level" });
 });
 
 Cypress.Commands.add("findGoldField", () => {

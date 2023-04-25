@@ -29,6 +29,31 @@ const calculateLevel = (experience: number): number => {
     }
 };
 
+const getExperienceForLevel = (level: number): number => {
+    switch (level) {
+        case 1:
+            return 0;
+        case 2:
+            return 45;
+        case 3:
+            return 95;
+        case 4:
+            return 150;
+        case 5:
+            return 210;
+        case 6:
+            return 275;
+        case 7:
+            return 345;
+        case 8:
+            return 420;
+        case 9:
+            return 500;
+        default:
+            return 0;
+    }
+};
+
 const updateUnlockedAbilityCards = (unlockedAbilityCards: AbilityCard[], newCharacterLevel: number): AbilityCard[] => {
     if (newCharacterLevel < 2) return [];
 
@@ -83,4 +108,4 @@ const updateHand = (hand: AbilityCard[], newCharacterLevel: number): AbilityCard
     return hand.filter((card: AbilityCard) => abilityCardLevelCanBeUnlockedByCharacter(card.level, newCharacterLevel));
 };
 
-export { calculateLevel, updateUnlockedAbilityCards, updateHand };
+export { calculateLevel, getExperienceForLevel, updateUnlockedAbilityCards, updateHand };

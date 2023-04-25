@@ -1,4 +1,9 @@
-import { calculateLevel, updateHand, updateUnlockedAbilityCards } from "@/client/services/profile";
+import {
+    calculateLevel,
+    getExperienceForLevel,
+    updateHand,
+    updateUnlockedAbilityCards,
+} from "@/client/services/profile";
 
 describe("calculateLevel", () => {
     interface ExperienceLevelProps {
@@ -24,12 +29,34 @@ describe("calculateLevel", () => {
         ${9_000_000}  | ${9}
         ${-45}        | ${1}
         ${Number.NaN} | ${1}
-    `(
-        "sets the character level to $level when the experience value is $experience",
-        ({ experience, level }: ExperienceLevelProps) => {
-            expect(calculateLevel(experience)).toEqual(level);
-        }
-    );
+    `("returns $level when the experience is $experience", ({ experience, level }: ExperienceLevelProps) => {
+        expect(calculateLevel(experience)).toEqual(level);
+    });
+});
+
+describe("getExperienceForLevel", () => {
+    interface ExperienceLevelProps {
+        experience: number;
+        level: number;
+    }
+
+    it.each`
+        level | experience
+        ${1}  | ${0}
+        ${2}  | ${45}
+        ${3}  | ${95}
+        ${4}  | ${150}
+        ${5}  | ${210}
+        ${6}  | ${275}
+        ${7}  | ${345}
+        ${8}  | ${420}
+        ${9}  | ${500}
+        ${-1} | ${0}
+        ${10} | ${0}
+        ${99} | ${0}
+    `("returns $experience when the level is $level", ({ level, experience }: ExperienceLevelProps) => {
+        expect(getExperienceForLevel(level)).toEqual(experience);
+    });
 });
 
 describe("updateUnlockedAbilityCards", () => {

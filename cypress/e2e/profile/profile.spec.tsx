@@ -68,6 +68,32 @@ describe("profile tab", () => {
         cy.findLevelField().should("have.value", "2");
     });
 
+    it("changes the experience when changing the level", () => {
+        cy.visit("/gloomhaven");
+
+        cy.findExperienceField().should("have.value", "");
+
+        cy.findLevelField().type("{selectAll}").type("5");
+
+        cy.findExperienceField().should("have.value", "210");
+    });
+
+    it("does not allow the level to go below 1", () => {
+        cy.visit("/gloomhaven");
+
+        cy.findLevelField().type("{selectAll}").type("0");
+
+        cy.findLevelField().should("have.value", "1");
+    });
+
+    it("does not allow the level to go above 9", () => {
+        cy.visit("/gloomhaven");
+
+        cy.findLevelField().type("{selectAll}").type("10");
+
+        cy.findLevelField().should("have.value", "1");
+    });
+
     it("allows numerical characters to be entered in the gold text field", () => {
         cy.visit("/gloomhaven");
 

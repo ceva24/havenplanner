@@ -1,13 +1,20 @@
 import { render, screen, within } from "@testing-library/react";
-import CharacterDetails from "@/client/components/profile/character-details";
+import CharacterDetails, { updateLevel } from "@/client/components/profile/character-details";
 import { createTestCharacter } from "@/test/create-test-fixtures";
 import { TestSettingsProvider } from "@/test/test-settings-provider";
+import * as profileService from "@/client/services/profile";
+
+jest.mock("@/client/services/profile");
 
 const character: Character = createTestCharacter({ experience: 25 });
 
 const poorInexperiencedCharacter: Character = createTestCharacter({ experience: 0, gold: 0 });
 
 const setCharacter = jest.fn();
+
+beforeEach(() => {
+    jest.clearAllMocks();
+});
 
 describe("character details", () => {
     it("renders the form", () => {
@@ -53,6 +60,8 @@ describe("character details", () => {
     });
 
     it("renders the character level", () => {
+        jest.spyOn(profileService, "calculateLevel").mockReturnValueOnce(5);
+
         render(<CharacterDetails character={character} setCharacter={setCharacter} />, {
             wrapper: TestSettingsProvider,
         });
@@ -60,12 +69,12 @@ describe("character details", () => {
         const characterDetailsForm = screen.getByRole("form", {
             name: "Character Details",
         });
-        const levelField = within(characterDetailsForm).queryByRole("textbox", {
+        const levelField = within(characterDetailsForm).queryByRole("spinbutton", {
             name: "Level",
         });
 
         expect(levelField).toBeInTheDocument();
-        expect(levelField).toHaveValue("1");
+        expect(levelField).toHaveValue(5);
     });
 
     it("displays no experience value when experience is zero", () => {
@@ -126,5 +135,45 @@ describe("character details", () => {
 
         expect(notesField).toBeInTheDocument();
         expect(notesField).toHaveValue("Hello haven");
+    });
+});
+
+describe("updateLevel", () => {
+    it("updates the character to the new level and experience value", () => {
+        jest.spyOn(profileService, "getExperienceForLevel").mockReturnValueOnce(80);
+
+        updateLevel("5", character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(1);
+        expect(setCharacter).toHaveBeenCalledWith({
+            ...character,
+            experience: 80,
+        });
+    });
+
+    it("does not update the character when a number < 1 is entered", () => {
+        updateLevel("0", character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(0);
+    });
+
+    it("does not update the character when a number > 9 is entered", () => {
+        updateLevel("11", character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(0);
+    });
+
+    it("does not update the character when a value that is not a number is entered", () => {
+        updateLevel("test", character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(0);
+    });
+
+    it("does not update the character's experience when the character's current level is entered", () => {
+        jest.spyOn(profileService, "calculateLevel").mockReturnValueOnce(1);
+
+        updateLevel("1", character, setCharacter);
+
+        expect(setCharacter).toHaveBeenCalledTimes(0);
     });
 });

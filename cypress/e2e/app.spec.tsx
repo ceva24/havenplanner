@@ -39,7 +39,7 @@ describe("app page", () => {
         cy.location("search").should("equal", "");
     });
 
-    it.only("does not set the x-robots-tag header", () => {
+    it("does not set the x-robots-tag header", () => {
         cy.request("/gloomhaven").then((response: Cypress.Response<string>) => {
             expect(response.headers).not.to.have.property("x-robots-tag");
         });
