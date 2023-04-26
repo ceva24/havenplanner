@@ -2,7 +2,7 @@ import type { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { Box, TextField } from "@mui/material";
 import ClassSelect from "@/client/components/profile/class-select";
 import ExperienceField from "@/client/components/profile/experience-field";
-import { calculateLevel } from "@/client/services/profile";
+import { calculateLevel, getExperienceForLevel } from "@/client/services/profile";
 
 interface CharacterDetailsProps {
     character: Character;
@@ -14,6 +14,10 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
         const value = isNumber ? Number.parseInt(event.target.value, 10) || 0 : event.target.value;
 
         setCharacter({ ...character, [fieldName]: value });
+    };
+
+    const handleLevelChange = (event: ChangeEvent<HTMLInputElement>) => {
+        updateLevel(event.target.value, character, setCharacter);
     };
 
     return (
@@ -33,11 +37,12 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
             <Box>
                 <ExperienceField character={character} setCharacter={setCharacter} handleChange={handleChange} />
                 <TextField
-                    disabled
                     sx={{ width: "48%", margin: "1%" }}
                     id="level"
                     label="Level"
+                    type="number"
                     value={calculateLevel(character.experience)}
+                    onChange={handleLevelChange}
                 />
             </Box>
             <Box>
@@ -65,4 +70,18 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
     );
 };
 
+const updateLevel = (value: string, character: Character, setCharacter: Dispatch<SetStateAction<Character>>) => {
+    const newLevel: number = Number.parseInt(value, 10) || 0;
+
+    if (newLevel < 1 || newLevel > 9) return;
+
+    if (calculateLevel(character.experience) === newLevel) return;
+
+    setCharacter({
+        ...character,
+        experience: getExperienceForLevel(newLevel),
+    });
+};
+
 export default CharacterDetails;
+export { updateLevel };
