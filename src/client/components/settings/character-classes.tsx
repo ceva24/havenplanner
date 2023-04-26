@@ -1,5 +1,5 @@
 import { type Dispatch, type SetStateAction } from "react";
-import { FormGroup, Box, FormControlLabel, Switch, Typography, Grid } from "@mui/material";
+import { FormGroup, Box, FormControlLabel, Typography, Grid, Checkbox } from "@mui/material";
 import Image from "@/client/components/core/image";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 import { characterClassIsUnlocked } from "@/client/services/spoiler";
@@ -18,7 +18,7 @@ const CharacterClasses = () => {
                     <Grid key={summary.id} item xs={12} sm={6}>
                         <FormControlLabel
                             control={
-                                <Switch
+                                <Checkbox
                                     checked={characterClassIsUnlocked(summary, settings)}
                                     onChange={() => {
                                         handleChange(summary);
