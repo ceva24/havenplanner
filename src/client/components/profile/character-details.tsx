@@ -41,7 +41,6 @@ const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) =>
                     id="level"
                     label="Level"
                     type="number"
-                    inputProps={{ min: "0", max: "9" }}
                     value={calculateLevel(character.experience)}
                     onChange={handleLevelChange}
                 />
