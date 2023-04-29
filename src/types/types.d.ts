@@ -7,6 +7,7 @@ interface Settings {
     spoilerSettings: SpoilerSettings;
     showPersonalQuest: boolean;
     selectedAbilityCardsTabIndex: number;
+    filteredItemSlots: string[];
 }
 
 interface GameData {

@@ -5,14 +5,15 @@ const getDefaultSettings = (): Settings => {
     return getSettingsForGame(1);
 };
 
-const getSettingsForGame = (id: number) => {
+const getSettingsForGame = (id: number): Settings => {
     const gameData: GameData = getGameDataById(id);
 
     return {
         gameData,
+        spoilerSettings: getDefaultSpoilerSettings(),
         showPersonalQuest: false,
         selectedAbilityCardsTabIndex: 0,
-        spoilerSettings: getDefaultSpoilerSettings(),
+        filteredItemSlots: [],
     };
 };
 

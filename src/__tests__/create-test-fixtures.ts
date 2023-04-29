@@ -16,8 +16,6 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
             itemGroups: [{ id: 1, name: "Random Item Designs" }],
             defaultCharacter: createTestCharacter({ characterClass }),
         },
-        showPersonalQuest: false,
-        selectedAbilityCardsTabIndex: 1,
         spoilerSettings: {
             classes: [],
             items: {
@@ -25,6 +23,9 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
                 itemGroups: [],
             },
         },
+        showPersonalQuest: false,
+        selectedAbilityCardsTabIndex: 1,
+        filteredItemSlots: [],
     };
 
     return { ...settings, ...settingsDetailsToOverride };
