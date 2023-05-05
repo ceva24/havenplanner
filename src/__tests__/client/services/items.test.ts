@@ -1,5 +1,12 @@
 import type { Dictionary } from "lodash";
-import { getItemImageUrl, groupItems, orderItems } from "@/client/services/items";
+import {
+    filterItemsBySlot,
+    getItemImageUrl,
+    getItemSlots,
+    groupItems,
+    itemSlotIsActive,
+    orderItems,
+} from "@/client/services/items";
 import { createTestItem } from "@/test/create-test-fixtures";
 
 describe("getItemsByGroup", () => {
@@ -16,6 +23,39 @@ describe("getItemsByGroup", () => {
 
         expect(result["1"]).toHaveLength(1);
         expect(result["Random Item Designs"]).toHaveLength(1);
+    });
+});
+
+describe("filterItemsBySlot", () => {
+    it("returns an item that matches the filters", () => {
+        const item = createTestItem(1, "Boots of Test", "1");
+
+        const filteredItems = filterItemsBySlot([item], []);
+
+        expect(filteredItems).toHaveLength(1);
+        expect(filteredItems[0]).toEqual(item);
+    });
+
+    it("does not return an item that does not match the filter", () => {
+        const item = createTestItem(1, "Boots of Test", "1");
+
+        const filteredItems = filterItemsBySlot([item], [item.slot]);
+
+        expect(filteredItems).toHaveLength(0);
+    });
+});
+
+describe("itemSlotIsActive", () => {
+    it("returns true when the item slot is not being filtered out", () => {
+        const isFiltered = itemSlotIsActive("Legs", ["Chest"]);
+
+        expect(isFiltered).toEqual(true);
+    });
+
+    it("returns false when the item slot is being filtered out", () => {
+        const isFiltered = itemSlotIsActive("Legs", ["Chest", "Legs"]);
+
+        expect(isFiltered).toEqual(false);
     });
 });
 
@@ -118,5 +158,20 @@ describe("orderItems", () => {
         ${[{ id: 1, item: createTestItem(0, "Boots of Test", "1") }]}
     `("orders items of length $items.length without error", ({ items }: ItemsProps) => {
         expect(() => orderItems(items)).not.toThrowError();
+    });
+});
+
+describe("getItemSlots", () => {
+    it("returns all item slot names and urls", () => {
+        const itemSlots = getItemSlots();
+
+        expect(itemSlots).toEqual([
+            ["Two Hand", "/equip-slot-icons/gloomhaven/two-hand.webp"],
+            ["One Hand", "/equip-slot-icons/gloomhaven/one-hand.webp"],
+            ["Head", "/equip-slot-icons/gloomhaven/head.webp"],
+            ["Chest", "/equip-slot-icons/gloomhaven/chest.webp"],
+            ["Legs", "/equip-slot-icons/gloomhaven/legs.webp"],
+            ["Bag", "/equip-slot-icons/gloomhaven/bag.webp"],
+        ]);
     });
 });

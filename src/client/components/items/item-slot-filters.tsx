@@ -1,10 +1,10 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { Box, Checkbox, FormControlLabel } from "@mui/material";
 import Image from "@/client/components/core/image";
-import { getItemSlots, itemSlotFilterIsActive } from "@/client/services/items";
+import { getItemSlots, itemSlotIsActive } from "@/client/services/items";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 
-const ItemFilters = () => {
+const ItemSlotFilters = () => {
     const [settings, setSettings] = useSettingsContext();
     const slots = getItemSlots();
 
@@ -13,13 +13,13 @@ const ItemFilters = () => {
     };
 
     return (
-        <Box component="section" aria-label="Item Type Filters">
+        <Box component="section" aria-label="Item Slot Filters">
             {slots.map((slot: [string, string]) => (
                 <FormControlLabel
                     key={slot[0]}
                     control={
                         <Checkbox
-                            checked={itemSlotFilterIsActive(slot[0], settings.filteredItemSlots)}
+                            checked={itemSlotIsActive(slot[0], settings.filteredItemSlots)}
                             onChange={() => {
                                 handleChange(slot[0]);
                             }}
@@ -55,5 +55,5 @@ const toggleItemSlotFilter = (slot: string, settings: Settings, setSettings: Dis
     });
 };
 
-export default ItemFilters;
+export default ItemSlotFilters;
 export { toggleItemSlotFilter };

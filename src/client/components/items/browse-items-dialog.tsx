@@ -1,9 +1,9 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Box, Typography } from "@mui/material";
-import ItemFilters from "@/client/components/items/item-filters";
+import ItemSlotFilters from "@/client/components/items/item-slot-filters";
 import ItemGroup from "@/client/components/items/item-group";
 import FullScreenDialog from "@/client/components/core/full-screen-dialog";
-import { filterItems, groupItems } from "@/client/services/items";
+import { filterItemsBySlot, groupItems } from "@/client/services/items";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 import { useItems, type UseItems } from "@/client/hooks/data/use-items";
 import { areItemsCompletelySpoiled } from "@/client/services/spoiler";
@@ -32,12 +32,12 @@ const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: Bro
             ) : (
                 <>
                     <Box textAlign="center" marginY={3}>
-                        <ItemFilters />
+                        <ItemSlotFilters />
                     </Box>
 
                     {Object.entries(groupItems(items ?? [])).map((itemGroup: [string, Item[]]) => {
                         const title: string = itemGroup[0];
-                        const items: Item[] = filterItems(itemGroup[1], settings.filteredItemSlots);
+                        const items: Item[] = filterItemsBySlot(itemGroup[1], settings.filteredItemSlots);
 
                         return (
                             <Box key={title} sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>

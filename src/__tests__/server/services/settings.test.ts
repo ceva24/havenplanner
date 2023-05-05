@@ -14,8 +14,9 @@ describe("getDefaultSettings", () => {
 
         expect(settings.gameData.defaultCharacter.characterClass.id).toEqual(1);
 
-        expect(settings.selectedAbilityCardsTabIndex).toEqual(0);
         expect(settings.showPersonalQuest).toEqual(false);
+        expect(settings.selectedAbilityCardsTabIndex).toEqual(0);
+        expect(settings.filteredItemSlots).toEqual([]);
 
         expect(settings.spoilerSettings.classes).toEqual([]);
         expect(settings.spoilerSettings.items.prosperity).toEqual(1);

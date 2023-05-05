@@ -7,8 +7,12 @@ const groupItems = (items: Item[]): Dictionary<Item[]> => {
     return groupBy(items, (item: Item) => item.group);
 };
 
-const filterItems = (items: Item[], itemSlotFilters: string[]): Item[] => {
-    return items.filter((item: Item) => !itemSlotFilters.includes(item.slot));
+const filterItemsBySlot = (items: Item[], slotsToFilterOut: string[]): Item[] => {
+    return items.filter((item: Item) => itemSlotIsActive(item.slot, slotsToFilterOut));
+};
+
+const itemSlotIsActive = (slot: string, slotsToFilterOut: string[]): boolean => {
+    return !slotsToFilterOut.includes(slot);
 };
 
 const getItemImageUrl = (characterItem: CharacterItem): string => {
@@ -37,8 +41,4 @@ const getItemSlots = (): Array<[string, string]> => {
     ];
 };
 
-const itemSlotFilterIsActive = (slot: string, currentFilters: string[]): boolean => {
-    return !currentFilters.includes(slot);
-};
-
-export { groupItems, filterItems, getItemImageUrl, orderItems, getItemSlots, itemSlotFilterIsActive };
+export { groupItems, filterItemsBySlot, itemSlotIsActive, getItemImageUrl, orderItems, getItemSlots };
