@@ -14,32 +14,38 @@ const ItemSlotFilters = () => {
 
     return (
         <Box component="section" aria-label="Item Slot Filters">
-            {slots.map((slot: [string, string]) => (
-                <FormControlLabel
-                    key={slot[0]}
-                    control={
-                        <Checkbox
-                            checked={itemSlotIsActive(slot[0], settings.filteredItemSlots)}
-                            onChange={() => {
-                                handleChange(slot[0]);
-                            }}
-                        />
-                    }
-                    label={
-                        <Box>
-                            <Image
-                                webpPath={slot[1]}
-                                fallbackImageType="png"
-                                altText={slot[0]}
-                                style={{ verticalAlign: "middle", marginRight: 10 }}
-                                height={30}
-                                width={30}
-                                aria-hidden="true"
+            {slots.map((slot: [string, string]) => {
+                const slotName = slot[0];
+                const slotImageUrl = slot[1];
+
+                return (
+                    <FormControlLabel
+                        key={slotName}
+                        control={
+                            <Checkbox
+                                aria-label={slotName}
+                                checked={itemSlotIsActive(slotName, settings.filteredItemSlots)}
+                                onChange={() => {
+                                    handleChange(slotName);
+                                }}
                             />
-                        </Box>
-                    }
-                />
-            ))}
+                        }
+                        label={
+                            <Box>
+                                <Image
+                                    webpPath={slotImageUrl}
+                                    fallbackImageType="png"
+                                    altText={slotName}
+                                    style={{ verticalAlign: "middle", marginRight: 10 }}
+                                    height={30}
+                                    width={30}
+                                    aria-hidden="true"
+                                />
+                            </Box>
+                        }
+                    />
+                );
+            })}
         </Box>
     );
 };

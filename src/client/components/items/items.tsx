@@ -5,6 +5,7 @@ import { Button } from "@/client/components/core/button";
 import BrowseItemsDialog from "@/client/components/items/browse-items-dialog";
 import ItemsAutocomplete from "@/client/components/items/items-autocomplete";
 import ItemGrid from "@/client/components/items/item-grid";
+import { useSettingsContext } from "@/client/hooks/use-settings";
 
 interface ItemsProps {
     character: Character;
@@ -12,6 +13,7 @@ interface ItemsProps {
 }
 
 const Items = ({ character, setCharacter }: ItemsProps) => {
+    const [settings, setSettings] = useSettingsContext();
     const [itemsDialogOpen, setItemsDialogOpen] = useState<boolean>(false);
 
     return (
@@ -30,7 +32,7 @@ const Items = ({ character, setCharacter }: ItemsProps) => {
                     <BrowseItemsDialog
                         isOpen={itemsDialogOpen}
                         handleClose={() => {
-                            setItemsDialogOpen(false);
+                            closeBrowseItemsDialog(setItemsDialogOpen, settings, setSettings);
                         }}
                         character={character}
                         setCharacter={setCharacter}
@@ -44,4 +46,20 @@ const Items = ({ character, setCharacter }: ItemsProps) => {
     );
 };
 
+const closeBrowseItemsDialog = (
+    setItemsDialogOpen: Dispatch<SetStateAction<boolean>>,
+    settings: Settings,
+    setSettings: Dispatch<SetStateAction<Settings>>
+) => {
+    setItemsDialogOpen(false);
+
+    setTimeout(() => {
+        setSettings({
+            ...settings,
+            filteredItemSlots: [],
+        });
+    }, 100);
+};
+
 export default Items;
+export { closeBrowseItemsDialog };
