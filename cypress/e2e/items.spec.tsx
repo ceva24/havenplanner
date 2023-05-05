@@ -274,7 +274,7 @@ describe("items tab", () => {
         cy.findByRole("img", { name: "Stun Powder" }).should("be.visible");
     });
 
-    it("allows item group items to be added", () => {
+    it("allows spoiler item group items to be added", () => {
         cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
@@ -360,5 +360,21 @@ describe("items tab", () => {
         cy.findByRole("img", { name: "Circlet of Elements" })
             .should("have.attr", "src")
             .should("include", "gh-075a-circlet-of-elements");
+    });
+
+    it("allows items to be filtered by item slot in the browse items dialog", () => {
+        cy.visit("/gloomhaven");
+
+        cy.selectTab("Items");
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("be.visible");
+
+        cy.findByRole("img", { name: "Boots of Striding" }).should("exist");
+
+        cy.findByRole("checkbox", { name: "Legs" }).uncheck();
+
+        cy.findByRole("img", { name: "Boots of Striding" }).should("not.exist");
     });
 });
