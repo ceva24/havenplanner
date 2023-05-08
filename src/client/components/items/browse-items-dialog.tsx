@@ -6,7 +6,7 @@ import FullScreenDialog from "@/client/components/core/full-screen-dialog";
 import { filterItemsBySlot, groupItems } from "@/client/services/items";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 import { useItems, type UseItems } from "@/client/hooks/data/use-items";
-import { areItemsCompletelySpoiled } from "@/client/services/spoiler";
+import { itemsAreCompletelySpoiled } from "@/client/services/spoiler";
 
 interface BrowseItemsDialogProps {
     isOpen: boolean;
@@ -51,7 +51,7 @@ const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: Bro
                             </Box>
                         );
                     })}
-                    {!areItemsCompletelySpoiled(settings) && (
+                    {!itemsAreCompletelySpoiled(settings) && (
                         <Box textAlign="center" marginY={3}>
                             <Typography>Change your spoiler settings to see more items...</Typography>
                         </Box>

@@ -11,7 +11,7 @@ import { v4 as uuid } from "uuid";
 import Image from "@/client/components/core/image";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 import { useItems, type UseItems } from "@/client/hooks/data/use-items";
-import { areItemsCompletelySpoiled } from "@/client/services/spoiler";
+import { itemsAreCompletelySpoiled } from "@/client/services/spoiler";
 
 interface ItemsAutocompleteProps {
     character: Character;
@@ -70,7 +70,7 @@ const noOptionsText = (isLoading: boolean, isError: boolean, settings: Settings)
             return "Failed to load items";
         case isLoading:
             return "Loading...";
-        case !areItemsCompletelySpoiled(settings):
+        case !itemsAreCompletelySpoiled(settings):
             return "No options - check your spoiler settings";
         default:
             return "No options";
