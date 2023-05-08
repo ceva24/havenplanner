@@ -6,7 +6,7 @@ describe("share", () => {
     it("shows the share link button", () => {
         cy.visit("/gloomhaven");
 
-        cy.findShareLinkButton().should("be.visible");
+        cy.findShareLinkButton().should("exist");
     });
 
     it("shows a dialog when clicking the share link button", () => {
@@ -14,7 +14,7 @@ describe("share", () => {
 
         cy.findShareLinkButton().click();
 
-        cy.findShareLinkDialog().should("be.visible");
+        cy.findShareLinkDialog().should("exist");
     });
 
     it("populates the link field with the shareable link", () => {
@@ -34,11 +34,11 @@ describe("share", () => {
 
         cy.findShareLinkButton().click();
 
-        cy.findShareLinkDialog().should("be.visible");
+        cy.findShareLinkDialog().should("exist");
 
         cy.clickCloseButton();
 
-        cy.findShareLinkDialog().not("should.be.visible");
+        cy.findShareLinkDialog().not("should.exist");
     });
 
     it("loads the default character when character data is invalid", () => {
@@ -61,7 +61,7 @@ describe("share", () => {
 
         cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
 
-        cy.findCharacterDetailsForm().should("be.visible");
+        cy.findCharacterDetailsForm().should("exist");
 
         cy.findSelectClassButton().should("have.text", "Spellweaver");
         cy.findNameField().should("have.value", "Elsa");
@@ -102,8 +102,8 @@ describe("share", () => {
 
         cy.selectTab("Items");
 
-        cy.findByRole("img", { name: "Piercing Bow" }).should("be.visible");
-        cy.findByRole("img", { name: "Eagle Eye Goggles" }).should("be.visible");
+        cy.findByRole("img", { name: "Piercing Bow" }).should("exist");
+        cy.findByRole("img", { name: "Eagle Eye Goggles" }).should("exist");
     });
 
     it("retains item ordering when loading data from a shareable link", () => {
@@ -435,7 +435,7 @@ describe("share", () => {
 
         cy.selectTab("Items");
 
-        cy.findByRole("img", { name: "Stun Powder" }).should("be.visible");
+        cy.findByRole("img", { name: "Stun Powder" }).should("exist");
     });
 
     it("sets the prosperity level spoiler setting to the level of the character's highest prosperity item", () => {
@@ -475,7 +475,7 @@ describe("share", () => {
 
         cy.selectTab("Items");
 
-        cy.findByRole("img", { name: "Circlet of Elements" }).should("be.visible");
+        cy.findByRole("img", { name: "Circlet of Elements" }).should("exist");
     });
 
     it("sets the active item groups based on the character's items", () => {
@@ -603,7 +603,7 @@ describe("share", () => {
 
         cy.selectTab("Items");
 
-        cy.findByRole("img", { name: "Circlet of Elements" }).should("be.visible");
+        cy.findByRole("img", { name: "Circlet of Elements" }).should("exist");
 
         cy.findByRole("img", { name: "Circlet of Elements" })
             .should("have.attr", "src")

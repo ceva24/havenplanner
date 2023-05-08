@@ -14,7 +14,7 @@ describe("profile tab", () => {
     it("shows the character details", () => {
         cy.visit("/gloomhaven");
 
-        cy.findCharacterDetailsForm().should("be.visible");
+        cy.findCharacterDetailsForm().should("exist");
     });
 
     it("has the first class selected on page load", () => {

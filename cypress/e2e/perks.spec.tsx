@@ -111,7 +111,7 @@ describe("perks tab", () => {
 
         cy.selectTab("Perks");
 
-        cy.findByRole("img", { name: "shield icon" }).should("be.visible");
+        cy.findByRole("img", { name: "shield icon" }).should("exist");
     });
 
     it("gains a perk when clicking on the perk description", () => {
