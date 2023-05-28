@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import HttpMethod from "http-method-enum";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
-import { ZodError } from "zod";
 import { getCharacterClassByIdAndGameId } from "@/server/services/games/game";
 
 const handler = (request: NextApiRequest, response: NextApiResponse<ClassDataResponse | ErrorResponse>) => {
@@ -18,11 +17,7 @@ const handler = (request: NextApiRequest, response: NextApiResponse<ClassDataRes
 
         response.status(StatusCodes.OK).json({ class: characterClass });
     } catch (error) {
-        if (error instanceof ZodError) {
-            response.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: { issues: error.issues } });
-        } else {
-            response.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: (error as Error).message });
-        }
+        response.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: (error as Error).message });
     }
 };
 
