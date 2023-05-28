@@ -43,12 +43,12 @@ describe("toggleItemSlotFilter", () => {
 
         expect(setSettings).toHaveBeenCalledTimes(1);
 
-        expect(setSettings.mock.calls[0][0].filteredItemSlots).toEqual(["Legs"]);
+        expect(setSettings.mock.calls[0][0].userSettings.filteredItemSlots).toEqual(["Legs"]);
     });
 
     it("toggles an inactive item slot to active", () => {
         const settings: Settings = createTestSettings();
-        settings.filteredItemSlots = ["Legs"];
+        settings.userSettings.filteredItemSlots = ["Legs"];
 
         const setSettings = jest.fn();
 
@@ -56,6 +56,6 @@ describe("toggleItemSlotFilter", () => {
 
         expect(setSettings).toHaveBeenCalledTimes(1);
 
-        expect(setSettings.mock.calls[0][0].filteredItemSlots).toEqual([]);
+        expect(setSettings.mock.calls[0][0].userSettings.filteredItemSlots).toEqual([]);
     });
 });

@@ -37,7 +37,7 @@ const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: Bro
 
                     {Object.entries(groupItems(items ?? [])).map((itemGroup: [string, Item[]]) => {
                         const title: string = itemGroup[0];
-                        const items: Item[] = filterItemsBySlot(itemGroup[1], settings.filteredItemSlots);
+                        const items: Item[] = filterItemsBySlot(itemGroup[1], settings.userSettings.filteredItemSlots);
 
                         if (items.length === 0) return;
 
@@ -53,7 +53,7 @@ const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: Bro
                             </Box>
                         );
                     })}
-                    {areAllItemSlotsFiltered(settings.filteredItemSlots) && (
+                    {areAllItemSlotsFiltered(settings.userSettings.filteredItemSlots) && (
                         <Box textAlign="center" marginY={3}>
                             <Typography>No items matching filters</Typography>
                         </Box>

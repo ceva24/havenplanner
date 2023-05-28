@@ -5,7 +5,10 @@ const PersonalQuestSwitch = () => {
     const [settings, setSettings] = useSettingsContext();
 
     const handleChange = () => {
-        setSettings({ ...settings, showPersonalQuest: !settings.showPersonalQuest });
+        setSettings({
+            ...settings,
+            userSettings: { ...settings.userSettings, showPersonalQuest: !settings.userSettings.showPersonalQuest },
+        });
     };
 
     return (
@@ -15,7 +18,7 @@ const PersonalQuestSwitch = () => {
                     <Switch
                         id="show-personal-quest-switch"
                         name="Show personal quest"
-                        checked={settings.showPersonalQuest}
+                        checked={settings.userSettings.showPersonalQuest}
                         onClick={handleChange}
                     />
                 }

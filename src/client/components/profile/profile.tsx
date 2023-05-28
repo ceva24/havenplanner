@@ -22,7 +22,7 @@ const Profile = ({ character, setCharacter }: ProfileProps) => {
             <Grid item xl={7} textAlign="center" width="100%">
                 <Box display="flex" flexDirection="column" alignItems="center" gap={3}>
                     <PersonalQuestSwitch />
-                    {settings.showPersonalQuest ? (
+                    {settings.userSettings.showPersonalQuest ? (
                         <PersonalQuest character={character} setCharacter={setCharacter} />
                     ) : (
                         <CharacterMat characterClass={character.characterClass} />

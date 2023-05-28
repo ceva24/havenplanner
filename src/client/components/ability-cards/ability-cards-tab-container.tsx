@@ -20,14 +20,14 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
     const responsiveTabProps = useResponsiveTabsProps();
 
     const handleChange = (event: SyntheticEvent, value: number) => {
-        setSettings({ ...settings, selectedAbilityCardsTabIndex: value });
+        setSettings({ ...settings, userSettings: { ...settings.userSettings, selectedAbilityCardsTabIndex: value } });
     };
 
     return (
         <>
             <Tabs
                 centered
-                value={settings.selectedAbilityCardsTabIndex}
+                value={settings.userSettings.selectedAbilityCardsTabIndex}
                 onChange={handleChange}
                 {...responsiveTabProps}
             >
@@ -55,7 +55,7 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
             </Tabs>
 
             <TabPanel
-                currentTabIndex={settings.selectedAbilityCardsTabIndex}
+                currentTabIndex={settings.userSettings.selectedAbilityCardsTabIndex}
                 index={0}
                 id="deck-tabpanel"
                 ariaLabelledBy="deck-tab"
@@ -63,7 +63,7 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
                 <Deck character={character} setCharacter={setCharacter} />
             </TabPanel>
             <TabPanel
-                currentTabIndex={settings.selectedAbilityCardsTabIndex}
+                currentTabIndex={settings.userSettings.selectedAbilityCardsTabIndex}
                 index={1}
                 id="hand-tabpanel"
                 ariaLabelledBy="hand-tab"
@@ -84,7 +84,7 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
                 />
             </TabPanel>
             <TabPanel
-                currentTabIndex={settings.selectedAbilityCardsTabIndex}
+                currentTabIndex={settings.userSettings.selectedAbilityCardsTabIndex}
                 index={2}
                 id="enhancements-tabpanel"
                 ariaLabelledBy="enhancements-tab"

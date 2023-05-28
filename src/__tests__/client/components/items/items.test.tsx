@@ -47,7 +47,7 @@ describe("closeBrowseItemsDialog", () => {
 
     it("resets the item slot filters", () => {
         const settings: Settings = createTestSettings();
-        settings.filteredItemSlots = ["Legs"];
+        settings.userSettings.filteredItemSlots = ["Legs"];
 
         const setSettings = jest.fn();
 
@@ -58,7 +58,10 @@ describe("closeBrowseItemsDialog", () => {
         expect(setSettings).toHaveBeenCalledTimes(1);
         expect(setSettings).toHaveBeenCalledWith({
             ...settings,
-            filteredItemSlots: [],
+            userSettings: {
+                ...settings.userSettings,
+                filteredItemSlots: [],
+            },
         });
     });
 });

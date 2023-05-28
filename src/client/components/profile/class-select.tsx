@@ -101,7 +101,7 @@ const findAndSetCharacterClass = async (
 };
 
 const resetAbilityCardsTabConfig = (settings: Settings, setSettings: Dispatch<SetStateAction<Settings>>) => {
-    setSettings({ ...settings, selectedAbilityCardsTabIndex: 0 });
+    setSettings({ ...settings, userSettings: { ...settings.userSettings, selectedAbilityCardsTabIndex: 0 } });
 };
 
 export default ClassSelect;

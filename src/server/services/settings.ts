@@ -11,9 +11,7 @@ const getSettingsForGame = (id: number): Settings => {
     return {
         gameData,
         spoilerSettings: getDefaultSpoilerSettings(),
-        showPersonalQuest: false,
-        selectedAbilityCardsTabIndex: 0,
-        filteredItemSlots: [],
+        userSettings: getDefaultUserSettings(),
     };
 };
 
@@ -24,6 +22,14 @@ const getDefaultSpoilerSettings = (): SpoilerSettings => {
             prosperity: 1,
             itemGroups: [],
         },
+    };
+};
+
+const getDefaultUserSettings = (): UserSettings => {
+    return {
+        showPersonalQuest: false,
+        selectedAbilityCardsTabIndex: 0,
+        filteredItemSlots: [],
     };
 };
 

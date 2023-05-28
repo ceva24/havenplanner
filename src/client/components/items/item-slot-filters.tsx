@@ -24,7 +24,7 @@ const ItemSlotFilters = () => {
                         control={
                             <Checkbox
                                 aria-label={slotName}
-                                checked={itemSlotIsActive(slotName, settings.filteredItemSlots)}
+                                checked={itemSlotIsActive(slotName, settings.userSettings.filteredItemSlots)}
                                 onChange={() => {
                                     handleChange(slotName);
                                 }}
@@ -51,13 +51,16 @@ const ItemSlotFilters = () => {
 };
 
 const toggleItemSlotFilter = (slot: string, settings: Settings, setSettings: Dispatch<SetStateAction<Settings>>) => {
-    const newFilteredItemSlots = settings.filteredItemSlots.includes(slot)
-        ? settings.filteredItemSlots.filter((filteredItemSlot: string) => filteredItemSlot !== slot)
-        : settings.filteredItemSlots.concat([slot]);
+    const newFilteredItemSlots = settings.userSettings.filteredItemSlots.includes(slot)
+        ? settings.userSettings.filteredItemSlots.filter((filteredItemSlot: string) => filteredItemSlot !== slot)
+        : settings.userSettings.filteredItemSlots.concat([slot]);
 
     setSettings({
         ...settings,
-        filteredItemSlots: newFilteredItemSlots,
+        userSettings: {
+            ...settings.userSettings,
+            filteredItemSlots: newFilteredItemSlots,
+        },
     });
 };
 

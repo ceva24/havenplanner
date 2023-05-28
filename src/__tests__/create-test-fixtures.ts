@@ -23,9 +23,11 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
                 itemGroups: [],
             },
         },
-        showPersonalQuest: false,
-        selectedAbilityCardsTabIndex: 1,
-        filteredItemSlots: [],
+        userSettings: {
+            showPersonalQuest: false,
+            selectedAbilityCardsTabIndex: 1,
+            filteredItemSlots: [],
+        },
     };
 
     return { ...settings, ...settingsDetailsToOverride };
@@ -34,7 +36,6 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
 const createTestSettingsWithItemSpoilers = (prosperity: number, itemGroups: ItemGroup[]): Settings => {
     return {
         ...createTestSettings(),
-
         spoilerSettings: {
             classes: [],
             items: {

@@ -56,7 +56,10 @@ const closeBrowseItemsDialog = (
     setTimeout(() => {
         setSettings({
             ...settings,
-            filteredItemSlots: [],
+            userSettings: {
+                ...settings.userSettings,
+                filteredItemSlots: [],
+            },
         });
     }, 100);
 };
