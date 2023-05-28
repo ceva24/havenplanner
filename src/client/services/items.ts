@@ -41,4 +41,16 @@ const getItemSlots = (): Array<[string, string]> => {
     ];
 };
 
-export { groupItems, filterItemsBySlot, itemSlotIsActive, getItemImageUrl, orderItems, getItemSlots };
+const areAllItemSlotsFiltered = (slotsToFilterOut: string[]): boolean => {
+    return slotsToFilterOut.length === getItemSlots().length;
+};
+
+export {
+    groupItems,
+    filterItemsBySlot,
+    itemSlotIsActive,
+    getItemImageUrl,
+    orderItems,
+    getItemSlots,
+    areAllItemSlotsFiltered,
+};

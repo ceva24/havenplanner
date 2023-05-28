@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 import ItemSlotFilters from "@/client/components/items/item-slot-filters";
 import ItemGroup from "@/client/components/items/item-group";
 import FullScreenDialog from "@/client/components/core/full-screen-dialog";
-import { filterItemsBySlot, groupItems } from "@/client/services/items";
+import { areAllItemSlotsFiltered, filterItemsBySlot, groupItems } from "@/client/services/items";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 import { useItems, type UseItems } from "@/client/hooks/data/use-items";
 import { itemsAreCompletelySpoiled } from "@/client/services/spoiler";
@@ -39,6 +39,8 @@ const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: Bro
                         const title: string = itemGroup[0];
                         const items: Item[] = filterItemsBySlot(itemGroup[1], settings.filteredItemSlots);
 
+                        if (items.length === 0) return;
+
                         return (
                             <Box key={title} sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                                 <ItemGroup
@@ -51,6 +53,11 @@ const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: Bro
                             </Box>
                         );
                     })}
+                    {areAllItemSlotsFiltered(settings.filteredItemSlots) && (
+                        <Box textAlign="center" marginY={3}>
+                            <Typography>No items matching filters</Typography>
+                        </Box>
+                    )}
                     {!itemsAreCompletelySpoiled(settings) && (
                         <Box textAlign="center" marginY={3}>
                             <Typography>Change your spoiler settings to see more items...</Typography>

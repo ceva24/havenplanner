@@ -1,5 +1,6 @@
 import type { Dictionary } from "lodash";
 import {
+    areAllItemSlotsFiltered,
     filterItemsBySlot,
     getItemImageUrl,
     getItemSlots,
@@ -173,5 +174,29 @@ describe("getItemSlots", () => {
             ["Legs", "/equip-slot-icons/gloomhaven/legs.webp"],
             ["Bag", "/equip-slot-icons/gloomhaven/bag.webp"],
         ]);
+    });
+});
+
+describe("areAllItemSlotsFiltered", () => {
+    it("returns true when all item slots are filtered", () => {
+        const filteredSlots = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
+
+        const result = areAllItemSlotsFiltered(filteredSlots);
+
+        expect(result).toEqual(true);
+    });
+
+    it("returns false when some item slots are filtered", () => {
+        const filteredSlots = ["Two Hand", "Head", "Chest", "Bag"];
+
+        const result = areAllItemSlotsFiltered(filteredSlots);
+
+        expect(result).toEqual(false);
+    });
+
+    it("returns false when no item slots are filtered", () => {
+        const result = areAllItemSlotsFiltered([]);
+
+        expect(result).toEqual(false);
     });
 });

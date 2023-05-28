@@ -90,6 +90,69 @@ describe("browse items dialog", () => {
         expect(itemImages).toHaveLength(1);
     });
 
+    it("does not render an item group if all items are filtered", () => {
+        const settingsWithFilteredItemSlots: Settings = createTestSettings();
+        settingsWithFilteredItemSlots.filteredItemSlots = ["Legs"];
+
+        jest.spyOn(useItemsHook, "useItems").mockReturnValueOnce({
+            items: [item],
+            isLoading: false,
+            isError: false,
+        });
+
+        render(
+            <TestSettingsProvider settings={settingsWithFilteredItemSlots}>
+                <BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
+            </TestSettingsProvider>
+        );
+
+        const itemGroup = screen.queryByRole("region", { name: "Prosperity 1" });
+
+        expect(itemGroup).not.toBeInTheDocument();
+    });
+
+    it("renders the item filter hint when all items are filtered", () => {
+        const settingsWithFilteredItemSlots: Settings = createTestSettings();
+        settingsWithFilteredItemSlots.filteredItemSlots = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
+
+        jest.spyOn(useItemsHook, "useItems").mockReturnValueOnce({
+            items: [item],
+            isLoading: false,
+            isError: false,
+        });
+
+        render(
+            <TestSettingsProvider settings={settingsWithFilteredItemSlots}>
+                <BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
+            </TestSettingsProvider>
+        );
+
+        const itemFilterHint = screen.queryByText("No items matching filters");
+
+        expect(itemFilterHint).toBeInTheDocument();
+    });
+
+    it("does not render the item filter hint when only some items are filtered", () => {
+        const settingsWithFilteredItemSlots: Settings = createTestSettings();
+        settingsWithFilteredItemSlots.filteredItemSlots = ["One Hand", "Head", "Bag"];
+
+        jest.spyOn(useItemsHook, "useItems").mockReturnValueOnce({
+            items: [item],
+            isLoading: false,
+            isError: false,
+        });
+
+        render(
+            <TestSettingsProvider settings={settingsWithFilteredItemSlots}>
+                <BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
+            </TestSettingsProvider>
+        );
+
+        const itemFilterHint = screen.queryByText("No items matching filters");
+
+        expect(itemFilterHint).not.toBeInTheDocument();
+    });
+
     it("renders the spoiler hint", () => {
         jest.spyOn(useItemsHook, "useItems").mockReturnValueOnce({ items: [item], isLoading: false, isError: false });
 
