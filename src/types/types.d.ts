@@ -29,7 +29,7 @@ interface SpoilerSettings {
 interface UserSettings {
     showPersonalQuest: boolean;
     selectedAbilityCardsTabIndex: number;
-    filteredItemSlots: string[];
+    filteredItemSlots: ItemSlot[];
 }
 
 interface ItemSpoilerSettings {

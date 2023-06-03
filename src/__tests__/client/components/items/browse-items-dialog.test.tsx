@@ -52,8 +52,11 @@ describe("browse items dialog", () => {
     });
 
     it("filters items by slot", () => {
+        const itemSlot: ItemSlot = { id: 1, name: "Legs", imageUrl: "" };
+
         const settingsWithFilteredItemSlots: Settings = createTestSettings();
-        settingsWithFilteredItemSlots.userSettings.filteredItemSlots = ["Legs"];
+        settingsWithFilteredItemSlots.gameData.itemSlots = [itemSlot];
+        settingsWithFilteredItemSlots.userSettings.filteredItemSlots = [itemSlot];
 
         const newItem: Item = createTestItem(2, "Cloak of Test", "1", "Chest");
 
@@ -91,8 +94,11 @@ describe("browse items dialog", () => {
     });
 
     it("does not render an item group if all items are filtered", () => {
+        const itemSlot: ItemSlot = { id: 1, name: "Legs", imageUrl: "" };
+
         const settingsWithFilteredItemSlots: Settings = createTestSettings();
-        settingsWithFilteredItemSlots.userSettings.filteredItemSlots = ["Legs"];
+        settingsWithFilteredItemSlots.gameData.itemSlots = [itemSlot];
+        settingsWithFilteredItemSlots.userSettings.filteredItemSlots = [itemSlot];
 
         jest.spyOn(useItemsHook, "useItems").mockReturnValueOnce({
             items: [item],
@@ -112,15 +118,11 @@ describe("browse items dialog", () => {
     });
 
     it("renders the item filter hint when all items are filtered", () => {
+        const itemSlot: ItemSlot = { id: 1, name: "Legs", imageUrl: "" };
+
         const settingsWithFilteredItemSlots: Settings = createTestSettings();
-        settingsWithFilteredItemSlots.userSettings.filteredItemSlots = [
-            "Two Hand",
-            "One Hand",
-            "Head",
-            "Chest",
-            "Legs",
-            "Bag",
-        ];
+        settingsWithFilteredItemSlots.gameData.itemSlots = [itemSlot];
+        settingsWithFilteredItemSlots.userSettings.filteredItemSlots = [itemSlot];
 
         jest.spyOn(useItemsHook, "useItems").mockReturnValueOnce({
             items: [item],
@@ -140,8 +142,14 @@ describe("browse items dialog", () => {
     });
 
     it("does not render the item filter hint when only some items are filtered", () => {
+        const itemSlots: ItemSlot[] = [
+            { id: 1, name: "Legs", imageUrl: "" },
+            { id: 2, name: "Head", imageUrl: "" },
+        ];
+
         const settingsWithFilteredItemSlots: Settings = createTestSettings();
-        settingsWithFilteredItemSlots.userSettings.filteredItemSlots = ["One Hand", "Head", "Bag"];
+        settingsWithFilteredItemSlots.gameData.itemSlots = itemSlots;
+        settingsWithFilteredItemSlots.userSettings.filteredItemSlots = [itemSlots[0]];
 
         jest.spyOn(useItemsHook, "useItems").mockReturnValueOnce({
             items: [item],

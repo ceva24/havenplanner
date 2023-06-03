@@ -47,7 +47,7 @@ describe("closeBrowseItemsDialog", () => {
 
     it("resets the item slot filters", () => {
         const settings: Settings = createTestSettings();
-        settings.userSettings.filteredItemSlots = ["Legs"];
+        settings.userSettings.filteredItemSlots = [{ id: 1, name: "Legs", imageUrl: "" }];
 
         const setSettings = jest.fn();
 

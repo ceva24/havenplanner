@@ -53,7 +53,7 @@ const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: Bro
                             </Box>
                         );
                     })}
-                    {areAllItemSlotsFiltered(settings.userSettings.filteredItemSlots) && (
+                    {areAllItemSlotsFiltered(settings) && (
                         <Box textAlign="center" marginY={3}>
                             <Typography>No items matching filters</Typography>
                         </Box>

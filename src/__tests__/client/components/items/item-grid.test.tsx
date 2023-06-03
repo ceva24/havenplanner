@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ItemGrid from "@/client/components/items/item-grid";
 import { createTestCharacter, createTestItem } from "@/test/create-test-fixtures";
+import { TestSettingsProvider } from "@/test/test-settings-provider";
 
 describe("item grid", () => {
     it("renders character items", () => {
@@ -11,7 +12,7 @@ describe("item grid", () => {
             ],
         });
 
-        render(<ItemGrid character={character} setCharacter={jest.fn()} />);
+        render(<ItemGrid character={character} setCharacter={jest.fn()} />, { wrapper: TestSettingsProvider });
 
         const firstItem = screen.queryByRole("img", { name: "Boots of Test" });
         const secondItem = screen.queryByRole("img", { name: "Cloak of Test" });

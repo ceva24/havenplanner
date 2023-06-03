@@ -153,7 +153,6 @@ const createTestItem = (
         name,
         imageUrl: imageUrl ?? "",
         slot: slot ?? "Head",
-        slotImageUrl: "",
         group,
         alternativeImageUrl: alternativeImageUrl ?? "",
     };

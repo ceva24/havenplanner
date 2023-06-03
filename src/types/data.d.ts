@@ -45,7 +45,6 @@ interface AttackModifierCard extends VisualAsset {}
 
 interface Item extends VisualAsset {
     slot: string;
-    slotImageUrl: string;
     group: string;
     alternativeImageUrl?: string;
 }

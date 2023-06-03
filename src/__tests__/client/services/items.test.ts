@@ -3,18 +3,27 @@ import {
     areAllItemSlotsFiltered,
     filterItemsBySlot,
     getItemImageUrl,
-    getItemSlots,
+    getItemSlotImageUrlForSlotName,
     groupItems,
     itemSlotIsActive,
     orderItems,
 } from "@/client/services/items";
-import { createTestItem } from "@/test/create-test-fixtures";
+import { createTestItem, createTestSettings } from "@/test/create-test-fixtures";
 
-describe("getItemsByGroup", () => {
+const itemSlots: ItemSlot[] = [
+    { id: 1, name: "Two Hand", imageUrl: "" },
+    { id: 2, name: "One Hand", imageUrl: "" },
+    { id: 3, name: "Head", imageUrl: "" },
+    { id: 4, name: "Chest", imageUrl: "" },
+    { id: 5, name: "Legs", imageUrl: "legs.webp" },
+    { id: 6, name: "Bag", imageUrl: "" },
+];
+
+describe("groupItems", () => {
     it("groups items by title", () => {
         const items: Item[] = [
-            createTestItem(0, "Boots of Test", "1"),
-            createTestItem(1, "Boots of Random Item Design Test", "Random Item Designs"),
+            createTestItem(0, "Boots of Test", "1", "Legs"),
+            createTestItem(1, "Boots of Random Item Design Test", "Random Item Designs", "Legs"),
         ];
 
         const result: Dictionary<Item[]> = groupItems(items);
@@ -29,7 +38,7 @@ describe("getItemsByGroup", () => {
 
 describe("filterItemsBySlot", () => {
     it("returns an item that matches the filters", () => {
-        const item = createTestItem(1, "Boots of Test", "1");
+        const item = createTestItem(1, "Boots of Test", "1", "Legs");
 
         const filteredItems = filterItemsBySlot([item], []);
 
@@ -38,9 +47,9 @@ describe("filterItemsBySlot", () => {
     });
 
     it("does not return an item that does not match the filter", () => {
-        const item = createTestItem(1, "Boots of Test", "1");
+        const item = createTestItem(1, "Boots of Test", "1", "Legs");
 
-        const filteredItems = filterItemsBySlot([item], [item.slot]);
+        const filteredItems = filterItemsBySlot([item], itemSlots);
 
         expect(filteredItems).toHaveLength(0);
     });
@@ -48,13 +57,13 @@ describe("filterItemsBySlot", () => {
 
 describe("itemSlotIsActive", () => {
     it("returns true when the item slot is not being filtered out", () => {
-        const isFiltered = itemSlotIsActive("Legs", ["Chest"]);
+        const isFiltered = itemSlotIsActive("Legs", [itemSlots[1]]);
 
         expect(isFiltered).toEqual(true);
     });
 
     it("returns false when the item slot is being filtered out", () => {
-        const isFiltered = itemSlotIsActive("Legs", ["Chest", "Legs"]);
+        const isFiltered = itemSlotIsActive("Legs", itemSlots);
 
         expect(isFiltered).toEqual(false);
     });
@@ -109,7 +118,7 @@ describe("orderItems", () => {
             { id: "5", item: createTestItem(5, "Test", "1", "Two Hand"), showAlternativeImage: false },
         ];
 
-        const result = orderItems(characterItems);
+        const result = orderItems(characterItems, itemSlots);
 
         expect(result[0]).toEqual(characterItems[5]);
         expect(result[1]).toEqual(characterItems[2]);
@@ -126,7 +135,7 @@ describe("orderItems", () => {
             { id: "3", item: createTestItem(1, "Minor Healing Potion", "1"), showAlternativeImage: false },
         ];
 
-        const result = orderItems(characterItems);
+        const result = orderItems(characterItems, itemSlots);
 
         expect(result[0]).toEqual(characterItems[2]);
         expect(result[1]).toEqual(characterItems[0]);
@@ -141,7 +150,7 @@ describe("orderItems", () => {
             { id: "4", item: createTestItem(4, "Piercing Bow", "1", "Two Hand"), showAlternativeImage: false }, // Piercing Bow
         ];
 
-        const result = orderItems(characterItems);
+        const result = orderItems(characterItems, itemSlots);
 
         expect(result[0]).toEqual(characterItems[3]);
         expect(result[1]).toEqual(characterItems[1]);
@@ -158,45 +167,51 @@ describe("orderItems", () => {
         ${[]}
         ${[{ id: 1, item: createTestItem(0, "Boots of Test", "1") }]}
     `("orders items of length $items.length without error", ({ items }: ItemsProps) => {
-        expect(() => orderItems(items)).not.toThrowError();
-    });
-});
-
-describe("getItemSlots", () => {
-    it("returns all item slot names and urls", () => {
-        const itemSlots = getItemSlots();
-
-        expect(itemSlots).toEqual([
-            ["Two Hand", "/equip-slot-icons/gloomhaven/two-hand.webp"],
-            ["One Hand", "/equip-slot-icons/gloomhaven/one-hand.webp"],
-            ["Head", "/equip-slot-icons/gloomhaven/head.webp"],
-            ["Chest", "/equip-slot-icons/gloomhaven/chest.webp"],
-            ["Legs", "/equip-slot-icons/gloomhaven/legs.webp"],
-            ["Bag", "/equip-slot-icons/gloomhaven/bag.webp"],
-        ]);
+        expect(() => orderItems(items, itemSlots)).not.toThrowError();
     });
 });
 
 describe("areAllItemSlotsFiltered", () => {
     it("returns true when all item slots are filtered", () => {
-        const filteredSlots = ["Two Hand", "One Hand", "Head", "Chest", "Legs", "Bag"];
+        const settings: Settings = createTestSettings();
+        settings.gameData.itemSlots = itemSlots;
+        settings.userSettings.filteredItemSlots = itemSlots;
 
-        const result = areAllItemSlotsFiltered(filteredSlots);
+        const result = areAllItemSlotsFiltered(settings);
 
         expect(result).toEqual(true);
     });
 
     it("returns false when some item slots are filtered", () => {
-        const filteredSlots = ["Two Hand", "Head", "Chest", "Bag"];
+        const settings: Settings = createTestSettings();
+        settings.gameData.itemSlots = itemSlots;
+        settings.userSettings.filteredItemSlots = [itemSlots[0]];
 
-        const result = areAllItemSlotsFiltered(filteredSlots);
+        const result = areAllItemSlotsFiltered(settings);
 
         expect(result).toEqual(false);
     });
 
     it("returns false when no item slots are filtered", () => {
-        const result = areAllItemSlotsFiltered([]);
+        const settings: Settings = createTestSettings();
+        settings.gameData.itemSlots = itemSlots;
+
+        const result = areAllItemSlotsFiltered(settings);
 
         expect(result).toEqual(false);
+    });
+});
+
+describe("getItemSlotImageUrlForSlotName", () => {
+    it("returns the image url for the matching slot", () => {
+        const imageUrl: string = getItemSlotImageUrlForSlotName("Legs", itemSlots);
+
+        expect(imageUrl).toEqual("legs.webp");
+    });
+
+    it("returns an empty string when no matching slot is found", () => {
+        const imageUrl: string = getItemSlotImageUrlForSlotName("Gloves", itemSlots);
+
+        expect(imageUrl).toEqual("");
     });
 });

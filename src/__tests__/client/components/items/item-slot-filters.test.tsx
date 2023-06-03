@@ -14,7 +14,17 @@ jest.mock("@/client/services/items", () => ({
 
 describe("item slot filters", () => {
     it("renders the item slots", () => {
-        render(<ItemSlotFilters />, { wrapper: TestSettingsProvider });
+        const settings: Settings = createTestSettings();
+        settings.gameData.itemSlots = [
+            { id: 1, name: "Head", imageUrl: "" },
+            { id: 2, name: "Legs", imageUrl: "" },
+        ];
+
+        render(
+            <TestSettingsProvider settings={settings}>
+                <ItemSlotFilters />
+            </TestSettingsProvider>
+        );
 
         const itemSlotCheckboxes = screen.queryAllByRole("checkbox");
 
@@ -22,9 +32,19 @@ describe("item slot filters", () => {
     });
 
     it("renders the item slot values", () => {
+        const settings: Settings = createTestSettings();
+        settings.gameData.itemSlots = [
+            { id: 1, name: "Head", imageUrl: "" },
+            { id: 2, name: "Legs", imageUrl: "" },
+        ];
+
         jest.spyOn(itemsService, "itemSlotIsActive").mockReturnValueOnce(true).mockReturnValueOnce(false);
 
-        render(<ItemSlotFilters />, { wrapper: TestSettingsProvider });
+        render(
+            <TestSettingsProvider settings={settings}>
+                <ItemSlotFilters />
+            </TestSettingsProvider>
+        );
 
         const itemSlotCheckboxes = screen.queryAllByRole("checkbox");
 
@@ -36,23 +56,27 @@ describe("item slot filters", () => {
 describe("toggleItemSlotFilter", () => {
     it("toggles an active item slot to inactive", () => {
         const settings: Settings = createTestSettings();
+        settings.gameData.itemSlots = [{ id: 1, name: "Head", imageUrl: "" }];
 
         const setSettings = jest.fn();
 
-        toggleItemSlotFilter("Legs", settings, setSettings);
+        toggleItemSlotFilter(settings.gameData.itemSlots[0], settings, setSettings);
 
         expect(setSettings).toHaveBeenCalledTimes(1);
 
-        expect(setSettings.mock.calls[0][0].userSettings.filteredItemSlots).toEqual(["Legs"]);
+        expect(setSettings.mock.calls[0][0].userSettings.filteredItemSlots).toEqual([
+            { id: 1, name: "Head", imageUrl: "" },
+        ]);
     });
 
     it("toggles an inactive item slot to active", () => {
         const settings: Settings = createTestSettings();
-        settings.userSettings.filteredItemSlots = ["Legs"];
+        settings.gameData.itemSlots = [{ id: 1, name: "Head", imageUrl: "" }];
+        settings.userSettings.filteredItemSlots = [{ id: 1, name: "Head", imageUrl: "" }];
 
         const setSettings = jest.fn();
 
-        toggleItemSlotFilter("Legs", settings, setSettings);
+        toggleItemSlotFilter(settings.gameData.itemSlots[0], settings, setSettings);
 
         expect(setSettings).toHaveBeenCalledTimes(1);
 
