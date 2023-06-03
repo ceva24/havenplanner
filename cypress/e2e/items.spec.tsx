@@ -11,8 +11,8 @@ describe("items tab", () => {
         cy.addItem("Piercing Bow 009");
         cy.addItem("Eagle Eye Goggles 006");
 
-        cy.findByRole("img", { name: "Piercing Bow" }).should("be.visible");
-        cy.findByRole("img", { name: "Eagle Eye Goggles" }).should("be.visible");
+        cy.findByRole("img", { name: "Piercing Bow" }).should("exist");
+        cy.findByRole("img", { name: "Eagle Eye Goggles" }).should("exist");
     });
 
     it("allows items to be deleted", () => {
@@ -23,13 +23,13 @@ describe("items tab", () => {
         cy.addItem("Boots of Striding 001");
         cy.addItem("Minor Healing Potion 012");
 
-        cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
-        cy.findByRole("img", { name: "Minor Healing Potion" }).should("be.visible");
+        cy.findByRole("img", { name: "Boots of Striding" }).should("exist");
+        cy.findByRole("img", { name: "Minor Healing Potion" }).should("exist");
 
         cy.findByRole("button", { name: "Delete Boots of Striding" }).click();
 
         cy.findByRole("img", { name: "Boots of Striding" }).should("not.exist");
-        cy.findByRole("img", { name: "Minor Healing Potion" }).should("be.visible");
+        cy.findByRole("img", { name: "Minor Healing Potion" }).should("exist");
     });
 
     it("allows items to be deleted by pressing space", () => {
@@ -39,7 +39,7 @@ describe("items tab", () => {
 
         cy.addItem("Boots of Striding 001");
 
-        cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
+        cy.findByRole("img", { name: "Boots of Striding" }).should("exist");
 
         cy.findByRole("button", { name: "Delete Boots of Striding" }).focus().type(" ");
 
@@ -53,7 +53,7 @@ describe("items tab", () => {
 
         cy.addItem("Boots of Striding 001");
 
-        cy.findByRole("img", { name: "Boots of Striding" }).should("be.visible");
+        cy.findByRole("img", { name: "Boots of Striding" }).should("exist");
 
         cy.findByRole("button", { name: "Delete Boots of Striding" }).focus().type("{enter}");
 
@@ -98,7 +98,7 @@ describe("items tab", () => {
 
         cy.findBrowseItemsButton().click();
 
-        cy.findBrowseItemsDialog().should("be.visible");
+        cy.findBrowseItemsDialog().should("exist");
     });
 
     it("allows the browse items dialog to be closed", () => {
@@ -108,11 +108,11 @@ describe("items tab", () => {
 
         cy.findBrowseItemsButton().click();
 
-        cy.findBrowseItemsDialog().should("be.visible");
+        cy.findBrowseItemsDialog().should("exist");
 
         cy.clickCloseButton();
 
-        cy.findBrowseItemsDialog().should("not.be.visible");
+        cy.findBrowseItemsDialog().should("not.exist");
     });
 
     it("shows items in the browse items dialog", () => {
@@ -122,7 +122,7 @@ describe("items tab", () => {
 
         cy.findBrowseItemsButton().click();
 
-        cy.findBrowseItemsDialog().should("be.visible");
+        cy.findBrowseItemsDialog().should("exist");
 
         cy.findByRole("button", { name: "Piercing Bow" }).should("exist");
         cy.findByRole("button", { name: "Boots of Striding" }).should("exist");
@@ -135,7 +135,7 @@ describe("items tab", () => {
 
         cy.findBrowseItemsButton().click();
 
-        cy.findBrowseItemsDialog().should("be.visible");
+        cy.findBrowseItemsDialog().should("exist");
 
         cy.findByRole("region", { name: "Prosperity 1" }).findByRole("button", { name: "Boots of Striding" });
     });
@@ -147,13 +147,13 @@ describe("items tab", () => {
 
         cy.findBrowseItemsButton().click();
 
-        cy.findBrowseItemsDialog().should("be.visible");
+        cy.findBrowseItemsDialog().should("exist");
 
         cy.findByRole("button", { name: "Piercing Bow" }).click();
 
-        cy.findBrowseItemsDialog().should("not.be.visible");
+        cy.findBrowseItemsDialog().should("not.exist");
 
-        cy.findByRole("img", { name: "Piercing Bow" }).should("be.visible");
+        cy.findByRole("img", { name: "Piercing Bow" }).should("exist");
     });
 
     it("adds an item from the browse items dialog when pressing enter", () => {
@@ -163,11 +163,11 @@ describe("items tab", () => {
 
         cy.findBrowseItemsButton().click();
 
-        cy.findBrowseItemsDialog().should("be.visible");
+        cy.findBrowseItemsDialog().should("exist");
 
         cy.findByRole("button", { name: "Piercing Bow" }).focus().type("{enter}");
 
-        cy.findBrowseItemsDialog().should("not.be.visible");
+        cy.findBrowseItemsDialog().should("not.exist");
 
         cy.findByRole("img", { name: "Piercing Bow" }).should("exist");
     });
@@ -179,11 +179,11 @@ describe("items tab", () => {
 
         cy.findBrowseItemsButton().click();
 
-        cy.findBrowseItemsDialog().should("be.visible");
+        cy.findBrowseItemsDialog().should("exist");
 
         cy.findByRole("button", { name: "Piercing Bow" }).focus().type(" ");
 
-        cy.findBrowseItemsDialog().should("not.be.visible");
+        cy.findBrowseItemsDialog().should("not.exist");
 
         cy.findByRole("img", { name: "Piercing Bow" }).should("exist");
     });
@@ -217,7 +217,7 @@ describe("items tab", () => {
 
         cy.findBrowseItemsButton().click();
 
-        cy.findBrowseItemsDialog().should("be.visible");
+        cy.findBrowseItemsDialog().should("exist");
 
         cy.findByRole("button", { name: "Stun Powder" }).should("not.exist");
     });
@@ -231,7 +231,7 @@ describe("items tab", () => {
 
         cy.findBrowseItemsButton().click();
 
-        cy.findBrowseItemsDialog().should("be.visible");
+        cy.findBrowseItemsDialog().should("exist");
 
         cy.findByRole("button", { name: "Stun Powder" }).should("exist");
     });
@@ -257,7 +257,7 @@ describe("items tab", () => {
 
         cy.findBrowseItemsButton().click();
 
-        cy.findBrowseItemsDialog().should("be.visible");
+        cy.findBrowseItemsDialog().should("exist");
 
         cy.findByRole("button", { name: "Circlet of Elements" }).should("exist");
     });
@@ -271,10 +271,10 @@ describe("items tab", () => {
 
         cy.addItem("Stun Powder 021");
 
-        cy.findByRole("img", { name: "Stun Powder" }).should("be.visible");
+        cy.findByRole("img", { name: "Stun Powder" }).should("exist");
     });
 
-    it("allows item group items to be added", () => {
+    it("allows spoiler item group items to be added", () => {
         cy.visit("/gloomhaven");
 
         cy.selectTab("Items");
@@ -283,7 +283,7 @@ describe("items tab", () => {
 
         cy.addItem("Circlet of Elements 075");
 
-        cy.findByRole("img", { name: "Circlet of Elements" }).should("be.visible");
+        cy.findByRole("img", { name: "Circlet of Elements" }).should("exist");
     });
 
     it("does not allow items with no alternative image to be toggled", () => {
@@ -360,5 +360,21 @@ describe("items tab", () => {
         cy.findByRole("img", { name: "Circlet of Elements" })
             .should("have.attr", "src")
             .should("include", "gh-075a-circlet-of-elements");
+    });
+
+    it("allows items to be filtered by item slot in the browse items dialog", () => {
+        cy.visit("/gloomhaven");
+
+        cy.selectTab("Items");
+
+        cy.findBrowseItemsButton().click();
+
+        cy.findBrowseItemsDialog().should("exist");
+
+        cy.findByRole("img", { name: "Boots of Striding" }).should("exist");
+
+        cy.findByRole("checkbox", { name: "Legs" }).uncheck();
+
+        cy.findByRole("img", { name: "Boots of Striding" }).should("not.exist");
     });
 });

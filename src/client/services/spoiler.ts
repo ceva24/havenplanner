@@ -19,14 +19,14 @@ const itemGroupIsActive = (itemGroup: ItemGroup, settings: Settings) => {
 };
 
 const isCompletelySpoiled = (settings: Settings): boolean => {
-    return areCharactersCompletelySpoiled(settings) && areItemsCompletelySpoiled(settings);
+    return charactersAreCompletelySpoiled(settings) && itemsAreCompletelySpoiled(settings);
 };
 
-const areCharactersCompletelySpoiled = (settings: Settings): boolean => {
+const charactersAreCompletelySpoiled = (settings: Settings): boolean => {
     return settings.spoilerSettings.classes.length === settings.gameData.unlockableCharacterClasses.length;
 };
 
-const areItemsCompletelySpoiled = (settings: Settings): boolean => {
+const itemsAreCompletelySpoiled = (settings: Settings): boolean => {
     return (
         settings.spoilerSettings.items.itemGroups.length === settings.gameData.itemGroups.length &&
         settings.spoilerSettings.items.prosperity === 9
@@ -38,6 +38,6 @@ export {
     characterClassIsUnlocked,
     itemGroupIsActive,
     isCompletelySpoiled,
-    areCharactersCompletelySpoiled,
-    areItemsCompletelySpoiled,
+    charactersAreCompletelySpoiled,
+    itemsAreCompletelySpoiled,
 };

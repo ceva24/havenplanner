@@ -1,10 +1,11 @@
 import { type Dispatch, type SetStateAction, useState } from "react";
 import { Grid, Stack } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { Button } from "@/client/components/core/button";
 import BrowseItemsDialog from "@/client/components/items/browse-items-dialog";
-import { IconButton } from "@/client/components/core/button";
 import ItemsAutocomplete from "@/client/components/items/items-autocomplete";
 import ItemGrid from "@/client/components/items/item-grid";
+import { useSettingsContext } from "@/client/hooks/use-settings";
 
 interface ItemsProps {
     character: Character;
@@ -12,6 +13,7 @@ interface ItemsProps {
 }
 
 const Items = ({ character, setCharacter }: ItemsProps) => {
+    const [settings, setSettings] = useSettingsContext();
     const [itemsDialogOpen, setItemsDialogOpen] = useState<boolean>(false);
 
     return (
@@ -19,10 +21,10 @@ const Items = ({ character, setCharacter }: ItemsProps) => {
             <Grid item xs={12}>
                 <Stack direction="row" spacing={3} justifyContent="center">
                     <ItemsAutocomplete character={character} setCharacter={setCharacter} />
-                    <IconButton
+                    <Button
                         id="browse-items-button"
-                        label="Browse Items"
-                        icon={<SearchIcon />}
+                        text="Browse Items"
+                        startIcon={<SearchIcon />}
                         onClick={() => {
                             setItemsDialogOpen(true);
                         }}
@@ -30,7 +32,7 @@ const Items = ({ character, setCharacter }: ItemsProps) => {
                     <BrowseItemsDialog
                         isOpen={itemsDialogOpen}
                         handleClose={() => {
-                            setItemsDialogOpen(false);
+                            closeBrowseItemsDialog(setItemsDialogOpen, settings, setSettings);
                         }}
                         character={character}
                         setCharacter={setCharacter}
@@ -44,4 +46,23 @@ const Items = ({ character, setCharacter }: ItemsProps) => {
     );
 };
 
+const closeBrowseItemsDialog = (
+    setItemsDialogOpen: Dispatch<SetStateAction<boolean>>,
+    settings: Settings,
+    setSettings: Dispatch<SetStateAction<Settings>>
+) => {
+    setItemsDialogOpen(false);
+
+    setTimeout(() => {
+        setSettings({
+            ...settings,
+            userSettings: {
+                ...settings.userSettings,
+                filteredItemSlots: [],
+            },
+        });
+    }, 100);
+};
+
 export default Items;
+export { closeBrowseItemsDialog };

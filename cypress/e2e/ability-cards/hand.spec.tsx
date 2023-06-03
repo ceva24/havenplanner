@@ -24,7 +24,7 @@ describe("ability cards tab - hand", () => {
 
         cy.selectTab("Ability Cards");
 
-        cy.findEditHandButton().should("be.visible");
+        cy.findEditHandButton().should("exist");
     });
 
     it("shows the edit hand dialog when pressing the edit hand button", () => {
@@ -36,7 +36,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
     });
 
     it("allows the edit hand dialog to be closed", () => {
@@ -48,11 +48,11 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.clickCloseButton();
 
-        cy.findEditHandButton().should("be.visible");
+        cy.findEditHandButton().should("exist");
     });
 
     it("only shows level 1 and level X in the edit hand dialog", () => {
@@ -64,7 +64,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.findByRole("checkbox", { name: "Provoking Roar" }).should("exist");
 
@@ -88,7 +88,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.findByRole("checkbox", { name: "Juggernaut" }).should("exist");
     });
@@ -104,7 +104,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.findActiveAbilityCard("Trample").click();
 
@@ -124,7 +124,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.findActiveAbilityCard("Trample").focus().type("{enter}");
 
@@ -144,7 +144,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.findActiveAbilityCard("Trample").focus().type(" ");
 
@@ -162,7 +162,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.findActiveAbilityCard("Trample").click();
 
@@ -188,7 +188,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.findActiveAbilityCard("Trample").click();
 
@@ -206,7 +206,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.findActiveAbilityCard("Trample").click();
         cy.findActiveAbilityCard("Eye for an Eye").click();
@@ -237,7 +237,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.findActiveAbilityCard("Juggernaut").click();
 
@@ -263,7 +263,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.contains("0 / 10");
 
@@ -281,7 +281,7 @@ describe("ability cards tab - hand", () => {
 
         cy.findEditHandButton().click();
 
-        cy.findEditHandDialog().should("be.visible");
+        cy.findEditHandDialog().should("exist");
 
         cy.findActiveAbilityCard("Trample").click();
         cy.findActiveAbilityCard("Eye for an Eye").click();

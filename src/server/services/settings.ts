@@ -5,14 +5,13 @@ const getDefaultSettings = (): Settings => {
     return getSettingsForGame(1);
 };
 
-const getSettingsForGame = (id: number) => {
+const getSettingsForGame = (id: number): Settings => {
     const gameData: GameData = getGameDataById(id);
 
     return {
         gameData,
-        showPersonalQuest: false,
-        selectedAbilityCardsTabIndex: 0,
         spoilerSettings: getDefaultSpoilerSettings(),
+        userSettings: getDefaultUserSettings(),
     };
 };
 
@@ -23,6 +22,14 @@ const getDefaultSpoilerSettings = (): SpoilerSettings => {
             prosperity: 1,
             itemGroups: [],
         },
+    };
+};
+
+const getDefaultUserSettings = (): UserSettings => {
+    return {
+        showPersonalQuest: false,
+        selectedAbilityCardsTabIndex: 0,
+        filteredItemSlots: [],
     };
 };
 

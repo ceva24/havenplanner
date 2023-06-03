@@ -14,16 +14,20 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
             baseAttackModifierDeck: [],
             battleGoalCheckmarks: [{ id: 0, checkmarks: [{ id: 0, value: false }] }],
             itemGroups: [{ id: 1, name: "Random Item Designs" }],
+            itemSlots: [{ id: 1, name: "Legs", imageUrl: "" }],
             defaultCharacter: createTestCharacter({ characterClass }),
         },
-        showPersonalQuest: false,
-        selectedAbilityCardsTabIndex: 1,
         spoilerSettings: {
             classes: [],
             items: {
                 prosperity: 1,
                 itemGroups: [],
             },
+        },
+        userSettings: {
+            showPersonalQuest: false,
+            selectedAbilityCardsTabIndex: 1,
+            filteredItemSlots: [],
         },
     };
 
@@ -33,7 +37,6 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
 const createTestSettingsWithItemSpoilers = (prosperity: number, itemGroups: ItemGroup[]): Settings => {
     return {
         ...createTestSettings(),
-
         spoilerSettings: {
             classes: [],
             items: {
@@ -150,7 +153,6 @@ const createTestItem = (
         name,
         imageUrl: imageUrl ?? "",
         slot: slot ?? "Head",
-        slotImageUrl: "",
         group,
         alternativeImageUrl: alternativeImageUrl ?? "",
     };

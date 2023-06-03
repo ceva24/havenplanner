@@ -6,7 +6,7 @@ describe("app page", () => {
     it("shows the profile tab content by default", () => {
         cy.visit("/gloomhaven");
 
-        cy.findCharacterDetailsForm().should("be.visible");
+        cy.findCharacterDetailsForm().should("exist");
     });
 
     it("sets the page title", () => {

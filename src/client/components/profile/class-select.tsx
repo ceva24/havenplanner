@@ -6,7 +6,7 @@ import {
     useCharacterClassSummaries,
     type UseCharacterClassSummaries,
 } from "@/client/hooks/data/use-character-class-summaries";
-import { areCharactersCompletelySpoiled } from "@/client/services/spoiler";
+import { charactersAreCompletelySpoiled } from "@/client/services/spoiler";
 import { requestCharacterClass } from "@/client/services/request";
 
 interface ClassSelectProps {
@@ -59,7 +59,7 @@ const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSel
                                 {characterClass.name}
                             </MenuItem>
                         ))}
-                        {!areCharactersCompletelySpoiled(settings) && (
+                        {!charactersAreCompletelySpoiled(settings) && (
                             <MenuItem key="spoiler-hint" disabled value="Spoiler hint">
                                 Change your spoiler settings to see more classes...
                             </MenuItem>
@@ -101,7 +101,7 @@ const findAndSetCharacterClass = async (
 };
 
 const resetAbilityCardsTabConfig = (settings: Settings, setSettings: Dispatch<SetStateAction<Settings>>) => {
-    setSettings({ ...settings, selectedAbilityCardsTabIndex: 0 });
+    setSettings({ ...settings, userSettings: { ...settings.userSettings, selectedAbilityCardsTabIndex: 0 } });
 };
 
 export default ClassSelect;

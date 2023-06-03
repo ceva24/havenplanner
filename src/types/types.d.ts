@@ -5,8 +5,7 @@ type UnlockableCharacterClassSummary = Pick<CharacterClass, "id" | "spoilerSafeN
 interface Settings {
     gameData: GameData;
     spoilerSettings: SpoilerSettings;
-    showPersonalQuest: boolean;
-    selectedAbilityCardsTabIndex: number;
+    userSettings: UserSettings;
 }
 
 interface GameData {
@@ -18,12 +17,19 @@ interface GameData {
     baseAttackModifierDeck: AttackModifierDeckCard[];
     battleGoalCheckmarks: BattleGoalCheckmarkGroup[];
     itemGroups: ItemGroup[];
+    itemSlots: ItemSlot[];
     defaultCharacter: Character;
 }
 
 interface SpoilerSettings {
     classes: UnlockableCharacterClassSummary[];
     items: ItemSpoilerSettings;
+}
+
+interface UserSettings {
+    showPersonalQuest: boolean;
+    selectedAbilityCardsTabIndex: number;
+    filteredItemSlots: ItemSlot[];
 }
 
 interface ItemSpoilerSettings {

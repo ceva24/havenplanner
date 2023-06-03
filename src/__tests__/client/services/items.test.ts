@@ -1,12 +1,29 @@
 import type { Dictionary } from "lodash";
-import { getItemImageUrl, groupItems, orderItems } from "@/client/services/items";
-import { createTestItem } from "@/test/create-test-fixtures";
+import {
+    areAllItemSlotsFiltered,
+    filterItemsBySlot,
+    getItemImageUrl,
+    getItemSlotImageUrlForSlotName,
+    groupItems,
+    itemSlotIsActive,
+    orderItems,
+} from "@/client/services/items";
+import { createTestItem, createTestSettings } from "@/test/create-test-fixtures";
 
-describe("getItemsByGroup", () => {
+const itemSlots: ItemSlot[] = [
+    { id: 1, name: "Two Hand", imageUrl: "" },
+    { id: 2, name: "One Hand", imageUrl: "" },
+    { id: 3, name: "Head", imageUrl: "" },
+    { id: 4, name: "Chest", imageUrl: "" },
+    { id: 5, name: "Legs", imageUrl: "legs.webp" },
+    { id: 6, name: "Bag", imageUrl: "" },
+];
+
+describe("groupItems", () => {
     it("groups items by title", () => {
         const items: Item[] = [
-            createTestItem(0, "Boots of Test", "1"),
-            createTestItem(1, "Boots of Random Item Design Test", "Random Item Designs"),
+            createTestItem(0, "Boots of Test", "1", "Legs"),
+            createTestItem(1, "Boots of Random Item Design Test", "Random Item Designs", "Legs"),
         ];
 
         const result: Dictionary<Item[]> = groupItems(items);
@@ -16,6 +33,39 @@ describe("getItemsByGroup", () => {
 
         expect(result["1"]).toHaveLength(1);
         expect(result["Random Item Designs"]).toHaveLength(1);
+    });
+});
+
+describe("filterItemsBySlot", () => {
+    it("returns an item that matches the filters", () => {
+        const item = createTestItem(1, "Boots of Test", "1", "Legs");
+
+        const filteredItems = filterItemsBySlot([item], []);
+
+        expect(filteredItems).toHaveLength(1);
+        expect(filteredItems[0]).toEqual(item);
+    });
+
+    it("does not return an item that does not match the filter", () => {
+        const item = createTestItem(1, "Boots of Test", "1", "Legs");
+
+        const filteredItems = filterItemsBySlot([item], itemSlots);
+
+        expect(filteredItems).toHaveLength(0);
+    });
+});
+
+describe("itemSlotIsActive", () => {
+    it("returns true when the item slot is not being filtered out", () => {
+        const isFiltered = itemSlotIsActive("Legs", [itemSlots[1]]);
+
+        expect(isFiltered).toEqual(true);
+    });
+
+    it("returns false when the item slot is being filtered out", () => {
+        const isFiltered = itemSlotIsActive("Legs", itemSlots);
+
+        expect(isFiltered).toEqual(false);
     });
 });
 
@@ -68,7 +118,7 @@ describe("orderItems", () => {
             { id: "5", item: createTestItem(5, "Test", "1", "Two Hand"), showAlternativeImage: false },
         ];
 
-        const result = orderItems(characterItems);
+        const result = orderItems(characterItems, itemSlots);
 
         expect(result[0]).toEqual(characterItems[5]);
         expect(result[1]).toEqual(characterItems[2]);
@@ -85,7 +135,7 @@ describe("orderItems", () => {
             { id: "3", item: createTestItem(1, "Minor Healing Potion", "1"), showAlternativeImage: false },
         ];
 
-        const result = orderItems(characterItems);
+        const result = orderItems(characterItems, itemSlots);
 
         expect(result[0]).toEqual(characterItems[2]);
         expect(result[1]).toEqual(characterItems[0]);
@@ -100,7 +150,7 @@ describe("orderItems", () => {
             { id: "4", item: createTestItem(4, "Piercing Bow", "1", "Two Hand"), showAlternativeImage: false }, // Piercing Bow
         ];
 
-        const result = orderItems(characterItems);
+        const result = orderItems(characterItems, itemSlots);
 
         expect(result[0]).toEqual(characterItems[3]);
         expect(result[1]).toEqual(characterItems[1]);
@@ -117,6 +167,51 @@ describe("orderItems", () => {
         ${[]}
         ${[{ id: 1, item: createTestItem(0, "Boots of Test", "1") }]}
     `("orders items of length $items.length without error", ({ items }: ItemsProps) => {
-        expect(() => orderItems(items)).not.toThrowError();
+        expect(() => orderItems(items, itemSlots)).not.toThrowError();
+    });
+});
+
+describe("areAllItemSlotsFiltered", () => {
+    it("returns true when all item slots are filtered", () => {
+        const settings: Settings = createTestSettings();
+        settings.gameData.itemSlots = itemSlots;
+        settings.userSettings.filteredItemSlots = itemSlots;
+
+        const result = areAllItemSlotsFiltered(settings);
+
+        expect(result).toEqual(true);
+    });
+
+    it("returns false when some item slots are filtered", () => {
+        const settings: Settings = createTestSettings();
+        settings.gameData.itemSlots = itemSlots;
+        settings.userSettings.filteredItemSlots = [itemSlots[0]];
+
+        const result = areAllItemSlotsFiltered(settings);
+
+        expect(result).toEqual(false);
+    });
+
+    it("returns false when no item slots are filtered", () => {
+        const settings: Settings = createTestSettings();
+        settings.gameData.itemSlots = itemSlots;
+
+        const result = areAllItemSlotsFiltered(settings);
+
+        expect(result).toEqual(false);
+    });
+});
+
+describe("getItemSlotImageUrlForSlotName", () => {
+    it("returns the image url for the matching slot", () => {
+        const imageUrl: string = getItemSlotImageUrlForSlotName("Legs", itemSlots);
+
+        expect(imageUrl).toEqual("legs.webp");
+    });
+
+    it("returns an empty string when no matching slot is found", () => {
+        const imageUrl: string = getItemSlotImageUrlForSlotName("Gloves", itemSlots);
+
+        expect(imageUrl).toEqual("");
     });
 });

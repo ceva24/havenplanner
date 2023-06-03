@@ -2,8 +2,9 @@ import { attackModifiers } from "@/server/loaders/gloomhaven/attack-modifiers";
 import { characterClasses } from "@/server/loaders/gloomhaven/character-classes";
 import { enhancements } from "@/server/loaders/gloomhaven/enhancements";
 import { games } from "@/server/loaders/gloomhaven/games";
-import { itemGroups } from "@/server/loaders/gloomhaven/item-groups";
 import { items } from "@/server/loaders/gloomhaven/items";
+import { itemGroups } from "@/server/loaders/gloomhaven/item-groups";
+import { itemSlots } from "@/server/loaders/gloomhaven/item-slots";
 import { personalQuests } from "@/server/loaders/gloomhaven/personal-quests";
 import { toCharacterClassSummary } from "@/server/transformers/character-class-summary";
 import { toUnlockableCharacterClassSummary } from "@/server/transformers/unlockable-character-class-summary";
@@ -20,6 +21,7 @@ const getGloomhavenGameData = (): GameData => {
         baseAttackModifierDeck: createBaseAttackModifierDeck(),
         battleGoalCheckmarks: createDefaultBattleGoals(),
         itemGroups,
+        itemSlots,
         defaultCharacter: createDefaultCharacter(),
     };
 };

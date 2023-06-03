@@ -272,14 +272,15 @@ describe("findAndSetCharacter", () => {
 
 describe("resetAbilityCardsTabConfig", () => {
     it("resets the selected ability cards tab index setting", () => {
-        const settingsShowHand: Settings = { ...settings, selectedAbilityCardsTabIndex: 1 };
+        const settingsShowHand: Settings = createTestSettings();
+        settingsShowHand.userSettings.selectedAbilityCardsTabIndex = 1;
 
         resetAbilityCardsTabConfig(settingsShowHand, setSettings);
 
         expect(setSettings).toHaveBeenCalledTimes(1);
         expect(setSettings).toHaveBeenCalledWith({
-            ...settings,
-            selectedAbilityCardsTabIndex: 0,
+            ...settingsShowHand,
+            userSettings: { ...settingsShowHand.userSettings, selectedAbilityCardsTabIndex: 0 },
         });
     });
 });

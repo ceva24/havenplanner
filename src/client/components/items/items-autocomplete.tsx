@@ -11,7 +11,8 @@ import { v4 as uuid } from "uuid";
 import Image from "@/client/components/core/image";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 import { useItems, type UseItems } from "@/client/hooks/data/use-items";
-import { areItemsCompletelySpoiled } from "@/client/services/spoiler";
+import { getItemSlotImageUrlForSlotName } from "@/client/services/items";
+import { itemsAreCompletelySpoiled } from "@/client/services/spoiler";
 
 interface ItemsAutocompleteProps {
     character: Character;
@@ -42,7 +43,7 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                     <Box component="li" display="flex" {...props}>
                         <Box sx={{ marginRight: 2, flexShrink: 0 }}>
                             <Image
-                                webpPath={item.slotImageUrl}
+                                webpPath={getItemSlotImageUrlForSlotName(item.slot, settings.gameData.itemSlots)}
                                 fallbackImageType="png"
                                 altText={item.slot}
                                 style={{ verticalAlign: "middle" }}
@@ -70,7 +71,7 @@ const noOptionsText = (isLoading: boolean, isError: boolean, settings: Settings)
             return "Failed to load items";
         case isLoading:
             return "Loading...";
-        case !areItemsCompletelySpoiled(settings):
+        case !itemsAreCompletelySpoiled(settings):
             return "No options - check your spoiler settings";
         default:
             return "No options";
