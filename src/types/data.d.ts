@@ -51,3 +51,5 @@ interface Item extends VisualAsset {
 }
 
 interface ItemGroup extends Asset {}
+
+interface ItemSlot extends VisualAsset {}

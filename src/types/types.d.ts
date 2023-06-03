@@ -17,6 +17,7 @@ interface GameData {
     baseAttackModifierDeck: AttackModifierDeckCard[];
     battleGoalCheckmarks: BattleGoalCheckmarkGroup[];
     itemGroups: ItemGroup[];
+    itemSlots: ItemSlot[];
     defaultCharacter: Character;
 }
 

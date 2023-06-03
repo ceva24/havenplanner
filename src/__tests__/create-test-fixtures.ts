@@ -14,6 +14,7 @@ const createTestSettings = (settingsDetailsToOverride?: Partial<Settings>): Sett
             baseAttackModifierDeck: [],
             battleGoalCheckmarks: [{ id: 0, checkmarks: [{ id: 0, value: false }] }],
             itemGroups: [{ id: 1, name: "Random Item Designs" }],
+            itemSlots: [{ id: 1, name: "Legs", imageUrl: "" }],
             defaultCharacter: createTestCharacter({ characterClass }),
         },
         spoilerSettings: {

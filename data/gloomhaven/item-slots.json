@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Two Hand",
+        "imageUrl": "/equip-slot-icons/gloomhaven/two-hand.webp"
+    },
+    {
+        "id": 2,
+        "name": "One Hand",
+        "imageUrl": "/equip-slot-icons/gloomhaven/one-hand.webp"
+    },
+    {
+        "id": 3,
+        "name": "Head",
+        "imageUrl": "/equip-slot-icons/gloomhaven/head.webp"
+    },
+    {
+        "id": 4,
+        "name": "Chest",
+        "imageUrl": "/equip-slot-icons/gloomhaven/chest.webp"
+    },
+    {
+        "id": 5,
+        "name": "Legs",
+        "imageUrl": "/equip-slot-icons/gloomhaven/legs.webp"
+    },
+    {
+        "id": 6,
+        "name": "Bag",
+        "imageUrl": "/equip-slot-icons/gloomhaven/bag.webp"
+    }
+]
