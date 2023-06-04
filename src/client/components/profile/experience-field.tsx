@@ -1,4 +1,4 @@
-import type { ChangeEvent, Dispatch, FC, SetStateAction } from "react";
+import type { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { TextField } from "@mui/material";
 import { calculateLevel, updateHand, updateUnlockedAbilityCards } from "@/client/services/profile";
 
@@ -8,7 +8,7 @@ interface ExperienceFieldProps {
     handleChange: (field: string, isNumber: boolean) => (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const ExperienceField: FC<ExperienceFieldProps> = ({ character, setCharacter, handleChange }: ExperienceFieldProps) => {
+const ExperienceField = ({ character, setCharacter, handleChange }: ExperienceFieldProps) => {
     const handleExperienceLoseBlur = () => {
         const newLevel = calculateLevel(character.experience);
 
