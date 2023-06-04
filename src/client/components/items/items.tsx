@@ -23,7 +23,7 @@ const Items = ({ character, setCharacter }: ItemsProps) => {
                     <ItemsAutocomplete character={character} setCharacter={setCharacter} />
                     <Button
                         id="browse-items-button"
-                        text="Browse Items"
+                        text="Browse"
                         startIcon={<SearchIcon />}
                         onClick={() => {
                             setItemsDialogOpen(true);
