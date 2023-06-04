@@ -163,7 +163,7 @@ Cypress.Commands.add("addItem", (name: string) => {
 });
 
 Cypress.Commands.add("findBrowseItemsButton", () => {
-    cy.findByRole("button", { name: "Browse Items" });
+    cy.findByRole("button", { name: "Browse" });
 });
 
 Cypress.Commands.add("findBrowseItemsDialog", () => {

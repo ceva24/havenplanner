@@ -19,7 +19,7 @@ describe("items", () => {
     it("renders the browse items button", () => {
         render(<Items character={character} setCharacter={jest.fn()} />, { wrapper: TestSettingsProvider });
 
-        const browseItems = screen.queryByRole("button", { name: "Browse Items" });
+        const browseItems = screen.queryByRole("button", { name: "Browse" });
 
         expect(browseItems).toBeInTheDocument();
     });
