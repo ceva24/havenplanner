@@ -1,7 +1,7 @@
 import { type Dispatch, type SetStateAction, useState } from "react";
-import { Grid, Stack } from "@mui/material";
+import { Grid, Stack, useMediaQuery, useTheme } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { Button } from "@/client/components/core/button";
+import { Button, IconButton } from "@/client/components/core/button";
 import BrowseItemsDialog from "@/client/components/items/browse-items-dialog";
 import ItemsAutocomplete from "@/client/components/items/items-autocomplete";
 import ItemGrid from "@/client/components/items/item-grid";
@@ -16,19 +16,33 @@ const Items = ({ character, setCharacter }: ItemsProps) => {
     const [settings, setSettings] = useSettingsContext();
     const [itemsDialogOpen, setItemsDialogOpen] = useState<boolean>(false);
 
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
     return (
         <Grid container spacing={5}>
             <Grid item xs={12}>
                 <Stack direction="row" spacing={3} justifyContent="center">
                     <ItemsAutocomplete character={character} setCharacter={setCharacter} />
-                    <Button
-                        id="browse-items-button"
-                        text="Browse"
-                        startIcon={<SearchIcon />}
-                        onClick={() => {
-                            setItemsDialogOpen(true);
-                        }}
-                    />
+                    {isSmallScreen ? (
+                        <IconButton
+                            id="browse-items-button"
+                            label="Browse"
+                            icon={<SearchIcon />}
+                            onClick={() => {
+                                setItemsDialogOpen(true);
+                            }}
+                        />
+                    ) : (
+                        <Button
+                            id="browse-items-button"
+                            text="Browse"
+                            startIcon={<SearchIcon />}
+                            onClick={() => {
+                                setItemsDialogOpen(true);
+                            }}
+                        />
+                    )}
                     <BrowseItemsDialog
                         isOpen={itemsDialogOpen}
                         handleClose={() => {
