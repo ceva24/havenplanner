@@ -35,7 +35,31 @@ const ClassSelect: FC<ClassSelectProps> = ({ character, setCharacter }: ClassSel
             {isError ? (
                 <TextField disabled label="Class" value="Failed to load classes" />
             ) : isLoading ? (
-                <TextField disabled label="Class" value="Loading..." />
+                <>
+                    <InputLabel id="select-class-label">Class</InputLabel>
+                    <Select
+                        value={character.characterClass.name}
+                        label="Class"
+                        labelId="select-class-label"
+                        onChange={handleChange}
+                    >
+                        <MenuItem key={character.characterClass.id} value={character.characterClass.name}>
+                            <Image
+                                webpPath={character.characterClass.imageUrl}
+                                fallbackImageType="png"
+                                altText={`${character.characterClass.name} Class Icon`}
+                                style={{ verticalAlign: "middle", marginRight: 10, flexShrink: 0 }}
+                                height={30}
+                                width={30}
+                                aria-hidden="true"
+                            />
+                            {character.characterClass.name}
+                        </MenuItem>
+                        <MenuItem key="loading-message" disabled value="Loading">
+                            Loading...
+                        </MenuItem>
+                    </Select>
+                </>
             ) : (
                 <>
                     <InputLabel id="select-class-label">Class</InputLabel>
