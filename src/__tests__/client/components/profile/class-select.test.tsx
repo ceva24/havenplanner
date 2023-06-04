@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import ClassSelect, {
     findAndSetCharacterClass,
     resetAbilityCardsTabConfig,
@@ -60,7 +60,7 @@ describe("class select", () => {
         expect(classSelect).toBeInTheDocument();
     });
 
-    it("shows the loading text when character class data is loading", () => {
+    it("sets the initial character class when character class data is loading", () => {
         jest.spyOn(useCharacterClassSummariesHook, "useCharacterClassSummaries").mockReturnValueOnce({
             characterClassSummaries: [],
             isLoading: true,
@@ -71,10 +71,11 @@ describe("class select", () => {
             wrapper: TestSettingsProvider,
         });
 
-        const classSelect = screen.queryByRole("textbox", { name: "Class" });
+        const classSelect = screen.getByRole("button", { name: "Class" });
 
-        expect(classSelect).toBeInTheDocument();
-        expect(classSelect).toHaveValue("Loading...");
+        const characterClass = within(classSelect).queryByText("Test Skeleton");
+
+        expect(characterClass).toBeInTheDocument();
     });
 
     it("shows the error text when character class data cannot be retrieved", () => {
