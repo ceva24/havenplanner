@@ -40,3 +40,7 @@ yarn-error.log*
 
 # vs code
 .vscode
+
+TODO
+
+.env*
