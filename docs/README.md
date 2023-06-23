@@ -21,7 +21,7 @@ A web application to create and share character builds for the popular tabletop 
 
 -   Enter character details and select a personal quest
 -   Select perks, track battle goal progress and see the resulting attack modifier deck composition
--   View and unlock character ability cards, create a saved hand, and add enhancement stickers to cards
+-   View and unlock character ability cards, create a saved hand, and select enhancements for cards
 -   Browse and select items
 -   Configure spoiler settings to show and hide locked classes and items
 -   Save and share characters with a shareable link
