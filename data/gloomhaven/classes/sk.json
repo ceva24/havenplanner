@@ -1,0 +1,704 @@
+{
+    "id": 7,
+    "name": "Sunkeeper",
+    "imageUrl": "/character-icons/gloomhaven/gh-sun.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-sunkeeper.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-sunkeeper-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/SK/gh-sk-back.webp",
+    "initiallyLocked": true,
+    "spoilerSafeName": "Sun",
+    "handSize": 11,
+    "abilityCards": [
+        {
+            "id": 175,
+            "name": "Purifying Aura",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-purifying-aura.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "STRENGTHEN",
+                    "types": ["main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 176,
+            "name": "Cautious Advance",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-cautious-advance.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 177,
+            "name": "Brilliant Prayer",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-brilliant-prayer.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 178,
+            "name": "Empowering Command",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-empowering-command.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 179,
+            "name": "Protective Blessing",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-protective-blessing.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 180,
+            "name": "Dazzling Charge",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-dazzling-charge.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "STUN",
+                    "types": ["main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 181,
+            "name": "Tactical Order",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-tactical-order.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 182,
+            "name": "Holy Strike",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-holy-strike.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 183,
+            "name": "Hammer Blow",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-hammer-blow.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 184,
+            "name": "Defensive Stance",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-defensive-stance.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 185,
+            "name": "Lay on Hands",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-lay-on-hands.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 186,
+            "name": "Daybreak",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-daybreak.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "BLESS",
+                    "types": ["main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 187,
+            "name": "Beacon of Light",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-beacon-of-light.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 188,
+            "name": "Glorious Bolt",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-glorious-bolt.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 189,
+            "name": "Practical Plans",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-practical-plans.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 190,
+            "name": "Unwavering Mandate",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-unwavering-mandate.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 191,
+            "name": "Burning Flash",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-burning-flash.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 2,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 192,
+            "name": "Mobilizing Axiom",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-mobilizing-axiom.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 193,
+            "name": "Righteous Strength",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-righteous-strength.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "BLESS",
+                    "types": ["main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 194,
+            "name": "Engulfing Radiance",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-engulfing-radiance.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 195,
+            "name": "Path of Glory",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-path-of-glory.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 196,
+            "name": "Scales of Justice",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-scales-of-justice.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Retaliate",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "STUN",
+                    "types": ["main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 197,
+            "name": "Supportive Chant",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-supportive-chant.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 198,
+            "name": "Illuminate the Target",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-illuminate-the-target.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "STRENGTHEN",
+                    "types": ["main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 199,
+            "name": "Weapon of Purity",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-weapon-of-purity.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 200,
+            "name": "Bright Aegis",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-bright-aegis.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Retaliate",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 201,
+            "name": "Cleansing Force",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-cleansing-force.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 202,
+            "name": "Inspiring Sanctity",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-inspiring-sanctity.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 203,
+            "name": "Angelic Ascension",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-angelic-ascension.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 204,
+            "name": "Divine Intervention",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/SK/gh-divine-intervention.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        }
+    ],
+    "perks": [
+        {
+            "id": 0,
+            "name": "Remove two {-1} cards",
+            "count": 2,
+            "add": [],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                },
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Remove four {+0} cards",
+            "count": 1,
+            "add": [],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Replace one {-2} card with one {+0} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 329,
+                    "name": "-2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Replace one {+0} card with one {+2} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 330,
+                    "name": "+2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Add two {chain} {+1} cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 114,
+                    "name": "chain +1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SK/gh-am-sk-03.webp"
+                },
+                {
+                    "id": 114,
+                    "name": "chain +1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SK/gh-am-sk-03.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 5,
+            "name": "Add two {chain} Heal {heal} 1 cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 118,
+                    "name": "chain heal 1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SK/gh-am-sk-07.webp"
+                },
+                {
+                    "id": 118,
+                    "name": "chain heal 1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SK/gh-am-sk-07.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 6,
+            "name": "Add one {chain} STUN {stun} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 122,
+                    "name": "chain stun",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SK/gh-am-sk-11.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 7,
+            "name": "Add two {chain} {light} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 123,
+                    "name": "chain light",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SK/gh-am-sk-12.webp"
+                },
+                {
+                    "id": 123,
+                    "name": "chain light",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SK/gh-am-sk-12.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 8,
+            "name": "Add two {chain} Shield {shield} 1, Self card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 128,
+                    "name": "chain shield 1 self",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SK/gh-am-sk-17.webp"
+                },
+                {
+                    "id": 128,
+                    "name": "chain shield 1 self",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SK/gh-am-sk-17.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 9,
+            "name": "Ignore negative item effects and add two {+1} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                },
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 10,
+            "name": "Ignore negative scenario effects",
+            "count": 1,
+            "add": [],
+            "remove": []
+        }
+    ]
+}
