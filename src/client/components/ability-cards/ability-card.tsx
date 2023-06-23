@@ -1,5 +1,5 @@
 import { Card } from "@/client/components/core/cards";
-import { determineAbilityCardImageUrl } from "@/client/services/ability-cards/enhancement";
+import { determineAbilityCardImageUrl } from "@/client/services/ability-cards/ability-card";
 
 interface AbilityCardProps {
     abilityCard: AbilityCard;

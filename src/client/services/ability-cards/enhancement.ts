@@ -2,12 +2,6 @@ import { createSafeRelativePath } from "@/client/services/core/image";
 
 const enhancedAbilityCardsBaseImageUrl = "https://raw.githubusercontent.com/ceva24/worldhaven-enhanced-cards/main";
 
-const determineAbilityCardImageUrl = (abilityCard: AbilityCard, character: Character): string => {
-    return character.gainedEnhancements && abilityCardHasGainedEnhancements(abilityCard, character)
-        ? createEnhancedAbilityCardImageUrl(abilityCard, character)
-        : abilityCard.imageUrl;
-};
-
 const abilityCardHasGainedEnhancements = (abilityCard: AbilityCard, character: Character): boolean => {
     return character.gainedEnhancements.some(
         (gainedEnhancement: GainedEnhancement) => gainedEnhancement.abilityCard.id === abilityCard.id
@@ -64,7 +58,8 @@ const getPossibleEnhancementsFor = (enhancementSlot: EnhancementSlot, enhancemen
 
 export {
     enhancedAbilityCardsBaseImageUrl,
-    determineAbilityCardImageUrl,
+    abilityCardHasGainedEnhancements,
+    createEnhancedAbilityCardImageUrl,
     convertEnhancementNameToKey,
     getPossibleEnhancementsFor,
 };
