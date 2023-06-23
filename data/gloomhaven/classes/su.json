@@ -1,0 +1,757 @@
+{
+    "id": 9,
+    "name": "Summoner",
+    "imageUrl": "/character-icons/gloomhaven/gh-circles.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-summoner.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-summoner-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/SU/gh-su-back.webp",
+    "initiallyLocked": true,
+    "spoilerSafeName": "Circles",
+    "handSize": 9,
+    "abilityCards": [
+        {
+            "id": 233,
+            "name": "Forged Ferocity",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-forged-ferocity.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Summon - Attack",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 3,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 234,
+            "name": "Wild Animation",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-wild-animation.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Summon - Attack",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 3,
+                    "name": "Summon - Range",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 4,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+
+        {
+            "id": 235,
+            "name": "Living Night",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-living-night.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Attack",
+                    "types": ["summon-base-stat"]
+                }
+            ]
+        },
+
+        {
+            "id": 236,
+            "name": "Unending Dominance",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-unending-dominance.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                }
+            ]
+        },
+        {
+            "id": 237,
+            "name": "Unwavering Hand",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-unwavering-hand.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 238,
+            "name": "Mighty Bond",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-mighty-bond.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 239,
+            "name": "Bonded Might",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-bonded-might.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 240,
+            "name": "Biting Wind",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-biting-wind.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 241,
+            "name": "Black Fire",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-black-fire.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+
+        {
+            "id": 242,
+            "name": "Leathery Wings",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-leathery-wings.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "STRENGTHEN",
+                    "types": ["main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+
+        {
+            "id": 243,
+            "name": "Volatile Flame",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-volatile-flame.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Attack",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 244,
+            "name": "Ethereal Vines",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-ethereal-vines.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 245,
+            "name": "Earthen Steed",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-earthen-steed.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 246,
+            "name": "Grasping the Void",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-grasping-the-void.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 247,
+            "name": "Tear the Fabric",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-tear-the-fabric.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+
+        {
+            "id": 248,
+            "name": "Oozing Manifestation",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-oozing-manifestation.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Summon - Attack",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 3,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+
+        {
+            "id": 249,
+            "name": "Living Mountain",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-living-mountain.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 250,
+            "name": "Divided Mind",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-divided-mind.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 251,
+            "name": "Strength in Numbers",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-strength-in-numbers.webp",
+            "enhancementSlots": []
+        },
+
+        {
+            "id": 252,
+            "name": "Conjured Aid",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-conjured-aid.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Summon - Range",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 3,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+
+        {
+            "id": 253,
+            "name": "Endless Spikes",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-endless-spikes.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                }
+            ]
+        },
+        {
+            "id": 254,
+            "name": "Inexorable Momentum",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-inexorable-momentum.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+
+        {
+            "id": 255,
+            "name": "Negative Energy",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-negative-energy.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Summon - Attack",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 3,
+                    "name": "Summon - Range",
+                    "types": ["summon-base-stat"]
+                }
+            ]
+        },
+        {
+            "id": 256,
+            "name": "Staff of Visions",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-staff-of-visions.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "STRENGTHEN",
+                    "types": ["main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 257,
+            "name": "Intervening Apparitions",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-intervening-apparitions.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 258,
+            "name": "Otherworldly Rage",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-otherworldly-rage.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 259,
+            "name": "Interplanar Mastery",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-interplanar-mastery.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+
+        {
+            "id": 260,
+            "name": "Horned Majesty",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/SU/gh-horned-majesty.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Summon - Attack",
+                    "types": ["summon-base-stat"]
+                }
+            ]
+        }
+    ],
+    "perks": [
+        {
+            "id": 0,
+            "name": "Remove two {-1} cards",
+            "count": 1,
+            "add": [],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                },
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Replace one {-2} card with one {+0} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 329,
+                    "name": "-2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Replace one {-1} card with one {+1} card",
+            "count": 3,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Add one {+2} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 330,
+                    "name": "+2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.png"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 4,
+            "name": "Add two {chain} WOUND {wound} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 157,
+                    "name": "chain wound",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SU/gh-am-su-09.webp"
+                },
+                {
+                    "id": 157,
+                    "name": "chain wound",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SU/gh-am-su-09.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 5,
+            "name": "Add two {chain} POISON {poison} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 159,
+                    "name": "chain poison",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SU/gh-am-su-11.webp"
+                },
+                {
+                    "id": 159,
+                    "name": "chain poison",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SU/gh-am-su-11.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 6,
+            "name": "Add two {chain} Heal {heal} 1 cards",
+            "count": 3,
+            "add": [
+                {
+                    "id": 161,
+                    "name": "chain heal 1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SU/gh-am-su-13.webp"
+                },
+                {
+                    "id": 161,
+                    "name": "chain heal 1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SU/gh-am-su-13.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 7,
+            "name": "Add one {chain} {fire} and one {chain} {air} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 167,
+                    "name": "chain fire",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SU/gh-am-su-19.webp"
+                },
+                {
+                    "id": 168,
+                    "name": "chain air",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SU/gh-am-su-20.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 8,
+            "name": "Add one {chain} {dark} and one {chain} {earth} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 169,
+                    "name": "chain dark",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SU/gh-am-su-21.webp"
+                },
+                {
+                    "id": 170,
+                    "name": "chain earth",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SU/gh-am-su-22.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 9,
+            "name": "Ignore negative item effects and add two {+1} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                },
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": []
+        }
+    ]
+}

@@ -5,9 +5,10 @@ import sw from "@/data/gloomhaven/classes/sw.json";
 import sc from "@/data/gloomhaven/classes/sc.json";
 import ch from "@/data/gloomhaven/classes/ch.json";
 import mt from "@/data/gloomhaven/classes/mt.json";
+import su from "@/data/gloomhaven/classes/su.json";
 import ns from "@/data/gloomhaven/classes/ns.json";
 import ss from "@/data/gloomhaven/classes/ss.json";
 
-const characterClasses: CharacterClass[] = [br, sc, sw, ti, mt, ch, ns, ss];
+const characterClasses: CharacterClass[] = [br, sc, sw, ti, mt, ch, su, ns, ss];
 
 export { characterClasses };
