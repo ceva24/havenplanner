@@ -36,3 +36,7 @@ const customJestConfig = {
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 module.exports = createJestConfig(customJestConfig);
+
+process.env = Object.assign(process.env, {
+    NEXT_PUBLIC_FEATURE_FLAG_ENHANCED_CARD_IMAGES: "true",
+});
