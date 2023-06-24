@@ -1,0 +1,616 @@
+{
+    "id": 8,
+    "name": "Quartermaster",
+    "imageUrl": "/character-icons/gloomhaven/gh-three-spears.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-quartermaster.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-quartermaster-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/QM/gh-qm-back.webp",
+    "initiallyLocked": true,
+    "spoilerSafeName": "Three Spears",
+    "handSize": 9,
+    "abilityCards": [
+        {
+            "id": 205,
+            "name": "Restock",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-restock.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 206,
+            "name": "Oversized Pack",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-oversized-pack.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 207,
+            "name": "Sharpening Kit",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-sharpening-kit.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 208,
+            "name": "Proficiency",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-proficiency.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 209,
+            "name": "Iron Bulwark",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-iron-bulwark.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 210,
+            "name": "Hastened Step",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-hastened-step.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 211,
+            "name": "Cleaving Axe",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-cleaving-axe.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 212,
+            "name": "Impaling Spear",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-impaling-spear.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 213,
+            "name": "Crippling Bow",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-crippling-bow.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 214,
+            "name": "Crushing Hammer",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-crushing-hammer.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 215,
+            "name": "Scroll of Recall",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-scroll-of-recall.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "PULL",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 216,
+            "name": "Reserved Energy",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-reserved-energy.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 217,
+            "name": "Reforge",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-reforge.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 218,
+            "name": "Bladed Boomerang",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-bladed-boomerang.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 219,
+            "name": "Continual Supply",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-continual-supply.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 220,
+            "name": "Scroll of Lightning",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-scroll-of-lightning.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "PUSH",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 221,
+            "name": "Side Pouch",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-side-pouch.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 222,
+            "name": "Giant Club",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-giant-club.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 223,
+            "name": "Reinforced Steel",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-reinforced-steel.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 224,
+            "name": "Scroll of Judgment",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-scroll-of-judgment.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "STUN",
+                    "types": ["main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 225,
+            "name": "Catastrophic Bomb",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-catastrophic-bomb.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                }
+            ]
+        },
+        {
+            "id": 226,
+            "name": "Quiver of Arrows",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-quiver-of-arrows.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 227,
+            "name": "Scroll of Blizzards",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-scroll-of-blizzards.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 2,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 3,
+                    "name": "IMMOBILIZE",
+                    "types": ["main-line-targets-enemies"]
+                },
+                {
+                    "id": 4,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 227,
+            "name": "Refreshment",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-refreshment.webp",
+            "enhancementSlots": []
+        },
+
+        {
+            "id": 229,
+            "name": "Portable Ballista",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-portable-ballista.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 2,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                }
+            ]
+        },
+        {
+            "id": 230,
+            "name": "Fortified Position",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-fortified-position.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 231,
+            "name": "Scroll of Annihilation",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-scroll-of-annihilation.webp",
+            "enhancementSlots": [
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "DISARM",
+                    "types": ["main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 232,
+            "name": "Bag of Holding",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/QM/gh-bag-of-holding.webp",
+            "enhancementSlots": []
+        }
+    ],
+    "perks": [
+        {
+            "id": 0,
+            "name": "Remove two {-1} cards",
+            "count": 2,
+            "add": [],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                },
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Remove four {+0} cards",
+            "count": 1,
+            "add": [],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Replace one {+0} card with one {+2} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 330,
+                    "name": "+2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Add two {chain} {+1} cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 133,
+                    "name": "chain +1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/QM/gh-am-qm-03.webp"
+                },
+                {
+                    "id": 133,
+                    "name": "chain +1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/QM/gh-am-qm-03.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 4,
+            "name": "Add three {chain} MUDDLE {muddle} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 137,
+                    "name": "chain muddle",
+                    "imageUrl": "/attack-modifiers/gloomhaven/QM/gh-am-qm-07.webp"
+                },
+                {
+                    "id": 137,
+                    "name": "chain muddle",
+                    "imageUrl": "/attack-modifiers/gloomhaven/QM/gh-am-qm-07.webp"
+                },
+                {
+                    "id": 137,
+                    "name": "chain muddle",
+                    "imageUrl": "/attack-modifiers/gloomhaven/QM/gh-am-qm-07.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 5,
+            "name": "Add two {chain} PIERCE {pierce} 3 cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 140,
+                    "name": "chain pierce 3",
+                    "imageUrl": "/attack-modifiers/gloomhaven/QM/gh-am-qm-10.webp"
+                },
+                {
+                    "id": 140,
+                    "name": "chain pierce 3",
+                    "imageUrl": "/attack-modifiers/gloomhaven/QM/gh-am-qm-10.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 6,
+            "name": "Add one {chain} STUN {stun} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 142,
+                    "name": "chain stun",
+                    "imageUrl": "/attack-modifiers/gloomhaven/QM/gh-am-qm-12.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 7,
+            "name": "Add one {chain} ADD TARGET {target} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 143,
+                    "name": "chain add target",
+                    "imageUrl": "/attack-modifiers/gloomhaven/QM/gh-am-qm-13.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 8,
+            "name": "Add one {+0} Refresh an item card",
+            "count": 3,
+            "add": [
+                {
+                    "id": 144,
+                    "name": "+1 shield 1 self",
+                    "imageUrl": "/attack-modifiers/gloomhaven/QM/gh-am-qm-14.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 9,
+            "name": "Ignore negative item effects and add two {+1} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                },
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": []
+        }
+    ]
+}
