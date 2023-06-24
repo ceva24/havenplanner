@@ -1,0 +1,862 @@
+{
+    "id": 16,
+    "name": "Elementalist",
+    "imageUrl": "/character-icons/gloomhaven/gh-triangles.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-elementalist.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-elementalist-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/EL/gh-el-back.webp",
+    "initiallyLocked": true,
+    "spoilerSafeName": "Triangles",
+    "handSize": 8,
+    "abilityCards": [
+        {
+            "id": 447,
+            "name": "Raw Enhancement",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-raw-enhancement.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 448,
+            "name": "Pure Augmentation",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-pure-augmentation.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 449,
+            "name": "Formless Power",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-formless-power.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 450,
+            "name": "Shaping the Ether",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-shaping-the-ether.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 451,
+            "name": "Stoking Hail",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-stoking-hail.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 452,
+            "name": "Tremulant Cyclone",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-tremulant-cyclone.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 453,
+            "name": "Infernal Vortex",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-infernal-vortex.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 454,
+            "name": "Lava Eruption",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-lava-eruption.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 455,
+            "name": "Ice Spikes",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-ice-spikes.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 3,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 456,
+            "name": "Frigid Torrent",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-frigid-torrent.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "PULL",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 3,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                }
+            ]
+        },
+        {
+            "id": 457,
+            "name": "Malleable Evocation",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-malleable-evocation.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 458,
+            "name": "Brilliant Flash",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-brilliant-flash.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 459,
+            "name": "Encompassing Shadow",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-encompassing-shadow.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 460,
+            "name": "Boiling Arc",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-boiling-arc.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 461,
+            "name": "Crystallizing Blast",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-crystallizing-blast.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 462,
+            "name": "Burial",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-burial.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 463,
+            "name": "Chain Lightning",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-chain-lightning.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 464,
+            "name": "Primal Duality",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-primal-duality.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 3,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 465,
+            "name": "Gravel Vortex",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-gravel-vortex.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 466,
+            "name": "Obsidian Shards",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-obsidian-shards.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 467,
+            "name": "Winter's Edge",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-winters-edge.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 2,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 468,
+            "name": "Eye of the Hurricane",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-eye-of-the-hurricane.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+
+        {
+            "id": 469,
+            "name": "Simulacrum",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-simulacrum.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                }
+            ]
+        },
+        {
+            "id": 470,
+            "name": "Vengeance",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-vengeance.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "RETALIATE",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 471,
+            "name": "Pragmatic Reinforcement",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-pragmatic-reinforcement.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 472,
+            "name": "Volatile Consumption",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-volatile-consumption.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 473,
+            "name": "Elemental Aegis",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-elemental-aegis.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 2,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+
+        {
+            "id": 474,
+            "name": "Ethereal Manifestation",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-ethereal-manifestation.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Summon - Health",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 1,
+                    "name": "Summon - Move",
+                    "types": ["summon-base-stat"]
+                },
+                {
+                    "id": 2,
+                    "name": "Summon - Range",
+                    "types": ["summon-base-stat"]
+                }
+            ]
+        },
+        {
+            "id": 475,
+            "name": "Eternal Equilibrium",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/EL/gh-eternal-equilibrium.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        }
+    ],
+    "perks": [
+        {
+            "id": 0,
+            "name": "Remove two {-1} cards",
+            "count": 2,
+            "add": [],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                },
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Replace one {-1} card with one {+1} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Replace one {+0} card with one {+2} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 330,
+                    "name": "+2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Add three {+0} {fire} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 275,
+                    "name": "+0 fire",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-04.webp"
+                },
+                {
+                    "id": 275,
+                    "name": "+0 fire",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-04.webp"
+                },
+                {
+                    "id": 275,
+                    "name": "+0 fire",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-04.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 4,
+            "name": "Add three {+0} {ice} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 279,
+                    "name": "+0 ice",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-08.webp"
+                },
+                {
+                    "id": 279,
+                    "name": "+0 ice",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-08.webp"
+                },
+                {
+                    "id": 279,
+                    "name": "+0 ice",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-08.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 5,
+            "name": "Add three {+0} {air} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 283,
+                    "name": "+0 air",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-12.webp"
+                },
+                {
+                    "id": 283,
+                    "name": "+0 air",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-12.webp"
+                },
+                {
+                    "id": 283,
+                    "name": "+0 air",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-12.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 6,
+            "name": "Add three {+0} {earth} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 287,
+                    "name": "+0 earth",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-16.webp"
+                },
+                {
+                    "id": 287,
+                    "name": "+0 earth",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-16.webp"
+                },
+                {
+                    "id": 287,
+                    "name": "+0 earth",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-16.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 7,
+            "name": "Replace two {+0} cards with one {+0} {fire} and one {+0} {earth} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 275,
+                    "name": "+0 fire",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-04.webp"
+                },
+                {
+                    "id": 287,
+                    "name": "+0 earth",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-16.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Replace two {+0} cards with one {+0} {ice} and one {+0} {air} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 279,
+                    "name": "+0 ice",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-08.webp"
+                },
+                {
+                    "id": 283,
+                    "name": "+0 air",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-12.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Add two {+1} PUSH {push} 1 cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 291,
+                    "name": "+1 push 1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-20.webp"
+                },
+                {
+                    "id": 291,
+                    "name": "+1 push 1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-20.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 10,
+            "name": "Add one {+1} WOUND {wound} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 293,
+                    "name": "+1 wound",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-22.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 11,
+            "name": "Add one {+0} STUN {stun} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 294,
+                    "name": "+0 stun",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-23.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 12,
+            "name": "Add one {+0} ADD TARGET {target} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 295,
+                    "name": "+0 add target",
+                    "imageUrl": "/attack-modifiers/gloomhaven/EL/gh-am-el-24.webp"
+                }
+            ],
+            "remove": []
+        }
+    ]
+}
