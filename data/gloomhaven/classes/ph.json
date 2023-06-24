@@ -1,0 +1,693 @@
+{
+    "id": 11,
+    "name": "Plagueherald",
+    "imageUrl": "/character-icons/gloomhaven/gh-cthulhu.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-plagueherald.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-plagueherald-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/PH/gh-ph-back.webp",
+    "initiallyLocked": true,
+    "spoilerSafeName": "Cthulhu",
+    "handSize": 11,
+    "abilityCards": [
+        {
+            "id": 289,
+            "name": "Vile Pestilence",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-vile-pestilence.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 290,
+            "name": "Grasping Vermin",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-grasping-vermin.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 291,
+            "name": "Wretched Swarm",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-wretched-swarm.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 292,
+            "name": "Spread the Plague",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-spread-the-plague.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 293,
+            "name": "Biting Gnats",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-biting-gnats.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 294,
+            "name": "Winged Congregation",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-winged-congregation.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 295,
+            "name": "Creeping Curse",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-creeping-curse.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "CURSE",
+                    "types": ["main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 296,
+            "name": "Gathering Doom",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-gathering-doom.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 297,
+            "name": "Paralyzing Bite",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-paralyzing-bite.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 298,
+            "name": "Foul Wind",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-foul-wind.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 299,
+            "name": "Scattered Terror",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-scattered-terror.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 3,
+                    "name": "PIERCE",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 300,
+            "name": "Epidemic",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-epidemic.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 301,
+            "name": "Virulent Strain",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-virulent-strain.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 302,
+            "name": "Blistering Vortex",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-blistering-vortex.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 3,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 303,
+            "name": "Under the Skin",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-under-the-skin.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 304,
+            "name": "Rot Maggots",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-rot-maggots.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 305,
+            "name": "Succumb to the Gift",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-succumb-to-the-gift.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "BLESS",
+                    "types": ["main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 306,
+            "name": "Fetid Flurry",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-fetid-flurry.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 307,
+            "name": "Storm of Wings",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-storm-of-wings.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 308,
+            "name": "Nightmarish Affliction",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-nightmarish-affliction.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+
+                {
+                    "id": 1,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 309,
+            "name": "Accelerated End",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-accelerated-end.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 310,
+            "name": "Willing Sacrifice",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-willing-sacrifice.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 311,
+            "name": "Stinging Cloud",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-stinging-cloud.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 312,
+            "name": "Black Tides",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-black-tides.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 3,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 313,
+            "name": "Airborne Toxin",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-airborne-toxin.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 314,
+            "name": "Baneful Hex",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-baneful-hex.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "CURSE",
+                    "types": ["main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 315,
+            "name": "Spreading Scourge",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-spreading-scourge.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 2,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 3,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 316,
+            "name": "Grim Bargain",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-grim-bargain.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 317,
+            "name": "Mass Extinction",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-mass-extinction.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 318,
+            "name": "Convert the Flock",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/PH/gh-convert-the-flock.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Range",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                }
+            ]
+        }
+    ],
+    "perks": [
+        {
+            "id": 0,
+            "name": "Replace one {-2} card with one {+0} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 329,
+                    "name": "-2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-17.webp"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Replace one {-1} card with one {+1} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Replace one {+0} card with one {+2} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 330,
+                    "name": "+2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Add two {+1} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                },
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 4,
+            "name": "Add one {+1} {air} card",
+            "count": 3,
+            "add": [
+                {
+                    "id": 198,
+                    "name": "+1 air",
+                    "imageUrl": "/attack-modifiers/gloomhaven/PH/gh-am-ph-09.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 5,
+            "name": "Add three {chain} POISON {poison} cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 201,
+                    "name": "chain poison",
+                    "imageUrl": "/attack-modifiers/gloomhaven/PH/gh-am-ph-12.webp"
+                },
+                {
+                    "id": 201,
+                    "name": "chain poison",
+                    "imageUrl": "/attack-modifiers/gloomhaven/PH/gh-am-ph-12.webp"
+                },
+                {
+                    "id": 201,
+                    "name": "chain poison",
+                    "imageUrl": "/attack-modifiers/gloomhaven/PH/gh-am-ph-12.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 6,
+            "name": "Add two {chain} CURSE {curse} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 204,
+                    "name": "chain curse",
+                    "imageUrl": "/attack-modifiers/gloomhaven/PH/gh-am-ph-15.webp"
+                },
+                {
+                    "id": 204,
+                    "name": "chain curse",
+                    "imageUrl": "/attack-modifiers/gloomhaven/PH/gh-am-ph-15.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 7,
+            "name": "Add two {chain} IMMOBILIZE {immobilize} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 206,
+                    "name": "chain immobilize",
+                    "imageUrl": "/attack-modifiers/gloomhaven/PH/gh-am-ph-17.webp"
+                },
+                {
+                    "id": 206,
+                    "name": "chain immobilize",
+                    "imageUrl": "/attack-modifiers/gloomhaven/PH/gh-am-ph-17.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 8,
+            "name": "Add one {chain} STUN {stun} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 208,
+                    "name": "chain immobilize",
+                    "imageUrl": "/attack-modifiers/gloomhaven/PH/gh-am-ph-19.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 9,
+            "name": "Ignore negative scenario effects and add one {+1} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": []
+        }
+    ]
+}
