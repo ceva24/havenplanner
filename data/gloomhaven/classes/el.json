@@ -7,7 +7,7 @@
     "cardBackImageUrl": "/character-ability-cards/gloomhaven/EL/gh-el-back.webp",
     "initiallyLocked": true,
     "spoilerSafeName": "Triangles",
-    "handSize": 8,
+    "handSize": 10,
     "abilityCards": [
         {
             "id": 447,
