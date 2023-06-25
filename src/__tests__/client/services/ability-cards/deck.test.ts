@@ -1,6 +1,7 @@
 import {
     abilityCardCanBeToggled,
     abilityCardCanBeUnlockedForCharacter,
+    abilityCardLevelIsSelectable,
     groupCharacterCardsByLevel,
     isUnlockedAbilityCardForCharacter,
     uniqueOrderedCardLevels,
@@ -15,6 +16,7 @@ character.characterClass.abilityCards = [
     createTestAbilityCard(3, "2"),
     createTestAbilityCard(4, "2"),
     createTestAbilityCard(5, "3"),
+    createTestAbilityCard(6, "M"),
 ];
 
 beforeEach(() => {
@@ -121,11 +123,12 @@ describe("groupCardsByLevel", () => {
     it("groups cards by level", () => {
         const groups = groupCharacterCardsByLevel(character);
 
-        expect(Object.keys(groups)).toEqual(["1", "2", "3", "X"]);
+        expect(Object.keys(groups)).toEqual(["1", "2", "3", "X", "M"]);
         expect(groups["1"]).toHaveLength(1);
         expect(groups["2"]).toHaveLength(2);
         expect(groups["3"]).toHaveLength(1);
         expect(groups.X).toHaveLength(1);
+        expect(groups.M).toHaveLength(1);
     });
 });
 
@@ -135,6 +138,38 @@ describe("uniqueOrderedCardLevels", () => {
 
         const uniqueLevels = uniqueOrderedCardLevels(groups);
 
-        expect(uniqueLevels).toEqual(["1", "X", "2", "3"]);
+        expect(uniqueLevels).toEqual(["1", "M", "X", "2", "3"]);
     });
+});
+
+describe("abilityCardLevelIsSelectable", () => {
+    interface LevelIsSelectableProps {
+        level: string;
+        isSelectable: boolean;
+    }
+
+    it.each`
+        level   | isSelectable
+        ${"1"}  | ${false}
+        ${"M"}  | ${false}
+        ${"X"}  | ${false}
+        ${"2"}  | ${true}
+        ${"3"}  | ${true}
+        ${"4"}  | ${true}
+        ${"5"}  | ${true}
+        ${"6"}  | ${true}
+        ${"7"}  | ${true}
+        ${"8"}  | ${true}
+        ${"9"}  | ${true}
+        ${"0"}  | ${false}
+        ${"-1"} | ${false}
+        ${""}   | ${false}
+    `(
+        "checking whether level $level cards are selectable returns $isSelectable",
+        ({ level, isSelectable }: LevelIsSelectableProps) => {
+            const result = abilityCardLevelIsSelectable(level);
+
+            expect(result).toEqual(isSelectable);
+        }
+    );
 });
