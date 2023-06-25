@@ -75,6 +75,24 @@ describe("ability cards tab - hand", () => {
         cy.findByRole("checkbox", { name: "Fatal Advance" }).should("not.exist");
     });
 
+    it("does not show level M cards in the edit hand dialog", () => {
+        cy.visit("/gloomhaven");
+
+        cy.spoilAll();
+
+        cy.selectClass("Sawbones");
+
+        cy.selectTab("Ability Cards");
+
+        cy.selectTab("Hand");
+
+        cy.findEditHandButton().click();
+
+        cy.findEditHandDialog().should("exist");
+
+        cy.findByRole("checkbox", { name: "Medical Pack" }).should("not.exist");
+    });
+
     it("shows level 2 or higher cards in the edit hand dialog when they have been unlocked", () => {
         cy.visit("/gloomhaven");
 

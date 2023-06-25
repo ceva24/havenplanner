@@ -30,6 +30,18 @@ describe("ability cards tab - deck", () => {
         cy.findByRole("region", { name: "Level X Ability Cards" }).findAllByRole("img").should("have.length", 3);
     });
 
+    it("renders level M cards", () => {
+        cy.visit("/gloomhaven");
+
+        cy.spoilAll();
+
+        cy.selectClass("Sawbones");
+
+        cy.selectTab("Ability Cards");
+
+        cy.findByRole("region", { name: "Level M Ability Cards" }).findAllByRole("img").should("have.length", 2);
+    });
+
     it("renders level 2-9 cards", () => {
         cy.visit("/gloomhaven");
 
