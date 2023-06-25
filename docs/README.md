@@ -68,6 +68,6 @@ Continuously deployed to production using [Vercel](https://vercel.com) 🚀
 
 ## 📌 Notices
 
-With thanks to the [Worldhaven](https://github.com/any2cards) project, which makes this tool possible!
+With thanks to the [Worldhaven](https://github.com/any2cards/worldhaven) project, which makes this tool possible!
 
 Gloomhaven and all related properties, images and text are owned by [Cephalofair Games](https://cephalofair.com).
