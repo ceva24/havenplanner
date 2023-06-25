@@ -12,6 +12,7 @@
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io)
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/788e43c2/havenplanner/)
+[![licence](https://img.shields.io/badge/licence-CC_BY--NC--SA_4.0-blue)](https://github.com/ceva24/havenplanner/blob/main/docs/LICENCE.md)
 
 ## 👋 Introduction
 
