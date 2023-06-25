@@ -7,7 +7,7 @@ import {
     calculateMaximumUnlockCount,
 } from "@/client/services/ability-cards/ability-card";
 
-const abilityCardGroupOrder = ["1", "X", "2", "3", "4", "5", "6", "7", "8", "9"];
+const abilityCardGroupOrder = ["1", "M", "X", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 const isUnlockedAbilityCardForCharacter = (character: Character, abilityCard: AbilityCard): boolean => {
     return character.unlockedAbilityCards.some((card: AbilityCard) => card.id === abilityCard.id);
@@ -61,10 +61,15 @@ const uniqueOrderedCardLevels = (cardsByLevel: Dictionary<AbilityCard[]>) => {
         .sort((a: string, b: string) => abilityCardGroupOrder.indexOf(a) - abilityCardGroupOrder.indexOf(b));
 };
 
+const abilityCardLevelIsSelectable = (level: string): boolean => {
+    return ["2", "3", "4", "5", "6", "7", "8", "9"].includes(level);
+};
+
 export {
     isUnlockedAbilityCardForCharacter,
     abilityCardCanBeUnlockedForCharacter,
     abilityCardCanBeToggled,
     groupCharacterCardsByLevel,
     uniqueOrderedCardLevels,
+    abilityCardLevelIsSelectable,
 };

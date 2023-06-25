@@ -1,7 +1,11 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Grid } from "@mui/material";
 import AbilityCardGroup from "@/client/components/ability-cards/deck/ability-card-group";
-import { groupCharacterCardsByLevel, uniqueOrderedCardLevels } from "@/client/services/ability-cards/deck";
+import {
+    abilityCardLevelIsSelectable,
+    groupCharacterCardsByLevel,
+    uniqueOrderedCardLevels,
+} from "@/client/services/ability-cards/deck";
 
 interface DeckProps {
     character: Character;
@@ -16,8 +20,8 @@ const Deck = ({ character, setCharacter }: DeckProps) => {
         <Grid container>
             {orderedLevels.map((level: string) => {
                 const cards = cardsByLevel[level];
-                const gridItemSize = cards.length <= 2 ? 6 : 12;
-                const isSelectable = !(level === "1" || level === "X");
+                const isSelectable = abilityCardLevelIsSelectable(level);
+                const gridItemSize = isSelectable ? 6 : 12;
 
                 return (
                     <Grid key={level} item xl={gridItemSize} width="100%">
