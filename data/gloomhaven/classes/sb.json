@@ -1,0 +1,622 @@
+{
+    "id": 15,
+    "name": "Sawbones",
+    "imageUrl": "/character-icons/gloomhaven/gh-saw.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-sawbones.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-sawbones-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/SB/gh-sb-back.webp",
+    "initiallyLocked": true,
+    "spoilerSafeName": "Saw",
+    "handSize": 10,
+    "abilityCards": [
+        {
+            "id": 407,
+            "name": "First Aid",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-first-aid.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 408,
+            "name": "Hand of the Surgeon",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-hand-of-the-surgeon.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 409,
+            "name": "Hold Back the Pain",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-hold-back-the-pain.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 410,
+            "name": "Booster Shot",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-booster-shot.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 411,
+            "name": "Bloody Saw",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-bloody-saw.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 412,
+            "name": "Curative Mixture",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-curative-mixture.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 413,
+            "name": "Syringe",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-syringe.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 414,
+            "name": "Battlefield Medicine",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-battlefield-medicine.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 415,
+            "name": "Triage",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-triage.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 416,
+            "name": "Mobile Response",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-mobile-response.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 428,
+            "name": "Prevention Is Key",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-prevention-is-key.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "DISARM",
+                    "types": ["main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 429,
+            "name": "Teamwork",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-teamwork.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 430,
+            "name": "Vaccine",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-vaccine.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 431,
+            "name": "Hamstring",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-hamstring.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 432,
+            "name": "Precaution",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-precaution.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 433,
+            "name": "Regenerative Tissue",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-regenerative-tissue.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 434,
+            "name": "Vital Strike",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-vital-strike.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 435,
+            "name": "Blood Transfusion",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-blood-transfusion.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 436,
+            "name": "Do No Harm",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-do-no-harm.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 437,
+            "name": "Research the Cure",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-research-the-cure.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 438,
+            "name": "Amputate",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-amputate.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 2,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 439,
+            "name": "Euthanize",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-euthanize.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 440,
+            "name": "Prescription",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-prescription.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 441,
+            "name": "Master Physician",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-master-physician.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 442,
+            "name": "Surgeon's Satchel",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-surgeons-satchel.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 443,
+            "name": "Bedside Manner",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-bedside-manner.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 444,
+            "name": "Gentleman's Anger",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-gentlemans-anger.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 445,
+            "name": "Prep for Surgery",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-prep-for-surgery.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "STUN",
+                    "types": ["main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 446,
+            "name": "Grisly Trauma",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-grisly-trauma.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        }
+    ],
+    "perks": [
+        {
+            "id": 0,
+            "name": "Remove two {-1} cards",
+            "count": 2,
+            "add": [],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                },
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Remove four {+0} cards",
+            "count": 1,
+            "add": [],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Replace one {+0} card with one {+2} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 330,
+                    "name": "+2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-18.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Add one {chain} {+2} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 260,
+                    "name": "chain +2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SB/gh-am-sb-03.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 4,
+            "name": "Add one {+1} IMMOBILIZE {immobilize} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 262,
+                    "name": "+1 immobilize",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SB/gh-am-sb-05.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 5,
+            "name": "Add two {chain} WOUND {wound} cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 264,
+                    "name": "chain wound",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SB/gh-am-sb-07.webp"
+                },
+                {
+                    "id": 264,
+                    "name": "chain wound",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SB/gh-am-sb-07.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 6,
+            "name": "Add one {chain} STUN {stun} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 268,
+                    "name": "chain stun",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SB/gh-am-sb-11.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 7,
+            "name": "Add one {chain} HEAL {heal} 3 card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 269,
+                    "name": "chain heal 3",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SB/gh-am-sb-12.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 8,
+            "name": "Add one {+0} Refresh an item card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 271,
+                    "name": "+0 refresh an item",
+                    "imageUrl": "/attack-modifiers/gloomhaven/SB/gh-am-sb-14.webp"
+                }
+            ],
+            "remove": []
+        }
+    ]
+}

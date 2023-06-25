@@ -13,8 +13,9 @@ import ph from "@/data/gloomhaven/classes/ph.json";
 import be from "@/data/gloomhaven/classes/be.json";
 import ss from "@/data/gloomhaven/classes/ss.json";
 import ds from "@/data/gloomhaven/classes/ds.json";
+import sb from "@/data/gloomhaven/classes/sb.json";
 import el from "@/data/gloomhaven/classes/el.json";
 
-const characterClasses: CharacterClass[] = [br, ti, sw, sc, ch, mt, sk, qm, su, ns, ph, be, ss, ds, el];
+const characterClasses: CharacterClass[] = [br, ti, sw, sc, ch, mt, sk, qm, su, ns, ph, be, ss, ds, sb, el];
 
 export { characterClasses };
