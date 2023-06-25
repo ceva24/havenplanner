@@ -10,9 +10,10 @@ import qm from "@/data/gloomhaven/classes/qm.json";
 import su from "@/data/gloomhaven/classes/su.json";
 import ns from "@/data/gloomhaven/classes/ns.json";
 import ph from "@/data/gloomhaven/classes/ph.json";
+import be from "@/data/gloomhaven/classes/be.json";
 import ss from "@/data/gloomhaven/classes/ss.json";
 import el from "@/data/gloomhaven/classes/el.json";
 
-const characterClasses: CharacterClass[] = [br, ti, sw, sc, ch, mt, sk, qm, su, ns, ph, ss, el];
+const characterClasses: CharacterClass[] = [br, ti, sw, sc, ch, mt, sk, qm, su, ns, ph, be, ss, el];
 
 export { characterClasses };
