@@ -5,6 +5,7 @@
 [![code formatting](https://github.com/ceva24/havenplanner/actions/workflows/check-format.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/check-format.yml)
 [![linting](https://github.com/ceva24/havenplanner/actions/workflows/lint.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/lint.yml)
 [![type checking](https://github.com/ceva24/havenplanner/actions/workflows/check-types.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/check-types.yml)
+[![codeql analysis](https://github.com/ceva24/havenplanner/actions/workflows/codeql.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/codeql.yml)
 [![end-to-end tests](https://github.com/ceva24/havenplanner/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/e2e-test.yml)
 [![performance checks](https://github.com/ceva24/havenplanner/actions/workflows/performance-checks.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/performance-checks.yml)
 [![cypress tests](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/zbs72n/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/zbs72n/runs)
