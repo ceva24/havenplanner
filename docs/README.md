@@ -7,6 +7,7 @@
 [![type checking](https://github.com/ceva24/havenplanner/actions/workflows/check-types.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/check-types.yml)
 [![end-to-end tests](https://github.com/ceva24/havenplanner/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/e2e-test.yml)
 [![performance checks](https://github.com/ceva24/havenplanner/actions/workflows/performance-checks.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/performance-checks.yml)
+[![havenplanner](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/zbs72n/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/zbs72n/runs)
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
