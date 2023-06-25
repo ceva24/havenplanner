@@ -12,6 +12,10 @@ on:
 jobs:
   e2e-test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4, 5, 6]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -24,7 +28,9 @@ jobs:
           build: npm run build
           start: npm start
           record: true
+          parallel: true
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
