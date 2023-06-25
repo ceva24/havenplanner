@@ -130,7 +130,7 @@ describe("determineAbilityCardImageUrl", () => {
 
         const abilityCardImageUrl = determineAbilityCardImageUrl(character.characterClass.abilityCards[0], character);
 
-        expect(abilityCardImageUrl).toMatch(new RegExp(`^${enhancedAbilityCardsBaseImageUrl}`));
+        expect(abilityCardImageUrl).toStartWith(enhancedAbilityCardsBaseImageUrl);
     });
 
     it("converts the ability card image url to the appropriate enhanced ability card image path", () => {
@@ -158,9 +158,7 @@ describe("determineAbilityCardImageUrl", () => {
 
         const abilityCardImageUrl = determineAbilityCardImageUrl(character.characterClass.abilityCards[0], character);
 
-        expect(abilityCardImageUrl).toMatch(
-            new RegExp(`^${enhancedAbilityCardsBaseImageUrl}/gloomhaven/BR/gh-trample/`)
-        );
+        expect(abilityCardImageUrl).toStartWith(`${enhancedAbilityCardsBaseImageUrl}/gloomhaven/BR/gh-trample/`);
     });
 
     it("creates a url to a webp file", () => {
