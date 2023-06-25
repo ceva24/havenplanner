@@ -177,6 +177,20 @@
             ]
         },
         {
+            "id": 417,
+            "name": "Medical Pack",
+            "level": "M",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-medical-pack.webp",
+            "enhancementSlots": []
+        },
+        {
+            "id": 424,
+            "name": "Large Medical Pack",
+            "level": "M",
+            "imageUrl": "/character-ability-cards/gloomhaven/SB/gh-large-medical-pack.webp",
+            "enhancementSlots": []
+        },
+        {
             "id": 429,
             "name": "Teamwork",
             "level": "X",
