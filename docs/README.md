@@ -7,13 +7,13 @@
 [![type checking](https://github.com/ceva24/havenplanner/actions/workflows/check-types.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/check-types.yml)
 [![end-to-end tests](https://github.com/ceva24/havenplanner/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/e2e-test.yml)
 [![performance checks](https://github.com/ceva24/havenplanner/actions/workflows/performance-checks.yml/badge.svg)](https://github.com/ceva24/havenplanner/actions/workflows/performance-checks.yml)
-[![havenplanner](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/zbs72n/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/zbs72n/runs)
+[![cypress tests](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/zbs72n/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/zbs72n/runs)
 
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![code formatting: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
-[![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io)
-[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/788e43c2/havenplanner/)
-[![licence](https://img.shields.io/badge/licence-CC_BY--NC--SA_4.0-blue)](https://github.com/ceva24/havenplanner/blob/main/docs/LICENCE.md)
+[![Tested with cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io)
+[![This project is using Percy.io for visual regression testing](https://percy.io/static/images/percy-badge.svg)](https://percy.io/788e43c2/havenplanner/)
+[![licence CC BY-NC-SA 4.0](https://img.shields.io/badge/licence-CC_BY--NC--SA_4.0-blue)](https://github.com/ceva24/havenplanner/blob/main/docs/LICENCE.md)
 
 ## 👋 Introduction
 
