@@ -1,0 +1,683 @@
+{
+    "id": 12,
+    "name": "Berserker",
+    "imageUrl": "/character-icons/gloomhaven/gh-lightning-bolt.webp",
+    "characterMatFrontImageUrl": "/character-mats/gloomhaven/gh-berserker.webp",
+    "characterMatBackImageUrl": "/character-mats/gloomhaven/gh-berserker-back.webp",
+    "cardBackImageUrl": "/character-ability-cards/gloomhaven/BE/gh-be-back.webp",
+    "initiallyLocked": true,
+    "spoilerSafeName": "Lightning Bolt",
+    "handSize": 10,
+    "abilityCards": [
+        {
+            "id": 319,
+            "name": "Resolute Stand",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-resolute-stand.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 2,
+                    "name": "RETALIATE",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 320,
+            "name": "Growing Rage",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-growing-rage.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 321,
+            "name": "Strength in Agony",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-strength-in-agony.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 322,
+            "name": "Defiance of Death",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-defiance-of-death.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 323,
+            "name": "From the Brink",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-from-the-brink.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "PUSH",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 324,
+            "name": "Blood Pact",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-blood-pact.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 325,
+            "name": "Cauterize",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-cauterize.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                }
+            ]
+        },
+        {
+            "id": 326,
+            "name": "Dazing Wound",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-dazing-wound.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 327,
+            "name": "Furious Aid",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-furious-aid.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 328,
+            "name": "Bounce Back",
+            "level": "1",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-bounce-back.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "RETALIATE",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                },
+                {
+                    "id": 1,
+                    "name": "Heal",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 329,
+            "name": "Unbridled Power",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-unbridled-power.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 330,
+            "name": "Glass Hammer",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-glass-hammer.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 331,
+            "name": "Numb the Pain",
+            "level": "X",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-numb-the-pain.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 332,
+            "name": "Reckless Offensive",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-reckless-offensive.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 333,
+            "name": "Break the Chains",
+            "level": "2",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-break-the-chains.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "ADD TARGET",
+                    "types": ["numeric"]
+                },
+                {
+                    "id": 2,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 334,
+            "name": "Spiked Armor",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-spiked-armor.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 335,
+            "name": "Fatal Fury",
+            "level": "3",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-fatal-fury.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 336,
+            "name": "Flurry of Axes",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-flurry-of-axes.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 337,
+            "name": "Shiny Distraction",
+            "level": "4",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-shiny-distraction.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 338,
+            "name": "Seeing Red",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-seeing-red.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 339,
+            "name": "Final Fight",
+            "level": "5",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-final-fight.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 340,
+            "name": "Devil Horns",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-devil-horns.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Area attack",
+                    "types": ["area-attack"]
+                },
+                {
+                    "id": 2,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 341,
+            "name": "Unstoppable Destruction",
+            "level": "6",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-unstoppable-destruction.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 342,
+            "name": "Burning Hatred",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-burning-hatred.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 343,
+            "name": "Careless Charge",
+            "level": "7",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-careless-charge.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 344,
+            "name": "Bone Breaker",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-bone-breaker.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                }
+            ]
+        },
+        {
+            "id": 345,
+            "name": "Vengeful Barrage",
+            "level": "8",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-vengeful-barrage.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                }
+            ]
+        },
+        {
+            "id": 346,
+            "name": "Immortality",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-immortality.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Move",
+                    "types": ["numeric", "main-line", "move"]
+                },
+                {
+                    "id": 1,
+                    "name": "Shield",
+                    "types": ["numeric", "main-line-targets-allies-or-self"]
+                }
+            ]
+        },
+        {
+            "id": 347,
+            "name": "The Maw of Madness",
+            "level": "9",
+            "imageUrl": "/character-ability-cards/gloomhaven/BE/gh-the-maw-of-madness.webp",
+            "enhancementSlots": [
+                {
+                    "id": 0,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 1,
+                    "name": "Attack",
+                    "types": ["numeric", "main-line-targets-enemies"]
+                },
+                {
+                    "id": 2,
+                    "name": "Range",
+                    "types": ["numeric"]
+                }
+            ]
+        }
+    ],
+    "perks": [
+        {
+            "id": 0,
+            "name": "Remove two {-1} cards",
+            "count": 1,
+            "add": [],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                },
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Remove four {+0} cards",
+            "count": 1,
+            "add": [],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                },
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Replace one {-1} card with one {+1} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 319,
+                    "name": "+1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-07.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 324,
+                    "name": "-1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Replace one {+0} card with one {chain} {+2} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 212,
+                    "name": "chain +2",
+                    "imageUrl": "/attack-modifiers/gloomhaven/BE/gh-am-be-03.webp"
+                }
+            ],
+            "remove": [
+                {
+                    "id": 313,
+                    "name": "+0",
+                    "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Add two {chain} WOUND {wound} cards",
+            "count": 2,
+            "add": [
+                {
+                    "id": 214,
+                    "name": "chain wound",
+                    "imageUrl": "/attack-modifiers/gloomhaven/BE/gh-am-be-05.webp"
+                },
+                {
+                    "id": 214,
+                    "name": "chain wound",
+                    "imageUrl": "/attack-modifiers/gloomhaven/BE/gh-am-be-05.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 5,
+            "name": "Add one {chain} STUN {stun} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 218,
+                    "name": "chain stun",
+                    "imageUrl": "/attack-modifiers/gloomhaven/BE/gh-am-be-09.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 6,
+            "name": "Add one {chain} {+1} DISARM {disarm} card",
+            "count": 1,
+            "add": [
+                {
+                    "id": 220,
+                    "name": "chain +1 disarm",
+                    "imageUrl": "/attack-modifiers/gloomhaven/BE/gh-am-be-11.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 7,
+            "name": "Add two {chain} Heal {heal} 1 cards",
+            "count": 1,
+            "add": [
+                {
+                    "id": 221,
+                    "name": "chain heal 1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/BE/gh-am-be-12.webp"
+                },
+                {
+                    "id": 221,
+                    "name": "chain heal 1",
+                    "imageUrl": "/attack-modifiers/gloomhaven/BE/gh-am-be-12.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 8,
+            "name": "Add one {+2} {fire} card",
+            "count": 2,
+            "add": [
+                {
+                    "id": 223,
+                    "name": "+2 fire",
+                    "imageUrl": "/attack-modifiers/gloomhaven/BE/gh-am-be-14.webp"
+                }
+            ],
+            "remove": []
+        },
+        {
+            "id": 9,
+            "name": "Ignore negative item effects",
+            "count": 1,
+            "add": [],
+            "remove": []
+        }
+    ]
+}
