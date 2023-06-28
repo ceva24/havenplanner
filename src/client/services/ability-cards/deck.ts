@@ -3,7 +3,6 @@ import groupBy from "lodash.groupby";
 import { calculateLevel } from "@/client/services/profile";
 import {
     abilityCardLevelCanBeUnlockedByCharacter,
-    abilityCardsUnlockedAtLevel,
     calculateMaximumUnlockCount,
 } from "@/client/services/ability-cards/ability-card";
 
@@ -19,7 +18,7 @@ const abilityCardCanBeUnlockedForCharacter = (character: Character, abilityCard:
     return (
         characterHasAbilityCardUnlocksRemaining(character, characterLevel) &&
         abilityCardLevelCanBeUnlockedByCharacter(abilityCard.level, characterLevel) &&
-        !isTheSecondCardOfCurrentCharacterLevel(abilityCard, character, characterLevel)
+        currentOrHigherLevelUnlockExists(abilityCard, character, characterLevel)
     );
 };
 
@@ -27,19 +26,39 @@ const characterHasAbilityCardUnlocksRemaining = (character: Character, character
     return calculateMaximumUnlockCount(characterLevel) - character.unlockedAbilityCards.length >= 1;
 };
 
-const isTheSecondCardOfCurrentCharacterLevel = (
+const currentOrHigherLevelUnlockExists = (
     abilityCard: AbilityCard,
     character: Character,
     characterLevel: number
 ): boolean => {
-    const unlocksAtCurrentLevel = new Set(
-        abilityCardsUnlockedAtLevel(character.unlockedAbilityCards, abilityCard.level)
+    const levelUnlocksUsed: number[] = characterLevelsWhereAbilityCardUnlockHasBeenUsed(character);
+
+    const abilityCardLevel = Number.parseInt(abilityCard.level, 10);
+
+    const levelsFromCurrentCardLevelToCharacterLevel = Array.from<unknown, number>(
+        { length: characterLevel - abilityCardLevel + 1 },
+        (array: unknown, value: number) => value + abilityCardLevel
     );
 
-    const hasAlreadyUnlockedOtherCardAtThisLevel =
-        unlocksAtCurrentLevel.size > 0 && !unlocksAtCurrentLevel.has(abilityCard);
+    return levelsFromCurrentCardLevelToCharacterLevel.some((level: number) => !levelUnlocksUsed.includes(level));
+};
 
-    return abilityCard.level === characterLevel.toString() && hasAlreadyUnlockedOtherCardAtThisLevel;
+const characterLevelsWhereAbilityCardUnlockHasBeenUsed = (character: Character): number[] => {
+    const sortedCards: AbilityCard[] = character.unlockedAbilityCards
+        .slice()
+        .sort((a: AbilityCard, b: AbilityCard) => (a.level < b.level ? -1 : 1));
+
+    const levelsWhereUnlockUsed: number[] = [];
+
+    for (const card of sortedCards) {
+        const cardLevel: number = Number.parseInt(card.level, 10);
+
+        const levelUnlockUsedOnThisCard: number = levelsWhereUnlockUsed.includes(cardLevel) ? cardLevel + 1 : cardLevel;
+
+        levelsWhereUnlockUsed.push(levelUnlockUsedOnThisCard);
+    }
+
+    return levelsWhereUnlockUsed;
 };
 
 const abilityCardCanBeToggled = (abilityCard: AbilityCard, character: Character): boolean => {
