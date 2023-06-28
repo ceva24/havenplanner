@@ -88,6 +88,48 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
         expect(result).toEqual(false);
     });
 
+    it("returns false when a level 3 character has unlocked one at level 2 and 3 and tries to unlock another level 2 card", () => {
+        character.experience = 125;
+        character.unlockedAbilityCards = [
+            character.characterClass.abilityCards[2],
+            character.characterClass.abilityCards[4],
+        ];
+
+        const result = abilityCardCanBeUnlockedForCharacter(character, character.characterClass.abilityCards[3]);
+
+        expect(result).toEqual(false);
+    });
+
+    it("returns false when the character has used its level 6 unlock for a level 5 card and tries to unlock a level 6 card", () => {
+        const levelSixCharacter: Character = createTestCharacter({ experience: 280 });
+
+        levelSixCharacter.characterClass.abilityCards = [
+            createTestAbilityCard(1, "2"),
+            createTestAbilityCard(2, "2"),
+            createTestAbilityCard(3, "3"),
+            createTestAbilityCard(4, "3"),
+            createTestAbilityCard(5, "4"),
+            createTestAbilityCard(6, "4"),
+            createTestAbilityCard(7, "5"),
+            createTestAbilityCard(8, "5"),
+            createTestAbilityCard(9, "6"),
+            createTestAbilityCard(10, "6"),
+        ];
+        levelSixCharacter.unlockedAbilityCards = [
+            levelSixCharacter.characterClass.abilityCards[6],
+            levelSixCharacter.characterClass.abilityCards[7],
+            levelSixCharacter.characterClass.abilityCards[0],
+            levelSixCharacter.characterClass.abilityCards[4],
+        ];
+
+        const result = abilityCardCanBeUnlockedForCharacter(
+            levelSixCharacter,
+            levelSixCharacter.characterClass.abilityCards[8]
+        );
+
+        expect(result).toEqual(false);
+    });
+
     it("does not error if the card level is non-numeric", () => {
         const unlockNonNumeric = () =>
             abilityCardCanBeUnlockedForCharacter(character, character.characterClass.abilityCards[1]);
