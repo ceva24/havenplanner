@@ -57,21 +57,21 @@ const theme: ThemeOptions = createTheme({
                 font-weight: normal;
                 font-style: normal;
                 font-display: swap;
-                src: local('PirataOne'), local('PirataOne-Regular'), url('/fonts/PirataOne-Gloomhaven.ttf') format('woff2');
+                src: local('PirataOne'), local('PirataOne-Regular'), url('/fonts/PirataOne-Gloomhaven.woff2') format('woff2');
               }
               @font-face {
                 font-family: 'High Tower';
                 font-weight: normal;
                 font-style: normal;
                 font-display: swap;
-                src: local('High Tower'), local('High Tower-Regular'), url('/fonts/HTOWERT.TTF') format('woff2');
+                src: local('High Tower'), local('High Tower-Regular'), url('/fonts/HTOWERT.woff2') format('woff2');
               }
               @font-face {
                 font-family: 'Sakkal Majalla';
                 font-weight: normal;
                 font-style: normal;
                 font-display: swap;
-                src: local('Sakkal Majalla'), local('Sakkal Majalla-Regular'), url('/fonts/majalla.ttf') format('woff2');
+                src: local('Sakkal Majalla'), local('Sakkal Majalla-Regular'), url('/fonts/majalla.woff2') format('woff2');
               }
           `,
         },
