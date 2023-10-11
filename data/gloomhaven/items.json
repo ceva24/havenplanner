@@ -729,7 +729,19 @@
         "name": "Second Skin",
         "imageUrl": "items/gloomhaven/64-151/gh-101-second-skin.webp",
         "slot": "Chest",
-        "group": "Other Items"
+        "group": "Other Items",
+        "remove": [
+            {
+                "id": 324,
+                "name": "-1",
+                "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+            },
+            {
+                "id": 324,
+                "name": "-1",
+                "imageUrl": "/attack-modifiers/gloomhaven/base/player/gh-am-p1-12.webp"
+            }
+        ]
     },
     {
         "id": 102,

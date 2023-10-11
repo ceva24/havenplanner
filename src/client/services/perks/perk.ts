@@ -82,4 +82,4 @@ const applyAttackModifierRemovalsTo = (
     }
 };
 
-export { characterHasGainedPerk, findCharacterGainedPerk, applyPerksTo };
+export { characterHasGainedPerk, findCharacterGainedPerk, applyPerksTo, applyAttackModifierRemovalsTo };

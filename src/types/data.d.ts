@@ -47,6 +47,7 @@ interface Item extends VisualAsset {
     slot: string;
     group: string;
     alternativeImageUrl?: string;
+    remove?: AttackModifierCard[];
 }
 
 interface ItemGroup extends Asset {}
