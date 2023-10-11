@@ -328,7 +328,7 @@ describe("perks tab", () => {
         cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").should("not.be.checked");
     });
 
-    it.only("applies the effect of second skin to the attack modifier deck", () => {
+    it("applies the effect of second skin to the attack modifier deck", () => {
         cy.visit("/gloomhaven");
 
         cy.spoilAll();
