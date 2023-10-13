@@ -24,6 +24,7 @@ jobs:
           build: npm run build
           start: npm start
           record: true
+          spec: cypress/e2e/share.spec.tsx
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
