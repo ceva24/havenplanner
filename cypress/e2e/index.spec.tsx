@@ -2,7 +2,7 @@
 import "@testing-library/cypress/add-commands";
 import "@/support/commands";
 
-describe("app page", () => {
+describe("index page", () => {
     it("redirects to the gloomhaven page", () => {
         cy.visit("/");
 
