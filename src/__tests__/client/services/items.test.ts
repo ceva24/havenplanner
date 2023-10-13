@@ -1,5 +1,6 @@
 import type { Dictionary } from "lodash";
 import {
+    applyItemEffectsTo,
     areAllItemSlotsFiltered,
     filterItemsBySlot,
     getItemImageUrl,
@@ -8,7 +9,7 @@ import {
     itemSlotIsActive,
     orderItems,
 } from "@/client/services/items";
-import { createTestItem, createTestSettings } from "@/test/create-test-fixtures";
+import { createTestAttackModifierDeckCard, createTestItem, createTestSettings } from "@/test/create-test-fixtures";
 
 const itemSlots: ItemSlot[] = [
     { id: 1, name: "Two Hand", imageUrl: "" },
@@ -213,5 +214,106 @@ describe("getItemSlotImageUrlForSlotName", () => {
         const imageUrl: string = getItemSlotImageUrlForSlotName("Gloves", itemSlots);
 
         expect(imageUrl).toEqual("");
+    });
+});
+
+describe("applyItemEffectsTo", () => {
+    it("returns an unaltered attack modifier deck for a character with no items", () => {
+        const attackModifierDeck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+0")];
+
+        const attackModifierDeckWithItemEffects = applyItemEffectsTo(attackModifierDeck, []);
+
+        expect(attackModifierDeckWithItemEffects).toEqual(attackModifierDeck);
+    });
+
+    it("returns an unaltered attack modifier deck for a character with items with no effects", () => {
+        const attackModifierDeck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+0")];
+        const items: CharacterItem[] = [
+            {
+                id: "1",
+                item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url"),
+                showAlternativeImage: false,
+            },
+        ];
+
+        const attackModifierDeckWithItemEffects = applyItemEffectsTo(attackModifierDeck, items);
+
+        expect(attackModifierDeckWithItemEffects).toEqual(attackModifierDeck);
+    });
+
+    it("applies an item effects that removes attack modifier cards", () => {
+        const attackModifierDeck: AttackModifierDeckCard[] = [
+            createTestAttackModifierDeckCard(1, "+0"),
+            createTestAttackModifierDeckCard(1, "+0"),
+        ];
+        const items: CharacterItem[] = [
+            {
+                id: "1",
+                item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url", [
+                    {
+                        id: 1,
+                        name: "+0",
+                        imageUrl: "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp",
+                    },
+                    {
+                        id: 1,
+                        name: "+0",
+                        imageUrl: "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp",
+                    },
+                ]),
+                showAlternativeImage: false,
+            },
+        ];
+
+        const attackModifierDeckWithItemEffects = applyItemEffectsTo(attackModifierDeck, items);
+
+        expect(attackModifierDeckWithItemEffects).toBeEmpty();
+    });
+
+    it("returns an unaltered attack modifier deck for a character with an item with an effect that remove attack modifier cards that don't exist", () => {
+        const attackModifierDeck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(2, "+1")];
+        const items: CharacterItem[] = [
+            {
+                id: "1",
+                item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url", [
+                    {
+                        id: 1,
+                        name: "+0",
+                        imageUrl: "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp",
+                    },
+                ]),
+                showAlternativeImage: false,
+            },
+        ];
+
+        const attackModifierDeckWithItemEffects = applyItemEffectsTo(attackModifierDeck, items);
+
+        expect(attackModifierDeckWithItemEffects).toEqual(attackModifierDeck);
+    });
+
+    it("applies an item effect that removes more attack modifier cards than exist in the deck", () => {
+        const attackModifierDeck: AttackModifierDeckCard[] = [createTestAttackModifierDeckCard(1, "+0")];
+        const items: CharacterItem[] = [
+            {
+                id: "1",
+                item: createTestItem(1, "Boots of Test", "1", "Legs", "url", "alternative-url", [
+                    {
+                        id: 1,
+                        name: "+0",
+                        imageUrl: "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp",
+                    },
+                    {
+                        id: 1,
+                        name: "+0",
+                        imageUrl: "/attack-modifiers/gloomhaven/base/player/gh-am-p1-01.webp",
+                    },
+                ]),
+                showAlternativeImage: false,
+            },
+        ];
+
+        const attackModifierDeckWithItemEffects = applyItemEffectsTo(attackModifierDeck, items);
+
+        expect(attackModifierDeckWithItemEffects).toBeEmpty();
     });
 });

@@ -145,7 +145,8 @@ const createTestItem = (
     group: string,
     slot?: string,
     imageUrl?: string,
-    alternativeImageUrl?: string
+    alternativeImageUrl?: string,
+    remove?: AttackModifierCard[]
     // eslint-disable-next-line max-params
 ): Item => {
     return {
@@ -155,6 +156,7 @@ const createTestItem = (
         slot: slot ?? "Head",
         group,
         alternativeImageUrl: alternativeImageUrl ?? "",
+        remove: remove ?? [],
     };
 };
 

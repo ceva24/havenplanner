@@ -327,4 +327,22 @@ describe("perks tab", () => {
 
         cy.findByRole("region", { name: "Battle Goal Perk 1" }).findAllByRole("checkbox").should("not.be.checked");
     });
+
+    it("applies the effect of second skin to the attack modifier deck", () => {
+        cy.visit("/gloomhaven");
+
+        cy.spoilAll();
+
+        cy.selectTab("Perks");
+
+        cy.findAttackModifierCardWithCount("-1", 5).should("exist");
+
+        cy.selectTab("Items");
+
+        cy.addItem("Second Skin 101");
+
+        cy.selectTab("Perks");
+
+        cy.findAttackModifierCardWithCount("-1", 3).should("exist");
+    });
 });

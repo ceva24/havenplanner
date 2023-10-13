@@ -1,5 +1,7 @@
 import type { Dictionary } from "lodash";
+import cloneDeep from "lodash.clonedeep";
 import groupBy from "lodash.groupby";
+import { applyAttackModifierRemovalsTo } from "@/client/services/perks/perk";
 
 const groupItems = (items: Item[]): Dictionary<Item[]> => {
     return groupBy(items, (item: Item) => item.group);
@@ -41,6 +43,25 @@ const getItemSlotImageUrlForSlotName = (slotName: string, itemSlots: ItemSlot[])
     return itemSlots.find((itemSlot: ItemSlot) => itemSlot.name === slotName)?.imageUrl ?? "";
 };
 
+const applyItemEffectsTo = (
+    attackModifierDeck: AttackModifierDeckCard[],
+    items: CharacterItem[]
+): AttackModifierDeckCard[] => {
+    const attackModifierDeckWithItemEffects = cloneDeep(attackModifierDeck);
+
+    items.forEach((characterItem: CharacterItem) => {
+        applyEffectsOfItemTo(attackModifierDeckWithItemEffects, characterItem.item);
+    });
+
+    return attackModifierDeckWithItemEffects;
+};
+
+const applyEffectsOfItemTo = (attackModifierDeck: AttackModifierDeckCard[], item: Item) => {
+    item.remove?.forEach((attackModifierCard: AttackModifierCard) => {
+        applyAttackModifierRemovalsTo(attackModifierDeck, attackModifierCard);
+    });
+};
+
 export {
     groupItems,
     filterItemsBySlot,
@@ -49,4 +70,5 @@ export {
     orderItems,
     areAllItemSlotsFiltered,
     getItemSlotImageUrlForSlotName,
+    applyItemEffectsTo,
 };
