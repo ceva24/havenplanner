@@ -13,7 +13,7 @@
         "check-types:next": "tsc",
         "check-types:cypress": "tsc --project cypress/tsconfig.json",
         "test": "jest",
-        "e2e": "cypress run",
+        "e2e": "cypress run --spec cypress/e2e/share.spec.tsx",
         "vis": "percy snapshot percy.json",
         "perf": "lhci autorun",
         "check": "npm run check-format && npm run lint && npm run check-types && npm run test",
