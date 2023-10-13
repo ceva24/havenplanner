@@ -64,6 +64,7 @@
         "@types/uuid": "^9.0.2",
         "@typescript-eslint/eslint-plugin": "^5.60.0",
         "cypress": "^13.3.0",
+        "cypress-split": "^1.9.2",
         "eslint": "8.43.0",
         "eslint-config-next": "13.4.7",
         "eslint-config-xo-react": "^0.27.0",
