@@ -215,8 +215,7 @@ Cypress.Commands.add("findLoadCharacterDialog", () => {
 });
 
 Cypress.Commands.add("confirmLoadCharacter", () => {
-    cy.intercept("POST", "**/classes").as("getClasses").wait("@getClasses");
-    cy.findByRole("dialog", { name: "Load character?" }).findByRole("button", { name: "Load" }).click();
+    cy.findByRole("dialog", { name: "Load character?" }).findByRole("button", { name: "Load" }).wait(5000).click();
 });
 
 Cypress.Commands.add("spoilAll", () => {
