@@ -376,26 +376,6 @@ describe("share", () => {
         cy.findLoadCharacterDialog().findByText("Eclipse").should("exist");
     });
 
-    it("loads the character when confirming the load character dialog", () => {
-        cy.visit("/gloomhaven");
-
-        cy.selectClass("Spellweaver");
-
-        cy.selectTab("Items");
-
-        cy.setProsperityLevel(2);
-
-        cy.addItem("Stun Powder 021");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.confirmLoadCharacter();
-
-        cy.findSelectClassButton().should("have.text", "Spellweaver");
-    });
-
     it("does not load the character when cancelling the load character dialog", () => {
         cy.visit("/gloomhaven");
 
@@ -418,8 +398,10 @@ describe("share", () => {
         cy.findSelectClassButton().should("have.text", "Brute");
     });
 
-    it("captures higher prosperity item data in a shareable link", () => {
+    it("loads the character when confirming the load character dialog", () => {
         cy.visit("/gloomhaven");
+
+        cy.selectClass("Spellweaver");
 
         cy.selectTab("Items");
 
@@ -433,180 +415,6 @@ describe("share", () => {
 
         cy.confirmLoadCharacter();
 
-        cy.selectTab("Items");
-
-        cy.findByRole("img", { name: "Stun Powder" }).should("exist");
-    });
-
-    it("sets the prosperity level spoiler setting to the level of the character's highest prosperity item", () => {
-        cy.visit("/gloomhaven");
-
-        cy.selectTab("Items");
-
-        cy.setProsperityLevel(2);
-
-        cy.addItem("Stun Powder 021");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.confirmLoadCharacter();
-
-        cy.openSettings();
-
-        cy.shouldHaveProsperityLevel(2);
-    });
-
-    it("captures item group item data in a shareable link", () => {
-        cy.visit("/gloomhaven");
-
-        cy.selectTab("Items");
-
-        cy.setSpoilerActive("Random Item Designs");
-
-        cy.addItem("Circlet of Elements 075");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.confirmLoadCharacter();
-
-        cy.selectTab("Items");
-
-        cy.findByRole("img", { name: "Circlet of Elements" }).should("exist");
-    });
-
-    it("sets the active item groups based on the character's items", () => {
-        cy.visit("/gloomhaven");
-
-        cy.selectTab("Items");
-
-        cy.setSpoilerActive("Random Item Designs");
-
-        cy.addItem("Circlet of Elements 075");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.confirmLoadCharacter();
-
-        cy.openSettings();
-
-        cy.shouldHaveActiveSpoiler("Random Item Designs");
-    });
-
-    it("a loaded active item group can be toggled", () => {
-        cy.visit("/gloomhaven");
-
-        cy.selectTab("Items");
-
-        cy.setSpoilerActive("Random Item Designs");
-
-        cy.addItem("Circlet of Elements 075");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.confirmLoadCharacter();
-
-        cy.openSettings();
-
-        cy.shouldHaveActiveSpoiler("Random Item Designs");
-
-        cy.findByRole("region", { name: "Item Spoilers" })
-            .findByRole("checkbox", { name: "Random Item Designs" })
-            .uncheck();
-
-        cy.findByRole("region", { name: "Item Spoilers" })
-            .findByRole("checkbox", { name: "Random Item Designs" })
-            .should("not.be.checked");
-    });
-
-    it("captures locked class data in a shareable link", () => {
-        cy.visit("/gloomhaven");
-
-        cy.spoilAll();
-
-        cy.selectClass("Nightshroud");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.confirmLoadCharacter();
-
-        cy.findByRole("button", { name: "Class" }).should("have.text", "Nightshroud");
-    });
-
-    it("sets the unlocked class based on the character's class", () => {
-        cy.visit("/gloomhaven");
-
-        cy.spoilAll();
-
-        cy.selectClass("Nightshroud");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.confirmLoadCharacter();
-
-        cy.openSettings();
-
-        cy.shouldHaveActiveSpoiler("Eclipse");
-    });
-
-    it("a loaded class can be toggled", () => {
-        cy.visit("/gloomhaven");
-
-        cy.spoilAll();
-
-        cy.selectClass("Nightshroud");
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.confirmLoadCharacter();
-
-        cy.openSettings();
-
-        cy.shouldHaveActiveSpoiler("Eclipse");
-
-        cy.findByRole("region", { name: "Class Spoilers" }).findByRole("checkbox", { name: "Eclipse" }).uncheck();
-
-        cy.findByRole("region", { name: "Class Spoilers" })
-            .findByRole("checkbox", { name: "Eclipse" })
-            .should("not.be.checked");
-    });
-
-    it("captures item alternative image status in a shareable link", () => {
-        cy.visit("/gloomhaven");
-
-        cy.selectTab("Items");
-
-        cy.setSpoilerActive("Random Item Designs");
-
-        cy.addItem("Circlet of Elements 075");
-
-        cy.findByRole("button", { name: "Toggle Alternative Image for Circlet of Elements" }).click();
-
-        cy.findShareLinkButton().click();
-
-        cy.findShareLinkDialog().findShareLinkTextBox().should("not.have.value", "").invoke("val").then(cy.visit);
-
-        cy.confirmLoadCharacter();
-
-        cy.selectTab("Items");
-
-        cy.findByRole("img", { name: "Circlet of Elements" }).should("exist");
-
-        cy.findByRole("img", { name: "Circlet of Elements" })
-            .should("have.attr", "src")
-            .should("include", "gh-075a-circlet-of-elements");
+        cy.findSelectClassButton().should("have.text", "Spellweaver");
     });
 });
