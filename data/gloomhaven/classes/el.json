@@ -746,7 +746,7 @@
         {
             "id": 7,
             "name": "Replace two {+0} cards with one {+0} {fire} and one {+0} {earth} card",
-            "count": 2,
+            "count": 1,
             "add": [
                 {
                     "id": 275,
@@ -775,7 +775,7 @@
         {
             "id": 8,
             "name": "Replace two {+0} cards with one {+0} {ice} and one {+0} {air} card",
-            "count": 2,
+            "count": 1,
             "add": [
                 {
                     "id": 279,
