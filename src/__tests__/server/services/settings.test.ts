@@ -56,6 +56,16 @@ describe("getSpoilerSettingsForCharacter", () => {
         expect(spoilerSettings.items.prosperity).toEqual(2);
     });
 
+    it("sets the prosperity to 1 when the character has item group items", () => {
+        const character: Character = createTestCharacter({
+            items: [{ id: "1", item: createTestItem(1, "Boots of Test", "Test Items"), showAlternativeImage: false }],
+        });
+
+        const spoilerSettings = getSpoilerSettingsForCharacter(character, settings.gameData);
+
+        expect(spoilerSettings.items.prosperity).toEqual(1);
+    });
+
     it("sets active item groups matching the character items", () => {
         const character: Character = createTestCharacter({
             items: [

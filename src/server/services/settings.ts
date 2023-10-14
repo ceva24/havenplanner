@@ -56,7 +56,7 @@ const determineInitialProsperity = (character: Character): number => {
         .filter((characterItem: CharacterItem) => !Number.isNaN(Number(characterItem.item.group)))
         .map((characterItem: CharacterItem) => Number.parseInt(characterItem.item.group, 10));
 
-    return Math.max.apply(0, itemProsperities);
+    return Math.max(...itemProsperities.concat(1));
 };
 
 const determineItemGroups = (character: Character, gameData: GameData): ItemGroup[] => {
