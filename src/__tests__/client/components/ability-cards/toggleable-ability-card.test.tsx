@@ -17,7 +17,7 @@ describe("toggleable ability card", () => {
                 abilityCard={character.characterClass.abilityCards[0]}
                 character={character}
                 action={jest.fn()}
-            />
+            />,
         );
 
         const checkbox = screen.queryByRole("checkbox", { name: character.characterClass.abilityCards[0].name });
@@ -33,7 +33,7 @@ describe("toggleable ability card", () => {
                 abilityCard={character.characterClass.abilityCards[0]}
                 character={character}
                 action={jest.fn()}
-            />
+            />,
         );
 
         const card = screen.queryByRole("img", { name: "Trample" });
@@ -49,7 +49,7 @@ describe("toggleable ability card", () => {
                 character={character}
                 action={jest.fn()}
                 isSelected={false}
-            />
+            />,
         );
 
         const lockIcon = screen.getByTestId("LockTwoToneIcon");

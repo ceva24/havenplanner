@@ -8,8 +8,8 @@ const classAttackModifierCardNames = (characterClass: CharacterClass): string[] 
             characterClass.perks
                 .flatMap((perk: Perk) => perk.add)
                 .map((attackModifierCard: AttackModifierCard) => attackModifierCard.name)
-                .filter((name: string) => !baseAttackModifierDeckOrder.includes(name))
-        )
+                .filter((name: string) => !baseAttackModifierDeckOrder.includes(name)),
+        ),
     );
 };
 
@@ -20,10 +20,10 @@ interface SplitAttackModifiers {
 
 const splitAttackModifierDeckIntoBaseAndClass = (
     deck: AttackModifierDeckCard[],
-    baseAttackModifierDeck: AttackModifierDeckCard[]
+    baseAttackModifierDeck: AttackModifierDeckCard[],
 ): SplitAttackModifiers => {
     const [initialAttackModifiers, classAttackModifiers] = partition(deck, (card: AttackModifierDeckCard) =>
-        baseAttackModifierDeck.some((baseCard: AttackModifierDeckCard) => card.card.id === baseCard.card.id)
+        baseAttackModifierDeck.some((baseCard: AttackModifierDeckCard) => card.card.id === baseCard.card.id),
     );
 
     return {
@@ -34,13 +34,13 @@ const splitAttackModifierDeckIntoBaseAndClass = (
 
 const orderAttackModifierCards = (
     deck: AttackModifierDeckCard[],
-    orderedCardNames: string[]
+    orderedCardNames: string[],
 ): AttackModifierDeckCard[] => {
     return deck
         .slice()
         .sort(
             (a: AttackModifierDeckCard, b: AttackModifierDeckCard) =>
-                orderedCardNames.indexOf(a.card.name) - orderedCardNames.indexOf(b.card.name)
+                orderedCardNames.indexOf(a.card.name) - orderedCardNames.indexOf(b.card.name),
         );
 };
 

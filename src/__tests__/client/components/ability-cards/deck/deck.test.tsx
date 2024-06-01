@@ -80,7 +80,7 @@ describe("deck", () => {
         expect(content.childNodes[0].childNodes[2].textContent).toEqual("Level 2");
     });
 
-    interface LevelRoleProps {
+    interface LevelRoleProperties {
         level: string;
         role: string;
     }
@@ -97,7 +97,7 @@ describe("deck", () => {
         ${"7"} | ${"checkbox"}
         ${"8"} | ${"checkbox"}
         ${"9"} | ${"checkbox"}
-    `("renders level $level cards as role $role", ({ level, role }: LevelRoleProps) => {
+    `("renders level $level cards as role $role", ({ level, role }: LevelRoleProperties) => {
         const character: Character = createTestCharacter({
             experience: 500,
         });

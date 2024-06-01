@@ -8,7 +8,7 @@ describe("image", () => {
                 webpPath="/personal-quests/gloomhaven/gh-pq-back.webp"
                 fallbackImageType="jpg"
                 altText="Personal quest"
-            />
+            />,
         );
 
         const image = screen.queryByRole("img", {
@@ -24,7 +24,7 @@ describe("image", () => {
                 webpPath="/personal-quests/gloomhaven/gh-pq-back.webp"
                 fallbackImageType="jpg"
                 altText="Personal quest"
-            />
+            />,
         );
 
         const image = screen.getByRole("img", {
@@ -40,7 +40,7 @@ describe("image", () => {
                 webpPath="https://test.havenplanner.app/personal-quests/gloomhaven/gh-pq-back.webp"
                 fallbackImageType="jpg"
                 altText="Personal quest"
-            />
+            />,
         );
 
         const image = screen.getByRole("img", {
@@ -48,7 +48,7 @@ describe("image", () => {
         });
 
         expect(image.getAttribute("src")).toMatch(
-            "https://test.havenplanner.app/personal-quests/gloomhaven/gh-pq-back"
+            "https://test.havenplanner.app/personal-quests/gloomhaven/gh-pq-back",
         );
     });
 });

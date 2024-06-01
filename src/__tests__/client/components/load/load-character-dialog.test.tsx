@@ -27,7 +27,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestSettingsProvider }
+            { wrapper: TestSettingsProvider },
         );
 
         const dialog = screen.queryByRole("dialog", { name: "Load character?" });
@@ -43,7 +43,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestSettingsProvider }
+            { wrapper: TestSettingsProvider },
         );
 
         const dialog = screen.queryByRole("dialog", { name: "Load character?" });
@@ -62,7 +62,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestSettingsProvider }
+            { wrapper: TestSettingsProvider },
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });
@@ -80,7 +80,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestSettingsProvider }
+            { wrapper: TestSettingsProvider },
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });
@@ -102,7 +102,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestSettingsProvider }
+            { wrapper: TestSettingsProvider },
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });
@@ -122,7 +122,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestSettingsProvider }
+            { wrapper: TestSettingsProvider },
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });
@@ -142,7 +142,7 @@ describe("load character dialog", () => {
                 character={character}
                 setCharacter={setCharacter}
             />,
-            { wrapper: TestSettingsProvider }
+            { wrapper: TestSettingsProvider },
         );
 
         const dialog = screen.getByRole("dialog", { name: "Load character?" });

@@ -68,10 +68,10 @@ describe("enhancements select", () => {
                     character={character}
                     setCharacter={setCharacter}
                 />
-            </TestSettingsProvider>
+            </TestSettingsProvider>,
         );
 
-        const enhancementsSelect = screen.queryByRole("button", { name: "Attack" });
+        const enhancementsSelect = screen.queryByRole("combobox", { name: "Attack" });
 
         expect(enhancementsSelect).toBeInTheDocument();
     });
@@ -82,7 +82,7 @@ describe("getEnhancementSlotValue", () => {
         const enhancementId: number | "" = getEnhancementSlotValue(
             character,
             character.characterClass.abilityCards[0],
-            character.characterClass.abilityCards[0].enhancementSlots[0]
+            character.characterClass.abilityCards[0].enhancementSlots[0],
         );
 
         expect(enhancementId).toEqual(character.gainedEnhancements[0].enhancement.id);
@@ -92,7 +92,7 @@ describe("getEnhancementSlotValue", () => {
         const enhancementId: number | "" = getEnhancementSlotValue(
             character,
             character.characterClass.abilityCards[0],
-            character.characterClass.abilityCards[0].enhancementSlots[1]
+            character.characterClass.abilityCards[0].enhancementSlots[1],
         );
 
         expect(enhancementId).toEqual("");
@@ -102,7 +102,7 @@ describe("getEnhancementSlotValue", () => {
         const enhancementId: number | "" = getEnhancementSlotValue(
             character,
             character.characterClass.abilityCards[0],
-            character.characterClass.abilityCards[0].enhancementSlots[1]
+            character.characterClass.abilityCards[0].enhancementSlots[1],
         );
 
         expect(enhancementId).not.toEqual(character.gainedEnhancements[0].enhancement.id);
@@ -112,7 +112,7 @@ describe("getEnhancementSlotValue", () => {
         const enhancementId: number | "" = getEnhancementSlotValue(
             character,
             character.characterClass.abilityCards[1],
-            character.characterClass.abilityCards[1].enhancementSlots[0]
+            character.characterClass.abilityCards[1].enhancementSlots[0],
         );
 
         expect(enhancementId).not.toEqual(character.gainedEnhancements[0].enhancement.id);
@@ -131,7 +131,7 @@ describe("gainOrRemoveEnhancement", () => {
             enhancementSlot,
             settings.gameData.enhancements,
             character,
-            setCharacter
+            setCharacter,
         );
 
         expect(setCharacter).toHaveBeenCalledWith({
@@ -164,7 +164,7 @@ describe("gainOrRemoveEnhancement", () => {
             enhancementSlot,
             settings.gameData.enhancements,
             character,
-            setCharacter
+            setCharacter,
         );
 
         expect(setCharacter).toHaveBeenCalledWith({
@@ -192,7 +192,7 @@ describe("gainOrRemoveEnhancement", () => {
             enhancementSlot,
             settings.gameData.enhancements,
             character,
-            setCharacter
+            setCharacter,
         );
 
         expect(setCharacter).toHaveBeenCalledWith({

@@ -55,7 +55,7 @@ describe("class select", () => {
             wrapper: TestSettingsProvider,
         });
 
-        const classSelect = screen.queryByRole("button", { name: "Class" });
+        const classSelect = screen.getByRole("combobox", { name: "Class" });
 
         expect(classSelect).toBeInTheDocument();
     });
@@ -71,7 +71,7 @@ describe("class select", () => {
             wrapper: TestSettingsProvider,
         });
 
-        const classSelect = screen.getByRole("button", { name: "Class" });
+        const classSelect = screen.getByRole("combobox", { name: "Class" });
 
         const characterClass = within(classSelect).queryByText("Test Skeleton");
 
@@ -105,13 +105,13 @@ describe("findAndSetCharacter", () => {
             characterClasses,
             character,
             setCharacter,
-            settings
+            settings,
         );
 
         expect(requestService.requestCharacterClass).toHaveBeenCalledTimes(1);
         expect(requestService.requestCharacterClass).toHaveBeenCalledWith(
             settings.gameData.game.id,
-            characterClasses[2].id
+            characterClasses[2].id,
         );
     });
 
@@ -123,7 +123,7 @@ describe("findAndSetCharacter", () => {
             characterClasses,
             character,
             setCharacter,
-            settings
+            settings,
         );
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
@@ -154,7 +154,7 @@ describe("findAndSetCharacter", () => {
             characterClasses,
             character,
             setCharacter,
-            settings
+            settings,
         );
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
@@ -176,7 +176,7 @@ describe("findAndSetCharacter", () => {
             characterClasses,
             character,
             setCharacter,
-            settings
+            settings,
         );
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
@@ -208,7 +208,7 @@ describe("findAndSetCharacter", () => {
             characterClasses,
             character,
             setCharacter,
-            settings
+            settings,
         );
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
@@ -230,7 +230,7 @@ describe("findAndSetCharacter", () => {
             characterClasses,
             character,
             setCharacter,
-            settings
+            settings,
         );
 
         expect(setCharacter).toHaveBeenCalledTimes(1);
@@ -259,7 +259,7 @@ describe("findAndSetCharacter", () => {
             characterClasses,
             character,
             setCharacter,
-            settings
+            settings,
         );
 
         expect(setCharacter).toHaveBeenCalledTimes(1);

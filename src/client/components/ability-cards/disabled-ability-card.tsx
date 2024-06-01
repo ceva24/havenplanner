@@ -2,13 +2,13 @@ import { Box, Tooltip } from "@mui/material";
 import BlockIcon from "@mui/icons-material/Block";
 import AbilityCard from "@/client/components/ability-cards/ability-card";
 
-interface DisabledAbilityCardProps {
-    abilityCard: AbilityCard;
-    character: Character;
-    tooltipText: string;
+interface DisabledAbilityCardProperties {
+    readonly abilityCard: AbilityCard;
+    readonly character: Character;
+    readonly tooltipText: string;
 }
 
-const DisabledAbilityCard = ({ abilityCard, character, tooltipText }: DisabledAbilityCardProps) => {
+const DisabledAbilityCard = ({ abilityCard, character, tooltipText }: DisabledAbilityCardProperties) => {
     return (
         <Tooltip followCursor title={tooltipText}>
             <Box

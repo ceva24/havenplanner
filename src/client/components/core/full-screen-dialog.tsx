@@ -2,15 +2,15 @@ import type { ReactNode } from "react";
 import { Dialog, AppBar, Toolbar, Typography, DialogContent, Box, useMediaQuery, useTheme } from "@mui/material";
 import { Button } from "@/client/components/core/button";
 
-interface FullScreenDialogProps {
-    title: string;
-    subtitle?: string;
-    isOpen: boolean;
-    handleClose: () => void;
-    children: ReactNode;
+interface FullScreenDialogProperties {
+    readonly title: string;
+    readonly subtitle?: string;
+    readonly isOpen: boolean;
+    readonly handleClose: () => void;
+    readonly children: ReactNode;
 }
 
-const FullScreenDialog = ({ title, subtitle, isOpen, handleClose, children }: FullScreenDialogProps) => {
+const FullScreenDialog = ({ title, subtitle, isOpen, handleClose, children }: FullScreenDialogProperties) => {
     const theme = useTheme();
 
     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));

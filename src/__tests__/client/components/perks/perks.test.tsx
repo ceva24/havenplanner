@@ -8,7 +8,7 @@ jest.mock(
     () =>
         function () {
             return <MockComponent name="Test Perk List" />;
-        }
+        },
 );
 
 jest.mock(
@@ -16,7 +16,7 @@ jest.mock(
     () =>
         function () {
             return <MockComponent name="Test Battle Goal Progress" />;
-        }
+        },
 );
 
 jest.mock(
@@ -24,7 +24,7 @@ jest.mock(
     () =>
         function () {
             return <MockComponent name="Test Attack Modifiers" />;
-        }
+        },
 );
 
 describe("perks", () => {

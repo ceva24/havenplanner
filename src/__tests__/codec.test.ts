@@ -107,7 +107,7 @@ describe("codec", () => {
         const decodedSaveData: SaveData = decode(data);
 
         const characterItems: Item[] = decodedSaveData.character.items.map(
-            (characterItem: CharacterItem) => characterItem.item
+            (characterItem: CharacterItem) => characterItem.item,
         );
 
         expect(characterItems).toHaveLength(character.items.length);
@@ -208,7 +208,7 @@ describe("codec", () => {
                         types: ["test-numeric"],
                     },
                 ],
-                "/gloomhaven/BR/gh-trample.webp"
+                "/gloomhaven/BR/gh-trample.webp",
             ),
         ];
 

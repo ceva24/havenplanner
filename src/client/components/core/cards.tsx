@@ -1,28 +1,28 @@
 import Image from "@/client/components/core/image";
 
-interface CardProps {
-    src: string;
-    altText: string;
+interface CardProperties {
+    readonly src: string;
+    readonly altText: string;
 }
 
-const Card = ({ src, altText }: CardProps) => {
+const Card = ({ src, altText }: CardProperties) => {
     return <CardImage src={src} altText={altText} width={300} height={400} />;
 };
 
-const SmallCard = ({ src, altText }: CardProps) => {
+const SmallCard = ({ src, altText }: CardProperties) => {
     return <CardImage src={src} altText={altText} width={200} height={296} />;
 };
 
-const WideCard = ({ src, altText }: CardProps) => {
+const WideCard = ({ src, altText }: CardProperties) => {
     return <CardImage src={src} altText={altText} width={225} height={168.75} />;
 };
 
-interface CardImageProps extends CardProps {
-    width: number;
-    height: number;
+interface CardImageProperties extends CardProperties {
+    readonly width: number;
+    readonly height: number;
 }
 
-const CardImage = ({ src, altText, width, height }: CardImageProps) => {
+const CardImage = ({ src, altText, width, height }: CardImageProperties) => {
     return (
         <Image
             webpPath={src}

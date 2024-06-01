@@ -4,14 +4,14 @@ import RichPerkDescription from "@/client/components/perks/rich-perk-description
 import { characterHasGainedPerk } from "@/client/services/perks/perk";
 import { gainPerk } from "@/client/components/perks/perk-list";
 
-interface PerkLabelProps {
-    perk: Perk;
-    labelId: string;
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface PerkLabelProperties {
+    readonly perk: Perk;
+    readonly labelId: string;
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const PerkLabel = ({ perk, labelId, character, setCharacter }: PerkLabelProps) => {
+const PerkLabel = ({ perk, labelId, character, setCharacter }: PerkLabelProperties) => {
     const handleLabelClick = (perk: Perk) => {
         const gainedPerks = character.gainedPerks.filter((gainedPerk: GainedPerk) => gainedPerk.perk.id === perk.id);
 
@@ -19,7 +19,7 @@ const PerkLabel = ({ perk, labelId, character, setCharacter }: PerkLabelProps) =
             removeGainedPerksForPerk(perk, character, setCharacter);
         } else {
             const indexOfFirstUngainedPerkCheckbox = Array.from(Array.from({ length: perk.count }).keys()).find(
-                (index: number) => !characterHasGainedPerk(character, perk, index)
+                (index: number) => !characterHasGainedPerk(character, perk, index),
             );
 
             if (indexOfFirstUngainedPerkCheckbox !== undefined)
@@ -44,7 +44,7 @@ const PerkLabel = ({ perk, labelId, character, setCharacter }: PerkLabelProps) =
 const removeGainedPerksForPerk = (
     perk: Perk,
     character: Character,
-    setCharacter: Dispatch<SetStateAction<Character>>
+    setCharacter: Dispatch<SetStateAction<Character>>,
 ) => {
     const newGainedPerks = character.gainedPerks.filter((gainedPerk: GainedPerk) => gainedPerk.perk.id !== perk.id);
 

@@ -20,7 +20,7 @@ describe("ability cards tab - enhancements", () => {
 
         cy.selectTab("Enhancements");
 
-        cy.findByRole("region", { name: "Trample Enhancements" }).findAllByRole("button").should("have.length", 5);
+        cy.findByRole("region", { name: "Trample Enhancements" }).findAllByRole("combobox").should("have.length", 5);
     });
 
     it("allows enhancements to be selected", () => {

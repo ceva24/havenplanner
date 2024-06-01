@@ -2,7 +2,7 @@ const isInitialOrUnlockedClass = (characterClass: CharacterClass, spoilerSetting
     return (
         !characterClass.initiallyLocked ||
         spoilerSettings.classes.some(
-            (unlockedClass: UnlockableCharacterClassSummary) => unlockedClass.id === characterClass.id
+            (unlockedClass: UnlockableCharacterClassSummary) => unlockedClass.id === characterClass.id,
         )
     );
 };

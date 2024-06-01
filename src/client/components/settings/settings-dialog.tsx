@@ -5,12 +5,12 @@ import ProsperitySlider from "@/client/components/settings/prosperity-slider";
 import ItemGroups from "@/client/components/settings/item-groups";
 import SpoilAllSwitch from "@/client/components/settings/spoil-all-switch";
 
-interface SettingsDialogProps {
-    isOpen: boolean;
-    onClose: () => void;
+interface SettingsDialogProperties {
+    readonly isOpen: boolean;
+    readonly onClose: () => void;
 }
 
-const SettingsDialog = ({ isOpen, onClose }: SettingsDialogProps) => {
+const SettingsDialog = ({ isOpen, onClose }: SettingsDialogProperties) => {
     return (
         <Dialog open={isOpen} aria-labelledby="settings-dialog-title" onClose={onClose}>
             <Box id="settings-dialog-title" style={{ display: "none" }}>

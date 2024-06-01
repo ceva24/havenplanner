@@ -25,7 +25,7 @@ describe("ability card group", () => {
                 character={character}
                 setCharacter={setCharacter}
                 isSelectable={false}
-            />
+            />,
         );
 
         const abilityCardGroup = screen.queryByRole("region", { name: "Level 1 Ability Cards" });
@@ -41,7 +41,7 @@ describe("ability card group", () => {
                 character={character}
                 setCharacter={setCharacter}
                 isSelectable={false}
-            />
+            />,
         );
 
         const level1Cards = screen.queryByRole("heading", { name: "Level 1" });
@@ -74,7 +74,7 @@ describe("ability card group", () => {
                 character={character}
                 setCharacter={setCharacter}
                 isSelectable={false}
-            />
+            />,
         );
 
         const firstCard = screen.queryByRole("img", { name: "Trample" });
@@ -96,7 +96,7 @@ describe("ability card group", () => {
         ];
 
         render(
-            <AbilityCardGroup isSelectable level="2" cards={cards} character={character} setCharacter={setCharacter} />
+            <AbilityCardGroup isSelectable level="2" cards={cards} character={character} setCharacter={setCharacter} />,
         );
 
         const selectableAbilityCard = screen.queryByRole("checkbox", { name: "Fatal Advance" });

@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 
-interface MockComponentProps {
-    name: string;
+interface MockComponentProperties {
+    readonly name: string;
 }
 
-const MockComponent = ({ name }: MockComponentProps) => {
+const MockComponent = ({ name }: MockComponentProperties) => {
     return <Box role="region" aria-label={name} />;
 };
 

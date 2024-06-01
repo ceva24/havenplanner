@@ -3,12 +3,12 @@ import { Box } from "@mui/material";
 import EnhancementsSelect from "@/client/components/ability-cards/enhancements/enhancements-select";
 import AbilityCard from "@/client/components/ability-cards/ability-card";
 
-interface EnhancementsProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface EnhancementsProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const Enhancements = ({ character, setCharacter }: EnhancementsProps) => {
+const Enhancements = ({ character, setCharacter }: EnhancementsProperties) => {
     return (
         <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
             {character.characterClass.abilityCards

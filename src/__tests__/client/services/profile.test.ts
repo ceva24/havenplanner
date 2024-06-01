@@ -6,7 +6,7 @@ import {
 } from "@/client/services/profile";
 
 describe("calculateLevel", () => {
-    interface ExperienceLevelProps {
+    interface ExperienceLevelProperties {
         experience: number;
         level: number;
     }
@@ -29,13 +29,13 @@ describe("calculateLevel", () => {
         ${9_000_000}  | ${9}
         ${-45}        | ${1}
         ${Number.NaN} | ${1}
-    `("returns $level when the experience is $experience", ({ experience, level }: ExperienceLevelProps) => {
+    `("returns $level when the experience is $experience", ({ experience, level }: ExperienceLevelProperties) => {
         expect(calculateLevel(experience)).toEqual(level);
     });
 });
 
 describe("getExperienceForLevel", () => {
-    interface ExperienceLevelProps {
+    interface ExperienceLevelProperties {
         experience: number;
         level: number;
     }
@@ -54,7 +54,7 @@ describe("getExperienceForLevel", () => {
         ${-1} | ${0}
         ${10} | ${0}
         ${99} | ${0}
-    `("returns $experience when the level is $level", ({ level, experience }: ExperienceLevelProps) => {
+    `("returns $experience when the level is $level", ({ level, experience }: ExperienceLevelProperties) => {
         expect(getExperienceForLevel(level)).toEqual(experience);
     });
 });

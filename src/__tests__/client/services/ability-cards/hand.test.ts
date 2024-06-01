@@ -87,7 +87,7 @@ describe("getAllAvailableAbilityCardsForCharacter", () => {
         ];
 
         const availableAbilityCardsIds = getAllAvailableAbilityCardsForCharacter(character).map(
-            (abilityCard: AbilityCard) => abilityCard.id
+            (abilityCard: AbilityCard) => abilityCard.id,
         );
 
         expect(availableAbilityCardsIds).toEqual([1, 2, 3]);

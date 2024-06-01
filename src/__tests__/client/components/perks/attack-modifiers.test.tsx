@@ -11,7 +11,7 @@ describe("attack modifiers", () => {
         render(
             <TestSettingsProvider settings={settings}>
                 <AttackModifiers character={createTestCharacter()} />
-            </TestSettingsProvider>
+            </TestSettingsProvider>,
         );
 
         const attackModifierCard = screen.getByRole("img", { name: "+1 card" });

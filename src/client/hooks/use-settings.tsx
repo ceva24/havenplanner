@@ -1,11 +1,11 @@
 import { createContext, type Dispatch, type ReactNode, type SetStateAction, useContext, useMemo } from "react";
 
-interface SettingsContextProps {
+interface SettingsContextProperties {
     settings: Settings;
     setSettings: Dispatch<SetStateAction<Settings>>;
 }
 
-const SettingsContext = createContext<SettingsContextProps | undefined>(undefined);
+const SettingsContext = createContext<SettingsContextProperties | undefined>(undefined);
 
 const useSettingsContext = (): [Settings, Dispatch<SetStateAction<Settings>>] => {
     const settingsContext = useContext(SettingsContext);
@@ -15,13 +15,13 @@ const useSettingsContext = (): [Settings, Dispatch<SetStateAction<Settings>>] =>
     return [settingsContext.settings, settingsContext.setSettings];
 };
 
-interface SettingsProviderProps {
-    settings: Settings;
-    setSettings: Dispatch<SetStateAction<Settings>>;
-    children: ReactNode;
+interface SettingsProviderProperties {
+    readonly settings: Settings;
+    readonly setSettings: Dispatch<SetStateAction<Settings>>;
+    readonly children: ReactNode;
 }
 
-const SettingsProvider = ({ settings, setSettings, children }: SettingsProviderProps) => {
+const SettingsProvider = ({ settings, setSettings, children }: SettingsProviderProperties) => {
     const settingsValue = useMemo(() => ({ settings, setSettings }), [settings, setSettings]);
 
     return <SettingsContext.Provider value={settingsValue}>{children}</SettingsContext.Provider>;

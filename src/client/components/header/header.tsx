@@ -4,13 +4,13 @@ import ShareButton from "@/client/components/share/share-button";
 import SettingsButton from "@/client/components/settings/settings-button";
 import SpoilAllSwitch from "@/client/components/settings/spoil-all-switch";
 
-interface HeaderProps {
-    title: string;
-    character?: Character;
-    setCharacter?: Dispatch<SetStateAction<Character>>;
+interface HeaderProperties {
+    readonly title: string;
+    readonly character?: Character;
+    readonly setCharacter?: Dispatch<SetStateAction<Character>>;
 }
 
-const Header = ({ title, character, setCharacter }: HeaderProps) => {
+const Header = ({ title, character, setCharacter }: HeaderProperties) => {
     return (
         <AppBar position="static">
             <Toolbar>

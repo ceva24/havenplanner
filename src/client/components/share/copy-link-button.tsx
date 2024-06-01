@@ -2,12 +2,12 @@ import { Box, ClickAwayListener, IconButton, Tooltip } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { useState } from "react";
 
-interface CopyLinkButtonProps {
-    shareableLink: string;
-    encodeCharacterError: boolean;
+interface CopyLinkButtonProperties {
+    readonly shareableLink: string;
+    readonly encodeCharacterError: boolean;
 }
 
-const CopyLinkButton = ({ shareableLink, encodeCharacterError }: CopyLinkButtonProps) => {
+const CopyLinkButton = ({ shareableLink, encodeCharacterError }: CopyLinkButtonProperties) => {
     const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
 
     const copyLink = async () => {

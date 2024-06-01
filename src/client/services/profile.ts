@@ -59,12 +59,12 @@ const updateUnlockedAbilityCards = (unlockedAbilityCards: AbilityCard[], newChar
 
     const abilityCardsAtOrBelowCurrentLevel = filterAbilityCardsAtOrBelowCurrentLevel(
         unlockedAbilityCards,
-        newCharacterLevel
+        newCharacterLevel,
     );
 
     const abilityCardsWithOneUnlockAtCurrentLevel = filterAbilityCardsToHaveOnlyOneAtCurrentLevel(
         abilityCardsAtOrBelowCurrentLevel,
-        newCharacterLevel
+        newCharacterLevel,
     );
 
     return filterAbilityCardsToMaximumUnlockCount(abilityCardsWithOneUnlockAtCurrentLevel, newCharacterLevel);
@@ -72,20 +72,20 @@ const updateUnlockedAbilityCards = (unlockedAbilityCards: AbilityCard[], newChar
 
 const filterAbilityCardsAtOrBelowCurrentLevel = (
     unlockedAbilityCards: AbilityCard[],
-    newCharacterLevel: number
+    newCharacterLevel: number,
 ): AbilityCard[] => {
     return unlockedAbilityCards.filter((abilityCard: AbilityCard) =>
-        abilityCardLevelCanBeUnlockedByCharacter(abilityCard.level, newCharacterLevel)
+        abilityCardLevelCanBeUnlockedByCharacter(abilityCard.level, newCharacterLevel),
     );
 };
 
 const filterAbilityCardsToHaveOnlyOneAtCurrentLevel = (
     unlockedAbilityCards: AbilityCard[],
-    newCharacterLevel: number
+    newCharacterLevel: number,
 ): AbilityCard[] => {
     const abilityCardsUnlockedAtCurrentLevel = abilityCardsUnlockedAtLevel(
         unlockedAbilityCards,
-        newCharacterLevel.toString()
+        newCharacterLevel.toString(),
     );
 
     if (abilityCardsUnlockedAtCurrentLevel.length <= 1) return unlockedAbilityCards;
@@ -97,7 +97,7 @@ const filterAbilityCardsToHaveOnlyOneAtCurrentLevel = (
 
 const filterAbilityCardsToMaximumUnlockCount = (
     unlockedAbilityCards: AbilityCard[],
-    newCharacterLevel: number
+    newCharacterLevel: number,
 ): AbilityCard[] => {
     const maxUnlocks = calculateMaximumUnlockCount(newCharacterLevel);
 

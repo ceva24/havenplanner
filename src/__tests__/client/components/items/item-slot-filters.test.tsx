@@ -23,7 +23,7 @@ describe("item slot filters", () => {
         render(
             <TestSettingsProvider settings={settings}>
                 <ItemSlotFilters />
-            </TestSettingsProvider>
+            </TestSettingsProvider>,
         );
 
         const itemSlotCheckboxes = screen.queryAllByRole("checkbox");
@@ -43,7 +43,7 @@ describe("item slot filters", () => {
         render(
             <TestSettingsProvider settings={settings}>
                 <ItemSlotFilters />
-            </TestSettingsProvider>
+            </TestSettingsProvider>,
         );
 
         const itemSlotCheckboxes = screen.queryAllByRole("checkbox");

@@ -4,14 +4,19 @@ import Image from "@/client/components/core/image";
 import { getPossibleEnhancementsFor } from "@/client/services/ability-cards/enhancement";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 
-interface EnhancementsSelectProps {
-    abilityCard: AbilityCard;
-    enhancementSlot: EnhancementSlot;
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface EnhancementsSelectProperties {
+    readonly abilityCard: AbilityCard;
+    readonly enhancementSlot: EnhancementSlot;
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const EnhancementsSelect = ({ abilityCard, enhancementSlot, character, setCharacter }: EnhancementsSelectProps) => {
+const EnhancementsSelect = ({
+    abilityCard,
+    enhancementSlot,
+    character,
+    setCharacter,
+}: EnhancementsSelectProperties) => {
     const [settings] = useSettingsContext();
 
     const handleChange = (event: SelectChangeEvent<number>) => {
@@ -21,7 +26,7 @@ const EnhancementsSelect = ({ abilityCard, enhancementSlot, character, setCharac
             enhancementSlot,
             settings.gameData.enhancements,
             character,
-            setCharacter
+            setCharacter,
         );
     };
 
@@ -53,7 +58,7 @@ const EnhancementsSelect = ({ abilityCard, enhancementSlot, character, setCharac
                                 {enhancement.name}
                             </MenuItem>
                         );
-                    }
+                    },
                 )}
             </Select>
         </FormControl>
@@ -63,12 +68,12 @@ const EnhancementsSelect = ({ abilityCard, enhancementSlot, character, setCharac
 const getEnhancementSlotValue = (
     character: Character,
     abilityCard: AbilityCard,
-    enhancementSlot: EnhancementSlot
+    enhancementSlot: EnhancementSlot,
 ): number | "" => {
     const gainedEnhancement: GainedEnhancement | undefined = character.gainedEnhancements.find(
         (gainedEnhancement: GainedEnhancement) =>
             gainedEnhancement.abilityCard.id === abilityCard.id &&
-            gainedEnhancement.enhancementSlot.id === enhancementSlot.id
+            gainedEnhancement.enhancementSlot.id === enhancementSlot.id,
     );
 
     return gainedEnhancement?.enhancement?.id ?? "";
@@ -80,17 +85,17 @@ const gainOrRemoveEnhancement = (
     enhancementSlot: EnhancementSlot,
     enhancements: Enhancement[],
     character: Character,
-    setCharacter: Dispatch<SetStateAction<Character>>
+    setCharacter: Dispatch<SetStateAction<Character>>,
     // eslint-disable-next-line max-params
 ) => {
     let gainedEnhancements: GainedEnhancement[] = character.gainedEnhancements.filter(
         (gainedEnhancement: GainedEnhancement) =>
             gainedEnhancement.abilityCard.id !== abilityCard.id ||
-            gainedEnhancement.enhancementSlot.id !== enhancementSlot.id
+            gainedEnhancement.enhancementSlot.id !== enhancementSlot.id,
     );
 
     const enhancement: Enhancement | undefined = enhancements.find(
-        (enhancement: Enhancement) => enhancement.id === enhancementId
+        (enhancement: Enhancement) => enhancement.id === enhancementId,
     );
 
     if (enhancement) {

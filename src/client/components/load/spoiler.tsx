@@ -1,11 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import Image from "@/client/components/core/image";
 
-interface CharacterSpoilerProps {
-    characterClass: UnlockableCharacterClassSummary;
+interface CharacterSpoilerProperties {
+    readonly characterClass: UnlockableCharacterClassSummary;
 }
 
-const CharacterSpoiler = ({ characterClass }: CharacterSpoilerProps) => {
+const CharacterSpoiler = ({ characterClass }: CharacterSpoilerProperties) => {
     return (
         <Spoiler
             text={characterClass.spoilerSafeName}
@@ -15,21 +15,21 @@ const CharacterSpoiler = ({ characterClass }: CharacterSpoilerProps) => {
     );
 };
 
-interface ItemSpoilerProps {
-    text: string;
+interface ItemSpoilerProperties {
+    readonly text: string;
 }
 
-const ItemSpoiler = ({ text }: ItemSpoilerProps) => {
+const ItemSpoiler = ({ text }: ItemSpoilerProperties) => {
     return <Spoiler text={text} altText="Item Spoiler Icon" webpPath="/equip-slot-icons/gloomhaven/bag.webp" />;
 };
 
-interface SpoilerProps {
-    text: string;
-    altText: string;
-    webpPath: string;
+interface SpoilerProperties {
+    readonly text: string;
+    readonly altText: string;
+    readonly webpPath: string;
 }
 
-const Spoiler = ({ text, altText, webpPath }: SpoilerProps) => {
+const Spoiler = ({ text, altText, webpPath }: SpoilerProperties) => {
     return (
         <Box display="flex" justifyContent="center">
             <Image

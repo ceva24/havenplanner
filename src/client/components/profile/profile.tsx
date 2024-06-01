@@ -6,12 +6,12 @@ import PersonalQuestSwitch from "@/client/components/profile/personal-quest-swit
 import CharacterMat from "@/client/components/profile/character-mat";
 import PersonalQuest from "@/client/components/profile/personal-quest";
 
-interface ProfileProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface ProfileProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const Profile = ({ character, setCharacter }: ProfileProps) => {
+const Profile = ({ character, setCharacter }: ProfileProperties) => {
     const [settings] = useSettingsContext();
 
     return (

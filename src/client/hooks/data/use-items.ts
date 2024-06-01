@@ -1,5 +1,5 @@
 import axios, { type AxiosError, type AxiosResponse } from "axios";
-import useSWRImmutable from "swr/immutable"; // eslint-disable-line n/file-extension-in-import
+import useSWRImmutable from "swr/immutable";
 
 interface UseItems {
     items?: Item[];
@@ -15,7 +15,7 @@ const useItems = (settings: Settings): UseItems => {
         async () => fetch(url, settings),
         {
             keepPreviousData: true,
-        }
+        },
     );
 
     return {

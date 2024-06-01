@@ -1,13 +1,13 @@
 import { Button as MuiButton, Typography, useTheme } from "@mui/material";
 
-interface ButtonProps {
-    id?: string;
-    text: string;
-    onClick: () => void;
-    startIcon?: JSX.Element;
+interface ButtonProperties {
+    readonly id?: string;
+    readonly text: string;
+    readonly onClick: () => void;
+    readonly startIcon?: JSX.Element;
 }
 
-const Button = ({ id, text, onClick, startIcon }: ButtonProps) => {
+const Button = ({ id, text, onClick, startIcon }: ButtonProperties) => {
     return (
         <MuiButton
             id={id}
@@ -25,7 +25,7 @@ const Button = ({ id, text, onClick, startIcon }: ButtonProps) => {
     );
 };
 
-const TextButton = ({ id, text, onClick, startIcon }: ButtonProps) => {
+const TextButton = ({ id, text, onClick, startIcon }: ButtonProperties) => {
     return (
         <MuiButton
             id={id}
@@ -44,14 +44,14 @@ const TextButton = ({ id, text, onClick, startIcon }: ButtonProps) => {
     );
 };
 
-interface IconButtonProps {
-    id?: string;
-    icon: JSX.Element;
-    label: string;
-    onClick: () => void;
+interface IconButtonProperties {
+    readonly id?: string;
+    readonly icon: JSX.Element;
+    readonly label: string;
+    readonly onClick: () => void;
 }
 
-const IconButton = ({ id, icon, label, onClick }: IconButtonProps) => {
+const IconButton = ({ id, icon, label, onClick }: IconButtonProperties) => {
     const theme = useTheme();
 
     return (

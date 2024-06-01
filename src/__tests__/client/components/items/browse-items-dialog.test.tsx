@@ -69,7 +69,7 @@ describe("browse items dialog", () => {
         render(
             <TestSettingsProvider settings={settingsWithFilteredItemSlots}>
                 <BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
-            </TestSettingsProvider>
+            </TestSettingsProvider>,
         );
 
         const itemGroup = screen.getByRole("region", { name: "Prosperity 1" });
@@ -109,7 +109,7 @@ describe("browse items dialog", () => {
         render(
             <TestSettingsProvider settings={settingsWithFilteredItemSlots}>
                 <BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
-            </TestSettingsProvider>
+            </TestSettingsProvider>,
         );
 
         const itemGroup = screen.queryByRole("region", { name: "Prosperity 1" });
@@ -133,7 +133,7 @@ describe("browse items dialog", () => {
         render(
             <TestSettingsProvider settings={settingsWithFilteredItemSlots}>
                 <BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
-            </TestSettingsProvider>
+            </TestSettingsProvider>,
         );
 
         const itemFilterHint = screen.queryByText("No items matching filters");
@@ -160,7 +160,7 @@ describe("browse items dialog", () => {
         render(
             <TestSettingsProvider settings={settingsWithFilteredItemSlots}>
                 <BrowseItemsDialog isOpen handleClose={jest.fn()} character={character} setCharacter={jest.fn()} />
-            </TestSettingsProvider>
+            </TestSettingsProvider>,
         );
 
         const itemFilterHint = screen.queryByText("No items matching filters");

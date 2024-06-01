@@ -17,7 +17,7 @@ describe("deserialize", () => {
         const items: Item[] = [createTestItem(2, "Boots of Test", "1"), createTestItem(8, "Cloak of Test", "1")];
 
         const data = JSON.parse(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[[2,false],[8,false]],"u":[],"h":[],"e":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[[2,false],[8,false]],"u":[],"h":[],"e":[],"p":[],"b":[]}`,
         ) as SerializedCharacter;
 
         const character: Character = deserialize(data, settings.gameData, classes, items);
@@ -29,7 +29,7 @@ describe("deserialize", () => {
 
     it("omits item data that is invalid", () => {
         const data = JSON.parse(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[[-1,false]],"u":[],"h":[],"e":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[[-1,false]],"u":[],"h":[],"e":[],"p":[],"b":[]}`,
         ) as SerializedCharacter;
 
         const character: Character = deserialize(data, settings.gameData, classes, []);
@@ -39,7 +39,7 @@ describe("deserialize", () => {
 
     it("sets the default character class when the id is invalid", () => {
         const data = JSON.parse(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":-1,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":-1,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`,
         ) as SerializedCharacter;
 
         const character: Character = deserialize(data, settings.gameData, classes, []);
@@ -49,7 +49,7 @@ describe("deserialize", () => {
 
     it("omits the personal quest property when deserializing a character with no personal quest id", () => {
         const data = JSON.parse(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":1,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":1,"i":[],"u":[],"h":[],"e":[],"p":[],"b":[]}`,
         ) as SerializedCharacter;
 
         const character: Character = deserialize(data, settings.gameData, classes, []);
@@ -59,7 +59,7 @@ describe("deserialize", () => {
 
     it("omits unlocked ability card that is invalid", () => {
         const data = JSON.parse(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[-2],"h":[],"e":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[-2],"h":[],"e":[],"p":[],"b":[]}`,
         ) as SerializedCharacter;
 
         const character: Character = deserialize(data, settings.gameData, classes, []);
@@ -69,7 +69,7 @@ describe("deserialize", () => {
 
     it("omits hand data that is invalid", () => {
         const data = JSON.parse(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[-2],"e":[],"p":[],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[-2],"e":[],"p":[],"b":[]}`,
         ) as SerializedCharacter;
 
         const character: Character = deserialize(data, settings.gameData, classes, []);
@@ -99,7 +99,7 @@ describe("deserialize", () => {
         const settings: Settings = createTestSettings();
 
         const data = JSON.parse(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[1,0],[3,0]],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[1,0],[3,0]],"b":[]}`,
         ) as SerializedCharacter;
 
         const character: Character = deserialize(data, settings.gameData, [characterClass], []);
@@ -112,7 +112,7 @@ describe("deserialize", () => {
 
     it("omits gained perk data that is invalid", () => {
         const data = JSON.parse(
-            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[-1, 0]],"b":[]}`
+            `{"n":"Test Character","x":240,"g":75,"d":"It's a test","c":3,"i":[],"u":[],"h":[],"e":[],"p":[[-1, 0]],"b":[]}`,
         ) as SerializedCharacter;
 
         const character: Character = deserialize(data, settings.gameData, classes, []);

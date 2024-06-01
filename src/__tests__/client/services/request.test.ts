@@ -27,7 +27,7 @@ describe("requestCharacterClass", () => {
         expect(mockAxios.get).toHaveBeenCalledTimes(1);
         expect(mockAxios.get).toHaveBeenCalledWith(
             expect.anything(),
-            expect.objectContaining({ headers: { "content-type": "application/json", accept: "application/json" } })
+            expect.objectContaining({ headers: { "content-type": "application/json", accept: "application/json" } }),
         );
     });
 

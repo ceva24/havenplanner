@@ -7,12 +7,12 @@ import {
     uniqueOrderedCardLevels,
 } from "@/client/services/ability-cards/deck";
 
-interface DeckProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface DeckProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const Deck = ({ character, setCharacter }: DeckProps) => {
+const Deck = ({ character, setCharacter }: DeckProperties) => {
     const cardsByLevel = groupCharacterCardsByLevel(character);
     const orderedLevels = uniqueOrderedCardLevels(cardsByLevel);
 

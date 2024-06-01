@@ -27,7 +27,7 @@ const orderItems = (characterItems: CharacterItem[], itemSlots: ItemSlot[]): Cha
         .sort(
             (a: CharacterItem, b: CharacterItem) =>
                 getItemSlotIdForCharacterItem(a, itemSlots) - getItemSlotIdForCharacterItem(b, itemSlots) ||
-                a.item.id - b.item.id
+                a.item.id - b.item.id,
         );
 };
 
@@ -45,7 +45,7 @@ const getItemSlotImageUrlForSlotName = (slotName: string, itemSlots: ItemSlot[])
 
 const applyItemEffectsTo = (
     attackModifierDeck: AttackModifierDeckCard[],
-    items: CharacterItem[]
+    items: CharacterItem[],
 ): AttackModifierDeckCard[] => {
     const attackModifierDeckWithItemEffects = cloneDeep(attackModifierDeck);
 

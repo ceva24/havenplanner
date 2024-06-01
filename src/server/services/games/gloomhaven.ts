@@ -33,7 +33,7 @@ const createCharacterClassSummaries = (characterClasses: CharacterClass[]): Char
 };
 
 const createUnlockableCharacterClassSummaries = (
-    characterClasses: CharacterClass[]
+    characterClasses: CharacterClass[],
 ): UnlockableCharacterClassSummary[] => {
     return characterClasses
         .filter((characterClass: CharacterClass) => characterClass.initiallyLocked)

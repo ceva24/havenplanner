@@ -29,7 +29,7 @@ const characterHasAbilityCardUnlocksRemaining = (character: Character, character
 const currentOrHigherLevelUnlockExists = (
     abilityCard: AbilityCard,
     character: Character,
-    characterLevel: number
+    characterLevel: number,
 ): boolean => {
     const levelUnlocksUsed: number[] = characterLevelsWhereAbilityCardUnlockHasBeenUsed(character);
 
@@ -37,7 +37,7 @@ const currentOrHigherLevelUnlockExists = (
 
     const levelsFromCurrentCardLevelToCharacterLevel = Array.from<unknown, number>(
         { length: characterLevel - abilityCardLevel + 1 },
-        (array: unknown, value: number) => value + abilityCardLevel
+        (array: unknown, value: number) => value + abilityCardLevel,
     );
 
     return levelsFromCurrentCardLevelToCharacterLevel.some((level: number) => !levelUnlocksUsed.includes(level));

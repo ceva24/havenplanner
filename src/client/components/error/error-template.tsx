@@ -1,10 +1,10 @@
 import { Container, Grid, Typography, Stack } from "@mui/material";
 
-interface ErrorTemplateProps {
-    message: string;
+interface ErrorTemplateProperties {
+    readonly message: string;
 }
 
-const ErrorTemplate = ({ message }: ErrorTemplateProps) => {
+const ErrorTemplate = ({ message }: ErrorTemplateProperties) => {
     return (
         <Container component="main" maxWidth="xl">
             <Grid container height="100%" minHeight="45rem">

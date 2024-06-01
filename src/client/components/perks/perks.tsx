@@ -4,12 +4,12 @@ import PerkList from "@/client/components/perks/perk-list";
 import AttackModifiers from "@/client/components/perks/attack-modifiers";
 import BattleGoalProgress from "@/client/components/perks/battle-goal-progress";
 
-interface PerksProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface PerksProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const Perks = ({ character, setCharacter }: PerksProps) => {
+const Perks = ({ character, setCharacter }: PerksProperties) => {
     return (
         <Grid container spacing={10}>
             <Grid item lg={5} xl={4} sx={{ marginLeft: "auto", marginRight: "auto" }}>

@@ -23,7 +23,7 @@ const handler = (request: NextApiRequest, response: NextApiResponse<ClassSummari
         const filteredClasses: CharacterClass[] = filterCharacterClasses(classes, requestData.spoilerSettings);
 
         const classSummaries = filteredClasses.map((characterClass: CharacterClass) =>
-            toCharacterClassSummary(characterClass)
+            toCharacterClassSummary(characterClass),
         );
 
         response.status(StatusCodes.OK).json({ classes: classSummaries });

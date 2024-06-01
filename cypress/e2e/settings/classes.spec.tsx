@@ -18,7 +18,7 @@ describe("settings dialog - classes", () => {
 
         cy.selectClass("Nightshroud");
 
-        cy.findByRole("button", { name: "Class" }).should("have.text", "Nightshroud");
+        cy.findSelectClassButton().should("have.text", "Nightshroud");
     });
 
     it("removes unlocked classes from the class select when they are locked again", () => {
@@ -48,7 +48,7 @@ describe("settings dialog - classes", () => {
 
         cy.unspoilAll();
 
-        cy.findByRole("button", { name: "Class" }).should("have.text", "Brute");
+        cy.findSelectClassButton().should("have.text", "Brute");
     });
 
     it("does not reset the class when locking and immediately unlocking the selected class again", () => {
@@ -66,7 +66,7 @@ describe("settings dialog - classes", () => {
 
         cy.clickCloseButton();
 
-        cy.findByRole("button", { name: "Class" }).should("have.text", "Nightshroud");
+        cy.findSelectClassButton().should("have.text", "Nightshroud");
     });
 
     it("does reset the class to default when toggling off and immediately toggling on spoil all in the header", () => {
@@ -80,7 +80,7 @@ describe("settings dialog - classes", () => {
 
         cy.spoilAll();
 
-        cy.findByRole("button", { name: "Class" }).should("have.text", "Brute");
+        cy.findSelectClassButton().should("have.text", "Brute");
     });
 
     it("shows the spoiler hint in the class select when no locked classes are spoiled", () => {

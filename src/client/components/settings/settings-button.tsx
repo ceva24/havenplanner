@@ -8,12 +8,12 @@ import { useSettingsContext } from "@/client/hooks/use-settings";
 import { itemShouldBeHidden } from "@/shared/services/items";
 import { isInitialOrUnlockedClass } from "@/shared/services/character-classes";
 
-interface SettingsButtonProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface SettingsButtonProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
+const SettingsButton = ({ character, setCharacter }: SettingsButtonProperties) => {
     const [settingsDialogIsOpen, setSettingsDialogIsOpen] = useState<boolean>(false);
     const [settings] = useSettingsContext();
 
@@ -40,12 +40,12 @@ const SettingsButton = ({ character, setCharacter }: SettingsButtonProps) => {
 const updateCharacterAfterChangingSpoilerSettings = async (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
-    settings: Settings
+    settings: Settings,
 ) => {
     const newCharacter = {
         ...character,
         items: character.items.filter(
-            (characterItem: CharacterItem) => !itemShouldBeHidden(characterItem.item, settings.spoilerSettings)
+            (characterItem: CharacterItem) => !itemShouldBeHidden(characterItem.item, settings.spoilerSettings),
         ),
     };
 
@@ -57,7 +57,7 @@ const updateCharacterAfterChangingSpoilerSettings = async (
             [{ ...settings.gameData.defaultCharacter.characterClass }],
             newCharacter,
             setCharacter,
-            settings
+            settings,
         );
     }
 };

@@ -18,7 +18,7 @@ beforeEach(() => {
 describe("remove item button", () => {
     it("renders", () => {
         render(
-            <RemoveItemButton character={character} setCharacter={setCharacter} characterItem={character.items[0]} />
+            <RemoveItemButton character={character} setCharacter={setCharacter} characterItem={character.items[0]} />,
         );
 
         const deleteButton = screen.queryByRole("button", { name: "Delete Boots of Test" });

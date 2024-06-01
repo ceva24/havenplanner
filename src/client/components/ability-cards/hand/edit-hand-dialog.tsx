@@ -9,14 +9,14 @@ import {
     wouldBeExceedingHandSizeLimit,
 } from "@/client/services/ability-cards/hand";
 
-interface EditHandDialogProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
-    isOpen: boolean;
-    handleClose: () => void;
+interface EditHandDialogProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
+    readonly isOpen: boolean;
+    readonly handleClose: () => void;
 }
 
-const EditHandDialog = ({ character, setCharacter, isOpen, handleClose }: EditHandDialogProps) => {
+const EditHandDialog = ({ character, setCharacter, isOpen, handleClose }: EditHandDialogProperties) => {
     return (
         <FullScreenDialog
             title="Select ability cards"
@@ -55,7 +55,7 @@ const EditHandDialog = ({ character, setCharacter, isOpen, handleClose }: EditHa
 const toggleCardAddedToHand = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
-    abilityCard: AbilityCard
+    abilityCard: AbilityCard,
 ) => {
     if (wouldBeExceedingHandSizeLimit(character, abilityCard)) return;
 

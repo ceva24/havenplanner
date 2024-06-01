@@ -4,7 +4,7 @@ const deserialize = (
     characterData: SerializedCharacter,
     gameData: GameData,
     characterClasses: CharacterClass[],
-    items: Item[]
+    items: Item[],
 ): Character => {
     const characterClass = deserializeCharacterClass(characterData.c, gameData, characterClasses);
     const personalQuest = deserializePersonalQuest(characterData.q, gameData);
@@ -28,7 +28,7 @@ const deserialize = (
 const deserializeCharacterClass = (
     characterClassId: number,
     gameData: GameData,
-    characterClasses: CharacterClass[]
+    characterClasses: CharacterClass[],
 ): CharacterClass => {
     return (
         characterClasses.find((characterClass: CharacterClass) => characterClass.id === characterClassId) ??
@@ -38,7 +38,7 @@ const deserializeCharacterClass = (
 
 const deserializePersonalQuest = (
     personalQuestId: number | undefined,
-    gameData: GameData
+    gameData: GameData,
 ): PersonalQuest | undefined => {
     return gameData.personalQuests.find((personalQuest: PersonalQuest) => personalQuest.id === personalQuestId);
 };
@@ -49,7 +49,7 @@ const deserializeAbilityCards = (abilityCardIds: number[], characterClass: Chara
     });
 
     const validAbilityCards: AbilityCard[] = abilityCards.filter(
-        (abilityCard): abilityCard is AbilityCard => abilityCard !== undefined
+        (abilityCard): abilityCard is AbilityCard => abilityCard !== undefined,
     );
 
     return validAbilityCards;
@@ -58,21 +58,21 @@ const deserializeAbilityCards = (abilityCardIds: number[], characterClass: Chara
 const deserializeGainedEnhancements = (
     gainedEnhancementIndices: Array<[number, number, number]>,
     characterClass: CharacterClass,
-    gameData: GameData
+    gameData: GameData,
 ): GainedEnhancement[] => {
     const gainedEnhancements: GainedEnhancement[] = [];
 
     gainedEnhancementIndices.forEach((cardIdSlotIdEnhcId: [number, number, number]) => {
         const abilityCard = characterClass.abilityCards.find(
-            (abilityCard: AbilityCard) => abilityCard.id === cardIdSlotIdEnhcId[0]
+            (abilityCard: AbilityCard) => abilityCard.id === cardIdSlotIdEnhcId[0],
         );
 
         const enhancementSlot = abilityCard?.enhancementSlots.find(
-            (slot: EnhancementSlot) => slot.id === cardIdSlotIdEnhcId[1]
+            (slot: EnhancementSlot) => slot.id === cardIdSlotIdEnhcId[1],
         );
 
         const enhancement = gameData.enhancements.find(
-            (enhancement: Enhancement) => enhancement.id === cardIdSlotIdEnhcId[2]
+            (enhancement: Enhancement) => enhancement.id === cardIdSlotIdEnhcId[2],
         );
 
         if (abilityCard && enhancementSlot && enhancement) {
@@ -95,7 +95,7 @@ const deserializeGainedPerks = (perkIndices: Array<[number, number]>, characterC
     });
 
     const validGainedPerks: GainedPerk[] = gainedPerks.filter(
-        (gainedPerk): gainedPerk is GainedPerk => gainedPerk?.perk !== undefined
+        (gainedPerk): gainedPerk is GainedPerk => gainedPerk?.perk !== undefined,
     );
 
     return validGainedPerks;
@@ -123,7 +123,7 @@ const deserializeItems = (itemData: Array<[number, boolean]>, items: Item[]): Ch
     });
 
     const validCharacterItems: CharacterItem[] = characterItems.filter(
-        (characterItem): characterItem is CharacterItem => characterItem.item !== undefined
+        (characterItem): characterItem is CharacterItem => characterItem.item !== undefined,
     );
 
     return validCharacterItems;

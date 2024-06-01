@@ -3,15 +3,15 @@ import type { Dispatch, SetStateAction } from "react";
 import UnlockableAbilityCard from "@/client/components/ability-cards/deck/unlockable-ability-card";
 import AbilityCard from "@/client/components/ability-cards/ability-card";
 
-interface AbilityCardGroupProps {
-    level: string;
-    cards: AbilityCard[];
-    isSelectable: boolean;
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface AbilityCardGroupProperties {
+    readonly level: string;
+    readonly cards: AbilityCard[];
+    readonly isSelectable: boolean;
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const AbilityCardGroup = ({ level, cards, isSelectable, character, setCharacter }: AbilityCardGroupProps) => {
+const AbilityCardGroup = ({ level, cards, isSelectable, character, setCharacter }: AbilityCardGroupProperties) => {
     return (
         <Box sx={{ textAlign: "center" }}>
             <Typography color="textPrimary" variant="h2" padding={3} paddingTop={0}>

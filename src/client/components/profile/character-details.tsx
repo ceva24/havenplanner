@@ -4,12 +4,12 @@ import ClassSelect from "@/client/components/profile/class-select";
 import ExperienceField from "@/client/components/profile/experience-field";
 import { calculateLevel, getExperienceForLevel } from "@/client/services/profile";
 
-interface CharacterDetailsProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface CharacterDetailsProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProps) => {
+const CharacterDetails = ({ character, setCharacter }: CharacterDetailsProperties) => {
     const handleChange = (fieldName: string, isNumber: boolean) => (event: ChangeEvent<HTMLInputElement>) => {
         const value = isNumber ? Number.parseInt(event.target.value, 10) || 0 : event.target.value;
 

@@ -2,14 +2,14 @@ import { Box, Dialog, DialogContent, Grid, Stack, TextField, Typography } from "
 import CopyLinkButton from "@/client/components/share/copy-link-button";
 import { Button } from "@/client/components/core/button";
 
-interface ShareDialogProps {
-    shareableLink: string;
-    encodeCharacterError: boolean;
-    isOpen: boolean;
-    handleClose: () => void;
+interface ShareDialogProperties {
+    readonly shareableLink: string;
+    readonly encodeCharacterError: boolean;
+    readonly isOpen: boolean;
+    readonly handleClose: () => void;
 }
 
-const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, handleClose }: ShareDialogProps) => {
+const ShareDialog = ({ shareableLink, encodeCharacterError, isOpen, handleClose }: ShareDialogProperties) => {
     const value = encodeCharacterError ? "Error" : shareableLink;
 
     return (
