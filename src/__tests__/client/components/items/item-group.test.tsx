@@ -11,7 +11,7 @@ describe("item group", () => {
                 handleClose={jest.fn()}
                 character={createTestCharacter()}
                 setCharacter={jest.fn()}
-            />
+            />,
         );
 
         const title = screen.queryByText("Random Item Designs");
@@ -27,7 +27,7 @@ describe("item group", () => {
                 handleClose={jest.fn()}
                 character={createTestCharacter()}
                 setCharacter={jest.fn()}
-            />
+            />,
         );
 
         const title = screen.queryByText("Prosperity 1");
@@ -43,7 +43,7 @@ describe("item group", () => {
                 handleClose={jest.fn()}
                 character={createTestCharacter()}
                 setCharacter={jest.fn()}
-            />
+            />,
         );
 
         const item = screen.queryByRole("img", { name: "Boots of Test" });

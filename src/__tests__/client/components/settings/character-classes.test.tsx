@@ -17,7 +17,7 @@ describe("character classes", () => {
         render(
             <TestSettingsProvider settings={settings}>
                 <CharacterClasses />
-            </TestSettingsProvider>
+            </TestSettingsProvider>,
         );
 
         const classSwitch = screen.queryByRole("checkbox", { name: "Test Spoiler" });

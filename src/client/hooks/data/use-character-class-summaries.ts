@@ -1,5 +1,5 @@
 import axios, { type AxiosError, type AxiosResponse } from "axios";
-import useSWRImmutable from "swr/immutable"; // eslint-disable-line n/file-extension-in-import
+import useSWRImmutable from "swr/immutable";
 
 interface UseCharacterClassSummaries {
     characterClassSummaries?: CharacterClassSummary[];
@@ -15,7 +15,7 @@ const useCharacterClassSummaries = (settings: Settings): UseCharacterClassSummar
         async () => fetch(url, settings),
         {
             keepPreviousData: true,
-        }
+        },
     );
 
     return {

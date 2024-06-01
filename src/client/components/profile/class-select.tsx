@@ -9,12 +9,12 @@ import {
 import { charactersAreCompletelySpoiled } from "@/client/services/spoiler";
 import { requestCharacterClass } from "@/client/services/request";
 
-interface ClassSelectProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface ClassSelectProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const ClassSelect = ({ character, setCharacter }: ClassSelectProps) => {
+const ClassSelect = ({ character, setCharacter }: ClassSelectProperties) => {
     const [settings, setSettings] = useSettingsContext();
     const { characterClassSummaries, isLoading, isError }: UseCharacterClassSummaries =
         useCharacterClassSummaries(settings);
@@ -25,7 +25,7 @@ const ClassSelect = ({ character, setCharacter }: ClassSelectProps) => {
             characterClassSummaries ?? [],
             character,
             setCharacter,
-            settings
+            settings,
         );
         resetAbilityCardsTabConfig(settings, setSettings);
     };
@@ -99,13 +99,13 @@ const findAndSetCharacterClass = async (
     characterClasses: CharacterClassSummary[],
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
-    settings: Settings
+    settings: Settings,
     // eslint-disable-next-line max-params
 ) => {
     const selectedCharacterClassSummary: CharacterClassSummary | undefined = characterClasses.find(
         (characterClass: CharacterClassSummary) => {
             return characterClass.name === characterClassName;
-        }
+        },
     );
 
     const characterClass = selectedCharacterClassSummary

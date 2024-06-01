@@ -3,12 +3,12 @@ import { Checkbox, Box } from "@mui/material";
 import PerkLabel from "@/client/components/perks/perk-label";
 import { characterHasGainedPerk, findCharacterGainedPerk } from "@/client/services/perks/perk";
 
-interface PerkListProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface PerkListProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const PerkList = ({ character, setCharacter }: PerkListProps) => {
+const PerkList = ({ character, setCharacter }: PerkListProperties) => {
     const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>, perk: Perk, checkboxIndex: number) => {
         if (event.target.checked) {
             gainPerk(perk, checkboxIndex, character, setCharacter);
@@ -25,7 +25,7 @@ const PerkList = ({ character, setCharacter }: PerkListProps) => {
                 return (
                     <Box key={perk.name}>
                         {Array.from({ length: perk.count }).map((item: unknown, checkboxIndex: number) => {
-                            const styleProps =
+                            const styleProperties =
                                 checkboxIndex === 0
                                     ? { "aria-labelledby": perkLabelId }
                                     : { "aria-label": `${perk.name} ${checkboxIndex + 1}` };
@@ -35,7 +35,7 @@ const PerkList = ({ character, setCharacter }: PerkListProps) => {
                                     // eslint-disable-next-line react/no-array-index-key
                                     key={checkboxIndex}
                                     checked={characterHasGainedPerk(character, perk, checkboxIndex)}
-                                    inputProps={styleProps}
+                                    inputProps={styleProperties}
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                         handleCheckboxChange(event, perk, checkboxIndex);
                                     }}
@@ -59,7 +59,7 @@ const gainPerk = (
     perk: Perk,
     checkboxIndex: number,
     character: Character,
-    setCharacter: Dispatch<SetStateAction<Character>>
+    setCharacter: Dispatch<SetStateAction<Character>>,
 ) => {
     const gainedPerk: GainedPerk = {
         perk,
@@ -76,14 +76,14 @@ const removePerk = (
     perk: Perk,
     checkboxIndex: number,
     character: Character,
-    setCharacter: Dispatch<SetStateAction<Character>>
+    setCharacter: Dispatch<SetStateAction<Character>>,
 ) => {
     const gainedPerk = findCharacterGainedPerk(character, perk, checkboxIndex);
 
     if (!gainedPerk) return;
 
     const newGainedPerks = character.gainedPerks.filter(
-        (perk: GainedPerk) => perk.perk.id !== gainedPerk.perk.id || perk.checkboxIndex !== gainedPerk.checkboxIndex
+        (perk: GainedPerk) => perk.perk.id !== gainedPerk.perk.id || perk.checkboxIndex !== gainedPerk.checkboxIndex,
     );
 
     setCharacter({

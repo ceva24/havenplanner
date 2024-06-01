@@ -4,13 +4,13 @@ import { updateCharacterAfterChangingSpoilerSettings } from "@/client/components
 import { useSettingsContext } from "@/client/hooks/use-settings";
 import { isCompletelySpoiled } from "@/client/services/spoiler";
 
-interface SpoilAllSwitchProps {
-    shouldApplyImmediately?: boolean;
-    character?: Character;
-    setCharacter?: Dispatch<SetStateAction<Character>>;
+interface SpoilAllSwitchProperties {
+    readonly shouldApplyImmediately?: boolean;
+    readonly character?: Character;
+    readonly setCharacter?: Dispatch<SetStateAction<Character>>;
 }
 
-const SpoilAllSwitch = ({ shouldApplyImmediately, character, setCharacter }: SpoilAllSwitchProps) => {
+const SpoilAllSwitch = ({ shouldApplyImmediately, character, setCharacter }: SpoilAllSwitchProperties) => {
     const [settings, setSettings] = useSettingsContext();
 
     const handleChange = async (event: ChangeEvent<HTMLInputElement>, shouldSpoilAll: boolean) => {
@@ -46,7 +46,7 @@ const unspoilAll = async (
     setSettings: Dispatch<SetStateAction<Settings>>,
     shouldApplyImmediately?: boolean,
     character?: Character,
-    setCharacter?: Dispatch<SetStateAction<Character>>
+    setCharacter?: Dispatch<SetStateAction<Character>>,
     // eslint-disable-next-line max-params
 ) => {
     const spoilerSettings: SpoilerSettings = {

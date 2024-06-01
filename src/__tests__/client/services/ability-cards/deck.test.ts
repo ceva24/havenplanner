@@ -124,7 +124,7 @@ describe("abilityCardCanBeUnlockedForCharacter", () => {
 
         const result = abilityCardCanBeUnlockedForCharacter(
             levelSixCharacter,
-            levelSixCharacter.characterClass.abilityCards[8]
+            levelSixCharacter.characterClass.abilityCards[8],
         );
 
         expect(result).toEqual(false);
@@ -185,7 +185,7 @@ describe("uniqueOrderedCardLevels", () => {
 });
 
 describe("abilityCardLevelIsSelectable", () => {
-    interface LevelIsSelectableProps {
+    interface LevelIsSelectableProperties {
         level: string;
         isSelectable: boolean;
     }
@@ -208,10 +208,10 @@ describe("abilityCardLevelIsSelectable", () => {
         ${""}   | ${false}
     `(
         "checking whether level $level cards are selectable returns $isSelectable",
-        ({ level, isSelectable }: LevelIsSelectableProps) => {
+        ({ level, isSelectable }: LevelIsSelectableProperties) => {
             const result = abilityCardLevelIsSelectable(level);
 
             expect(result).toEqual(isSelectable);
-        }
+        },
     );
 });

@@ -25,7 +25,7 @@ describe("unlockable ability card", () => {
                 abilityCard={character.characterClass.abilityCards[0]}
                 character={character}
                 setCharacter={setCharacter}
-            />
+            />,
         );
 
         const checkbox = screen.queryByRole("checkbox", { name: character.characterClass.abilityCards[0].name });
@@ -42,7 +42,7 @@ describe("unlockable ability card", () => {
                 abilityCard={character.characterClass.abilityCards[0]}
                 character={character}
                 setCharacter={setCharacter}
-            />
+            />,
         );
 
         const checkbox = screen.queryByRole("checkbox", { name: character.characterClass.abilityCards[0].name });
@@ -59,7 +59,7 @@ describe("unlockable ability card", () => {
                 abilityCard={character.characterClass.abilityCards[0]}
                 character={character}
                 setCharacter={setCharacter}
-            />
+            />,
         );
 
         const checkbox = screen.queryByRole("checkbox", { name: "Cannot unlock this ability card" });
@@ -100,7 +100,7 @@ describe("toggleAbilityCard", () => {
         toggleAbilityCard(
             characterWithUnlockedCard,
             setCharacter,
-            characterWithUnlockedCard.characterClass.abilityCards[0]
+            characterWithUnlockedCard.characterClass.abilityCards[0],
         );
 
         const newCharacter: Character = setCharacter.mock.calls[0][0] as Character;
@@ -128,7 +128,7 @@ describe("toggleAbilityCard", () => {
         toggleAbilityCard(
             characterWithUnlockedCard,
             setCharacter,
-            characterWithUnlockedCard.characterClass.abilityCards[0]
+            characterWithUnlockedCard.characterClass.abilityCards[0],
         );
 
         const newCharacter: Character = setCharacter.mock.calls[0][0] as Character;

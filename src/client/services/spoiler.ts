@@ -7,10 +7,10 @@ const hasSpoilers = (character: Character): boolean => {
 
 const characterClassIsUnlocked = (
     unlockableCharacterClassSummary: UnlockableCharacterClassSummary,
-    settings: Settings
+    settings: Settings,
 ) => {
     return settings.spoilerSettings.classes.some(
-        (characterClass: UnlockableCharacterClassSummary) => characterClass.id === unlockableCharacterClassSummary.id
+        (characterClass: UnlockableCharacterClassSummary) => characterClass.id === unlockableCharacterClassSummary.id,
     );
 };
 

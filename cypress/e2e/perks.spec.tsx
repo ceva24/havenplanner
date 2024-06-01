@@ -31,7 +31,7 @@ describe("perks tab", () => {
         cy.shouldHavePerkWithCheckboxCount("Add one {chain} STUN {stun} card", 2);
         cy.shouldHavePerkWithCheckboxCount(
             "Add one {chain} DISARM {disarm} card and one {chain} MUDDLE {muddle} card",
-            1
+            1,
         );
         cy.shouldHavePerkWithCheckboxCount("Add one {chain} ADD TARGET {target} card", 2);
         cy.shouldHavePerkWithCheckboxCount("Add one {+1} Shield {shield} 1, self card", 1);

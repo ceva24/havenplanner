@@ -159,7 +159,7 @@ describe("orderItems", () => {
         expect(result[3]).toEqual(characterItems[0]);
     });
 
-    interface ItemsProps {
+    interface ItemsProperties {
         items: CharacterItem[];
     }
 
@@ -167,7 +167,7 @@ describe("orderItems", () => {
         items
         ${[]}
         ${[{ id: 1, item: createTestItem(0, "Boots of Test", "1") }]}
-    `("orders items of length $items.length without error", ({ items }: ItemsProps) => {
+    `("orders items of length $items.length without error", ({ items }: ItemsProperties) => {
         expect(() => orderItems(items, itemSlots)).not.toThrowError();
     });
 });

@@ -19,7 +19,7 @@ describe("perk-label", () => {
             <>
                 <Checkbox inputProps={{ "aria-labelledby": labelId }} />
                 <PerkLabel perk={perk} labelId={labelId} character={character} setCharacter={setCharacter} />
-            </>
+            </>,
         );
 
         const checkbox = screen.queryByRole("checkbox", { name: perk.name });

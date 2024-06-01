@@ -14,7 +14,7 @@ describe("getCharacterClasses", () => {
 
         const characterClasses: CharacterClass[] = filterCharacterClasses(
             [initialClass, spoilerClass],
-            settings.spoilerSettings
+            settings.spoilerSettings,
         );
 
         expect(characterClasses).toHaveLength(1);

@@ -2,13 +2,13 @@ import type { Dispatch, KeyboardEvent, SetStateAction } from "react";
 import { Box } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/HighlightOffTwoTone";
 
-interface RemoveItemButtonProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
-    characterItem: CharacterItem;
+interface RemoveItemButtonProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
+    readonly characterItem: CharacterItem;
 }
 
-const RemoveItemButton = ({ character, setCharacter, characterItem }: RemoveItemButtonProps) => {
+const RemoveItemButton = ({ character, setCharacter, characterItem }: RemoveItemButtonProperties) => {
     const onClick = () => {
         removeItem(character, setCharacter, characterItem);
     };
@@ -37,7 +37,7 @@ const RemoveItemButton = ({ character, setCharacter, characterItem }: RemoveItem
 const removeItem = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
-    characterItemToRemove: CharacterItem
+    characterItemToRemove: CharacterItem,
 ) => {
     const newCharacter: Character = {
         ...character,

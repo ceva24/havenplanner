@@ -2,13 +2,13 @@ import type { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { TextField } from "@mui/material";
 import { calculateLevel, updateHand, updateUnlockedAbilityCards } from "@/client/services/profile";
 
-interface ExperienceFieldProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
-    handleChange: (field: string, isNumber: boolean) => (event: ChangeEvent<HTMLInputElement>) => void;
+interface ExperienceFieldProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
+    readonly handleChange: (field: string, isNumber: boolean) => (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const ExperienceField = ({ character, setCharacter, handleChange }: ExperienceFieldProps) => {
+const ExperienceField = ({ character, setCharacter, handleChange }: ExperienceFieldProperties) => {
     const handleExperienceLoseBlur = () => {
         const newLevel = calculateLevel(character.experience);
 

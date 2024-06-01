@@ -4,13 +4,13 @@ const enhancedAbilityCardsBaseImageUrl = "https://raw.githubusercontent.com/ceva
 
 const abilityCardHasGainedEnhancements = (abilityCard: AbilityCard, character: Character): boolean => {
     return character.gainedEnhancements.some(
-        (gainedEnhancement: GainedEnhancement) => gainedEnhancement.abilityCard.id === abilityCard.id
+        (gainedEnhancement: GainedEnhancement) => gainedEnhancement.abilityCard.id === abilityCard.id,
     );
 };
 
 const createEnhancedAbilityCardImageUrl = (abilityCard: AbilityCard, character: Character): string => {
     return `${enhancedAbilityCardsBaseImageUrl}${createEnhancedAbilityCardPath(
-        abilityCard
+        abilityCard,
     )}${createEnhancedAbilityCardFilename(abilityCard, character)}`;
 };
 
@@ -29,7 +29,7 @@ const createEnhancedAbilityCardFilename = (abilityCard: AbilityCard, character: 
     abilityCard.enhancementSlots.forEach((enhancementSlot: EnhancementSlot) => {
         const gainedEnhancement: GainedEnhancement | undefined = character.gainedEnhancements.find(
             (enhc: GainedEnhancement) =>
-                enhc.enhancementSlot.id === enhancementSlot.id && enhc.abilityCard.id === abilityCard.id
+                enhc.enhancementSlot.id === enhancementSlot.id && enhc.abilityCard.id === abilityCard.id,
         );
 
         filename = filename.concat("-").concat(createEnhancementName(gainedEnhancement));
@@ -52,7 +52,7 @@ const convertEnhancementNameToKey = (enhancementName: string) => {
 
 const getPossibleEnhancementsFor = (enhancementSlot: EnhancementSlot, enhancements: Enhancement[]): Enhancement[] => {
     return enhancements.filter((enhancement: Enhancement) =>
-        enhancement.validSlotTypes.some((slotType: string) => enhancementSlot.types.includes(slotType))
+        enhancement.validSlotTypes.some((slotType: string) => enhancementSlot.types.includes(slotType)),
     );
 };
 

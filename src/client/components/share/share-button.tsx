@@ -6,11 +6,11 @@ import { Button } from "@/client/components/core/button";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 import { encode } from "@/client/services/share/encoder";
 
-interface ShareButtonProps {
-    character: Character;
+interface ShareButtonProperties {
+    readonly character: Character;
 }
 
-const ShareButton = ({ character }: ShareButtonProps) => {
+const ShareButton = ({ character }: ShareButtonProperties) => {
     const [settings] = useSettingsContext();
 
     const [shareableLink, setShareableLink] = useState<string>("");
@@ -29,7 +29,7 @@ const ShareButton = ({ character }: ShareButtonProps) => {
             settings.gameData,
             shareableLink,
             setShareableLink,
-            setEncodeCharacterError
+            setEncodeCharacterError,
         );
     };
 
@@ -56,7 +56,7 @@ const generateAndSetShareableLink = (
     gameData: GameData,
     shareableLink: string,
     setShareableLink: Dispatch<SetStateAction<string>>,
-    setEncodeCharacterError: Dispatch<SetStateAction<boolean>>
+    setEncodeCharacterError: Dispatch<SetStateAction<boolean>>,
     // eslint-disable-next-line max-params
 ) => {
     if (!shareableLink) {

@@ -8,7 +8,7 @@ describe("tab panel", () => {
             <>
                 <Tab label="Profile" id="profile-tab" aria-controls="profile-tabpanel" />
                 <TabPanel currentTabIndex={0} index={0} id="profile-tabpanel" ariaLabelledBy="profile-tab" />
-            </>
+            </>,
         );
 
         const profileTab = screen.getByRole("tabpanel", { name: "Profile" });
@@ -20,7 +20,7 @@ describe("tab panel", () => {
         render(
             <TabPanel currentTabIndex={0} index={0} id="profile-tabpanel" ariaLabelledBy="profile-tab">
                 <Button>Click me</Button>
-            </TabPanel>
+            </TabPanel>,
         );
 
         const children = screen.getByRole("button", { name: "Click me" });
@@ -32,7 +32,7 @@ describe("tab panel", () => {
         render(
             <TabPanel currentTabIndex={0} index={1} id="profile-tabpanel" ariaLabelledBy="profile-tab">
                 <Button>Click me</Button>
-            </TabPanel>
+            </TabPanel>,
         );
 
         const children = screen.queryByRole("button", { name: "Click me" });

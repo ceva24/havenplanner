@@ -19,7 +19,7 @@ describe("disabled ability card", () => {
                 abilityCard={abilityCard}
                 character={character}
                 tooltipText="Cannot unlock this ability card"
-            />
+            />,
         );
 
         const checkbox = screen.getByRole("checkbox", { name: "Cannot unlock this ability card" });
@@ -34,7 +34,7 @@ describe("disabled ability card", () => {
                 abilityCard={abilityCard}
                 character={character}
                 tooltipText="Cannot unlock this ability card"
-            />
+            />,
         );
 
         const card = screen.queryByRole("img", { name: "Trample" });
@@ -48,7 +48,7 @@ describe("disabled ability card", () => {
                 abilityCard={abilityCard}
                 character={character}
                 tooltipText="Cannot unlock this ability card"
-            />
+            />,
         );
 
         const lockIcon = screen.getByTestId("BlockIcon");

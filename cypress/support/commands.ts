@@ -5,7 +5,7 @@ Cypress.Commands.add("findCharacterDetailsForm", () => {
 });
 
 Cypress.Commands.add("findSelectClassButton", () => {
-    cy.findByRole("button", { name: "Class" });
+    cy.findByRole("combobox", { name: "Class" });
 });
 
 Cypress.Commands.add("findNameField", () => {
@@ -63,7 +63,7 @@ Cypress.Commands.add("findPersonalQuestImage", (name: string) => {
 });
 
 Cypress.Commands.add("findPersonalQuestAutocomplete", () => {
-    cy.findByRole("combobox");
+    cy.findByRole("combobox", { name: "Personal quest" });
 });
 
 Cypress.Commands.add("selectTab", (name: string) => {
@@ -88,7 +88,7 @@ Cypress.Commands.add("findEditHandDialog", () => {
 
 Cypress.Commands.add("findEnhancementsSelect", (cardName: string, name: string, index: number) => {
     cy.findByRole("region", { name: `${cardName} Enhancements` })
-        .findAllByRole("button", { name })
+        .findAllByRole("combobox", { name })
         .eq(index);
 });
 

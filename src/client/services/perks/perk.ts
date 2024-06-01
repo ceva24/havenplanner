@@ -6,13 +6,13 @@ const characterHasGainedPerk = (character: Character, perk: Perk, checkboxIndex:
 
 const findCharacterGainedPerk = (character: Character, perk: Perk, checkboxIndex: number): GainedPerk | undefined => {
     return character.gainedPerks.find(
-        (gainedPerk: GainedPerk) => gainedPerk.perk.id === perk.id && gainedPerk.checkboxIndex === checkboxIndex
+        (gainedPerk: GainedPerk) => gainedPerk.perk.id === perk.id && gainedPerk.checkboxIndex === checkboxIndex,
     );
 };
 
 const applyPerksTo = (
     attackModifierDeck: AttackModifierDeckCard[],
-    gainedPerks: GainedPerk[]
+    gainedPerks: GainedPerk[],
 ): AttackModifierDeckCard[] => {
     const attackModifierDeckWithPerks = cloneDeep(attackModifierDeck);
 
@@ -39,19 +39,19 @@ const applyChangesOfPerkTo = (attackModifierDeck: AttackModifierDeckCard[], perk
 
 const attackModifierDeckMeetsRemovalPrerequisites = (
     remove: AttackModifierCard[],
-    deck: AttackModifierDeckCard[]
+    deck: AttackModifierDeckCard[],
 ): boolean => {
     return remove.every((card: AttackModifierCard) =>
-        deck.some((deckCard: AttackModifierDeckCard) => deckCard.card.id === card.id)
+        deck.some((deckCard: AttackModifierDeckCard) => deckCard.card.id === card.id),
     );
 };
 
 const applyAttackModifierAdditionsTo = (
     attackModifierDeck: AttackModifierDeckCard[],
-    cardToAdd: AttackModifierCard
+    cardToAdd: AttackModifierCard,
 ) => {
     const attackModifierDeckCardToAddTo = attackModifierDeck.find(
-        (attackModifierDeckCard: AttackModifierDeckCard) => attackModifierDeckCard.card.id === cardToAdd.id
+        (attackModifierDeckCard: AttackModifierDeckCard) => attackModifierDeckCard.card.id === cardToAdd.id,
     );
 
     if (attackModifierDeckCardToAddTo) {
@@ -66,10 +66,10 @@ const applyAttackModifierAdditionsTo = (
 
 const applyAttackModifierRemovalsTo = (
     attackModifierDeck: AttackModifierDeckCard[],
-    cardToRemove: AttackModifierCard
+    cardToRemove: AttackModifierCard,
 ) => {
     const attackModifierDeckCardToRemoveFrom = attackModifierDeck.find(
-        (attackModifierDeckCard: AttackModifierDeckCard) => attackModifierDeckCard.card.id === cardToRemove.id
+        (attackModifierDeckCard: AttackModifierDeckCard) => attackModifierDeckCard.card.id === cardToRemove.id,
     );
 
     if (!attackModifierDeckCardToRemoveFrom) return;

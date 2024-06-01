@@ -3,12 +3,12 @@ import { Card } from "@/client/components/core/cards";
 import { Button } from "@/client/components/core/button";
 import AbilityCard from "@/client/components/ability-cards/ability-card";
 
-interface HandProps {
-    character: Character;
-    openEditHandDialog: () => void;
+interface HandProperties {
+    readonly character: Character;
+    readonly openEditHandDialog: () => void;
 }
 
-const Hand = ({ character, openEditHandDialog }: HandProps) => {
+const Hand = ({ character, openEditHandDialog }: HandProperties) => {
     const emptyHand: unknown[] = Array.from({
         length: character.characterClass.handSize - character.hand.length,
     });

@@ -4,11 +4,11 @@ import { useSettingsContext } from "@/client/hooks/use-settings";
 import { Button, TextButton } from "@/client/components/core/button";
 import { CharacterSpoiler, ItemSpoiler } from "@/client/components/load/spoiler";
 
-interface LoadCharacterDialogProps {
-    newSpoilerSettings: SpoilerSettings;
-    characterHasSpoilers: boolean;
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface LoadCharacterDialogProperties {
+    readonly newSpoilerSettings: SpoilerSettings;
+    readonly characterHasSpoilers: boolean;
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
 const LoadCharacterDialog = ({
@@ -16,7 +16,7 @@ const LoadCharacterDialog = ({
     characterHasSpoilers,
     character,
     setCharacter,
-}: LoadCharacterDialogProps) => {
+}: LoadCharacterDialogProperties) => {
     const [loadCharacterDialogOpen, setLoadCharacterDialogOpen] = useState<boolean>(characterHasSpoilers);
     const [settings, setSettings] = useSettingsContext();
 

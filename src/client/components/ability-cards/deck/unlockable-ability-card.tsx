@@ -3,13 +3,13 @@ import DisabledAbilityCard from "@/client/components/ability-cards/disabled-abil
 import ToggleableAbilityCard from "@/client/components/ability-cards/toggleable-ability-card";
 import { abilityCardCanBeToggled, isUnlockedAbilityCardForCharacter } from "@/client/services/ability-cards/deck";
 
-interface UnlockableAbilityCardProps {
-    abilityCard: AbilityCard;
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface UnlockableAbilityCardProperties {
+    readonly abilityCard: AbilityCard;
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const UnlockableAbilityCard = ({ abilityCard, character, setCharacter }: UnlockableAbilityCardProps) => {
+const UnlockableAbilityCard = ({ abilityCard, character, setCharacter }: UnlockableAbilityCardProperties) => {
     if (abilityCardCanBeToggled(abilityCard, character)) {
         return (
             <ToggleableAbilityCard
@@ -36,13 +36,13 @@ const UnlockableAbilityCard = ({ abilityCard, character, setCharacter }: Unlocka
 const toggleAbilityCard = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
-    abilityCard: AbilityCard
+    abilityCard: AbilityCard,
 ) => {
     const updatedCharacter: Character = isUnlockedAbilityCardForCharacter(character, abilityCard)
         ? {
               ...character,
               unlockedAbilityCards: character.unlockedAbilityCards.filter(
-                  (card: AbilityCard) => card.id !== abilityCard.id
+                  (card: AbilityCard) => card.id !== abilityCard.id,
               ),
               hand: character.hand.filter((card: AbilityCard) => card.id !== abilityCard.id),
           }

@@ -3,15 +3,15 @@ import { Box, Typography } from "@mui/material";
 import { SmallCard } from "@/client/components/core/cards";
 import { addItem } from "@/client/components/items/items-autocomplete";
 
-interface ItemGroupProps {
-    title: string;
-    items: Item[];
-    handleClose: () => void;
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface ItemGroupProperties {
+    readonly title: string;
+    readonly items: Item[];
+    readonly handleClose: () => void;
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const ItemGroup = ({ title, items, handleClose, character, setCharacter }: ItemGroupProps) => {
+const ItemGroup = ({ title, items, handleClose, character, setCharacter }: ItemGroupProperties) => {
     const addItemAndClose = (item: Item) => {
         addItem(item, character, setCharacter);
         handleClose();

@@ -18,7 +18,7 @@ character.characterClass.abilityCards = [
                 types: ["test-numeric"],
             },
         ],
-        "/gloomhaven/BR/gh-trample.webp"
+        "/gloomhaven/BR/gh-trample.webp",
     ),
 ];
 
@@ -38,7 +38,7 @@ describe("abilityCardHasGainedEnhancements", () => {
 
         const hasGainedEnhancements = abilityCardHasGainedEnhancements(
             character.characterClass.abilityCards[0],
-            character
+            character,
         );
 
         expect(hasGainedEnhancements).toEqual(true);
@@ -47,7 +47,7 @@ describe("abilityCardHasGainedEnhancements", () => {
     it("returns false when a card has not gained an enhancement", () => {
         const hasGainedEnhancements = abilityCardHasGainedEnhancements(
             character.characterClass.abilityCards[0],
-            character
+            character,
         );
 
         expect(hasGainedEnhancements).toEqual(false);
@@ -55,7 +55,7 @@ describe("abilityCardHasGainedEnhancements", () => {
 });
 
 describe("convertEnhancementNameToKey", () => {
-    interface NameKeyProps {
+    interface NameKeyProperties {
         name: string;
         key: string;
     }
@@ -80,7 +80,7 @@ describe("convertEnhancementNameToKey", () => {
         ${"Dark"}        | ${"dark"}
         ${"Any element"} | ${"any-element"}
         ${"Attack Hex"}  | ${"hex"}
-    `("converts enhancement name $name to key $key", ({ name, key }: NameKeyProps) => {
+    `("converts enhancement name $name to key $key", ({ name, key }: NameKeyProperties) => {
         const result = convertEnhancementNameToKey(name);
 
         expect(result).toEqual(key);

@@ -52,12 +52,12 @@ const CharacterClasses = () => {
 const toggleCharacterClass = (
     unlockableCharacterClassSummary: UnlockableCharacterClassSummary,
     settings: Settings,
-    setSettings: Dispatch<SetStateAction<Settings>>
+    setSettings: Dispatch<SetStateAction<Settings>>,
 ) => {
     const classes = characterClassIsUnlocked(unlockableCharacterClassSummary, settings)
         ? settings.spoilerSettings.classes.filter(
               (characterClass: UnlockableCharacterClassSummary) =>
-                  !(characterClass.id === unlockableCharacterClassSummary.id)
+                  !(characterClass.id === unlockableCharacterClassSummary.id),
           )
         : settings.spoilerSettings.classes.concat(unlockableCharacterClassSummary);
 

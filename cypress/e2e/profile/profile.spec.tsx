@@ -20,7 +20,7 @@ describe("profile tab", () => {
     it("has the first class selected on page load", () => {
         cy.visit("/gloomhaven");
 
-        cy.findByRole("button", { name: "Class" }).should("have.text", "Brute");
+        cy.findByRole("combobox", { name: "Class" }).should("have.text", "Brute");
     });
 
     it("allows a name to be entered", () => {

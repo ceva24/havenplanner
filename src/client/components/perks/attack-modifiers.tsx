@@ -10,11 +10,11 @@ import {
 import { useSettingsContext } from "@/client/hooks/use-settings";
 import { applyItemEffectsTo } from "@/client/services/items";
 
-interface AttackModifiersProps {
-    character: Character;
+interface AttackModifiersProperties {
+    readonly character: Character;
 }
 
-const AttackModifiers = ({ character }: AttackModifiersProps) => {
+const AttackModifiers = ({ character }: AttackModifiersProperties) => {
     const [settings] = useSettingsContext();
 
     const attackModifierDeckWithPerks = applyPerksTo(settings.gameData.baseAttackModifierDeck, character.gainedPerks);
@@ -22,7 +22,7 @@ const AttackModifiers = ({ character }: AttackModifiersProps) => {
 
     const splitAttackModifiers: SplitAttackModifiers = splitAttackModifierDeckIntoBaseAndClass(
         attackModifierDeckWithPerksAndItemEffects,
-        settings.gameData.baseAttackModifierDeck
+        settings.gameData.baseAttackModifierDeck,
     );
 
     return (

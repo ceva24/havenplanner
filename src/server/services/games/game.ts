@@ -18,7 +18,7 @@ const getGameDataById = (id: number): GameData => {
 
 const getCharacterClassesByGameId = (gameId: number): CharacterClass[] => {
     const classData: CharacterClassData | undefined = classDataList.find(
-        (data: CharacterClassData) => data.game.id === gameId
+        (data: CharacterClassData) => data.game.id === gameId,
     );
 
     if (!classData) throw new Error(`Character class data for game with id '${gameId}' not found`);
@@ -30,7 +30,7 @@ const getCharacterClassByIdAndGameId = (characterClassId: number, gameId: number
     const characterClasses: CharacterClass[] = getCharacterClassesByGameId(gameId);
 
     const characterClass: CharacterClass | undefined = characterClasses.find(
-        (characterClass: CharacterClass) => characterClass.id === characterClassId
+        (characterClass: CharacterClass) => characterClass.id === characterClassId,
     );
 
     if (!characterClass)

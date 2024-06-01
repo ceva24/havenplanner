@@ -2,12 +2,12 @@ import { type Dispatch, type SetStateAction } from "react";
 import { Checkbox, Grid } from "@mui/material";
 import BattleGoalCheckmarkGroupLabel from "@/client/components/perks/battle-goal-checkmark-group-label";
 
-interface BattleGoalProgressProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface BattleGoalProgressProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const BattleGoalProgress = ({ character, setCharacter }: BattleGoalProgressProps) => {
+const BattleGoalProgress = ({ character, setCharacter }: BattleGoalProgressProperties) => {
     return (
         <Grid container component="section" aria-label="Battle Goal Progress">
             {character.battleGoalCheckmarkGroups.map((battleGoalCheckmarkGroup: BattleGoalCheckmarkGroup) => {
@@ -29,7 +29,7 @@ const BattleGoalProgress = ({ character, setCharacter }: BattleGoalProgressProps
                         />{" "}
                         :
                         {battleGoalCheckmarkGroup.checkmarks.map((battleGoalCheckmark: BattleGoalCheckmark) => {
-                            const styleProps =
+                            const styleProperties =
                                 battleGoalCheckmark.id === 0
                                     ? { "aria-labelledby": battleGoalCheckmarkGroupLabelId }
                                     : {
@@ -42,14 +42,14 @@ const BattleGoalProgress = ({ character, setCharacter }: BattleGoalProgressProps
                                 <Checkbox
                                     key={battleGoalCheckmark.id}
                                     sx={{ paddingLeft: 0.2, paddingRight: 0.2 }}
-                                    inputProps={styleProps}
+                                    inputProps={styleProperties}
                                     checked={battleGoalCheckmark.value}
                                     onChange={() => {
                                         toggleBattleGoalCheckmark(
                                             battleGoalCheckmarkGroup.id,
                                             battleGoalCheckmark.id,
                                             character,
-                                            setCharacter
+                                            setCharacter,
                                         );
                                     }}
                                 />
@@ -66,7 +66,7 @@ const toggleBattleGoalCheckmark = (
     battleGoalCheckmarkGroupId: number,
     battleGoalCheckmarkId: number,
     character: Character,
-    setCharacter: Dispatch<SetStateAction<Character>>
+    setCharacter: Dispatch<SetStateAction<Character>>,
 ) => {
     const newBattleGoalGroups = character.battleGoalCheckmarkGroups.slice();
 

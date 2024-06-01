@@ -2,12 +2,12 @@ import { Box, Grid, Typography } from "@mui/material";
 import { WideCard } from "@/client/components/core/cards";
 import { orderAttackModifierCards } from "@/client/services/perks/attack-modifier";
 
-interface AttackModifiersGridProps {
-    deck: AttackModifierDeckCard[];
-    orderedCardNames: string[];
+interface AttackModifiersGridProperties {
+    readonly deck: AttackModifierDeckCard[];
+    readonly orderedCardNames: string[];
 }
 
-const AttackModifiersGrid = ({ deck, orderedCardNames }: AttackModifiersGridProps) => {
+const AttackModifiersGrid = ({ deck, orderedCardNames }: AttackModifiersGridProperties) => {
     const orderedAttackModifierDeck = orderAttackModifierCards(deck, orderedCardNames);
 
     return (

@@ -49,10 +49,10 @@ const ItemSlotFilters = () => {
 
 const toggleItemSlotFilter = (slot: ItemSlot, settings: Settings, setSettings: Dispatch<SetStateAction<Settings>>) => {
     const newFilteredItemSlots = settings.userSettings.filteredItemSlots.some(
-        (filteredSlot: ItemSlot) => filteredSlot.id === slot.id
+        (filteredSlot: ItemSlot) => filteredSlot.id === slot.id,
     )
         ? settings.userSettings.filteredItemSlots.filter(
-              (filteredItemSlot: ItemSlot) => filteredItemSlot.id !== slot.id
+              (filteredItemSlot: ItemSlot) => filteredItemSlot.id !== slot.id,
           )
         : settings.userSettings.filteredItemSlots.concat([slot]);
 

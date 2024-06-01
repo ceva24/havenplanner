@@ -99,7 +99,7 @@ const createTestAbilityCard = (
     level: string,
     name?: string,
     enhancementSlots?: EnhancementSlot[],
-    imageUrl?: string
+    imageUrl?: string,
     // eslint-disable-next-line max-params
 ): AbilityCard => {
     return {
@@ -146,7 +146,7 @@ const createTestItem = (
     slot?: string,
     imageUrl?: string,
     alternativeImageUrl?: string,
-    remove?: AttackModifierCard[]
+    remove?: AttackModifierCard[],
     // eslint-disable-next-line max-params
 ): Item => {
     return {

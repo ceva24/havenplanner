@@ -8,14 +8,14 @@ import { useSettingsContext } from "@/client/hooks/use-settings";
 import { useItems, type UseItems } from "@/client/hooks/data/use-items";
 import { itemsAreCompletelySpoiled } from "@/client/services/spoiler";
 
-interface BrowseItemsDialogProps {
-    isOpen: boolean;
-    handleClose: () => void;
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface BrowseItemsDialogProperties {
+    readonly isOpen: boolean;
+    readonly handleClose: () => void;
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: BrowseItemsDialogProps) => {
+const BrowseItemsDialog = ({ isOpen, handleClose, character, setCharacter }: BrowseItemsDialogProperties) => {
     const [settings] = useSettingsContext();
     const { items, isLoading, isError }: UseItems = useItems(settings);
 

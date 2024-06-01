@@ -14,23 +14,23 @@ import { useClearQueryString } from "@/client/hooks/use-clear-query-string";
 import { getDefaultSettings, getSettingsForGame, getSpoilerSettingsForCharacter } from "@/server/services/settings";
 import { decode } from "@/server/services/load/decoder";
 
-interface GloomhavenPageProps {
-    initialSettings: Settings;
-    loadedCharacter?: Character;
-    loadedSpoilerSettings?: SpoilerSettings;
+interface GloomhavenPageProperties {
+    readonly initialSettings: Settings;
+    readonly loadedCharacter?: Character;
+    readonly loadedSpoilerSettings?: SpoilerSettings;
 }
 
-const GloomhavenPage: NextPage<GloomhavenPageProps> = ({
+const GloomhavenPage: NextPage<GloomhavenPageProperties> = ({
     initialSettings,
     loadedCharacter,
     loadedSpoilerSettings,
-}: GloomhavenPageProps) => {
+}: GloomhavenPageProperties) => {
     const characterHasSpoilers: boolean = loadedCharacter ? hasSpoilers(loadedCharacter) : false;
 
     const initialCharacter: Character = determineInitialCharacter(
         loadedCharacter,
         characterHasSpoilers,
-        initialSettings.gameData
+        initialSettings.gameData,
     );
 
     const [character, setCharacter] = useState<Character>(initialCharacter);
@@ -65,12 +65,12 @@ const GloomhavenPage: NextPage<GloomhavenPageProps> = ({
 const determineInitialCharacter = (
     loadedCharacter: Character | undefined,
     characterHasSpoilers: boolean,
-    gameData: GameData
+    gameData: GameData,
 ): Character => {
     return !loadedCharacter || characterHasSpoilers ? gameData.defaultCharacter : loadedCharacter;
 };
 
-const getServerSideProps: GetServerSideProps<GloomhavenPageProps> = async (context: GetServerSidePropsContext) => {
+const getServerSideProps: GetServerSideProps<GloomhavenPageProperties> = async (context: GetServerSidePropsContext) => {
     const encodedCharacterData: string | string[] | undefined = context.query.character;
 
     if (typeof encodedCharacterData === "string") {
@@ -97,4 +97,4 @@ const getServerSideProps: GetServerSideProps<GloomhavenPageProps> = async (conte
 };
 
 export default GloomhavenPage;
-export { getServerSideProps, determineInitialCharacter, type GloomhavenPageProps };
+export { getServerSideProps, determineInitialCharacter, type GloomhavenPageProperties as GloomhavenPageProps };

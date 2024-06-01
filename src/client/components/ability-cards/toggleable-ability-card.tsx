@@ -3,12 +3,12 @@ import { Box } from "@mui/material";
 import LockIcon from "@mui/icons-material/LockTwoTone";
 import AbilityCard from "@/client/components/ability-cards/ability-card";
 
-interface ToggleableAbilityCardProps {
-    abilityCard: AbilityCard;
-    character: Character;
-    isSelected: boolean;
-    action: () => void;
-    showLockIcon: boolean;
+interface ToggleableAbilityCardProperties {
+    readonly abilityCard: AbilityCard;
+    readonly character: Character;
+    readonly isSelected: boolean;
+    readonly action: () => void;
+    readonly showLockIcon: boolean;
 }
 
 const ToggleableAbilityCard = ({
@@ -17,7 +17,7 @@ const ToggleableAbilityCard = ({
     isSelected,
     action,
     showLockIcon,
-}: ToggleableAbilityCardProps) => {
+}: ToggleableAbilityCardProperties) => {
     const onClick = () => {
         action();
     };

@@ -5,12 +5,12 @@ import PersonalQuestAutocomplete from "@/client/components/profile/personal-ques
 
 const defaultPersonalQuestCardImageUrl = "/personal-quests/gloomhaven/gh-pq-back.webp";
 
-interface PersonalQuestProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface PersonalQuestProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const PersonalQuest = ({ character, setCharacter }: PersonalQuestProps) => {
+const PersonalQuest = ({ character, setCharacter }: PersonalQuestProperties) => {
     const personalQuestImageUrl = character.personalQuest?.imageUrl ?? defaultPersonalQuestCardImageUrl;
 
     const personalQuestAltText = character.personalQuest

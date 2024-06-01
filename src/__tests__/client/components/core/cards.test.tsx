@@ -15,7 +15,7 @@ describe("cards", () => {
             <SmallCard
                 src="/wordhaven/images/items/gloomhaven/1-14/gh-001-boots-of-striding.png"
                 altText="Boots of Striding"
-            />
+            />,
         );
 
         const card = screen.queryByRole("img", { name: "Boots of Striding" });

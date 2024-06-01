@@ -25,7 +25,7 @@ character.characterClass.abilityCards = [
                 types: ["test-numeric"],
             },
         ],
-        "/gloomhaven/BR/gh-trample.webp"
+        "/gloomhaven/BR/gh-trample.webp",
     ),
     createTestAbilityCard(2, "2", "Eye for an Eye", [
         {
@@ -41,7 +41,7 @@ beforeEach(() => {
 });
 
 describe("calculateMaximumUnlockCount", () => {
-    interface LevelCountProps {
+    interface LevelCountProperties {
         level: number;
         count: number;
     }
@@ -57,7 +57,7 @@ describe("calculateMaximumUnlockCount", () => {
         ${7}  | ${6}
         ${8}  | ${7}
         ${9}  | ${8}
-    `("returns $count for level $level", ({ level, count }: LevelCountProps) => {
+    `("returns $count for level $level", ({ level, count }: LevelCountProperties) => {
         expect(calculateMaximumUnlockCount(level)).toEqual(count);
     });
 });
@@ -258,7 +258,7 @@ describe("determineAbilityCardImageUrl", () => {
         const abilityCardImageUrl = determineAbilityCardImageUrl(character.characterClass.abilityCards[0], character);
 
         expect(abilityCardImageUrl).toEqual(
-            `${enhancedAbilityCardsBaseImageUrl}/gloomhaven/BR/gh-trample/test-check.webp`
+            `${enhancedAbilityCardsBaseImageUrl}/gloomhaven/BR/gh-trample/test-check.webp`,
         );
     });
 });

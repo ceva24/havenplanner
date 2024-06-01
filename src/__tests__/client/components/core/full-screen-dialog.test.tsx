@@ -7,7 +7,7 @@ describe("full screen dialog", () => {
         render(
             <FullScreenDialog isOpen title="Test dialog" handleClose={jest.fn()}>
                 <Button>Click me</Button>
-            </FullScreenDialog>
+            </FullScreenDialog>,
         );
 
         const dialog = screen.queryByRole("dialog", { name: "Test dialog" });
@@ -19,7 +19,7 @@ describe("full screen dialog", () => {
         render(
             <FullScreenDialog isOpen title="Test dialog" handleClose={jest.fn()}>
                 <Button>Click me</Button>
-            </FullScreenDialog>
+            </FullScreenDialog>,
         );
 
         const button = screen.queryByRole("button", { name: "Click me" });
@@ -31,7 +31,7 @@ describe("full screen dialog", () => {
         render(
             <FullScreenDialog isOpen title="Test dialog" handleClose={jest.fn()}>
                 <Button>Click me</Button>
-            </FullScreenDialog>
+            </FullScreenDialog>,
         );
 
         const closeButton = screen.queryByRole("button", { name: "Close" });

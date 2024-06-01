@@ -8,16 +8,16 @@ import Enhancements from "@/client/components/ability-cards/enhancements/enhance
 import EditHandDialog from "@/client/components/ability-cards/hand/edit-hand-dialog";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 
-interface AbilityCardsTabContainerProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface AbilityCardsTabContainerProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabContainerProps) => {
+const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabContainerProperties) => {
     const [settings, setSettings] = useSettingsContext();
 
     const [editHandDialogOpen, setEditHandDialogOpen] = useState<boolean>(false);
-    const responsiveTabProps = useResponsiveTabsProps();
+    const responsiveTabProperties = useResponsiveTabsProperties();
 
     const handleChange = (event: SyntheticEvent, value: number) => {
         setSettings({ ...settings, userSettings: { ...settings.userSettings, selectedAbilityCardsTabIndex: value } });
@@ -29,7 +29,7 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
                 centered
                 value={settings.userSettings.selectedAbilityCardsTabIndex}
                 onChange={handleChange}
-                {...responsiveTabProps}
+                {...responsiveTabProperties}
             >
                 <Tab
                     disableRipple
@@ -95,7 +95,7 @@ const AbilityCardsTabContainer = ({ character, setCharacter }: AbilityCardsTabCo
     );
 };
 
-const useResponsiveTabsProps = (): Partial<DefaultComponentProps<TabsTypeMap>> => {
+const useResponsiveTabsProperties = (): Partial<DefaultComponentProps<TabsTypeMap>> => {
     const theme = useTheme();
 
     const isSmallScreen = useMediaQuery(theme.breakpoints.down(500));

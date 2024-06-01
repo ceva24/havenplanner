@@ -12,7 +12,7 @@ describe("settings provider", () => {
         render(
             <SettingsProvider settings={settings} setSettings={setSettings}>
                 <h1>Click me</h1>
-            </SettingsProvider>
+            </SettingsProvider>,
         );
 
         const children = screen.getByRole("heading", { name: "Click me" });

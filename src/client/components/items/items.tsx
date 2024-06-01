@@ -7,12 +7,12 @@ import ItemsAutocomplete from "@/client/components/items/items-autocomplete";
 import ItemGrid from "@/client/components/items/item-grid";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 
-interface ItemsProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface ItemsProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const Items = ({ character, setCharacter }: ItemsProps) => {
+const Items = ({ character, setCharacter }: ItemsProperties) => {
     const [settings, setSettings] = useSettingsContext();
     const [itemsDialogOpen, setItemsDialogOpen] = useState<boolean>(false);
 
@@ -63,7 +63,7 @@ const Items = ({ character, setCharacter }: ItemsProps) => {
 const closeBrowseItemsDialog = (
     setItemsDialogOpen: Dispatch<SetStateAction<boolean>>,
     settings: Settings,
-    setSettings: Dispatch<SetStateAction<Settings>>
+    setSettings: Dispatch<SetStateAction<Settings>>,
 ) => {
     setItemsDialogOpen(false);
 

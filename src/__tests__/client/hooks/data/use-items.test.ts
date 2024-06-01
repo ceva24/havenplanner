@@ -1,4 +1,4 @@
-import useSWRImmutable from "swr/immutable"; // eslint-disable-line n/file-extension-in-import
+import useSWRImmutable from "swr/immutable";
 import axios from "axios";
 import { fetch, useItems } from "@/client/hooks/data/use-items";
 import { createTestItem, createTestSettings } from "@/test/create-test-fixtures";
@@ -8,7 +8,7 @@ const settings: Settings = createTestSettings();
 jest.mock("swr/immutable", () =>
     jest.fn().mockImplementation(() => ({
         default: jest.fn().mockReturnValue({ data: [], error: undefined }),
-    }))
+    })),
 );
 
 jest.mock("axios");
@@ -49,7 +49,7 @@ describe("fetch", () => {
         expect(mockAxios.post).toHaveBeenCalledWith(
             expect.anything(),
             expect.anything(),
-            expect.objectContaining({ headers: { "content-type": "application/json", accept: "application/json" } })
+            expect.objectContaining({ headers: { "content-type": "application/json", accept: "application/json" } }),
         );
     });
 
@@ -60,7 +60,7 @@ describe("fetch", () => {
         expect(mockAxios.post).toHaveBeenCalledWith(
             expect.anything(),
             expect.objectContaining({ spoilerSettings: settings.spoilerSettings }),
-            expect.anything()
+            expect.anything(),
         );
     });
 

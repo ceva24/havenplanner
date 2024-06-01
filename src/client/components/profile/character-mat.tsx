@@ -3,22 +3,22 @@ import { useRef } from "react";
 import Flippy, { BackSide, FrontSide } from "@ceva24/react-flippy";
 import Image from "@/client/components/core/image";
 
-interface CharacterMatProps {
-    characterClass: CharacterClass;
+interface CharacterMatProperties {
+    readonly characterClass: CharacterClass;
 }
 
-const CharacterMat = ({ characterClass }: CharacterMatProps) => {
-    const ref = useRef<Flippy>();
+const CharacterMat = ({ characterClass }: CharacterMatProperties) => {
+    const reference = useRef<Flippy>();
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
         if (["Space", "Enter"].includes(event.code)) {
             event.preventDefault();
-            ref.current?.toggle();
+            reference.current?.toggle();
         }
     };
 
     return (
-        <Flippy ref={ref} tabIndex="0" onKeyDown={onKeyDown}>
+        <Flippy ref={reference} tabIndex="0" onKeyDown={onKeyDown}>
             <FrontSide style={{ padding: 0, boxShadow: "none" }}>
                 <Image
                     webpPath={characterClass.characterMatFrontImageUrl}

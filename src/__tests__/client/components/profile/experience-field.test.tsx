@@ -9,7 +9,7 @@ describe("experience field", () => {
                 character={createTestCharacter({ experience: 25 })}
                 setCharacter={jest.fn()}
                 handleChange={jest.fn()}
-            />
+            />,
         );
 
         const experienceField = screen.queryByRole("textbox", { name: "Experience" });

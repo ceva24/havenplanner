@@ -14,12 +14,12 @@ import { useItems, type UseItems } from "@/client/hooks/data/use-items";
 import { getItemSlotImageUrlForSlotName } from "@/client/services/items";
 import { itemsAreCompletelySpoiled } from "@/client/services/spoiler";
 
-interface ItemsAutocompleteProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface ItemsAutocompleteProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) => {
+const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProperties) => {
     const [settings] = useSettingsContext();
     const { items, isLoading, isError }: UseItems = useItems(settings);
 
@@ -39,8 +39,8 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                 getOptionLabel={(item: Item) => {
                     return `${item.name} ${formattedItemId(item.id)}`;
                 }}
-                renderOption={(props: HTMLAttributes<HTMLLIElement>, item: Item) => (
-                    <Box component="li" display="flex" {...props}>
+                renderOption={(properties: HTMLAttributes<HTMLLIElement>, item: Item) => (
+                    <Box component="li" display="flex" {...properties}>
                         <Box sx={{ marginRight: 2, flexShrink: 0 }}>
                             <Image
                                 webpPath={getItemSlotImageUrlForSlotName(item.slot, settings.gameData.itemSlots)}
@@ -58,7 +58,9 @@ const ItemsAutocomplete = ({ character, setCharacter }: ItemsAutocompleteProps) 
                         </Typography>
                     </Box>
                 )}
-                renderInput={(props: AutocompleteRenderInputParams) => <TextField {...props} label="Add item" />}
+                renderInput={(properties: AutocompleteRenderInputParams) => (
+                    <TextField {...properties} label="Add item" />
+                )}
                 onChange={handleChange}
             />
         </FormControl>

@@ -4,13 +4,13 @@ import { SmallCard } from "@/client/components/core/cards";
 import RemoveItemButton from "@/client/components/items/remove-item-button";
 import { getItemImageUrl } from "@/client/services/items";
 
-interface ItemProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
-    characterItem: CharacterItem;
+interface ItemProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
+    readonly characterItem: CharacterItem;
 }
 
-const Item = ({ character, setCharacter, characterItem }: ItemProps) => {
+const Item = ({ character, setCharacter, characterItem }: ItemProperties) => {
     const onClick = () => {
         toggleAlternativeImageUrl(character, setCharacter, characterItem);
     };
@@ -44,7 +44,7 @@ const Item = ({ character, setCharacter, characterItem }: ItemProps) => {
 const toggleAlternativeImageUrl = (
     character: Character,
     setCharacter: Dispatch<SetStateAction<Character>>,
-    characterItemToToggle: CharacterItem
+    characterItemToToggle: CharacterItem,
 ) => {
     const itemIndex: number = character.items.findIndex((item: CharacterItem) => item.id === characterItemToToggle.id);
 

@@ -36,7 +36,7 @@ describe("items autocomplete", () => {
 });
 
 describe("formattedItemId", () => {
-    interface FormatIdProps {
+    interface FormatIdProperties {
         id: number;
         formattedId: string;
     }
@@ -46,7 +46,7 @@ describe("formattedItemId", () => {
         ${1}   | ${"001"}
         ${19}  | ${"019"}
         ${200} | ${"200"}
-    `("formats id $id to $formattedId", ({ id, formattedId }: FormatIdProps) => {
+    `("formats id $id to $formattedId", ({ id, formattedId }: FormatIdProperties) => {
         const result = formattedItemId(id);
         expect(result).toEqual(formattedId);
     });

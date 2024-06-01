@@ -6,12 +6,12 @@ import AbilityCards from "@/client/components/ability-cards/ability-cards";
 import Items from "@/client/components/items/items";
 import Perks from "@/client/components/perks/perks";
 
-interface AppContainerProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface AppContainerProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const AppContainer = ({ character, setCharacter }: AppContainerProps) => {
+const AppContainer = ({ character, setCharacter }: AppContainerProperties) => {
     const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
 
     const handleChange = (event: SyntheticEvent, value: number) => {

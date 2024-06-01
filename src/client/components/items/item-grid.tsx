@@ -4,12 +4,12 @@ import Item from "@/client/components/items/item";
 import { orderItems } from "@/client/services/items";
 import { useSettingsContext } from "@/client/hooks/use-settings";
 
-interface ItemGridProps {
-    character: Character;
-    setCharacter: Dispatch<SetStateAction<Character>>;
+interface ItemGridProperties {
+    readonly character: Character;
+    readonly setCharacter: Dispatch<SetStateAction<Character>>;
 }
 
-const ItemGrid = ({ character, setCharacter }: ItemGridProps) => {
+const ItemGrid = ({ character, setCharacter }: ItemGridProperties) => {
     const [settings] = useSettingsContext();
 
     return (
