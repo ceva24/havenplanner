@@ -4,7 +4,7 @@
             "url": [
                 "http://localhost:3000/gloomhaven?character=uDritRrisSJErite2GrisdtcjRrgsetifjkWRTVri2VuA2VsKMI2ItX2IsQ2GtUxjDxeFuBxbDtT2NsL2Gth2GsNLxhDtZ2ItLLsRE233FtVNsEtLsNxKJsOxKJsJ2vxLJsKxLKxKH2LritlyHDsP2lsPM2D3wsPPxSDtYxSDsO2isO2VsO3VsP2JxeHsPxhDxeD4ny3DxZD2YxOD2J2W3ZsJxJE2QxCDxJG2w2JxqDtgxqE4ssIyzFxGGxhE2wxMEx2G3BxME372GxwDtSxwEtkilVsExFJxdDxRi0UF0aG0qJxUmtNuF"
             ],
-            "startServerCommand": "npm run build && npm start"
+            "startServerCommand": "npm start"
         },
         "assert": {
             "assertions": {
